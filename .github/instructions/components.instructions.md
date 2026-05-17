@@ -15,4 +15,5 @@ applyTo: "src/lib/components/**/*.svelte"
 - Prefer `$derived` over `$effect` for computed state.
 - Prefer snippets and render tags over legacy slot patterns in new components.
 - Avoid legacy Svelte APIs when a runes-mode equivalent exists.
+- In SCSS blocks, prefer maximal nesting that reflects the rendered component HTML. Keep BEM class names if useful, but avoid flat `&__element` blocks when nested selectors can mirror the DOM directly. Use explicit same-element modifier selectors like `&.component--modifier`.
 - Extract shared abstractions only after a second real reuse or when the boundary is clearly stable.

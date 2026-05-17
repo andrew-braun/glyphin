@@ -22,6 +22,7 @@
 
 - In `src/**`, follow the surrounding style of the touched file and avoid unrelated reformatting.
 - Keep modules top-down and readable: imports, types, props or state, derived values, handlers, markup, styles.
+- In SCSS, nest selectors to match the actual rendered HTML structure as deeply as practical. Keep BEM class names if they help readability, but avoid flat `&__element` blocks when the DOM hierarchy can be expressed directly. Use explicit same-element selectors like `&.block--modifier` for modifiers.
 - Comments should explain intent, constraints, or non-obvious tradeoffs, not restate syntax.
 
 ## Interaction Standards

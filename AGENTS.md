@@ -93,6 +93,7 @@
 - Use semantic HTML first. Reach for ARIA only when native semantics do not cover the interaction.
 - Prefer Bits UI for reusable interactive primitives and composite controls wherever possible so focus, keyboard, and open-state behavior stay consistent across the site.
 - Treat Bits UI as the accessibility foundation for the design system. When an interactive pattern is expected to repeat, prefer an app-owned wrapper in `src/lib/components/ui` over scattering raw Bits UI usage across feature components.
+- In SCSS, use maximal nesting that mirrors the rendered HTML structure. Keep BEM-style class names when helpful, but do not organize styles as flat `&__element` blocks when the DOM can be expressed directly through nested selectors. For same-element modifier states, prefer explicit selectors such as `&.component--modifier`.
 - Interactive behavior must use real interactive elements such as `button`, `a`, form controls, or accessible headless primitives.
 - All images need meaningful `alt` text unless they are purely decorative.
 - Reuse design tokens from `$lib/styles` instead of hardcoding new colors, spacing, or radii in components.
