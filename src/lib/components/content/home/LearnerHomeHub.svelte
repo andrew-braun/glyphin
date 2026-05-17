@@ -33,60 +33,66 @@
 </script>
 
 <section class="learner-home card">
-	<Reveal class="learner-home__copy" delay={40}>
-		<Badge tone={authenticated ? "success" : "primary"}>
-			{authenticated ? "Welcome back" : "Saved on this device"}
-		</Badge>
-		<Heading as="h1" class="learner-home__title">Pick up exactly where you left off.</Heading>
-		<p class="learner-home__lead">
-			{completionCopy}
-			{#if authenticated}
-				Your account can keep this progress in sync across devices.
-			{:else}
-				You can keep going without signing in, then attach this progress to an account
-				later.
-			{/if}
-		</p>
-
-		<ActionGroup stackAt="sm">
-			<Button href={`/learn/${currentLessonId}`} variant="primary" size="large">
-				Continue lesson {currentLessonId}
-			</Button>
-			{#if hasPractice}
-				<Button href="/practice" variant="secondary" size="large"
-					>Practice known words</Button
-				>
-			{/if}
-		</ActionGroup>
-
-		<div class="learner-home__stats">
-			<div>
-				<span class="learner-home__stat-value">{knownLetterCount}</span>
-				<span class="learner-home__stat-label">letters unlocked</span>
+	<Reveal delay={40}>
+		<div class="learner-home__copy">
+			<Badge tone={authenticated ? "success" : "primary"}>
+				{authenticated ? "Welcome back" : "Saved on this device"}
+			</Badge>
+			<div class="learner-home__heading">
+				<Heading as="h1">Pick up exactly where you left off.</Heading>
 			</div>
-			<div>
-				<span class="learner-home__stat-value">{knownWordCount}</span>
-				<span class="learner-home__stat-label">words recognized</span>
-			</div>
-			<div>
-				<span class="learner-home__stat-value">Thai</span>
-				<span class="learner-home__stat-label">current language</span>
+			<p class="learner-home__lead">
+				{completionCopy}
+				{#if authenticated}
+					Your account can keep this progress in sync across devices.
+				{:else}
+					You can keep going without signing in, then attach this progress to an account
+					later.
+				{/if}
+			</p>
+
+			<ActionGroup stackAt="sm">
+				<Button href={`/learn/${currentLessonId}`} variant="primary" size="large">
+					Continue lesson {currentLessonId}
+				</Button>
+				{#if hasPractice}
+					<Button href="/practice" variant="secondary" size="large"
+						>Practice known words</Button
+					>
+				{/if}
+			</ActionGroup>
+
+			<div class="learner-home__stats">
+				<div>
+					<span class="learner-home__stat-value">{knownLetterCount}</span>
+					<span class="learner-home__stat-label">letters unlocked</span>
+				</div>
+				<div>
+					<span class="learner-home__stat-value">{knownWordCount}</span>
+					<span class="learner-home__stat-label">words recognized</span>
+				</div>
+				<div>
+					<span class="learner-home__stat-value">Thai</span>
+					<span class="learner-home__stat-label">current language</span>
+				</div>
 			</div>
 		</div>
 	</Reveal>
 
-	<Reveal class="learner-home__panel" delay={180} distance={22}>
-		<div class="learner-home__orbit">
-			<GlyphOrbit />
-		</div>
-		<div class="learner-home__aside card card--flat">
-			<Badge tone="accent">Next step</Badge>
-			<h2>Lesson {currentLessonId}</h2>
-			<p>
-				Jump straight back into the next reading loop, or browse the lesson map if you want
-				a different checkpoint.
-			</p>
-			<Button href="/learn" variant="ghost">Browse lesson map</Button>
+	<Reveal delay={180} distance={22}>
+		<div class="learner-home__panel">
+			<div class="learner-home__orbit">
+				<GlyphOrbit />
+			</div>
+			<div class="learner-home__aside card card--flat">
+				<Badge tone="accent">Next step</Badge>
+				<h2>Lesson {currentLessonId}</h2>
+				<p>
+					Jump straight back into the next reading loop, or browse the lesson map if you
+					want a different checkpoint.
+				</p>
+				<Button href="/learn" variant="ghost">Browse lesson map</Button>
+			</div>
 		</div>
 	</Reveal>
 </section>
@@ -100,16 +106,16 @@
 		grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
 		padding: clamp($space-xl, 4vw, $space-3xl);
 
-		:global(.learner-home__copy) {
+		&__copy {
 			display: flex;
 			flex-direction: column;
 			gap: $space-lg;
 		}
 
-		:global(.learner-home__title) {
-			font-size: clamp(2.25rem, 4.5vw, 4rem);
-			line-height: 1.02;
-			margin-bottom: 0;
+		&__heading {
+			--heading-font-size: clamp(2.25rem, 4.5vw, 4rem);
+			--heading-line-height: 1.02;
+			--heading-margin-bottom: 0;
 		}
 
 		&__lead {
@@ -148,7 +154,7 @@
 			text-transform: uppercase;
 		}
 
-		:global(.learner-home__panel) {
+		&__panel {
 			display: flex;
 			flex-direction: column;
 			gap: $space-lg;
@@ -179,8 +185,10 @@
 	}
 
 	@media (max-width: $bp-sm) {
-		.learner-home__stats {
-			grid-template-columns: 1fr;
+		.learner-home {
+			&__stats {
+				grid-template-columns: 1fr;
+			}
 		}
 	}
 </style>

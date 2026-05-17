@@ -12,6 +12,7 @@
 	import ActionGroup from "$lib/components/layout/ActionGroup.svelte";
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
+	import Eyebrow from "$lib/components/ui/Eyebrow.svelte";
 	import MetricDisplay from "$lib/components/ui/MetricDisplay.svelte";
 	import type { Lesson } from "$lib/data/types";
 
@@ -35,7 +36,7 @@
 <StepLayout>
 	<div class="complete surface-panel surface-panel--success card">
 		<GlyphRibbon tokens={["ไ", "ท", "ย"]} tone="success" class="complete__flare" />
-		<p class="complete__eyebrow">Lesson checkpoint saved</p>
+		<Eyebrow tone="success">Lesson checkpoint saved</Eyebrow>
 		<h1>Lesson complete.</h1>
 
 		<!-- The word the learner just mastered -->
@@ -105,14 +106,6 @@
 		flex-direction: column;
 		gap: $space-xl;
 		text-align: center;
-
-		&__eyebrow {
-			color: var(--color-success);
-			font-size: $font-size-xs;
-			font-weight: 700;
-			letter-spacing: 0.12em;
-			text-transform: uppercase;
-		}
 
 		&__word {
 			color: var(--color-text-muted);

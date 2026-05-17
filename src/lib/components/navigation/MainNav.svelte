@@ -1,51 +1,51 @@
 <script lang="ts">
-	import { Dialog } from "bits-ui";
-
 	import { page } from "$app/state";
+	import HamburgerMenu from "$lib/components/navigation/HamburgerMenu.svelte";
 	import ThemeToggle from "$lib/components/ui/ThemeToggle.svelte";
 	import { authSession } from "$lib/stores/learner";
 	import { knownLetters, knownWords } from "$lib/stores/progress";
 	import { theme } from "$lib/stores/theme.svelte";
-
-	let mobileMenuOpen = $state(false);
-
-	const closeDrawer = () => {
-		mobileMenuOpen = false;
-	};
 </script>
 
-{#snippet navLinks()}
+{#snippet navLinks(close?: (event?: Event) => void)}
 	<a
 		href="/learn"
 		class={["nav__link", { active: page.url.pathname.startsWith("/learn") }]}
-		onclick={closeDrawer}
+		onclick={close}
 	>
 		Learn
 	</a>
 	<a
 		href="/alphabet"
 		class={["nav__link", { active: page.url.pathname === "/alphabet" }]}
-		onclick={closeDrawer}
+		onclick={close}
 	>
 		Letters <span class="nav__count">{$knownLetters.length}</span>
 	</a>
 	<a
 		href="/words"
 		class={["nav__link", { active: page.url.pathname === "/words" }]}
-		onclick={closeDrawer}
+		onclick={close}
 	>
 		Words <span class="nav__count">{$knownWords.length}</span>
 	</a>
 	<a
 		href="/practice"
 		class={["nav__link", { active: page.url.pathname === "/practice" }]}
-		onclick={closeDrawer}
+		onclick={close}
 	>
 		Practice
 	</a>
+	<a
+		href="/about"
+		class={["nav__link", { active: page.url.pathname === "/about" }]}
+		onclick={close}
+	>
+		About
+	</a>
 	{#if $authSession.authenticated}
 		<form method="POST" action="/auth/sign-out" class="nav__form">
-			<button class="nav__link nav__link--button" type="submit" onclick={closeDrawer}>
+			<button class="nav__link nav__link--button" type="submit" onclick={close}>
 				Sign out
 			</button>
 		</form>
@@ -53,11 +53,15 @@
 		<a
 			href="/auth"
 			class={["nav__link", { active: page.url.pathname === "/auth" }]}
-			onclick={closeDrawer}
+			onclick={close}
 		>
 			Sign in
 		</a>
 	{/if}
+{/snippet}
+
+{#snippet mobileFooter()}
+	<ThemeToggle mode={theme.mode} ontoggle={() => theme.toggle()} />
 {/snippet}
 
 <nav class="nav">
@@ -79,81 +83,7 @@
 			<ThemeToggle mode={theme.mode} ontoggle={() => theme.toggle()} />
 		</div>
 
-		<Dialog.Root bind:open={mobileMenuOpen}>
-			<Dialog.Trigger class="nav__hamburger" aria-label="Open navigation menu">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-					<line
-						x1="4"
-						y1="6"
-						x2="20"
-						y2="6"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-					/>
-					<line
-						x1="4"
-						y1="12"
-						x2="20"
-						y2="12"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-					/>
-					<line
-						x1="4"
-						y1="18"
-						x2="20"
-						y2="18"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-					/>
-				</svg>
-			</Dialog.Trigger>
-			<Dialog.Portal>
-				<Dialog.Overlay class="nav__drawer-overlay" />
-				<Dialog.Content class="nav__drawer">
-					<Dialog.Title class="visually-hidden">Navigation Menu</Dialog.Title>
-					<div class="nav__drawer-header">
-						<Dialog.Close class="nav__drawer-close" aria-label="Close navigation menu">
-							<svg
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								aria-hidden="true"
-							>
-								<line
-									x1="6"
-									y1="6"
-									x2="18"
-									y2="18"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-								/>
-								<line
-									x1="18"
-									y1="6"
-									x2="6"
-									y2="18"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-								/>
-							</svg>
-						</Dialog.Close>
-					</div>
-					<div class="nav__drawer-links">
-						{@render navLinks()}
-					</div>
-					<div class="nav__drawer-footer">
-						<ThemeToggle mode={theme.mode} ontoggle={() => theme.toggle()} />
-					</div>
-				</Dialog.Content>
-			</Dialog.Portal>
-		</Dialog.Root>
+		<HamburgerMenu links={navLinks} footer={mobileFooter} />
 	</div>
 </nav>
 
@@ -242,15 +172,16 @@
 			appearance: none;
 			background: transparent;
 			border: 0;
-			border-radius: $radius-full;
+			border-radius: var(--nav-link-radius, #{$radius-full});
 			color: var(--color-text-muted);
 			cursor: pointer;
 			display: flex;
 			font: inherit;
-			font-size: $font-size-sm;
+			font-size: var(--nav-link-font-size, #{$font-size-sm});
 			font-weight: 600;
 			gap: $space-xs;
-			padding: 0.65rem 0.9rem;
+			min-height: var(--nav-link-min-height, auto);
+			padding: var(--nav-link-padding, 0.65rem 0.9rem);
 			text-decoration: none;
 			transition:
 				background-color $transition-fast,
@@ -268,8 +199,12 @@
 			}
 		}
 
+		&__link--button {
+			width: var(--nav-link-button-width, auto);
+		}
+
 		&__form {
-			display: contents;
+			display: var(--nav-form-display, contents);
 		}
 
 		&__count {
@@ -284,112 +219,5 @@
 			min-width: 20px;
 			padding: 0 5px;
 		}
-	}
-
-	:global(.nav__hamburger) {
-		align-items: center;
-		appearance: none;
-		background: transparent;
-		border: 1px solid var(--color-border);
-		border-radius: $radius-full;
-		color: var(--color-text-muted);
-		cursor: pointer;
-		display: none;
-		height: 44px;
-		justify-content: center;
-		padding: 0;
-		width: 44px;
-
-		&:hover {
-			background: rgb(var(--rgb-primary) / 0.12);
-			color: var(--color-primary);
-		}
-
-		&:focus-visible {
-			outline: 2px solid var(--color-primary);
-			outline-offset: 2px;
-		}
-
-		@media (max-width: $bp-sm) {
-			display: flex;
-		}
-	}
-
-	:global(.nav__drawer-overlay) {
-		background: rgb(0 0 0 / 0.6);
-		inset: 0;
-		position: fixed;
-	}
-
-	:global(.nav__drawer) {
-		background: var(--color-surface-nav);
-		border-left: 1px solid var(--color-border);
-		display: flex;
-		flex-direction: column;
-		gap: $space-lg;
-		height: 100vh;
-		overflow-y: auto;
-		padding: $space-lg;
-		position: fixed;
-		right: 0;
-		top: 0;
-		width: min(280px, 80vw);
-	}
-
-	:global(.nav__drawer-header) {
-		display: flex;
-		justify-content: flex-end;
-	}
-
-	:global(.nav__drawer-close) {
-		align-items: center;
-		appearance: none;
-		background: transparent;
-		border: 1px solid var(--color-border);
-		border-radius: $radius-full;
-		color: var(--color-text-muted);
-		cursor: pointer;
-		display: flex;
-		height: 44px;
-		justify-content: center;
-		padding: 0;
-		width: 44px;
-
-		&:hover {
-			background: rgb(var(--rgb-primary) / 0.12);
-			color: var(--color-primary);
-		}
-
-		&:focus-visible {
-			outline: 2px solid var(--color-primary);
-			outline-offset: 2px;
-		}
-	}
-
-	:global(.nav__drawer-links) {
-		display: flex;
-		flex: 1;
-		flex-direction: column;
-		gap: $space-xs;
-
-		:global(.nav__link) {
-			border-radius: $radius-md;
-			font-size: $font-size-base;
-			min-height: 44px;
-			padding: 0.75rem 1rem;
-		}
-
-		:global(.nav__form) {
-			display: block;
-
-			:global(.nav__link--button) {
-				width: 100%;
-			}
-		}
-	}
-
-	:global(.nav__drawer-footer) {
-		border-top: 1px solid var(--color-border);
-		padding-top: $space-md;
 	}
 </style>

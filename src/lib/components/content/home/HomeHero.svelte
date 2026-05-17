@@ -107,51 +107,55 @@
 
 <section class="home-hero">
 	<div class="home-hero__container card">
-		<Reveal class="home-hero__copy" delay={40}>
-			<span class="badge badge--accent">Learn a language by reading it</span>
-			<Heading as="h1" class="home-hero__title"
-				>Pick a language. Start in under a minute.</Heading
-			>
-			<p class="home-hero__lead">
-				GlyphBridge teaches script and vocabulary together, so your first lesson already
-				feels like reading the real thing.
-			</p>
+		<Reveal delay={40}>
+			<div class="home-hero__copy">
+				<span class="badge badge--accent">Learn a language by reading it</span>
+				<div class="home-hero__heading">
+					<Heading as="h1">Pick a language. Start in under a minute.</Heading>
+				</div>
+				<p class="home-hero__lead">
+					GlyphBridge teaches script and vocabulary together, so your first lesson already
+					feels like reading the real thing.
+				</p>
 
-			<div class="home-hero__actions">
-				{#if authenticated}
-					<Button href={`/learn/${currentLessonId}`} variant="primary" size="large"
-						>Continue</Button
-					>
-				{:else}
-					<Button href="/auth" variant="primary" size="large">Sign Up</Button>
-				{/if}
+				<div class="home-hero__actions">
+					{#if authenticated}
+						<Button href={`/learn/${currentLessonId}`} variant="primary" size="large"
+							>Continue</Button
+						>
+					{:else}
+						<Button href="/auth" variant="primary" size="large">Sign Up</Button>
+					{/if}
+				</div>
 			</div>
 		</Reveal>
 
-		<Reveal class="home-hero__art" delay={180} distance={24}>
-			<div class="home-hero__language-list">
-				{#each languages as language}
-					<div
-						class={[
-							"language-card",
-							{ "language-card--inactive": !language.available },
-						]}
-					>
-						<div class="language-card__info">
-							<span class="language-card__name">{language.name}</span>
-							<span class="language-card__sample">{language.sample}</span>
+		<Reveal delay={180} distance={24}>
+			<div class="home-hero__art">
+				<div class="home-hero__language-list">
+					{#each languages as language}
+						<div
+							class={[
+								"language-card",
+								{ "language-card--inactive": !language.available },
+							]}
+						>
+							<div class="language-card__info">
+								<span class="language-card__name">{language.name}</span>
+								<span class="language-card__sample">{language.sample}</span>
+							</div>
+							<div class="language-card__action">
+								{#if language.available}
+									<Button href={language.href} variant="primary" size="sm"
+										>Learn Thai</Button
+									>
+								{:else}
+									<span class="badge badge--muted">{language.status}</span>
+								{/if}
+							</div>
 						</div>
-						<div class="language-card__action">
-							{#if language.available}
-								<Button href={language.href} variant="primary" size="sm"
-									>Learn Thai</Button
-								>
-							{:else}
-								<span class="badge badge--muted">{language.status}</span>
-							{/if}
-						</div>
-					</div>
-				{/each}
+					{/each}
+				</div>
 			</div>
 		</Reveal>
 	</div>
@@ -172,16 +176,16 @@
 			padding: clamp($space-xl, 5vw, $space-3xl);
 		}
 
-		:global(.home-hero__copy) {
+		&__copy {
 			display: flex;
 			flex-direction: column;
 			gap: $space-lg;
 		}
 
-		:global(.home-hero__title) {
-			font-size: clamp(2.2rem, 4.5vw, 4.75rem);
-			line-height: 0.98;
-			margin-bottom: 0;
+		&__heading {
+			--heading-font-size: clamp(2.2rem, 4.5vw, 4.75rem);
+			--heading-line-height: 0.98;
+			--heading-margin-bottom: 0;
 		}
 
 		&__lead {
@@ -196,7 +200,7 @@
 			gap: $space-md;
 		}
 
-		:global(.home-hero__art) {
+		&__art {
 			display: flex;
 			justify-content: center;
 		}
@@ -282,18 +286,22 @@
 	}
 
 	@media (max-width: $bp-lg) {
-		.home-hero__container {
-			grid-template-columns: 1fr;
-		}
+		.home-hero {
+			&__container {
+				grid-template-columns: 1fr;
+			}
 
-		:global(.home-hero__art) {
-			order: -1;
+			&__art {
+				order: -1;
+			}
 		}
 	}
 
 	@media (max-width: $bp-sm) {
-		.home-hero__actions {
-			flex-direction: column;
+		.home-hero {
+			&__actions {
+				flex-direction: column;
+			}
 		}
 	}
 </style>

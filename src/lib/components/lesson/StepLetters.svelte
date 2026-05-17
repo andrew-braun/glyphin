@@ -69,10 +69,12 @@
 		</div>
 
 		<!-- Mnemonic memory trick -->
-		<NoticeBox class="letter-intro__mnemonic">
-			<strong>Remember:</strong>
-			{currentLetter.mnemonic}
-		</NoticeBox>
+		<div class="letter-intro__mnemonic">
+			<NoticeBox>
+				<strong>Remember:</strong>
+				{currentLetter.mnemonic}
+			</NoticeBox>
+		</div>
 	</div>
 
 	<Button variant="primary" size="large" fullWidth={true} onclick={next}>
@@ -116,7 +118,7 @@
 		}
 
 		// Mnemonic box at the bottom
-		:global(.letter-intro__mnemonic) {
+		&__mnemonic {
 			text-align: left;
 			width: 100%;
 		}

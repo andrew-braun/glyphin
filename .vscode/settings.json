@@ -49,6 +49,7 @@
 		"/^cd /home/andri/code/projects/glyphbridge && pnpm check$/": {
 			"approve": true,
 			"matchCommandLine": true
-		}
+		},
+		"pnpm": true
 	}
 }

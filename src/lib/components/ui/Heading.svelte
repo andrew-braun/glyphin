@@ -22,7 +22,9 @@
 
 <style lang="scss">
 	.heading {
-		margin-bottom: var(--section-heading-gap);
+		font-size: var(--heading-font-size, inherit);
+		line-height: var(--heading-line-height, inherit);
+		margin-bottom: var(--heading-margin-bottom, var(--section-heading-gap));
 
 		&--center {
 			text-align: center;

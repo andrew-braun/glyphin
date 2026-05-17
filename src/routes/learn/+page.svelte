@@ -3,7 +3,6 @@
 
 	import PageShell from "$lib/components/layout/PageShell.svelte";
 	import Badge from "$lib/components/ui/Badge.svelte";
-	import CardLink from "$lib/components/ui/CardLink.svelte";
 	import { currentLessonId } from "$lib/stores/progress";
 	import { cn } from "$lib/utils/cn";
 
@@ -74,10 +73,15 @@
 			{@const hydratedLessonState = hasHydratedProgress
 				? getHydratedLessonState(lesson.id, $currentLessonId)
 				: null}
-			<CardLink
-				href={`/learn/${lesson.id}`}
-				disabled={hydratedLessonState !== null && !hydratedLessonState.isUnlocked}
+			<svelte:element
+				this={hydratedLessonState !== null && !hydratedLessonState.isUnlocked ? "div" : "a"}
+				href={hydratedLessonState !== null && !hydratedLessonState.isUnlocked
+					? undefined
+					: `/learn/${lesson.id}`}
 				class={getLessonCardClasses(hydratedLessonState)}
+				aria-disabled={hydratedLessonState !== null && !hydratedLessonState.isUnlocked
+					? "true"
+					: undefined}
 			>
 				<!-- Header badges: stage number is static, progress badges appear after hydration. -->
 				<div class="lesson-card__header">
@@ -101,7 +105,7 @@
 				{#if hydratedLessonState !== null && !hydratedLessonState.isUnlocked}
 					<div class="lesson-card__overlay">&#128274; Complete previous lesson</div>
 				{/if}
-			</CardLink>
+			</svelte:element>
 		{/each}
 	</div>
 </PageShell>
@@ -119,7 +123,7 @@
 	}
 
 	// Lesson card: three visual states via BEM modifiers (--current, --done, --locked)
-	:global(.lesson-card) {
+	.lesson-card {
 		background: var(--surface-panel);
 		border: 1px solid var(--color-border);
 		color: inherit;
@@ -129,52 +133,52 @@
 		overflow: hidden;
 		position: relative;
 		text-decoration: none;
-	}
 
-	:global(.lesson-card--current) {
-		border-color: var(--color-primary);
-		box-shadow: var(--shadow-card-hover);
-	}
+		&--current {
+			border-color: var(--color-primary);
+			box-shadow: var(--shadow-card-hover);
+		}
 
-	:global(.lesson-card--done) {
-		border-left: 4px solid var(--color-success);
-	}
+		&--done {
+			border-left: 4px solid var(--color-success);
+		}
 
-	:global(.lesson-card--locked) {
-		cursor: not-allowed;
-		opacity: 0.5;
-	}
+		&--locked {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
 
-	:global(.lesson-card) .lesson-card__header {
-		display: flex;
-		gap: $space-sm;
-	}
+		&__header {
+			display: flex;
+			gap: $space-sm;
+		}
 
-	:global(.lesson-card) .lesson-card__word {
-		color: var(--color-primary-strong);
-	}
+		&__word {
+			color: var(--color-primary-strong);
+		}
 
-	:global(.lesson-card) .lesson-card__meaning {
-		color: var(--color-text-muted);
-		font-size: $font-size-sm;
-	}
+		&__meaning {
+			color: var(--color-text-muted);
+			font-size: $font-size-sm;
+		}
 
-	:global(.lesson-card) .lesson-card__new-letters {
-		display: flex;
-		gap: $space-sm;
-		margin-top: $space-sm;
-	}
+		&__new-letters {
+			display: flex;
+			gap: $space-sm;
+			margin-top: $space-sm;
+		}
 
-	:global(.lesson-card) .lesson-card__overlay {
-		align-items: center;
-		backdrop-filter: blur(8px);
-		background: var(--surface-overlay);
-		color: var(--color-text);
-		display: flex;
-		font-weight: 600;
-		inset: 0;
-		justify-content: center;
-		position: absolute;
+		&__overlay {
+			align-items: center;
+			backdrop-filter: blur(8px);
+			background: var(--surface-overlay);
+			color: var(--color-text);
+			display: flex;
+			font-weight: 600;
+			inset: 0;
+			justify-content: center;
+			position: absolute;
+		}
 	}
 
 	// Small square chip showing a single Thai character

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Badge from "$lib/components/ui/Badge.svelte";
-	import CardLink from "$lib/components/ui/CardLink.svelte";
 	import Heading from "$lib/components/ui/Heading.svelte";
 	import { thaiPack } from "$lib/data/thai";
 	import type { Word } from "$lib/data/types";
@@ -31,10 +30,11 @@
 			{@const isCompleted = knownWords.some((w) => w.thai === lesson.anchorWord.thai)}
 			{@const isCurrent = lesson.id === currentLessonId}
 			{@const isLocked = lesson.id > currentLessonId}
-			<CardLink
-				href={`/learn/${lesson.id}`}
-				disabled={isLocked}
+			<svelte:element
+				this={isLocked ? "div" : "a"}
+				href={isLocked ? undefined : `/learn/${lesson.id}`}
 				class={getLessonItemClasses(isCompleted, isCurrent, isLocked)}
+				aria-disabled={isLocked ? "true" : undefined}
 			>
 				<div class="lesson-item__status">
 					{#if isCompleted}
@@ -58,7 +58,7 @@
 						<span class="lesson-item__letter thai thai--sm">{letter.character}</span>
 					{/each}
 				</div>
-			</CardLink>
+			</svelte:element>
 		{/each}
 	</div>
 </section>
@@ -75,7 +75,7 @@
 		gap: $space-md;
 	}
 
-	:global(.lesson-item) {
+	.lesson-item {
 		align-items: center;
 		color: inherit;
 		display: flex;
@@ -83,88 +83,88 @@
 		padding: $space-lg $space-xl;
 		text-decoration: none;
 		transition: all $transition-base;
-	}
 
-	:global(.lesson-item--completed) {
-		border-left: 4px solid var(--color-success);
-	}
-
-	:global(.lesson-item--current) {
-		border-left: 4px solid var(--color-primary);
-		box-shadow: var(--shadow-card-hover);
-	}
-
-	:global(.lesson-item--locked) {
-		cursor: not-allowed;
-		opacity: 0.5;
-
-		&:hover {
-			box-shadow: $shadow-md;
+		&--completed {
+			border-left: 4px solid var(--color-success);
 		}
-	}
 
-	:global(.lesson-item) .lesson-item__status {
-		align-items: center;
-		display: flex;
-		flex-shrink: 0;
-		height: 40px;
-		justify-content: center;
-		width: 40px;
-	}
+		&--current {
+			border-left: 4px solid var(--color-primary);
+			box-shadow: var(--shadow-card-hover);
+		}
 
-	:global(.lesson-item) .lesson-item__check {
-		color: var(--color-success);
-		font-size: $font-size-xl;
-		font-weight: 700;
-	}
+		&--locked {
+			cursor: not-allowed;
+			opacity: 0.5;
 
-	:global(.lesson-item) .lesson-item__dot {
-		animation: pulse 2s ease-in-out infinite;
-		background: var(--color-primary);
-		border-radius: $radius-full;
-		height: 14px;
-		width: 14px;
-	}
+			&:hover {
+				box-shadow: $shadow-md;
+			}
+		}
 
-	:global(.lesson-item) .lesson-item__lock {
-		font-size: $font-size-lg;
-	}
+		&__status {
+			align-items: center;
+			display: flex;
+			flex-shrink: 0;
+			height: 40px;
+			justify-content: center;
+			width: 40px;
+		}
 
-	:global(.lesson-item) .lesson-item__content {
-		display: flex;
-		flex: 1;
-		flex-direction: column;
-		gap: $space-xs;
-	}
+		&__check {
+			color: var(--color-success);
+			font-size: $font-size-xl;
+			font-weight: 700;
+		}
 
-	:global(.lesson-item) .lesson-item__title {
-		font-size: $font-size-lg;
-	}
+		&__dot {
+			animation: pulse 2s ease-in-out infinite;
+			background: var(--color-primary);
+			border-radius: $radius-full;
+			height: 14px;
+			width: 14px;
+		}
 
-	:global(.lesson-item) .lesson-item__word {
-		color: var(--color-primary-strong);
-	}
+		&__lock {
+			font-size: $font-size-lg;
+		}
 
-	:global(.lesson-item) .lesson-item__meaning {
-		color: var(--color-text-muted);
-		font-size: $font-size-sm;
-	}
+		&__content {
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			gap: $space-xs;
+		}
 
-	:global(.lesson-item) .lesson-item__letters {
-		display: flex;
-		gap: $space-sm;
-	}
+		&__title {
+			font-size: $font-size-lg;
+		}
 
-	:global(.lesson-item) .lesson-item__letter {
-		align-items: center;
-		background: rgb(var(--rgb-primary) / 0.12);
-		border-radius: $radius-md;
-		color: var(--color-primary-strong);
-		display: flex;
-		font-size: $font-size-xl;
-		height: 44px;
-		justify-content: center;
-		width: 44px;
+		&__word {
+			color: var(--color-primary-strong);
+		}
+
+		&__meaning {
+			color: var(--color-text-muted);
+			font-size: $font-size-sm;
+		}
+
+		&__letters {
+			display: flex;
+			gap: $space-sm;
+		}
+
+		&__letter {
+			align-items: center;
+			background: rgb(var(--rgb-primary) / 0.12);
+			border-radius: $radius-md;
+			color: var(--color-primary-strong);
+			display: flex;
+			font-size: $font-size-xl;
+			height: 44px;
+			justify-content: center;
+			width: 44px;
+		}
 	}
 
 	@keyframes pulse {
@@ -178,8 +178,10 @@
 	}
 
 	@media (max-width: $bp-md) {
-		.lesson-item__letters {
-			display: none;
+		.lesson-item {
+			&__letters {
+				display: none;
+			}
 		}
 	}
 </style>

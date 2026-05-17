@@ -20,6 +20,7 @@
 	import PageShell from "$lib/components/layout/PageShell.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
 	import EmptyState from "$lib/components/ui/EmptyState.svelte";
+	import Eyebrow from "$lib/components/ui/Eyebrow.svelte";
 	import MetricDisplay from "$lib/components/ui/MetricDisplay.svelte";
 	import MetricPill from "$lib/components/ui/MetricPill.svelte";
 	import Progress from "$lib/components/ui/Progress.svelte";
@@ -131,7 +132,7 @@
 	{:else if sessionComplete}
 		<div class="results surface-panel surface-panel--success card">
 			<GlyphRibbon tokens={["ไ", "ท", "ย"]} tone="success" class="results__art" />
-			<p class="results__eyebrow">
+			<Eyebrow tone="success">
 				{#if correctCount === totalAnswered}
 					Perfect run
 				{:else if correctCount >= totalAnswered * 0.7}
@@ -139,7 +140,7 @@
 				{:else}
 					Solid reset
 				{/if}
-			</p>
+			</Eyebrow>
 			<h2>Session complete.</h2>
 			<p class="results__summary">
 				You just reviewed {totalAnswered} prompts pulled from words you already unlocked.
@@ -227,14 +228,6 @@
 		max-width: var(--content-max-width);
 		padding: $space-3xl;
 		text-align: center;
-
-		&__eyebrow {
-			color: var(--color-success);
-			font-size: $font-size-xs;
-			font-weight: 700;
-			letter-spacing: 0.12em;
-			text-transform: uppercase;
-		}
 
 		&__summary {
 			color: var(--color-text-muted);

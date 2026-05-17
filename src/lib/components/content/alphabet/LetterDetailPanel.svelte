@@ -19,10 +19,12 @@
 	{#if letter}
 		<div class="detail-panel card">
 			<h2 id={panelHeadingId} class="visually-hidden">Details for {letter.character}</h2>
-			<Button variant="ghost" class="detail-panel__close" onclick={onClose}>
-				<span aria-hidden="true">&times;</span>
-				<span class="visually-hidden">Close details for {letter.character}</span>
-			</Button>
+			<div class="detail-panel__close">
+				<Button variant="ghost" onclick={onClose}>
+					<span aria-hidden="true">&times;</span>
+					<span class="visually-hidden">Close details for {letter.character}</span>
+				</Button>
+			</div>
 			<div class="detail-panel__char thai">{letter.character}</div>
 			<div class="detail-panel__info">
 				<DetailRow label="Sound" value={letter.romanization} />
@@ -56,6 +58,13 @@
 			font-size: 4rem;
 		}
 
+		&__close {
+			font-size: $font-size-xl;
+			position: absolute;
+			right: $space-md;
+			top: $space-md;
+		}
+
 		&__info {
 			display: flex;
 			flex: 1;
@@ -71,13 +80,6 @@
 			margin-top: $space-sm;
 			padding: $space-md;
 		}
-	}
-
-	:global(.detail-panel__close) {
-		font-size: $font-size-xl;
-		position: absolute;
-		right: $space-md;
-		top: $space-md;
 	}
 
 	@media (max-width: $bp-sm) {

@@ -38,26 +38,32 @@
 </script>
 
 <section class="method">
-	<Reveal class="method__header" delay={60}>
-		<Heading class="method__title" align="center">How it works</Heading>
-		<p class="method__lead">
-			GlyphBridge teaches reading the way you actually use it: spot the word, understand the
-			pieces, then read it back yourself.
-		</p>
+	<Reveal delay={60}>
+		<div class="method__header">
+			<Heading align="center">How it works</Heading>
+			<p class="method__lead">
+				GlyphBridge teaches reading the way you actually use it: spot the word, understand
+				the pieces, then read it back yourself.
+			</p>
+		</div>
 	</Reveal>
-	<Row class="method__steps" gap="1.25rem" stackAt="md" align="stretch">
-		{#each steps as step, index}
-			<Reveal class="method__step" delay={120 + index * 90} distance={20}>
-				<IconBox
-					number={step.number}
-					tone={step.tone}
-					align="start"
-					title={step.title}
-					description={step.description}
-				/>
-			</Reveal>
-		{/each}
-	</Row>
+	<div class="method__steps">
+		<Row gap="1.25rem" stackAt="md" align="stretch">
+			{#each steps as step, index}
+				<div class="method__step">
+					<Reveal delay={120 + index * 90} distance={20}>
+						<IconBox
+							number={step.number}
+							tone={step.tone}
+							align="start"
+							title={step.title}
+							description={step.description}
+						/>
+					</Reveal>
+				</div>
+			{/each}
+		</Row>
+	</div>
 </section>
 
 <style lang="scss">
@@ -68,13 +74,10 @@
 		box-shadow: var(--shadow-card);
 		padding: clamp($space-xl, 4vw, $space-2xl);
 
-		:global(.method__header) {
+		&__header {
 			margin: 0 auto $space-2xl;
 			max-width: var(--text-max-width);
-		}
-
-		:global(.method__title) {
-			margin-bottom: $space-md;
+			--heading-margin-bottom: #{$space-md};
 		}
 
 		&__lead {
@@ -84,11 +87,11 @@
 			text-align: center;
 		}
 
-		:global(.method__steps) {
+		&__steps {
 			align-items: stretch;
 		}
 
-		:global(.method__step) {
+		&__step {
 			flex: 1 1 15rem;
 		}
 	}
@@ -97,7 +100,7 @@
 		.method {
 			padding: $space-lg;
 
-			:global(.method__header) {
+			&__header {
 				margin-bottom: $space-xl;
 			}
 

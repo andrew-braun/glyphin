@@ -26,18 +26,19 @@
 </script>
 
 <div class={classes}>
-	<div class="progress__track">
-		<BitsProgress.Root
-			class="progress__root"
-			value={boundedValue}
-			{min}
-			{max}
-			aria-label={label}
-			aria-valuetext={resolvedValueLabel}
-		>
-			<div class="progress__fill" style:width={`${percent}%`}></div>
-		</BitsProgress.Root>
-	</div>
+	<BitsProgress.Root
+		value={boundedValue}
+		{min}
+		{max}
+		aria-label={label}
+		aria-valuetext={resolvedValueLabel}
+	>
+		{#snippet child({ props })}
+			<div {...props} class="progress__track">
+				<div class="progress__fill" style:width={`${percent}%`}></div>
+			</div>
+		{/snippet}
+	</BitsProgress.Root>
 	<span class="progress__label">{resolvedValueLabel}</span>
 </div>
 
@@ -58,10 +59,6 @@
 			border-radius: $radius-full;
 			height: 100%;
 			transition: width $transition-slow;
-		}
-
-		&__track :global(.progress__root) {
-			height: 100%;
 		}
 
 		&__label {
