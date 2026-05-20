@@ -18,6 +18,7 @@ Do not use `docs/` for task-by-task implementation tracking. Task specs, in-prog
 - `app-philosophy.md` — authoritative product guide covering the app model, lesson contract, progress path, and technical guardrails.
 - `concept/learning-philosophy.md` — canonical pedagogical concept document for the real-word-first, frequency-driven GlyphBridge lesson model.
 - `curriculum/authoring-framework.md` — reusable framework and tool design for building new GlyphBridge curricula across writing systems.
+- `curriculum/authoring-tools.md` — offline authoring-tool commands, scaffolded file layout, DB handoff strategy, and corpus-analysis guidance.
 - `curriculum/thai.md` — Thai curriculum strategy and frequency-first sequencing reference.
 - `curriculum/writing-systems-catalog.md` — ranked roadmap of living, historical, and fictional or constructed writing systems GlyphBridge could cover.
 - `db.md` — README-style database guide covering schema roles, table responsibilities, common SQL queries, local and linked Supabase CLI workflow, and remote deployment guidance.

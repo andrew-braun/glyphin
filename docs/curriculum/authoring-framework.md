@@ -567,24 +567,28 @@ review:
 
 ### Suggested Candidate Output
 
+<!-- prettier-ignore-start -->
+
 ```json
 {
- "anchor": "อาหาร",
- "gloss": "food",
- "newGraphemes": ["อ", "า", "ห", "ร"],
- "rules": ["silent_carrier", "long_aa_after_consonant"],
- "anchorScore": 0.84,
- "coverageGain": {
-  "menus": 0.031,
-  "public_signage": 0.012
- },
- "penalties": {
-  "newLoad": 0.08,
-  "irregularity": 0.02
- },
- "reviewNotes": ["High menu utility", "Needs explicit explanation of silent carrier behavior"]
+  "anchor": "อาหาร",
+  "gloss": "food",
+  "newGraphemes": ["อ", "า", "ห", "ร"],
+  "rules": ["silent_carrier", "long_aa_after_consonant"],
+  "anchorScore": 0.84,
+  "coverageGain": {
+    "menus": 0.031,
+    "public_signage": 0.012
+  },
+  "penalties": {
+    "newLoad": 0.08,
+    "irregularity": 0.02
+  },
+  "reviewNotes": ["High menu utility", "Needs explicit explanation of silent carrier behavior"]
 }
 ```
+
+<!-- prettier-ignore-end -->
 
 ## Review Gates
 
@@ -626,6 +630,8 @@ A course should not be implemented until these gates pass:
   reading.
 - [app-philosophy.md](../app-philosophy.md) for product boundaries and the fixed
   lesson contract.
+- [authoring-tools.md](./authoring-tools.md) for the first offline tooling slice,
+  scaffolded files, and corpus-analysis guidance.
 - [thai.md](./thai.md) for the current Thai frequency-first curriculum model.
 - [database-dto-spec.md](../database-dto-spec.md) for the current delivery and
   DTO contract.

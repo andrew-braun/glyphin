@@ -36,4 +36,5 @@ Each `<language>.md` file should usually cover:
 
 ## Current Trackers
 
+- `korean-hangul.md`
 - `thai.md`
