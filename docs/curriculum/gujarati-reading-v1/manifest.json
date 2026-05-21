@@ -1,0 +1,112 @@
+{
+	"course_id": "gujarati-reading-v1",
+	"display_name": "Gujarati Reading",
+	"language_tag": "gu-Gujr",
+	"script": "Gujr",
+	"direction": "ltr",
+	"target_domains": [
+		"food_cafe_menus",
+		"transit_signage",
+		"public_facilities",
+		"everyday_labels",
+		"commerce_signage"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store modern Gujarati text in NFC and preserve reviewed source forms. Do not strip vowel signs, anusvara, candrabindu, virama, or rare nukta marks during analysis."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_manual_gujarati_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters_plus_manual_akshara_parts",
+		"pedagogical_units": "consonant bases, independent vowels, dependent vowel signs, inherent vowel, anusvara, virama, common conjuncts, and rare nukta notes",
+		"notes": "Gujarati uses whitespace for coarse words but lessons need akshara-aware review. The script lacks the Devanagari headline and has visually compact vowel signs that require font checks."
+	},
+	"sources": [
+		{
+			"id": "unicode-gujarati-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U0A80.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.4,
+			"notes": "Gujarati block metadata for letters, vowel signs, anusvara, virama, nukta, and digits."
+		},
+		{
+			"id": "cldr-gu-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.5,
+			"notes": "Gujarati exemplar characters and locale behavior. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "wordfreq-gu",
+			"kind": "frequency",
+			"url": "https://github.com/rspeer/wordfreq",
+			"license": "MIT package license; upstream corpus licenses require review",
+			"use": "scoring_only",
+			"domain_weight": 0.5,
+			"notes": "Broad Gujarati frequency intuition. Do not ship derived upstream example text."
+		},
+		{
+			"id": "indic-nlp-library-gu",
+			"kind": "tokenizer_transliteration_tool",
+			"url": "https://github.com/anoopkunchukuttan/indic_nlp_library",
+			"license": "MIT package license reviewed for tooling use",
+			"use": "discovery_only",
+			"domain_weight": 0.1,
+			"notes": "Useful for Indic normalization and transliteration experiments. It is not a content corpus."
+		},
+		{
+			"id": "dakshina-gu",
+			"kind": "transliteration_pronunciation_dataset",
+			"url": "https://github.com/google-research-datasets/dakshina",
+			"license": "CC BY-SA 4.0; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.3,
+			"notes": "Pronunciation and romanization discovery only until share-alike obligations are reviewed."
+		},
+		{
+			"id": "gu-wiktionary",
+			"kind": "lexicon",
+			"url": "https://gu.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.4,
+			"notes": "Gloss and spelling discovery only until attribution obligations are approved."
+		},
+		{
+			"id": "openstreetmap-gujarat-names",
+			"kind": "environmental_print",
+			"url": "https://www.openstreetmap.org/",
+			"license": "ODbL; derived-data obligations require review",
+			"use": "scoring_only",
+			"domain_weight": 0.75,
+			"notes": "Useful for place names, transit labels, commerce signs, and public-facility validation. Do not ship raw extracts without review."
+		},
+		{
+			"id": "app-authored-gujarati-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.95,
+			"notes": "Short Gujarati menu, sign, and label examples authored by GlyphBridge after reviewer validation."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true
+	}
+}

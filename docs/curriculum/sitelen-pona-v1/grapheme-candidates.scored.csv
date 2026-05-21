@@ -1,0 +1,15 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,toki,glyph ID for toki / language,0.9,0.88,0.82,0.92,0.9,0.78,0.82,0.03,0.08,0.02,0.18,0.08,Core word and likely first glyph after font approval,0.4800,weak
+grapheme,pona,glyph ID for pona / good,0.88,0.86,0.8,0.92,0.9,0.78,0.82,0.03,0.08,0.02,0.18,0.08,Core word and course-name anchor,0.4670,weak
+grapheme,mi,glyph ID for mi / I,0.86,0.84,0.76,0.88,0.9,0.72,0.78,0.03,0.06,0.02,0.18,0.08,High-frequency pronoun for app-authored sentences,0.4590,weak
+grapheme,sina,glyph ID for sina / you,0.8,0.78,0.72,0.82,0.9,0.7,0.78,0.03,0.06,0.02,0.18,0.08,High-frequency pronoun for short social examples,0.4150,weak
+grapheme,moku,glyph ID for moku / eat food,0.74,0.72,0.7,0.82,0.9,0.66,0.82,0.03,0.08,0.02,0.18,0.08,Useful food-domain glyph,0.3600,weak
+grapheme,telo,glyph ID for telo / water liquid,0.72,0.7,0.68,0.82,0.9,0.66,0.82,0.03,0.08,0.02,0.18,0.08,Useful water-domain glyph,0.3470,weak
+grapheme,ni,glyph ID for ni / this,0.74,0.72,0.66,0.76,0.9,0.64,0.76,0.03,0.08,0.02,0.18,0.08,High-frequency demonstrative for short sentences,0.3430,weak
+grapheme,jan,glyph ID for jan / person,0.72,0.7,0.64,0.78,0.9,0.64,0.82,0.03,0.08,0.02,0.18,0.08,High-frequency noun and social examples,0.3350,weak
+grapheme,li,glyph ID for li particle,0.82,0.8,0.72,0.78,0.86,0.72,0.68,0.04,0.12,0.04,0.18,0.08,High-frequency particle but grammar explanation is needed,0.3240,weak
+grapheme,ma,glyph ID for ma / land place,0.68,0.66,0.62,0.74,0.9,0.62,0.82,0.03,0.08,0.02,0.18,0.08,Place-domain glyph useful for maps and labels,0.3060,weak
+grapheme,e,glyph ID for e particle,0.78,0.76,0.68,0.76,0.86,0.68,0.68,0.04,0.12,0.04,0.18,0.08,Object particle with grammar load,0.2920,weak
+grapheme,suno,glyph ID for suno / sun light,0.62,0.6,0.56,0.68,0.9,0.58,0.84,0.03,0.08,0.02,0.18,0.08,Visually memorable candidate but font variant review needed,0.2580,weak
+grapheme,ilo,glyph ID for ilo / tool,0.6,0.58,0.54,0.66,0.9,0.56,0.82,0.03,0.08,0.02,0.18,0.08,Useful for app and tool labels,0.2400,weak
+grapheme,lape,glyph ID for lape / sleep,0.56,0.54,0.5,0.58,0.9,0.52,0.8,0.03,0.08,0.02,0.18,0.08,Lower domain value but useful for simple sentencescandidate_type,0.2010,weak

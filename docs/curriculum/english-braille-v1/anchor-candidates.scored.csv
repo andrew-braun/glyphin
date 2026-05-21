@@ -1,0 +1,20 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,⠉⠁⠞,cat,0.82,0.68,0.64,0.9,0.62,0.92,0.68,0.78,0.6,0.04,0,0.01,0,0,Short Grade 1 practice word for first-decade cells,0.7008,promising
+anchor,⠞⠑⠁,tea,0.7,0.86,0.68,0.82,0.6,0.92,0.66,0.82,0.6,0.06,0,0.01,0,0,Short cafe word and practical label anchor,0.6804,promising
+anchor,⠝⠕,no,0.7,0.82,0.62,0.84,0.56,0.92,0.62,0.78,0.6,0.04,0,0.01,0,0,Short high-frequency decision word,0.6784,promising
+anchor,⠉⠁⠋⠑,cafe,0.68,0.88,0.7,0.78,0.62,0.92,0.68,0.84,0.6,0.08,0,0.01,0,0,Public label anchor with familiar letters,0.6612,promising
+anchor,⠺⠁⠞⠑⠗,water,0.76,0.94,0.78,0.72,0.64,0.92,0.7,0.86,0.6,0.12,0,0.01,0,0,High utility but requires w beyond first decade,0.6580,promising
+anchor,⠑⠝⠞⠑⠗,enter,0.68,0.92,0.76,0.74,0.64,0.92,0.7,0.84,0.6,0.1,0,0.01,0,0,Pairs with exit in public navigation,0.6556,promising
+anchor,⠃⠁⠛,bag,0.74,0.64,0.6,0.86,0.6,0.92,0.64,0.74,0.6,0.05,0,0.01,0,0,Simple tactile pattern expansion from a and b,0.6480,promising
+anchor,⠕⠏⠑⠝,open,0.66,0.9,0.7,0.74,0.6,0.92,0.68,0.82,0.6,0.1,0,0.01,0,0,Storefront and facility sign word,0.6320,promising
+anchor,⠗⠕⠕⠍,room,0.68,0.88,0.7,0.76,0.58,0.92,0.66,0.8,0.6,0.1,0,0.01,0,0,Room labels and hotel navigation,0.6316,promising
+anchor,⠙⠕⠕⠗,door,0.64,0.9,0.68,0.76,0.58,0.92,0.66,0.82,0.6,0.1,0,0.01,0,0,Navigation anchor,0.6240,promising
+anchor,⠍⠑⠝⠥,menu,0.62,0.88,0.66,0.74,0.58,0.92,0.64,0.8,0.6,0.1,0,0.01,0,0,Cafe and restaurant label anchor,0.6080,promising
+anchor,⠇⠊⠋⠞,lift,0.58,0.88,0.68,0.76,0.58,0.92,0.66,0.82,0.6,0.1,0,0.01,0,0,Elevator label anchor in many accessibility contexts,0.6072,promising
+anchor,⠋⠕⠕⠙,food,0.66,0.9,0.7,0.72,0.58,0.92,0.66,0.82,0.6,0.12,0,0.01,0,0,Practical label word,0.6060,promising
+anchor,⠃⠥⠎,bus,0.62,0.86,0.66,0.74,0.58,0.92,0.64,0.8,0.6,0.1,0,0.01,0,0,Transit anchor with compact cells,0.6044,promising
+anchor,⠑⠭⠊⠞,exit,0.72,0.95,0.8,0.66,0.7,0.92,0.72,0.88,0.6,0.16,0,0.02,0,0,Core accessible-signage word with x load,0.6038,promising
+anchor,⠞⠕⠊⠇⠑⠞,toilet,0.64,0.95,0.76,0.68,0.62,0.92,0.7,0.84,0.6,0.14,0,0.01,0,0,Public facility anchor,0.6018,promising
+anchor,⠞⠗⠁⠊⠝,train,0.62,0.88,0.68,0.72,0.58,0.92,0.66,0.8,0.6,0.12,0,0.01,0,0,Transit anchor with common letters,0.5896,promising
+anchor,⠽⠑⠎,yes,0.7,0.82,0.62,0.74,0.56,0.92,0.62,0.78,0.6,0.12,0,0.01,0,0,Short decision word but requires y,0.5844,promising
+anchor,⠠⠑⠭⠊⠞,EXIT,0.7,0.95,0.8,0.58,0.82,0.92,0.74,0.88,0.6,0.22,0,0.02,0,0,Capital indicator version for real signage,0.5414,promising

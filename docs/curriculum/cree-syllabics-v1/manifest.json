@@ -1,0 +1,85 @@
+{
+	"course_id": "cree-syllabics-v1",
+	"display_name": "Cree Syllabics Reading",
+	"language_tag": "cr-Cans",
+	"script": "Cans",
+	"direction": "ltr",
+	"target_domains": [
+		"community_language_signage",
+		"language_learning_materials",
+		"dictionary_headwords",
+		"cultural_site_labels",
+		"short_public_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Canadian Aboriginal Syllabics text in NFC and preserve source strings for audit. Avoid compatibility substitutions and keep finals as encoded signs rather than Latin letters."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_dialect_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "syllabic signs, orientation-based vowel series, finals, length marks, and dialect-specific series",
+		"notes": "This v1 is scoped to a Plains Cree-oriented path. The Cans script covers many languages and local conventions; do not generalize Cree lesson choices to Inuktitut, Ojibwe, or other syllabics courses."
+	},
+	"sources": [
+		{
+			"id": "unicode-canadian-syllabics-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U1400.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Unified Canadian Aboriginal Syllabics code point metadata for signs and finals. Use as infrastructure metadata only."
+		},
+		{
+			"id": "cldr-cr-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Cree locale exemplar data where available. Confirm exact CLDR release and dialect coverage before ingestion."
+		},
+		{
+			"id": "cree-dictionary-online",
+			"kind": "lexicon",
+			"url": "https://www.creedictionary.com/",
+			"license": "terms require review before derived use",
+			"use": "discovery_only",
+			"domain_weight": 0.65,
+			"notes": "Useful for spellings and dialect checks. Keep discovery-only until terms and attribution are approved."
+		},
+		{
+			"id": "learn-cree-resource-references",
+			"kind": "pedagogy_reference",
+			"url": "https://learncree.ca/",
+			"license": "terms require review before derived use",
+			"use": "discovery_only",
+			"domain_weight": 0.55,
+			"notes": "Pedagogical discovery for syllabics patterns and learner order. Do not copy lesson text."
+		},
+		{
+			"id": "app-authored-cree-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed labels and examples authored by GlyphBridge with Cree reviewer approval."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true
+	}
+}

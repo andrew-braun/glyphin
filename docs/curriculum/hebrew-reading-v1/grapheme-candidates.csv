@@ -1,0 +1,25 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,א,alef silent carrier,0.88,0.86,0.82,0.86,0.58,0.8,0.72,0.04,0.08,0.06,0.02,0,Common carrier letter with limited sound on its own
+grapheme,ל,lamed l sound,0.86,0.84,0.8,0.84,0.9,0.68,0.78,0.03,0.04,0.01,0.02,0,High-frequency clear consonant for first no word
+grapheme,מ/ם,mem and final mem m sound,0.86,0.84,0.82,0.88,0.9,0.82,0.72,0.06,0.1,0.02,0.02,0,Essential final-form pair and high early anchor payoff
+grapheme,י,yod y or i marker,0.84,0.82,0.8,0.86,0.78,0.78,0.72,0.04,0.08,0.04,0.02,0,Common consonant and mater lectionis for water and exit words
+grapheme,ו,vav v or o/u marker,0.84,0.82,0.8,0.84,0.74,0.78,0.7,0.04,0.08,0.05,0.02,0,Common consonant and vowel marker in unpointed Hebrew
+grapheme,ק,qof k sound,0.68,0.66,0.68,0.78,0.82,0.58,0.78,0.04,0.05,0.02,0.02,0,Useful in cafe and market anchors with clear visual form
+grapheme,פ/ף,pe and final pe p or f sound,0.68,0.66,0.66,0.78,0.72,0.76,0.7,0.06,0.12,0.06,0.02,0,Needed for coffee and open with final-form and dagesh questions
+grapheme,ה,he h or final a marker,0.82,0.8,0.78,0.82,0.78,0.7,0.72,0.04,0.08,0.04,0.02,0,Very common final vowel marker in unpointed words
+grapheme,ש,shin or sin,0.78,0.76,0.74,0.8,0.78,0.68,0.78,0.05,0.08,0.04,0.02,0,High-value letter for shalom and restroom words
+grapheme,ב,bet or vet,0.76,0.74,0.72,0.78,0.72,0.64,0.72,0.06,0.08,0.05,0.02,0,Dagesh-sensitive sound but useful in street and milk words
+grapheme,ת,tav t sound,0.76,0.74,0.72,0.78,0.88,0.62,0.74,0.04,0.05,0.01,0.02,0,Clear common consonant for station and open words
+grapheme,נ/ן,nun and final nun n sound,0.74,0.72,0.7,0.76,0.9,0.76,0.7,0.06,0.1,0.02,0.02,0,Final-form pair needed for yes and hotel
+grapheme,ר,resh r sound,0.78,0.76,0.76,0.78,0.74,0.62,0.72,0.06,0.06,0.02,0.02,0,Common in price street and closed anchors
+grapheme,ס,samekh s sound,0.68,0.66,0.68,0.76,0.9,0.56,0.78,0.03,0.05,0.01,0.02,0,Useful for restaurant closed and bus words
+grapheme,ד,dalet d sound,0.66,0.64,0.62,0.7,0.9,0.52,0.72,0.06,0.05,0.01,0.02,0,Needed for restaurant and signage words
+grapheme,ח,het kh sound,0.66,0.64,0.68,0.78,0.58,0.64,0.74,0.05,0.1,0.04,0.02,0,High utility for bread milk street and open
+grapheme,כ/ך,kaf and final kaf k or kh sound,0.66,0.64,0.66,0.76,0.68,0.76,0.7,0.08,0.12,0.05,0.02,0,Final-form pair and dagesh-sensitive sound for yes and entrance
+grapheme,צ/ץ,tsadi and final tsadi ts sound,0.56,0.54,0.58,0.68,0.78,0.72,0.76,0.04,0.12,0.02,0.02,0,Needed for exit and useful after final forms are established
+grapheme,ג,gimel g sound,0.58,0.56,0.58,0.66,0.88,0.5,0.78,0.04,0.05,0.01,0.02,0,Unlocks closed and later facility vocabulary
+grapheme,ט,tet t sound,0.52,0.5,0.52,0.62,0.86,0.48,0.76,0.04,0.05,0.02,0.02,0,Useful for bus and taxi but lower early coverage
+grapheme,ע,ayin silent or guttural carrier,0.68,0.66,0.64,0.72,0.48,0.7,0.72,0.04,0.1,0.06,0.02,0,Common carrier letter with pronunciation and historical-load risk
+grapheme,ז,zayin z sound,0.5,0.5,0.48,0.58,0.9,0.46,0.78,0.04,0.05,0.01,0.02,0,Lower early coverage but clear sound and shape
+grapheme,matres ו י ה,vowel-letter behavior,0.82,0.8,0.78,0.82,0.62,0.82,0.62,0.04,0.14,0.07,0.02,0,Needed to explain unpointed reading without teaching full niqqud first
+grapheme,niqqud marks,vowel points,0.42,0.4,0.34,0.46,0.78,0.76,0.5,0.04,0.18,0.08,0.04,0,Useful teaching aid but uncommon in everyday signs and menus

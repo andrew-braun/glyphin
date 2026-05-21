@@ -1,0 +1,19 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ᬅ,independent a,0.46,0.42,0.44,0.52,0.72,0.64,0.78,0.05,0.1,0.03,0.12,0,Useful as independent vowel but not the only a strategy
+grapheme,ᬳ,ha or vowel carrier,0.7,0.66,0.62,0.7,0.62,0.74,0.7,0.06,0.12,0.05,0.12,0,Carrier behavior needs reviewer explanation
+grapheme,ᬦ,na,0.72,0.68,0.64,0.74,0.86,0.54,0.76,0.04,0.08,0.02,0.1,0,Common in rice and road anchors
+grapheme,ᬲ,sa,0.68,0.64,0.62,0.72,0.86,0.54,0.76,0.04,0.08,0.02,0.1,0,Useful in milk and language anchors
+grapheme,ᬓ,ka,0.64,0.6,0.6,0.68,0.86,0.52,0.76,0.04,0.08,0.02,0.1,0,Menu and market payoff
+grapheme,ᬫ,ma,0.64,0.6,0.58,0.68,0.86,0.52,0.76,0.04,0.08,0.02,0.1,0,Useful for house and culture words
+grapheme,ᬮ,la,0.62,0.6,0.58,0.66,0.86,0.5,0.76,0.04,0.08,0.02,0.1,0,Bali and road anchor payoff
+grapheme,ᬩ,ba,0.58,0.56,0.58,0.68,0.82,0.5,0.76,0.04,0.08,0.02,0.1,0,Unlocks Bali and language anchors
+grapheme,ᬧ,pa,0.56,0.54,0.56,0.66,0.84,0.48,0.76,0.04,0.08,0.02,0.1,0,Useful in temple and market words
+grapheme,ᬯ,wa,0.52,0.5,0.52,0.62,0.82,0.48,0.76,0.04,0.08,0.02,0.1,0,Useful in warung-style anchors after review
+grapheme,ᬭ,ra,0.58,0.56,0.54,0.64,0.84,0.5,0.76,0.04,0.08,0.02,0.1,0,Temple and market payoff
+grapheme,ᬶ,ulu i sign,0.6,0.58,0.56,0.66,0.82,0.68,0.62,0.05,0.12,0.02,0.12,0,Dependent i sign for Bali and rice anchors
+grapheme,ᬸ,suku u sign,0.6,0.58,0.58,0.66,0.82,0.68,0.62,0.05,0.12,0.02,0.12,0,Dependent u sign for milk and temple anchors
+grapheme,ᬾ,taling e sign,0.5,0.48,0.5,0.58,0.78,0.66,0.62,0.05,0.14,0.03,0.12,0,Needed for water anchor and e-vowel examples
+grapheme,ᭀ,o sign,0.48,0.46,0.48,0.56,0.76,0.66,0.62,0.05,0.14,0.03,0.12,0,Useful for loanword anchors but visually high load
+grapheme,ᬂ,cecek final ng,0.5,0.48,0.52,0.6,0.76,0.72,0.66,0.04,0.14,0.03,0.12,0,Final nasal sign needs mark rendering QA
+grapheme,ᬄ,bisah final h,0.46,0.44,0.48,0.56,0.74,0.7,0.66,0.04,0.14,0.03,0.12,0,Important for water and house but small at drill sizes
+grapheme,᭄,adeg-adeg virama,0.46,0.42,0.46,0.54,0.76,0.82,0.56,0.05,0.18,0.03,0.14,0,Suppresses inherent vowel and needs careful sequencing

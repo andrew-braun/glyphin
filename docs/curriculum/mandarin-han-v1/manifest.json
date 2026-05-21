@@ -1,0 +1,112 @@
+{
+	"course_id": "mandarin-han-v1",
+	"display_name": "Mandarin Han Reading",
+	"language_tag": "zh-Hans",
+	"script": "Hans",
+	"direction": "ltr",
+	"target_domains": [
+		"restaurant_menus",
+		"food_labels",
+		"transit_signage",
+		"public_notices",
+		"retail_signage"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Modern simplified Han text is generally NFC. Preserve original simplified forms and store traditional variants as explicit variant metadata rather than lossy conversion."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "manual_han_word_segments_with_future_tokenizer_support",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "single Han characters, multi-character words, radicals, components, simplified/traditional variants, and pinyin support",
+		"notes": "Mandarin Han text has no whitespace word boundaries. V1 learner-visible content should be manually segmented and component hints should be author-reviewed."
+	},
+	"sources": [
+		{
+			"id": "unicode-han-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U4E00.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.4,
+			"notes": "CJK Unified Ideographs metadata for infrastructure and rendering checks."
+		},
+		{
+			"id": "cldr-zh-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.5,
+			"notes": "Chinese locale metadata and exemplar characters."
+		},
+		{
+			"id": "hsk-word-lists",
+			"kind": "pedagogical_word_list",
+			"url": "https://www.chinesetest.cn/",
+			"license": "official list terms require review",
+			"use": "scoring_only",
+			"domain_weight": 0.7,
+			"notes": "Mandarin proficiency word-list reference for beginner frequency and utility."
+		},
+		{
+			"id": "wordfreq-zh",
+			"kind": "frequency",
+			"url": "https://github.com/rspeer/wordfreq",
+			"license": "MIT package license; upstream corpus licenses require review",
+			"use": "scoring_only",
+			"domain_weight": 0.6,
+			"notes": "Broad Mandarin frequency intuition. Do not ship derived corpus examples."
+		},
+		{
+			"id": "jieba-frequency",
+			"kind": "tokenizer_frequency",
+			"url": "https://github.com/fxsjy/jieba",
+			"license": "MIT package license; corpus provenance requires review",
+			"use": "scoring_only",
+			"domain_weight": 0.55,
+			"notes": "Segmentation and word-frequency intuition for analysis only."
+		},
+		{
+			"id": "cc-cedict",
+			"kind": "lexicon",
+			"url": "https://www.mdbg.net/chinese/dictionary?page=cedict",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.6,
+			"notes": "Gloss, pinyin, and traditional-variant discovery only until attribution obligations are approved."
+		},
+		{
+			"id": "opencc",
+			"kind": "variant_tool",
+			"url": "https://github.com/BYVoid/OpenCC",
+			"license": "Apache 2.0",
+			"use": "discovery_only",
+			"domain_weight": 0.1,
+			"notes": "Simplified/traditional conversion reference for analysis and QA only."
+		},
+		{
+			"id": "app-authored-mandarin-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.95,
+			"notes": "Short menu, transit, sign, and retail examples authored by GlyphBridge."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true
+	}
+}

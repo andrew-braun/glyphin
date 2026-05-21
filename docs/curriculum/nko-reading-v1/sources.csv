@@ -1,0 +1,6 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-nko-block,unicode_metadata,https://www.unicode.org/charts/PDF/U07C0.pdf,Unicode License reviewed for metadata use,scoring,0.45,N'Ko code point metadata for letters digits punctuation and combining marks
+cldr-nqo-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.45,N'Ko locale data where available; confirm exact CLDR release
+noto-sans-nko-font,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+NKo,OFL reviewed for font testing,scoring,0.2,Rendering and fallback test source for letters and combining marks
+nko-wikimedia-references,lexicon_corpus_reference,https://nqo.wikipedia.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Modern digital text discovery only until share-alike implications are reviewed
+app-authored-nko-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed labels and examples authored by GlyphBridge rather than copied from third-party corporaid,kind,url,license,use,domain_weight,notes

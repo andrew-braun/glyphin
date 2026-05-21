@@ -1,0 +1,26 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,А а,a vowel,0.88,0.86,0.82,0.88,0.92,0.7,0.88,0.01,0.02,0,0,0,Positive transfer from Latin A,0.8230,strong
+grapheme,О о,o vowel,0.85,0.84,0.8,0.86,0.88,0.68,0.88,0.02,0.02,0,0,0,High-frequency vowel in menu and sign words,0.7890,strong
+grapheme,Т т,t consonant,0.8,0.78,0.76,0.82,0.9,0.66,0.86,0.02,0.03,0,0,0,Useful in restaurant transit and facility labels,0.7410,promising
+grapheme,И и,ee vowel,0.82,0.8,0.74,0.82,0.88,0.68,0.84,0.03,0.03,0,0,0,Core front vowel for taxi and signs,0.7370,promising
+grapheme,М м,m consonant,0.76,0.74,0.72,0.78,0.92,0.62,0.88,0.01,0.02,0,0,0,Positive transfer from Latin M,0.7300,promising
+grapheme,К к,k consonant,0.75,0.73,0.7,0.78,0.9,0.62,0.86,0.02,0.02,0,0,0,Positive transfer in кофе and такси,0.7090,promising
+grapheme,С с,s consonant,0.77,0.75,0.74,0.78,0.9,0.64,0.86,0.04,0.03,0,0,0,Looks like Latin C but has stable s sound,0.6970,promising
+grapheme,Е е,ye or e vowel,0.83,0.82,0.76,0.84,0.78,0.72,0.86,0.04,0.05,0.02,0,0,High frequency but context-sensitive pronunciation,0.6940,promising
+grapheme,Л л,l consonant,0.72,0.7,0.68,0.74,0.86,0.6,0.8,0.04,0.04,0,0,0,Common in молоко салат and туалет,0.6380,promising
+grapheme,Н н,n consonant,0.81,0.8,0.76,0.82,0.9,0.66,0.82,0.12,0.04,0,0,0,Looks like Latin H but sounds n,0.6360,promising
+grapheme,Д д,d consonant,0.67,0.65,0.66,0.7,0.86,0.6,0.78,0.06,0.05,0,0,0,Common in вода вход выход,0.5750,promising
+grapheme,У у,u vowel,0.64,0.62,0.64,0.68,0.86,0.62,0.82,0.06,0.04,0,0,0,Useful in туалет and пожалуйста,0.5690,promising
+grapheme,Р р,r consonant,0.78,0.76,0.72,0.8,0.82,0.66,0.84,0.14,0.05,0.01,0,0,Looks like Latin P but sounds r,0.5640,promising
+grapheme,Ш ш,sh consonant,0.64,0.62,0.6,0.68,0.86,0.66,0.82,0.04,0.08,0,0,0,High-payoff sibilant for food and shop words,0.5470,promising
+grapheme,П п,p consonant,0.66,0.64,0.62,0.68,0.86,0.58,0.8,0.08,0.05,0,0,0,Looks unfamiliar and needs P contrast,0.5410,promising
+grapheme,Б б,b consonant,0.63,0.61,0.6,0.66,0.86,0.58,0.78,0.06,0.06,0,0,0,Moderate frequency and distinct lowercase shape,0.5300,promising
+grapheme,Ч ч,ch consonant,0.6,0.58,0.62,0.68,0.86,0.66,0.82,0.04,0.08,0,0,0,Essential for чай and чек,0.5300,promising
+grapheme,Ц ц,ts consonant,0.58,0.56,0.6,0.64,0.8,0.64,0.78,0.05,0.08,0,0,0,Price and facility words justify late introduction,0.4930,weak
+grapheme,В в,v consonant,0.68,0.66,0.7,0.72,0.86,0.62,0.78,0.16,0.05,0,0,0,Looks like Latin B but sounds v,0.4900,weak
+grapheme,Ж ж,zh consonant,0.56,0.54,0.54,0.6,0.78,0.62,0.86,0.04,0.1,0,0,0,Distinctive but lower early utility,0.4600,weak
+grapheme,Я я,ya vowel,0.5,0.48,0.52,0.58,0.68,0.7,0.8,0.04,0.12,0.02,0,0,Soft-vowel gateway for мясо,0.3800,weak
+grapheme,Ь,soft sign,0.55,0.52,0.54,0.58,0.56,0.78,0.72,0.06,0.12,0.04,0,0,Orthographic modifier not a pronounced consonant,0.3580,weak
+grapheme,Й й,short i consonant,0.48,0.46,0.5,0.54,0.7,0.58,0.74,0.04,0.12,0.02,0,0,Late diphthong marker and useful for politeness words,0.3500,weak
+grapheme,Ы ы,hard i vowel,0.52,0.5,0.58,0.62,0.48,0.68,0.78,0.06,0.14,0.04,0,0,Important in выход but high pronunciation load,0.3200,weak
+grapheme,Х х,kh consonant,0.46,0.44,0.54,0.58,0.62,0.62,0.8,0.14,0.12,0.02,0,0,Looks like Latin X but sounds kh,0.2490,weak

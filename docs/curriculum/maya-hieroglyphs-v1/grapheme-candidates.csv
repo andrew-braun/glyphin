@@ -1,0 +1,16 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,AJAW-logogram,lord ruler sign,0.72,0.66,0.8,0.88,0.42,0.82,0.84,0.08,0.16,0.14,0.2,0,High royal-title payoff but glyph variant review required
+grapheme,K'IN-logogram,sun day sign,0.7,0.64,0.78,0.86,0.46,0.8,0.84,0.08,0.16,0.14,0.2,0,Calendar and name component with strong museum relevance
+grapheme,HA'-water,water sign,0.56,0.5,0.58,0.68,0.44,0.62,0.78,0.08,0.16,0.14,0.2,0,Useful concrete sign with transliteration review needs
+grapheme,CHAN-sky,sky sign,0.58,0.52,0.62,0.7,0.42,0.66,0.78,0.08,0.16,0.14,0.2,0,Common semantic domain and name component
+grapheme,KAB'-earth,earth sign,0.52,0.48,0.56,0.64,0.42,0.62,0.78,0.08,0.16,0.14,0.2,0,Concrete semantic sign but catalog mapping must be verified
+grapheme,WITZ-mountain,mountain sign,0.5,0.46,0.58,0.62,0.4,0.62,0.82,0.08,0.16,0.14,0.2,0,Iconic landscape sign for stela and place contexts
+grapheme,TZ'IB'-writing,writing sign,0.44,0.4,0.5,0.56,0.38,0.6,0.78,0.08,0.18,0.14,0.2,0,Thematic anchor but less frequent for early decoding
+grapheme,ma-syllabogram,ma syllable,0.66,0.6,0.62,0.72,0.48,0.74,0.72,0.1,0.18,0.12,0.2,0,Syllabic signs need catalog and variant policy
+grapheme,ya-syllabogram,ya syllable,0.62,0.56,0.58,0.68,0.48,0.72,0.72,0.1,0.18,0.12,0.2,0,Useful in names and affixed spellings
+grapheme,ku-syllabogram,ku syllable,0.58,0.52,0.56,0.64,0.48,0.68,0.72,0.1,0.18,0.12,0.2,0,Syllable anchor for controlled spelling drills
+grapheme,la-syllabogram,la syllable,0.56,0.5,0.54,0.62,0.48,0.66,0.72,0.1,0.18,0.12,0.2,0,Useful for syllabic spelling once logograms are stable
+grapheme,aj-affix,agentive title affix,0.6,0.54,0.66,0.68,0.42,0.74,0.7,0.1,0.18,0.14,0.2,0,Title morphology is useful but specialist-framed
+grapheme,numeral-dot,one through four dot,0.72,0.66,0.82,0.9,0.7,0.84,0.86,0.02,0.08,0.08,0.08,0,Encoded numeral support gives a low-risk early win
+grapheme,numeral-bar,five bar,0.68,0.62,0.78,0.86,0.7,0.82,0.86,0.02,0.08,0.08,0.08,0,Calendar and count gateway with good visual clarity
+grapheme,glyph-block,block reading unit,0.8,0.74,0.84,0.86,0.32,0.88,0.64,0.12,0.22,0.16,0.22,0,Core layout concept but needs runtime support

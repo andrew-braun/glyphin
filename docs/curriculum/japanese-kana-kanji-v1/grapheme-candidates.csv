@@ -1,0 +1,38 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,あ,a hiragana,0.95,0.92,0.84,0.9,0.96,0.72,0.86,0.01,0.02,0,0,0,Core hiragana vowel
+grapheme,い,i hiragana,0.92,0.9,0.82,0.88,0.96,0.72,0.84,0.02,0.02,0,0,0,Core hiragana vowel
+grapheme,う,u hiragana,0.88,0.86,0.8,0.86,0.96,0.7,0.84,0.02,0.02,0,0,0,Core hiragana vowel and verb ending
+grapheme,え,e hiragana,0.84,0.82,0.76,0.82,0.96,0.68,0.82,0.02,0.03,0,0,0,Core hiragana vowel and station reading support
+grapheme,お,o hiragana,0.82,0.8,0.74,0.8,0.96,0.68,0.82,0.02,0.03,0,0,0,Completes first vowel row
+grapheme,か,ka hiragana,0.88,0.84,0.8,0.86,0.94,0.76,0.86,0.02,0.03,0,0,0,Foundational consonant row
+grapheme,き,ki hiragana,0.8,0.78,0.74,0.8,0.94,0.74,0.82,0.04,0.04,0,0,0,Needed for palatalized combinations
+grapheme,こ,ko hiragana,0.74,0.72,0.7,0.76,0.94,0.7,0.82,0.03,0.03,0,0,0,Rice and shop word support
+grapheme,さ,sa hiragana,0.82,0.8,0.74,0.82,0.94,0.74,0.8,0.06,0.04,0,0,0,Useful but confusable with ち and き families
+grapheme,し,shi hiragana,0.78,0.76,0.72,0.8,0.9,0.74,0.74,0.1,0.05,0.01,0,0,High-frequency irregular romanization
+grapheme,す,su hiragana,0.76,0.74,0.72,0.8,0.94,0.7,0.84,0.02,0.03,0,0,0,Sushi and polite endings
+grapheme,た,ta hiragana,0.84,0.82,0.78,0.84,0.94,0.74,0.84,0.02,0.03,0,0,0,Common kana and verb support
+grapheme,ち,chi hiragana,0.76,0.74,0.7,0.78,0.9,0.72,0.74,0.08,0.05,0.01,0,0,Common but visually confusable
+grapheme,つ,tsu hiragana,0.72,0.7,0.68,0.74,0.9,0.72,0.78,0.05,0.05,0.01,0,0,Gateway to small-tsu gemination
+grapheme,の,no hiragana,0.84,0.82,0.78,0.84,0.96,0.72,0.86,0.02,0.02,0,0,0,Very common particle
+grapheme,は,ha or wa particle,0.88,0.86,0.8,0.86,0.82,0.76,0.84,0.02,0.04,0.04,0,0,Particle pronunciation mismatch is important
+grapheme,を,o particle,0.68,0.66,0.64,0.7,0.82,0.72,0.82,0.02,0.04,0.04,0,0,Object particle with historical spelling
+grapheme,ん,final n,0.9,0.88,0.82,0.9,0.94,0.76,0.86,0.02,0.02,0,0,0,Final nasal and high-frequency unit
+grapheme,dakuten,voicing mark,0.78,0.76,0.78,0.82,0.84,0.86,0.78,0.04,0.08,0.02,0,0,Rule gateway for kana series
+grapheme,handakuten,p-series mark,0.46,0.44,0.5,0.58,0.84,0.72,0.76,0.04,0.12,0.02,0,0,Lower frequency but important for loanwords
+grapheme,small_y_kana,palatalization small kana,0.58,0.56,0.58,0.66,0.82,0.84,0.72,0.06,0.14,0.03,0,0,Supports きゃ and シャ style chunks
+grapheme,ー,chōon long vowel mark,0.7,0.66,0.76,0.82,0.86,0.8,0.82,0.02,0.08,0.02,0,0,High payoff in katakana loanwords
+grapheme,ア,a katakana,0.88,0.84,0.78,0.86,0.96,0.7,0.88,0.02,0.04,0,0,0,Katakana counterpart to あ
+grapheme,カ,ka katakana,0.82,0.78,0.76,0.82,0.94,0.72,0.86,0.02,0.04,0,0,0,Loanword and cafe support
+grapheme,フ,fu katakana,0.7,0.66,0.72,0.76,0.88,0.68,0.82,0.04,0.06,0.02,0,0,Cafe and food loanword support
+grapheme,レ,re katakana,0.76,0.72,0.72,0.78,0.94,0.68,0.82,0.04,0.05,0,0,0,Restaurant and label support
+grapheme,ス,su katakana,0.78,0.74,0.76,0.8,0.94,0.7,0.82,0.06,0.05,0,0,0,Bus and restaurant support
+grapheme,ン,n katakana,0.84,0.8,0.78,0.84,0.94,0.72,0.74,0.12,0.05,0,0,0,High payoff but confusable with ソ
+grapheme,水,water kanji,0.72,0.7,0.82,0.9,0.86,0.78,0.9,0.02,0.12,0.02,0,0,Survival word and component/radical gateway
+grapheme,米,rice kanji,0.68,0.66,0.78,0.86,0.84,0.72,0.88,0.04,0.12,0.02,0,0,Menu word with strong visual distinctiveness
+grapheme,食,eat food kanji,0.76,0.72,0.82,0.88,0.72,0.82,0.84,0.05,0.16,0.06,0,0,Core food semantic anchor
+grapheme,駅,station kanji,0.62,0.58,0.82,0.84,0.72,0.74,0.82,0.04,0.18,0.06,0,0,Transit payoff despite visual complexity
+grapheme,入,enter kanji,0.66,0.64,0.78,0.84,0.82,0.72,0.9,0.04,0.1,0.02,0,0,Signage pair with 出
+grapheme,出,exit kanji,0.66,0.64,0.78,0.84,0.82,0.72,0.9,0.04,0.1,0.02,0,0,Signage pair with 入
+grapheme,肉,meat kanji,0.64,0.62,0.76,0.82,0.78,0.7,0.84,0.04,0.14,0.02,0,0,Menu staple
+grapheme,魚,fish kanji,0.58,0.56,0.72,0.78,0.76,0.7,0.82,0.04,0.16,0.02,0,0,Menu staple with higher stroke load
+grapheme,飯,meal rice kanji,0.56,0.54,0.74,0.78,0.72,0.72,0.8,0.05,0.18,0.04,0,0,Useful in ご飯 but visually complex

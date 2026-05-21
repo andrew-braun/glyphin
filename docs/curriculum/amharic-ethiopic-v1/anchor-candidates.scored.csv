@@ -1,0 +1,19 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ቡና,coffee,0.72,0.94,0.82,0.76,0.78,0.84,0.76,0.94,0.5,0.1,0.02,0.02,0,0,High memorability first food and cafe anchor,0.6636,promising
+anchor,ሻይ,tea,0.68,0.92,0.78,0.76,0.72,0.84,0.72,0.9,0.5,0.1,0.02,0.02,0,0,Short beverage anchor with clear syllables,0.6348,promising
+anchor,ውሃ,water,0.76,0.96,0.84,0.72,0.76,0.78,0.74,0.9,0.5,0.12,0.03,0.02,0,0,Survival word and sixth order w behavior,0.6340,promising
+anchor,ዋጋ,price,0.7,0.94,0.8,0.7,0.78,0.84,0.76,0.86,0.5,0.12,0.02,0.02,0,0,Short commerce word for price labels,0.6244,promising
+anchor,ቤት,house / place,0.78,0.84,0.74,0.72,0.78,0.82,0.74,0.82,0.5,0.12,0.03,0.03,0,0,Compact place word and fifth plus sixth order contrast,0.5928,promising
+anchor,ሴት,woman / female,0.72,0.9,0.76,0.68,0.78,0.82,0.76,0.82,0.5,0.14,0.03,0.03,0,0,Public facility category and fifth order se,0.5692,promising
+anchor,ገበያ,market,0.72,0.96,0.84,0.62,0.86,0.82,0.82,0.88,0.5,0.18,0.03,0.03,0,0,Market sign anchor and first order repetition,0.5584,promising
+anchor,መኪና,car,0.72,0.9,0.78,0.64,0.84,0.82,0.78,0.84,0.5,0.16,0.03,0.03,0,0,Transit adjacent anchor and m family prefix,0.5548,promising
+anchor,ምግብ,food,0.82,0.96,0.86,0.54,0.9,0.76,0.84,0.88,0.5,0.22,0.04,0.03,0,0,Core food word but consonant cluster like reading load,0.5228,promising
+anchor,ሆቴል,hotel,0.62,0.92,0.76,0.6,0.74,0.82,0.74,0.86,0.5,0.18,0.03,0.03,0,0,Traveler facility loanword with fifth and seventh order,0.4960,weak
+anchor,ወንድ,man / male,0.72,0.9,0.76,0.58,0.78,0.8,0.76,0.82,0.5,0.2,0.03,0.03,0,0,Pairs with ሴት and adds sixth order nasal sequence,0.4936,weak
+anchor,መንገድ,road / way,0.78,0.94,0.82,0.5,0.86,0.78,0.84,0.86,0.5,0.24,0.04,0.03,0,0,Wayfinding word and common m prefix pattern,0.4752,weak
+anchor,ታክሲ,taxi,0.62,0.92,0.76,0.56,0.72,0.78,0.72,0.9,0.5,0.2,0.03,0.03,0,0,High traveler utility but loanword and new letters add load,0.4656,weak
+anchor,መውጫ,exit,0.68,0.96,0.82,0.52,0.86,0.76,0.84,0.88,0.5,0.24,0.04,0.03,0,0,Public sign word with ጫ and movement noun pattern,0.4588,weak
+anchor,መግቢያ,entrance,0.68,0.96,0.82,0.46,0.88,0.74,0.86,0.88,0.5,0.3,0.04,0.03,0,0,Pairs with exit but has high new unit load,0.3920,weak
+anchor,እንጀራ,injera,0.66,0.94,0.78,0.42,0.82,0.74,0.82,0.94,0.5,0.32,0.05,0.03,0,0,Culturally central food word but too much new load early,0.3360,weak
+anchor,አውቶቡስ,bus,0.64,0.92,0.76,0.4,0.76,0.72,0.78,0.86,0.5,0.34,0.05,0.03,0,0,Transit utility but complex loanword sequence,0.2888,weak
+anchor,መጸዳጃ,restroom / toilet,0.58,0.94,0.76,0.34,0.84,0.68,0.82,0.84,0.5,0.4,0.06,0.04,0,0,Important facility word but late due to length and forms,0.1972,weak

@@ -1,0 +1,8 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-mongolian-block,unicode_metadata,https://www.unicode.org/charts/PDF/U1800.pdf,Unicode License reviewed for metadata use,scoring,0.45,Mongolian code point and punctuation metadata for infrastructure use only
+unicode-standardized-variants,unicode_metadata,https://www.unicode.org/Public/UCD/latest/ucd/StandardizedVariants.txt,Unicode License reviewed for metadata use,scoring,0.45,Variation-sequence metadata for rendering and QA
+cldr-mn-mong-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.45,Locale metadata where available; confirm exact CLDR release before ingestion
+wiktionary-mn-mong-discovery,lexicon,https://en.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Spelling discovery only until share-alike obligations are approved
+openstreetmap-mongolian-script-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.55,Place-label validation only; do not ship raw extracts
+mongolian-script-grammar-references,orthography_reference,,publisher or site licenses require review,discovery_only,0.3,Use only to plan specialist review of positional forms and spelling conventions
+app-authored-mongolian-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora

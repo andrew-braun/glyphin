@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ܡ,mim m,0.82,0.78,0.72,0.84,0.86,0.62,0.76,0.03,0.05,0.02,0.05,0,High anchor availability in water and peace words,0.6300,promising
+grapheme,ܠ,lamadh l,0.74,0.72,0.66,0.76,0.86,0.62,0.76,0.03,0.05,0.02,0.05,0,Strong payoff in bread and greeting anchors,0.5770,promising
+grapheme,ܝ,yodh y or i,0.8,0.76,0.72,0.82,0.72,0.78,0.72,0.04,0.08,0.04,0.05,0,Mater behavior makes it useful but not purely consonantal,0.5580,promising
+grapheme,ܘ,waw w or u,0.78,0.74,0.7,0.8,0.72,0.78,0.72,0.04,0.08,0.04,0.05,0,Mater behavior and joining need explicit examples,0.5430,promising
+grapheme,ܫ,shin sh,0.7,0.68,0.66,0.76,0.82,0.64,0.82,0.04,0.06,0.02,0.05,0,Visually distinctive but dot placement needs font QA,0.5380,promising
+grapheme,ܐ,alap glottal carrier or mater,0.88,0.84,0.78,0.86,0.58,0.82,0.68,0.05,0.12,0.05,0.06,0,Common carrier with silent and vowel-letter behavior needing review,0.5290,promising
+grapheme,ܒ,beth b,0.68,0.66,0.62,0.72,0.82,0.58,0.72,0.05,0.06,0.02,0.05,0,Useful for house and book anchors with dot-aware review,0.4970,weak
+grapheme,ܬ,taw t,0.66,0.64,0.62,0.7,0.82,0.58,0.74,0.04,0.06,0.02,0.05,0,Common final and medial letter with joining forms,0.4960,weak
+grapheme,ܢ,nun n,0.64,0.62,0.58,0.68,0.84,0.54,0.74,0.04,0.06,0.02,0.05,0,Useful in food and fish anchors,0.4760,weak
+grapheme,ܪ,rish r,0.62,0.6,0.56,0.66,0.76,0.52,0.72,0.05,0.06,0.02,0.05,0,Common in cultural and book words but shape can be small at drill sizes,0.4400,weak
+grapheme,contextual joining,letter joining forms,0.78,0.72,0.72,0.8,0.7,0.9,0.54,0.04,0.18,0.04,0.08,0,Model as rule metadata rather than separate stored letters,0.4130,weak
+grapheme,ܣ,semkath s,0.5,0.5,0.48,0.56,0.78,0.5,0.78,0.04,0.06,0.02,0.05,0,Useful for book and school-like discovery words,0.3750,weak
+grapheme,ܚ,heth kh,0.52,0.5,0.5,0.58,0.62,0.58,0.82,0.03,0.08,0.04,0.05,0,Guttural pronunciation requires specialist audio review,0.3500,weak
+grapheme,ܦ,pe p or f,0.48,0.48,0.46,0.54,0.62,0.54,0.72,0.05,0.08,0.04,0.05,0,Dot and dialectal value need review before learner copy,0.2950,weak
+grapheme,ܩ,qoph q,0.42,0.42,0.44,0.52,0.62,0.52,0.8,0.03,0.08,0.04,0.05,0,Useful for market anchor but pronunciation is high load,0.2820,weak
+grapheme,ܵ,vowel point zqapha style a,0.44,0.4,0.42,0.48,0.58,0.76,0.5,0.06,0.16,0.04,0.08,0,Optional vocalization is pedagogically useful but must not be assumed in real signs,0.1420,weak

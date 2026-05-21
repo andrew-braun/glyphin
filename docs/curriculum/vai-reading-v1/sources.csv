@@ -1,0 +1,6 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-vai-block,unicode_metadata,https://www.unicode.org/charts/PDF/UA500.pdf,Unicode License reviewed for metadata use,scoring,0.45,Vai code point metadata for syllabograms and punctuation
+cldr-vai-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.45,Vai locale exemplar data where available; confirm exact release
+noto-sans-vai-font,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Vai,OFL reviewed for font testing,scoring,0.2,Rendering and fallback test source; not a text corpus
+vai-scholarship-references,scholarly_reference,https://www.unicode.org/L2/L2004/04159-vai.pdf,terms require review before derived use,discovery_only,0.45,Script inventory and history discovery only; do not copy examples without review
+app-authored-vai-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed labels and examples authored by GlyphBridge rather than copied from third-party corporaid,kind,url,license,use,domain_weight,notes

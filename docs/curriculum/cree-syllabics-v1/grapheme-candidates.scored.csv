@@ -1,0 +1,15 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ᐊ,a syllabic sign,0.88,0.84,0.76,0.82,0.76,0.74,0.7,0.05,0.08,0.02,0.04,0,High-payoff vowel sign and orientation-series gateway,0.6230,promising
+grapheme,ᐃ,i syllabic sign,0.84,0.8,0.72,0.8,0.76,0.74,0.7,0.05,0.08,0.02,0.04,0,Core vowel sign used in early anchors,0.5950,promising
+grapheme,ᓂ,ni syllabic sign,0.8,0.76,0.72,0.84,0.78,0.76,0.76,0.04,0.1,0.02,0.04,0,High-payoff sign in greeting and water candidates,0.5760,promising
+grapheme,ᑕ,ta syllabic sign,0.78,0.74,0.7,0.82,0.76,0.78,0.74,0.04,0.1,0.02,0.04,0,Key orientation example through ᑖᓂᓯ,0.5600,promising
+grapheme,ᓯ,si syllabic sign,0.74,0.7,0.68,0.82,0.76,0.72,0.76,0.04,0.1,0.02,0.04,0,Completes early greeting anchor,0.5320,promising
+grapheme,ᐅ,o syllabic sign,0.76,0.72,0.66,0.68,0.74,0.7,0.72,0.05,0.08,0.02,0.04,0,Core rounded vowel sign and orientation contrast,0.5290,promising
+grapheme,ᐁ,e syllabic sign,0.72,0.68,0.62,0.66,0.74,0.68,0.72,0.05,0.08,0.02,0.04,0,Useful for dialect-sensitive e-series words,0.4990,weak
+grapheme,ᐱ,pi syllabic sign,0.7,0.68,0.62,0.76,0.74,0.68,0.78,0.04,0.1,0.02,0.04,0,Useful in water candidate and p-series orientation,0.4960,weak
+grapheme,ᐢ,final s,0.72,0.7,0.66,0.78,0.64,0.8,0.68,0.04,0.12,0.03,0.04,0,Finals require explicit modeling because they are not full syllables,0.4810,weak
+grapheme,ᒥ,mi syllabic sign,0.68,0.66,0.62,0.72,0.74,0.66,0.78,0.04,0.1,0.02,0.04,0,Useful for animal and quantity candidates,0.4800,weak
+grapheme,ᐠ,final k,0.68,0.66,0.62,0.74,0.64,0.78,0.68,0.04,0.12,0.03,0.04,0,High-payoff final in animal and land words,0.4490,weak
+grapheme,ᐤ,final w,0.66,0.64,0.6,0.7,0.62,0.76,0.66,0.04,0.12,0.04,0.04,0,Common final sign in language identity anchors,0.4170,weak
+grapheme,ᐦ,final h,0.62,0.6,0.58,0.68,0.58,0.76,0.66,0.04,0.12,0.04,0.04,0,Important for Plains Cree spelling but pronunciation needs review,0.3880,weak
+grapheme,ᐧ,w dot,0.54,0.52,0.48,0.5,0.56,0.7,0.52,0.06,0.16,0.04,0.04,0,Medial dot and local orthography behavior need reviewer guidancecandidate_type,0.2400,weak

@@ -1,0 +1,86 @@
+{
+	"course_id": "nko-reading-v1",
+	"display_name": "N'Ko Reading",
+	"language_tag": "nqo-Nkoo",
+	"script": "Nkoo",
+	"direction": "rtl",
+	"target_domains": [
+		"community_literacy_materials",
+		"dictionary_headwords",
+		"digital_text",
+		"cultural_identity_text",
+		"short_public_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store N'Ko text in NFC and preserve source strings for audit. Combining marks are pedagogically significant and must not be stripped or reordered outside reviewed normalization tooling."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_manding_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "N'Ko letters, vowel letters, combining tone and nasal marks, punctuation, and high-frequency word chunks",
+		"notes": "N'Ko is an RTL alphabet with combining marks that affect reading. Lessons must use bidi isolation in English UI and keep tone-mark pedagogy reviewer-gated."
+	},
+	"sources": [
+		{
+			"id": "unicode-nko-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U07C0.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "N'Ko code point metadata for letters, digits, punctuation, and combining marks. Use as infrastructure metadata only."
+		},
+		{
+			"id": "cldr-nqo-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "N'Ko locale data where available. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "noto-sans-nko-font",
+			"kind": "font_reference",
+			"url": "https://fonts.google.com/noto/specimen/Noto+Sans+NKo",
+			"license": "OFL reviewed for font testing",
+			"use": "scoring",
+			"domain_weight": 0.2,
+			"notes": "Rendering and fallback test source for letters and combining marks. Not a text corpus."
+		},
+		{
+			"id": "nko-wikimedia-references",
+			"kind": "lexicon_corpus_reference",
+			"url": "https://nqo.wikipedia.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Useful for modern digital text discovery only until share-alike implications are reviewed."
+		},
+		{
+			"id": "app-authored-nko-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed labels and examples authored by GlyphBridge with N'Ko-literate reviewer approval."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"rtl_bidi_required": true
+	}
+}

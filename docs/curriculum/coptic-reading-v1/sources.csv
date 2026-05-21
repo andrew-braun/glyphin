@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-coptic-block,unicode_metadata,https://www.unicode.org/charts/PDF/U2C80.pdf,Unicode License reviewed for metadata use,scoring,0.45,Coptic block metadata for dedicated Coptic letters
+unicode-greek-coptic-block,unicode_metadata,https://www.unicode.org/charts/PDF/U0370.pdf,Unicode License reviewed for metadata use,scoring,0.35,Greek and Coptic block metadata for shared historic letters and symbols
+coptic-scriptorium,corpus,https://copticscriptorium.org/,source-specific licenses require review,scoring_only,0.75,Digitized Coptic texts and annotations for frequency intuition with per-text license review required
+coptic-dictionary-online,lexicon,https://coptic-dictionary.org/,license and attribution terms require review,discovery_only,0.55,Gloss and spelling discovery only until attribution obligations are approved
+antinoou-fonts,font_reference,https://github.com/ctrlcctrlv/Antinoou,SIL Open Font License,scoring,0.2,Rendering reference for Coptic script support
+app-authored-coptic-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed Coptic examples authored by GlyphBridge from cleared vocabulary decisions

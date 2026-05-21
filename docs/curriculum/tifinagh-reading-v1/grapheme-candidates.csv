@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ⴰ,a,0.92,0.88,0.82,0.9,0.9,0.62,0.84,0.03,0.03,0.01,0.04,0,Core vowel with very high anchor availability
+grapheme,ⵎ,m,0.82,0.78,0.74,0.86,0.9,0.58,0.86,0.03,0.03,0.01,0.04,0,Unlocks aman and amazigh anchors
+grapheme,ⵏ,n,0.78,0.74,0.7,0.78,0.9,0.56,0.86,0.03,0.03,0.01,0.04,0,Common in short public and primer words
+grapheme,ⵣ,z,0.7,0.66,0.66,0.76,0.9,0.58,0.9,0.02,0.03,0.01,0.04,0,High identity value in Amazigh and Azul
+grapheme,ⵉ,i,0.72,0.68,0.66,0.74,0.9,0.56,0.84,0.03,0.03,0.01,0.04,0,Useful high-frequency vowel
+grapheme,ⵖ,gh,0.58,0.56,0.58,0.68,0.62,0.62,0.9,0.02,0.08,0.04,0.04,0,Strong Amazigh and bread payoff but pronunciation needs review
+grapheme,ⵔ,r,0.68,0.66,0.62,0.72,0.86,0.54,0.84,0.03,0.04,0.01,0.04,0,Common sonorant for bread and place words
+grapheme,ⵓ,u,0.74,0.7,0.68,0.76,0.9,0.56,0.84,0.03,0.03,0.01,0.04,0,Useful in bread and hello anchors
+grapheme,ⵜ,t,0.76,0.72,0.7,0.78,0.9,0.62,0.82,0.03,0.04,0.01,0.04,0,Frequent feminine prefix and public text unit
+grapheme,ⴷ,d,0.62,0.6,0.58,0.66,0.88,0.5,0.84,0.03,0.04,0.01,0.04,0,Useful in house and city words
+grapheme,ⴼ,f,0.52,0.5,0.52,0.6,0.88,0.48,0.88,0.02,0.04,0.01,0.04,0,Useful for river and food discovery words
+grapheme,ⵍ,l,0.56,0.54,0.54,0.62,0.9,0.48,0.84,0.03,0.04,0.01,0.04,0,Common in labels and school-like words
+grapheme,ⵙ,s,0.62,0.6,0.6,0.66,0.9,0.52,0.84,0.03,0.04,0.01,0.04,0,Useful for market and river anchors
+grapheme,ⴳ,g,0.54,0.52,0.54,0.62,0.86,0.5,0.86,0.02,0.04,0.01,0.04,0,Useful for market and bread family words
+grapheme,ⴱ,b,0.44,0.42,0.42,0.5,0.88,0.44,0.86,0.02,0.04,0.01,0.04,0,Lower early coverage but visually clear
+grapheme,ⴽ,k,0.46,0.44,0.44,0.52,0.88,0.44,0.86,0.02,0.04,0.01,0.04,0,Keep for later domain words after core vowels

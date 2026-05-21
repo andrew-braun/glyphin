@@ -1,0 +1,15 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ᐊ,a syllabic sign,0.88,0.84,0.76,0.82,0.76,0.74,0.7,0.05,0.08,0.02,0.04,0,High-payoff vowel sign and orientation-series gateway
+grapheme,ᐃ,i syllabic sign,0.84,0.8,0.72,0.8,0.76,0.74,0.7,0.05,0.08,0.02,0.04,0,Core vowel sign used in early anchors
+grapheme,ᐅ,o syllabic sign,0.76,0.72,0.66,0.68,0.74,0.7,0.72,0.05,0.08,0.02,0.04,0,Core rounded vowel sign and orientation contrast
+grapheme,ᐁ,e syllabic sign,0.72,0.68,0.62,0.66,0.74,0.68,0.72,0.05,0.08,0.02,0.04,0,Useful for dialect-sensitive e-series words
+grapheme,ᑕ,ta syllabic sign,0.78,0.74,0.7,0.82,0.76,0.78,0.74,0.04,0.1,0.02,0.04,0,Key orientation example through ᑖᓂᓯ
+grapheme,ᓂ,ni syllabic sign,0.8,0.76,0.72,0.84,0.78,0.76,0.76,0.04,0.1,0.02,0.04,0,High-payoff sign in greeting and water candidates
+grapheme,ᓯ,si syllabic sign,0.74,0.7,0.68,0.82,0.76,0.72,0.76,0.04,0.1,0.02,0.04,0,Completes early greeting anchor
+grapheme,ᐱ,pi syllabic sign,0.7,0.68,0.62,0.76,0.74,0.68,0.78,0.04,0.1,0.02,0.04,0,Useful in water candidate and p-series orientation
+grapheme,ᒥ,mi syllabic sign,0.68,0.66,0.62,0.72,0.74,0.66,0.78,0.04,0.1,0.02,0.04,0,Useful for animal and quantity candidates
+grapheme,ᐢ,final s,0.72,0.7,0.66,0.78,0.64,0.8,0.68,0.04,0.12,0.03,0.04,0,Finals require explicit modeling because they are not full syllables
+grapheme,ᐠ,final k,0.68,0.66,0.62,0.74,0.64,0.78,0.68,0.04,0.12,0.03,0.04,0,High-payoff final in animal and land words
+grapheme,ᐦ,final h,0.62,0.6,0.58,0.68,0.58,0.76,0.66,0.04,0.12,0.04,0.04,0,Important for Plains Cree spelling but pronunciation needs review
+grapheme,ᐤ,final w,0.66,0.64,0.6,0.7,0.62,0.76,0.66,0.04,0.12,0.04,0.04,0,Common final sign in language identity anchors
+grapheme,ᐧ,w dot,0.54,0.52,0.48,0.5,0.56,0.7,0.52,0.06,0.16,0.04,0.04,0,Medial dot and local orthography behavior need reviewer guidancecandidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes

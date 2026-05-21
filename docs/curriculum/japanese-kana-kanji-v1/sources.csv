@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+bccwj,frequency,https://clrd.ninjal.ac.jp/bccwj/,corpus terms require review before derived publication,scoring_only,0.8,Balanced Corpus of Contemporary Written Japanese for frequency intuition; do not ship derived text without review
+subtlex-jp,frequency,https://zenodo.org/records/7733208,CC BY; attribution review required,scoring_only,0.7,Subtitle-derived everyday frequency proxy for informal language
+jmdict,lexicon,https://www.edrdg.org/jmdict/j_jmdict.html,EDRDG and share-alike terms require review,discovery_only,0.65,Headword and gloss discovery only until attribution obligations are approved
+kanjidic2,kanji_reference,https://www.edrdg.org/wiki/index.php/KANJIDIC_Project,EDRDG and share-alike terms require review,discovery_only,0.5,Kanji readings meanings stroke counts and component discovery
+unicode-japanese-blocks,unicode_metadata,https://www.unicode.org/charts/,Unicode License reviewed for metadata use,scoring,0.4,Hiragana Katakana CJK and modifier code point metadata
+app-authored-japanese-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed examples authored by GlyphBridge

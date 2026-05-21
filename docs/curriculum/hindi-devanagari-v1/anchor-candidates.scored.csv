@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,बस,bus,0.8,0.95,0.8,0.86,0.76,0.9,0.7,0.86,0.55,0.04,0.01,0.02,0,0,Transit word that demonstrates inherent vowel in both consonants,0.7608,strong
+anchor,नाम,name,0.84,0.82,0.68,0.82,0.68,0.9,0.66,0.76,0.55,0.04,0.01,0.03,0,0,High frequency and useful for forms and labels,0.6970,promising
+anchor,पानी,water,0.82,0.98,0.84,0.74,0.8,0.88,0.7,0.92,0.55,0.1,0.02,0.02,0,0,Survival menu anchor with प ा न ी,0.6950,promising
+anchor,चाय,tea,0.78,0.94,0.78,0.78,0.72,0.9,0.66,0.9,0.55,0.08,0.02,0.02,0,0,Compact cafe anchor with matra and glide,0.6854,promising
+anchor,रेल,rail train,0.7,0.9,0.74,0.8,0.72,0.9,0.68,0.82,0.55,0.06,0.01,0.02,0,0,Transit anchor for e matra and ल,0.6850,promising
+anchor,दाल,lentils,0.74,0.9,0.72,0.76,0.66,0.86,0.68,0.86,0.55,0.08,0.02,0.02,0,0,Menu anchor with द ा ल,0.6474,promising
+anchor,दुकान,shop,0.72,0.92,0.72,0.7,0.76,0.86,0.72,0.84,0.55,0.12,0.02,0.02,0,0,Everyday label with u matra and long aa,0.6098,promising
+anchor,होटल,hotel,0.68,0.9,0.7,0.68,0.72,0.86,0.68,0.84,0.55,0.12,0.02,0.02,0,0,Loanword signage anchor for ओ and retroflex ट,0.5850,promising
+anchor,रोटी,flatbread,0.74,0.92,0.7,0.68,0.72,0.84,0.7,0.9,0.55,0.14,0.02,0.02,0,0,High menu utility with ओ matra and retroflex ट,0.5838,promising
+anchor,निकास,exit,0.62,0.94,0.72,0.62,0.78,0.82,0.72,0.82,0.55,0.14,0.02,0.03,0,0,Public sign anchor with i matra and inherent vowel review,0.5482,promising
+anchor,खुला,open,0.66,0.9,0.68,0.62,0.72,0.84,0.68,0.78,0.55,0.14,0.02,0.03,0,0,Shop sign word; kh needs aspirated contrast,0.5350,promising
+anchor,बंद,closed,0.72,0.9,0.7,0.62,0.82,0.78,0.72,0.78,0.55,0.16,0.04,0.03,0,0,Shop sign word with anusvara nasalization cue,0.5190,promising
+anchor,बाज़ार,market,0.72,0.92,0.74,0.58,0.82,0.76,0.76,0.86,0.55,0.18,0.04,0.03,0,0,Nukta word with strong real-world signage payoff,0.5074,promising
+anchor,हिंदी,Hindi,0.8,0.78,0.62,0.58,0.82,0.78,0.72,0.8,0.55,0.18,0.04,0.04,0,0,Meta anchor for anusvara and long ii once basics are known,0.4674,weak
+anchor,स्टेशन,station,0.68,0.95,0.72,0.48,0.86,0.74,0.76,0.84,0.55,0.24,0.04,0.03,0,0,High transit utility but starts with conjunct cluster,0.4284,weak
+anchor,प्रवेश,entrance,0.66,0.94,0.72,0.44,0.88,0.76,0.76,0.84,0.55,0.26,0.05,0.02,0,0,Essential public sign but conjunct and श load delay it,0.4002,weak
+anchor,शौचालय,restroom,0.58,0.98,0.68,0.34,0.84,0.72,0.78,0.86,0.55,0.32,0.06,0.03,0,0,Essential facility word but too high-load for early lessons,0.2842,weak

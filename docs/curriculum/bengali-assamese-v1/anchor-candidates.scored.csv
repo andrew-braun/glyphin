@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,চা,tea,0.8,0.96,0.78,0.88,0.72,0.9,0.66,0.9,0.55,0.04,0.01,0.02,0,0,Compact cafe anchor with চ and আ sign,0.7574,strong
+anchor,বাস,bus,0.78,0.96,0.8,0.84,0.78,0.88,0.68,0.86,0.55,0.04,0.01,0.02,0,0,Transit anchor with inherent vowel and স,0.7546,strong
+anchor,নাম,name,0.84,0.82,0.66,0.8,0.66,0.88,0.62,0.74,0.55,0.04,0.01,0.03,0,0,High-frequency form and label word,0.6842,promising
+anchor,ভাত,rice meal,0.8,0.94,0.76,0.76,0.72,0.86,0.68,0.9,0.55,0.1,0.02,0.03,0,0,Menu staple and inherent vowel checkpoint,0.6518,promising
+anchor,দোকান,shop,0.74,0.94,0.74,0.68,0.78,0.86,0.72,0.84,0.55,0.12,0.02,0.02,0,0,Everyday storefront anchor with ও sign,0.6202,promising
+anchor,বাজার,market,0.76,0.94,0.76,0.68,0.76,0.84,0.72,0.86,0.55,0.12,0.03,0.03,0,0,High sign payoff with ব জ র,0.6050,promising
+anchor,পানি,water,0.76,0.96,0.78,0.68,0.76,0.84,0.68,0.88,0.55,0.14,0.03,0.04,0,0,Useful in Bangladesh contexts; reviewer should compare জল,0.5802,promising
+anchor,দুধ,milk,0.72,0.9,0.68,0.64,0.68,0.84,0.64,0.86,0.55,0.14,0.02,0.02,0,0,Menu anchor with দ and vowel sign review,0.5578,promising
+anchor,হোটেল,hotel,0.68,0.9,0.7,0.64,0.72,0.84,0.68,0.84,0.55,0.14,0.02,0.02,0,0,Loanword signage with ও and এ signs,0.5578,promising
+anchor,খোলা,open,0.66,0.9,0.68,0.62,0.72,0.84,0.68,0.78,0.55,0.14,0.02,0.03,0,0,Shop sign word with খ and ও sign,0.5350,promising
+anchor,রাস্তা,road street,0.72,0.92,0.72,0.6,0.8,0.78,0.72,0.8,0.55,0.18,0.04,0.03,0,0,Signage word with conjunct load,0.5018,promising
+anchor,বাংলা,Bengali language,0.82,0.84,0.68,0.52,0.84,0.78,0.74,0.88,0.55,0.22,0.04,0.04,0,0,Meta anchor for anusvara and language identity,0.4502,weak
+anchor,ট্রেন,train,0.7,0.94,0.74,0.46,0.84,0.78,0.76,0.84,0.55,0.24,0.04,0.03,0,0,High transit utility but needs conjunct cluster,0.4326,weak
+anchor,স্কুল,school,0.68,0.9,0.68,0.42,0.84,0.78,0.76,0.82,0.55,0.26,0.04,0.02,0,0,Everyday label but begins with conjunct cluster,0.3950,weak
+anchor,বন্ধ,closed,0.66,0.9,0.68,0.42,0.82,0.72,0.76,0.78,0.55,0.28,0.06,0.03,0,0,High utility but conjunct and nasal signs make it late,0.3322,weak
+anchor,প্রবেশ,entrance,0.62,0.94,0.7,0.34,0.88,0.72,0.78,0.82,0.55,0.32,0.06,0.02,0,0,Essential public sign but high conjunct load,0.3014,weak
+anchor,প্রস্থান,exit,0.62,0.94,0.7,0.32,0.88,0.72,0.78,0.82,0.55,0.34,0.06,0.02,0,0,Pairs with entrance but should be late,0.2786,weak

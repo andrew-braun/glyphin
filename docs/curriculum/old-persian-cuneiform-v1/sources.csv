@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-old-persian-block,unicode_metadata,https://www.unicode.org/charts/PDF/U103A0.pdf,Unicode License reviewed for metadata use,scoring,0.45,Encoded Old Persian signs and word divider metadata
+achemenet-inscriptions,epigraphic_corpus,https://www.achemenet.com/,site and text reuse terms require review,discovery_only,0.7,Achaemenid inscription context and bibliography for discovery only
+livius-achaemenid-inscriptions,reference,https://www.livius.org/sources/about/achaemenid-royal-inscriptions/,reuse terms require review,discovery_only,0.45,Introductory inscription reference for human research only
+titus-old-persian,corpus_reference,https://titus.uni-frankfurt.de/,corpus terms require review,scoring_only,0.55,Comparative text and transliteration evidence for scoring only
+noto-sans-old-persian,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Old+Persian,SIL Open Font License,scoring,0.2,Rendering reference for encoded Old Persian signs
+app-authored-old-persian-examples,authored_examples,,app_owned,shipped_content,0.9,Reviewed royal-inscription style examples authored by GlyphBridge

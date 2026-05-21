@@ -1,0 +1,21 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ទ,t-series consonant,0.78,0.74,0.8,0.9,0.7,0.68,0.78,0.04,0.08,0.04,0.03,0,High-payoff base for water and public words
+grapheme,ក,k-series consonant,0.86,0.82,0.78,0.86,0.76,0.7,0.8,0.03,0.06,0.03,0.03,0,Core consonant and useful series example
+grapheme,ប,b-series consonant,0.82,0.78,0.78,0.86,0.74,0.68,0.78,0.04,0.06,0.03,0.03,0,Unlocks rice and bus-like loan vocabulary
+grapheme,យ,y consonant,0.74,0.7,0.72,0.82,0.78,0.58,0.8,0.03,0.05,0.03,0.03,0,High-value final and medial-looking form in early anchors
+grapheme,ត,t consonant,0.78,0.74,0.76,0.84,0.76,0.62,0.8,0.03,0.06,0.03,0.03,0,Useful for tea and everyday words
+grapheme,ែ,e/ae dependent vowel sign,0.62,0.58,0.72,0.84,0.72,0.78,0.66,0.03,0.12,0.03,0.04,0,Preposed visual position is an essential early scan pattern
+grapheme,ា,aa dependent vowel sign,0.9,0.86,0.82,0.88,0.82,0.76,0.7,0.02,0.08,0.02,0.03,0,High-frequency right-side vowel sign
+grapheme,ិ,i dependent vowel sign,0.74,0.7,0.68,0.76,0.8,0.72,0.68,0.02,0.08,0.02,0.04,0,Above sign needed for menu and facility vocabulary
+grapheme,ឹ,ue dependent vowel sign,0.56,0.52,0.72,0.82,0.68,0.74,0.7,0.03,0.1,0.03,0.04,0,Unlocks water and shows non-Latin vowel placement
+grapheme,្,coeng sign,0.7,0.66,0.7,0.78,0.5,0.86,0.58,0.04,0.2,0.08,0.08,0,Subscript marker is vital but high load for early lessons
+grapheme,ផ,ph consonant,0.52,0.5,0.68,0.78,0.68,0.62,0.82,0.05,0.08,0.04,0.03,0,Unlocks market and road anchors with subscript review
+grapheme,ស,s consonant,0.78,0.74,0.74,0.8,0.78,0.62,0.78,0.03,0.06,0.03,0.03,0,Useful in school hotel and facility words
+grapheme,រ,r consonant,0.82,0.78,0.72,0.78,0.72,0.68,0.76,0.03,0.08,0.04,0.03,0,Common base and subscript participant
+grapheme,ល,l consonant,0.76,0.72,0.7,0.76,0.78,0.6,0.8,0.03,0.06,0.03,0.03,0,Useful for road and school words
+grapheme,អ,independent vowel carrier,0.72,0.68,0.64,0.7,0.7,0.72,0.82,0.03,0.08,0.04,0.03,0,Needed to explain vowel carrier behavior
+grapheme,ង,ng consonant,0.68,0.64,0.7,0.74,0.66,0.58,0.78,0.03,0.08,0.04,0.03,0,Useful in toilet and final nasal patterns
+grapheme,ច,ch consonant,0.68,0.64,0.72,0.78,0.72,0.62,0.8,0.03,0.06,0.03,0.03,0,Unlocks enter exit vocabulary
+grapheme,េញ,enh ending chunk,0.42,0.38,0.62,0.68,0.56,0.76,0.62,0.05,0.18,0.08,0.06,0,Treat as later chunk for exit after base signs are known
+grapheme,ោ,o dependent vowel sign,0.62,0.58,0.64,0.7,0.72,0.72,0.66,0.03,0.1,0.03,0.04,0,Multi-position vowel behavior needs explicit renderer checks
+grapheme,ូ,uu dependent vowel sign,0.58,0.54,0.64,0.7,0.78,0.68,0.68,0.03,0.08,0.03,0.04,0,Below sign useful for road and enter vocabulary

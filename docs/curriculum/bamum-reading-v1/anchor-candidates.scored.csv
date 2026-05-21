@@ -1,0 +1,11 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ꚠ,a syllable anchor,0.6,0.5,0.48,0.9,0.62,0.72,0.58,0.56,0.3,0.02,0.02,0.06,0,0,Micro-anchor useful only if reviewers accept sign-first pedagogy,0.5076,promising
+anchor,ꚠꚡ,a-ka sequence candidate,0.46,0.54,0.44,0.64,0.58,0.56,0.7,0.66,0.22,0.16,0.08,0.1,0.03,0,Placeholder sequence for early chart-family practice,0.1640,weak
+anchor,ꚢꚣ,u-ku sequence candidate,0.44,0.54,0.44,0.64,0.58,0.56,0.7,0.66,0.22,0.16,0.08,0.1,0.03,0,Placeholder sequence to compare u and ku signs,0.1596,weak
+anchor,ꚤꚧ,ee-o sequence candidate,0.42,0.5,0.4,0.6,0.56,0.54,0.68,0.62,0.2,0.18,0.08,0.1,0.03,0,Placeholder sequence requiring reviewed word replacement,0.1092,weak
+anchor,ꚳꚵ,m-mu sequence candidate,0.4,0.5,0.4,0.58,0.54,0.5,0.68,0.62,0.2,0.2,0.08,0.1,0.03,0,Series-practice placeholder until real anchors are approved,0.0768,weak
+anchor,reviewer-selected Bamum name,Bamum language or script name,0.62,0.92,0.76,0.18,0.86,0.46,0.94,0.86,0.14,0.42,0.1,0.14,0.05,0,Required before final lesson copy; no unreviewed spelling included,0.0000,weak
+anchor,reviewer-selected greeting,greeting in Bamum,0.48,0.88,0.6,0.16,0.76,0.46,0.9,0.82,0.14,0.42,0.1,0.14,0.04,0,Required community-reviewed social anchor,0.0000,weak
+anchor,reviewer-selected water word,water in Bamum,0.5,0.9,0.62,0.16,0.76,0.46,0.88,0.82,0.14,0.42,0.1,0.14,0.02,0,High-utility word but needs spelling and pronunciation review,0.0000,weak
+anchor,reviewer-selected museum label,cultural label in Bamum,0.44,0.86,0.6,0.14,0.78,0.42,0.92,0.78,0.12,0.46,0.12,0.14,0.06,0,Museum or heritage anchor must be culturally reviewed,0.0000,weak
+anchor,reviewer-selected dictionary headword,short headword,0.42,0.72,0.54,0.14,0.72,0.42,0.84,0.72,0.12,0.44,0.12,0.14,0.03,0,Needed to replace placeholders before ingestioncandidate_type,0.0000,weak

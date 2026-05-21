@@ -1,0 +1,95 @@
+{
+	"course_id": "brahmi-reading-v1",
+	"display_name": "Brahmi Reading",
+	"language_tag": "sa-Brah",
+	"script": "Brah",
+	"direction": "ltr",
+	"target_domains": [
+		"ashokan_edict_terms",
+		"museum_inscriptions",
+		"donative_labels",
+		"royal_names_titles",
+		"transliteration_workbenches"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store encoded Brahmi in NFC and preserve transliteration, inscription source, and uncertain readings. Do not normalize Brahmi into Devanagari or Latin transliteration."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "inscription_spacing_with_epigraphic_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters_with_abugida_review",
+		"pedagogical_units": "Brahmi consonant bases, independent vowels, vowel signs, anusvara, virama, akshara chunks, and transliteration labels",
+		"notes": "Brahmi is an early abugida with inscriptional variation. Count both encoded clusters and teachable akshara parts and keep Prakrit versus Sanskrit language scope explicit."
+	},
+	"sources": [
+		{
+			"id": "unicode-brahmi-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U11000.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Encoded Brahmi characters and combining marks for inventory and rendering checks."
+		},
+		{
+			"id": "siddham-inscription-database",
+			"kind": "epigraphic_database",
+			"url": "https://siddham.network/",
+			"license": "database and image reuse terms require review",
+			"use": "discovery_only",
+			"domain_weight": 0.55,
+			"notes": "South Asian inscription context and bibliography for discovery only."
+		},
+		{
+			"id": "gretel-sanskrit-reference",
+			"kind": "text_reference",
+			"url": "https://gretil.sub.uni-goettingen.de/",
+			"license": "text-specific reuse terms require review",
+			"use": "discovery_only",
+			"domain_weight": 0.25,
+			"notes": "Sanskrit lexical context only and not an inscription corpus for shipped examples."
+		},
+		{
+			"id": "ashoka-inscription-references",
+			"kind": "epigraphic_reference",
+			"url": "https://www.ancient-buddhist-texts.net/",
+			"license": "reuse terms require review",
+			"use": "discovery_only",
+			"domain_weight": 0.45,
+			"notes": "Edict terminology and bibliography for human research only."
+		},
+		{
+			"id": "noto-sans-brahmi",
+			"kind": "font_reference",
+			"url": "https://fonts.google.com/noto/specimen/Noto+Sans+Brahmi",
+			"license": "SIL Open Font License",
+			"use": "scoring",
+			"domain_weight": 0.2,
+			"notes": "Rendering reference for Brahmi letters and vowel signs."
+		},
+		{
+			"id": "app-authored-brahmi-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed Brahmi examples authored by GlyphBridge from cleared vocabulary decisions."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": false,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"specialist_review_required": true
+	}
+}

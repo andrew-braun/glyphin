@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ᜀ,a independent vowel,0.62,0.58,0.58,0.68,0.9,0.62,0.82,0.03,0.06,0.02,0.08,0,Useful for araw and identity words
+grapheme,ᜊ,ba syllable,0.7,0.66,0.64,0.74,0.88,0.62,0.82,0.03,0.06,0.02,0.08,0,High payoff for baybayin and babae
+grapheme,ᜃ,ka syllable,0.68,0.64,0.64,0.74,0.88,0.62,0.82,0.03,0.06,0.02,0.08,0,Useful in pagkain and bukas
+grapheme,ᜇ,da or ra syllable,0.58,0.54,0.54,0.62,0.78,0.64,0.74,0.05,0.08,0.04,0.08,0,Da ra merger requires explicit historical note
+grapheme,ᜄ,ga syllable,0.56,0.54,0.54,0.64,0.88,0.58,0.82,0.03,0.06,0.02,0.08,0,Water and food anchors need ga
+grapheme,ᜑ,ha syllable,0.54,0.52,0.5,0.6,0.86,0.56,0.82,0.03,0.06,0.02,0.08,0,Useful in bahay and salamat-like examples
+grapheme,ᜎ,la syllable,0.62,0.58,0.58,0.68,0.88,0.56,0.82,0.03,0.06,0.02,0.08,0,Useful for lalaki and salamat anchors
+grapheme,ᜋ,ma syllable,0.6,0.56,0.56,0.66,0.88,0.56,0.82,0.03,0.06,0.02,0.08,0,High payoff in salamat and identity words
+grapheme,ᜈ,na syllable,0.64,0.6,0.58,0.66,0.88,0.56,0.82,0.03,0.06,0.02,0.08,0,Food and final-consonant examples need n policy
+grapheme,ᜅ,nga syllable,0.48,0.46,0.48,0.56,0.82,0.56,0.86,0.02,0.08,0.03,0.08,0,Important Tagalog sound but lower early coverage
+grapheme,ᜉ,pa syllable,0.58,0.56,0.56,0.64,0.88,0.54,0.82,0.03,0.06,0.02,0.08,0,Useful in food and school-like anchors
+grapheme,ᜐ,sa syllable,0.62,0.6,0.6,0.68,0.88,0.56,0.82,0.03,0.06,0.02,0.08,0,Useful for salamat and bukas
+grapheme,ᜆ,ta syllable,0.6,0.58,0.56,0.66,0.88,0.54,0.82,0.03,0.06,0.02,0.08,0,Useful in tubig and salamat
+grapheme,ᜌ,ya syllable,0.56,0.54,0.52,0.62,0.88,0.54,0.82,0.03,0.06,0.02,0.08,0,Useful in baybayin and bahay
+grapheme,ᜒ,i or e vowel mark,0.64,0.6,0.6,0.7,0.82,0.74,0.64,0.04,0.12,0.03,0.1,0,Dependent mark shifts inherent a to i or e
+grapheme,ᜓ,u or o vowel mark,0.62,0.58,0.58,0.68,0.82,0.74,0.64,0.04,0.12,0.03,0.1,0,Dependent mark shifts inherent a to u or o
+grapheme,᜔,virama or pamudpod,0.58,0.54,0.6,0.66,0.74,0.9,0.56,0.06,0.2,0.08,0.12,0,Final consonant policy is central and unresolved

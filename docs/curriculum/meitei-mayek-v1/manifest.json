@@ -1,0 +1,95 @@
+{
+	"course_id": "meitei-mayek-v1",
+	"display_name": "Meitei Mayek Reading",
+	"language_tag": "mni-Mtei",
+	"script": "Mtei",
+	"direction": "ltr",
+	"target_domains": [
+		"classroom_primer_words",
+		"food_market_words",
+		"public_signage",
+		"identity_and_place_labels",
+		"everyday_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Meitei Mayek text in NFC and preserve source strings for audit. Keep vowel signs and final consonant letters explicit during segmentation review."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "manual_review_with_language_specialist",
+		"grapheme_segmenter": "unicode_grapheme_clusters_with_final_letter_review",
+		"pedagogical_units": "base letters, vowel signs, lonsum final consonant letters, syllable chunks, and loanword clusters",
+		"notes": "Meitei Mayek has distinct final consonant letters and combining vowel signs. Treat lonsum letters as separate pedagogical units when they affect decoding."
+	},
+	"sources": [
+		{
+			"id": "unicode-meetei-mayek-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/UABC0.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Meetei Mayek block metadata for letters, lonsum final letters, signs, and punctuation."
+		},
+		{
+			"id": "cldr-mni-mtei-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Manipuri Meitei Mayek locale metadata where available. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "wiktionary-manipuri-discovery",
+			"kind": "lexicon",
+			"url": "https://en.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Useful for spelling and gloss discovery only. Do not ship copied entries."
+		},
+		{
+			"id": "meitei-mayek-learning-references",
+			"kind": "orthography_reference",
+			"url": "",
+			"license": "publisher or site licenses require review",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Use for specialist planning around vowel signs, final letters, and spelling conventions only."
+		},
+		{
+			"id": "openstreetmap-meitei-names",
+			"kind": "environmental_print",
+			"url": "https://www.openstreetmap.org/",
+			"license": "ODbL; derived-data obligations require review",
+			"use": "scoring_only",
+			"domain_weight": 0.55,
+			"notes": "Potential validation source for place and public labels. Do not ship raw extracts."
+		},
+		{
+			"id": "app-authored-meitei-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"specialist_review_required": true
+	}
+}

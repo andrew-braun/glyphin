@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-brahmi-block,unicode_metadata,https://www.unicode.org/charts/PDF/U11000.pdf,Unicode License reviewed for metadata use,scoring,0.45,Encoded Brahmi characters and combining marks for inventory checks
+siddham-inscription-database,epigraphic_database,https://siddham.network/,database and image reuse terms require review,discovery_only,0.55,South Asian inscription context and bibliography for discovery only
+gretel-sanskrit-reference,text_reference,https://gretil.sub.uni-goettingen.de/,text-specific reuse terms require review,discovery_only,0.25,Sanskrit lexical context only and not an inscription corpus for shipped examples
+ashoka-inscription-references,epigraphic_reference,https://www.ancient-buddhist-texts.net/,reuse terms require review,discovery_only,0.45,Edict terminology and bibliography for human research only
+noto-sans-brahmi,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Brahmi,SIL Open Font License,scoring,0.2,Rendering reference for Brahmi letters and vowel signs
+app-authored-brahmi-examples,authored_examples,,app_owned,shipped_content,0.9,Reviewed Brahmi examples authored by GlyphBridge

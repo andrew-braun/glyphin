@@ -1,0 +1,8 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-ethiopic-blocks,unicode_metadata,https://www.unicode.org/charts/,Unicode License reviewed for metadata use,scoring,0.45,Ethiopic metadata for code points punctuation and rendering checks
+cldr-am-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.5,Amharic exemplar characters and locale metadata with exact release pending
+wordfreq-am,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.5,Broad Amharic frequency intuition only with no derived shipped examples
+leipzig-amharic,frequency_corpus,https://wortschatz.uni-leipzig.de/,Leipzig corpus terms require review before derived publication,scoring_only,0.45,Broad frequency cross check with register and license review required
+amharic-wiktionary,lexicon,https://am.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.4,Gloss and spelling discovery only until obligations are approved
+universal-dependencies-amharic,treebank,https://universaldependencies.org/,treebank license requires review before derived use,discovery_only,0.25,Potential morphology and tokenization reference with weak direct domain match
+app-authored-amharic-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed menu market transit and facility examples authored by GlyphBridge

@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ᚠᚢᚦᚨᚱᚲ,futhark sequence,0.72,0.88,0.82,0.72,0.82,0.66,0.78,0.92,0.46,0.14,0.04,0.04,0,0,Core chart anchor and compact script identity win
+anchor,ᚱᚢᚾᚨ,rune or secret,0.56,0.78,0.66,0.72,0.62,0.62,0.68,0.86,0.42,0.1,0.04,0.05,0,0,Useful as app-authored transliteration example after review
+anchor,ᚠᛖᚺᚢ,fehu cattle or wealth,0.5,0.72,0.62,0.66,0.64,0.62,0.66,0.86,0.42,0.12,0.04,0.05,0,0,Rune-name anchor with cultural framing
+anchor,ᚨᚾᛊᚢᛉ,ansuz rune name,0.48,0.68,0.6,0.62,0.64,0.58,0.64,0.82,0.4,0.14,0.05,0.06,0.02,0,Name and deity associations require careful wording
+anchor,ᛏᛁᚹᚨᛉ,tiwaz rune name,0.48,0.7,0.6,0.64,0.64,0.58,0.66,0.84,0.4,0.14,0.05,0.06,0.02,0,Useful for t and i review but culturally loaded
+anchor,ᛒᛖᚱᚲᚨᚾᚨ,berkana rune name,0.44,0.64,0.54,0.54,0.58,0.6,0.6,0.8,0.38,0.2,0.05,0.05,0,0,Longer rune-name anchor after core runes
+anchor,ᛗᚨᚾᚾᚨᛉ,mannaz rune name,0.46,0.66,0.56,0.58,0.6,0.6,0.62,0.82,0.38,0.18,0.05,0.05,0,0,Good nasal review and late z value caveat
+anchor,ᚱᚨᛁᛞᛟ,raido rune name,0.44,0.64,0.54,0.58,0.58,0.56,0.6,0.8,0.38,0.18,0.05,0.06,0,0,Introduces d and o after core futhark
+anchor,ᚲᛖᚾᚨᛉ,kenaz rune name,0.44,0.64,0.54,0.58,0.58,0.58,0.6,0.8,0.38,0.18,0.05,0.06,0,0,Useful for k and e but period labels need review
+anchor,ᛊᛟᚹᛁᛚᛟ,sowilo rune name,0.42,0.64,0.52,0.5,0.58,0.54,0.6,0.82,0.38,0.22,0.05,0.06,0,0,Late anchor for s and o with variant-form review
+anchor,ᚺᚨᚷᚨᛚᚨᛉ,hagalaz rune name,0.42,0.62,0.52,0.54,0.56,0.58,0.6,0.8,0.38,0.2,0.05,0.06,0,0,Good h and g review after futhark basics
+anchor,ᛟᚦᚨᛚᚨ,othala rune name,0.4,0.62,0.5,0.5,0.56,0.54,0.58,0.8,0.36,0.22,0.05,0.06,0.04,0,Sensitive modern misuse risk requires explicit review

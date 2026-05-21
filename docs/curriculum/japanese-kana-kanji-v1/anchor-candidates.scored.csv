@@ -1,0 +1,21 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,すし,sushi,0.62,0.88,0.7,0.82,0.58,0.9,0.68,0.9,0.55,0.1,0.01,0.02,0,0,Hiragana first-session anchor,0.6094,promising
+anchor,カフェ,cafe,0.64,0.9,0.74,0.8,0.68,0.86,0.7,0.9,0.55,0.12,0.01,0.02,0,0,Katakana loanword anchor with familiar concept,0.6090,promising
+anchor,水,water,0.78,0.94,0.82,0.72,0.74,0.86,0.74,0.9,0.55,0.16,0.02,0.02,0,0,High survival utility and first kanji win,0.6070,promising
+anchor,バス,bus,0.62,0.9,0.72,0.8,0.72,0.84,0.7,0.86,0.55,0.12,0.01,0.02,0,0,Dakuten and transit utility,0.6022,promising
+anchor,米,rice,0.7,0.9,0.78,0.74,0.68,0.82,0.7,0.86,0.55,0.14,0.02,0.02,0,0,Menu staple with clear shape,0.5854,promising
+anchor,人,person,0.76,0.84,0.66,0.74,0.6,0.82,0.66,0.82,0.55,0.12,0.02,0.03,0,0,High-frequency simple kanji,0.5666,promising
+anchor,出口,exit,0.64,0.94,0.78,0.72,0.72,0.82,0.72,0.86,0.55,0.16,0.02,0.02,0,0,High-value transit and facility sign,0.5618,promising
+anchor,肉,meat,0.64,0.9,0.74,0.72,0.64,0.82,0.68,0.84,0.55,0.14,0.02,0.02,0,0,Menu category anchor,0.5570,promising
+anchor,入口,entrance,0.62,0.92,0.76,0.7,0.72,0.82,0.72,0.84,0.55,0.16,0.02,0.02,0,0,Signage pair with 出口,0.5470,promising
+anchor,ビール,beer,0.58,0.86,0.7,0.76,0.72,0.84,0.68,0.86,0.55,0.14,0.01,0.03,0,0,Long-vowel mark and dakuten anchor,0.5462,promising
+anchor,駅,station,0.68,0.94,0.78,0.68,0.7,0.8,0.72,0.86,0.55,0.18,0.03,0.02,0,0,Transit kanji payoff,0.5314,promising
+anchor,レストラン,restaurant,0.62,0.9,0.74,0.72,0.66,0.82,0.7,0.86,0.55,0.18,0.02,0.02,0,0,Longer katakana chunking anchor,0.5166,promising
+anchor,食べる,eat,0.76,0.84,0.76,0.7,0.76,0.78,0.72,0.82,0.55,0.18,0.04,0.03,0,0,Mixed kanji and hiragana verb pattern,0.5134,promising
+anchor,女,woman / female,0.56,0.86,0.66,0.72,0.58,0.8,0.64,0.78,0.55,0.14,0.02,0.02,0,0,Public-sign and restroom category anchor,0.5070,promising
+anchor,日,day / sun,0.78,0.8,0.66,0.7,0.62,0.78,0.66,0.8,0.55,0.14,0.04,0.04,0,0,Calendar and date anchor,0.5062,promising
+anchor,ご飯,rice / meal,0.72,0.9,0.78,0.7,0.7,0.76,0.72,0.84,0.55,0.2,0.04,0.03,0,0,Common mixed kana-kanji word,0.4918,weak
+anchor,飲む,drink,0.68,0.86,0.74,0.68,0.74,0.78,0.7,0.82,0.55,0.18,0.04,0.03,0,0,Mixed-script beverage verb pattern,0.4902,weak
+anchor,魚,fish,0.58,0.88,0.72,0.66,0.64,0.8,0.66,0.82,0.55,0.18,0.02,0.02,0,0,Menu category anchor with higher stroke load,0.4850,weak
+anchor,月,month / moon,0.72,0.78,0.64,0.7,0.62,0.78,0.64,0.78,0.55,0.14,0.04,0.04,0,0,Calendar and date anchor,0.4842,weak
+anchor,火,fire,0.58,0.72,0.62,0.74,0.6,0.8,0.62,0.78,0.55,0.12,0.02,0.04,0,0,Warning sign and weekday anchor,0.4834,weak

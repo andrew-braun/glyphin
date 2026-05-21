@@ -1,0 +1,9 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-bengali-block,unicode_metadata,https://www.unicode.org/charts/PDF/U0980.pdf,Unicode License reviewed for metadata use,scoring,0.4,Bengali block metadata including Assamese-specific letters
+cldr-bn-as-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.5,Bengali and Assamese exemplar comparison; confirm exact release before ingestion
+wordfreq-bn,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.55,Broad Bengali frequency intuition only
+indic-nlp-library-bn,tokenizer_transliteration_tool,https://github.com/anoopkunchukuttan/indic_nlp_library,MIT package license reviewed for tooling use,discovery_only,0.1,Normalization and transliteration tooling only
+bn-wiktionary,lexicon,https://bn.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.45,Bengali gloss and spelling discovery only
+as-wiktionary,lexicon,https://as.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.25,Assamese contrast discovery only
+openstreetmap-bangladesh-assam-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.75,Bengali-script place transit and public-signage validation only
+app-authored-bengali-domain-examples,authored_examples,,app_owned,shipped_content,0.95,Reviewed Bengali-first examples authored by GlyphBridge

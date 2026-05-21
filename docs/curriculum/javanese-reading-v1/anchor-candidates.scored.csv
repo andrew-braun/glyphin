@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ꦱꦸꦱꦸ,milk,0.52,0.86,0.62,0.66,0.62,0.82,0.62,0.86,0.45,0.1,0.03,0.02,0,0,Repeating pattern makes dependent u sign approachable,0.5190,promising
+anchor,ꦱꦼꦒ,rice,0.56,0.9,0.68,0.54,0.7,0.78,0.68,0.86,0.45,0.18,0.04,0.03,0,0,Food anchor with pepet and ga review,0.4362,weak
+anchor,ꦥꦱꦂ,market,0.52,0.86,0.66,0.52,0.72,0.8,0.7,0.84,0.45,0.18,0.04,0.03,0,0,Public domain payoff and final r sign lesson,0.4182,weak
+anchor,ꦧꦚꦸ,water,0.58,0.92,0.72,0.48,0.72,0.76,0.7,0.88,0.45,0.22,0.04,0.03,0,0,High survival value but nya and suku add load,0.4046,weak
+anchor,ꦩꦼꦠꦸ,exit or go out,0.48,0.82,0.6,0.48,0.7,0.76,0.68,0.8,0.45,0.2,0.04,0.03,0,0,Wayfinding value with pepet and suku,0.3590,weak
+anchor,ꦢꦭꦤ꧀,road,0.5,0.82,0.62,0.46,0.72,0.78,0.68,0.8,0.45,0.22,0.04,0.03,0,0,Wayfinding anchor with final consonant marker,0.3474,weak
+anchor,ꦏꦺꦴꦥꦶ,coffee,0.54,0.9,0.68,0.42,0.78,0.76,0.7,0.88,0.45,0.26,0.05,0.03,0,0,Useful cafe loanword but multi-sign vowel is high load,0.3334,weak
+anchor,ꦩꦔꦤ꧀,eat,0.5,0.72,0.58,0.42,0.72,0.76,0.62,0.78,0.45,0.24,0.04,0.03,0,0,Useful verb but final marker and nga add load,0.2914,weak
+anchor,ꦲꦸꦩꦃ,house,0.46,0.72,0.56,0.46,0.66,0.72,0.62,0.76,0.45,0.22,0.05,0.03,0,0,Home anchor with final h sign review,0.2850,weak
+anchor,ꦠꦺꦴꦏꦺꦴ,shop,0.48,0.84,0.6,0.38,0.78,0.76,0.68,0.82,0.45,0.3,0.05,0.03,0,0,Useful loanword but o signs make it later,0.2474,weak
+anchor,ꦩ꧀ꦭꦼꦧꦸ,enter,0.46,0.82,0.58,0.34,0.82,0.72,0.72,0.8,0.45,0.32,0.05,0.04,0,0,Pairs with exit but pasangan and pangkon are late,0.2030,weak
+anchor,ꦲꦥꦺꦴꦠꦺꦏ꧀,pharmacy,0.42,0.88,0.62,0.28,0.82,0.72,0.74,0.82,0.45,0.38,0.06,0.04,0,0,High public utility but too long and sign-heavy for early lessons,0.1350,weak

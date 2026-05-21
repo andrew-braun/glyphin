@@ -1,0 +1,19 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ᠠ,a vowel,0.9,0.86,0.78,0.86,0.78,0.72,0.72,0.05,0.12,0.04,0.12,0,High-frequency vowel with positional shape review,0.5010,promising
+grapheme,ᠮ,m consonant,0.74,0.72,0.68,0.78,0.84,0.58,0.76,0.04,0.1,0.02,0.12,0,Useful first consonant for Mongol and meat anchors,0.4460,weak
+grapheme,ᠡ,e vowel,0.82,0.78,0.7,0.78,0.76,0.72,0.72,0.05,0.12,0.04,0.12,0,Pairs early with a for vowel harmony awareness,0.4390,weak
+grapheme,ᠨ,n consonant,0.72,0.7,0.66,0.74,0.84,0.58,0.76,0.04,0.1,0.02,0.12,0,Common in book and place words,0.4290,weak
+grapheme,ᠢ,i vowel,0.76,0.72,0.66,0.76,0.78,0.66,0.72,0.05,0.1,0.03,0.12,0,Useful in teacher and loan anchors,0.4270,weak
+grapheme,ᠤ,u vowel,0.78,0.74,0.72,0.82,0.72,0.72,0.7,0.06,0.12,0.04,0.12,0,High payoff for water and milk anchors,0.4110,weak
+grapheme,ᠣ,o vowel,0.78,0.74,0.72,0.8,0.72,0.72,0.7,0.06,0.12,0.04,0.12,0,Frequent in Mongol and food words but shape varies by context,0.4090,weak
+grapheme,ᠯ,l consonant,0.68,0.66,0.64,0.72,0.84,0.56,0.76,0.04,0.1,0.02,0.12,0,High payoff in Mongol and bread anchors,0.4020,weak
+grapheme,ᠰ,s consonant,0.62,0.6,0.6,0.68,0.82,0.54,0.74,0.04,0.1,0.02,0.12,0,Useful in water and milk anchors,0.3570,weak
+grapheme,ᠭ,g consonant,0.68,0.66,0.64,0.74,0.74,0.6,0.7,0.06,0.12,0.04,0.12,0,Contextual variants require careful shaping QA,0.3350,weak
+grapheme,ᠲ,t consonant,0.6,0.58,0.56,0.64,0.82,0.52,0.74,0.04,0.1,0.02,0.12,0,Strong for bread and road labels,0.3350,weak
+grapheme,ᠪ,b consonant,0.56,0.54,0.54,0.64,0.78,0.52,0.74,0.04,0.1,0.02,0.12,0,Useful in teacher and label words,0.3080,weak
+grapheme,ᠷ,r consonant,0.58,0.56,0.54,0.62,0.78,0.52,0.72,0.05,0.1,0.02,0.12,0,Common but small positional forms need font QA,0.3050,weak
+grapheme,ᠬ,h or kh consonant,0.58,0.56,0.58,0.66,0.62,0.58,0.74,0.05,0.12,0.04,0.12,0,Pronunciation and positional forms need specialist review,0.2660,weak
+grapheme,ᠴ,ch consonant,0.5,0.48,0.5,0.58,0.76,0.5,0.8,0.03,0.1,0.03,0.12,0,Useful for tea but lower broad coverage,0.2650,weak
+grapheme,ᠵ,j consonant,0.48,0.46,0.5,0.58,0.74,0.5,0.8,0.03,0.1,0.03,0.12,0,Useful for road and market anchors,0.2530,weak
+grapheme,vertical punctuation,script punctuation,0.42,0.38,0.46,0.48,0.8,0.72,0.64,0.04,0.14,0.02,0.14,0,Needed for real vertical text but not an early letter lesson,0.1630,weak
+grapheme,variation selectors,free variation sequences,0.5,0.46,0.5,0.56,0.5,0.9,0.5,0.08,0.22,0.08,0.16,0,Represent as rendering metadata until a lesson needs them,0.0000,weak

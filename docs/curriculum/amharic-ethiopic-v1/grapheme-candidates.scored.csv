@@ -1,0 +1,30 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,መ,mä fidel,0.9,0.86,0.82,0.9,0.86,0.86,0.82,0.03,0.07,0.01,0,0,Common m family first order and many noun prefixes,0.7580,strong
+grapheme,ም,mə fidel,0.9,0.86,0.78,0.84,0.82,0.76,0.78,0.03,0.08,0.02,0,0,Food and road anchors with sixth order m,0.7100,promising
+grapheme,ና,na fidel,0.82,0.78,0.78,0.9,0.9,0.7,0.82,0.03,0.07,0.01,0,0,Coffee anchor and common na syllable,0.7000,promising
+grapheme,first order ä,default fidel order,0.92,0.88,0.82,0.9,0.78,0.92,0.66,0.02,0.12,0.03,0,0,Core order concept across consonant families,0.6980,promising
+grapheme,ያ,ya fidel,0.82,0.78,0.78,0.88,0.86,0.72,0.82,0.03,0.07,0.01,0,0,Market and entrance anchors with fourth order,0.6960,promising
+grapheme,ን,nə fidel,0.86,0.82,0.76,0.82,0.82,0.72,0.78,0.03,0.08,0.02,0,0,High frequency sixth order n and public labels,0.6810,promising
+grapheme,ት,tə / t fidel,0.86,0.82,0.78,0.86,0.82,0.72,0.78,0.04,0.08,0.02,0,0,High frequency sixth order and final like t in ቤት,0.6780,promising
+grapheme,በ,bä fidel,0.78,0.74,0.78,0.86,0.86,0.74,0.82,0.03,0.08,0.02,0,0,Market anchor and high frequency preposition shape,0.6560,promising
+grapheme,ግ,gə fidel,0.82,0.78,0.76,0.84,0.8,0.72,0.78,0.04,0.08,0.02,0,0,Food entrance and sixth order g behavior,0.6510,promising
+grapheme,ቡ,bu fidel,0.72,0.68,0.82,0.9,0.86,0.74,0.82,0.03,0.08,0.02,0,0,First coffee syllable and በ family second order,0.6360,promising
+grapheme,sixth order ə,common reduced order,0.9,0.86,0.8,0.86,0.72,0.94,0.64,0.03,0.14,0.04,0,0,Common order often used in word final or cluster like contexts,0.6360,promising
+grapheme,ይ,yə / y fidel,0.78,0.74,0.72,0.86,0.78,0.68,0.8,0.03,0.08,0.02,0,0,Final element in ሻይ and common function morphology,0.6320,promising
+grapheme,ው,wə fidel,0.78,0.74,0.76,0.86,0.78,0.72,0.78,0.04,0.08,0.02,0,0,Water and exit anchors with sixth order behavior,0.6310,promising
+grapheme,ል,lə fidel,0.78,0.74,0.72,0.82,0.78,0.68,0.8,0.03,0.08,0.02,0,0,Hotel final and common l family sixth order,0.6280,promising
+grapheme,ቤ,be fidel,0.72,0.68,0.76,0.86,0.86,0.72,0.84,0.03,0.08,0.02,0,0,House hotel and place words via fifth order,0.6220,promising
+grapheme,ድ,də fidel,0.78,0.74,0.72,0.8,0.82,0.7,0.78,0.04,0.08,0.02,0,0,Male category final and d family sixth order,0.6210,promising
+grapheme,ገ,gä fidel,0.72,0.68,0.78,0.84,0.84,0.74,0.82,0.04,0.08,0.02,0,0,Market anchor and first order consonant family,0.6120,promising
+grapheme,ወ,wä fidel,0.74,0.7,0.72,0.82,0.84,0.7,0.82,0.04,0.08,0.02,0,0,Male category ወንድ and w family start,0.6070,promising
+grapheme,vowel order grid,seven order behavior,0.86,0.82,0.8,0.84,0.72,0.96,0.62,0.03,0.18,0.04,0,0,Teachable pattern linking fidel families and vowels,0.5750,promising
+grapheme,ጋ,ga fidel,0.64,0.62,0.72,0.82,0.86,0.7,0.82,0.04,0.08,0.02,0,0,Price anchor and g family fourth order,0.5630,promising
+grapheme,ዋ,wa fidel,0.62,0.6,0.74,0.84,0.84,0.7,0.82,0.04,0.08,0.02,0,0,Price anchor and fourth order w family,0.5560,promising
+grapheme,ሃ,ha fidel,0.62,0.58,0.78,0.84,0.82,0.68,0.82,0.04,0.08,0.02,0,0,Water anchor and h family review,0.5540,promising
+grapheme,ቢ,bi fidel,0.58,0.56,0.7,0.76,0.84,0.66,0.82,0.03,0.08,0.02,0,0,Entrance anchor መግቢያ and third order,0.5280,promising
+grapheme,ሻ,sha fidel,0.5,0.48,0.78,0.86,0.86,0.68,0.86,0.02,0.08,0.02,0,0,Tea anchor with high memorability,0.5260,promising
+grapheme,ሆ,ho fidel,0.58,0.56,0.7,0.78,0.84,0.66,0.84,0.04,0.08,0.02,0,0,Hotel anchor and seventh order example,0.5210,promising
+grapheme,ኪ,ki fidel,0.54,0.52,0.74,0.8,0.86,0.66,0.82,0.03,0.08,0.02,0,0,Car anchor መኪና and third order example,0.5200,promising
+grapheme,ሴ,se fidel,0.56,0.54,0.72,0.78,0.84,0.66,0.84,0.04,0.08,0.02,0,0,Public facility category ሴት,0.5140,promising
+grapheme,ቴ,te fidel,0.5,0.5,0.68,0.76,0.82,0.66,0.84,0.04,0.08,0.02,0,0,Loanword hotel and fifth order review,0.4780,weak
+grapheme,ጫ,cha fidel,0.48,0.46,0.76,0.78,0.78,0.66,0.86,0.05,0.1,0.03,0,0,Exit anchor መውጫ and affricate review,0.4350,weak

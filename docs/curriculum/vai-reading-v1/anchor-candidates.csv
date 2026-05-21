@@ -1,0 +1,11 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ꕙꔤ,Vai script / language candidate,0.72,0.92,0.78,0.78,0.84,0.68,0.9,0.9,0.36,0.08,0.04,0.04,0.04,0,Script-name candidate; reviewer must confirm spelling and context
+anchor,ꕉ,a syllable anchor,0.62,0.5,0.48,0.9,0.62,0.72,0.58,0.56,0.3,0.02,0.02,0.06,0,0,Micro-anchor useful only if reviewers accept sign-first pedagogy
+anchor,ꔤ,i syllable anchor,0.62,0.5,0.48,0.9,0.62,0.72,0.58,0.56,0.3,0.02,0.02,0.06,0,0,Micro-anchor for early sign recognition
+anchor,ꕮꕯ,ma-na word candidate,0.46,0.56,0.46,0.62,0.58,0.56,0.72,0.68,0.22,0.16,0.08,0.1,0.03,0,Placeholder until Vai reviewer supplies high-utility words
+anchor,ꕪꕉ,ka-a word candidate,0.44,0.54,0.44,0.62,0.56,0.56,0.7,0.66,0.22,0.16,0.08,0.1,0.03,0,Placeholder sequence for series practice
+anchor,ꕎꔤ,wa-i word candidate,0.42,0.54,0.42,0.6,0.56,0.54,0.7,0.64,0.22,0.18,0.08,0.1,0.03,0,Placeholder sequence requiring lexicon review
+anchor,ꔡꔢ,mee-nee word candidate,0.4,0.5,0.4,0.58,0.54,0.52,0.68,0.62,0.2,0.18,0.08,0.1,0.03,0,Series-practice placeholder until real anchors are approved
+anchor,reviewer-selected greeting,greeting in Vai syllabary,0.5,0.9,0.62,0.2,0.78,0.5,0.9,0.82,0.16,0.38,0.1,0.12,0.04,0,Required before final lesson copy; no unreviewed spelling included
+anchor,reviewer-selected water word,water in Vai syllabary,0.5,0.92,0.64,0.2,0.78,0.5,0.88,0.82,0.16,0.38,0.1,0.12,0.02,0,High utility but needs native spelling and pronunciation review
+anchor,reviewer-selected public label,short public label,0.42,0.84,0.58,0.16,0.74,0.46,0.86,0.76,0.14,0.42,0.1,0.12,0.03,0,Domain anchor must be app-authored and reviewedcandidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes

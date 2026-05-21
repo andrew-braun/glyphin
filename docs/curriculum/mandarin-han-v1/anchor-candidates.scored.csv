@@ -1,0 +1,21 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,水,water,0.9,0.96,0.84,0.72,0.74,0.84,0.74,0.9,0.55,0.14,0.02,0.02,0,0,First-session survival word,0.6586,promising
+anchor,饭,meal / rice,0.86,0.94,0.84,0.7,0.78,0.82,0.74,0.88,0.55,0.16,0.02,0.02,0,0,Core menu word and food component anchor,0.6250,promising
+anchor,菜,dish / vegetable,0.82,0.94,0.82,0.72,0.78,0.82,0.74,0.86,0.55,0.16,0.02,0.02,0,0,Menu category and grass radical anchor,0.6150,promising
+anchor,肉,meat,0.8,0.94,0.8,0.72,0.72,0.82,0.72,0.86,0.55,0.16,0.02,0.02,0,0,High-payoff menu category,0.6002,promising
+anchor,开,open,0.78,0.88,0.72,0.72,0.7,0.82,0.68,0.82,0.55,0.14,0.02,0.02,0,0,Store-status sign word,0.5862,promising
+anchor,喝,drink,0.84,0.9,0.8,0.7,0.76,0.84,0.72,0.84,0.55,0.18,0.02,0.02,0,0,Mouth radical and beverage action,0.5838,promising
+anchor,关,closed / shut,0.74,0.88,0.72,0.72,0.7,0.82,0.68,0.82,0.55,0.14,0.02,0.02,0,0,Pairs with open for signage,0.5774,promising
+anchor,出口,exit,0.74,0.94,0.78,0.7,0.72,0.82,0.72,0.86,0.55,0.18,0.02,0.02,0,0,Transit sign word,0.5610,promising
+anchor,茶,tea,0.7,0.9,0.74,0.72,0.72,0.84,0.68,0.84,0.55,0.16,0.02,0.02,0,0,Beverage and culture anchor,0.5598,promising
+anchor,入口,entrance,0.72,0.94,0.78,0.7,0.72,0.82,0.72,0.86,0.55,0.18,0.02,0.02,0,0,Pairs with exit and contrasts 入 with 人,0.5566,promising
+anchor,酒,alcohol,0.8,0.86,0.76,0.7,0.72,0.82,0.7,0.84,0.55,0.18,0.02,0.02,0,0,Menu and culture word,0.5546,promising
+anchor,上/下,up / down,0.86,0.84,0.74,0.72,0.66,0.82,0.68,0.82,0.55,0.18,0.02,0.03,0,0,Directional pair for signs and navigation,0.5458,promising
+anchor,汤,soup,0.72,0.9,0.76,0.7,0.74,0.82,0.7,0.82,0.55,0.18,0.02,0.02,0,0,Water radical reinforcement,0.5454,promising
+anchor,面,noodles / face,0.78,0.92,0.78,0.72,0.68,0.78,0.7,0.84,0.55,0.16,0.04,0.04,0,0,Menu word with contextual ambiguity,0.5398,promising
+anchor,价钱,price / money,0.7,0.9,0.76,0.66,0.74,0.78,0.7,0.82,0.55,0.2,0.02,0.02,0,0,Commerce and pricing anchor,0.5122,promising
+anchor,男/女,male / female,0.7,0.9,0.74,0.68,0.7,0.8,0.7,0.82,0.55,0.2,0.02,0.03,0,0,Restroom sign pair,0.4994,weak
+anchor,左/右,left / right,0.68,0.84,0.72,0.68,0.66,0.82,0.68,0.82,0.55,0.18,0.02,0.03,0,0,Wayfinding pair,0.4974,weak
+anchor,咖啡,coffee,0.62,0.9,0.74,0.64,0.72,0.78,0.68,0.88,0.55,0.22,0.02,0.03,0,0,Loanword and mouth radical repetition,0.4578,weak
+anchor,卫生,hygiene / restroom context,0.62,0.88,0.72,0.64,0.72,0.76,0.68,0.78,0.55,0.22,0.04,0.04,0,0,Facility anchor and component review,0.4154,weak
+anchor,谢谢,thank you,0.72,0.74,0.62,0.6,0.62,0.76,0.62,0.82,0.55,0.24,0.04,0.04,0,0,Late politeness anchor due to complexity,0.3586,weak

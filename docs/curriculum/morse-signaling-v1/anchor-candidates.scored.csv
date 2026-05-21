@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,.,E,0.92,0.7,0.62,0.95,0.7,0.95,0.66,0.76,0.62,0.02,0,0.01,0,0,First one-dit recognition win,0.7590,strong
+anchor,-,T,0.88,0.7,0.62,0.95,0.7,0.95,0.66,0.76,0.62,0.02,0,0.01,0,0,First one-dah contrast partner,0.7502,strong
+anchor,-. ---,NO,0.68,0.84,0.66,0.72,0.62,0.9,0.66,0.8,0.6,0.1,0,0.02,0,0,Short decision word using N and O,0.6048,promising
+anchor,... --- ...,SOS,0.62,0.98,0.9,0.72,0.86,0.94,0.82,0.96,0.62,0.18,0.02,0.03,0.03,0,High-value distress sequence with context requirement,0.5588,promising
+anchor,... - --- .--.,STOP,0.64,0.9,0.76,0.66,0.68,0.9,0.72,0.86,0.6,0.16,0.01,0.02,0,0,Public instruction word and P gateway,0.5564,promising
+anchor,--- -.-,OK,0.62,0.86,0.7,0.66,0.72,0.9,0.7,0.86,0.6,0.16,0.01,0.02,0,0,Short familiar acknowledgement anchor,0.5380,promising
+anchor,- .-. .- .. -.,TRAIN,0.56,0.88,0.68,0.68,0.62,0.9,0.68,0.8,0.6,0.14,0.01,0.02,0,0,Transit word from common early letters,0.5344,promising
+anchor,.-- .- - . .-.,WATER,0.62,0.92,0.76,0.58,0.66,0.88,0.72,0.84,0.6,0.22,0.01,0.02,0,0,Survival word with W and R,0.4800,weak
+anchor,.... . .-.. .--.,HELP,0.62,0.96,0.82,0.58,0.78,0.9,0.76,0.9,0.6,0.24,0.02,0.03,0.02,0,Emergency word after H L P are known,0.4552,weak
+anchor,-.-- . ...,YES,0.68,0.84,0.66,0.56,0.62,0.88,0.66,0.8,0.6,0.22,0.01,0.02,0,0,Useful word but adds Y,0.4508,weak
+anchor,--- .--. . -.,OPEN,0.58,0.88,0.7,0.58,0.64,0.88,0.68,0.82,0.58,0.22,0.01,0.02,0,0,Sign word and P review,0.4488,weak
+anchor,..-. --- --- -..,FOOD,0.6,0.9,0.72,0.56,0.66,0.88,0.7,0.82,0.6,0.24,0.01,0.02,0,0,Practical word but adds F,0.4408,weak
+anchor,-... ..- ...,BUS,0.54,0.86,0.66,0.54,0.62,0.88,0.66,0.8,0.58,0.24,0.01,0.02,0,0,Transit word with B and U,0.4004,weak
+anchor,-.-. .- .-.. .-..,CALL,0.54,0.84,0.64,0.52,0.7,0.88,0.68,0.8,0.58,0.26,0.01,0.02,0,0,Radio-procedure word after C L are known,0.3800,weak
+anchor,. -..- .. -,EXIT,0.58,0.92,0.74,0.48,0.68,0.86,0.72,0.84,0.58,0.3,0.02,0.03,0,0,Public sign word but X load delays it,0.3540,weak
+anchor,-.-. --.-,CQ,0.44,0.82,0.58,0.38,0.82,0.86,0.72,0.84,0.54,0.34,0.02,0.04,0,0,Operator-specific call and not an early general anchor,0.2288,weak

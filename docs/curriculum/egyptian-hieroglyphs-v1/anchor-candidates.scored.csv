@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,𓋹,ankh life,0.62,0.9,0.78,0.86,0.72,0.5,0.76,0.94,0.46,0.08,0.04,0.03,0,0,Iconic museum anchor and logogram gateway,0.5980,promising
+anchor,𓇳,ra sun or Ra,0.66,0.88,0.78,0.82,0.72,0.42,0.76,0.92,0.46,0.1,0.06,0.05,0.02,0,Strong first sign but deity context needs framing,0.5104,promising
+anchor,𓉐,pr house,0.62,0.78,0.68,0.78,0.72,0.5,0.7,0.84,0.44,0.1,0.05,0.04,0,0,Biliteral style reading target with clear object shape,0.5012,promising
+anchor,𓄤,nfr good or beautiful,0.6,0.78,0.68,0.72,0.72,0.46,0.74,0.86,0.44,0.12,0.06,0.05,0,0,High payoff in names and museum labels,0.4484,weak
+anchor,𓇯,pt sky,0.5,0.72,0.58,0.72,0.68,0.42,0.66,0.82,0.4,0.12,0.06,0.05,0,0,Common domain sign but exact reading needs review,0.3852,weak
+anchor,𓊹,nṯr god,0.64,0.76,0.68,0.74,0.76,0.38,0.78,0.84,0.44,0.14,0.08,0.05,0.04,0,Sacred vocabulary requires cultural review,0.3756,weak
+anchor,𓇋𓏏,it father,0.46,0.66,0.5,0.64,0.58,0.44,0.62,0.76,0.38,0.12,0.06,0.05,0,0,Simple signs but pronunciation and vowels are not modern,0.3280,weak
+anchor,𓅓𓅱𓏏,mwt mother,0.48,0.68,0.54,0.62,0.62,0.44,0.66,0.78,0.4,0.14,0.06,0.05,0,0,Kinship anchor with common signs but vowel reading caveats,0.3272,weak
+anchor,𓈖𓆑𓂋,nfr phonetic spelling,0.54,0.74,0.62,0.58,0.78,0.42,0.72,0.8,0.42,0.18,0.07,0.06,0,0,Contrasts logogram and phonetic sequence for same target,0.3176,weak
+anchor,𓂋𓂝,rꜥ Ra transliteration spelling,0.56,0.82,0.66,0.58,0.78,0.32,0.74,0.86,0.42,0.18,0.08,0.06,0.02,0,Shows phonetic complements after the sun sign,0.3084,weak
+anchor,𓂓,kꜣ ka spirit,0.5,0.76,0.58,0.7,0.68,0.34,0.74,0.86,0.4,0.14,0.08,0.06,0.04,0,Culturally loaded concept requires careful framing,0.2996,weak
+anchor,𓈖𓏏𓂋,nṯr phonetic spelling,0.48,0.68,0.54,0.5,0.76,0.34,0.72,0.78,0.38,0.22,0.08,0.07,0.04,0,Useful only after uniliteral signs are established,0.1596,weak

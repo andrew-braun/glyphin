@@ -1,0 +1,26 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ⲁ,a vowel,0.9,0.84,0.78,0.88,0.86,0.64,0.82,0.03,0.03,0.01,0.02,0,Core vowel and high-frequency word component
+grapheme,ⲉ,e vowel,0.88,0.82,0.78,0.86,0.84,0.64,0.82,0.03,0.03,0.01,0.02,0,Common vowel and article/particle component
+grapheme,ⲓ,i vowel,0.84,0.78,0.72,0.82,0.84,0.62,0.82,0.03,0.03,0.01,0.02,0,Core vowel with Greek-lookalike risk
+grapheme,ⲟ,o vowel,0.86,0.8,0.76,0.86,0.84,0.62,0.82,0.03,0.03,0.01,0.02,0,High-frequency vowel in ⲙⲟⲟⲩ and ⲛⲟⲩⲧⲉ
+grapheme,ⲩ,u or w vowel,0.8,0.74,0.74,0.82,0.78,0.68,0.78,0.04,0.06,0.02,0.02,0,Common in ⲙⲟⲟⲩ and ⲟⲩ chunks
+grapheme,ⲱ,long o vowel,0.72,0.66,0.68,0.74,0.78,0.66,0.82,0.03,0.05,0.02,0.02,0,Useful in ⲣⲱⲙⲉ and ⲥⲱⲧⲙ
+grapheme,ⲏ,long e vowel,0.52,0.48,0.48,0.56,0.72,0.56,0.82,0.03,0.06,0.02,0.02,0,Lower early coverage but common in Greek loans
+grapheme,ⲙ,m consonant,0.82,0.76,0.72,0.82,0.88,0.6,0.84,0.03,0.03,0.01,0.02,0,Common consonant in water and person anchors
+grapheme,ⲛ,n consonant,0.84,0.78,0.74,0.84,0.88,0.6,0.84,0.03,0.03,0.01,0.02,0,High-frequency nasal and article component
+grapheme,ⲣ,r consonant,0.72,0.66,0.64,0.72,0.78,0.56,0.82,0.04,0.05,0.02,0.02,0,Useful in person and loan anchors
+grapheme,ⲥ,s consonant,0.76,0.7,0.68,0.76,0.86,0.58,0.84,0.03,0.03,0.01,0.02,0,Common in verbs and service text
+grapheme,ⲧ,t consonant,0.78,0.72,0.7,0.78,0.86,0.6,0.84,0.03,0.03,0.01,0.02,0,High-frequency consonant and article component
+grapheme,ⲡ,p consonant,0.8,0.74,0.72,0.8,0.86,0.62,0.84,0.03,0.03,0.01,0.02,0,Common article letter and anchor gateway
+grapheme,ⲕ,k consonant,0.64,0.58,0.58,0.64,0.84,0.54,0.82,0.03,0.04,0.01,0.02,0,Useful for pronouns and common particles
+grapheme,ⲗ,l consonant,0.5,0.46,0.46,0.52,0.84,0.5,0.82,0.03,0.04,0.01,0.02,0,Lower early coverage but simple value
+grapheme,ⲃ,b or v consonant,0.52,0.48,0.5,0.56,0.68,0.58,0.78,0.05,0.08,0.03,0.02,0,Pronunciation varies by tradition and needs review
+grapheme,ⲅ,g consonant,0.48,0.44,0.46,0.52,0.72,0.52,0.78,0.04,0.06,0.02,0.02,0,Mostly Greek-derived words and names early
+grapheme,ⲇ,d consonant,0.46,0.42,0.44,0.5,0.72,0.5,0.78,0.04,0.06,0.02,0.02,0,Useful but lower target-domain coverage
+grapheme,ϣ,sh consonant,0.62,0.58,0.6,0.66,0.78,0.64,0.86,0.03,0.08,0.02,0.02,0,Distinctive Demotic-derived letter and important script identity
+grapheme,ϥ,f consonant,0.56,0.52,0.52,0.58,0.8,0.58,0.86,0.03,0.06,0.01,0.02,0,Useful later Coptic-specific consonant
+grapheme,ϩ,h consonant,0.58,0.54,0.54,0.6,0.76,0.58,0.86,0.03,0.08,0.02,0.02,0,Coptic-specific h sound with font checks
+grapheme,ϫ,j consonant,0.54,0.5,0.5,0.56,0.72,0.56,0.86,0.03,0.08,0.02,0.02,0,Coptic-specific affricate with pronunciation review
+grapheme,ϭ,ch consonant,0.48,0.44,0.44,0.5,0.72,0.54,0.86,0.03,0.08,0.02,0.02,0,Lower early coverage but important inventory item
+grapheme,ϯ,ti syllabic letter,0.5,0.46,0.46,0.52,0.7,0.7,0.86,0.03,0.1,0.02,0.02,0,Acts like a letter with syllabic value and needs modeling
+grapheme,supralinear stroke,abbreviation or syllabic mark,0.55,0.5,0.52,0.54,0.4,0.78,0.62,0.02,0.16,0.05,0.04,0,Mark behavior depends on edition and needs specialist review

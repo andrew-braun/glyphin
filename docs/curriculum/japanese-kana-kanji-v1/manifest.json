@@ -1,0 +1,94 @@
+{
+	"course_id": "japanese-kana-kanji-v1",
+	"display_name": "Japanese Kana And Kanji Reading",
+	"language_tag": "ja-Jpan",
+	"script": "Jpan",
+	"direction": "ltr",
+	"target_domains": [
+		"food_cafe_menus",
+		"transit_signage",
+		"convenience_stores",
+		"anime_manga",
+		"public_safety_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Modern Japanese text uses precomposed hiragana, katakana, and CJK ideographs. Store learner-visible text in NFC and avoid decomposed kana in v1."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "manual_kana_kanji_boundaries_with_future_morphological_support",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "hiragana syllabograms, katakana syllabograms, dakuten and handakuten variants, small kana combinations, chōon mark, and selected kanji",
+		"notes": "Japanese has no whitespace word boundaries. For v1 authoring, manually segment anchors and teach transitions between kana and kanji as reading cues."
+	},
+	"sources": [
+		{
+			"id": "bccwj",
+			"kind": "frequency",
+			"url": "https://clrd.ninjal.ac.jp/bccwj/",
+			"license": "corpus terms require review before derived publication",
+			"use": "scoring_only",
+			"domain_weight": 0.8,
+			"notes": "Balanced Corpus of Contemporary Written Japanese for frequency intuition. Do not ship derived text without review."
+		},
+		{
+			"id": "subtlex-jp",
+			"kind": "frequency",
+			"url": "https://zenodo.org/records/7733208",
+			"license": "CC BY; attribution review required",
+			"use": "scoring_only",
+			"domain_weight": 0.7,
+			"notes": "Subtitle-derived everyday frequency proxy for informal language."
+		},
+		{
+			"id": "jmdict",
+			"kind": "lexicon",
+			"url": "https://www.edrdg.org/jmdict/j_jmdict.html",
+			"license": "EDRDG and share-alike terms require review",
+			"use": "discovery_only",
+			"domain_weight": 0.65,
+			"notes": "Headword and gloss discovery only until attribution obligations are approved."
+		},
+		{
+			"id": "kanjidic2",
+			"kind": "kanji_reference",
+			"url": "https://www.edrdg.org/wiki/index.php/KANJIDIC_Project",
+			"license": "EDRDG and share-alike terms require review",
+			"use": "discovery_only",
+			"domain_weight": 0.5,
+			"notes": "Kanji readings, meanings, stroke counts, and component discovery."
+		},
+		{
+			"id": "unicode-japanese-blocks",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.4,
+			"notes": "Hiragana, Katakana, CJK, and modifier code point metadata."
+		},
+		{
+			"id": "app-authored-japanese-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.95,
+			"notes": "Short menu, transit, store, and public-sign examples authored by GlyphBridge."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true
+	}
+}

@@ -1,0 +1,30 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ا,alif long a carrier,0.95,0.92,0.9,0.92,0.82,0.84,0.62,0.05,0.08,0.03,0.02,0,Essential carrier and long vowel with nonjoining behavior,0.7130,promising
+grapheme,ل,lam l sound,0.88,0.86,0.82,0.86,0.86,0.82,0.72,0.04,0.07,0.02,0.02,0,High-frequency consonant and gateway to lam-alif,0.6990,promising
+grapheme,م,meem m sound,0.86,0.84,0.8,0.86,0.9,0.72,0.76,0.04,0.08,0.01,0.02,0,Early anchor availability and clear pronunciation,0.6820,promising
+grapheme,و,waw w or long u,0.82,0.8,0.78,0.82,0.78,0.78,0.72,0.04,0.08,0.04,0.02,0,Common long-vowel and consonant letter with nonjoining behavior,0.6170,promising
+grapheme,س,seen s sound,0.78,0.76,0.76,0.8,0.9,0.66,0.72,0.06,0.08,0.01,0.02,0,High-payoff letter for market taxi and price anchors,0.6020,promising
+grapheme,ب,baa b sound,0.82,0.8,0.76,0.82,0.9,0.72,0.7,0.1,0.08,0.01,0.02,0,Dotted-family contrast with ta and nun needs drills,0.5890,promising
+grapheme,ر,raa r sound,0.78,0.76,0.72,0.78,0.78,0.62,0.74,0.05,0.08,0.02,0.02,0,Common nonjoining consonant for street and price words,0.5790,promising
+grapheme,ي,yaa y or long i,0.82,0.8,0.78,0.84,0.78,0.78,0.68,0.08,0.1,0.04,0.02,0,Common final form and long-vowel value,0.5570,promising
+grapheme,ك,kaaf k sound,0.72,0.7,0.68,0.76,0.88,0.62,0.74,0.05,0.08,0.02,0.02,0,Useful for loanwords and storefront vocabulary,0.5510,promising
+grapheme,ن,noon n sound,0.8,0.78,0.74,0.78,0.9,0.66,0.66,0.12,0.08,0.01,0.02,0,Dotted-family contrast with ba and ta,0.5440,promising
+grapheme,ت,taa t sound,0.76,0.74,0.72,0.78,0.9,0.66,0.68,0.12,0.08,0.01,0.02,0,Dotted-family contrast and useful in taxi and open words,0.5220,promising
+grapheme,د,dal d sound,0.66,0.64,0.62,0.68,0.9,0.54,0.74,0.06,0.07,0.01,0.02,0,Useful in entry hotel and mosque anchors,0.5080,promising
+grapheme,ف,faa f sound,0.68,0.66,0.66,0.72,0.9,0.6,0.72,0.08,0.08,0.01,0.02,0,High facility and hotel payoff,0.5030,promising
+grapheme,لا,lam-alif chunk,0.7,0.68,0.7,0.78,0.8,0.82,0.7,0.04,0.12,0.04,0.03,0,Common no word and gateway to shaping chunks,0.4960,weak
+grapheme,ش,sheen sh sound,0.62,0.62,0.66,0.72,0.9,0.58,0.74,0.08,0.08,0.01,0.02,0,Unlocks tea and street words,0.4760,weak
+grapheme,ه,haa h sound,0.66,0.64,0.64,0.72,0.82,0.58,0.7,0.06,0.09,0.02,0.03,0,Needed for coffee and final h-like spellings,0.4690,weak
+grapheme,ز,zay z sound,0.5,0.5,0.54,0.62,0.88,0.48,0.78,0.05,0.07,0.01,0.02,0,Useful for bread and place words but lower broad coverage,0.4180,weak
+grapheme,ق,qaaf q sound,0.68,0.66,0.68,0.76,0.62,0.66,0.7,0.1,0.1,0.04,0.02,0,Common in signs but pronunciation varies by region,0.4170,weak
+grapheme,خ,khaa kh sound,0.58,0.58,0.62,0.72,0.68,0.62,0.74,0.08,0.1,0.03,0.02,0,Essential for exit and bread but needs pronunciation review,0.3920,weak
+grapheme,ع,ayn pharyngeal consonant,0.64,0.62,0.64,0.72,0.42,0.72,0.76,0.04,0.14,0.06,0.02,0,High-frequency letter with high pronunciation load,0.3760,weak
+grapheme,ج,jeem j sound,0.56,0.56,0.56,0.64,0.72,0.54,0.72,0.08,0.09,0.03,0.02,0,Needed for exit and mosque with regional pronunciation notes,0.3700,weak
+grapheme,ح,haa emphatic h sound,0.62,0.62,0.66,0.74,0.58,0.66,0.72,0.1,0.12,0.04,0.02,0,Common in halal restroom milk and open words,0.3630,weak
+grapheme,ة,ta marbuta final a or t,0.58,0.58,0.58,0.7,0.68,0.78,0.64,0.08,0.14,0.05,0.03,0,Final feminine ending and strong gateway rule,0.3250,weak
+grapheme,ط,emphatic t sound,0.54,0.54,0.58,0.68,0.58,0.6,0.74,0.08,0.12,0.05,0.02,0,Unlocks restaurant and airport but should be delayed,0.3100,weak
+grapheme,ء,hamza glottal stop,0.56,0.54,0.6,0.7,0.62,0.78,0.6,0.08,0.14,0.07,0.02,0,Important in water and alif variants but orthographic load is high,0.2960,weak
+grapheme,ص,emphatic s sound,0.52,0.52,0.5,0.58,0.58,0.5,0.72,0.1,0.12,0.05,0.02,0,Lower early anchor availability and emphatic contrast load,0.2470,weak
+grapheme,غ,ghayn gh sound,0.48,0.48,0.5,0.6,0.48,0.58,0.72,0.08,0.13,0.06,0.02,0,Needed for closed and deferred pronunciation work,0.2270,weak
+grapheme,أ إ آ,alif variants with hamza or madda,0.5,0.5,0.5,0.58,0.58,0.7,0.58,0.1,0.16,0.08,0.02,0,Variant handling should wait until base alif and hamza are secure,0.1800,weak
+grapheme,َ ِ ُ,short vowel marks,0.44,0.42,0.36,0.5,0.72,0.78,0.52,0.04,0.18,0.08,0.04,0,Optional harakat are helpful for teaching but uncommon in everyday signs,0.1560,weak

@@ -1,0 +1,6 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-adlam-block,unicode_metadata,https://www.unicode.org/charts/PDF/U1E900.pdf,Unicode License reviewed for metadata use,scoring,0.45,Adlam code point metadata for letters digits punctuation and marks
+cldr-ff-adlm-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.45,Fulani Adlam locale data where available; confirm release and locale coverage
+noto-sans-adlam-font,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Adlam,OFL reviewed for font testing,scoring,0.2,Rendering and fallback test source; not a text corpus
+winden-jangen-adlam-resources,community_reference,https://www.windenjangen.org/,terms require review before derived use,discovery_only,0.65,Community literacy discovery only until permissions and attribution are approved
+app-authored-adlam-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed labels and examples authored by GlyphBridge rather than copied from third-party corporaid,kind,url,license,use,domain_weight,notes

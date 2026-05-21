@@ -1,0 +1,25 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,আ / া,aa vowel and matra,0.86,0.82,0.82,0.88,0.88,0.88,0.84,0.02,0.06,0.02,0,0,High payoff in চা ভাত বাজার নাম,0.7510,strong
+grapheme,ক,k consonant base,0.84,0.82,0.78,0.84,0.88,0.8,0.78,0.03,0.04,0.01,0,0,Common consonant for দোকান and স্কুল,0.7440,promising
+grapheme,অ,inherent vowel a and independent a,0.9,0.88,0.82,0.86,0.78,0.94,0.78,0.03,0.05,0.05,0,0,Core abugida gateway and inherent vowel anchor,0.7360,promising
+grapheme,ন,n consonant base,0.82,0.8,0.76,0.82,0.88,0.74,0.76,0.04,0.04,0.01,0,0,Common nasal for নাম পানির style words,0.7120,promising
+grapheme,ব,b consonant base,0.82,0.8,0.78,0.84,0.86,0.76,0.78,0.05,0.05,0.02,0,0,High payoff in বাস বাজার বাংলা,0.6880,promising
+grapheme,ম,m consonant base,0.76,0.74,0.7,0.78,0.88,0.68,0.8,0.03,0.04,0.01,0,0,Common and visually stable,0.6750,promising
+grapheme,স,s consonant base,0.78,0.76,0.78,0.82,0.86,0.74,0.74,0.05,0.05,0.02,0,0,High sign payoff in বাস স্কুল রাস্তা,0.6620,promising
+grapheme,প,p consonant base,0.72,0.7,0.7,0.76,0.88,0.68,0.78,0.03,0.04,0.01,0,0,Useful for পানি and public words,0.6520,promising
+grapheme,ত,t consonant base,0.78,0.76,0.74,0.78,0.82,0.7,0.76,0.05,0.05,0.02,0,0,Dental stop with broad word coverage,0.6450,promising
+grapheme,ল,l consonant base,0.72,0.7,0.68,0.74,0.88,0.64,0.78,0.03,0.04,0.01,0,0,Useful in খোলা হোটেল বাংলা,0.6430,promising
+grapheme,এ / ে,e vowel and sign,0.74,0.72,0.74,0.78,0.88,0.78,0.7,0.03,0.07,0.02,0,0,Useful in ট্রেন হোটেল,0.6360,promising
+grapheme,দ,d consonant base,0.76,0.74,0.72,0.78,0.84,0.7,0.76,0.05,0.05,0.02,0,0,Needed for দোকান and দুধ,0.6340,promising
+grapheme,র,r consonant base,0.84,0.82,0.78,0.84,0.78,0.84,0.72,0.07,0.08,0.04,0,0,Gateway to reph and ra-phala later,0.6250,promising
+grapheme,হ,h consonant base,0.68,0.66,0.66,0.7,0.84,0.62,0.78,0.03,0.04,0.01,0,0,Useful in হোটেল and high-frequency words,0.6100,promising
+grapheme,চ,ch consonant base,0.66,0.62,0.64,0.72,0.88,0.64,0.8,0.03,0.04,0.01,0,0,Strong early anchor in চা,0.6020,promising
+grapheme,ও / ো,o vowel and sign,0.68,0.66,0.68,0.72,0.88,0.76,0.72,0.03,0.07,0.02,0,0,Useful in দোকান হোটেল খোলা,0.5900,promising
+grapheme,ই / ি,i vowel and pre-base sign,0.74,0.7,0.68,0.74,0.84,0.88,0.6,0.05,0.1,0.02,0,0,Pre-base sign introduces visual order versus reading order,0.5700,promising
+grapheme,ঈ / ী,ii vowel and sign,0.58,0.54,0.52,0.58,0.84,0.58,0.72,0.04,0.08,0.02,0,0,Lower early payoff but needed for full vowel set,0.4560,weak
+grapheme,ং,anusvara nasal sign,0.58,0.56,0.58,0.62,0.72,0.74,0.7,0.04,0.1,0.06,0,0,Common nasal sign and language name marker,0.4160,weak
+grapheme,্,hasanta virama,0.56,0.54,0.62,0.7,0.72,0.92,0.62,0.04,0.16,0.06,0.02,0,0,0.3540,weak
+grapheme,ট্র,tr conjunct cluster,0.38,0.34,0.5,0.6,0.68,0.74,0.66,0.06,0.18,0.06,0.04,0,0,0.1520,weak
+grapheme,স্ক,sk conjunct cluster,0.36,0.32,0.44,0.56,0.7,0.7,0.66,0.06,0.18,0.06,0.04,0,0,0.1270,weak
+grapheme,ৰ,Assamese ra letter,0.18,0.16,0.18,0.2,0.72,0.46,0.74,0.04,0.12,0.02,0,0,Assamese note only for shared-script awareness,0.1080,weak
+grapheme,ৱ,Assamese wa letter,0.16,0.14,0.16,0.18,0.72,0.42,0.74,0.04,0.12,0.02,0,0,Assamese note only and not a Bengali-first early unit,0.0890,weak

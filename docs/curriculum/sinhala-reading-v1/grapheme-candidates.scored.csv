@@ -1,0 +1,21 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ා,aa vowel sign,0.9,0.86,0.8,0.86,0.84,0.74,0.7,0.02,0.06,0.02,0.03,0,High-frequency right-side vowel sign,0.7110,promising
+grapheme,ක,ka consonant,0.86,0.82,0.78,0.84,0.82,0.66,0.8,0.02,0.04,0.02,0.03,0,Core base for coffee and shop words,0.7010,promising
+grapheme,ත,ta consonant,0.82,0.78,0.8,0.9,0.82,0.62,0.8,0.02,0.04,0.02,0.03,0,High payoff for tea and water words,0.6860,promising
+grapheme,ව,va/wa consonant,0.82,0.78,0.78,0.86,0.78,0.62,0.8,0.02,0.04,0.02,0.03,0,Useful for water open and facility words,0.6750,promising
+grapheme,ර,ra consonant,0.84,0.8,0.78,0.84,0.78,0.62,0.8,0.02,0.05,0.02,0.03,0,Common base and cluster participant,0.6730,promising
+grapheme,බ,ba consonant,0.8,0.76,0.76,0.86,0.82,0.58,0.8,0.02,0.04,0.02,0.03,0,Unlocks rice and bus anchors,0.6620,promising
+grapheme,ම,ma consonant,0.8,0.76,0.72,0.78,0.82,0.58,0.8,0.02,0.04,0.02,0.03,0,Unlocks price and railway words,0.6480,promising
+grapheme,ල,la consonant,0.8,0.76,0.72,0.78,0.82,0.58,0.8,0.02,0.04,0.02,0.03,0,Common in price school and hotel words,0.6480,promising
+grapheme,ස,sa consonant,0.78,0.74,0.72,0.78,0.82,0.58,0.8,0.02,0.04,0.02,0.03,0,Useful for bus school and facility vocabulary,0.6380,promising
+grapheme,ප,pa consonant,0.76,0.72,0.72,0.8,0.82,0.58,0.8,0.02,0.04,0.02,0.03,0,Useful for road school and public words,0.6300,promising
+grapheme,ේ,e vowel sign,0.76,0.72,0.78,0.88,0.84,0.76,0.68,0.02,0.08,0.02,0.04,0,Common vowel sign in tea and shop words,0.6110,promising
+grapheme,හ,ha consonant,0.72,0.68,0.7,0.76,0.82,0.58,0.8,0.02,0.04,0.02,0.03,0,Hotel and hospital anchors need this base,0.6030,promising
+grapheme,ි,i vowel sign,0.74,0.7,0.68,0.76,0.84,0.7,0.68,0.02,0.08,0.02,0.04,0,Common sign for price and exit-like words,0.5680,promising
+grapheme,ු,u vowel sign,0.68,0.64,0.66,0.72,0.82,0.68,0.68,0.02,0.08,0.02,0.04,0,Below sign appears in water and train words,0.5270,promising
+grapheme,ො,o vowel sign,0.62,0.58,0.68,0.76,0.76,0.74,0.66,0.03,0.1,0.03,0.04,0,Multi-part vowel sign for coffee and hotel words,0.4630,weak
+grapheme,්,al-lakuna virama,0.78,0.74,0.76,0.84,0.62,0.9,0.58,0.03,0.18,0.06,0.06,0,Suppresses inherent vowel and creates clusters or final forms,0.4310,weak
+grapheme,ඩ,dda consonant,0.52,0.5,0.64,0.72,0.72,0.56,0.78,0.04,0.08,0.03,0.03,0,Useful for shop word but needs contrast review,0.4110,weak
+grapheme,ං,anusvara sign,0.54,0.5,0.56,0.62,0.7,0.64,0.62,0.03,0.1,0.03,0.04,0,Nasal sign for later public words and pronunciation review,0.3730,weak
+grapheme,ඇ,ae independent vowel,0.48,0.46,0.56,0.62,0.72,0.64,0.78,0.03,0.1,0.03,0.03,0,Useful for entrance and learned contrast but not first-session core,0.3670,weak
+grapheme,ළ,retroflex la consonant,0.44,0.42,0.54,0.62,0.64,0.54,0.78,0.08,0.1,0.03,0.03,0,Important in toilet vocabulary but visually high load,0.2760,weak

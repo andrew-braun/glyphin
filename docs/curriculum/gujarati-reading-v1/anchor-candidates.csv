@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,પાણી,water,0.82,0.98,0.84,0.72,0.82,0.88,0.7,0.92,0.55,0.12,0.02,0.02,0,0,Survival anchor with પ આ ણ and ી
+anchor,ચા,tea,0.78,0.96,0.78,0.88,0.72,0.9,0.66,0.9,0.55,0.04,0.01,0.02,0,0,Compact cafe anchor with ચ and aa sign
+anchor,દાળ,lentils,0.76,0.92,0.74,0.74,0.68,0.86,0.68,0.86,0.55,0.1,0.02,0.02,0,0,Menu staple with દ આ ળ
+anchor,દૂધ,milk,0.72,0.9,0.68,0.62,0.68,0.84,0.64,0.86,0.55,0.16,0.02,0.02,0,0,Menu anchor and long-u sign
+anchor,બસ,bus,0.78,0.96,0.8,0.86,0.78,0.9,0.68,0.86,0.55,0.04,0.01,0.02,0,0,Transit anchor with inherent vowel in both bases
+anchor,નામ,name,0.82,0.8,0.64,0.8,0.64,0.88,0.62,0.72,0.55,0.04,0.01,0.03,0,0,High-frequency form and label word
+anchor,રેલ,rail train,0.72,0.92,0.74,0.78,0.72,0.9,0.68,0.82,0.55,0.06,0.01,0.02,0,0,Transit anchor for e sign
+anchor,રસ્તો,road,0.74,0.94,0.74,0.62,0.78,0.82,0.72,0.8,0.55,0.18,0.04,0.03,0,0,Wayfinding anchor with cluster and o sign
+anchor,બજાર,market,0.74,0.94,0.74,0.68,0.76,0.84,0.72,0.86,0.55,0.12,0.02,0.03,0,0,Commerce sign anchor with બ જ ર
+anchor,દુકાન,shop,0.74,0.94,0.74,0.68,0.76,0.86,0.72,0.84,0.55,0.12,0.02,0.02,0,0,Everyday storefront anchor with u sign and aa
+anchor,રોટલી,flatbread,0.74,0.92,0.72,0.56,0.74,0.84,0.72,0.9,0.55,0.2,0.03,0.02,0,0,High menu utility but longer than early anchors
+anchor,સ્કૂલ,school,0.68,0.9,0.68,0.42,0.84,0.78,0.76,0.82,0.55,0.28,0.04,0.02,0,0,Everyday label but conjunct cluster makes it late
+anchor,ખુલ્લું,open,0.66,0.9,0.68,0.44,0.84,0.76,0.76,0.8,0.55,0.3,0.06,0.03,0,0,Shop sign word with cluster and nasal sign
+anchor,બંધ,closed,0.68,0.9,0.68,0.5,0.8,0.76,0.74,0.78,0.55,0.24,0.05,0.03,0,0,High utility but cluster and nasal mark make it late
+anchor,ગુજરાત,Gujarat,0.84,0.86,0.66,0.58,0.78,0.8,0.72,0.9,0.55,0.2,0.03,0.04,0,0,Place identity anchor and broad review
+anchor,હોસ્પિટલ,hospital,0.62,0.94,0.68,0.34,0.86,0.72,0.78,0.8,0.55,0.34,0.06,0.03,0,0,Public facility word but cluster and length delay it

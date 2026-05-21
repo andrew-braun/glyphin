@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,𐍃𐌿𐌽𐌿𐍃,sunus son,0.68,0.82,0.74,0.74,0.7,0.7,0.72,0.84,0.42,0.12,0.04,0.04,0.02,0,Strong repeated-u anchor and biblical-domain word,0.5104,promising
+anchor,𐌰𐍄𐍄𐌰,atta father,0.62,0.8,0.68,0.78,0.66,0.72,0.68,0.84,0.4,0.1,0.04,0.04,0.02,0,Memorable kinship anchor with repeated t,0.5044,promising
+anchor,𐌰𐌽𐌰,ana on,0.66,0.7,0.62,0.86,0.58,0.74,0.62,0.68,0.38,0.06,0.04,0.08,0,0,Very decodable short function word but grammar-heavy,0.5000,promising
+anchor,𐌽𐌰𐌼𐍉,namo name,0.6,0.78,0.66,0.72,0.64,0.72,0.66,0.78,0.4,0.12,0.04,0.04,0,0,Compact lexical anchor and o-letter gateway,0.4792,weak
+anchor,𐌼𐌰𐌽𐌽𐌰,manna man,0.58,0.76,0.64,0.72,0.62,0.72,0.64,0.8,0.4,0.12,0.04,0.04,0,0,Repeated-n anchor with good review value,0.4656,weak
+anchor,𐌼𐌹𐌺,mik me,0.58,0.72,0.6,0.76,0.58,0.72,0.62,0.74,0.38,0.1,0.04,0.08,0,0,Short pronoun anchor with grammar caveat,0.4296,weak
+anchor,𐌲𐌿𐌸,guth God,0.7,0.86,0.78,0.72,0.76,0.58,0.76,0.9,0.42,0.12,0.06,0.06,0.08,0,High sacred-text payoff with cultural review needs,0.4268,weak
+anchor,𐍅𐌰𐌿𐍂𐌳,waurd word,0.56,0.78,0.64,0.58,0.7,0.66,0.66,0.82,0.38,0.18,0.06,0.04,0,0,Script-identity anchor with au chunk and r,0.3700,weak
+anchor,𐍃𐌰𐌹,sai see,0.46,0.66,0.48,0.64,0.56,0.62,0.56,0.68,0.34,0.12,0.06,0.1,0,0,Short verb candidate needing edition review,0.2796,weak
+anchor,𐌸𐌹𐌿𐌳𐌰,thiuda people,0.54,0.78,0.64,0.52,0.7,0.56,0.66,0.82,0.36,0.22,0.08,0.06,0,0,Late anchor for th and longer chunking,0.2688,weak
+anchor,𐍈𐌰,hwa what,0.42,0.62,0.42,0.54,0.52,0.5,0.52,0.66,0.32,0.16,0.08,0.12,0,0,Distinctive hw sign but grammar load is high,0.1428,weak
+anchor,𐌷𐌻𐌰𐌹𐍆,hlaif bread,0.44,0.68,0.5,0.42,0.58,0.56,0.56,0.76,0.32,0.24,0.08,0.08,0,0,Concrete word but adds h l f and diphthong load,0.1312,weak

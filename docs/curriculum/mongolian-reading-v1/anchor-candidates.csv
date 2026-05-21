@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ᠤᠰᠤ,water,0.62,0.92,0.72,0.66,0.68,0.78,0.72,0.86,0.45,0.12,0.04,0.03,0,0,Compact survival word with u and s repetition
+anchor,ᠴᠠᠢ,tea,0.56,0.88,0.66,0.58,0.6,0.78,0.62,0.86,0.45,0.14,0.04,0.03,0,0,High menu utility with ch plus a and i
+anchor,ᠮᠣᠩᠭᠣᠯ,Mongol or Mongolian,0.62,0.82,0.72,0.42,0.82,0.68,0.78,0.9,0.45,0.24,0.06,0.04,0,0,Identity anchor but shaping and ng chunk make it later
+anchor,ᠨᠣᠮ,book,0.52,0.68,0.58,0.56,0.58,0.78,0.62,0.72,0.45,0.12,0.03,0.03,0,0,Classroom primer anchor with common letters
+anchor,ᠭᠡᠷ,home or ger,0.54,0.76,0.6,0.46,0.7,0.7,0.7,0.82,0.45,0.2,0.05,0.04,0,0,Cultural high-payoff word with g and r shape review
+anchor,ᠰᠦ,milk,0.5,0.84,0.56,0.48,0.6,0.72,0.62,0.84,0.45,0.18,0.05,0.04,0,0,Useful food anchor but front rounded vowel needs review
+anchor,ᠬᠣᠭᠣᠯᠠ,food,0.52,0.88,0.68,0.34,0.78,0.62,0.72,0.84,0.45,0.28,0.06,0.04,0,0,Strong domain word but long and shaping-heavy
+anchor,ᠮᠢᠬ᠎ᠠ,meat,0.48,0.86,0.58,0.42,0.7,0.62,0.66,0.82,0.45,0.22,0.06,0.04,0,0,Menu anchor with h and possible variation behavior
+anchor,ᠲᠠᠯᠬ᠎ᠠ,bread,0.48,0.84,0.58,0.38,0.72,0.62,0.66,0.82,0.45,0.24,0.06,0.04,0,0,Useful food anchor but final h behavior needs review
+anchor,ᠵᠠᠮ,road,0.5,0.78,0.58,0.52,0.58,0.76,0.62,0.76,0.45,0.14,0.04,0.03,0,0,Wayfinding word with j and a and m
+anchor,ᠵᠠᠬ᠎ᠠ,market,0.46,0.8,0.56,0.4,0.68,0.62,0.66,0.78,0.45,0.24,0.06,0.04,0,0,Market anchor with h and shaping complexity
+anchor,ᠪᠠᠭᠰᠢ,teacher,0.44,0.62,0.52,0.4,0.62,0.68,0.62,0.72,0.45,0.22,0.05,0.04,0,0,Classroom word useful after core letters

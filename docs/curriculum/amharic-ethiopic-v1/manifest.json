@@ -1,0 +1,104 @@
+{
+	"course_id": "amharic-ethiopic-v1",
+	"display_name": "Amharic Ethiopic Reading",
+	"language_tag": "am-Ethi",
+	"script": "Ethi",
+	"direction": "ltr",
+	"target_domains": [
+		"food_and_cafe_menus",
+		"street_and_market_signage",
+		"transit_wayfinding",
+		"public_facilities",
+		"everyday_labels",
+		"names_and_place_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Ethiopic fidel text in NFC. Preserve visible punctuation, word spacing, and original forms; do not decompose fidel into consonant and vowel parts in learner-visible text."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_manual_morpheme_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters_plus_fidel_series_metadata",
+		"pedagogical_units": "Ethiopic fidel syllables, consonant families, seven vowel orders, labiovelar forms, punctuation, and high-frequency word chunks",
+		"notes": "Amharic text uses visible word spacing, but learner pedagogy should track fidel family and order behavior. V1 treats each fidel as a visible syllabic unit while teaching the vowel-series grid as reusable structure."
+	},
+	"sources": [
+		{
+			"id": "unicode-ethiopic-blocks",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Ethiopic, Ethiopic Supplement, and Ethiopic Extended metadata for code points and rendering checks."
+		},
+		{
+			"id": "cldr-am-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.5,
+			"notes": "Amharic exemplar characters and locale metadata. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "wordfreq-am",
+			"kind": "frequency",
+			"url": "https://github.com/rspeer/wordfreq",
+			"license": "MIT package license; upstream corpus licenses require review",
+			"use": "scoring_only",
+			"domain_weight": 0.5,
+			"notes": "Broad Amharic frequency intuition only. Do not ship derived corpus examples."
+		},
+		{
+			"id": "leipzig-amharic",
+			"kind": "frequency_corpus",
+			"url": "https://wortschatz.uni-leipzig.de/",
+			"license": "Leipzig corpus terms require review before derived publication",
+			"use": "scoring_only",
+			"domain_weight": 0.45,
+			"notes": "Useful broad frequency cross-check. Register and license require review."
+		},
+		{
+			"id": "amharic-wiktionary",
+			"kind": "lexicon",
+			"url": "https://am.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.4,
+			"notes": "Gloss and spelling discovery only until attribution obligations are approved."
+		},
+		{
+			"id": "universal-dependencies-amharic",
+			"kind": "treebank",
+			"url": "https://universaldependencies.org/",
+			"license": "treebank license requires review before derived use",
+			"use": "discovery_only",
+			"domain_weight": 0.25,
+			"notes": "Potential morphology and tokenization reference. Weak direct domain match for traveler-first lessons."
+		},
+		{
+			"id": "app-authored-amharic-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.95,
+			"notes": "Short menu, market, transit, and facility examples authored by GlyphBridge after Amharic speaker review."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true
+	}
+}

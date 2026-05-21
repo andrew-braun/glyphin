@@ -1,0 +1,20 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,അ,independent vowel a,0.9,0.88,0.78,0.86,0.9,0.82,0.76,0.03,0.04,0.02,0.02,0,Gateway to inherent-vowel model and independent vowels
+grapheme,ആ/ാ,long aa vowel and sign,0.78,0.76,0.74,0.82,0.9,0.74,0.76,0.03,0.07,0.02,0.02,0,Useful in tea coffee and milk anchors
+grapheme,ഇ/ി,i vowel and sign,0.78,0.76,0.72,0.8,0.88,0.72,0.72,0.04,0.08,0.02,0.02,0,Core short vowel sign for early decoding
+grapheme,ഈ/ീ,long ii vowel and sign,0.68,0.66,0.64,0.72,0.88,0.7,0.72,0.04,0.08,0.02,0.02,0,Useful for later high-frequency words
+grapheme,ഉ/ു,u vowel and sign,0.72,0.7,0.7,0.76,0.86,0.72,0.72,0.04,0.08,0.02,0.02,0,Needed for water medicine and exit words
+grapheme,എ/െ,e vowel and sign,0.7,0.68,0.68,0.74,0.84,0.72,0.7,0.04,0.08,0.02,0.03,0,Useful for train and entrance words
+grapheme,ക,ka base consonant,0.86,0.84,0.8,0.88,0.86,0.8,0.76,0.04,0.07,0.02,0.02,0,Core consonant for shop and coffee words
+grapheme,ച,cha base consonant,0.6,0.6,0.64,0.74,0.84,0.68,0.78,0.04,0.07,0.02,0.02,0,High payoff through tea and toilet anchors
+grapheme,ട,retroflex ta base,0.58,0.58,0.62,0.72,0.8,0.68,0.78,0.05,0.08,0.02,0.02,0,Useful in shop and hotel anchors
+grapheme,പ,pa base consonant,0.78,0.76,0.74,0.82,0.86,0.74,0.76,0.04,0.07,0.02,0.02,0,Milk coffee and entrance anchors need this base
+grapheme,മ,ma base consonant,0.8,0.78,0.74,0.8,0.9,0.72,0.78,0.04,0.05,0.01,0.02,0,Stable sonorant with medicine payoff
+grapheme,ന,na base consonant,0.78,0.76,0.74,0.8,0.88,0.72,0.74,0.06,0.07,0.02,0.02,0,High payoff but chillu and geminate forms require care
+grapheme,ല,la base consonant,0.76,0.74,0.72,0.8,0.88,0.72,0.74,0.05,0.06,0.01,0.02,0,Common liquid and source for chillu ൽ
+grapheme,ര,ra base consonant,0.78,0.76,0.74,0.82,0.84,0.74,0.74,0.05,0.07,0.02,0.02,0,Common in rice medicine and facility words
+grapheme,വ,va base consonant,0.74,0.72,0.72,0.78,0.84,0.72,0.74,0.04,0.06,0.02,0.02,0,Useful for price and entrance words
+grapheme,ം,anusvara,0.7,0.68,0.72,0.78,0.78,0.74,0.62,0.04,0.08,0.03,0.03,0,Common nasal marker in appam and water anchors
+grapheme,്,chandrakkala virama,0.76,0.74,0.76,0.84,0.76,0.9,0.58,0.05,0.14,0.03,0.05,0,Suppresses inherent vowel and participates in conjuncts
+grapheme,ൽ,chillu l,0.62,0.62,0.68,0.78,0.8,0.82,0.7,0.04,0.12,0.03,0.04,0,Essential in milk and hotel anchors but script-specific
+grapheme,ൻ,chillu n,0.58,0.58,0.64,0.7,0.8,0.8,0.7,0.04,0.12,0.03,0.04,0,Useful for train and final-n words after chillu basics

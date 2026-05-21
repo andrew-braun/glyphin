@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ପାଣି,water,0.82,0.98,0.84,0.72,0.82,0.88,0.7,0.92,0.55,0.12,0.02,0.02,0,0,Survival anchor with ପ ଆ ଣ and ି
+anchor,ଚା,tea,0.78,0.96,0.78,0.88,0.72,0.9,0.66,0.9,0.55,0.04,0.01,0.02,0,0,Compact cafe anchor with ଚ and aa sign
+anchor,ଭାତ,rice meal,0.78,0.94,0.76,0.72,0.72,0.86,0.68,0.9,0.55,0.12,0.02,0.03,0,0,Menu staple and inherent vowel checkpoint
+anchor,ଦୁଧ,milk,0.72,0.9,0.68,0.62,0.68,0.84,0.64,0.86,0.55,0.16,0.02,0.02,0,0,Menu anchor and u sign
+anchor,ବସ,bus,0.78,0.96,0.8,0.86,0.78,0.9,0.68,0.86,0.55,0.04,0.01,0.02,0,0,Transit anchor with inherent vowel in both bases
+anchor,ନାମ,name,0.82,0.8,0.64,0.8,0.64,0.88,0.62,0.72,0.55,0.04,0.01,0.03,0,0,High-frequency form and label word
+anchor,ରେଳ,rail train,0.72,0.92,0.74,0.76,0.72,0.88,0.68,0.82,0.55,0.08,0.02,0.02,0,0,Transit anchor for e sign and retroflex lateral
+anchor,ରାସ୍ତା,road,0.74,0.94,0.74,0.56,0.82,0.8,0.74,0.8,0.55,0.22,0.04,0.03,0,0,Wayfinding anchor with conjunct load
+anchor,ବଜାର,market,0.74,0.94,0.74,0.68,0.76,0.84,0.72,0.86,0.55,0.12,0.02,0.03,0,0,Commerce sign anchor with ବ ଜ ର
+anchor,ଦୋକାନ,shop,0.74,0.94,0.74,0.68,0.76,0.86,0.72,0.84,0.55,0.12,0.02,0.02,0,0,Everyday storefront anchor with o sign and aa
+anchor,ଖୋଲା,open,0.66,0.9,0.68,0.62,0.72,0.84,0.68,0.78,0.55,0.14,0.02,0.03,0,0,Shop sign word with kh and o sign
+anchor,ବନ୍ଦ,closed,0.68,0.9,0.68,0.5,0.8,0.76,0.74,0.78,0.55,0.24,0.05,0.03,0,0,High utility but conjunct makes it late
+anchor,ସ୍କୁଲ,school,0.68,0.9,0.68,0.42,0.84,0.78,0.76,0.82,0.55,0.28,0.04,0.02,0,0,Everyday label but starts with conjunct cluster
+anchor,ଓଡ଼ିଶା,Odisha,0.84,0.86,0.66,0.44,0.86,0.76,0.76,0.9,0.55,0.3,0.05,0.04,0,0,Place identity anchor and nukta checkpoint
+anchor,ଡାକ୍ତର,doctor,0.64,0.88,0.64,0.38,0.86,0.74,0.78,0.78,0.55,0.32,0.06,0.03,0,0,Public facility word but conjunct and retroflex load delay it
+anchor,ଶୌଚାଳୟ,restroom,0.58,0.98,0.68,0.3,0.84,0.72,0.78,0.86,0.55,0.36,0.06,0.03,0,0,Essential facility word but too high-load for early lessons

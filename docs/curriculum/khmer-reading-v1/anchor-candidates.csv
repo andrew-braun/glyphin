@@ -1,0 +1,16 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ទឹក,water,0.72,0.96,0.84,0.66,0.78,0.72,0.72,0.88,0.45,0.12,0.04,0.02,0,0,High survival utility and early vowel-placement payoff
+anchor,បាយ,rice / meal,0.76,0.92,0.82,0.72,0.68,0.76,0.68,0.9,0.45,0.08,0.03,0.02,0,0,Strong food anchor with common base letters
+anchor,តែ,tea,0.58,0.88,0.72,0.78,0.72,0.78,0.66,0.88,0.45,0.08,0.03,0.02,0,0,Compact cafe anchor for preposed vowel practice
+anchor,កាហ្វេ,coffee,0.54,0.9,0.72,0.42,0.76,0.66,0.7,0.9,0.45,0.24,0.06,0.03,0,0,Familiar cafe word but needs coeng and loan spelling review
+anchor,ផ្សារ,market,0.62,0.92,0.78,0.44,0.82,0.66,0.74,0.86,0.45,0.22,0.06,0.03,0,0,High environmental-print payoff with subscript complexity
+anchor,ផ្លូវ,road,0.58,0.88,0.74,0.4,0.82,0.62,0.74,0.82,0.45,0.24,0.06,0.03,0,0,Wayfinding anchor but requires coeng cluster and vowel review
+anchor,សាលា,school,0.58,0.82,0.66,0.64,0.62,0.76,0.64,0.76,0.45,0.1,0.03,0.02,0,0,Useful sign word after aa signs and s/l are known
+anchor,ចូល,enter / go in,0.6,0.9,0.74,0.56,0.72,0.74,0.72,0.82,0.45,0.14,0.04,0.03,0,0,Public sign verb with below vowel sign
+anchor,ចេញ,exit / go out,0.6,0.92,0.76,0.5,0.76,0.7,0.72,0.84,0.45,0.18,0.05,0.03,0,0,Pairs naturally with enter and teaches exit chunk
+anchor,បង្គន់,toilet,0.52,0.94,0.72,0.36,0.82,0.62,0.76,0.84,0.45,0.28,0.06,0.03,0,0,Essential facility word but dense for early lessons
+anchor,សណ្ឋាគារ,hotel,0.5,0.88,0.68,0.3,0.78,0.58,0.72,0.8,0.45,0.32,0.08,0.03,0,0,Useful hotel sign with high cluster and length load
+anchor,ភោជនីយដ្ឋាន,restaurant,0.48,0.9,0.7,0.24,0.84,0.56,0.76,0.82,0.45,0.36,0.1,0.03,0,0,Formal restaurant word is late because it is long and cluster-heavy
+anchor,មន្ទីរពេទ្យ,hospital,0.48,0.88,0.68,0.24,0.84,0.54,0.74,0.78,0.45,0.36,0.1,0.03,0,0,Important facility anchor but requires advanced cluster support
+anchor,ឱសថស្ថាន,pharmacy,0.44,0.88,0.66,0.22,0.82,0.52,0.74,0.78,0.45,0.38,0.1,0.03,0,0,High-value facility word to defer until clusters and carriers are known
+anchor,រថយន្ត,car / vehicle,0.56,0.82,0.66,0.42,0.72,0.62,0.66,0.76,0.45,0.22,0.06,0.03,0,0,Transit word with final cluster behavior

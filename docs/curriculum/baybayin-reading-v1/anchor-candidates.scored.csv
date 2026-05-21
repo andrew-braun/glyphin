@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ᜊᜊᜌᜒ,woman,0.54,0.62,0.56,0.68,0.58,0.86,0.58,0.76,0.45,0.08,0.03,0.03,0.02,0,Primer word with high ba ya i payoff,0.4562,weak
+anchor,ᜎᜎᜃᜒ,man,0.54,0.62,0.56,0.68,0.58,0.86,0.58,0.76,0.45,0.08,0.03,0.03,0.02,0,Primer word with la ka i and no final consonant,0.4562,weak
+anchor,ᜐᜎᜋᜆ᜔,thank you,0.58,0.84,0.64,0.5,0.72,0.84,0.76,0.9,0.45,0.22,0.04,0.04,0,0,High cultural utility but final consonant needs policy,0.3810,weak
+anchor,ᜆᜓᜊᜒᜄ᜔,water,0.6,0.92,0.72,0.46,0.82,0.82,0.74,0.88,0.45,0.26,0.05,0.04,0,0,High survival value but modern virama is required,0.3634,weak
+anchor,ᜊᜓᜃᜐ᜔,open,0.5,0.82,0.58,0.52,0.72,0.82,0.68,0.82,0.45,0.2,0.04,0.04,0,0,Useful sign word if modern final notation is approved,0.3634,weak
+anchor,ᜊᜑᜌ᜔,house,0.52,0.78,0.58,0.52,0.7,0.84,0.64,0.82,0.45,0.2,0.04,0.04,0,0,Useful everyday word with final y policy,0.3578,weak
+anchor,ᜐᜇᜇᜓ,closed,0.44,0.78,0.52,0.52,0.66,0.78,0.66,0.76,0.45,0.18,0.04,0.05,0,0,Modern sign-pair spelling needs reviewer confirmation,0.3306,weak
+anchor,ᜊᜌ᜔ᜊᜌᜒᜈ᜔,Baybayin,0.62,0.82,0.72,0.44,0.88,0.82,0.82,0.94,0.45,0.28,0.06,0.04,0,0,Identity anchor but final-consonant policy makes it late,0.3302,weak
+anchor,ᜈᜅ᜔,of or linker,0.62,0.5,0.48,0.5,0.72,0.82,0.62,0.64,0.45,0.2,0.04,0.05,0,0,High-frequency function word but less standalone utility,0.2926,weak
+anchor,ᜀᜇᜏ᜔,day or sun,0.46,0.62,0.5,0.48,0.62,0.78,0.58,0.72,0.45,0.22,0.04,0.05,0,0,Useful primer word but spelling convention needs review,0.2470,weak
+anchor,ᜉᜄ᜔ᜃᜁᜈ᜔,food,0.56,0.9,0.68,0.34,0.86,0.8,0.74,0.88,0.45,0.34,0.06,0.05,0,0,Essential domain word but virama and independent vowel load are high,0.2302,weak
+anchor,ᜉᜀᜇᜎᜈ᜔,school,0.44,0.72,0.52,0.34,0.78,0.74,0.68,0.76,0.45,0.34,0.06,0.05,0,0,Primer anchor with vowel hiatus and final consonant load,0.1246,weak

@@ -1,0 +1,16 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,கடை,shop,0.68,0.92,0.82,0.72,0.78,0.82,0.7,0.86,0.5,0.08,0.02,0.02,0,0,Compact first win for consonant bases and ai sign
+anchor,காபி,coffee,0.62,0.88,0.74,0.68,0.62,0.78,0.66,0.86,0.5,0.08,0.03,0.02,0,0,Common cafe loanword and early long-aa plus i practice
+anchor,தேநீர்,tea,0.6,0.9,0.76,0.56,0.78,0.78,0.72,0.88,0.5,0.16,0.03,0.02,0,0,High cafe utility but needs pre-base e and long ii
+anchor,பால்,milk,0.64,0.9,0.76,0.62,0.78,0.86,0.7,0.88,0.5,0.12,0.02,0.02,0,0,Teaches long aa and pulli in a short menu word
+anchor,விலை,price,0.62,0.9,0.76,0.64,0.74,0.84,0.7,0.82,0.5,0.1,0.02,0.02,0,0,Shopping anchor with i and ai-style visual review
+anchor,அரிசி,rice,0.62,0.88,0.72,0.62,0.68,0.84,0.68,0.86,0.5,0.1,0.02,0.02,0,0,Food staple with independent vowel and repeated i signs
+anchor,உணவு,food,0.66,0.9,0.78,0.5,0.78,0.76,0.72,0.88,0.5,0.16,0.04,0.02,0,0,Essential menu concept but adds retroflex nasal
+anchor,ரயில்,train,0.58,0.88,0.72,0.52,0.72,0.8,0.7,0.84,0.5,0.16,0.03,0.02,0,0,Transit payoff and pulli review
+anchor,பஸ்,bus,0.52,0.86,0.66,0.48,0.68,0.72,0.66,0.78,0.5,0.16,0.05,0.03,0,0,Loanword with pulli and final s loan-letter issue
+anchor,மருந்து,medicine,0.58,0.88,0.72,0.46,0.78,0.74,0.72,0.84,0.5,0.2,0.04,0.02,0,0,Useful pharmacy anchor but includes several new signs
+anchor,மருந்தகம்,pharmacy,0.5,0.9,0.72,0.38,0.8,0.72,0.74,0.84,0.5,0.26,0.04,0.02,0,0,Facility word should wait until medicine chunks are familiar
+anchor,நுழைவு,entrance,0.52,0.88,0.7,0.4,0.8,0.66,0.74,0.82,0.5,0.24,0.08,0.03,0,0,High signage utility but introduces ழ and ai sign
+anchor,வெளியே,exit or outside,0.54,0.88,0.7,0.4,0.78,0.64,0.72,0.82,0.5,0.24,0.08,0.04,0,0,Useful sign word but needs pre-base e and retroflex lateral
+anchor,தண்ணீர்,water,0.66,0.94,0.8,0.36,0.82,0.76,0.76,0.9,0.5,0.28,0.05,0.02,0,0,Survival word but geminate retroflex nasal makes it later
+anchor,கழிப்பிடம்,toilet,0.5,0.9,0.72,0.32,0.82,0.62,0.78,0.82,0.5,0.32,0.08,0.04,0,0,Essential facility anchor but high load from ழ and doubled signs

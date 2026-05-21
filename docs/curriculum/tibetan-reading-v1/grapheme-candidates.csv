@@ -1,0 +1,21 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ཇ,ja consonant for tea,0.48,0.42,0.72,0.9,0.72,0.58,0.86,0.02,0.05,0.04,0.02,0,High anchor payoff through tea-house vocabulary
+grapheme,ཆ,cha consonant,0.58,0.56,0.76,0.88,0.74,0.64,0.82,0.03,0.06,0.04,0.02,0,Unlocks water and useful contrast with ཇ
+grapheme,ུ,u vowel sign,0.72,0.68,0.78,0.9,0.82,0.78,0.7,0.02,0.08,0.02,0.03,0,Combining below sign needed for early survival anchors
+grapheme,ལ,la consonant,0.82,0.78,0.78,0.86,0.84,0.62,0.82,0.02,0.04,0.03,0.02,0,High-payoff base for road and place words
+grapheme,མ,ma consonant,0.84,0.8,0.72,0.82,0.82,0.6,0.82,0.02,0.04,0.03,0.02,0,Common base letter with strong early anchor availability
+grapheme,ཁ,kha consonant,0.7,0.68,0.74,0.84,0.74,0.68,0.8,0.03,0.06,0.04,0.02,0,Useful for house and restaurant compounds
+grapheme,ང,nga consonant,0.76,0.72,0.7,0.82,0.64,0.66,0.78,0.03,0.07,0.06,0.02,0,Frequent suffix and syllable-final pattern needs pronunciation review
+grapheme,ཟ,za consonant,0.54,0.52,0.72,0.82,0.74,0.64,0.84,0.02,0.05,0.03,0.02,0,Unlocks eat and restaurant anchors
+grapheme,ད,da consonant,0.86,0.82,0.72,0.78,0.58,0.72,0.78,0.04,0.09,0.08,0.02,0,Very common but pronunciation can be context dependent
+grapheme,ག,ga consonant,0.86,0.82,0.74,0.78,0.58,0.72,0.78,0.04,0.1,0.08,0.02,0,Common root or prefix letter with written-pronounced mismatch risk
+grapheme,ན,na consonant,0.78,0.74,0.68,0.76,0.74,0.58,0.82,0.02,0.05,0.04,0.02,0,Useful sonorant for facility and place vocabulary
+grapheme,ར,ra consonant,0.8,0.76,0.68,0.74,0.64,0.7,0.78,0.03,0.08,0.06,0.02,0,Important as base and stack element; defer subjoined detail
+grapheme,ས,sa consonant,0.82,0.78,0.7,0.76,0.66,0.68,0.8,0.03,0.08,0.06,0.02,0,Frequent prefix and base letter with silent-letter risk
+grapheme,ི,i vowel sign,0.68,0.64,0.62,0.7,0.82,0.72,0.7,0.02,0.07,0.02,0.03,0,Above vowel sign for early contrast with u
+grapheme,ེ,e vowel sign,0.62,0.58,0.58,0.66,0.8,0.68,0.7,0.02,0.07,0.02,0.03,0,Above vowel sign needed for names and labels
+grapheme,ོ,o vowel sign,0.64,0.6,0.64,0.72,0.8,0.68,0.7,0.02,0.07,0.02,0.03,0,Above vowel sign in door and Tibetan identity words
+grapheme,་,tsheg syllable mark,0.96,0.94,0.9,0.9,0.9,0.9,0.62,0.01,0.08,0.02,0.02,0,Essential visible syllable separator rather than a word-space
+grapheme,།,shad punctuation,0.5,0.46,0.58,0.52,0.9,0.56,0.7,0.02,0.05,0,0.02,0,Useful for sentence and sign boundary awareness
+grapheme,ྲ,subjoined ra,0.42,0.4,0.48,0.58,0.46,0.78,0.7,0.04,0.18,0.08,0.08,0,Stack component needed for later cultural-site words
+grapheme,ྒ,subjoined ga,0.34,0.32,0.42,0.52,0.42,0.74,0.68,0.04,0.18,0.08,0.08,0,Keep as later stack inventory until root-letter model exists

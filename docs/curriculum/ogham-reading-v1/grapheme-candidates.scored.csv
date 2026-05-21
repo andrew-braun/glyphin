@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ᚐ,a vowel ailm,0.86,0.78,0.76,0.86,0.72,0.64,0.78,0.04,0.05,0.03,0.05,0,Common vowel and early formula support,0.6190,promising
+grapheme,ᚋ,m letter muin,0.84,0.76,0.78,0.88,0.72,0.66,0.8,0.04,0.05,0.03,0.05,0,High payoff in MAQI and MUCOI formulae,0.6170,promising
+grapheme,ᚔ,i vowel idad,0.78,0.72,0.7,0.8,0.72,0.62,0.78,0.04,0.05,0.03,0.05,0,Common final vowel in formula chunks,0.5660,promising
+grapheme,ᚒ,u vowel ur,0.72,0.66,0.66,0.76,0.72,0.6,0.78,0.04,0.05,0.03,0.05,0,Useful in MUCOI and formulaic words,0.5240,promising
+grapheme,ᚑ,o vowel onn,0.7,0.64,0.64,0.74,0.72,0.6,0.78,0.04,0.05,0.03,0.05,0,Useful vowel for MUCOI and name chunks,0.5090,promising
+grapheme,ᚊ,q letter cert,0.72,0.66,0.72,0.82,0.66,0.7,0.82,0.04,0.08,0.05,0.05,0,Important for MAQI and older Q spellings,0.4950,weak
+grapheme,ᚉ,c or k letter coll,0.7,0.64,0.66,0.76,0.68,0.62,0.82,0.04,0.06,0.04,0.05,0,Common consonant with transliteration convention caveat,0.4940,weak
+grapheme,ᚅ,n letter nion,0.68,0.62,0.6,0.7,0.72,0.58,0.8,0.04,0.05,0.03,0.05,0,Common consonant and name support,0.4880,weak
+grapheme,᚛,start mark,0.58,0.52,0.7,0.7,0.9,0.82,0.72,0.02,0.1,0.02,0.06,0,Boundary marker and orientation cue rather than sound unit,0.4610,weak
+grapheme,᚜,end mark,0.58,0.52,0.7,0.7,0.9,0.82,0.72,0.02,0.1,0.02,0.06,0,Boundary marker and orientation cue rather than sound unit,0.4610,weak
+grapheme,ᚈ,t letter tinne,0.62,0.58,0.56,0.64,0.72,0.56,0.8,0.04,0.05,0.03,0.05,0,Useful in formula fragments and names,0.4480,weak
+grapheme,ᚏ,r letter ruis,0.6,0.56,0.52,0.6,0.72,0.54,0.82,0.04,0.05,0.03,0.05,0,Common in names but less central to first formulae,0.4270,weak
+grapheme,ᚁ,b letter beith,0.58,0.54,0.52,0.6,0.72,0.54,0.82,0.04,0.05,0.03,0.05,0,First aicme member and good chart anchor,0.4170,weak
+grapheme,ᚂ,l letter luis,0.58,0.54,0.52,0.6,0.72,0.54,0.82,0.04,0.05,0.03,0.05,0,Early aicme member with clear value,0.4170,weak
+grapheme,ᚄ,s letter sail,0.56,0.52,0.5,0.58,0.72,0.54,0.82,0.04,0.05,0.03,0.05,0,Useful later consonant and chart anchor,0.4020,weak
+grapheme,ᚇ,d letter dair,0.54,0.5,0.48,0.56,0.72,0.52,0.82,0.04,0.05,0.03,0.05,0,Lower early coverage but simple value,0.3850,weak
+grapheme,ᚃ,f or v letter fern,0.58,0.54,0.56,0.64,0.58,0.6,0.82,0.04,0.08,0.05,0.05,0,Common in AVI style anchors but value needs review,0.3690,weak

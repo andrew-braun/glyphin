@@ -1,0 +1,11 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,𐐔𐐯𐑆𐐯𐑉𐐯𐐻,Deseret,0.66,0.92,0.78,0.56,0.84,0.64,0.92,0.9,0.38,0.22,0.06,0.04,0.02,0,Script-name anchor using app-authored transcription pending review
+anchor,𐐻𐐰𐐿𐑅𐐨,taxi,0.58,0.9,0.7,0.62,0.64,0.72,0.7,0.88,0.38,0.14,0.06,0.05,0,0,Compact public-travel word with clear consonants
+anchor,𐐿𐐰𐑁𐐴,cafe,0.6,0.86,0.68,0.58,0.62,0.66,0.68,0.84,0.36,0.18,0.08,0.06,0,0,Useful cafe anchor but vowel choice needs review
+anchor,𐐶𐐱𐐻𐑉,water,0.78,0.94,0.78,0.42,0.76,0.56,0.78,0.84,0.34,0.3,0.1,0.08,0,0,Dialect-sensitive anchor and r-vowel policy issue
+anchor,𐑅𐐻𐐱𐐹,stop,0.7,0.9,0.72,0.64,0.62,0.72,0.7,0.82,0.38,0.12,0.06,0.04,0,0,Public-label anchor with straightforward cluster
+anchor,𐐵𐐹𐐯𐑌,open,0.72,0.9,0.72,0.54,0.68,0.62,0.74,0.8,0.36,0.22,0.08,0.06,0,0,Shop-sign anchor with reviewed transcription needed
+anchor,𐐯𐑀𐑆𐐮𐐻,exit,0.62,0.92,0.72,0.52,0.66,0.66,0.76,0.84,0.36,0.22,0.08,0.06,0,0,Public-sign anchor but exact sound spelling varies
+anchor,𐑁𐐭𐐼,food,0.68,0.9,0.7,0.68,0.6,0.76,0.7,0.84,0.38,0.1,0.04,0.04,0,0,Menu anchor with clear long-oo contrast
+anchor,𐑉𐐵𐐼,road,0.62,0.86,0.66,0.58,0.62,0.62,0.7,0.78,0.34,0.18,0.08,0.06,0,0,Travel-label anchor with r and ow policy
+anchor,𐐸𐐵𐐻𐐯𐑊,hotel,0.62,0.86,0.66,0.48,0.66,0.62,0.72,0.78,0.34,0.26,0.08,0.06,0,0,Travel anchor with stress and vowel policy questionscandidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes

@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ᬩᬮᬶ,Bali,0.58,0.84,0.68,0.66,0.58,0.86,0.7,0.92,0.45,0.08,0.03,0.02,0,0,Identity and place anchor with simple signs,0.5646,promising
+anchor,ᬦᬲᬶ,rice,0.56,0.9,0.66,0.62,0.62,0.84,0.66,0.86,0.45,0.1,0.03,0.02,0,0,High food utility with na sa and i sign,0.5398,promising
+anchor,ᬲᬸᬲᬸ,milk,0.52,0.84,0.62,0.68,0.6,0.84,0.62,0.86,0.45,0.08,0.03,0.02,0,0,Repeating pattern makes suku approachable,0.5378,promising
+anchor,ᬧᬸᬭ,temple,0.52,0.86,0.64,0.58,0.68,0.82,0.76,0.88,0.45,0.14,0.03,0.03,0.02,0,Cultural-site anchor needs context review,0.4562,weak
+anchor,ᬩᬲᬩᬮᬶ,Balinese language,0.5,0.76,0.6,0.56,0.68,0.84,0.72,0.84,0.45,0.14,0.03,0.03,0,0,Identity anchor after Bali and sa are known,0.4422,weak
+anchor,ᬧᬲᬃ,market,0.48,0.84,0.58,0.52,0.68,0.8,0.68,0.82,0.45,0.18,0.04,0.03,0,0,Public domain word with final r behavior,0.3870,weak
+anchor,ᬬᬾᬄ,water,0.52,0.92,0.64,0.42,0.76,0.72,0.7,0.88,0.45,0.24,0.05,0.03,0,0,High survival value but ya taling and final h add load,0.3410,weak
+anchor,ᬯᬭᬸᬂ,warung or small shop,0.48,0.88,0.6,0.42,0.76,0.76,0.74,0.88,0.45,0.26,0.04,0.03,0,0,Excellent real-world word but final ng sign is late,0.3142,weak
+anchor,ᬚᬮᬦ᭄,road,0.48,0.82,0.58,0.42,0.74,0.78,0.68,0.8,0.45,0.24,0.04,0.03,0,0,Wayfinding anchor but final virama and ja add load,0.3130,weak
+anchor,ᬓᭀᬧᬶ,coffee,0.46,0.88,0.58,0.42,0.74,0.74,0.68,0.84,0.45,0.26,0.05,0.03,0,0,Cafe loanword with o sign and i sign,0.2878,weak
+anchor,ᬳᬸᬫᬄ,house,0.46,0.72,0.54,0.46,0.66,0.72,0.62,0.76,0.45,0.22,0.05,0.03,0,0,Home anchor with carrier and final h review,0.2818,weak
+anchor,ᬅᬓ᭄ᬱᬭ,script or letter,0.42,0.7,0.52,0.28,0.82,0.62,0.72,0.78,0.45,0.36,0.06,0.04,0,0,Meta-literacy anchor with conjunct-like load,0.0958,weak

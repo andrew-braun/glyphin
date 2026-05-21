@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,އ,alifu carrier,0.82,0.78,0.74,0.82,0.58,0.82,0.68,0.05,0.12,0.05,0.08,0,Carrier behavior and vowel signs need early explanation
+grapheme,މ,m,0.76,0.72,0.68,0.78,0.86,0.56,0.76,0.04,0.06,0.02,0.08,0,High payoff in fish road and mosque words
+grapheme,ނ,n,0.74,0.7,0.66,0.76,0.86,0.56,0.76,0.04,0.06,0.02,0.08,0,Useful in water and facility words
+grapheme,ފ,f,0.68,0.64,0.66,0.76,0.84,0.56,0.76,0.04,0.06,0.02,0.08,0,Water and facility anchors need f
+grapheme,ބ,b,0.62,0.6,0.58,0.68,0.84,0.52,0.76,0.04,0.06,0.02,0.08,0,Rice and closed sign payoff
+grapheme,ކ,k,0.66,0.62,0.62,0.7,0.84,0.52,0.76,0.04,0.06,0.02,0.08,0,Coffee and school anchors need k
+grapheme,ދ,d,0.64,0.6,0.58,0.68,0.84,0.52,0.76,0.04,0.06,0.02,0.08,0,Dhivehi identity and mosque anchors need d
+grapheme,ހ,h,0.62,0.58,0.58,0.66,0.82,0.52,0.76,0.04,0.06,0.02,0.08,0,Dhivehi and restroom anchors need h
+grapheme,ގ,g,0.58,0.56,0.56,0.64,0.84,0.5,0.76,0.04,0.06,0.02,0.08,0,Road and house anchors need g
+grapheme,ސ,s,0.62,0.6,0.6,0.68,0.84,0.52,0.76,0.04,0.06,0.02,0.08,0,Fish school and mosque anchors need s
+grapheme,ވ,v,0.58,0.56,0.54,0.62,0.84,0.5,0.76,0.04,0.06,0.02,0.08,0,Dhivehi identity and open words need v
+grapheme,ަ,a sign,0.8,0.76,0.74,0.82,0.88,0.74,0.62,0.04,0.12,0.02,0.1,0,Core vowel sign attached to letters
+grapheme,ި,i sign,0.76,0.72,0.68,0.76,0.88,0.72,0.62,0.04,0.12,0.02,0.1,0,Dhivehi and coffee anchors need i sign
+grapheme,ު,u sign,0.74,0.7,0.68,0.76,0.88,0.72,0.62,0.04,0.12,0.02,0.1,0,Road and mosque anchors need u sign
+grapheme,ެ,e sign,0.62,0.58,0.58,0.68,0.86,0.68,0.62,0.04,0.12,0.02,0.1,0,Water and Dhivehi anchors need e sign
+grapheme,ާ,aa sign,0.58,0.54,0.56,0.64,0.84,0.68,0.62,0.04,0.12,0.02,0.1,0,Restroom and open words may need long vowel sign
+grapheme,ް,sukun,0.66,0.62,0.64,0.72,0.76,0.84,0.56,0.05,0.16,0.03,0.1,0,Final and cluster behavior requires explicit drills

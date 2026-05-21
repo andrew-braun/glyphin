@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ꯆꯥ,tea or meal,0.52,0.86,0.62,0.62,0.6,0.82,0.62,0.86,0.46,0.1,0.03,0.04,0,0,Short food or drink anchor needs gloss confirmation,0.4916,weak
+anchor,ꯏꯁꯤꯡ,water,0.62,0.94,0.74,0.54,0.78,0.84,0.72,0.9,0.46,0.2,0.04,0.03,0,0,High survival value with i sa i sign and final ng,0.4632,weak
+anchor,ꯂꯝ,road or land,0.5,0.78,0.58,0.62,0.66,0.84,0.64,0.78,0.46,0.12,0.03,0.04,0,0,Wayfinding candidate but gloss needs specialist choice,0.4520,weak
+anchor,ꯃꯩꯇꯩ,Meitei,0.6,0.84,0.7,0.52,0.78,0.82,0.8,0.92,0.46,0.2,0.04,0.03,0,0,Identity anchor with ei sign and ta,0.4356,weak
+anchor,ꯆꯥꯛ,food or rice,0.54,0.9,0.66,0.56,0.72,0.82,0.68,0.88,0.46,0.18,0.04,0.04,0,0,Useful food anchor with final k letter,0.4276,weak
+anchor,ꯏꯃꯥ,mother,0.5,0.58,0.52,0.62,0.58,0.84,0.58,0.76,0.46,0.1,0.03,0.04,0.02,0,Primer word with i ma aa,0.3940,weak
+anchor,ꯌꯨꯝ,house,0.52,0.78,0.58,0.56,0.7,0.84,0.64,0.82,0.46,0.18,0.04,0.03,0,0,Everyday anchor with u sign and final m,0.3936,weak
+anchor,ꯑꯄꯥ,father,0.48,0.58,0.5,0.58,0.56,0.82,0.58,0.76,0.46,0.12,0.03,0.04,0.02,0,Primer word with a pa aa,0.3572,weak
+anchor,ꯅꯨꯄꯥ,man,0.48,0.6,0.52,0.5,0.66,0.82,0.6,0.76,0.46,0.18,0.04,0.04,0.02,0,Pairs naturally with woman after signs are known,0.2940,weak
+anchor,ꯅꯨꯄꯤ,woman,0.48,0.6,0.52,0.48,0.66,0.82,0.6,0.76,0.46,0.2,0.04,0.04,0.02,0,People word with u and i signs,0.2712,weak
+anchor,ꯂꯩꯄꯥꯛ,land or country,0.46,0.76,0.58,0.34,0.82,0.76,0.7,0.78,0.46,0.32,0.05,0.04,0,0,Identity or place anchor but long and final k heavy,0.1936,weak
+anchor,ꯁ꯭ꯀꯨꯜ,school,0.42,0.72,0.52,0.28,0.82,0.7,0.66,0.76,0.46,0.38,0.06,0.05,0,0,Loanword cluster needs orthography and font review,0.0716,weak

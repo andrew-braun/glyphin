@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,café,cafe,0.88,0.95,0.88,0.88,0.7,0.92,0.76,0.94,0.58,0.08,0,0.01,0,0,High memorability and acute mark payoff,0.7770,strong
+anchor,entrada,entrance,0.76,0.94,0.84,0.84,0.68,0.9,0.72,0.9,0.55,0.04,0,0.02,0,0,Spanish and Portuguese sign word with no diacritic but strong survival utility,0.7586,strong
+anchor,salida,exit,0.76,0.94,0.84,0.84,0.68,0.9,0.72,0.9,0.55,0.04,0,0.02,0,0,Pairs naturally with entrada for sign reading,0.7586,strong
+anchor,mañana,morning / tomorrow,0.8,0.86,0.78,0.82,0.75,0.9,0.76,0.92,0.55,0.08,0.01,0.02,0,0,Strong Spanish tilde anchor,0.7008,promising
+anchor,entrée,entry / starter,0.7,0.92,0.82,0.8,0.68,0.88,0.74,0.88,0.55,0.1,0.01,0.02,0,0,Menu and entrance overlap with multiple accents,0.6618,promising
+anchor,español,Spanish language,0.72,0.86,0.76,0.76,0.75,0.9,0.74,0.86,0.55,0.12,0.02,0.02,0,0,Combines ñ and accent in a visible language label,0.6180,promising
+anchor,crème,cream,0.68,0.9,0.76,0.78,0.65,0.86,0.7,0.86,0.55,0.12,0.02,0.02,0,0,French menu word for grave and circumflex recognition,0.6036,promising
+anchor,açúcar,sugar,0.68,0.88,0.76,0.76,0.7,0.86,0.72,0.86,0.55,0.12,0.02,0.02,0,0,Portuguese ingredient anchor with cedilla and acute,0.6034,promising
+anchor,pâté,pate,0.5,0.88,0.7,0.8,0.6,0.84,0.66,0.84,0.5,0.1,0.01,0.02,0,0,French menu circumflex consolidation,0.5728,promising
+anchor,Käse,cheese,0.52,0.84,0.68,0.8,0.58,0.86,0.66,0.82,0.55,0.12,0.01,0.02,0,0,Compact German menu anchor for umlaut,0.5466,promising
+anchor,château,castle / estate,0.58,0.78,0.66,0.72,0.62,0.8,0.64,0.84,0.5,0.14,0.02,0.02,0,0,Tourism and place-name circumflex anchor,0.5024,promising
+anchor,façade,facade,0.48,0.78,0.64,0.72,0.6,0.84,0.66,0.76,0.5,0.12,0.01,0.03,0,0,Cedilla anchor with architectural signage context,0.4964,weak
+anchor,résumé,resume,0.56,0.6,0.54,0.78,0.62,0.86,0.6,0.76,0.5,0.1,0.01,0.04,0,0,Recognizable double-acute anchor but lower travel utility,0.4840,weak
+anchor,naïve,naive,0.52,0.54,0.5,0.82,0.5,0.86,0.58,0.8,0.5,0.1,0,0.02,0,0,Diaeresis contrast anchor but lower travel utility,0.4820,weak
+anchor,Straße,street,0.64,0.86,0.78,0.68,0.6,0.78,0.68,0.82,0.55,0.2,0.04,0.02,0,0,German street sign convention and eszett recognition,0.4626,weak
+anchor,Bücher,books,0.48,0.7,0.6,0.76,0.55,0.82,0.62,0.76,0.5,0.14,0.02,0.03,0,0,Shop and library context for ü,0.4422,weak

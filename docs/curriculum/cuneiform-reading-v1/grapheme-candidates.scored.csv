@@ -1,0 +1,16 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,𒈗,LUGAL king sign,0.76,0.7,0.82,0.9,0.32,0.82,0.82,0.04,0.12,0.14,0.08,0,Core royal-inscription logogram and early recognition win,0.3560,weak
+grapheme,𒆠,KI land place sign,0.78,0.72,0.76,0.86,0.34,0.76,0.72,0.05,0.12,0.12,0.08,0,High museum and place-name payoff with determinative behavior,0.3540,weak
+grapheme,𒂍,E2 house temple sign,0.7,0.64,0.74,0.82,0.34,0.72,0.78,0.04,0.12,0.12,0.08,0,Strong inscription anchor for building and temple contexts,0.3160,weak
+grapheme,𒌷,URU city sign,0.68,0.62,0.76,0.82,0.32,0.74,0.78,0.04,0.12,0.12,0.08,0,Common place and city marker in inscription contexts,0.3090,weak
+grapheme,𒀀,A water sign value,0.72,0.66,0.7,0.82,0.36,0.7,0.72,0.05,0.12,0.12,0.08,0,Common sign value but reading depends on context and period,0.3070,weak
+grapheme,𒀭,DINGIR deity determinative,0.74,0.68,0.78,0.86,0.3,0.84,0.82,0.04,0.14,0.16,0.08,0,Sacred determinative with cultural and sign-value review needs,0.2960,weak
+grapheme,𒃲,GAL great sign,0.66,0.6,0.64,0.74,0.34,0.66,0.74,0.04,0.1,0.12,0.08,0,Reusable adjective and title component,0.2850,weak
+grapheme,𒂗,EN lord sign,0.64,0.58,0.66,0.76,0.34,0.68,0.76,0.04,0.1,0.12,0.08,0,Useful title sign that overlaps religious and civic domains,0.2830,weak
+grapheme,𒁹,DISZ numeral one sign,0.6,0.54,0.58,0.72,0.26,0.66,0.8,0.03,0.1,0.12,0.08,0,Gateway to numbering and object labels,0.2490,weak
+grapheme,𒇻,LU person sign,0.62,0.56,0.6,0.7,0.3,0.68,0.72,0.05,0.12,0.14,0.08,0,Common sign with multiple readings and specialist review needs,0.2020,weak
+grapheme,𒌓,UTU day sun sign,0.58,0.52,0.62,0.7,0.32,0.66,0.82,0.04,0.12,0.14,0.08,0,Distinctive sign with deity and calendar associations,0.2000,weak
+grapheme,𒆳,KUR mountain land sign,0.58,0.52,0.62,0.68,0.3,0.68,0.78,0.04,0.12,0.14,0.08,0,Useful for foreign land and landscape contexts,0.1960,weak
+grapheme,𒊕,SAG head sign,0.54,0.5,0.52,0.62,0.32,0.58,0.74,0.04,0.12,0.12,0.08,0,Useful but less immediately domain-specific,0.1690,weak
+grapheme,𒄑,GISZ wood determinative,0.5,0.46,0.5,0.58,0.28,0.62,0.76,0.04,0.14,0.14,0.08,0,Determinative behavior should wait for review,0.1030,weak
+grapheme,𒑱,word divider or punctuation mark,0.38,0.34,0.42,0.48,0.2,0.56,0.66,0.03,0.12,0.1,0.1,0,Edition and font support are uncertain across samples,0.0520,weak

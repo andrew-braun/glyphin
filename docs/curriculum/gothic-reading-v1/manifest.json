@@ -1,0 +1,95 @@
+{
+	"course_id": "gothic-reading-v1",
+	"display_name": "Gothic Reading",
+	"language_tag": "got-Goth",
+	"script": "Goth",
+	"direction": "ltr",
+	"target_domains": [
+		"biblical_manuscript_transcriptions",
+		"lexical_headwords",
+		"museum_cultural_sites",
+		"alphabet_tables",
+		"transliteration_workbenches"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Gothic script text in NFC and preserve transliteration and edition notes. Do not normalize Gothic letters to Greek or Latin lookalikes."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_edition_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "Gothic letters, transliteration labels, sacred-name context, manuscript punctuation, and selected word chunks",
+		"notes": "Gothic is encoded and left-to-right, but available text is mostly biblical and edition-dependent. Treat manuscript punctuation and sacred vocabulary as review-gated."
+	},
+	"sources": [
+		{
+			"id": "unicode-gothic-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U10330.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Encoded Gothic letters for inventory and rendering checks."
+		},
+		{
+			"id": "wulfila-project",
+			"kind": "text_reference",
+			"url": "https://www.wulfila.be/",
+			"license": "site and text reuse terms require review",
+			"use": "discovery_only",
+			"domain_weight": 0.55,
+			"notes": "Gothic biblical text and grammar reference for discovery only."
+		},
+		{
+			"id": "titus-gothic",
+			"kind": "corpus_reference",
+			"url": "https://titus.uni-frankfurt.de/",
+			"license": "corpus terms require review",
+			"use": "scoring_only",
+			"domain_weight": 0.55,
+			"notes": "Gothic text evidence for scoring only pending license review."
+		},
+		{
+			"id": "wiktionary-gothic",
+			"kind": "lexicon",
+			"url": "https://en.wiktionary.org/wiki/Category:Gothic_language",
+			"license": "CC BY-SA attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Gloss and spelling discovery only until attribution review."
+		},
+		{
+			"id": "noto-sans-gothic",
+			"kind": "font_reference",
+			"url": "https://fonts.google.com/noto/specimen/Noto+Sans+Gothic",
+			"license": "SIL Open Font License",
+			"use": "scoring",
+			"domain_weight": 0.2,
+			"notes": "Rendering reference for Gothic letters."
+		},
+		{
+			"id": "app-authored-gothic-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed Gothic examples authored by GlyphBridge from cleared vocabulary decisions."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": false,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"specialist_review_required": true
+	}
+}

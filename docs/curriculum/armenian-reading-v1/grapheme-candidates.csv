@@ -1,0 +1,27 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,Ա ա,a vowel,0.9,0.86,0.8,0.9,0.92,0.68,0.88,0.02,0.02,0,0,0,Core vowel with strong early anchor availability
+grapheme,Ե ե,e or ye vowel,0.84,0.8,0.72,0.82,0.78,0.72,0.84,0.03,0.06,0.02,0,0,Common vowel with word-initial ye behavior to review
+grapheme,Ի ի,i vowel,0.82,0.78,0.72,0.82,0.9,0.66,0.86,0.02,0.02,0,0,0,Stable high-frequency vowel
+grapheme,Ո ո,o or vo vowel,0.8,0.76,0.72,0.78,0.72,0.72,0.84,0.03,0.08,0.02,0,0,Word-initial vo behavior makes this a rule gateway
+grapheme,Ու ու,u digraph,0.76,0.72,0.74,0.82,0.88,0.82,0.74,0.02,0.1,0.02,0,0,High-payoff multi-letter unit for ջուր and սուրճ
+grapheme,Մ մ,m consonant,0.78,0.74,0.7,0.78,0.92,0.62,0.86,0.02,0.02,0,0,0,Common consonant in transit and facility words
+grapheme,Ն ն,n consonant,0.8,0.76,0.7,0.78,0.92,0.62,0.84,0.03,0.02,0,0,0,High-frequency nasal for signs and labels
+grapheme,Ր ր,r consonant,0.74,0.7,0.68,0.76,0.82,0.58,0.82,0.04,0.04,0.01,0,0,Common rhotic with pronunciation review needed
+grapheme,Ս ս,s consonant,0.76,0.72,0.72,0.78,0.9,0.62,0.86,0.02,0.02,0,0,0,Stable s sound and useful for menu words
+grapheme,Տ տ,t consonant,0.7,0.66,0.66,0.72,0.9,0.6,0.82,0.04,0.03,0,0,0,Plain t contrast with aspirated թ comes later
+grapheme,Կ կ,k consonant,0.7,0.66,0.66,0.72,0.9,0.6,0.82,0.03,0.03,0,0,0,Useful in market and station anchors
+grapheme,Պ պ,p consonant,0.64,0.6,0.6,0.66,0.88,0.56,0.8,0.04,0.04,0,0,0,Plain p contrast with փ needs review
+grapheme,Հ հ,h consonant,0.72,0.68,0.68,0.74,0.88,0.58,0.82,0.03,0.03,0,0,0,High-value for հաց and hotel words
+grapheme,Լ լ,l consonant,0.68,0.64,0.62,0.68,0.9,0.56,0.82,0.03,0.03,0,0,0,Useful liquid for labels and place names
+grapheme,Գ գ,g consonant,0.62,0.58,0.58,0.64,0.86,0.54,0.78,0.04,0.04,0,0,0,Moderate coverage and clear sound
+grapheme,Դ դ,d consonant,0.6,0.56,0.56,0.62,0.86,0.54,0.78,0.04,0.04,0,0,0,Useful in դեղատուն and domain words
+grapheme,Բ բ,b consonant,0.58,0.54,0.54,0.6,0.86,0.52,0.78,0.04,0.04,0,0,0,Common enough for early contrast families
+grapheme,Ջ ջ,j consonant,0.48,0.46,0.54,0.68,0.78,0.56,0.82,0.03,0.08,0.02,0,0,Lower broad frequency but unlocks ջուր
+grapheme,Ճ ճ,ch consonant,0.5,0.48,0.58,0.66,0.72,0.58,0.82,0.03,0.1,0.02,0,0,Needed for ճաշարան and affricate family
+grapheme,Շ շ,sh consonant,0.56,0.54,0.6,0.68,0.84,0.58,0.82,0.03,0.08,0.01,0,0,Useful for market and restaurant anchors
+grapheme,Խ խ,kh consonant,0.52,0.5,0.52,0.6,0.68,0.56,0.8,0.03,0.1,0.02,0,0,Pronunciation load makes this intermediate
+grapheme,Թ թ,aspirated t,0.5,0.48,0.54,0.62,0.7,0.62,0.82,0.04,0.1,0.02,0,0,Aspirated contrast and tea anchor gateway
+grapheme,Փ փ,aspirated p,0.44,0.42,0.44,0.52,0.7,0.58,0.82,0.04,0.1,0.02,0,0,Defer until closed sign or contrast drills
+grapheme,Ք ք,aspirated k,0.5,0.48,0.5,0.58,0.7,0.58,0.82,0.04,0.1,0.02,0,0,Useful for քաղաք and late contrast work
+grapheme,Ֆ ֆ,f consonant,0.36,0.34,0.42,0.5,0.9,0.48,0.78,0.03,0.04,0,0,0,Loanword letter for cafe and pharmacy contexts
+grapheme,Եվ և,ew ligature and word,0.58,0.54,0.48,0.5,0.72,0.7,0.76,0.04,0.1,0.02,0,0,Common ligature and conjunction needs display policy

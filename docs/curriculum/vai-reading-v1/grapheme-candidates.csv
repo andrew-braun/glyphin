@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ꕙ,va syllabogram,0.72,0.68,0.66,0.82,0.72,0.7,0.82,0.04,0.1,0.03,0.08,0,Script-name gateway if ꕙꔤ is approved for Vai
+grapheme,ꔤ,i syllabogram,0.78,0.74,0.7,0.82,0.76,0.68,0.78,0.04,0.1,0.03,0.08,0,Completes script-name candidate and common vowel syllable
+grapheme,ꕉ,a syllabogram,0.8,0.76,0.7,0.78,0.76,0.68,0.78,0.04,0.1,0.03,0.08,0,Core vowel syllabogram and series anchor
+grapheme,ꕎ,wa syllabogram,0.66,0.62,0.58,0.68,0.72,0.62,0.8,0.04,0.1,0.03,0.08,0,Useful for early series contrast after review
+grapheme,ꕪ,ka syllabogram,0.7,0.66,0.62,0.7,0.74,0.64,0.8,0.04,0.1,0.03,0.08,0,High-payoff consonant-vowel sign for chunk drills
+grapheme,ꕮ,ma syllabogram,0.7,0.66,0.62,0.7,0.74,0.64,0.8,0.04,0.1,0.03,0.08,0,Useful for personal and place-name candidates
+grapheme,ꕯ,na syllabogram,0.68,0.64,0.6,0.68,0.74,0.62,0.8,0.04,0.1,0.03,0.08,0,Common n-series candidate
+grapheme,ꔀ,ee syllabogram,0.64,0.6,0.56,0.62,0.72,0.6,0.8,0.04,0.1,0.03,0.08,0,Early vowel sign with clear Unicode name
+grapheme,ꔒ,lee syllabogram,0.58,0.54,0.5,0.58,0.72,0.56,0.8,0.04,0.1,0.03,0.08,0,Useful for later reviewed words
+grapheme,ꔡ,mee syllabogram,0.56,0.52,0.5,0.56,0.72,0.54,0.8,0.04,0.1,0.03,0.08,0,Series member for chart-family practice
+grapheme,ꔢ,nee syllabogram,0.56,0.52,0.5,0.56,0.72,0.54,0.8,0.04,0.1,0.03,0.08,0,Series member for nasal syllable contrast
+grapheme,nasalized signs,nasal syllabograms,0.48,0.46,0.42,0.44,0.58,0.7,0.6,0.05,0.18,0.06,0.08,0,Nasalized signs need reviewer-selected sequencingcandidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes

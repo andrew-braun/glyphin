@@ -1,0 +1,25 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,.,dit short signal,1,1,1,1,0.95,0.9,0.8,0.02,0.02,0,0,0,Core short signal element and timing unit,0.9350,strong
+grapheme,-,dah long signal,1,1,1,1,0.95,0.9,0.8,0.02,0.02,0,0,0,Core long signal element and timing contrast,0.9350,strong
+grapheme,.,E signal,0.95,0.9,0.86,0.95,0.94,0.76,0.8,0.03,0.03,0,0,0,E is one dit and a first recognition win,0.8390,strong
+grapheme,intra-character gap,silent element gap,1,1,1,1,0.8,0.9,0.6,0.02,0.08,0.02,0,0,Timing gap inside a character must become first-class data,0.8300,strong
+grapheme,character gap,letter separator,1,1,1,1,0.8,0.9,0.6,0.02,0.08,0.02,0,0,Spacing is semantic and not just typography,0.8300,strong
+grapheme,-,T signal,0.9,0.86,0.82,0.92,0.94,0.76,0.8,0.03,0.03,0,0,0,T is one dah and the first contrast partner,0.8070,strong
+grapheme,...,S signal,0.9,0.86,0.84,0.94,0.92,0.78,0.78,0.03,0.04,0,0,0,Core SOS component and high-frequency letter,0.8010,strong
+grapheme,---,O signal,0.88,0.84,0.84,0.92,0.92,0.78,0.78,0.03,0.04,0,0,0,Core SOS component and no anchor,0.7890,strong
+grapheme,word gap,word separator,0.95,0.92,0.9,0.95,0.8,0.88,0.65,0.02,0.08,0.02,0,0,Word spacing must map to timing and notation slash,0.7795,strong
+grapheme,..,I signal,0.86,0.82,0.78,0.88,0.9,0.72,0.78,0.03,0.04,0,0,0,Short repeated dits are easy early recognition,0.7580,strong
+grapheme,.-,A signal,0.84,0.8,0.76,0.86,0.9,0.72,0.78,0.03,0.04,0,0,0,Mixed dit-dah pattern unlocks common words,0.7430,promising
+grapheme,-.,N signal,0.84,0.8,0.76,0.86,0.9,0.72,0.78,0.03,0.04,0,0,0,Mirror pattern for A and useful in no and train,0.7430,promising
+grapheme,.-.,R signal,0.82,0.78,0.74,0.84,0.88,0.68,0.76,0.03,0.06,0,0,0,Common letter and train water anchors,0.7010,promising
+grapheme,--,M signal,0.78,0.74,0.72,0.8,0.9,0.7,0.78,0.03,0.04,0,0,0,Two dah pattern and Mayday preview,0.6990,promising
+grapheme,-.-,K signal,0.72,0.68,0.66,0.76,0.86,0.66,0.76,0.03,0.06,0,0,0,Useful for OK and procedural words,0.6270,promising
+grapheme,-..,D signal,0.72,0.68,0.66,0.74,0.86,0.66,0.76,0.03,0.06,0,0,0,Food and door anchors,0.6250,promising
+grapheme,..-,U signal,0.72,0.68,0.66,0.74,0.86,0.66,0.76,0.03,0.06,0,0,0,Bus and public words,0.6250,promising
+grapheme,.--,W signal,0.68,0.64,0.68,0.74,0.86,0.66,0.76,0.03,0.06,0,0,0,Water and weather-domain support,0.6080,promising
+grapheme,.-..,L signal,0.7,0.66,0.64,0.72,0.86,0.62,0.76,0.03,0.08,0,0,0,Help and call anchors,0.5860,promising
+grapheme,....,H signal,0.66,0.62,0.66,0.72,0.86,0.68,0.76,0.03,0.08,0,0,0,Help anchor and repeated-dit recognition,0.5750,promising
+grapheme,--.,G signal,0.64,0.6,0.58,0.66,0.86,0.64,0.76,0.03,0.06,0,0,0,Lower early utility but common pattern family,0.5630,promising
+grapheme,... --- ...,SOS distress sequence,0.5,0.48,0.9,0.95,0.9,0.92,0.82,0.02,0.12,0.02,0,0,Essential sequence but must be culturally contextualized,0.5390,promising
+grapheme,.--.,P signal,0.62,0.58,0.6,0.66,0.84,0.62,0.76,0.03,0.08,0,0,0,Stop and open anchors,0.5320,promising
+grapheme,.-.-.,AR prosign,0.34,0.32,0.4,0.45,0.78,0.8,0.74,0.04,0.16,0.03,0,0,Prosign modeling should wait until letters and gaps are stable,0.2360,weak

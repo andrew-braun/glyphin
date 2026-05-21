@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-cherokee-block,unicode_metadata,https://www.unicode.org/charts/PDF/U13A0.pdf,Unicode License reviewed for metadata use,scoring,0.45,Core Cherokee syllabary code point metadata for infrastructure use only
+unicode-cherokee-supplement,unicode_metadata,https://www.unicode.org/charts/PDF/UAB70.pdf,Unicode License reviewed for metadata use,scoring,0.35,Lowercase Cherokee metadata; reviewer must decide v1 case policy
+cldr-chr-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.5,Cherokee exemplar and casing data; confirm exact CLDR release before ingestion
+cherokee-nation-language-resources,pedagogy_reference,https://language.cherokee.org/,terms require review before derived use,discovery_only,0.7,Community pedagogy and terminology discovery only until permissions are reviewed
+cherokee-wiktionary,lexicon,https://chr.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Gloss and spelling discovery only; do not ship derived entries without legal review
+app-authored-cherokee-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed labels and examples authored by GlyphBridge rather than copied from third-party corporaid,kind,url,license,use,domain_weight,notes

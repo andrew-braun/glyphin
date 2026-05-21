@@ -1,0 +1,23 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,p,voiceless bilabial plosive,0.95,0.9,0.82,0.95,0.95,0.7,0.95,0,0,0,0,0,Positive transfer from English p,0.8955,strong
+grapheme,t,voiceless alveolar plosive,0.95,0.9,0.82,0.95,0.95,0.68,0.95,0,0,0,0,0,Positive transfer from English t,0.8935,strong
+grapheme,n,alveolar nasal,0.94,0.9,0.8,0.94,0.95,0.65,0.95,0,0,0,0,0,Positive transfer nasal,0.8835,strong
+grapheme,k,voiceless velar plosive,0.92,0.88,0.8,0.92,0.92,0.68,0.95,0,0,0,0,0,Positive transfer from English k,0.8715,strong
+grapheme,m,bilabial nasal,0.92,0.88,0.78,0.92,0.95,0.65,0.95,0,0,0,0,0,Positive transfer nasal,0.8685,strong
+grapheme,s,voiceless alveolar fricative,0.92,0.88,0.78,0.92,0.94,0.65,0.95,0,0,0,0,0,Positive transfer fricative,0.8675,strong
+grapheme,b,voiced bilabial plosive,0.9,0.86,0.76,0.9,0.94,0.66,0.95,0,0,0,0,0,Core voiced plosive pair with p,0.8535,strong
+grapheme,d,voiced alveolar plosive,0.88,0.84,0.74,0.88,0.92,0.66,0.95,0,0,0,0,0,Core voiced plosive pair with t,0.8365,strong
+grapheme,ˈ,primary stress mark,0.9,0.84,0.8,0.9,0.9,0.85,0.82,0.02,0.05,0,0,0,Essential for dictionary-style transcriptions,0.7940,strong
+grapheme,ŋ,velar nasal,0.88,0.82,0.72,0.86,0.9,0.7,0.84,0.03,0.04,0,0,0,Unlocks sing and language endings,0.7540,strong
+grapheme,z,voiced alveolar fricative,0.8,0.76,0.66,0.8,0.9,0.62,0.95,0.02,0,0,0,0,Useful voiced pair with s,0.7505,strong
+grapheme,ɡ,voiced velar plosive,0.86,0.82,0.72,0.86,0.9,0.66,0.78,0.04,0.03,0,0,0,IPA single-storey g needs font clarity,0.7410,promising
+grapheme,ɪ,near-close front vowel,0.9,0.85,0.76,0.88,0.9,0.72,0.72,0.05,0.05,0,0,0,Key English dictionary vowel in kit and bit,0.7400,promising
+grapheme,ʃ,voiceless postalveolar fricative,0.86,0.8,0.7,0.84,0.9,0.68,0.72,0.03,0.04,0,0,0,English sh sound and common world-language symbol,0.7310,promising
+grapheme,ə,schwa,0.92,0.86,0.78,0.9,0.86,0.8,0.7,0.05,0.08,0,0,0,Most common reduced vowel and stress gateway,0.7260,promising
+grapheme,ɛ,open-mid front vowel,0.88,0.84,0.74,0.86,0.9,0.7,0.7,0.05,0.05,0,0,0,Common vowel in bed and question,0.7240,promising
+grapheme,æ,near-open front vowel,0.86,0.82,0.72,0.86,0.88,0.68,0.74,0.05,0.05,0,0,0,Common English cat vowel and visible ligature,0.7090,promising
+grapheme,ɔ,open-mid back rounded vowel,0.82,0.78,0.68,0.82,0.86,0.64,0.72,0.06,0.06,0,0,0,Common in dog and water depending accent,0.6520,promising
+grapheme,θ,voiceless dental fricative,0.82,0.74,0.66,0.82,0.88,0.7,0.74,0.05,0.08,0,0,0,English th in think and cross-course Greek overlap,0.6400,promising
+grapheme,ʒ,voiced postalveolar fricative,0.78,0.72,0.62,0.78,0.86,0.65,0.68,0.05,0.05,0,0,0,Less common but useful in measure and usually,0.6340,promising
+grapheme,ʌ,open-mid central vowel,0.84,0.8,0.7,0.84,0.84,0.65,0.66,0.08,0.08,0,0,0,Unfamiliar shape for strut vowel,0.6230,promising
+grapheme,ð,voiced dental fricative,0.78,0.7,0.62,0.78,0.86,0.68,0.66,0.08,0.1,0,0,0,English th in this with eth-shape confusion,0.5520,promising

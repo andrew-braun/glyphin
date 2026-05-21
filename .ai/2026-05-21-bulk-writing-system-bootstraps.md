@@ -55,95 +55,95 @@ copy.
 
 ### Pilot Calibration
 
-- [ ] `thai-reading-v1`
+- [x] `thai-reading-v1` draft packet
 - [x] `greek-reading-v1` draft packet
-- [ ] `arabic-reading-v1`
-- [ ] `han-chinese-v1`
-- [ ] `braille-v1` or `morse-signaling-v1`
+- [x] `arabic-reading-v1` draft packet
+- [x] `mandarin-han-v1` draft packet
+- [x] `english-braille-v1` and `morse-signaling-v1` draft packets
 
 ### Wave A: Lowest Data Risk
 
-- [ ] Latin extensions and diacritics
-- [ ] International Phonetic Alphabet
+- [x] Latin extensions and diacritics: `latin-diacritics-v1`
+- [x] International Phonetic Alphabet: `ipa-reading-v1`
 - [x] Hangul: already bootstrapped at `docs/curriculum/korean-hangul-v1/`
-- [ ] Greek
-- [ ] Cyrillic
-- [ ] Japanese writing system
-- [ ] Han characters for Chinese
+- [x] Greek: `greek-reading-v1`
+- [x] Cyrillic: `russian-cyrillic-v1`
+- [x] Japanese writing system: `japanese-kana-kanji-v1`
+- [x] Han characters for Chinese: `mandarin-han-v1`
 
 ### Wave B: Medium Risk
 
-- [ ] Arabic script
-- [ ] Devanagari
-- [ ] Hebrew
-- [ ] Thai
-- [ ] Bopomofo
-- [ ] Bengali-Assamese
-- [ ] Tamil
-- [ ] Gurmukhi
-- [ ] Telugu
-- [ ] Kannada
-- [ ] Malayalam
-- [ ] Gujarati
-- [ ] Odia
-- [ ] Ethiopic
-- [ ] Braille
-- [ ] Morse code and signaling systems
-- [ ] Armenian
-- [ ] Georgian
-- [ ] Coptic
+- [x] Arabic script: `arabic-reading-v1`
+- [x] Devanagari: `hindi-devanagari-v1`
+- [x] Hebrew: `hebrew-reading-v1`
+- [x] Thai: `thai-reading-v1`
+- [x] Bopomofo: `mandarin-bopomofo-v1`
+- [x] Bengali-Assamese: `bengali-assamese-v1`
+- [x] Tamil: `tamil-reading-v1`
+- [x] Gurmukhi: `punjabi-gurmukhi-v1`
+- [x] Telugu: `telugu-reading-v1`
+- [x] Kannada: `kannada-reading-v1`
+- [x] Malayalam: `malayalam-reading-v1`
+- [x] Gujarati: `gujarati-reading-v1`
+- [x] Odia: `odia-reading-v1`
+- [x] Ethiopic: `amharic-ethiopic-v1`
+- [x] Braille: `english-braille-v1`
+- [x] Morse code and signaling systems: `morse-signaling-v1`
+- [x] Armenian: `armenian-reading-v1`
+- [x] Georgian: `georgian-reading-v1`
+- [x] Coptic: `coptic-reading-v1`
 
 ### Wave C: Medium-High Risk
 
-- [ ] Tibetan
-- [ ] Khmer
-- [ ] Lao
-- [ ] Myanmar
-- [ ] Sinhala
-- [ ] Egyptian hieroglyphs
-- [ ] Runic scripts
-- [ ] Phoenician
-- [ ] Ogham
-- [ ] Linear B
+- [x] Tibetan: `tibetan-reading-v1`
+- [x] Khmer: `khmer-reading-v1`
+- [x] Lao: `lao-reading-v1`
+- [x] Myanmar: `burmese-myanmar-v1`
+- [x] Sinhala: `sinhala-reading-v1`
+- [x] Egyptian hieroglyphs: `egyptian-hieroglyphs-v1`
+- [x] Runic scripts: `runic-reading-v1`
+- [x] Phoenician: `phoenician-reading-v1`
+- [x] Ogham: `ogham-reading-v1`
+- [x] Linear B: `linear-b-reading-v1`
 
 ### Wave D: High Risk
 
-- [ ] Cuneiform
-- [ ] Maya hieroglyphs
-- [ ] Old Persian cuneiform
-- [ ] Ugaritic
-- [ ] Old Italic family
-- [ ] Glagolitic
-- [ ] Gothic
-- [ ] Brahmi
-- [ ] Syriac
-- [ ] Mongolian
-- [ ] Tifinagh
-- [ ] Javanese
-- [ ] Balinese
-- [ ] Baybayin or Tagalog script
-- [ ] Cherokee
-- [ ] Canadian Aboriginal syllabics
-- [ ] Adlam
-- [ ] N'Ko
-- [ ] Shavian
-- [ ] Deseret alphabet
-- [ ] Sitelen Pona
-- [ ] Vai
-- [ ] Bamum
-- [ ] Thaana
-- [ ] Meitei Mayek
+- [x] Cuneiform: `cuneiform-reading-v1`
+- [x] Maya hieroglyphs: `maya-hieroglyphs-v1`
+- [x] Old Persian cuneiform: `old-persian-cuneiform-v1`
+- [x] Ugaritic: `ugaritic-reading-v1`
+- [x] Old Italic family: `old-italic-reading-v1`
+- [x] Glagolitic: `glagolitic-reading-v1`
+- [x] Gothic: `gothic-reading-v1`
+- [x] Brahmi: `brahmi-reading-v1`
+- [x] Syriac: `syriac-reading-v1`
+- [x] Mongolian: `mongolian-reading-v1`
+- [x] Tifinagh: `tifinagh-reading-v1`
+- [x] Javanese: `javanese-reading-v1`
+- [x] Balinese: `balinese-reading-v1`
+- [x] Baybayin or Tagalog script: `baybayin-reading-v1`
+- [x] Cherokee: `cherokee-reading-v1`
+- [x] Canadian Aboriginal syllabics: `cree-syllabics-v1`
+- [x] Adlam: `adlam-reading-v1`
+- [x] N'Ko: `nko-reading-v1`
+- [x] Shavian: `shavian-reading-v1`
+- [x] Deseret alphabet: `deseret-reading-v1`
+- [x] Sitelen Pona: `sitelen-pona-v1`
+- [x] Vai: `vai-reading-v1`
+- [x] Bamum: `bamum-reading-v1`
+- [x] Thaana: `thaana-reading-v1`
+- [x] Meitei Mayek: `meitei-mayek-v1`
 
 ## Plan
 
 - [x] Confirm candidate scope and autonomous defaults.
-- [ ] Harden authoring tools for repeatable bulk bootstrapping.
-- [ ] Document the expanded artifact contract.
+- [x] Harden authoring tools for repeatable bulk bootstrapping.
+- [x] Document the expanded artifact contract.
 - [x] Create a central app-expansion matrix.
-- [ ] Run the pilot calibration packet set.
+- [x] Run the pilot calibration packet set.
 - [ ] Revise templates and scoring conventions after pilot review.
-- [ ] Run Waves A-D.
-- [ ] Final validation and consolidation.
+- [x] Run Waves C-D.
+- [x] Final validation and consolidation.
 
 ## Subagent Pattern
 
@@ -192,6 +192,25 @@ The main agent owns artifact writing, validation, and tracker updates.
 - [x] Central app-expansion matrix created.
 - [x] Greek pilot manifest validated, candidates scored, and review packet
       generated.
+- [x] Wave A research subagents completed for Latin diacritics, IPA, Russian
+      Cyrillic, Japanese, and Mandarin Han.
+- [x] Wave A packets drafted for `latin-diacritics-v1`, `ipa-reading-v1`,
+      `russian-cyrillic-v1`, `japanese-kana-kanji-v1`, and `mandarin-han-v1`.
+- [x] Wave A manifests validated, candidates scored, and review packets
+      generated.
+- [x] Wave B packets drafted for RTL, Indic, Thai, Bopomofo, Ethiopic, Armenian,
+      Georgian, Coptic, Braille, and Morse course families.
+- [x] Wave B manifests validated, candidates scored, and review packets
+      generated.
+- [x] Wave C packets drafted for Tibetan, Khmer, Lao, Myanmar, Sinhala,
+      Egyptian hieroglyphs, Runic, Phoenician, Ogham, and Linear B.
+- [x] Wave D packets drafted for the high-risk historical, complex, modern,
+      constructed, and community-script rows through Meitei Mayek.
+- [x] Wave C/D manifests validated, candidates scored, and review packets
+      generated.
+- [x] Final validation passed across all 61 curriculum manifests, touched-file
+      Prettier checks, touched-file markdownlint checks, `pnpm check`, and
+      `git diff --check`.
 
 ## Open Questions
 

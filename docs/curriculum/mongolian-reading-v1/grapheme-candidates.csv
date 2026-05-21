@@ -1,0 +1,19 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ᠠ,a vowel,0.9,0.86,0.78,0.86,0.78,0.72,0.72,0.05,0.12,0.04,0.12,0,High-frequency vowel with positional shape review
+grapheme,ᠡ,e vowel,0.82,0.78,0.7,0.78,0.76,0.72,0.72,0.05,0.12,0.04,0.12,0,Pairs early with a for vowel harmony awareness
+grapheme,ᠢ,i vowel,0.76,0.72,0.66,0.76,0.78,0.66,0.72,0.05,0.1,0.03,0.12,0,Useful in teacher and loan anchors
+grapheme,ᠣ,o vowel,0.78,0.74,0.72,0.8,0.72,0.72,0.7,0.06,0.12,0.04,0.12,0,Frequent in Mongol and food words but shape varies by context
+grapheme,ᠤ,u vowel,0.78,0.74,0.72,0.82,0.72,0.72,0.7,0.06,0.12,0.04,0.12,0,High payoff for water and milk anchors
+grapheme,ᠮ,m consonant,0.74,0.72,0.68,0.78,0.84,0.58,0.76,0.04,0.1,0.02,0.12,0,Useful first consonant for Mongol and meat anchors
+grapheme,ᠨ,n consonant,0.72,0.7,0.66,0.74,0.84,0.58,0.76,0.04,0.1,0.02,0.12,0,Common in book and place words
+grapheme,ᠯ,l consonant,0.68,0.66,0.64,0.72,0.84,0.56,0.76,0.04,0.1,0.02,0.12,0,High payoff in Mongol and bread anchors
+grapheme,ᠭ,g consonant,0.68,0.66,0.64,0.74,0.74,0.6,0.7,0.06,0.12,0.04,0.12,0,Contextual variants require careful shaping QA
+grapheme,ᠬ,h or kh consonant,0.58,0.56,0.58,0.66,0.62,0.58,0.74,0.05,0.12,0.04,0.12,0,Pronunciation and positional forms need specialist review
+grapheme,ᠪ,b consonant,0.56,0.54,0.54,0.64,0.78,0.52,0.74,0.04,0.1,0.02,0.12,0,Useful in teacher and label words
+grapheme,ᠰ,s consonant,0.62,0.6,0.6,0.68,0.82,0.54,0.74,0.04,0.1,0.02,0.12,0,Useful in water and milk anchors
+grapheme,ᠲ,t consonant,0.6,0.58,0.56,0.64,0.82,0.52,0.74,0.04,0.1,0.02,0.12,0,Strong for bread and road labels
+grapheme,ᠴ,ch consonant,0.5,0.48,0.5,0.58,0.76,0.5,0.8,0.03,0.1,0.03,0.12,0,Useful for tea but lower broad coverage
+grapheme,ᠵ,j consonant,0.48,0.46,0.5,0.58,0.74,0.5,0.8,0.03,0.1,0.03,0.12,0,Useful for road and market anchors
+grapheme,ᠷ,r consonant,0.58,0.56,0.54,0.62,0.78,0.52,0.72,0.05,0.1,0.02,0.12,0,Common but small positional forms need font QA
+grapheme,variation selectors,free variation sequences,0.5,0.46,0.5,0.56,0.5,0.9,0.5,0.08,0.22,0.08,0.16,0,Represent as rendering metadata until a lesson needs them
+grapheme,vertical punctuation,script punctuation,0.42,0.38,0.46,0.48,0.8,0.72,0.64,0.04,0.14,0.02,0.14,0,Needed for real vertical text but not an early letter lesson

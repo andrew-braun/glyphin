@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ਪਾਣੀ,water,0.82,0.98,0.84,0.72,0.82,0.88,0.7,0.92,0.55,0.12,0.02,0.02,0,0,Survival anchor with ਪ ਆ ਣ and ੀ
+anchor,ਚਾਹ,tea,0.78,0.96,0.78,0.82,0.74,0.88,0.66,0.9,0.55,0.06,0.01,0.02,0,0,Compact cafe anchor and h awareness
+anchor,ਦਾਲ,lentils,0.76,0.92,0.74,0.78,0.68,0.88,0.68,0.86,0.55,0.08,0.01,0.02,0,0,Menu staple with ਦ ਆ ਲ
+anchor,ਰੋਟੀ,flatbread,0.76,0.94,0.74,0.68,0.74,0.86,0.7,0.9,0.55,0.14,0.02,0.02,0,0,High menu utility with ੋ and ੀ
+anchor,ਬੱਸ,bus,0.78,0.96,0.8,0.7,0.84,0.82,0.72,0.86,0.55,0.16,0.04,0.02,0,0,Transit anchor and addak gateway
+anchor,ਨਾਮ,name,0.82,0.8,0.64,0.8,0.64,0.88,0.62,0.72,0.55,0.04,0.01,0.03,0,0,High-frequency label and form word
+anchor,ਰੇਲ,rail train,0.72,0.92,0.74,0.78,0.72,0.9,0.68,0.82,0.55,0.06,0.01,0.02,0,0,Transit anchor for ੇ sign
+anchor,ਰਾਹ,road path,0.7,0.88,0.68,0.76,0.66,0.86,0.64,0.76,0.55,0.08,0.02,0.03,0,0,Useful sign and direction word
+anchor,ਬਜ਼ਾਰ,market,0.72,0.94,0.74,0.56,0.82,0.78,0.74,0.86,0.55,0.2,0.04,0.03,0,0,Nukta word with strong real-world signage payoff
+anchor,ਦੁਕਾਨ,shop,0.74,0.94,0.74,0.68,0.76,0.86,0.72,0.84,0.55,0.12,0.02,0.02,0,0,Everyday storefront anchor with ੁ and ਆ
+anchor,ਸਕੂਲ,school,0.68,0.9,0.68,0.58,0.72,0.84,0.68,0.82,0.55,0.18,0.03,0.02,0,0,Everyday label and long-u sign
+anchor,ਖੁੱਲ੍ਹਾ,open,0.66,0.9,0.68,0.38,0.88,0.72,0.78,0.8,0.55,0.34,0.08,0.03,0,0,Shop sign word but addak and half-letter load make it late
+anchor,ਬੰਦ,closed,0.68,0.9,0.68,0.58,0.78,0.78,0.72,0.78,0.55,0.2,0.05,0.03,0,0,High utility and nasal sign review
+anchor,ਪੰਜਾਬ,Punjab,0.86,0.86,0.66,0.52,0.84,0.78,0.72,0.9,0.55,0.24,0.04,0.04,0,0,Meta and place anchor with tippi and final ਬ
+anchor,ਹਸਪਤਾਲ,hospital,0.62,0.94,0.68,0.54,0.72,0.78,0.7,0.8,0.55,0.22,0.04,0.02,0,0,Public facility word but long for early stage
+anchor,ਦਰਵਾਜ਼ਾ,door entrance,0.6,0.88,0.64,0.44,0.78,0.76,0.72,0.78,0.55,0.28,0.04,0.04,0,0,Useful sign word with nukta and length

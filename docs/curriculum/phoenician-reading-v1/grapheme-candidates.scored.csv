@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,𐤌,mem m,0.86,0.78,0.72,0.84,0.72,0.66,0.82,0.03,0.05,0.03,0.04,0,High-frequency consonant in mlk and common formulae,0.6350,promising
+grapheme,𐤋,lamed l,0.84,0.76,0.7,0.82,0.72,0.66,0.82,0.03,0.05,0.03,0.04,0,High-payoff consonant for divine and royal words,0.6200,promising
+grapheme,𐤁,bet b,0.82,0.74,0.68,0.8,0.72,0.64,0.82,0.03,0.05,0.03,0.04,0,Common in bn and bt formulaic words,0.6030,promising
+grapheme,𐤊,kap k,0.78,0.72,0.68,0.8,0.72,0.62,0.82,0.03,0.05,0.03,0.04,0,Useful in mlk and kl anchors,0.5850,promising
+grapheme,𐤍,nun n,0.78,0.72,0.66,0.78,0.72,0.62,0.82,0.03,0.05,0.03,0.04,0,Common nasal and early formula support,0.5800,promising
+grapheme,𐤕,taw t,0.72,0.66,0.62,0.74,0.72,0.6,0.82,0.03,0.05,0.03,0.04,0,Common final consonant and alphabet endpoint,0.5380,promising
+grapheme,𐤓,resh r,0.72,0.66,0.62,0.74,0.7,0.6,0.82,0.03,0.05,0.03,0.04,0,Common in land and name anchors,0.5360,promising
+grapheme,𐤔,shin sh,0.66,0.62,0.6,0.72,0.66,0.62,0.86,0.03,0.06,0.04,0.04,0,Useful in name and inscription formulae,0.4850,weak
+grapheme,𐤅,waw w,0.66,0.6,0.58,0.68,0.62,0.62,0.82,0.03,0.07,0.05,0.04,0,Can function as consonant or mater in later contexts,0.4480,weak
+grapheme,𐤄,he h,0.62,0.58,0.54,0.62,0.68,0.58,0.82,0.03,0.06,0.04,0.04,0,Useful in alphabet sequence and formulae,0.4420,weak
+grapheme,𐤉,yod y,0.64,0.58,0.56,0.66,0.62,0.6,0.82,0.03,0.07,0.05,0.04,0,Can function as consonant or vowel marker in some contexts,0.4310,weak
+grapheme,𐤐,pe p,0.58,0.54,0.52,0.6,0.72,0.56,0.82,0.03,0.06,0.03,0.04,0,Lower early frequency but clear value,0.4290,weak
+grapheme,𐤀,alep glottal stop,0.72,0.66,0.62,0.76,0.36,0.72,0.84,0.03,0.1,0.08,0.04,0,Essential consonant but vowel expectations need care,0.4170,weak
+grapheme,𐤏,ayin pharyngeal consonant,0.66,0.62,0.6,0.7,0.3,0.7,0.84,0.03,0.12,0.08,0.04,0,Important Semitic consonant has no simple English sound,0.3540,weak
+grapheme,𐤒,qop q,0.52,0.48,0.48,0.56,0.38,0.62,0.86,0.03,0.1,0.08,0.04,0,Important Semitic consonant with non-English value,0.2730,weak
+grapheme,𐤑,sade emphatic s,0.54,0.5,0.5,0.58,0.34,0.64,0.86,0.03,0.12,0.08,0.04,0,Specialist pronunciation caveat needed,0.2660,weak

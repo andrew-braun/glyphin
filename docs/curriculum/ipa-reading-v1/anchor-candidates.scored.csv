@@ -1,0 +1,16 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,cat [kæt],cat word transcription,0.95,0.9,0.84,0.94,0.7,0.95,0.74,0.9,0.6,0.05,0,0.01,0,0,First anchor for brackets k ae t,0.8154,strong
+anchor,bit [bɪt],bit word transcription,0.94,0.86,0.8,0.92,0.7,0.94,0.72,0.84,0.6,0.05,0,0.01,0,0,Core short i vowel anchor,0.7924,strong
+anchor,dog [dɔɡ],dog word transcription,0.93,0.86,0.78,0.9,0.68,0.92,0.72,0.86,0.6,0.06,0,0.01,0,0,Introduces open o and IPA g,0.7714,strong
+anchor,sing [sɪŋ],sing word transcription,0.88,0.82,0.76,0.88,0.72,0.9,0.72,0.82,0.58,0.08,0,0.01,0,0,Velar nasal anchor,0.7276,promising
+anchor,please [pliz],please word transcription,0.86,0.88,0.72,0.86,0.66,0.88,0.7,0.82,0.55,0.08,0,0.02,0,0,Cluster and z contrast anchor,0.7054,promising
+anchor,run [ɹʌn],run word transcription,0.92,0.84,0.76,0.86,0.68,0.88,0.7,0.84,0.58,0.1,0,0.02,0,0,Introduces English r approximant and strut vowel,0.7012,promising
+anchor,water [ˈwɔtɚ],water word transcription,0.9,0.92,0.78,0.82,0.78,0.86,0.74,0.86,0.55,0.12,0.02,0.02,0,0,Stress mark and r-colored vowel anchor,0.6798,promising
+anchor,about [əˈbaʊt],about word transcription,0.96,0.86,0.76,0.82,0.8,0.88,0.74,0.78,0.55,0.12,0.02,0.02,0,0,Schwa and stress placement anchor,0.6794,promising
+anchor,mother [ˈmʌðɚ],mother word transcription,0.92,0.88,0.78,0.84,0.76,0.86,0.74,0.84,0.55,0.12,0.02,0.02,0,0,Voiced dental fricative anchor,0.6770,promising
+anchor,think [θɪŋk],think word transcription,0.85,0.84,0.78,0.82,0.74,0.88,0.72,0.82,0.58,0.12,0,0.02,0,0,Dental fricative contrast anchor,0.6698,promising
+anchor,question [ˈkwɛʃən],question word transcription,0.85,0.86,0.74,0.78,0.76,0.84,0.74,0.8,0.55,0.14,0.02,0.02,0,0,Schwa and sh anchor,0.6200,promising
+anchor,example [ɪɡˈzæmpəl],example word transcription,0.86,0.86,0.74,0.78,0.74,0.84,0.74,0.78,0.55,0.14,0.02,0.02,0,0,Teaching-domain word with stress in middle,0.6194,promising
+anchor,language [ˈlæŋɡwɪdʒ],language word transcription,0.82,0.9,0.78,0.74,0.78,0.84,0.76,0.82,0.55,0.18,0.02,0.02,0,0,Longer chunking anchor for dictionary contexts,0.5854,promising
+anchor,measure [ˈmɛʒɚ],measure word transcription,0.8,0.76,0.7,0.78,0.72,0.84,0.72,0.76,0.55,0.14,0.02,0.02,0,0,Voiced postalveolar fricative anchor,0.5778,promising
+anchor,usually [ˈjuʒuəli],usually word transcription,0.8,0.78,0.68,0.72,0.72,0.8,0.7,0.76,0.55,0.18,0.02,0.03,0,0,Later fricative and approximant review,0.5154,promising

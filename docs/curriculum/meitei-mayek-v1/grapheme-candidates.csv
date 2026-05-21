@@ -1,0 +1,20 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ꯑ,a letter,0.74,0.7,0.66,0.74,0.78,0.6,0.78,0.04,0.08,0.03,0.08,0,Common vowel or carrier-like beginner unit
+grapheme,ꯏ,i letter,0.7,0.66,0.64,0.72,0.84,0.58,0.78,0.04,0.08,0.02,0.08,0,Water and mother anchors use i
+grapheme,ꯎ,u letter,0.62,0.58,0.56,0.64,0.84,0.56,0.78,0.04,0.08,0.02,0.08,0,Useful in man and woman anchors
+grapheme,ꯃ,ma,0.72,0.68,0.66,0.74,0.86,0.56,0.78,0.04,0.08,0.02,0.08,0,Meitei and mother anchors need ma
+grapheme,ꯇ,ta,0.66,0.62,0.6,0.68,0.86,0.54,0.78,0.04,0.08,0.02,0.08,0,Identity anchor needs ta
+grapheme,ꯁ,sa,0.64,0.6,0.6,0.68,0.86,0.54,0.78,0.04,0.08,0.02,0.08,0,Water and school-like words need sa
+grapheme,ꯆ,cha,0.58,0.56,0.56,0.66,0.82,0.54,0.82,0.03,0.08,0.02,0.08,0,Tea and food anchors need cha
+grapheme,ꯌ,ya,0.58,0.56,0.54,0.64,0.84,0.5,0.78,0.04,0.08,0.02,0.08,0,House anchor needs ya
+grapheme,ꯂ,la,0.62,0.58,0.58,0.66,0.86,0.52,0.78,0.04,0.08,0.02,0.08,0,Road and land anchors need la
+grapheme,ꯅ,na,0.62,0.58,0.58,0.66,0.86,0.52,0.78,0.04,0.08,0.02,0.08,0,Man and woman anchors need na
+grapheme,ꯄ,pa,0.58,0.54,0.54,0.62,0.84,0.5,0.78,0.04,0.08,0.02,0.08,0,People and place anchors need pa
+grapheme,ꯔ,ra,0.52,0.5,0.5,0.58,0.82,0.48,0.78,0.04,0.08,0.02,0.08,0,Market-like and longer words need ra after review
+grapheme,ꯥ,aa vowel sign,0.6,0.56,0.58,0.66,0.82,0.68,0.64,0.04,0.12,0.02,0.1,0,Useful in tea and people words
+grapheme,ꯤ,i vowel sign,0.58,0.54,0.54,0.62,0.82,0.66,0.64,0.04,0.12,0.02,0.1,0,Dependent mark needs rendering QA
+grapheme,ꯨ,u vowel sign,0.56,0.52,0.52,0.6,0.82,0.66,0.64,0.04,0.12,0.02,0.1,0,Dependent mark for people and loanwords
+grapheme,ꯩ,ei vowel sign,0.54,0.5,0.52,0.6,0.78,0.66,0.64,0.04,0.12,0.03,0.1,0,Identity anchor and diphthong behavior need review
+grapheme,ꯛ,k final letter,0.58,0.54,0.56,0.64,0.78,0.8,0.72,0.04,0.14,0.03,0.1,0,Lonsum final consonant for food and land words
+grapheme,ꯡ,ng final letter,0.58,0.54,0.56,0.64,0.78,0.8,0.72,0.04,0.14,0.03,0.1,0,Lonsum final consonant for water
+grapheme,ꯝ,m final letter,0.56,0.52,0.54,0.62,0.78,0.8,0.72,0.04,0.14,0.03,0.1,0,Lonsum final consonant for house and road

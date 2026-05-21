@@ -1,0 +1,20 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,അ,independent vowel a,0.9,0.88,0.78,0.86,0.9,0.82,0.76,0.03,0.04,0.02,0.02,0,Gateway to inherent-vowel model and independent vowels,0.7490,promising
+grapheme,ക,ka base consonant,0.86,0.84,0.8,0.88,0.86,0.8,0.76,0.04,0.07,0.02,0.02,0,Core consonant for shop and coffee words,0.6880,promising
+grapheme,മ,ma base consonant,0.8,0.78,0.74,0.8,0.9,0.72,0.78,0.04,0.05,0.01,0.02,0,Stable sonorant with medicine payoff,0.6680,promising
+grapheme,ആ/ാ,long aa vowel and sign,0.78,0.76,0.74,0.82,0.9,0.74,0.76,0.03,0.07,0.02,0.02,0,Useful in tea coffee and milk anchors,0.6410,promising
+grapheme,പ,pa base consonant,0.78,0.76,0.74,0.82,0.86,0.74,0.76,0.04,0.07,0.02,0.02,0,Milk coffee and entrance anchors need this base,0.6270,promising
+grapheme,ല,la base consonant,0.76,0.74,0.72,0.8,0.88,0.72,0.74,0.05,0.06,0.01,0.02,0,Common liquid and source for chillu ൽ,0.6210,promising
+grapheme,ര,ra base consonant,0.78,0.76,0.74,0.82,0.84,0.74,0.74,0.05,0.07,0.02,0.02,0,Common in rice medicine and facility words,0.6140,promising
+grapheme,ഇ/ി,i vowel and sign,0.78,0.76,0.72,0.8,0.88,0.72,0.72,0.04,0.08,0.02,0.02,0,Core short vowel sign for early decoding,0.6100,promising
+grapheme,വ,va base consonant,0.74,0.72,0.72,0.78,0.84,0.72,0.74,0.04,0.06,0.02,0.02,0,Useful for price and entrance words,0.6050,promising
+grapheme,ന,na base consonant,0.78,0.76,0.74,0.8,0.88,0.72,0.74,0.06,0.07,0.02,0.02,0,High payoff but chillu and geminate forms require care,0.6040,promising
+grapheme,ഉ/ു,u vowel and sign,0.72,0.7,0.7,0.76,0.86,0.72,0.72,0.04,0.08,0.02,0.02,0,Needed for water medicine and exit words,0.5710,promising
+grapheme,എ/െ,e vowel and sign,0.7,0.68,0.68,0.74,0.84,0.72,0.7,0.04,0.08,0.02,0.03,0,Useful for train and entrance words,0.5430,promising
+grapheme,ഈ/ീ,long ii vowel and sign,0.68,0.66,0.64,0.72,0.88,0.7,0.72,0.04,0.08,0.02,0.02,0,Useful for later high-frequency words,0.5380,promising
+grapheme,ം,anusvara,0.7,0.68,0.72,0.78,0.78,0.74,0.62,0.04,0.08,0.03,0.03,0,Common nasal marker in appam and water anchors,0.5350,promising
+grapheme,ച,cha base consonant,0.6,0.6,0.64,0.74,0.84,0.68,0.78,0.04,0.07,0.02,0.02,0,High payoff through tea and toilet anchors,0.5110,promising
+grapheme,്,chandrakkala virama,0.76,0.74,0.76,0.84,0.76,0.9,0.58,0.05,0.14,0.03,0.05,0,Suppresses inherent vowel and participates in conjuncts,0.4990,weak
+grapheme,ട,retroflex ta base,0.58,0.58,0.62,0.72,0.8,0.68,0.78,0.05,0.08,0.02,0.02,0,Useful in shop and hotel anchors,0.4720,weak
+grapheme,ൽ,chillu l,0.62,0.62,0.68,0.78,0.8,0.82,0.7,0.04,0.12,0.03,0.04,0,Essential in milk and hotel anchors but script-specific,0.4570,weak
+grapheme,ൻ,chillu n,0.58,0.58,0.64,0.7,0.8,0.8,0.7,0.04,0.12,0.03,0.04,0,Useful for train and final-n words after chillu basics,0.4210,weak

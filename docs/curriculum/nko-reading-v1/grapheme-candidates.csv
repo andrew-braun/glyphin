@@ -1,0 +1,15 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ߊ,a vowel,0.9,0.86,0.78,0.84,0.78,0.72,0.78,0.04,0.08,0.02,0.06,0,Core vowel letter with strong early-anchor payoff
+grapheme,ߒ,n / syllabic n,0.78,0.74,0.7,0.78,0.72,0.7,0.76,0.04,0.08,0.02,0.06,0,Script-name gateway and N'Ko-specific value needs review
+grapheme,ߞ,ka,0.8,0.76,0.72,0.82,0.76,0.68,0.78,0.04,0.08,0.02,0.06,0,Core consonant in ߒߞߏ
+grapheme,ߏ,oo vowel,0.78,0.74,0.7,0.8,0.76,0.66,0.78,0.04,0.08,0.02,0.06,0,Completes script-name anchor
+grapheme,ߟ,la,0.76,0.72,0.66,0.76,0.74,0.64,0.78,0.04,0.08,0.02,0.06,0,Useful for short functional candidates
+grapheme,ߡ,ma,0.74,0.7,0.66,0.74,0.74,0.64,0.78,0.04,0.08,0.02,0.06,0,High-payoff consonant for Manding identity candidates
+grapheme,ߘ,da,0.68,0.64,0.6,0.68,0.72,0.6,0.78,0.04,0.08,0.02,0.06,0,Useful in later identity and domain terms
+grapheme,ߌ,i vowel,0.72,0.68,0.64,0.7,0.76,0.62,0.78,0.04,0.08,0.02,0.06,0,Core vowel for common chunks
+grapheme,ߎ,u vowel,0.7,0.66,0.62,0.68,0.76,0.62,0.78,0.04,0.08,0.02,0.06,0,Core vowel for short social candidates
+grapheme,ߛ,sa,0.66,0.62,0.58,0.66,0.72,0.58,0.78,0.04,0.08,0.02,0.06,0,Useful consonant in public-label placeholders
+grapheme,߲,nasal mark,0.62,0.6,0.56,0.62,0.58,0.78,0.6,0.04,0.16,0.06,0.08,0,Nasalization mark needs cluster-aware display and review
+grapheme,߫,tone mark,0.58,0.56,0.52,0.56,0.5,0.78,0.56,0.04,0.18,0.08,0.1,0,Tone marks are central but high-load for first lessons
+grapheme,ߦ,ya,0.62,0.6,0.56,0.62,0.72,0.58,0.78,0.04,0.08,0.02,0.06,0,Useful in Manding-language and grammar-sensitive forms
+grapheme,߬,combining mark,0.5,0.48,0.44,0.46,0.48,0.7,0.52,0.04,0.18,0.08,0.1,0,Specific tone value and teaching order require reviewer policycandidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes

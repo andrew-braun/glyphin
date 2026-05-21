@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,𐎟,word divider,0.82,0.9,0.84,0.94,0.86,0.9,0.8,0.76,0.46,0.04,0.02,0.02,0,0,Immediate segmentation win for tablets,0.7740,strong
+anchor,𐎎𐎍𐎋,mlk king,0.72,0.88,0.8,0.76,0.76,0.62,0.74,0.88,0.44,0.1,0.04,0.06,0.02,0,High-payoff title and word-shape anchor,0.5452,promising
+anchor,𐎁𐎚,bt house,0.58,0.78,0.64,0.78,0.66,0.62,0.66,0.78,0.4,0.08,0.04,0.06,0,0,High practical epigraphic word with simple signs,0.4940,weak
+anchor,𐎊𐎎,ym sea,0.56,0.76,0.62,0.82,0.62,0.58,0.66,0.78,0.4,0.08,0.04,0.06,0,0,Concrete two-sign anchor with mythic context,0.4812,weak
+anchor,𐎀𐎁,ab father,0.52,0.72,0.56,0.82,0.58,0.58,0.62,0.76,0.38,0.08,0.04,0.06,0,0,Compact kinship anchor after aleph and beta,0.4480,weak
+anchor,𐎀𐎍,il god,0.64,0.82,0.7,0.82,0.72,0.42,0.72,0.84,0.42,0.08,0.08,0.08,0.06,0,Short sacred term with aleph review needs,0.4060,weak
+anchor,𐎌𐎎𐎌,shmsh sun,0.52,0.78,0.64,0.64,0.7,0.58,0.68,0.86,0.38,0.12,0.06,0.06,0.02,0,Thematic word with divine and solar associations,0.3860,weak
+anchor,𐎁𐎓𐎍,bgl Baal,0.68,0.86,0.78,0.68,0.78,0.46,0.76,0.9,0.42,0.14,0.08,0.08,0.06,0,Divine-name anchor requiring cultural review,0.3692,weak
+anchor,𐎗𐎁,rb great,0.44,0.66,0.5,0.7,0.58,0.58,0.56,0.7,0.34,0.1,0.04,0.08,0,0,Modifier anchor after core consonants,0.3464,weak
+anchor,𐎀𐎚,at sign sequence,0.48,0.64,0.48,0.78,0.54,0.54,0.56,0.64,0.34,0.08,0.06,0.1,0,0,Short sequence but gloss depends on context,0.3300,weak
+anchor,𐎍𐎈𐎎,lhm bread,0.46,0.68,0.52,0.62,0.58,0.56,0.58,0.72,0.36,0.14,0.04,0.08,0,0,Concrete word but introduces less common h sign,0.3072,weak
+anchor,𐎐𐎔𐎌,npsh life or self,0.46,0.68,0.52,0.56,0.62,0.5,0.6,0.76,0.36,0.16,0.08,0.1,0,0,Conceptual anchor needs careful glossing,0.2208,weak

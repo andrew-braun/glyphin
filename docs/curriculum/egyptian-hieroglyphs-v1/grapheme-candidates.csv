@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,𓇳,ra sun sign,0.78,0.62,0.86,0.88,0.46,0.72,0.9,0.02,0.14,0.08,0.08,0,High museum payoff as sun or Ra logogram but reading depends on context
+grapheme,𓋹,ankh life sign,0.7,0.56,0.82,0.86,0.52,0.78,0.92,0.02,0.12,0.06,0.06,0,Iconic logogram with strong artifact label payoff
+grapheme,𓉐,pr house sign,0.68,0.58,0.72,0.78,0.5,0.72,0.86,0.02,0.14,0.06,0.06,0,Common logogram and good gateway into biliteral signs
+grapheme,𓄤,nfr good sign,0.66,0.56,0.7,0.76,0.48,0.74,0.88,0.02,0.14,0.06,0.06,0,High cultural payoff for names and labels
+grapheme,𓊹,nṯr god sign,0.66,0.54,0.72,0.76,0.42,0.76,0.86,0.02,0.16,0.08,0.06,0,Sacred term needs cultural framing and specialist review
+grapheme,𓂋,r mouth sign,0.82,0.74,0.66,0.8,0.58,0.68,0.78,0.03,0.08,0.05,0.05,0,Common uniliteral sign and useful transliteration gateway
+grapheme,𓈖,n water sign,0.84,0.76,0.66,0.8,0.58,0.68,0.78,0.03,0.08,0.05,0.05,0,Common uniliteral sign with visible mnemonic value
+grapheme,𓏏,t loaf sign,0.82,0.74,0.64,0.78,0.58,0.66,0.78,0.03,0.08,0.05,0.05,0,Common feminine ending and uniliteral sign
+grapheme,𓅓,m owl sign,0.78,0.7,0.62,0.76,0.56,0.64,0.82,0.03,0.08,0.05,0.05,0,Common uniliteral sign with strong visual identity
+grapheme,𓄿,ꜣ vulture sign,0.7,0.64,0.54,0.68,0.36,0.68,0.84,0.03,0.12,0.08,0.05,0,Essential transliteration value has no simple English sound
+grapheme,𓇋,i reed sign,0.72,0.66,0.56,0.7,0.5,0.62,0.8,0.03,0.09,0.05,0.05,0,Common sign but transliteration and vowel hints need care
+grapheme,𓅱,w quail chick,0.68,0.62,0.56,0.7,0.48,0.62,0.84,0.03,0.1,0.05,0.05,0,Useful uniliteral sign and common in names
+grapheme,𓊪,p stool sign,0.66,0.6,0.54,0.68,0.56,0.6,0.8,0.03,0.09,0.05,0.05,0,Common uniliteral sign and anchor support for pr
+grapheme,𓆑,f horned viper,0.6,0.54,0.48,0.6,0.56,0.58,0.84,0.03,0.1,0.05,0.05,0,Distinctive sign but later unless anchor requires it
+grapheme,𓂝,ꜥ arm sign,0.58,0.52,0.48,0.58,0.34,0.64,0.84,0.03,0.13,0.08,0.05,0,Important transliteration value is hard for beginners
+grapheme,𓎡,k basket sign,0.56,0.5,0.46,0.56,0.54,0.56,0.78,0.04,0.09,0.05,0.05,0,Useful in names and formulae but lower early domain payoff

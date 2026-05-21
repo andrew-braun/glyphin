@@ -1,0 +1,104 @@
+{
+	"course_id": "sinhala-reading-v1",
+	"display_name": "Sinhala Reading",
+	"language_tag": "si-Sinh",
+	"script": "Sinh",
+	"direction": "ltr",
+	"target_domains": [
+		"tea_food_menus",
+		"shop_price_signs",
+		"transit_wayfinding",
+		"public_facilities",
+		"lodging_signage",
+		"school_civic_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Sinhala text in NFC while preserving source order for vowel signs, al-lakuna, anusvara, and conjunct-forming sequences. Analysis tooling may inspect akshara structure and rendered clusters without rewriting source text."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "unicode_word_break_with_manual_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters_with_akshara_review",
+		"pedagogical_units": "independent vowels, consonant bases, dependent vowel signs, inherent vowel, al-lakuna, anusvara, conjunct chunks, and common akshara frames",
+		"notes": "Sinhala uses visible word spaces but decoding still depends on aksharas. Count code points, grapheme clusters, visible aksharas, vowel signs, and teachable base-plus-vowel units separately because al-lakuna and conjuncts affect both rendering and pronunciation."
+	},
+	"sources": [
+		{
+			"id": "unicode-sinhala-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U0D80.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.4,
+			"notes": "Sinhala block metadata for vowels, consonants, dependent signs, al-lakuna, numerals, and punctuation. Use as infrastructure metadata only."
+		},
+		{
+			"id": "cldr-si-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.5,
+			"notes": "Sinhala exemplar and locale metadata. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "wordfreq-si",
+			"kind": "frequency",
+			"url": "https://github.com/rspeer/wordfreq",
+			"license": "MIT package license; upstream corpus licenses require review",
+			"use": "scoring_only",
+			"domain_weight": 0.55,
+			"notes": "Broad Sinhala frequency intuition only. Do not ship derived upstream example text."
+		},
+		{
+			"id": "sinhala-wiktionary",
+			"kind": "lexicon",
+			"url": "https://si.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.4,
+			"notes": "Gloss and spelling discovery only until attribution and share-alike implications are approved."
+		},
+		{
+			"id": "openstreetmap-sri-lanka-sinhala-names",
+			"kind": "environmental_print",
+			"url": "https://www.openstreetmap.org/",
+			"license": "ODbL; derived-data obligations require review",
+			"use": "scoring_only",
+			"domain_weight": 0.75,
+			"notes": "Place, transit, school, lodging, and facility-name validation for Sinhala signage. Do not ship raw OSM extracts without review."
+		},
+		{
+			"id": "indic-nlp-library-si",
+			"kind": "segmentation_tooling",
+			"url": "https://github.com/anoopkunchukuttan/indic_nlp_library",
+			"license": "MIT package license; bundled resources require review",
+			"use": "scoring_only",
+			"domain_weight": 0.35,
+			"notes": "Potential normalization or segmentation aid for analysis only. Confirm Sinhala coverage before pipeline use."
+		},
+		{
+			"id": "app-authored-sinhala-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short tea, menu, sign, transit, and label examples authored by GlyphBridge after reviewer approval."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true
+	}
+}

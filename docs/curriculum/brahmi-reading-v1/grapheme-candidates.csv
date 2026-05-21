@@ -1,0 +1,20 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,𑀅,independent a,0.64,0.58,0.6,0.7,0.72,0.64,0.82,0.04,0.08,0.06,0.08,0,Independent vowel and Ashoka anchor support
+grapheme,𑀆,independent aa,0.48,0.44,0.46,0.56,0.72,0.54,0.82,0.04,0.08,0.06,0.08,0,Lower early coverage but core inventory
+grapheme,𑀓,ka consonant,0.62,0.56,0.58,0.68,0.74,0.58,0.84,0.04,0.08,0.06,0.08,0,Core consonant and Ashoka support
+grapheme,𑀕,ga consonant,0.5,0.46,0.48,0.56,0.74,0.52,0.84,0.04,0.08,0.06,0.08,0,Useful in sangha and inscription words
+grapheme,𑀚,ja consonant,0.52,0.48,0.56,0.62,0.74,0.54,0.84,0.04,0.08,0.06,0.08,0,High payoff in raja and vijaya
+grapheme,𑀢,ta consonant,0.62,0.56,0.58,0.68,0.74,0.58,0.84,0.04,0.08,0.06,0.08,0,Core consonant with inscriptional coverage
+grapheme,𑀤,da consonant,0.64,0.58,0.62,0.72,0.74,0.6,0.84,0.04,0.08,0.06,0.08,0,Useful in dana and edict terms
+grapheme,𑀥,dha consonant,0.58,0.52,0.62,0.68,0.7,0.66,0.84,0.04,0.1,0.08,0.08,0,Gateway to dharma and aspiration contrast
+grapheme,𑀦,na consonant,0.68,0.62,0.64,0.74,0.74,0.6,0.84,0.04,0.08,0.06,0.08,0,Common consonant for dana and namo
+grapheme,𑀫,ma consonant,0.66,0.6,0.62,0.72,0.74,0.6,0.84,0.04,0.08,0.06,0.08,0,Common in namo maha and dharma
+grapheme,𑀬,ya consonant,0.5,0.46,0.5,0.58,0.74,0.52,0.84,0.04,0.08,0.06,0.08,0,Useful for vijaya and names
+grapheme,𑀭,ra consonant,0.7,0.64,0.68,0.78,0.74,0.64,0.84,0.04,0.08,0.06,0.08,0,High payoff in raja and dharma
+grapheme,𑀮,la consonant,0.48,0.44,0.46,0.54,0.74,0.5,0.84,0.04,0.08,0.06,0.08,0,Lower early coverage but core inventory
+grapheme,𑀯,va consonant,0.54,0.5,0.54,0.62,0.74,0.54,0.84,0.04,0.08,0.06,0.08,0,Useful in vijaya and inscriptional names
+grapheme,𑀲,sa consonant,0.66,0.6,0.64,0.74,0.74,0.6,0.84,0.04,0.08,0.06,0.08,0,High payoff in Asoka and sangha
+grapheme,𑀳,ha consonant,0.54,0.5,0.54,0.62,0.74,0.54,0.84,0.04,0.08,0.06,0.08,0,Useful in maha and Brahmi name
+grapheme,𑀸,aa vowel sign,0.64,0.58,0.64,0.74,0.72,0.72,0.76,0.04,0.12,0.08,0.08,0,Core vowel sign and abugida gateway
+grapheme,𑀺,i vowel sign,0.46,0.42,0.46,0.54,0.72,0.62,0.76,0.04,0.12,0.08,0.08,0,Vowel sign behavior needs explicit modeling
+grapheme,𑁆,virama,0.36,0.32,0.36,0.44,0.5,0.72,0.7,0.04,0.18,0.1,0.1,0,Late unit because conjunct and no-vowel behavior is complex

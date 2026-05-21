@@ -1,0 +1,19 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ቡና,coffee,0.72,0.94,0.82,0.76,0.78,0.84,0.76,0.94,0.5,0.1,0.02,0.02,0,0,High memorability first food and cafe anchor
+anchor,ሻይ,tea,0.68,0.92,0.78,0.76,0.72,0.84,0.72,0.9,0.5,0.1,0.02,0.02,0,0,Short beverage anchor with clear syllables
+anchor,ውሃ,water,0.76,0.96,0.84,0.72,0.76,0.78,0.74,0.9,0.5,0.12,0.03,0.02,0,0,Survival word and sixth order w behavior
+anchor,ቤት,house / place,0.78,0.84,0.74,0.72,0.78,0.82,0.74,0.82,0.5,0.12,0.03,0.03,0,0,Compact place word and fifth plus sixth order contrast
+anchor,መኪና,car,0.72,0.9,0.78,0.64,0.84,0.82,0.78,0.84,0.5,0.16,0.03,0.03,0,0,Transit adjacent anchor and m family prefix
+anchor,ታክሲ,taxi,0.62,0.92,0.76,0.56,0.72,0.78,0.72,0.9,0.5,0.2,0.03,0.03,0,0,High traveler utility but loanword and new letters add load
+anchor,ገበያ,market,0.72,0.96,0.84,0.62,0.86,0.82,0.82,0.88,0.5,0.18,0.03,0.03,0,0,Market sign anchor and first order repetition
+anchor,ዋጋ,price,0.7,0.94,0.8,0.7,0.78,0.84,0.76,0.86,0.5,0.12,0.02,0.02,0,0,Short commerce word for price labels
+anchor,ምግብ,food,0.82,0.96,0.86,0.54,0.9,0.76,0.84,0.88,0.5,0.22,0.04,0.03,0,0,Core food word but consonant cluster like reading load
+anchor,ሆቴል,hotel,0.62,0.92,0.76,0.6,0.74,0.82,0.74,0.86,0.5,0.18,0.03,0.03,0,0,Traveler facility loanword with fifth and seventh order
+anchor,መንገድ,road / way,0.78,0.94,0.82,0.5,0.86,0.78,0.84,0.86,0.5,0.24,0.04,0.03,0,0,Wayfinding word and common m prefix pattern
+anchor,መውጫ,exit,0.68,0.96,0.82,0.52,0.86,0.76,0.84,0.88,0.5,0.24,0.04,0.03,0,0,Public sign word with ጫ and movement noun pattern
+anchor,መግቢያ,entrance,0.68,0.96,0.82,0.46,0.88,0.74,0.86,0.88,0.5,0.3,0.04,0.03,0,0,Pairs with exit but has high new unit load
+anchor,ሴት,woman / female,0.72,0.9,0.76,0.68,0.78,0.82,0.76,0.82,0.5,0.14,0.03,0.03,0,0,Public facility category and fifth order se
+anchor,ወንድ,man / male,0.72,0.9,0.76,0.58,0.78,0.8,0.76,0.82,0.5,0.2,0.03,0.03,0,0,Pairs with ሴት and adds sixth order nasal sequence
+anchor,እንጀራ,injera,0.66,0.94,0.78,0.42,0.82,0.74,0.82,0.94,0.5,0.32,0.05,0.03,0,0,Culturally central food word but too much new load early
+anchor,አውቶቡስ,bus,0.64,0.92,0.76,0.4,0.76,0.72,0.78,0.86,0.5,0.34,0.05,0.03,0,0,Transit utility but complex loanword sequence
+anchor,መጸዳጃ,restroom / toilet,0.58,0.94,0.76,0.34,0.84,0.68,0.82,0.84,0.5,0.4,0.06,0.04,0,0,Important facility word but late due to length and forms

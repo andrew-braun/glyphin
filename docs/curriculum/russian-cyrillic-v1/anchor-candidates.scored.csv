@@ -1,0 +1,19 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,метро,metro,0.72,0.92,0.78,0.8,0.62,0.86,0.72,0.88,0.55,0.1,0,0.02,0,0,Transit utility and familiar loanword,0.6610,promising
+anchor,кофе,coffee,0.7,0.92,0.76,0.82,0.6,0.86,0.7,0.88,0.55,0.1,0.01,0.02,0,0,Recognizable cafe loanword,0.6430,promising
+anchor,вода,water,0.74,0.94,0.78,0.78,0.64,0.82,0.72,0.86,0.55,0.12,0.01,0.02,0,0,Survival drink word and first visible Cyrillic win,0.6342,promising
+anchor,такси,taxi,0.62,0.9,0.68,0.82,0.58,0.86,0.66,0.86,0.55,0.08,0,0.02,0,0,Traveler utility and familiar loanword,0.6338,promising
+anchor,чай,tea,0.68,0.9,0.72,0.76,0.7,0.84,0.7,0.86,0.55,0.12,0.01,0.02,0,0,Short drink anchor for Ч,0.6078,promising
+anchor,салат,salad,0.64,0.86,0.68,0.8,0.56,0.84,0.66,0.82,0.55,0.1,0,0.02,0,0,Recognizable menu loanword,0.6030,promising
+anchor,меню,menu,0.58,0.9,0.66,0.78,0.64,0.82,0.66,0.86,0.55,0.12,0.01,0.02,0,0,Recognizable restaurant anchor with Ю,0.5690,promising
+anchor,молоко,milk,0.66,0.86,0.7,0.76,0.58,0.8,0.66,0.78,0.55,0.14,0.01,0.02,0,0,Repeated о pattern and menu utility,0.5522,promising
+anchor,туалет,restroom,0.58,0.95,0.68,0.72,0.6,0.82,0.7,0.84,0.55,0.14,0.01,0.02,0,0,Public-facility survival anchor,0.5504,promising
+anchor,ресторан,restaurant,0.62,0.9,0.72,0.72,0.58,0.82,0.68,0.84,0.55,0.16,0.01,0.02,0,0,High-utility longer sign word,0.5334,promising
+anchor,мясо,meat,0.6,0.86,0.68,0.72,0.7,0.74,0.68,0.78,0.55,0.14,0.02,0.03,0,0,Introduces soft vowel я,0.5186,promising
+anchor,цена,price,0.54,0.86,0.62,0.72,0.66,0.76,0.66,0.78,0.55,0.14,0.01,0.02,0,0,Shopping and menu pricing anchor,0.5122,promising
+anchor,вход,entrance,0.56,0.9,0.64,0.7,0.62,0.74,0.66,0.8,0.55,0.14,0.01,0.03,0,0,Public sign anchor paired with выход,0.5094,promising
+anchor,выход,exit,0.55,0.94,0.66,0.68,0.68,0.7,0.68,0.82,0.55,0.16,0.02,0.03,0,0,Essential sign pair with hard i vowel,0.4896,weak
+anchor,хлеб,bread,0.58,0.84,0.64,0.7,0.62,0.72,0.64,0.74,0.55,0.14,0.02,0.03,0,0,Food anchor for Х and Б,0.4878,weak
+anchor,аптека,pharmacy,0.52,0.88,0.62,0.72,0.58,0.8,0.64,0.78,0.55,0.16,0.01,0.02,0,0,Public-facility anchor,0.4854,weak
+anchor,спасибо,thank you,0.6,0.76,0.6,0.68,0.56,0.78,0.62,0.82,0.55,0.16,0.02,0.02,0,0,Useful politeness word but longer,0.4594,weak
+anchor,пожалуйста,please,0.54,0.74,0.58,0.58,0.58,0.72,0.62,0.8,0.55,0.22,0.02,0.03,0,0,Late politeness anchor due to length and load,0.3518,weak

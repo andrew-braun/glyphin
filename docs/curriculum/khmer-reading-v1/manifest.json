@@ -1,0 +1,103 @@
+{
+	"course_id": "khmer-reading-v1",
+	"display_name": "Khmer Reading",
+	"language_tag": "km-Khmr",
+	"script": "Khmr",
+	"direction": "ltr",
+	"target_domains": [
+		"food_cafe_menus",
+		"market_shop_signs",
+		"transit_wayfinding",
+		"public_facilities",
+		"everyday_packaging"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Khmer text in NFC while preserving source order for dependent vowels, coeng signs, subscripts, and diacritics. Analysis tooling may inspect orthographic syllables and visible clusters without rewriting source text."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "dictionary_segmentation_with_manual_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters_with_orthographic_syllable_review",
+		"pedagogical_units": "consonant bases, inherent-vowel series, dependent vowel signs by visual position, coeng subscripts, final consonants, diacritics, and punctuation",
+		"notes": "Khmer is written mostly without spaces between words. Count words, orthographic syllables, visible clusters, and teachable base-plus-vowel units separately because vowels can appear before, above, below, after, or around the consonant."
+	},
+	"sources": [
+		{
+			"id": "unicode-khmer-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U1780.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.4,
+			"notes": "Khmer block metadata for consonants, independent vowels, dependent vowels, coeng, signs, numerals, and punctuation. Use as infrastructure metadata only."
+		},
+		{
+			"id": "cldr-km-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.5,
+			"notes": "Khmer exemplar and locale metadata. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "wordfreq-km",
+			"kind": "frequency",
+			"url": "https://github.com/rspeer/wordfreq",
+			"license": "MIT package license; upstream corpus licenses require review",
+			"use": "scoring_only",
+			"domain_weight": 0.55,
+			"notes": "Broad Khmer frequency intuition only. Do not ship derived upstream example text."
+		},
+		{
+			"id": "khmer-wiktionary",
+			"kind": "lexicon",
+			"url": "https://km.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.4,
+			"notes": "Gloss and spelling discovery only until attribution and share-alike implications are approved."
+		},
+		{
+			"id": "openstreetmap-cambodia-khmer-names",
+			"kind": "environmental_print",
+			"url": "https://www.openstreetmap.org/",
+			"license": "ODbL; derived-data obligations require review",
+			"use": "scoring_only",
+			"domain_weight": 0.75,
+			"notes": "Place, transit, and facility-name validation for Khmer signage. Do not ship raw OSM extracts without review."
+		},
+		{
+			"id": "khmer-tokenizer-tools",
+			"kind": "segmentation_tooling",
+			"url": "https://github.com/",
+			"license": "tool and model licenses require review",
+			"use": "discovery_only",
+			"domain_weight": 0,
+			"notes": "Placeholder for a reviewed Khmer word segmenter. It is not a content source."
+		},
+		{
+			"id": "app-authored-khmer-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short menu, market, sign, and label examples authored by GlyphBridge after reviewer approval."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true
+	}
+}

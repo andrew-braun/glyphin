@@ -1,0 +1,24 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ਅ,inherent vowel a and vowel bearer,0.9,0.88,0.8,0.84,0.8,0.94,0.8,0.03,0.05,0.04,0,0,Core Gurmukhi abugida gateway
+grapheme,ਆ / ਾ,aa vowel and kanna sign,0.86,0.82,0.82,0.88,0.9,0.88,0.84,0.02,0.06,0.02,0,0,High payoff in ਪਾਣੀ ਚਾਹ ਦਾਲ ਨਾਮ
+grapheme,ਇ / ਿ,i vowel and sihari sign,0.72,0.68,0.66,0.72,0.84,0.88,0.62,0.05,0.1,0.02,0,0,Pre-base sign introduces visual order versus reading order
+grapheme,ਈ / ੀ,ii vowel and bihari sign,0.68,0.64,0.62,0.68,0.86,0.68,0.72,0.04,0.08,0.02,0,0,Useful for ਪਾਣੀ and labels
+grapheme,ਉ / ੁ,u vowel and onkar sign,0.7,0.66,0.68,0.72,0.86,0.72,0.7,0.04,0.08,0.02,0,0,Below-base sign and common in ਦੁੱਧ ਖੁੱਲ੍ਹਾ
+grapheme,ਏ / ੇ,e vowel and lavan sign,0.7,0.68,0.7,0.74,0.9,0.74,0.72,0.03,0.06,0.01,0,0,Useful in ਰੇਲ and loan labels
+grapheme,ਓ / ੋ,o vowel and hora sign,0.66,0.64,0.66,0.7,0.9,0.72,0.74,0.03,0.06,0.01,0,0,Useful in ਰੋਟੀ
+grapheme,ਕ,k consonant base,0.78,0.76,0.72,0.78,0.88,0.76,0.78,0.04,0.04,0.01,0,0,Common base for ਦੁਕਾਨ ਸਕੂਲ
+grapheme,ਚ,ch consonant base,0.66,0.62,0.66,0.72,0.88,0.66,0.8,0.03,0.04,0.01,0,0,Strong early anchor in ਚਾਹ
+grapheme,ਦ,d consonant base,0.8,0.78,0.76,0.8,0.86,0.72,0.76,0.05,0.05,0.02,0,0,Needed for ਦਾਲ ਦੁੱਧ ਦੁਕਾਨ
+grapheme,ਨ,n consonant base,0.8,0.78,0.74,0.8,0.88,0.72,0.76,0.04,0.04,0.01,0,0,Common in ਪਾਣੀ ਨਾਮ ਦੁਕਾਨ
+grapheme,ਪ,p consonant base,0.74,0.72,0.72,0.76,0.88,0.68,0.78,0.03,0.04,0.01,0,0,Needed for ਪਾਣੀ ਪੰਜਾਬ
+grapheme,ਬ,b consonant base,0.78,0.76,0.74,0.8,0.88,0.72,0.78,0.04,0.05,0.01,0,0,High payoff in ਬੱਸ ਬਜ਼ਾਰ ਬੰਦ
+grapheme,ਮ,m consonant base,0.72,0.7,0.66,0.72,0.9,0.64,0.8,0.03,0.04,0.01,0,0,Common and visually stable
+grapheme,ਰ,r consonant base,0.8,0.78,0.76,0.8,0.82,0.78,0.74,0.05,0.06,0.02,0,0,High utility in ਰੋਟੀ ਰੇਲ ਰਾਹ
+grapheme,ਲ,l consonant base,0.74,0.72,0.7,0.76,0.88,0.68,0.78,0.03,0.04,0.01,0,0,Useful in ਦਾਲ ਰੇਲ ਖੁੱਲ੍ਹਾ
+grapheme,ਸ,s consonant base,0.76,0.74,0.76,0.78,0.88,0.72,0.74,0.04,0.05,0.01,0,0,High sign payoff in ਸਕੂਲ and loan words
+grapheme,ਹ,h consonant base,0.68,0.66,0.64,0.68,0.86,0.62,0.78,0.03,0.04,0.02,0,0,Useful in ਚਾਹ and aspiration awareness
+grapheme,ੰ,tippi nasal sign,0.62,0.6,0.62,0.68,0.76,0.8,0.7,0.04,0.1,0.06,0,0,Common nasal sign in ਪੰਜਾਬ and many words
+grapheme,ਂ,bindi nasal sign,0.46,0.44,0.42,0.48,0.72,0.62,0.72,0.04,0.1,0.06,0,0,Nasal sign that needs contrast with tippi
+grapheme,ੱ,addak gemination sign,0.54,0.52,0.58,0.64,0.68,0.84,0.68,0.04,0.14,0.08,0,0,High payoff in ਬੱਸ ਦੁੱਧ ਖੁੱਲ੍ਹਾ
+grapheme,੍,halant and pairin gateway,0.34,0.32,0.38,0.46,0.7,0.74,0.58,0.05,0.16,0.06,0.02,0,0,Late support for pairin forms and clusters
+grapheme,ਜ਼,nukta z consonant,0.34,0.32,0.44,0.54,0.78,0.7,0.66,0.04,0.12,0.04,0.02,0,0,Loan-signage unit in ਬਜ਼ਾਰ and names

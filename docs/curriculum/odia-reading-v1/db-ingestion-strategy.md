@@ -1,0 +1,74 @@
+# Odia Reading DB Ingestion Strategy
+
+This file plans how reviewed authoring artifacts for `odia-reading-v1` should
+move into the database. It is a starter strategy, not an executable migration or
+seed script.
+
+## Source Artifacts
+
+- Manifest: `manifest.json`
+- Sources: `sources.csv`
+- Grapheme candidates: `grapheme-candidates.csv`
+- Anchor candidates: `anchor-candidates.csv`
+- Lesson sequence: `lesson-sequence.md`
+- Review packet: `review-packet.md`
+- Open questions: `questions.md`
+- Future lesson data: TBD
+
+## Target Database Boundary
+
+- `curriculum` stores normalized authoring data and is not queried directly by
+  learner routes.
+- `delivery` stores immutable published lesson bundles for runtime reads and
+  offline caching.
+- `learner` is out of scope for curriculum ingestion except for future progress
+  compatibility checks.
+- `internal_api` may eventually own publication helper functions, but this
+  starter strategy should not add privileged functions without separate review.
+
+## Mapping Plan
+
+| Authoring artifact                | Database target                                                                                   |
+| --------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Manifest language metadata        | `curriculum.languages`                                                                            |
+| Manifest script metadata          | `curriculum.script_systems`                                                                       |
+| Course prospectus                 | `curriculum.courses`                                                                              |
+| Release plan                      | `curriculum.course_versions`                                                                      |
+| Reviewed Odia units and signs     | `curriculum.graphemes`, `curriculum.course_version_graphemes`                                     |
+| Akshara and conjunct segmentation | `curriculum.vocabulary_segments`, `curriculum.anchor_segments`                                    |
+| Lesson sequence                   | `curriculum.lessons`                                                                              |
+| Anchor and support words          | `curriculum.vocabulary_items`, `curriculum.lesson_vocabulary`                                     |
+| Orthographic rules                | `curriculum.orthography_rules`, `curriculum.orthography_rule_examples`, `curriculum.lesson_rules` |
+| Drills and options                | `curriculum.drills`, `curriculum.drill_options`, `curriculum.lesson_drills`                       |
+| Published runtime payloads        | `delivery.course_publications`, `delivery.course_publication_lessons`                             |
+
+## Publication Strategy
+
+- Generate stable IDs and content hashes from reviewed source data.
+- Store learner-visible Odia text in NFC and preserve original reviewed forms.
+- Represent matra position, anusvara, virama clusters, nukta-bearing letters,
+  and below-base components in structured segment metadata.
+- Insert normalized `curriculum.*` rows before generating delivery payloads.
+- Insert one inactive `delivery.course_publications` manifest and all matching
+  `delivery.course_publication_lessons` rows.
+- Activate the publication only after smoke checks confirm payload shape and
+  lesson ordering.
+
+## Validation Checklist
+
+- [ ] Manifest validates with `pnpm curriculum:validate`.
+- [ ] Candidate files score with `pnpm curriculum:score`.
+- [ ] Review packet is generated with `pnpm curriculum:review`.
+- [ ] Source licenses are marked as discovery-only, scoring-only, scoring, or
+      shipped-content approved.
+- [ ] Every anchor has reviewed akshara segmentation and mark metadata.
+- [ ] Delivery payloads can be regenerated deterministically.
+
+## Open Decisions
+
+- Should reviewed lessons be authored first as TypeScript data, JSON artifacts,
+  or direct DB seed input?
+- Which fields carry matra position, virama clusters, nukta, and below-base
+  components in the runtime payload?
+- Should conjuncts be stored as graphemes, orthography-rule examples, or both?
+- Which source-derived facts remain analysis-only because of source licenses?

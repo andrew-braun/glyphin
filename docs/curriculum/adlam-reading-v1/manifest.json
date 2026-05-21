@@ -1,0 +1,86 @@
+{
+	"course_id": "adlam-reading-v1",
+	"display_name": "Adlam Reading",
+	"language_tag": "ff-Adlm",
+	"script": "Adlm",
+	"direction": "rtl",
+	"target_domains": [
+		"community_literacy_materials",
+		"dictionary_headwords",
+		"digital_messaging",
+		"cultural_identity_text",
+		"short_public_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Adlam text in NFC and preserve source strings for audit. Do not compatibility-fold case or punctuation; review any shaping behavior against selected fonts."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_fula_morphology_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "Adlam letters, case pairs, vowel letters, diacritics, punctuation, and high-frequency word chunks",
+		"notes": "Adlam is an RTL modern community script. Lessons must use bidi isolation when embedded in English UI and should keep transliteration separate from canonical text."
+	},
+	"sources": [
+		{
+			"id": "unicode-adlam-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U1E900.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Adlam code point metadata for letters, digits, punctuation, and combining marks. Use as infrastructure metadata only."
+		},
+		{
+			"id": "cldr-ff-adlm-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Fulani Adlam locale data where available. Confirm exact CLDR release and locale coverage before ingestion."
+		},
+		{
+			"id": "noto-sans-adlam-font",
+			"kind": "font_reference",
+			"url": "https://fonts.google.com/noto/specimen/Noto+Sans+Adlam",
+			"license": "OFL reviewed for font testing",
+			"use": "scoring",
+			"domain_weight": 0.2,
+			"notes": "Rendering and fallback test source. Not a text corpus."
+		},
+		{
+			"id": "winden-jangen-adlam-resources",
+			"kind": "community_reference",
+			"url": "https://www.windenjangen.org/",
+			"license": "terms require review before derived use",
+			"use": "discovery_only",
+			"domain_weight": 0.65,
+			"notes": "Community and literacy discovery only. Do not copy examples into shipped content without approval."
+		},
+		{
+			"id": "app-authored-adlam-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed labels and examples authored by GlyphBridge with Adlam-literate reviewer approval."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"rtl_bidi_required": true
+	}
+}

@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-tifinagh-block,unicode_metadata,https://www.unicode.org/charts/PDF/U2D30.pdf,Unicode License reviewed for metadata use,scoring,0.45,Tifinagh code point metadata for infrastructure and font QA
+cldr-zgh-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.5,Standard Moroccan Amazigh exemplar metadata; confirm exact CLDR release before ingestion
+irc-amazigh-references,orthography_reference,https://www.ircam.ma/,site and publication licenses require review,discovery_only,0.4,Orthography and vocabulary discovery only until license review
+wiktionary-tamazight-discovery,lexicon,https://en.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Gloss and spelling discovery only until share-alike obligations are approved
+openstreetmap-tifinagh-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.65,Public-label and place-name validation only; do not ship raw extracts
+app-authored-tifinagh-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora

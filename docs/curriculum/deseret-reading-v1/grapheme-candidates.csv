@@ -1,0 +1,15 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,𐐻/𐐓,t / tee,0.88,0.84,0.78,0.86,0.82,0.7,0.8,0.04,0.08,0.02,0.08,0,Common consonant with case-pair display requirement
+grapheme,𐐿/𐐗,k / kay,0.84,0.8,0.74,0.82,0.82,0.68,0.8,0.04,0.08,0.02,0.08,0,Useful for cafe and taxi anchors
+grapheme,𐑅/𐐝,s / es,0.82,0.78,0.72,0.8,0.82,0.68,0.8,0.04,0.08,0.02,0.08,0,High-frequency consonant for signs and script name
+grapheme,𐐯/𐐇,short e,0.78,0.74,0.68,0.76,0.78,0.68,0.78,0.04,0.1,0.04,0.08,0,Useful in exit and Deseret name candidate
+grapheme,𐐮/𐐆,short i,0.78,0.74,0.68,0.76,0.78,0.68,0.78,0.04,0.1,0.04,0.08,0,Useful in taxi and exit anchors
+grapheme,𐐰/𐐈,short a,0.7,0.66,0.62,0.72,0.7,0.66,0.8,0.04,0.1,0.04,0.08,0,Dialect-sensitive vowel in taxi and cafe candidates
+grapheme,𐐵/𐐍,ow,0.66,0.62,0.58,0.68,0.7,0.62,0.8,0.04,0.1,0.04,0.08,0,Useful for open road and hotel-like anchors
+grapheme,𐐭/𐐅,long oo,0.62,0.58,0.56,0.64,0.76,0.6,0.8,0.04,0.1,0.04,0.08,0,Clear long-vowel anchor value for food
+grapheme,𐑉/𐐡,r / er,0.78,0.74,0.68,0.74,0.62,0.7,0.76,0.04,0.14,0.08,0.08,0,R-colored vowels and r policy need accent review
+grapheme,𐐶/𐐎,w / wu,0.66,0.62,0.58,0.66,0.74,0.6,0.78,0.04,0.08,0.02,0.08,0,Useful for water anchor
+grapheme,𐑁/𐐙,f / ef,0.64,0.6,0.58,0.68,0.8,0.58,0.8,0.04,0.08,0.02,0.08,0,Useful for food and cafe anchors
+grapheme,𐐼/𐐔,d / dee,0.66,0.62,0.58,0.7,0.8,0.58,0.8,0.04,0.08,0.02,0.08,0,Useful for Deseret and food anchors
+grapheme,𐑊/𐐢,l / el,0.7,0.66,0.6,0.68,0.8,0.58,0.8,0.04,0.08,0.02,0.08,0,Useful for hotel and labels
+grapheme,case pairs,uppercase and lowercase,0.72,0.68,0.64,0.7,0.62,0.74,0.62,0.03,0.16,0.04,0.08,0,Case behavior is essential for Deseret display and matchingcandidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes

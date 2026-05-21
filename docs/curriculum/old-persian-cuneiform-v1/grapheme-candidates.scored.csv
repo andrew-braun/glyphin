@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,𐏐,word divider,0.9,0.84,0.86,0.92,0.9,0.86,0.86,0.02,0.04,0.02,0.06,0,High-value segmentation sign for inscriptions,0.7380,promising
+grapheme,𐎠,a sign,0.88,0.82,0.78,0.9,0.78,0.72,0.82,0.03,0.06,0.04,0.06,0,Core vowel sign with high royal-name payoff,0.6360,promising
+grapheme,𐎭,da sign,0.78,0.72,0.74,0.84,0.74,0.68,0.82,0.03,0.06,0.04,0.06,0,High in Darius and royal inscriptions,0.5660,promising
+grapheme,𐎼,ra sign,0.76,0.7,0.72,0.82,0.74,0.66,0.82,0.03,0.06,0.04,0.06,0,Core sign for royal names and place names,0.5490,promising
+grapheme,𐎹,ya sign,0.74,0.68,0.72,0.82,0.72,0.66,0.82,0.03,0.06,0.04,0.06,0,High payoff in title chunks and names,0.5370,promising
+grapheme,𐎺,va sign,0.66,0.6,0.64,0.72,0.72,0.62,0.8,0.03,0.06,0.04,0.06,0,Useful in Darius name and common endings,0.4700,weak
+grapheme,𐎢,u sign,0.66,0.6,0.62,0.72,0.72,0.62,0.8,0.03,0.06,0.04,0.06,0,Vowel sign with compact visual form,0.4670,weak
+grapheme,𐏁,sha sign,0.7,0.64,0.72,0.78,0.66,0.74,0.78,0.04,0.08,0.06,0.06,0,Essential for xshayathiya and Darius name ending,0.4630,weak
+grapheme,𐎡,i sign,0.64,0.58,0.62,0.72,0.72,0.62,0.8,0.03,0.06,0.04,0.06,0,Useful in title and earth anchors,0.4570,weak
+grapheme,𐎶,ma sign,0.6,0.54,0.58,0.68,0.72,0.58,0.8,0.03,0.06,0.04,0.06,0,Useful in Ahuramazda and formulaic words,0.4230,weak
+grapheme,𐎧,xa sign,0.62,0.56,0.66,0.72,0.64,0.72,0.82,0.04,0.08,0.06,0.06,0,Gateway to royal title cluster xsha,0.4060,weak
+grapheme,𐎱,pa sign,0.54,0.5,0.62,0.66,0.72,0.58,0.8,0.03,0.06,0.04,0.06,0,Place-name payoff in Parsa,0.4010,weak
+grapheme,𐎿,sa sign,0.52,0.48,0.58,0.64,0.72,0.56,0.8,0.03,0.06,0.04,0.06,0,Useful in Parsa and reviewed place names,0.3810,weak
+grapheme,𐎰,tha sign,0.56,0.5,0.62,0.68,0.62,0.66,0.82,0.04,0.08,0.06,0.06,0,Important title sign but pronunciation needs review,0.3580,weak
+grapheme,𐎴,na sign,0.48,0.44,0.48,0.56,0.7,0.52,0.8,0.03,0.06,0.04,0.06,0,Lower early coverage but simple mapping,0.3320,weak
+grapheme,𐎲,ba sign,0.44,0.4,0.46,0.52,0.7,0.52,0.8,0.03,0.06,0.04,0.06,0,Useful for baga and bumi but less early coverage,0.3050,weak
+grapheme,𐎦,ga sign,0.4,0.36,0.42,0.5,0.68,0.5,0.8,0.03,0.06,0.04,0.06,0,Later divine-name and formulaic anchor support,0.2730,weak

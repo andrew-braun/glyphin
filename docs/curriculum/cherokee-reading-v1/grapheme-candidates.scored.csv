@@ -1,0 +1,15 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,Ꭰ,a syllabogram,0.9,0.86,0.78,0.82,0.78,0.72,0.72,0.06,0.08,0.02,0.04,0,Core vowel syllabogram with strong anchor availability,0.6270,promising
+grapheme,Ꭳ,o syllabogram,0.82,0.78,0.72,0.82,0.78,0.66,0.74,0.05,0.08,0.02,0.04,0,Useful in greeting anchors and early vowel-series work,0.5830,promising
+grapheme,Ꭴ,u syllabogram,0.8,0.76,0.7,0.74,0.76,0.66,0.72,0.05,0.08,0.02,0.04,0,Common standalone vowel syllable and series gateway,0.5590,promising
+grapheme,Ꮟ,si syllabogram,0.72,0.7,0.68,0.82,0.74,0.72,0.8,0.04,0.08,0.02,0.04,0,Early payoff through ᎣᏏᏲ and s-series contrast,0.5460,promising
+grapheme,Ꭲ,i syllabogram,0.78,0.74,0.68,0.72,0.76,0.64,0.74,0.05,0.08,0.02,0.04,0,High-utility vowel syllable for identity words,0.5430,promising
+grapheme,Ᏺ,yo syllabogram,0.68,0.66,0.66,0.8,0.72,0.66,0.82,0.04,0.08,0.02,0.04,0,Completes first greeting anchor and introduces y-series,0.5140,promising
+grapheme,Ꮃ,la syllabogram,0.7,0.68,0.62,0.76,0.76,0.64,0.78,0.04,0.08,0.02,0.04,0,Common l-series sign used in ᏣᎳᎩ,0.5140,promising
+grapheme,Ꭹ,gi syllabogram,0.68,0.66,0.62,0.74,0.72,0.64,0.78,0.04,0.08,0.02,0.04,0,High-value identity and color-word candidate,0.4980,weak
+grapheme,Ꮹ,wa syllabogram,0.66,0.64,0.6,0.74,0.72,0.64,0.78,0.04,0.08,0.02,0.04,0,Useful for gratitude anchor and w-series orientation,0.4850,weak
+grapheme,Ꮉ,ma syllabogram,0.66,0.64,0.6,0.72,0.74,0.62,0.74,0.05,0.08,0.02,0.04,0,Useful for water and everyday vocabulary after review,0.4710,weak
+grapheme,Ꮩ,do syllabogram,0.64,0.62,0.58,0.72,0.7,0.62,0.78,0.04,0.08,0.02,0.04,0,Common early candidate through ᏩᏙ,0.4660,weak
+grapheme,Ꮎ,na syllabogram,0.64,0.62,0.58,0.66,0.72,0.62,0.76,0.04,0.08,0.02,0.04,0,Common n-series gateway for later community termscandidate_type,0.4610,weak
+grapheme,Ꭶ,ga syllabogram,0.66,0.64,0.58,0.68,0.7,0.62,0.74,0.06,0.08,0.02,0.04,0,Series member with possible Latin-lookalike confusion,0.4500,weak
+grapheme,Ꮳ,tsa syllabogram,0.62,0.6,0.64,0.78,0.66,0.7,0.82,0.04,0.1,0.03,0.04,0,Identity anchor gateway but affricate value needs review,0.4470,weak

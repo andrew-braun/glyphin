@@ -1,0 +1,15 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,𞤢,alif / a,0.88,0.84,0.78,0.84,0.78,0.72,0.78,0.04,0.08,0.02,0.08,0,Core vowel letter with high early-anchor payoff,0.6020,promising
+grapheme,𞤤,laam / l,0.8,0.76,0.72,0.82,0.76,0.68,0.78,0.04,0.08,0.02,0.08,0,High-payoff consonant in script-name and language anchors,0.5450,promising
+grapheme,𞤥,miim / m,0.76,0.72,0.68,0.78,0.76,0.66,0.78,0.04,0.08,0.02,0.08,0,Useful for Adlam and water candidate anchors,0.5130,promising
+grapheme,𞤵,u vowel,0.72,0.68,0.64,0.76,0.76,0.66,0.78,0.04,0.08,0.02,0.08,0,Useful in Fula and Pular candidates,0.4850,weak
+grapheme,𞤬,fa / f,0.7,0.68,0.66,0.78,0.74,0.64,0.8,0.04,0.08,0.02,0.08,0,Language-name gateway for Fula and Fulani forms,0.4810,weak
+grapheme,𞤣,daali / d,0.72,0.68,0.64,0.76,0.74,0.64,0.76,0.04,0.08,0.02,0.08,0,Script-name gateway and basic stop consonant,0.4800,weak
+grapheme,𞤪,ra / r,0.7,0.66,0.62,0.72,0.72,0.62,0.78,0.04,0.08,0.02,0.08,0,Common liquid and Pular anchor candidate,0.4600,weak
+grapheme,𞤲,nun / n,0.68,0.66,0.62,0.72,0.74,0.62,0.78,0.04,0.08,0.02,0.08,0,Useful for ndiyam and pronoun-like candidates,0.4560,weak
+grapheme,𞤭,i vowel,0.66,0.64,0.6,0.7,0.76,0.62,0.78,0.04,0.08,0.02,0.08,0,Core vowel in water and literacy words,0.4430,weak
+grapheme,𞤴,ya / y,0.64,0.62,0.58,0.68,0.72,0.62,0.78,0.04,0.08,0.02,0.08,0,Useful in Fula morphology and water candidate,0.4240,weak
+grapheme,𞤫,e vowel,0.64,0.62,0.58,0.68,0.74,0.6,0.78,0.04,0.08,0.02,0.08,0,Common vowel but exact pronunciation needs reviewer policy,0.4240,weak
+grapheme,𞤶,jiim / j,0.56,0.54,0.5,0.62,0.68,0.58,0.8,0.04,0.08,0.02,0.08,0,Useful for greeting or peace candidate if reviewer confirms,0.3590,weak
+grapheme,𞤳,kaf / k,0.56,0.54,0.5,0.58,0.7,0.56,0.78,0.04,0.08,0.02,0.08,0,Needed for later labels and contrast drills,0.3540,weak
+grapheme,case pairs,uppercase and lowercase,0.62,0.6,0.58,0.64,0.62,0.74,0.62,0.03,0.16,0.04,0.1,0,Adlam case behavior needs explicit app and typography supportcandidate_type,0.2940,weak

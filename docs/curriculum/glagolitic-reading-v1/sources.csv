@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-glagolitic-block,unicode_metadata,https://www.unicode.org/charts/PDF/U2C00.pdf,Unicode License reviewed for metadata use,scoring,0.45,Encoded Glagolitic letters for inventory and rendering checks
+titus-old-church-slavonic,corpus_reference,https://titus.uni-frankfurt.de/,corpus terms require review,scoring_only,0.55,Old Church Slavonic text evidence for scoring only pending license review
+codex-suprasliensis-reference,manuscript_reference,https://www.unesco.org/en/memory-world/codex-suprasliensis,image and transcription reuse terms require review,discovery_only,0.4,Manuscript context for discovery only
+wiktionary-old-church-slavonic,lexicon,https://en.wiktionary.org/wiki/Category:Old_Church_Slavonic_language,CC BY-SA attribution and share-alike review required,discovery_only,0.35,Gloss and spelling discovery only until attribution review
+noto-sans-glagolitic,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Glagolitic,SIL Open Font License,scoring,0.2,Rendering reference for Glagolitic letters
+app-authored-glagolitic-examples,authored_examples,,app_owned,shipped_content,0.9,Reviewed Glagolitic examples authored by GlyphBridge

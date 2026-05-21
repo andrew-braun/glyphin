@@ -1,0 +1,8 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-syriac-block,unicode_metadata,https://www.unicode.org/charts/PDF/U0700.pdf,Unicode License reviewed for metadata use,scoring,0.4,Syriac code point and mark metadata for infrastructure use only
+unicode-joining-data,unicode_metadata,https://www.unicode.org/Public/UCD/latest/ucd/ArabicShaping.txt,Unicode License reviewed for metadata use,scoring,0.45,Joining type metadata for contextual shaping and font QA
+cldr-syr-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.45,Locale exemplar checks where available; confirm exact CLDR release before ingestion
+syriac-wiktionary-discovery,lexicon,https://en.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Spelling and gloss discovery only until share-alike obligations are approved
+syriaca-org-gazetteer,cultural_reference,https://syriaca.org/,source license and attribution terms require review,discovery_only,0.4,Cultural and place-name discovery for reviewer planning only
+openstreetmap-syriac-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.55,Community and cultural-site validation only; do not ship raw extracts
+app-authored-syriac-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora

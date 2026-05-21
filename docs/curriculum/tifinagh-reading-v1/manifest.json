@@ -1,0 +1,95 @@
+{
+	"course_id": "tifinagh-reading-v1",
+	"display_name": "Tifinagh Reading",
+	"language_tag": "zgh-Tfng",
+	"script": "Tfng",
+	"direction": "ltr",
+	"target_domains": [
+		"public_signage",
+		"school_primer_words",
+		"cultural_site_labels",
+		"food_market_words",
+		"everyday_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Neo-Tifinagh text in NFC and preserve source forms for audit. Avoid folding visually distinct letters or regional variants until a reviewer confirms the course standard."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_manual_morphology_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "Tifinagh letters, gemination-sensitive word chunks, and high-frequency affix patterns",
+		"notes": "Standard Moroccan Amazigh text uses visible letters and whitespace, but morphology and regional vocabulary require review before learner-facing sequencing."
+	},
+	"sources": [
+		{
+			"id": "unicode-tifinagh-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U2D30.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Tifinagh block metadata for code point inventory and font QA."
+		},
+		{
+			"id": "cldr-zgh-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.5,
+			"notes": "Standard Moroccan Amazigh exemplar and locale metadata. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "irc-amazigh-references",
+			"kind": "orthography_reference",
+			"url": "https://www.ircam.ma/",
+			"license": "site and publication licenses require review",
+			"use": "discovery_only",
+			"domain_weight": 0.4,
+			"notes": "Potential reference for Neo-Tifinagh standardization and vocabulary. Discovery only until license review."
+		},
+		{
+			"id": "wiktionary-tamazight-discovery",
+			"kind": "lexicon",
+			"url": "https://en.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Useful for gloss and spelling checks only. Do not ship copied entries."
+		},
+		{
+			"id": "openstreetmap-tifinagh-names",
+			"kind": "environmental_print",
+			"url": "https://www.openstreetmap.org/",
+			"license": "ODbL; derived-data obligations require review",
+			"use": "scoring_only",
+			"domain_weight": 0.65,
+			"notes": "Potential validation source for public labels and place names. Do not ship raw extracts."
+		},
+		{
+			"id": "app-authored-tifinagh-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"specialist_review_required": true
+	}
+}

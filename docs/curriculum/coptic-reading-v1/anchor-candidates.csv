@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ⲙⲟⲟⲩ,water,0.62,0.78,0.7,0.78,0.58,0.78,0.68,0.82,0.46,0.08,0.02,0.03,0,0,Compact high-frequency word with early vowel payoff
+anchor,ⲣⲱⲙⲉ,person,0.64,0.76,0.68,0.72,0.58,0.76,0.68,0.8,0.46,0.1,0.02,0.03,0,0,Common reading anchor and long-vowel gateway
+anchor,ⲡⲉ,is or he,0.72,0.72,0.62,0.86,0.6,0.78,0.62,0.72,0.44,0.04,0.03,0.06,0,0,Very common but grammatical gloss needs specialist framing
+anchor,ⲧⲉ,is or she,0.68,0.7,0.6,0.86,0.6,0.78,0.62,0.72,0.44,0.04,0.03,0.06,0,0,Pairs with ⲡⲉ and introduces article-like ambiguity
+anchor,ⲡⲛⲟⲩⲧⲉ,God,0.66,0.86,0.72,0.56,0.72,0.78,0.76,0.86,0.46,0.18,0.03,0.05,0.02,0,High liturgical payoff but cultural review required
+anchor,ⲟⲩⲟⲉⲓⲛ,light,0.56,0.78,0.64,0.58,0.7,0.72,0.7,0.82,0.44,0.18,0.03,0.04,0,0,Useful thematic anchor with ⲟⲩ chunk
+anchor,ⲥⲱⲧⲙ,hear,0.56,0.72,0.62,0.64,0.64,0.74,0.66,0.78,0.44,0.12,0.02,0.03,0,0,Common verb and long-vowel review
+anchor,ⲛⲁⲩ,see,0.58,0.72,0.62,0.76,0.58,0.76,0.64,0.76,0.44,0.08,0.02,0.03,0,0,Short verb anchor with ⲁⲩ sequence
+anchor,ⲟⲩⲱⲙ,eat,0.54,0.7,0.6,0.62,0.68,0.72,0.64,0.78,0.44,0.14,0.02,0.03,0,0,Common verb and ⲟⲩ plus ⲱ review
+anchor,ⲙⲁⲁⲩ,mother,0.5,0.68,0.56,0.74,0.58,0.76,0.62,0.78,0.44,0.08,0.02,0.03,0,0,Kinship word with repeated vowel pattern
+anchor,ⲉⲓⲱⲧ,father,0.5,0.68,0.56,0.66,0.62,0.74,0.62,0.78,0.44,0.12,0.02,0.03,0,0,Kinship word and ⲱ review
+anchor,ⲁⲅⲁⲡⲏ,love,0.48,0.72,0.58,0.58,0.68,0.72,0.66,0.84,0.42,0.16,0.03,0.04,0,0,Greek loan anchor with cultural and pronunciation review
+anchor,ⲥⲱⲛ,brother,0.5,0.66,0.56,0.7,0.58,0.76,0.62,0.76,0.44,0.1,0.02,0.03,0,0,Short kinship and long-vowel anchor
+anchor,ⲁⲛⲟⲕ,I,0.58,0.7,0.6,0.7,0.62,0.76,0.64,0.78,0.44,0.12,0.02,0.04,0,0,Common pronoun but grammar explanation needed
+anchor,ⲛⲧⲟⲕ,you masculine,0.52,0.68,0.58,0.62,0.64,0.72,0.64,0.76,0.42,0.16,0.03,0.05,0,0,Pronoun anchor with dialect and gender notes
+anchor,ⲏⲓ,house,0.46,0.68,0.54,0.72,0.56,0.72,0.6,0.74,0.42,0.08,0.02,0.03,0,0,Compact noun but lower target confidence

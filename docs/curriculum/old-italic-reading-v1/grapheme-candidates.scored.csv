@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,RTL orientation,right-to-left reading,0.9,0.84,0.86,0.92,0.9,0.9,0.7,0.02,0.14,0.04,0.08,0,Orientation is a pedagogical unit for this course,0.5940,promising
+grapheme,𐌀,a letter,0.86,0.8,0.76,0.88,0.72,0.68,0.82,0.04,0.08,0.06,0.08,0,Core vowel and strong name payoff,0.5410,promising
+grapheme,𐌉,i letter,0.78,0.72,0.7,0.84,0.72,0.64,0.82,0.04,0.08,0.06,0.08,0,High payoff for mi and avil anchors,0.4840,weak
+grapheme,𐌋,l letter,0.74,0.68,0.7,0.8,0.72,0.62,0.82,0.04,0.08,0.06,0.08,0,High payoff in avil and clan anchors,0.4580,weak
+grapheme,𐌔,s letter,0.68,0.62,0.66,0.76,0.72,0.6,0.82,0.04,0.08,0.06,0.08,0,Useful in funerary anchor suthi,0.4160,weak
+grapheme,𐌌,m letter,0.66,0.6,0.64,0.74,0.72,0.58,0.82,0.04,0.08,0.06,0.08,0,Core consonant for mi and name chunks,0.3990,weak
+grapheme,𐌕,t letter,0.66,0.6,0.64,0.74,0.72,0.58,0.82,0.04,0.08,0.06,0.08,0,Core consonant and name component,0.3990,weak
+grapheme,𐌄,e letter,0.64,0.58,0.56,0.68,0.72,0.56,0.82,0.04,0.08,0.06,0.08,0,Useful vowel but lower early anchor density,0.3690,weak
+grapheme,𐌖,u letter,0.62,0.56,0.58,0.68,0.72,0.56,0.82,0.04,0.08,0.06,0.08,0,Useful in funerary and boundary anchors,0.3620,weak
+grapheme,𐌓,r letter,0.6,0.54,0.58,0.66,0.72,0.54,0.82,0.04,0.08,0.06,0.08,0,Common in names and boundary words,0.3480,weak
+grapheme,𐌍,n letter,0.58,0.52,0.56,0.64,0.72,0.54,0.82,0.04,0.08,0.06,0.08,0,Useful for personal names and kinship terms,0.3330,weak
+grapheme,𐌅,v letter,0.56,0.5,0.56,0.64,0.68,0.54,0.82,0.05,0.08,0.06,0.08,0,Letter value and Latin-lookalike risk need review,0.3090,weak
+grapheme,𐌂,k letter,0.5,0.46,0.52,0.58,0.68,0.5,0.82,0.06,0.08,0.06,0.08,0,Useful in clan but has cross-script confusion risk,0.2570,weak
+grapheme,𐌈,theta letter,0.5,0.46,0.54,0.6,0.58,0.58,0.82,0.04,0.1,0.08,0.08,0,Important Etruscan value but pronunciation is specialist-gated,0.2400,weak
+grapheme,𐌐,p letter,0.38,0.34,0.36,0.44,0.7,0.44,0.82,0.04,0.08,0.06,0.08,0,Lower early coverage but simple mapping,0.1750,weak
+grapheme,𐌗,chi or kh letter,0.38,0.34,0.36,0.44,0.54,0.46,0.82,0.04,0.1,0.08,0.08,0,Later sign because value and alphabet variant vary,0.1210,weak

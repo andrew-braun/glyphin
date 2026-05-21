@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ㄇㄚ,mā / ma syllable,0.82,0.78,0.74,0.82,0.9,0.9,0.74,0.82,0.55,0.06,0.01,0.03,0,0,First syllable for symbol plus unmarked first tone
+anchor,ㄇㄚˇ,mǎ tone contrast,0.66,0.7,0.68,0.78,0.88,0.86,0.74,0.8,0.55,0.08,0.02,0.03,0,0,Early third tone contrast using same symbols
+anchor,ㄋㄧˇ ㄏㄠˇ,nǐ hǎo hello,0.86,0.86,0.78,0.66,0.9,0.84,0.8,0.9,0.55,0.16,0.03,0.03,0,0,Greeting anchor with third tone repetition
+anchor,ㄕㄨㄟˇ,shuǐ water,0.84,0.96,0.84,0.62,0.86,0.82,0.78,0.9,0.55,0.18,0.03,0.02,0,0,Survival word and medial final stack
+anchor,ㄈㄢˋ,fàn meal / rice,0.82,0.94,0.84,0.68,0.84,0.86,0.78,0.88,0.55,0.12,0.02,0.02,0,0,Food anchor and fourth tone
+anchor,ㄔ ㄈㄢˋ,chī fàn eat a meal,0.82,0.94,0.82,0.58,0.9,0.82,0.82,0.88,0.55,0.2,0.03,0.03,0,0,Practical phrase with first and fourth tones
+anchor,ㄔㄚˊ,chá tea,0.7,0.9,0.74,0.72,0.78,0.86,0.72,0.84,0.55,0.1,0.02,0.02,0,0,Second tone beverage anchor
+anchor,ㄎㄚ ㄈㄟ,kā fēi coffee,0.66,0.9,0.72,0.66,0.78,0.84,0.72,0.88,0.55,0.14,0.02,0.03,0,0,Loanword beverage with repeated unmarked first tone
+anchor,ㄏㄜ,drink syllable hē,0.76,0.84,0.72,0.72,0.76,0.84,0.7,0.78,0.55,0.1,0.02,0.03,0,0,Common verb syllable and ㄜ final
+anchor,ㄐㄧㄚˋ ㄑㄧㄢˊ,price / money,0.72,0.92,0.76,0.48,0.82,0.76,0.78,0.82,0.55,0.26,0.04,0.04,0,0,Commerce anchor but high new initial load
+anchor,ㄎㄞ,open,0.74,0.9,0.74,0.68,0.74,0.84,0.72,0.82,0.55,0.12,0.02,0.02,0,0,Store status word with ㄎ and ㄞ
+anchor,ㄍㄨㄢ,closed / shut,0.72,0.9,0.74,0.58,0.78,0.82,0.74,0.82,0.55,0.18,0.03,0.03,0,0,Pairs with open and adds ㄍㄨㄢ frame
+anchor,ㄗㄨㄛˇ ㄧㄡˋ,left / right,0.68,0.86,0.74,0.5,0.78,0.8,0.76,0.82,0.55,0.24,0.04,0.04,0,0,Wayfinding pair with ㄗ and ㄧㄡˋ
+anchor,ㄔㄨ ㄎㄡˇ,exit,0.72,0.96,0.8,0.54,0.82,0.82,0.8,0.88,0.55,0.22,0.03,0.03,0,0,Transit sign word with mouth final ㄎㄡˇ
+anchor,ㄖㄨˋ ㄎㄡˇ,entrance,0.7,0.96,0.8,0.52,0.82,0.78,0.8,0.88,0.55,0.24,0.04,0.03,0,0,Pairs with exit and introduces ㄖ
+anchor,ㄋㄢˊ ㄋㄩˇ,male / female,0.68,0.9,0.74,0.56,0.78,0.78,0.76,0.82,0.55,0.22,0.04,0.04,0,0,Public facility pair and ㄩ support
+anchor,ㄒㄧㄝˋ ㄒㄧㄝ˙,thank you,0.74,0.78,0.66,0.48,0.76,0.74,0.74,0.86,0.55,0.28,0.05,0.04,0,0,Late politeness anchor due to neutral tone and ㄒ load

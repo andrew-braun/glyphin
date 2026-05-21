@@ -1,0 +1,96 @@
+{
+	"course_id": "thaana-reading-v1",
+	"display_name": "Thaana Reading",
+	"language_tag": "dv-Thaa",
+	"script": "Thaa",
+	"direction": "rtl",
+	"target_domains": [
+		"food_cafe_menus",
+		"public_facilities",
+		"street_wayfinding",
+		"island_travel_labels",
+		"everyday_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Thaana text in NFC and preserve source strings for audit. Keep vowel signs and sukun attached to base letters during segmentation review."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_manual_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters_with_mark_review",
+		"pedagogical_units": "base letters, obligatory vowel signs, long-vowel signs, sukun, and short word chunks",
+		"notes": "Thaana is RTL and uses combining vowel signs. Treat base-plus-mark clusters as visible teaching units while preserving raw code points for review."
+	},
+	"sources": [
+		{
+			"id": "unicode-thaana-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U0780.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Thaana block metadata for letters, vowel signs, sukun, and punctuation."
+		},
+		{
+			"id": "cldr-dv-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.5,
+			"notes": "Dhivehi exemplar and locale metadata. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "wiktionary-dhivehi-discovery",
+			"kind": "lexicon",
+			"url": "https://en.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Useful for spelling and gloss discovery only. Do not ship copied entries."
+		},
+		{
+			"id": "dhivehi-language-references",
+			"kind": "orthography_reference",
+			"url": "",
+			"license": "publisher or site licenses require review",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Use for specialist planning around vowel signs and romanization only."
+		},
+		{
+			"id": "openstreetmap-dhivehi-names",
+			"kind": "environmental_print",
+			"url": "https://www.openstreetmap.org/",
+			"license": "ODbL; derived-data obligations require review",
+			"use": "scoring_only",
+			"domain_weight": 0.65,
+			"notes": "Potential validation source for island, road, and facility labels. Do not ship raw extracts."
+		},
+		{
+			"id": "app-authored-thaana-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"rtl_bidi_required": true,
+		"specialist_review_required": true
+	}
+}

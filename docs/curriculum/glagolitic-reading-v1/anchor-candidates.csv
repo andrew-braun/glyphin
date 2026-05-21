@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ⰰⰸⱏ,azu I,0.62,0.78,0.66,0.78,0.62,0.58,0.66,0.82,0.42,0.1,0.08,0.08,0,0,Alphabet-name and short word anchor with yer review
+anchor,ⰱⱁⰳⱏ,bogu God,0.68,0.86,0.76,0.68,0.74,0.58,0.74,0.88,0.42,0.14,0.08,0.06,0.06,0,High liturgical payoff with sacred context needs
+anchor,ⱄⰾⱁⰲⱁ,slovo word,0.7,0.84,0.78,0.7,0.78,0.66,0.76,0.9,0.44,0.14,0.06,0.04,0,0,Script-identity anchor and strong review value
+anchor,ⰴⱁⰱⱃⱁ,dobro good,0.62,0.8,0.7,0.66,0.7,0.66,0.7,0.82,0.42,0.14,0.06,0.04,0,0,Alphabet-name word and positive semantic anchor
+anchor,ⰿⰻⱃⱏ,miru peace or world,0.58,0.8,0.66,0.68,0.68,0.58,0.68,0.82,0.4,0.14,0.08,0.08,0.02,0,Liturgical word with yer and semantic range
+anchor,ⰲⱁⰴⰰ,voda water,0.56,0.76,0.62,0.72,0.62,0.68,0.64,0.78,0.4,0.1,0.04,0.04,0,0,Concrete anchor with good letter reuse
+anchor,ⰳⱃⰰⰴⱏ,gradu city,0.52,0.76,0.62,0.62,0.66,0.6,0.64,0.78,0.38,0.16,0.08,0.08,0,0,Cultural-site word and yer review
+anchor,ⰾⱓⰴⰻ,ljudi people,0.54,0.76,0.62,0.56,0.66,0.56,0.64,0.78,0.38,0.18,0.08,0.08,0,0,Needs palatal or complex letter policy before runtime
+anchor,ⱄⰲⱑⱅⱏ,svetu light or world,0.5,0.78,0.6,0.48,0.68,0.5,0.64,0.82,0.36,0.22,0.1,0.1,0.02,0,Liturgical anchor with extra vowel-sign load
+anchor,ⰺⱄⱆⱄ,Jesus,0.56,0.82,0.64,0.48,0.7,0.52,0.68,0.9,0.36,0.24,0.1,0.08,0.08,0,Sacred name and late cultural-review anchor
+anchor,ⰽⱃⱐⱄⱅⱏ,cross,0.48,0.78,0.58,0.44,0.68,0.48,0.62,0.84,0.34,0.26,0.1,0.1,0.08,0,High liturgical payoff but complex signs make it late
+anchor,ⰿⱁⰾⰻ,moli pray,0.46,0.74,0.54,0.62,0.62,0.58,0.58,0.76,0.34,0.14,0.08,0.08,0.02,0,Liturgical verb candidate needing grammar review

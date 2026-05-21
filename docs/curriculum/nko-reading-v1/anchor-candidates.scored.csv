@@ -1,0 +1,11 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ߒߞߏ,N'Ko,0.78,0.94,0.82,0.78,0.86,0.76,0.92,0.92,0.42,0.08,0.03,0.02,0.03,0,Script-name anchor with strong identity payoff,0.6684,promising
+anchor,ߞߊ,ka chunk candidate,0.62,0.54,0.52,0.82,0.54,0.7,0.62,0.58,0.3,0.04,0.04,0.08,0.02,0,Useful as a readable chunk if reviewers accept micro-anchors,0.4280,weak
+anchor,ߡߊ,ma chunk candidate,0.6,0.54,0.52,0.82,0.54,0.7,0.62,0.58,0.3,0.04,0.04,0.08,0.02,0,Useful for early recognition but may be too grammar-light,0.4236,weak
+anchor,ߟߊ,la chunk candidate,0.56,0.5,0.48,0.82,0.52,0.68,0.6,0.56,0.28,0.04,0.04,0.08,0.02,0,Readable chunk candidate for early drills,0.3952,weak
+anchor,ߊߟߎ,social word candidate,0.6,0.78,0.6,0.7,0.58,0.62,0.76,0.76,0.3,0.12,0.06,0.08,0.04,0,Short candidate requiring native review before glossing,0.3560,weak
+anchor,ߛߎ,water / liquid candidate,0.5,0.78,0.54,0.58,0.54,0.56,0.74,0.7,0.24,0.16,0.08,0.1,0.02,0,Everyday-word placeholder requiring lexicon and reviewer confirmation,0.2340,weak
+anchor,ߡߊ߲߬ߘߋ߲,Manding candidate,0.58,0.86,0.68,0.38,0.82,0.52,0.9,0.82,0.28,0.3,0.1,0.08,0.04,0,Identity anchor with combining marks and language-scope sensitivity,0.1404,weak
+anchor,ߘߐ,inside / place candidate,0.42,0.56,0.44,0.52,0.52,0.5,0.68,0.6,0.22,0.18,0.08,0.1,0.02,0,Short candidate but gloss and domain utility require review,0.1176,weak
+anchor,ߞߎ߬ߙߊ,new / modern candidate,0.46,0.62,0.5,0.48,0.62,0.5,0.72,0.68,0.22,0.24,0.1,0.1,0.02,0,Combining-mark candidate for later review,0.0768,weak
+anchor,ߞߊ߬ߙߊ߲,learning / reading candidate,0.4,0.76,0.54,0.34,0.72,0.46,0.82,0.74,0.22,0.34,0.1,0.1,0.03,0,Learning-domain candidate with combining marks; keep latecandidate_type,0.0000,weak

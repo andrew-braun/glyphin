@@ -1,0 +1,20 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ᚠ,f rune fehu,0.78,0.72,0.72,0.86,0.72,0.68,0.86,0.03,0.05,0.03,0.03,0,First futhark rune and strong chart anchor
+grapheme,ᚢ,u rune uruz,0.76,0.7,0.68,0.82,0.72,0.64,0.84,0.03,0.05,0.03,0.03,0,Early vowel value and second futhark rune
+grapheme,ᚦ,th rune thurisaz,0.62,0.58,0.58,0.72,0.62,0.66,0.9,0.02,0.08,0.05,0.03,0,Distinctive rune but sound value needs language-period caveat
+grapheme,ᚨ,a rune ansuz,0.74,0.68,0.66,0.82,0.72,0.64,0.84,0.03,0.05,0.03,0.03,0,Early vowel and futhark-sequence gateway
+grapheme,ᚱ,r rune raido,0.78,0.72,0.68,0.82,0.7,0.62,0.82,0.03,0.05,0.03,0.03,0,Common sonorant and strong formula support
+grapheme,ᚲ,k rune kaunan,0.7,0.64,0.62,0.76,0.7,0.6,0.82,0.03,0.06,0.03,0.03,0,Useful in futhark and place-name style examples
+grapheme,ᚷ,g rune gebo,0.58,0.54,0.52,0.62,0.66,0.54,0.84,0.03,0.06,0.04,0.03,0,Good visual contrast but lower early anchor availability
+grapheme,ᚹ,w rune wunjo,0.56,0.52,0.5,0.6,0.58,0.54,0.84,0.03,0.08,0.05,0.03,0,Sound value varies by tradition and period
+grapheme,ᚺ,h rune hagalaz,0.62,0.58,0.56,0.66,0.7,0.56,0.84,0.03,0.06,0.03,0.03,0,Distinctive rune and later rune-name anchor
+grapheme,ᚾ,n rune naudiz,0.76,0.7,0.66,0.78,0.72,0.6,0.82,0.03,0.05,0.03,0.03,0,Common nasal and useful in formulae
+grapheme,ᛁ,i rune isaz,0.78,0.72,0.66,0.8,0.72,0.6,0.74,0.06,0.05,0.03,0.03,0,Simple shape but can be visually confusable as a stroke
+grapheme,ᛃ,j rune jera,0.48,0.44,0.44,0.52,0.54,0.5,0.84,0.03,0.08,0.05,0.03,0,Later value because j and y conventions vary
+grapheme,ᛊ,s rune sowilo,0.74,0.68,0.64,0.76,0.72,0.6,0.82,0.04,0.05,0.03,0.03,0,Common consonant with variant forms to review
+grapheme,ᛏ,t rune tiwaz,0.76,0.7,0.66,0.78,0.72,0.62,0.82,0.03,0.05,0.03,0.03,0,High-payoff consonant and rune-name anchor
+grapheme,ᛒ,b rune berkana,0.62,0.58,0.56,0.66,0.7,0.56,0.84,0.03,0.06,0.03,0.03,0,Good anchor support after core vowels
+grapheme,ᛖ,e rune ehwaz,0.58,0.54,0.52,0.62,0.7,0.54,0.82,0.03,0.06,0.03,0.03,0,Useful vowel but later in futhark order
+grapheme,ᛗ,m rune mannaz,0.7,0.64,0.62,0.74,0.72,0.58,0.84,0.03,0.05,0.03,0.03,0,Common in names and formulaic words
+grapheme,ᛚ,l rune laguz,0.64,0.6,0.58,0.68,0.72,0.56,0.84,0.03,0.05,0.03,0.03,0,Clear sound value in many teaching traditions
+grapheme,ᛟ,o rune othala,0.46,0.44,0.46,0.58,0.64,0.52,0.88,0.03,0.08,0.04,0.03,0,Useful for rune-name chart but period-sensitive

@@ -1,0 +1,11 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ᑖᓂᓯ,hello / how are you,0.72,0.94,0.78,0.7,0.82,0.7,0.88,0.9,0.42,0.12,0.04,0.03,0.02,0,High-value greeting anchor; long-vowel sign and dialect must be reviewed
+anchor,ᓂᐱᐩ,water candidate,0.64,0.9,0.68,0.62,0.72,0.64,0.78,0.84,0.36,0.14,0.06,0.06,0.02,0,Useful survival noun but final-y convention requires expert confirmation
+anchor,ᓀᐦᐃᔭᐤ,Cree / nêhiyaw candidate,0.66,0.9,0.74,0.42,0.86,0.58,0.92,0.88,0.36,0.26,0.08,0.06,0.04,0,Identity anchor with dialect and spelling sensitivity
+anchor,ᐊᒥᐢᐠ,beaver,0.54,0.66,0.56,0.48,0.68,0.62,0.74,0.72,0.34,0.22,0.06,0.04,0.02,0,Cultural and animal-word candidate; keep reviewer-gated
+anchor,ᐃᐢᑯᑌᐤ,fire,0.56,0.72,0.58,0.38,0.72,0.6,0.76,0.74,0.34,0.28,0.06,0.05,0.02,0,Useful concept word but long for early lessons
+anchor,ᒥᐢᑕᐦᐃ,much / a lot,0.54,0.58,0.52,0.42,0.62,0.58,0.68,0.62,0.32,0.22,0.06,0.06,0.02,0,High-frequency candidate if reviewers approve learner usefulness
+anchor,ᐊᐢᑭᐩ,land candidate,0.52,0.74,0.58,0.44,0.68,0.58,0.82,0.74,0.3,0.24,0.08,0.06,0.04,0,Domain-rich word but final convention and sensitivity need review
+anchor,ᒪᐢᑯᓯ,grass candidate,0.46,0.48,0.42,0.42,0.52,0.56,0.62,0.58,0.28,0.22,0.06,0.06,0.02,0,Natural-world candidate for series practice
+anchor,ᐅᑖᐹᐣ,vehicle candidate,0.44,0.74,0.56,0.34,0.66,0.54,0.76,0.72,0.28,0.3,0.08,0.06,0.02,0,Transit-domain candidate; spelling and regional use require review
+anchor,ᑭᐢᑭᓄᐦᐊᒪᑫᐃ,school / learning candidate,0.4,0.7,0.54,0.22,0.76,0.48,0.82,0.72,0.24,0.4,0.1,0.08,0.04,0,Long institutional word; defer until reviewer-selected labels existcandidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes

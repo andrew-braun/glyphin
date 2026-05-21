@@ -1,0 +1,8 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-khmer-block,unicode_metadata,https://www.unicode.org/charts/PDF/U1780.pdf,Unicode License reviewed for metadata use,scoring,0.4,Khmer code point metadata for infrastructure use only
+cldr-km-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.5,Khmer exemplar and locale metadata; confirm exact CLDR release before ingestion
+wordfreq-km,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.55,Broad Khmer frequency intuition only
+khmer-wiktionary,lexicon,https://km.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.4,Gloss and spelling discovery only until license implications are approved
+openstreetmap-cambodia-khmer-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.75,Khmer place transit and facility-name validation; do not ship raw extracts
+khmer-tokenizer-tools,segmentation_tooling,https://github.com/,tool and model licenses require review,discovery_only,0,Placeholder for a reviewed Khmer word segmenter
+app-authored-khmer-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora

@@ -1,0 +1,19 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,அ,inherent vowel and independent a,0.92,0.9,0.82,0.9,0.9,0.82,0.76,0.03,0.04,0.02,0.02,0,Gateway to inherent-vowel model and independent vowels
+grapheme,ஆ/ா,long aa vowel and sign,0.78,0.74,0.72,0.78,0.9,0.74,0.78,0.02,0.07,0.02,0.02,0,High payoff in milk coffee and signage words
+grapheme,இ/ி,i vowel and sign,0.8,0.78,0.74,0.82,0.88,0.74,0.72,0.04,0.08,0.02,0.02,0,Early sign attaches after consonant in typed order
+grapheme,ஈ/ீ,long ii vowel and sign,0.72,0.7,0.7,0.76,0.88,0.74,0.72,0.04,0.08,0.02,0.02,0,Useful for water and tea anchors
+grapheme,உ/ு,u vowel and sign,0.7,0.68,0.66,0.72,0.86,0.72,0.72,0.04,0.08,0.02,0.02,0,Compact vowel sign needs font shaping checks
+grapheme,எ/ெ,e vowel and pre-base sign,0.7,0.68,0.66,0.72,0.84,0.78,0.66,0.06,0.1,0.03,0.04,0,Pre-base visual placement is a core shaping concept
+grapheme,ஐ/ை,ai vowel and pre-base sign,0.62,0.6,0.66,0.72,0.84,0.76,0.68,0.04,0.1,0.03,0.04,0,Unlocks shop and price anchors through கடை and விலை
+grapheme,க,ka base consonant,0.88,0.86,0.82,0.88,0.7,0.82,0.74,0.08,0.08,0.08,0.02,0,Contextual stop value needs reviewer wording
+grapheme,ட,retroflex ta base,0.66,0.64,0.66,0.72,0.78,0.68,0.78,0.06,0.08,0.03,0.02,0,Early shop anchor but contrast with த requires care
+grapheme,த,dental ta base,0.78,0.76,0.74,0.8,0.78,0.74,0.74,0.06,0.08,0.03,0.02,0,High utility in tea water and facility words
+grapheme,ப,pa base consonant,0.78,0.76,0.74,0.82,0.74,0.74,0.76,0.06,0.08,0.06,0.02,0,Can surface as p or b by context in loanwords
+grapheme,ம,ma base consonant,0.8,0.78,0.74,0.82,0.9,0.72,0.78,0.04,0.05,0.01,0.02,0,Stable sonorant with strong anchor availability
+grapheme,ந,na base consonant,0.78,0.76,0.72,0.8,0.86,0.72,0.72,0.08,0.07,0.02,0.02,0,High payoff but later contrast with ன and ண
+grapheme,ல,la base consonant,0.76,0.74,0.72,0.8,0.86,0.72,0.74,0.08,0.07,0.02,0.02,0,Useful early liquid but contrast with ள and ழ later
+grapheme,ர,ra base consonant,0.74,0.72,0.7,0.76,0.82,0.68,0.74,0.08,0.07,0.03,0.02,0,Common in rice train and medicine anchors
+grapheme,வ,va base consonant,0.76,0.74,0.74,0.78,0.84,0.7,0.76,0.04,0.06,0.02,0.02,0,High utility for price food and exit words
+grapheme,ழ,retroflex approximant zha,0.48,0.5,0.56,0.62,0.52,0.58,0.82,0.08,0.14,0.08,0.02,0,Tamil identity letter but high pronunciation load
+grapheme,்,pulli virama,0.82,0.78,0.76,0.86,0.82,0.9,0.58,0.05,0.12,0.03,0.04,0,Suppresses inherent vowel and creates dead consonant units

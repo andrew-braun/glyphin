@@ -1,0 +1,95 @@
+{
+	"course_id": "cuneiform-reading-v1",
+	"display_name": "Sumerian Cuneiform Reading",
+	"language_tag": "sux-Xsux",
+	"script": "Xsux",
+	"direction": "ltr",
+	"target_domains": [
+		"museum_inscriptions",
+		"royal_dedicatory_inscriptions",
+		"lexical_lists",
+		"object_labels",
+		"transliteration_workbenches"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store encoded cuneiform signs in NFC and preserve transliteration sign values side by side. Do not normalize polyvalent signs to a single reading. Keep broken signs and uncertain readings in review metadata."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "sign_sequence_with_epigraphic_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "individual signs, determinatives, logograms, syllabic sign values, word dividers, and transliteration labels",
+		"notes": "Cuneiform reading cannot treat Unicode code points as stable words. Segment visible signs separately from sign values and require specialist review for damaged tablets, edition conventions, and period-specific sign forms."
+	},
+	"sources": [
+		{
+			"id": "unicode-cuneiform-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U12000.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Encoded cuneiform signs for infrastructure and rendering checks only."
+		},
+		{
+			"id": "cdli-catalog",
+			"kind": "epigraphic_corpus",
+			"url": "https://cdli.mpiwg-berlin.mpg.de/",
+			"license": "license and per-record reuse terms require review",
+			"use": "scoring_only",
+			"domain_weight": 0.8,
+			"notes": "Tablet catalog and transliteration evidence for corpus scarcity and inscription-domain frequency."
+		},
+		{
+			"id": "oracc-projects",
+			"kind": "epigraphic_corpus",
+			"url": "http://oracc.museum.upenn.edu/",
+			"license": "project-specific licenses require review",
+			"use": "scoring_only",
+			"domain_weight": 0.7,
+			"notes": "Structured editions and sign values for discovery and scoring only."
+		},
+		{
+			"id": "epsd2",
+			"kind": "lexicon",
+			"url": "http://oracc.museum.upenn.edu/epsd2/",
+			"license": "license and attribution terms require review",
+			"use": "discovery_only",
+			"domain_weight": 0.55,
+			"notes": "Gloss and sign-value discovery only until attribution and derivative-use questions are resolved."
+		},
+		{
+			"id": "noto-sans-cuneiform",
+			"kind": "font_reference",
+			"url": "https://fonts.google.com/noto/specimen/Noto+Sans+Cuneiform",
+			"license": "SIL Open Font License",
+			"use": "scoring",
+			"domain_weight": 0.2,
+			"notes": "Rendering reference for encoded sign visibility at drill sizes."
+		},
+		{
+			"id": "app-authored-cuneiform-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short sign-recognition examples authored by GlyphBridge from reviewed sign values and not copied from editions."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": false,
+		"pronunciation_required": false,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"specialist_review_required": true
+	}
+}

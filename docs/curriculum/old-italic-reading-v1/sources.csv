@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-old-italic-block,unicode_metadata,https://www.unicode.org/charts/PDF/U10300.pdf,Unicode License reviewed for metadata use,scoring,0.45,Encoded Old Italic letters and direction metadata
+etruscan-texts-project,epigraphic_corpus,https://etp.classics.umass.edu/,database and text reuse terms require review,scoring_only,0.75,Etruscan inscription evidence for scoring only pending permissions review
+eagle-europeana-epigraphy,epigraphic_catalog,https://www.eagle-network.eu/,record-specific licenses require review,discovery_only,0.45,Epigraphic catalog context for discovery only
+wiktionary-etruscan,lexicon,https://en.wiktionary.org/wiki/Category:Etruscan_language,CC BY-SA attribution and share-alike review required,discovery_only,0.3,Gloss discovery only until attribution review
+noto-sans-old-italic,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Old+Italic,SIL Open Font License,scoring,0.2,Rendering reference for Old Italic letters and RTL display
+app-authored-old-italic-examples,authored_examples,,app_owned,shipped_content,0.9,Reviewed right-to-left sign and name examples authored by GlyphBridge

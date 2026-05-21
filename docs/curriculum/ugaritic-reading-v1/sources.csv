@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-ugaritic-block,unicode_metadata,https://www.unicode.org/charts/PDF/U10380.pdf,Unicode License reviewed for metadata use,scoring,0.45,Encoded Ugaritic signs and word divider metadata
+ugaritic-data-bank,epigraphic_corpus,https://www.universiteitleiden.nl/en/research/research-output/humanities/the-ugaritic-data-bank,access and reuse terms require review,scoring_only,0.75,Corpus and lexical evidence for scoring only pending review
+oracc-ugaritic-reference,reference,http://oracc.museum.upenn.edu/,project-specific licenses require review,discovery_only,0.45,Ancient Near Eastern reference context for human discovery only
+wiktionary-ugaritic,lexicon,https://en.wiktionary.org/wiki/Category:Ugaritic_language,CC BY-SA attribution and share-alike review required,discovery_only,0.35,Gloss discovery only until attribution review
+noto-sans-ugaritic,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Ugaritic,SIL Open Font License,scoring,0.2,Rendering reference for encoded Ugaritic signs
+app-authored-ugaritic-examples,authored_examples,,app_owned,shipped_content,0.9,Reviewed sign and transliteration examples authored by GlyphBridge

@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-tagalog-block,unicode_metadata,https://www.unicode.org/charts/PDF/U1700.pdf,Unicode License reviewed for metadata use,scoring,0.45,Baybayin code point and mark metadata for infrastructure use only
+cldr-tl-tglg-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.4,Tagalog-script locale metadata where available; confirm exact CLDR release before ingestion
+wiktionary-tagalog-discovery,lexicon,https://en.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Tagalog gloss discovery only until share-alike obligations are approved
+baybayin-learning-references,orthography_reference,,publisher or site licenses require review,discovery_only,0.35,Use only to plan specialist review around historic and modern final-consonant notation
+modern-baybayin-community-samples,environmental_print,,sample licenses and permissions require review,discovery_only,0.45,Modern usage discovery only; do not ship copied community text
+app-authored-baybayin-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora

@@ -1,0 +1,14 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ꚠ,a syllabogram,0.82,0.78,0.72,0.8,0.74,0.7,0.8,0.04,0.1,0.03,0.08,0,Modern Bamum block sign and likely chart gateway
+grapheme,ꚡ,ka syllabogram,0.76,0.72,0.66,0.74,0.74,0.66,0.8,0.04,0.1,0.03,0.08,0,Useful for early series and chunk drills
+grapheme,ꚢ,u syllabogram,0.72,0.68,0.62,0.7,0.74,0.64,0.8,0.04,0.1,0.03,0.08,0,Core vowel syllabogram candidate
+grapheme,ꚣ,ku syllabogram,0.68,0.64,0.6,0.68,0.72,0.62,0.8,0.04,0.1,0.03,0.08,0,Series contrast with ka and u signs
+grapheme,ꚤ,ee syllabogram,0.66,0.62,0.58,0.64,0.72,0.6,0.8,0.04,0.1,0.03,0.08,0,Core vowel sign for chart-family practice
+grapheme,ꚧ,o syllabogram,0.66,0.62,0.58,0.64,0.72,0.6,0.8,0.04,0.1,0.03,0.08,0,Core vowel sign and public-label candidate
+grapheme,ꚩ,i syllabogram,0.66,0.62,0.58,0.64,0.72,0.6,0.8,0.04,0.1,0.03,0.08,0,Core vowel sign and contrast target
+grapheme,ꚪ,la syllabogram,0.6,0.56,0.52,0.58,0.7,0.56,0.8,0.04,0.1,0.03,0.08,0,L-series sign for later reviewed words
+grapheme,ꚫ,pa syllabogram,0.58,0.54,0.5,0.58,0.7,0.54,0.8,0.04,0.1,0.03,0.08,0,P-series sign for chart-family practice
+grapheme,ꚳ,m syllabogram,0.58,0.54,0.5,0.56,0.66,0.56,0.78,0.04,0.12,0.04,0.08,0,Consonant-like sign with naming policy to review
+grapheme,ꚵ,mu syllabogram,0.58,0.54,0.5,0.56,0.7,0.56,0.8,0.04,0.1,0.03,0.08,0,Useful for Bamum identity placeholders
+grapheme,ꚷ,si syllabogram,0.54,0.5,0.48,0.52,0.7,0.54,0.8,0.04,0.1,0.03,0.08,0,Later sign with clear visual distinctiveness
+grapheme,Bamum Supplement,historical-stage signs,0.32,0.3,0.28,0.2,0.36,0.7,0.62,0.04,0.28,0.12,0.12,0,Keep out of v1 until script-stage policy is approvedcandidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes

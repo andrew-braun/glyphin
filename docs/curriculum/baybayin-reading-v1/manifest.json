@@ -1,0 +1,96 @@
+{
+	"course_id": "baybayin-reading-v1",
+	"display_name": "Baybayin Reading",
+	"language_tag": "tl-Tglg",
+	"script": "Tglg",
+	"direction": "ltr",
+	"target_domains": [
+		"heritage_cultural_labels",
+		"classroom_primer_words",
+		"name_and_identity_text",
+		"simple_everyday_words",
+		"modern_revitalization_examples"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Baybayin text in NFC and preserve source strings for audit. Keep dependent vowel signs and virama or pamudpod choices explicit because historic and modern practices differ."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "manual_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters_with_abugida_review",
+		"pedagogical_units": "base syllable letters, i/e mark, u/o mark, virama or pamudpod policy, and syllable chunks",
+		"notes": "Baybayin represents open syllables naturally and final consonants are a pedagogical policy decision. Keep modern final-consonant notation reviewable before shipping content."
+	},
+	"sources": [
+		{
+			"id": "unicode-tagalog-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U1700.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Tagalog block metadata for Baybayin letters, vowel marks, and virama."
+		},
+		{
+			"id": "cldr-tl-tglg-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.4,
+			"notes": "Tagalog-script locale metadata where available. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "wiktionary-tagalog-discovery",
+			"kind": "lexicon",
+			"url": "https://en.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Useful for Tagalog gloss checks only. Do not ship copied entries."
+		},
+		{
+			"id": "baybayin-learning-references",
+			"kind": "orthography_reference",
+			"url": "",
+			"license": "publisher or site licenses require review",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Use for specialist planning around historic and modern final-consonant notation only."
+		},
+		{
+			"id": "modern-baybayin-community-samples",
+			"kind": "environmental_print",
+			"url": "",
+			"license": "sample licenses and permissions require review",
+			"use": "discovery_only",
+			"domain_weight": 0.45,
+			"notes": "Discovery-only examples for modern usage patterns. Do not ship copied community text."
+		},
+		{
+			"id": "app-authored-baybayin-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"abugida_review_required": true,
+		"specialist_review_required": true
+	}
+}

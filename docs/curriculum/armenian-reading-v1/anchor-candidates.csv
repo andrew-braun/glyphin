@@ -1,0 +1,21 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ջուր,water,0.62,0.95,0.76,0.58,0.72,0.78,0.72,0.86,0.52,0.14,0.02,0.02,0,0,Survival anchor for ու and ջ with strong payoff
+anchor,թեյ,tea,0.58,0.9,0.68,0.66,0.66,0.8,0.68,0.84,0.52,0.1,0.02,0.02,0,0,Short cafe anchor and aspirated թ gateway
+anchor,հաց,bread,0.6,0.88,0.66,0.66,0.58,0.82,0.66,0.82,0.52,0.1,0.01,0.02,0,0,Useful food word with compact shape
+anchor,սուրճ,coffee,0.56,0.9,0.68,0.52,0.74,0.72,0.7,0.86,0.5,0.18,0.03,0.02,0,0,High cafe utility but introduces ու and ճ
+anchor,կաթ,milk,0.54,0.86,0.62,0.66,0.6,0.8,0.64,0.8,0.52,0.12,0.02,0.02,0,0,Food anchor for կ and թ review
+anchor,ճաշարան,restaurant,0.56,0.94,0.7,0.46,0.72,0.7,0.72,0.82,0.48,0.22,0.03,0.03,0,0,Core destination word but long and affricate-heavy
+anchor,մետրո,metro,0.5,0.88,0.62,0.72,0.58,0.82,0.64,0.78,0.5,0.1,0.01,0.02,0,0,Transit loanword with clear positive transfer
+anchor,կանգառ,stop,0.52,0.9,0.66,0.5,0.66,0.74,0.68,0.78,0.48,0.2,0.02,0.03,0,0,Transit stop anchor with nasal and r review
+anchor,մուտք,entrance,0.5,0.92,0.66,0.52,0.72,0.74,0.7,0.82,0.48,0.18,0.02,0.03,0,0,Public sign anchor and ք gateway
+anchor,ելք,exit,0.5,0.94,0.66,0.6,0.68,0.78,0.7,0.82,0.48,0.14,0.02,0.03,0,0,Short public sign word with high utility
+anchor,փողոց,street,0.5,0.88,0.64,0.42,0.7,0.68,0.68,0.78,0.48,0.24,0.03,0.03,0,0,Street-sign anchor but adds փ and ղ
+anchor,շուկա,market,0.48,0.86,0.62,0.6,0.62,0.8,0.64,0.8,0.48,0.14,0.01,0.02,0,0,Useful shopping anchor and շ review
+anchor,հյուրանոց,hotel,0.48,0.9,0.64,0.38,0.72,0.66,0.68,0.78,0.46,0.26,0.04,0.04,0,0,Important lodging word but high digraph and length load
+anchor,դեղատուն,pharmacy,0.46,0.9,0.62,0.42,0.7,0.66,0.68,0.78,0.46,0.24,0.04,0.03,0,0,Public-facility anchor for later stage
+anchor,թանգարան,museum,0.46,0.86,0.6,0.44,0.68,0.72,0.66,0.76,0.46,0.22,0.03,0.03,0,0,Cultural-site anchor with repeated ա
+anchor,զուգարան,restroom,0.46,0.95,0.64,0.42,0.7,0.7,0.7,0.82,0.46,0.24,0.03,0.03,0,0,High survival utility but length delays it
+anchor,բաց,open,0.5,0.86,0.58,0.64,0.58,0.82,0.64,0.8,0.48,0.12,0.02,0.02,0,0,Short storefront sign word
+anchor,փակ,closed,0.48,0.86,0.58,0.58,0.58,0.78,0.64,0.8,0.48,0.16,0.02,0.02,0,0,Pairs with բաց and teaches փ
+anchor,գին,price,0.48,0.86,0.58,0.68,0.56,0.84,0.64,0.78,0.48,0.1,0.01,0.02,0,0,Compact shopping anchor
+anchor,բարև,hello,0.58,0.76,0.56,0.52,0.68,0.74,0.66,0.9,0.48,0.2,0.03,0.03,0,0,Useful greeting but և display needs policy

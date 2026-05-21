@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ꦤ,na,0.72,0.68,0.64,0.74,0.86,0.54,0.76,0.04,0.08,0.02,0.1,0,Common consonant for water and road anchors,0.4600,weak
+grapheme,ꦱ,sa,0.7,0.66,0.66,0.76,0.86,0.54,0.76,0.04,0.08,0.02,0.1,0,Useful in rice and milk anchors,0.4550,weak
+grapheme,ꦏ,ka,0.68,0.64,0.66,0.74,0.86,0.54,0.76,0.04,0.08,0.02,0.1,0,High payoff in coffee and shop words,0.4430,weak
+grapheme,ꦩ,ma,0.66,0.62,0.6,0.7,0.86,0.52,0.76,0.04,0.08,0.02,0.1,0,Useful in eat and enter anchors,0.4180,weak
+grapheme,ꦭ,la,0.62,0.6,0.58,0.66,0.86,0.5,0.76,0.04,0.08,0.02,0.1,0,Road and cluster payoff after core units,0.3930,weak
+grapheme,ꦧ,ba,0.58,0.56,0.58,0.68,0.82,0.5,0.76,0.04,0.08,0.02,0.1,0,Useful in water and enter words,0.3710,weak
+grapheme,ꦲ,ha or vowel carrier,0.74,0.7,0.66,0.72,0.62,0.76,0.7,0.06,0.12,0.05,0.12,0,Inherent vowel and carrier behavior need review,0.3560,weak
+grapheme,ꦥ,pa,0.56,0.54,0.56,0.66,0.84,0.48,0.76,0.04,0.08,0.02,0.1,0,Market and coffee payoff,0.3560,weak
+grapheme,ꦒ,ga,0.54,0.52,0.52,0.62,0.82,0.48,0.74,0.04,0.08,0.02,0.1,0,Useful in rice and eat anchors,0.3330,weak
+grapheme,ꦸ,sign suku u,0.6,0.58,0.58,0.66,0.82,0.66,0.62,0.05,0.12,0.02,0.12,0,Water and milk payoff with dependent sign,0.3180,weak
+grapheme,ꦶ,sign wulu i,0.58,0.56,0.54,0.62,0.82,0.66,0.62,0.05,0.12,0.02,0.12,0,Useful for coffee and primer words,0.2980,weak
+grapheme,ꦺ,sign taling e,0.6,0.58,0.58,0.66,0.78,0.7,0.62,0.05,0.14,0.03,0.12,0,Dependent vowel sign requires abugida explanation,0.2880,weak
+grapheme,ꦚ,nya,0.42,0.4,0.44,0.56,0.78,0.48,0.84,0.03,0.1,0.03,0.1,0,Important for banyu but lower broad coverage,0.2360,weak
+grapheme,ꦂ,final r sign layar,0.46,0.44,0.48,0.56,0.78,0.7,0.66,0.04,0.14,0.02,0.12,0,Market anchor needs final sign support,0.2150,weak
+grapheme,ꦼ,sign pepet e,0.5,0.48,0.48,0.56,0.7,0.66,0.62,0.05,0.14,0.03,0.12,0,Common but pronunciation and placement need review,0.2010,weak
+grapheme,꧀,pangkon virama,0.5,0.46,0.5,0.58,0.76,0.84,0.56,0.05,0.18,0.03,0.14,0,Required for final consonants and pasangan but high load,0.1630,weak
+grapheme,pasangan,subjoined forms,0.48,0.44,0.5,0.54,0.62,0.9,0.5,0.08,0.24,0.05,0.16,0,Represent as rule metadata until exact runtime model is chosen,0.0080,weak

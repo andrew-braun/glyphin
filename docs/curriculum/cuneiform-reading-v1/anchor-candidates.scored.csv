@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,𒈗,king LUGAL,0.74,0.9,0.82,0.84,0.86,0.28,0.76,0.9,0.42,0.12,0.16,0.08,0.02,0,Royal title anchor with cultural framing needs,0.3920,weak
+anchor,𒂍,house or temple E2,0.66,0.84,0.76,0.8,0.74,0.3,0.72,0.84,0.42,0.12,0.14,0.08,0,0,Strong temple and building context anchor,0.3732,weak
+anchor,𒆠,land or place KI,0.72,0.82,0.78,0.82,0.76,0.3,0.72,0.8,0.42,0.12,0.16,0.1,0,0,High-use place marker for inscriptions and museum labels,0.3492,weak
+anchor,𒌷,city URU,0.64,0.84,0.76,0.76,0.78,0.28,0.72,0.82,0.42,0.14,0.14,0.08,0,0,Place-name gateway for inscription domains,0.3448,weak
+anchor,𒃲,great GAL,0.6,0.74,0.64,0.76,0.68,0.3,0.66,0.74,0.4,0.1,0.12,0.08,0,0,Reusable title modifier and review sign,0.3432,weak
+anchor,𒀀,water A,0.62,0.74,0.7,0.78,0.68,0.32,0.68,0.8,0.42,0.12,0.14,0.08,0,0,Compact sign anchor with strong visual payoff,0.3256,weak
+anchor,𒂗,lord EN,0.58,0.78,0.66,0.76,0.7,0.3,0.68,0.78,0.4,0.12,0.14,0.1,0.02,0,Title anchor that needs cultural review,0.2740,weak
+anchor,𒀭,deity determinative DINGIR,0.7,0.84,0.78,0.78,0.86,0.24,0.78,0.88,0.42,0.16,0.18,0.1,0.04,0,Sacred determinative and major modeling checkpoint,0.2548,weak
+anchor,𒌓,sun or day UTU,0.54,0.76,0.62,0.68,0.66,0.28,0.66,0.86,0.38,0.14,0.16,0.1,0.02,0,Distinctive sign with deity and calendar associations,0.2000,weak
+anchor,𒆳,mountain or foreign land KUR,0.52,0.72,0.6,0.66,0.66,0.26,0.62,0.76,0.38,0.14,0.16,0.1,0,0,Useful geography anchor but reading varies by corpus,0.1944,weak
+anchor,𒊕,head SAG,0.48,0.62,0.52,0.62,0.58,0.28,0.58,0.7,0.36,0.14,0.14,0.12,0,0,Useful only after sign-value conventions are settled,0.1376,weak
+anchor,𒄑,wood determinative GISZ,0.46,0.62,0.52,0.58,0.62,0.22,0.58,0.7,0.36,0.18,0.16,0.12,0,0,Later determinative anchor with specialist review needs,0.0668,weak

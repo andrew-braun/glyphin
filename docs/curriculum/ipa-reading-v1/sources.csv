@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+international-phonetic-association-chart,notation_reference,https://www.internationalphoneticassociation.org/content/ipa-chart,official chart terms require attribution review,discovery_only,0.75,Normative symbol inventory; do not copy chart layout or prose into shipped lessons without review
+unicode-ipa-extensions,unicode_metadata,https://www.unicode.org/charts/PDF/U0250.pdf,Unicode License reviewed for metadata use,scoring,0.5,IPA Extensions and modifier-letter metadata for rendering checks
+phoible,phonology_database,https://phoible.org/,CC BY-SA; attribution and share-alike review required,scoring_only,0.55,Cross-language phoneme inventory evidence; attribution review required
+wikipedia-ipa-overview,reference,https://en.wikipedia.org/wiki/International_Phonetic_Alphabet,CC BY-SA; attribution and share-alike review required,discovery_only,0.25,Orientation only; do not ship copied prose or tables
+sil-fonts-ipa,font_reference,https://software.sil.org/charis/,SIL Open Font License,scoring,0.2,Font and rendering reference for IPA-heavy text
+app-authored-ipa-examples,authored_examples,,app_owned,shipped_content,0.95,Common English words and app-authored IPA transcriptions after pronunciation review

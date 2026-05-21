@@ -1,0 +1,11 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,𞤀𞤣𞤤𞤢𞤥,Adlam,0.74,0.9,0.8,0.64,0.84,0.7,0.92,0.9,0.38,0.16,0.04,0.03,0.03,0,Script-name anchor; exact casing and spelling require community review
+anchor,𞤊𞤵𞤤𞤢,Fula candidate,0.66,0.88,0.72,0.6,0.78,0.66,0.9,0.86,0.34,0.18,0.05,0.04,0.04,0,Language identity candidate; reviewer must confirm spelling and dialect
+anchor,𞤆𞤵𞤤𞤢𞤪,Pular candidate,0.62,0.84,0.68,0.52,0.74,0.62,0.88,0.82,0.34,0.22,0.06,0.05,0.04,0,Dialect or language-name candidate with case-policy implications
+anchor,𞤲𞤣𞤭𞤴𞤢𞤥,water candidate,0.58,0.9,0.66,0.42,0.7,0.58,0.82,0.78,0.32,0.3,0.08,0.06,0.02,0,Useful everyday word but spelling and pronunciation must be confirmed
+anchor,𞤶𞤢𞤥,peace / greeting candidate,0.56,0.86,0.64,0.58,0.68,0.58,0.84,0.84,0.3,0.16,0.08,0.08,0.04,0,Compact social anchor if reviewers approve form and context
+anchor,𞤢𞤤𞤢,God / religious candidate,0.5,0.5,0.46,0.62,0.58,0.56,0.84,0.72,0.28,0.12,0.08,0.08,0.12,0,Potentially sensitive religious word; likely defer or omit
+anchor,𞤩𞤢𞤦𞤢,father / family candidate,0.46,0.58,0.46,0.46,0.56,0.54,0.72,0.66,0.26,0.22,0.08,0.08,0.04,0,Family-word candidate for reviewer selection
+anchor,𞤥𞤢𞤱𞤣𞤮,market candidate,0.42,0.72,0.52,0.34,0.62,0.5,0.76,0.7,0.24,0.32,0.1,0.08,0.03,0,Domain candidate; keep as placeholder until real corpus review
+anchor,𞤤𞤫𞤲𞤴𞤮𞤤,school / learning candidate,0.4,0.74,0.52,0.3,0.66,0.48,0.8,0.72,0.24,0.36,0.1,0.08,0.03,0,Learning-domain placeholder requiring reviewer-provided spelling
+anchor,𞤢𞤪𞤣𞤮,road / travel candidate,0.38,0.76,0.5,0.36,0.58,0.5,0.74,0.68,0.22,0.3,0.1,0.08,0.03,0,Public-label placeholder; use only after corpus and native reviewcandidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes

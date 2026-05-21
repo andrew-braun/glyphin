@@ -1,0 +1,21 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ກ,k consonant,0.86,0.82,0.8,0.88,0.82,0.7,0.8,0.02,0.04,0.02,0.02,0,Core base for coffee price and rice words,0.7220,promising
+grapheme,າ,aa vowel sign,0.9,0.86,0.82,0.9,0.84,0.74,0.72,0.02,0.06,0.02,0.03,0,High-frequency right-side vowel sign,0.7190,promising
+grapheme,ນ,n consonant,0.82,0.78,0.78,0.9,0.82,0.62,0.8,0.02,0.04,0.02,0.02,0,High-payoff sonorant for water and facility words,0.6930,promising
+grapheme,ລ,l consonant,0.8,0.76,0.74,0.82,0.82,0.6,0.8,0.02,0.04,0.02,0.02,0,High payoff for price road and Lao identity words,0.6670,promising
+grapheme,ມ,m consonant,0.78,0.74,0.7,0.78,0.82,0.58,0.8,0.02,0.04,0.02,0.02,0,Common base for lodging and facility words,0.6450,promising
+grapheme,ດ,d consonant,0.72,0.68,0.7,0.78,0.82,0.58,0.78,0.02,0.04,0.02,0.02,0,Useful for market closed and road vocabulary,0.6140,promising
+grapheme,ຕ,t consonant,0.72,0.68,0.7,0.78,0.82,0.58,0.78,0.02,0.04,0.02,0.02,0,Market and utility words need this base,0.6140,promising
+grapheme,ອ,vowel carrier / glottal consonant,0.74,0.7,0.72,0.78,0.72,0.72,0.82,0.03,0.08,0.03,0.02,0,Carrier behavior needed for exit and open words,0.5730,promising
+grapheme,ເ,preposed e vowel sign,0.76,0.72,0.78,0.86,0.78,0.82,0.66,0.02,0.12,0.03,0.03,0,Essential visual-order versus reading-order unit,0.5680,promising
+grapheme,ຂ,kh consonant,0.66,0.62,0.72,0.82,0.78,0.68,0.8,0.03,0.06,0.02,0.02,0,Useful high-class consonant for rice and entry words,0.5680,promising
+grapheme,ວ,w consonant / vowel component,0.76,0.72,0.7,0.78,0.72,0.68,0.78,0.03,0.08,0.04,0.02,0,Serves consonant and vowel-like roles in syllable frames,0.5640,promising
+grapheme,ິ,i vowel sign,0.66,0.62,0.62,0.7,0.82,0.7,0.68,0.02,0.08,0.02,0.03,0,Above sign for closed and price vocabulary,0.5210,promising
+grapheme,ຮ,h consonant,0.58,0.54,0.68,0.72,0.74,0.58,0.78,0.03,0.06,0.02,0.02,0,Useful for shop hotel and open words,0.4970,weak
+grapheme,ຫ,high-class h / leading h,0.68,0.64,0.7,0.78,0.68,0.78,0.78,0.03,0.12,0.05,0.03,0,Leading h and high-class behavior should be explicit,0.4700,weak
+grapheme,ົ,short o mark,0.62,0.58,0.68,0.76,0.68,0.7,0.66,0.03,0.1,0.03,0.03,0,Combining sign needed for rice and vehicle words,0.4610,weak
+grapheme,ຳ,am vowel sign,0.56,0.52,0.72,0.82,0.72,0.72,0.66,0.03,0.1,0.03,0.03,0,Useful in water and bathroom phrases,0.4490,weak
+grapheme,ໂ,preposed o vowel sign,0.58,0.54,0.64,0.7,0.78,0.76,0.66,0.03,0.12,0.03,0.03,0,Preposed vowel for hotel and school-like words,0.4250,weak
+grapheme,ແ,preposed ae vowel sign,0.54,0.5,0.62,0.68,0.78,0.74,0.66,0.03,0.12,0.03,0.03,0,Useful for hotel compounds and later vowel-position review,0.3980,weak
+grapheme,້,tone mark mai tho,0.58,0.54,0.72,0.82,0.62,0.82,0.62,0.04,0.14,0.05,0.04,0,Tone mark appears early in water and rice anchors,0.3770,weak
+grapheme,່,tone mark mai ek,0.58,0.54,0.68,0.74,0.62,0.8,0.62,0.04,0.14,0.05,0.04,0,Common tone mark but should follow syllable-frame basics,0.3610,weak

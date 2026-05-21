@@ -1,0 +1,27 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ა,a vowel,0.92,0.88,0.84,0.92,0.94,0.68,0.88,0.01,0.02,0,0,0,Core vowel with many early anchors,0.8460,strong
+grapheme,ი,i vowel,0.88,0.84,0.8,0.88,0.94,0.66,0.86,0.01,0.02,0,0,0,Stable high-frequency vowel,0.8130,strong
+grapheme,ე,e vowel,0.86,0.82,0.78,0.86,0.94,0.66,0.86,0.01,0.02,0,0,0,Useful in station and facility words,0.7980,strong
+grapheme,ო,o vowel,0.82,0.78,0.74,0.82,0.94,0.64,0.86,0.01,0.02,0,0,0,Common vowel for signs and loans,0.7660,strong
+grapheme,უ,u vowel,0.78,0.74,0.72,0.8,0.94,0.64,0.86,0.01,0.02,0,0,0,High value in bread and museum anchors,0.7410,promising
+grapheme,მ,m consonant,0.8,0.76,0.72,0.78,0.92,0.6,0.84,0.02,0.02,0,0,0,Common nasal in menu and museum words,0.7320,promising
+grapheme,ნ,n consonant,0.78,0.74,0.7,0.76,0.92,0.6,0.84,0.02,0.02,0,0,0,Useful in restaurant and station words,0.7170,promising
+grapheme,ს,s consonant,0.74,0.7,0.7,0.76,0.9,0.58,0.84,0.02,0.03,0,0,0,High signage coverage,0.6830,promising
+grapheme,ლ,l consonant,0.72,0.68,0.66,0.72,0.92,0.56,0.84,0.02,0.03,0,0,0,Useful liquid for წყალი and labels,0.6630,promising
+grapheme,რ,r consonant,0.76,0.72,0.7,0.76,0.84,0.58,0.84,0.03,0.04,0.01,0,0,Common rhotic with pronunciation review needed,0.6570,promising
+grapheme,გ,g consonant,0.66,0.62,0.62,0.68,0.88,0.54,0.82,0.02,0.04,0,0,0,Useful in entrance and greeting words,0.6060,promising
+grapheme,ვ,v consonant,0.66,0.62,0.64,0.68,0.86,0.54,0.82,0.03,0.04,0,0,0,Useful in ყავა and street words,0.5970,promising
+grapheme,დ,d consonant,0.64,0.6,0.6,0.66,0.88,0.54,0.82,0.02,0.04,0,0,0,Useful in closed and longer sign anchors,0.5910,promising
+grapheme,ბ,b consonant,0.6,0.56,0.58,0.64,0.88,0.52,0.82,0.02,0.04,0,0,0,Market and bus-related anchor support,0.5640,promising
+grapheme,შ,sh consonant,0.58,0.54,0.6,0.66,0.84,0.6,0.84,0.02,0.06,0.01,0,0,Useful in entrance and public text,0.5340,promising
+grapheme,კ,k ejective consonant,0.62,0.58,0.6,0.66,0.76,0.68,0.82,0.03,0.1,0.02,0,0,Ejective contrast family should be explicit,0.4930,weak
+grapheme,ჩ,ch consonant,0.54,0.5,0.58,0.68,0.82,0.62,0.84,0.02,0.08,0.01,0,0,Essential for ჩაი,0.4930,weak
+grapheme,ტ,t ejective consonant,0.58,0.54,0.58,0.64,0.76,0.66,0.82,0.03,0.1,0.02,0,0,Ejective stop common in loanwords and signs,0.4660,weak
+grapheme,პ,p ejective consonant,0.56,0.52,0.56,0.64,0.76,0.66,0.82,0.03,0.1,0.02,0,0,Unlocks პური and p contrast work,0.4530,weak
+grapheme,ც,ts consonant,0.5,0.48,0.52,0.58,0.78,0.6,0.82,0.02,0.08,0.01,0,0,Useful affricate for signs,0.4510,weak
+grapheme,ხ,kh consonant,0.56,0.52,0.58,0.62,0.66,0.58,0.82,0.03,0.1,0.02,0,0,Pronunciation load but high Georgian-domain payoff,0.4360,weak
+grapheme,ქ,aspirated k consonant,0.54,0.5,0.54,0.6,0.72,0.66,0.82,0.03,0.12,0.02,0,0,Contrast partner for კ and common in place names,0.4120,weak
+grapheme,თ,aspirated t consonant,0.52,0.5,0.52,0.58,0.72,0.64,0.82,0.03,0.12,0.02,0,0,Useful in pharmacy and contrast work,0.3990,weak
+grapheme,ფ,aspirated p consonant,0.48,0.46,0.5,0.56,0.72,0.64,0.82,0.03,0.12,0.02,0,0,Needed for ფასი and pharmacy anchor,0.3740,weak
+grapheme,ყ,q ejective consonant,0.5,0.48,0.58,0.66,0.58,0.7,0.82,0.03,0.14,0.03,0,0,High-load but unlocks ყავა and place names,0.3680,weak
+grapheme,წ,ts ejective consonant,0.46,0.44,0.54,0.62,0.58,0.68,0.82,0.03,0.14,0.03,0,0,Needed for წყალი but high contrast load,0.3360,weak

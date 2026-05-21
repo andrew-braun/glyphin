@@ -1,0 +1,9 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-han-block,unicode_metadata,https://www.unicode.org/charts/PDF/U4E00.pdf,Unicode License reviewed for metadata use,scoring,0.4,CJK Unified Ideographs metadata for infrastructure and rendering checks
+cldr-zh-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.5,Chinese locale metadata and exemplar characters
+hsk-word-lists,pedagogical_word_list,https://www.chinesetest.cn/,official list terms require review,scoring_only,0.7,Mandarin proficiency word-list reference for beginner frequency and utility
+wordfreq-zh,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.6,Broad Mandarin frequency intuition; do not ship derived examples
+jieba-frequency,tokenizer_frequency,https://github.com/fxsjy/jieba,MIT package license; corpus provenance requires review,scoring_only,0.55,Segmentation and word-frequency intuition for analysis only
+cc-cedict,lexicon,https://www.mdbg.net/chinese/dictionary?page=cedict,CC BY-SA; attribution and share-alike review required,discovery_only,0.6,Gloss pinyin and traditional-variant discovery only until attribution obligations are approved
+opencc,variant_tool,https://github.com/BYVoid/OpenCC,Apache 2.0,discovery_only,0.1,Simplified/traditional conversion reference for analysis and QA only
+app-authored-mandarin-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed examples authored by GlyphBridge

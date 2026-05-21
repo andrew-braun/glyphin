@@ -1,0 +1,11 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,toki pona,Toki Pona / good language,0.86,0.94,0.84,0.82,0.86,0.9,0.9,0.92,0.42,0.08,0.02,0.04,0.02,0.12,Course-name anchor using glyph IDs until font policy is approved
+anchor,mi moku,I eat / I consume,0.78,0.86,0.72,0.72,0.72,0.9,0.76,0.84,0.38,0.12,0.03,0.04,0.02,0.12,Compact app-authored sentence with useful food-domain payoff
+anchor,mi wile e telo,I want water,0.72,0.92,0.74,0.54,0.8,0.88,0.82,0.86,0.36,0.24,0.04,0.06,0.02,0.12,Useful survival sentence but particle and grammar load are higher
+anchor,telo,water / liquid,0.72,0.9,0.7,0.84,0.62,0.9,0.72,0.82,0.38,0.06,0.02,0.04,0,0.12,Single-glyph anchor with immediate utility after glyph license approval
+anchor,moku,food / eat,0.74,0.9,0.7,0.84,0.62,0.9,0.72,0.82,0.38,0.06,0.02,0.04,0,0.12,Single-glyph anchor for menu-like examples
+anchor,sina pona,you are good / hello-like compliment,0.64,0.7,0.6,0.7,0.68,0.88,0.76,0.74,0.34,0.14,0.04,0.08,0.04,0.12,Social sentence needs community tone review
+anchor,jan pona,friend / good person,0.62,0.72,0.58,0.72,0.66,0.9,0.76,0.78,0.34,0.12,0.03,0.06,0.03,0.12,Useful compound and social-domain anchor
+anchor,ma pona,good place / homeland-like candidate,0.56,0.64,0.52,0.7,0.66,0.9,0.78,0.76,0.3,0.12,0.04,0.08,0.06,0.12,Cultural context and gloss ambiguity require review
+anchor,ilo ni,this tool,0.54,0.72,0.54,0.66,0.64,0.9,0.68,0.66,0.3,0.14,0.04,0.06,0.02,0.12,Useful app-label sentence after glyph identity is stable
+anchor,suno li pona,the sun/light is good,0.5,0.58,0.48,0.54,0.72,0.9,0.68,0.7,0.28,0.22,0.04,0.08,0.02,0.12,Simple sentence for particle li after grammar reviewcandidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes

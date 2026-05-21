@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ⴰⵎⴰⵏ,water,0.68,0.94,0.78,0.78,0.58,0.88,0.68,0.9,0.48,0.06,0.02,0.02,0,0,Compact survival word with high vowel and m n payoff,0.6676,promising
+anchor,ⴰⵣⵓⵍ,hello,0.58,0.86,0.66,0.66,0.62,0.86,0.76,0.9,0.48,0.1,0.03,0.03,0.02,0,Memorable greeting with identity value and easy units,0.5224,promising
+anchor,ⴰⵎⴰⵣⵉⵖ,Amazigh,0.6,0.84,0.72,0.56,0.74,0.68,0.8,0.92,0.48,0.16,0.04,0.03,0,0,Core identity anchor but gh pronunciation needs review,0.4696,weak
+anchor,ⴰⵙⵉⴼ,river,0.48,0.72,0.56,0.58,0.52,0.82,0.58,0.72,0.48,0.12,0.03,0.03,0,0,Short environmental word with s i f,0.4168,weak
+anchor,ⴰⵙⵓⴳ,market,0.48,0.84,0.58,0.54,0.56,0.78,0.64,0.8,0.48,0.14,0.04,0.03,0,0,Market anchor with clear signs value after g,0.4136,weak
+anchor,ⴰⵖⵔⵓⵎ,bread,0.54,0.88,0.66,0.5,0.66,0.62,0.68,0.86,0.48,0.18,0.05,0.03,0,0,Useful food anchor with gh and r load,0.3932,weak
+anchor,ⵜⵉⵏⵎⵍ,school,0.44,0.72,0.52,0.48,0.64,0.8,0.64,0.72,0.48,0.18,0.04,0.03,0,0,Primer-friendly word after t i n m l,0.3316,weak
+anchor,ⵜⴰⵎⴰⵣⵉⵖⵜ,Tamazight,0.56,0.78,0.66,0.42,0.82,0.68,0.78,0.88,0.48,0.26,0.05,0.03,0,0,Identity anchor with feminine frame and gh review,0.3160,weak
+anchor,ⵜⴰⴷⴷⴰⵔⵜ,house,0.5,0.78,0.58,0.42,0.78,0.78,0.68,0.78,0.48,0.24,0.04,0.03,0,0,Useful but gemination and feminine frame add load,0.3140,weak
+anchor,ⴰⵔⴳⴰⵣ,man,0.44,0.58,0.48,0.5,0.5,0.8,0.54,0.68,0.48,0.14,0.03,0.03,0.02,0,Useful for primer text but less target-domain urgent,0.3112,weak
+anchor,ⵜⴰⵎⴷⵉⵏⵜ,city,0.5,0.82,0.62,0.4,0.76,0.78,0.72,0.8,0.48,0.26,0.04,0.03,0,0,Public text payoff but long and morphology-heavy,0.3060,weak
+anchor,ⵜⴰⵎⵖⴰⵔⵜ,woman,0.42,0.58,0.48,0.38,0.7,0.62,0.58,0.68,0.48,0.28,0.05,0.03,0.02,0,Late primer word because gh and morphology load are high,0.1380,weak

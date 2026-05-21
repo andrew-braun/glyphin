@@ -1,0 +1,19 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,E e,base Latin e vowel,0.94,0.92,0.84,0.9,0.94,0.72,0.9,0.01,0,0,0,0,High-frequency carrier for acute grave circumflex diaeresis,0.8830,strong
+grapheme,A a,base Latin a vowel,0.92,0.9,0.82,0.9,0.95,0.7,0.9,0.01,0,0,0,0,Positive transfer from English and carrier for acute grave circumflex tilde,0.8690,strong
+grapheme,O o,base Latin o vowel,0.9,0.88,0.8,0.86,0.94,0.7,0.9,0.01,0,0,0,0,High-frequency carrier for acute circumflex umlaut tilde,0.8510,strong
+grapheme,N n,base n for ñ,0.88,0.86,0.78,0.82,0.92,0.68,0.9,0.01,0.01,0,0,0,Needed for tilde contrast in Spanish and Portuguese,0.8200,strong
+grapheme,S s,base s for signage words,0.84,0.82,0.8,0.84,0.92,0.62,0.9,0.01,0,0,0,0,High utility in entrada salida Straße and labels,0.8090,strong
+grapheme,U u,base Latin u vowel,0.84,0.82,0.76,0.82,0.92,0.66,0.88,0.01,0,0,0,0,Useful for umlaut acute and Portuguese labels,0.8040,strong
+grapheme,I i,base Latin i vowel,0.88,0.86,0.78,0.84,0.92,0.68,0.82,0.03,0.02,0,0,0,Dot and accent stacking requires rendering checks,0.7880,strong
+grapheme,L l,base l,0.82,0.8,0.72,0.78,0.92,0.58,0.82,0.03,0.01,0,0,0,Common support letter and later contrast with Polish ł,0.7430,promising
+grapheme,R r,base r,0.8,0.78,0.72,0.78,0.86,0.58,0.84,0.02,0.02,0,0,0,Common across target languages with pronunciation variation,0.7280,promising
+grapheme,C c,base c for cedilla,0.76,0.74,0.7,0.78,0.84,0.68,0.9,0.02,0.02,0,0,0,Needed to explain c versus ç,0.7160,promising
+grapheme,acute,acute accent mark,0.86,0.84,0.82,0.9,0.82,0.82,0.78,0.03,0.08,0.02,0,0,High-payoff mark across Spanish French Portuguese and loanwords,0.7120,promising
+grapheme,grave,grave accent mark,0.72,0.7,0.68,0.76,0.76,0.66,0.78,0.03,0.09,0.02,0,0,Useful for French and Italian signage and menus,0.5750,promising
+grapheme,cedilla,cedilla mark on c,0.68,0.66,0.68,0.78,0.76,0.72,0.86,0.02,0.11,0.02,0,0,High visual payoff for French and Portuguese soft c,0.5570,promising
+grapheme,diaeresis_umlaut,two-dot mark,0.74,0.72,0.7,0.78,0.7,0.68,0.82,0.05,0.1,0.03,0,0,Umlaut and diaeresis share shape but differ by language function,0.5480,promising
+grapheme,circumflex,circumflex accent mark,0.68,0.66,0.64,0.72,0.72,0.64,0.8,0.03,0.1,0.02,0,0,Visible hat mark in French and Portuguese words,0.5300,promising
+grapheme,tilde,tilde mark,0.62,0.6,0.66,0.74,0.76,0.72,0.86,0.02,0.1,0.02,0,0,Essential for Spanish ñ and Portuguese nasal vowels,0.5300,promising
+grapheme,ß,eszett,0.52,0.48,0.64,0.68,0.64,0.58,0.72,0.1,0.18,0.04,0,0,German street names justify late recognition,0.2540,weak
+grapheme,Ł ł,barred l,0.48,0.46,0.5,0.52,0.58,0.46,0.72,0.08,0.2,0.04,0,0,Defer to Polish-specific extension unless validated by target signs,0.1830,weak

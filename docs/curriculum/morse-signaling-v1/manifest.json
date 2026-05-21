@@ -1,0 +1,78 @@
+{
+	"course_id": "morse-signaling-v1",
+	"display_name": "Morse Signaling Reading",
+	"language_tag": "und-Zsym",
+	"script": "Zsym",
+	"direction": "ltr",
+	"target_domains": [
+		"emergency_signaling",
+		"radio_procedure",
+		"audio_haptic_drills",
+		"scout_learning",
+		"maritime_aviation_heritage"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Use ASCII dot, hyphen, spaces, and slash as the review notation until a richer timing model exists. Do not silently fold dash variants or treat textual notation as the canonical signal."
+	},
+	"segmentation": {
+		"baseline": "manual_signal_units",
+		"word_segmenter": "morse_character_and_word_gaps",
+		"grapheme_segmenter": "signal_elements_and_gap_units",
+		"pedagogical_units": "dit, dah, intra-character gap, character gap, word gap, letters, numerals, punctuation, and prosigns",
+		"notes": "Morse is a time-based signaling notation. Text dot-dash strings are authoring aids and must eventually map to timed audio, light, or haptic patterns."
+	},
+	"sources": [
+		{
+			"id": "itu-morse-m1677",
+			"kind": "standard",
+			"url": "https://www.itu.int/rec/R-REC-M.1677/",
+			"license": "ITU terms require review",
+			"use": "discovery_only",
+			"domain_weight": 0.8,
+			"notes": "International Morse reference for code assignments and spacing concepts. Do not copy standard tables into shipped lessons without review."
+		},
+		{
+			"id": "unicode-symbol-metadata",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.2,
+			"notes": "Symbol metadata for display choices such as dot, hyphen, slash, and timing labels."
+		},
+		{
+			"id": "arrl-morse-learning",
+			"kind": "radio_reference",
+			"url": "https://www.arrl.org/learning-morse-code",
+			"license": "terms require review",
+			"use": "discovery_only",
+			"domain_weight": 0.45,
+			"notes": "Radio-learning context and practice conventions. Keep discovery-only until terms are approved."
+		},
+		{
+			"id": "app-authored-morse-exercises",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.95,
+			"notes": "Short dot-dash and future timed exercises authored by GlyphBridge and reviewed by operators."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": false,
+		"pronunciation_required": false,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"signal_operator_required": true,
+		"timing_review_required": true
+	}
+}

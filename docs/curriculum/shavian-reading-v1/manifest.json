@@ -1,0 +1,85 @@
+{
+	"course_id": "shavian-reading-v1",
+	"display_name": "Shavian Reading",
+	"language_tag": "en-Shaw",
+	"script": "Shaw",
+	"direction": "ltr",
+	"target_domains": [
+		"script_identity_text",
+		"phonemic_english_examples",
+		"learner_transcription_drills",
+		"short_public_labels",
+		"constructed_script_culture"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Shavian text in NFC and preserve source strings for audit. Do not auto-convert English spelling into Shavian without a reviewed transcription policy."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "english_whitespace_with_transcription_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "Shavian consonant letters, vowel letters, compound vowels, dialect-sensitive phonemic contrasts, and word chunks",
+		"notes": "Shavian maps English sounds rather than standard spelling. Each shipped anchor needs a chosen pronunciation model and reviewer-approved transcription."
+	},
+	"sources": [
+		{
+			"id": "unicode-shavian-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U10450.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Shavian code point metadata and letter names. Use as infrastructure metadata only."
+		},
+		{
+			"id": "noto-sans-shavian-font",
+			"kind": "font_reference",
+			"url": "https://fonts.google.com/noto/specimen/Noto+Sans+Shavian",
+			"license": "OFL reviewed for font testing",
+			"use": "scoring",
+			"domain_weight": 0.2,
+			"notes": "Rendering and fallback test source. Not a text corpus."
+		},
+		{
+			"id": "shavian-community-references",
+			"kind": "community_reference",
+			"url": "https://www.shavian.info/",
+			"license": "terms require review before derived use",
+			"use": "discovery_only",
+			"domain_weight": 0.5,
+			"notes": "Discovery source for conventions and teaching order. Do not copy examples without license review."
+		},
+		{
+			"id": "english-wordfreq-for-anchor-selection",
+			"kind": "frequency",
+			"url": "https://github.com/rspeer/wordfreq",
+			"license": "MIT package license; upstream corpus licenses require review",
+			"use": "scoring_only",
+			"domain_weight": 0.45,
+			"notes": "Useful for English anchor utility only. Shavian spellings must be app-authored and reviewed."
+		},
+		{
+			"id": "app-authored-shavian-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short phonemic examples authored by GlyphBridge and reviewed against the chosen Shavian transcription policy."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true
+	}
+}

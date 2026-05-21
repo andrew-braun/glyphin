@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ܡܝܐ,water,0.62,0.9,0.74,0.64,0.68,0.72,0.7,0.86,0.45,0.1,0.04,0.03,0,0,High survival value and compact mater lectionis example
+anchor,ܫܠܡܐ,peace or hello,0.58,0.86,0.72,0.58,0.78,0.68,0.78,0.9,0.45,0.14,0.04,0.04,0.02,0,Memorable greeting but cultural and dialect review required
+anchor,ܠܚܡܐ,bread,0.54,0.84,0.66,0.52,0.68,0.62,0.68,0.84,0.45,0.16,0.05,0.03,0,0,Useful food anchor with guttural consonant load
+anchor,ܒܝܬܐ,house,0.54,0.76,0.62,0.56,0.66,0.7,0.64,0.78,0.45,0.12,0.04,0.03,0,0,Core word for signs and cultural text with beth plus yodh
+anchor,ܣܦܪܐ,book,0.48,0.68,0.58,0.44,0.58,0.62,0.62,0.72,0.45,0.2,0.05,0.04,0,0,Good classroom anchor but adds pe and rish
+anchor,ܥܕܬܐ,church,0.46,0.78,0.6,0.4,0.72,0.48,0.72,0.82,0.45,0.24,0.08,0.05,0.02,0,Strong cultural-site utility but ayin is high load
+anchor,ܫܘܩܐ,market,0.44,0.8,0.58,0.44,0.72,0.6,0.7,0.84,0.45,0.2,0.06,0.04,0,0,Useful domain word but qoph pronunciation needs review
+anchor,ܢܘܢܐ,fish,0.44,0.76,0.56,0.54,0.6,0.72,0.6,0.82,0.45,0.12,0.04,0.03,0,0,Menu-friendly anchor with repeated nun and waw
+anchor,ܚܠܒܐ,milk,0.42,0.78,0.56,0.42,0.62,0.56,0.62,0.8,0.45,0.22,0.06,0.04,0,0,Useful food anchor but guttural and beth dot review needed
+anchor,ܡܠܦܢܐ,teacher,0.4,0.62,0.5,0.38,0.56,0.58,0.62,0.68,0.45,0.24,0.06,0.04,0,0,Classroom vocabulary for primer contexts after core letters
+anchor,ܡܕܝܢܬܐ,city,0.42,0.74,0.58,0.34,0.66,0.62,0.68,0.72,0.45,0.28,0.06,0.04,0,0,Wayfinding payoff but too long for early lessons
+anchor,ܐܬܘܬܐ,letters or signs,0.38,0.66,0.5,0.42,0.72,0.62,0.66,0.7,0.45,0.2,0.05,0.05,0,0,Meta-literacy anchor only after alap and taw are stable

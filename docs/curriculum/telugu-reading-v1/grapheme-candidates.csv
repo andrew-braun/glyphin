@@ -1,0 +1,19 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,అ,independent vowel a,0.9,0.88,0.78,0.86,0.9,0.82,0.76,0.03,0.04,0.02,0.02,0,Gateway to inherent-vowel model and independent vowels
+grapheme,ఆ/ా,long aa vowel and sign,0.78,0.76,0.72,0.8,0.9,0.74,0.76,0.03,0.07,0.02,0.02,0,Useful in coffee milk shop and hospital words
+grapheme,ఇ/ి,i vowel and sign,0.8,0.78,0.72,0.8,0.88,0.72,0.72,0.04,0.08,0.02,0.02,0,Core short vowel sign for early decoding
+grapheme,ఈ/ీ,long ii vowel and sign,0.74,0.72,0.72,0.82,0.88,0.74,0.72,0.04,0.08,0.02,0.02,0,High utility in tea water and coffee anchors
+grapheme,ఉ/ు,u vowel and sign,0.72,0.7,0.7,0.76,0.86,0.72,0.72,0.04,0.08,0.02,0.02,0,Needed for water milk shop and medicine words
+grapheme,ఎ/ె,e vowel and sign,0.68,0.66,0.64,0.72,0.84,0.72,0.7,0.04,0.08,0.02,0.03,0,Medium-load sign for entrance and price words
+grapheme,ఐ/ై,ai vowel and sign,0.58,0.58,0.64,0.7,0.84,0.7,0.72,0.03,0.08,0.02,0.03,0,Unlocks rail anchor and common signage forms
+grapheme,క,ka base consonant,0.86,0.84,0.8,0.86,0.86,0.8,0.74,0.05,0.07,0.02,0.02,0,Core consonant for coffee shop and food words
+grapheme,ట,retroflex ta base,0.58,0.58,0.64,0.72,0.8,0.68,0.78,0.06,0.08,0.02,0.02,0,Useful in tea and hotel loanwords
+grapheme,త,dental ta base,0.76,0.74,0.72,0.78,0.82,0.74,0.74,0.06,0.08,0.02,0.02,0,High coverage and later contrast with ట
+grapheme,ప,pa base consonant,0.78,0.76,0.74,0.82,0.86,0.74,0.76,0.04,0.07,0.02,0.02,0,Milk and entrance anchors need this base
+grapheme,మ,ma base consonant,0.8,0.78,0.74,0.8,0.9,0.72,0.78,0.04,0.05,0.01,0.02,0,Stable sonorant with medicine and food payoff
+grapheme,న,na base consonant,0.8,0.78,0.76,0.82,0.88,0.72,0.74,0.06,0.07,0.02,0.02,0,High payoff but conjunct doubling appears early
+grapheme,ల,la base consonant,0.76,0.74,0.72,0.8,0.88,0.72,0.74,0.05,0.06,0.01,0.02,0,Common liquid for milk rail and hotel anchors
+grapheme,ర,ra base consonant,0.78,0.76,0.74,0.82,0.84,0.74,0.74,0.05,0.07,0.02,0.02,0,Common but r-conjuncts need separate staging
+grapheme,వ,va base consonant,0.72,0.7,0.72,0.78,0.84,0.72,0.74,0.04,0.06,0.02,0.02,0,Useful in entrance and domain words
+grapheme,ం,anusvara,0.7,0.68,0.7,0.78,0.78,0.74,0.62,0.04,0.08,0.03,0.03,0,Common nasal marker in food and facility anchors
+grapheme,్,virama,0.68,0.66,0.7,0.78,0.76,0.9,0.58,0.05,0.14,0.03,0.05,0,Suppresses inherent vowel and participates in conjuncts

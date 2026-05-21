@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,𐏐,word divider,0.86,0.92,0.86,0.94,0.86,0.9,0.82,0.78,0.5,0.04,0.02,0.02,0,0,Immediate inscription segmentation win
+anchor,𐎭𐎠𐎼𐎹𐎺𐎢𐏁,Darius,0.72,0.94,0.82,0.62,0.76,0.7,0.74,0.9,0.48,0.18,0.06,0.04,0,0,High royal-name payoff but introduces many signs
+anchor,𐎧𐏁𐎠𐎹𐎰𐎡𐎹,king title,0.76,0.96,0.86,0.52,0.88,0.64,0.78,0.92,0.48,0.24,0.08,0.04,0.02,0,Core royal title but cluster load is high
+anchor,𐎠𐎢𐎼𐎶𐏀𐎭𐎠,Ahuramazda,0.68,0.9,0.78,0.52,0.82,0.62,0.76,0.9,0.46,0.24,0.08,0.06,0.04,0,Sacred name and royal formula anchor with cultural review needs
+anchor,𐎱𐎠𐎼𐎿,Parsa,0.6,0.86,0.72,0.66,0.72,0.74,0.68,0.82,0.46,0.14,0.04,0.04,0,0,Place-name anchor with good sign reuse
+anchor,𐎲𐎦,baga god,0.5,0.76,0.58,0.62,0.68,0.64,0.64,0.76,0.42,0.14,0.06,0.06,0.04,0,Short sacred vocabulary anchor for later review
+anchor,𐎲𐎢𐎶𐎡,earth or land,0.5,0.72,0.58,0.64,0.66,0.68,0.62,0.76,0.42,0.14,0.04,0.06,0,0,Concrete formulaic word with simple sign sequence
+anchor,𐎠𐎼𐎫,arta truth order,0.48,0.74,0.56,0.6,0.68,0.64,0.62,0.8,0.4,0.16,0.06,0.08,0.02,0,Conceptual anchor needs careful glossing
+anchor,𐎠𐎶𐎡,amiy I am,0.52,0.68,0.54,0.68,0.64,0.7,0.6,0.7,0.4,0.12,0.06,0.08,0,0,Short formulaic grammar anchor for late review
+anchor,𐎶𐎠𐎭,Mada,0.44,0.72,0.54,0.62,0.6,0.68,0.6,0.74,0.38,0.14,0.04,0.06,0,0,Place or people-name anchor after core signs
+anchor,𐎧𐏁𐎠,xsha cluster,0.54,0.84,0.68,0.56,0.78,0.62,0.68,0.82,0.42,0.18,0.06,0.05,0,0,Reusable royal-title chunk before full title
+anchor,𐎠𐎭𐎶,adam I,0.42,0.66,0.5,0.62,0.58,0.68,0.56,0.68,0.38,0.14,0.06,0.08,0,0,Short grammar-heavy anchor for specialist review

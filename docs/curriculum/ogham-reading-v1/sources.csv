@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-ogham-block,unicode_metadata,https://www.unicode.org/charts/PDF/U1680.pdf,Unicode License reviewed for metadata use,scoring,0.5,Encoded letters and Ogham boundary marks
+ogham-in-3d,inscription_database,https://ogham.celt.dias.ie/,project terms and attribution require review,scoring_only,0.75,Formula and stone-context scoring only
+ciic-edition-references,inscription_reference,,edition copyright and citation requirements require review,discovery_only,0.55,CIIC style numbering and reading discovery only
+edil-old-irish,lexicon,https://dil.ie/,dictionary terms require review,discovery_only,0.35,Old Irish lexical discovery only
+noto-sans-ogham,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Ogham,SIL Open Font License,scoring,0.2,Rendering reference for horizontal Ogham
+app-authored-ogham-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge

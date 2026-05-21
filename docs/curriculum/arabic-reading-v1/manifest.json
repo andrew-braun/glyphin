@@ -1,0 +1,113 @@
+{
+	"course_id": "arabic-reading-v1",
+	"display_name": "Arabic Script Reading",
+	"language_tag": "ar-Arab",
+	"script": "Arab",
+	"direction": "rtl",
+	"target_domains": [
+		"food_cafe_menus",
+		"transit_signage",
+		"public_facilities",
+		"street_market_signage",
+		"everyday_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Arabic text in NFC and preserve source strings for audit. Keep analysis copies separate when inspecting hamza seats, alif variants, ta marbuta, lam-alif presentation forms, and optional harakat. Do not compatibility-fold learner-visible text."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_manual_morphology_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "base letters, joining behavior, positional forms, hamza and alif variants, ta marbuta, lam-alif chunk, long-vowel letters, and optional short-vowel marks",
+		"notes": "Arabic uses whitespace but clitics and affixes complicate word-level pedagogy. Treat contextual glyph forms as rendering variants of one pedagogical letter unless a lesson explicitly teaches a chunk such as lam-alif."
+	},
+	"sources": [
+		{
+			"id": "unicode-arabic-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U0600.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.4,
+			"notes": "Arabic block metadata for letters, marks, digits, and punctuation. Use as infrastructure metadata only."
+		},
+		{
+			"id": "unicode-arabic-shaping",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/Public/UCD/latest/ucd/ArabicShaping.txt",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Joining type and shaping metadata needed to explain positional forms without storing presentation forms as content."
+		},
+		{
+			"id": "cldr-ar-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.5,
+			"notes": "Arabic exemplar characters and locale metadata. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "wordfreq-ar",
+			"kind": "frequency",
+			"url": "https://github.com/rspeer/wordfreq",
+			"license": "MIT package license; upstream corpus licenses require review",
+			"use": "scoring_only",
+			"domain_weight": 0.55,
+			"notes": "Broad Arabic frequency intuition only. Do not ship derived example text from upstream corpora."
+		},
+		{
+			"id": "arabic-wiktionary",
+			"kind": "lexicon",
+			"url": "https://ar.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.45,
+			"notes": "Useful for spelling and gloss checks. Keep discovery-only until share-alike obligations are reviewed."
+		},
+		{
+			"id": "camel-tools",
+			"kind": "tokenizer_transliteration_tool",
+			"url": "https://github.com/CAMeL-Lab/camel_tools",
+			"license": "tool license and model/data licenses require review",
+			"use": "discovery_only",
+			"domain_weight": 0,
+			"notes": "Potential analysis aid for tokenization, morphology, and transliteration. Not a text source and not needed for shipped examples."
+		},
+		{
+			"id": "openstreetmap-arabic-names",
+			"kind": "environmental_print",
+			"url": "https://www.openstreetmap.org/",
+			"license": "ODbL; derived-data obligations require review",
+			"use": "scoring_only",
+			"domain_weight": 0.8,
+			"notes": "Useful for street, transit, and facility-name validation in Arabic-script contexts. Do not ship raw extracts without license review."
+		},
+		{
+			"id": "app-authored-arabic-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short menu, sign, and label examples authored by GlyphBridge from reviewed vocabulary rather than copied from third-party corpora."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"rtl_bidi_required": true
+	}
+}

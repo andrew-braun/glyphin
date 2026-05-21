@@ -1,0 +1,11 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,𐑖𐑱𐑝𐑾𐑯,Shavian,0.66,0.92,0.78,0.48,0.84,0.66,0.92,0.9,0.42,0.24,0.06,0.04,0.02,0,Script-name anchor but introduces several vowels
+anchor,𐑞,the,0.96,0.78,0.7,0.92,0.72,0.72,0.7,0.62,0.42,0.04,0.04,0.08,0,0,High-frequency function word with voiced-th payoff
+anchor,𐑒𐑪𐑓𐑦,coffee,0.66,0.86,0.7,0.62,0.62,0.68,0.68,0.86,0.38,0.14,0.06,0.06,0,0,Useful cafe anchor once vowel policy is reviewed
+anchor,𐑑𐑨𐑒𐑕𐑰,taxi,0.58,0.9,0.7,0.58,0.64,0.72,0.7,0.88,0.38,0.16,0.06,0.05,0,0,Compact public-travel word with clear consonants
+anchor,𐑢𐑷𐑑𐑼,water,0.78,0.94,0.78,0.44,0.76,0.58,0.78,0.84,0.36,0.28,0.1,0.08,0,0,Dialect-sensitive anchor; needs chosen English accent
+anchor,𐑕𐑑𐑪𐑐,stop,0.7,0.9,0.72,0.62,0.62,0.72,0.7,0.82,0.38,0.14,0.06,0.04,0,0,Public-label anchor with straightforward consonant cluster
+anchor,𐑴𐑐𐑩𐑯,open,0.72,0.9,0.72,0.5,0.68,0.6,0.74,0.8,0.36,0.24,0.08,0.06,0,0,Shop-sign anchor with schwa and oak vowel
+anchor,𐑧𐑜𐑟𐑦𐑑,exit,0.62,0.92,0.72,0.52,0.66,0.66,0.76,0.84,0.36,0.22,0.08,0.06,0,0,Public-sign anchor but pronunciation varies
+anchor,𐑓𐑵𐑛,food,0.68,0.9,0.7,0.66,0.6,0.76,0.7,0.84,0.38,0.12,0.04,0.04,0,0,Menu anchor with clear long-oo contrast
+anchor,𐑣𐑴𐑑𐑧𐑤,hotel,0.62,0.86,0.66,0.46,0.66,0.62,0.72,0.78,0.34,0.26,0.08,0.06,0,0,Travel anchor with stress and vowel policy questionscandidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes

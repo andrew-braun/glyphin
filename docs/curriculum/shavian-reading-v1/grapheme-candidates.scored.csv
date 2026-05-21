@@ -1,0 +1,15 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,𐑑,t / tot,0.88,0.84,0.78,0.86,0.82,0.72,0.8,0.04,0.06,0.02,0.08,0,Common consonant and strong anchor availability,0.6290,promising
+grapheme,𐑞,voiced th / they,0.92,0.88,0.8,0.84,0.78,0.78,0.82,0.04,0.08,0.04,0.08,0,High-frequency English sound but dialect and function-word use need review,0.6130,promising
+grapheme,𐑒,k / kick,0.84,0.8,0.76,0.82,0.82,0.7,0.82,0.04,0.06,0.02,0.08,0,Useful for cafe and taxi anchors,0.6010,promising
+grapheme,𐑕,s / so,0.82,0.78,0.72,0.8,0.82,0.68,0.82,0.04,0.06,0.02,0.08,0,Common consonant in signs and public labels,0.5810,promising
+grapheme,𐑯,n / nun,0.78,0.74,0.68,0.76,0.82,0.66,0.82,0.04,0.06,0.02,0.08,0,Useful for open and common English anchors,0.5490,promising
+grapheme,𐑦,short i / if,0.8,0.76,0.7,0.78,0.78,0.7,0.82,0.04,0.08,0.03,0.08,0,Core vowel letter with strong word coverage,0.5340,promising
+grapheme,𐑧,short e / egg,0.76,0.72,0.66,0.74,0.78,0.68,0.82,0.04,0.08,0.03,0.08,0,Useful for exit and spelling contrast,0.5020,promising
+grapheme,𐑰,ee / eat,0.72,0.68,0.64,0.74,0.78,0.66,0.82,0.04,0.08,0.03,0.08,0,Useful for taxi and clear long-vowel contrast,0.4770,weak
+grapheme,𐑩,schwa / ado,0.86,0.82,0.7,0.76,0.58,0.78,0.76,0.04,0.14,0.08,0.08,0,Very frequent but conceptually high-load for beginners,0.4370,weak
+grapheme,𐑖,sh / sure,0.58,0.56,0.54,0.7,0.82,0.58,0.86,0.03,0.06,0.02,0.08,0,Script-name gateway and visually distinct,0.4300,weak
+grapheme,𐑨,ash vowel,0.7,0.66,0.62,0.72,0.7,0.68,0.84,0.04,0.1,0.04,0.08,0,Dialect-sensitive vowel but useful for taxi,0.4270,weak
+grapheme,𐑱,age vowel,0.58,0.56,0.54,0.66,0.74,0.58,0.82,0.04,0.1,0.04,0.08,0,Useful in Shavian name but dialect-sensitive,0.3460,weak
+grapheme,𐑷,awe vowel,0.62,0.58,0.56,0.62,0.64,0.6,0.82,0.04,0.12,0.06,0.08,0,Dialect-sensitive vowel in water-like anchors,0.3130,weak
+grapheme,𐑼,r-colored schwa,0.64,0.6,0.58,0.62,0.5,0.7,0.76,0.04,0.16,0.08,0.08,0,R-colored vowel needs chosen English accent policycandidate_type,0.2590,weak

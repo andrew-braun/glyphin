@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-mayan-numerals,unicode_metadata,https://www.unicode.org/charts/PDF/U1D2E0.pdf,Unicode License reviewed for metadata use,scoring,0.25,Mayan numeral metadata only and not full glyph support
+cmhi,epigraphic_corpus,https://peabody.harvard.edu/corpus-maya-hieroglyphic-inscriptions,rights and reuse terms require review,discovery_only,0.75,Corpus and image references for discovery only
+mesoweb,reference,https://www.mesoweb.com/,site and article licenses require review,discovery_only,0.55,Introductory decipherment and sign-label reference for research only
+famsi-archives,reference_archive,http://www.famsi.org/,source-specific rights require review,discovery_only,0.45,Legacy Mayanist bibliography and discovery source
+maya-hieroglyphic-database,catalog_reference,https://mayadatabase.org/,license and API terms require review,scoring_only,0.6,Sign catalog and text data for scoring only pending review
+app-authored-maya-examples,authored_examples,,app_owned,shipped_content,0.9,Reviewed sign-label examples authored by GlyphBridge

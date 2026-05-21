@@ -1,0 +1,9 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-arabic-block,unicode_metadata,https://www.unicode.org/charts/PDF/U0600.pdf,Unicode License reviewed for metadata use,scoring,0.4,Arabic block metadata for letters marks digits and punctuation
+unicode-arabic-shaping,unicode_metadata,https://www.unicode.org/Public/UCD/latest/ucd/ArabicShaping.txt,Unicode License reviewed for metadata use,scoring,0.45,Joining type and shaping metadata for positional-form analysis
+cldr-ar-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.5,Arabic exemplar characters and locale metadata pending exact release review
+wordfreq-ar,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.55,Broad frequency intuition only and no upstream example text may ship
+arabic-wiktionary,lexicon,https://ar.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.45,Spelling and gloss discovery only until share-alike review is complete
+camel-tools,tokenizer_transliteration_tool,https://github.com/CAMeL-Lab/camel_tools,tool license and model data licenses require review,discovery_only,0,Analysis aid only and not a content source
+openstreetmap-arabic-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.8,Street transit and facility-name validation only
+app-authored-arabic-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge

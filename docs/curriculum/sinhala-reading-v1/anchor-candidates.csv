@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,තේ,tea,0.7,0.92,0.8,0.84,0.66,0.84,0.68,0.9,0.45,0.06,0.02,0.02,0,0,Compact high-payoff tea anchor
+anchor,බත්,rice / meal,0.74,0.94,0.84,0.7,0.78,0.78,0.74,0.9,0.45,0.12,0.03,0.02,0,0,Core food word and first al-lakuna payoff
+anchor,වතුර,water,0.72,0.96,0.84,0.66,0.72,0.78,0.72,0.88,0.45,0.14,0.03,0.02,0,0,Survival word with multiple reusable consonants
+anchor,කෝපි,coffee,0.56,0.9,0.72,0.58,0.76,0.78,0.7,0.9,0.45,0.16,0.03,0.02,0,0,Familiar cafe word and multi-part vowel sign practice
+anchor,කඩේ,shop,0.62,0.9,0.76,0.68,0.68,0.78,0.7,0.86,0.45,0.12,0.03,0.02,0,0,Useful storefront anchor with e vowel sign
+anchor,මිල,price,0.62,0.9,0.76,0.76,0.62,0.84,0.68,0.82,0.45,0.08,0.02,0.02,0,0,Compact price label anchor
+anchor,බස්,bus,0.58,0.9,0.72,0.72,0.72,0.8,0.7,0.86,0.45,0.1,0.02,0.02,0,0,Transit loanword with al-lakuna final
+anchor,පාර,road,0.62,0.88,0.74,0.76,0.62,0.82,0.66,0.8,0.45,0.08,0.02,0.02,0,0,Wayfinding anchor with transparent aa frame
+anchor,දුම්රිය,train,0.56,0.88,0.72,0.44,0.82,0.68,0.74,0.82,0.45,0.26,0.06,0.03,0,0,High transit utility but cluster and sign load make it later
+anchor,පාසල,school,0.58,0.84,0.68,0.7,0.62,0.82,0.66,0.78,0.45,0.1,0.02,0.02,0,0,School and civic label word with simple frames
+anchor,හෝටලය,hotel,0.52,0.88,0.68,0.52,0.74,0.76,0.7,0.82,0.45,0.2,0.04,0.03,0,0,Lodging anchor with loanword familiarity and vowel signs
+anchor,රෝහල,hospital,0.52,0.9,0.7,0.6,0.72,0.78,0.72,0.82,0.45,0.16,0.03,0.02,0,0,Public facility word with reusable hotel-like chunks
+anchor,වැසිකිළිය,toilet,0.5,0.94,0.72,0.32,0.84,0.62,0.76,0.84,0.45,0.34,0.08,0.03,0,0,Essential facility word but long and visually dense
+anchor,ඇතුල්,enter / inside,0.52,0.86,0.68,0.46,0.78,0.68,0.72,0.76,0.45,0.24,0.06,0.03,0,0,Useful entrance concept but needs vowel and final-mark review
+anchor,පිටවීම,exit,0.5,0.9,0.7,0.4,0.82,0.66,0.74,0.78,0.45,0.28,0.06,0.03,0,0,Public-sign anchor with long morphology and vowel signs
+anchor,විවෘත,open,0.5,0.88,0.68,0.4,0.8,0.66,0.72,0.76,0.45,0.28,0.06,0.03,0,0,Shop sign word best handled after vowel and cluster review
+anchor,වසා,closed,0.5,0.88,0.68,0.66,0.66,0.78,0.7,0.76,0.45,0.12,0.03,0.03,0,0,Pairs with open and uses known consonants

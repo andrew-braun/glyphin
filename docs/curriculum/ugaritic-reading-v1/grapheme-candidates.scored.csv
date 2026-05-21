@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,𐎟,word divider,0.86,0.8,0.82,0.9,0.9,0.84,0.84,0.02,0.04,0.02,0.06,0,High-value tablet segmentation sign,0.7070,promising
+grapheme,𐎍,lamda l sign,0.78,0.72,0.74,0.84,0.7,0.66,0.82,0.04,0.08,0.04,0.06,0,High-payoff liquid in mlk and divine names,0.5300,promising
+grapheme,𐎎,mem m sign,0.76,0.7,0.72,0.82,0.7,0.66,0.82,0.04,0.08,0.04,0.06,0,Core sign for mlk and ym anchors,0.5150,promising
+grapheme,𐎁,beta b sign,0.72,0.66,0.68,0.78,0.68,0.64,0.82,0.04,0.08,0.04,0.06,0,High payoff for bt and bgl anchors,0.4810,weak
+grapheme,𐎀,alpu glottal sign,0.82,0.76,0.72,0.84,0.52,0.72,0.78,0.06,0.1,0.08,0.06,0,Common aleph sign but vowel interpretation needs review,0.4530,weak
+grapheme,𐎊,yod y sign,0.68,0.62,0.64,0.74,0.66,0.62,0.8,0.04,0.08,0.04,0.06,0,Common in short words and divine names,0.4460,weak
+grapheme,𐎚,to t sign,0.64,0.58,0.6,0.7,0.68,0.58,0.82,0.04,0.08,0.04,0.06,0,Common sign with good anchor availability,0.4150,weak
+grapheme,𐎌,shin sh sign,0.62,0.56,0.6,0.68,0.66,0.64,0.82,0.04,0.08,0.04,0.06,0,Useful for sun and name anchors,0.4070,weak
+grapheme,𐎋,kaf k sign,0.62,0.56,0.58,0.68,0.68,0.58,0.82,0.04,0.08,0.04,0.06,0,Useful for mlk and name contexts,0.4000,weak
+grapheme,𐎗,rash r sign,0.6,0.54,0.56,0.66,0.68,0.56,0.82,0.04,0.08,0.04,0.06,0,Useful in names and formulaic words,0.3830,weak
+grapheme,𐎐,nun n sign,0.58,0.54,0.54,0.64,0.68,0.56,0.82,0.04,0.08,0.04,0.06,0,Useful but lower early anchor density,0.3720,weak
+grapheme,𐎓,ayin sign,0.68,0.62,0.66,0.76,0.42,0.72,0.78,0.06,0.12,0.08,0.06,0,Essential Semitic contrast and pronunciation risk,0.3360,weak
+grapheme,𐎄,delta d sign,0.5,0.46,0.48,0.56,0.68,0.5,0.82,0.04,0.08,0.04,0.06,0,Useful in names after core signs,0.3090,weak
+grapheme,𐎂,gamla g sign,0.48,0.44,0.46,0.54,0.68,0.5,0.82,0.04,0.08,0.04,0.06,0,Lower early frequency but simple mapping,0.2940,weak
+grapheme,𐎛,i aleph sign,0.42,0.38,0.4,0.48,0.44,0.62,0.78,0.06,0.12,0.08,0.06,0,Aleph-vowel distinction needs specialist policy,0.1350,weak
+grapheme,𐎜,u aleph sign,0.4,0.36,0.38,0.46,0.44,0.62,0.78,0.06,0.12,0.08,0.06,0,Aleph-vowel distinction needs specialist policy,0.1200,weak

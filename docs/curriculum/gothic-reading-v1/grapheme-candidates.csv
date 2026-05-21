@@ -1,0 +1,19 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,𐌰,a letter aza,0.9,0.84,0.8,0.9,0.76,0.7,0.82,0.04,0.06,0.04,0.06,0,Core vowel and high-frequency word component
+grapheme,𐌱,b letter bercna,0.56,0.52,0.54,0.64,0.76,0.54,0.82,0.04,0.06,0.04,0.06,0,Useful in biblical and lexicon words
+grapheme,𐌲,g letter geuua,0.66,0.6,0.64,0.74,0.76,0.6,0.82,0.04,0.06,0.04,0.06,0,High payoff in guth anchor
+grapheme,𐌳,d letter daaz,0.58,0.54,0.56,0.66,0.76,0.56,0.82,0.04,0.06,0.04,0.06,0,Useful in word and people anchors
+grapheme,𐌴,e letter ezec,0.5,0.46,0.46,0.56,0.76,0.5,0.82,0.04,0.06,0.04,0.06,0,Lower early coverage but simple mapping
+grapheme,𐌹,i letter iiz,0.78,0.72,0.7,0.82,0.76,0.64,0.82,0.04,0.06,0.04,0.06,0,Useful in mik and thiuada anchors
+grapheme,𐌺,k letter kusma,0.56,0.52,0.54,0.64,0.76,0.54,0.82,0.04,0.06,0.04,0.06,0,Useful for pronouns and small words
+grapheme,𐌻,l letter lagus,0.48,0.44,0.44,0.54,0.76,0.48,0.82,0.04,0.06,0.04,0.06,0,Lower early coverage but distinctive
+grapheme,𐌼,m letter manna,0.7,0.64,0.66,0.76,0.76,0.6,0.82,0.04,0.06,0.04,0.06,0,High payoff in manna and mik
+grapheme,𐌽,n letter nauths,0.76,0.7,0.7,0.82,0.76,0.64,0.82,0.04,0.06,0.04,0.06,0,Common in sunus namo and manna
+grapheme,𐌿,u letter urus,0.82,0.76,0.76,0.86,0.76,0.66,0.82,0.04,0.06,0.04,0.06,0,Core vowel in sunus guth and waurd
+grapheme,𐍂,r letter raida,0.58,0.54,0.56,0.66,0.76,0.54,0.82,0.04,0.06,0.04,0.06,0,Useful in waurd and related words
+grapheme,𐍃,s letter sugil,0.72,0.66,0.68,0.78,0.76,0.62,0.82,0.04,0.06,0.04,0.06,0,Common in sunus and sacred text
+grapheme,𐍄,t letter tyz,0.68,0.62,0.64,0.74,0.76,0.58,0.82,0.04,0.06,0.04,0.06,0,Common stop and phrase component
+grapheme,𐍅,w letter winja,0.6,0.56,0.58,0.68,0.72,0.56,0.82,0.04,0.06,0.04,0.06,0,Useful in waurd and biblical vocabulary
+grapheme,𐌸,th letter thiuth,0.58,0.54,0.58,0.68,0.58,0.64,0.84,0.03,0.08,0.06,0.06,0,Important Gothic-specific contrast with pronunciation review
+grapheme,𐍉,o letter othal,0.54,0.5,0.52,0.62,0.74,0.52,0.82,0.04,0.06,0.04,0.06,0,Useful in namo and later words
+grapheme,𐍈,hw letter,0.34,0.3,0.32,0.4,0.56,0.48,0.86,0.03,0.1,0.08,0.06,0,Distinctive but late and low-frequency

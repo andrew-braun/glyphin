@@ -1,0 +1,12 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,𐀏𐀒,ka-ko bronze,0.68,0.86,0.78,0.84,0.72,0.66,0.78,0.86,0.46,0.06,0.04,0.04,0,0,Compact administrative word and strong first win,0.6220,promising
+anchor,𐀒𐀜𐀰,ko-no-so Knossos,0.58,0.82,0.68,0.7,0.66,0.66,0.72,0.88,0.42,0.12,0.04,0.04,0,0,Place-name anchor and museum label payoff,0.4876,weak
+anchor,𐀷𐀙𐀏,wa-na-ka king,0.62,0.82,0.72,0.72,0.72,0.56,0.78,0.88,0.44,0.12,0.05,0.05,0.02,0,Royal title with strong tablet-domain payoff,0.4676,weak
+anchor,𐀞𐀏𐀙,pa-ka-na swords,0.56,0.78,0.64,0.72,0.64,0.62,0.7,0.82,0.42,0.12,0.04,0.05,0.02,0,Administrative object anchor with material culture context,0.4336,weak
+anchor,𐀴𐀪𐀡,ti-ri-po tripod,0.54,0.76,0.62,0.66,0.66,0.58,0.7,0.82,0.4,0.14,0.05,0.05,0,0,Object word that introduces r and l convention caveat,0.4024,weak
+anchor,𐀀𐀏,a-ka syllable pair,0.42,0.58,0.46,0.74,0.5,0.68,0.54,0.66,0.34,0.06,0.03,0.08,0,0,Synthetic syllable-pair review only if app-authored examples are allowed,0.3740,weak
+anchor,𐀡𐀴𐀛𐀊,po-ti-ni-ja mistress or Potnia,0.6,0.8,0.7,0.64,0.74,0.54,0.78,0.86,0.44,0.18,0.05,0.06,0.04,0,Culturally loaded title and good syllable coverage,0.3548,weak
+anchor,𐀴𐀪𐀡𐀆,ti-ri-po-de tripods,0.52,0.74,0.6,0.58,0.68,0.56,0.7,0.8,0.4,0.2,0.05,0.05,0,0,Plural or case form needs specialist framing,0.3196,weak
+anchor,𐀞𐀲,pa-ta tablet fragment,0.44,0.6,0.48,0.62,0.52,0.6,0.56,0.68,0.34,0.12,0.04,0.1,0,0,Fragment requires attestation review before lesson use,0.2760,weak
+anchor,𐀀𐀵𐀫𐀦,a-to-ro-qo person,0.52,0.72,0.6,0.54,0.72,0.46,0.72,0.82,0.4,0.22,0.07,0.07,0,0,Shows missing consonants and labiovelar convention,0.2484,weak
+anchor,𐀨𐀷𐀐𐀲,ra-wa-ke-ta leader title,0.48,0.72,0.58,0.48,0.72,0.46,0.72,0.8,0.38,0.26,0.07,0.08,0.02,0,High context value but too much new load for early lessons,0.1568,weak

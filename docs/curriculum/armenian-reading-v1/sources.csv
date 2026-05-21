@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-armenian-block,unicode_metadata,https://www.unicode.org/charts/PDF/U0530.pdf,Unicode License reviewed for metadata use,scoring,0.4,Armenian code point and punctuation metadata for script inventory work
+cldr-hy-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.5,Armenian exemplar characters and casing behavior with exact release still to confirm
+wordfreq-hy,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.55,Broad Eastern Armenian frequency intuition only with no shipped derived examples
+armenian-wiktionary,lexicon,https://hy.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.45,Gloss and spelling discovery only until attribution obligations are approved
+openstreetmap-armenia-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.8,Place-name and public-sign validation with no raw extracts shipped
+app-authored-armenian-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora

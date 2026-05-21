@@ -1,0 +1,29 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,า,right vowel long aa,0.96,0.94,0.9,0.95,0.94,0.86,0.78,0.02,0.04,0.01,0,0,Highest payoff right side vowel and first placement rule,0.8550,strong
+grapheme,ม,low consonant m,0.92,0.9,0.86,0.95,0.94,0.72,0.82,0.02,0.03,0.01,0,0,Runtime lesson 1 and core menu words,0.8270,strong
+grapheme,ก,mid consonant k g,0.94,0.92,0.9,0.95,0.88,0.86,0.8,0.03,0.04,0.02,0,0,Runtime lesson 1 and final k stop rule,0.8200,strong
+grapheme,น,low consonant n,0.9,0.88,0.82,0.9,0.94,0.78,0.78,0.03,0.04,0.01,0,0,Core final nasal and high coverage consonant,0.7900,strong
+grapheme,ด,mid consonant d final t,0.84,0.82,0.76,0.88,0.86,0.78,0.76,0.04,0.05,0.02,0,0,Introduces initial d and clipped final stop behavior,0.7100,promising
+grapheme,ิ,above vowel short i,0.82,0.78,0.76,0.88,0.9,0.78,0.72,0.03,0.06,0.01,0,0,Unlocks กิน and the reusable in frame,0.7080,promising
+grapheme,ล,low consonant l,0.78,0.76,0.76,0.86,0.9,0.72,0.78,0.04,0.04,0.01,0,0,Market and place word consonant,0.6970,promising
+grapheme,ต,mid consonant t,0.82,0.8,0.78,0.86,0.84,0.76,0.74,0.04,0.05,0.02,0,0,Market word and hidden vowel gateway,0.6960,promising
+grapheme,ี,above vowel long ii,0.8,0.78,0.72,0.84,0.92,0.78,0.74,0.03,0.06,0.01,0,0,Early vertical scanning in ดี and มี,0.6950,promising
+grapheme,final ก,final k stop,0.84,0.8,0.8,0.88,0.78,0.9,0.66,0.02,0.08,0.03,0,0,Explicit final consonant role separate from initial ก,0.6910,promising
+grapheme,ร,low consonant r final n,0.84,0.82,0.8,0.88,0.78,0.8,0.78,0.04,0.07,0.03,0,0,Storefront anchor and final r to n later,0.6810,promising
+grapheme,ั,above vowel short a,0.76,0.74,0.78,0.84,0.86,0.78,0.7,0.03,0.06,0.01,0,0,Common short vowel in ผัด and ผัก,0.6760,promising
+grapheme,ส,high consonant s,0.82,0.8,0.82,0.84,0.88,0.76,0.76,0.06,0.06,0.02,0,0,Price word สิบ and high class gateway,0.6750,promising
+grapheme,บ,mid consonant b final p,0.78,0.76,0.72,0.82,0.86,0.72,0.76,0.04,0.05,0.02,0,0,Supports บิน and final p rule in สิบ,0.6620,promising
+grapheme,final ด ต,final t stop family,0.82,0.78,0.78,0.86,0.76,0.88,0.66,0.03,0.09,0.03,0,0,Market combo and ชุด final stop behavior,0.6520,promising
+grapheme,ู,below vowel long uu,0.7,0.68,0.7,0.82,0.9,0.76,0.7,0.03,0.06,0.01,0,0,Long below vowel in หมู and หู,0.6340,promising
+grapheme,ุ,below vowel short u,0.7,0.68,0.68,0.78,0.9,0.76,0.7,0.03,0.06,0.01,0,0,First below vowel and clipped syllable rhythm,0.6270,promising
+grapheme,อ,silent carrier,0.84,0.82,0.82,0.86,0.7,0.9,0.72,0.05,0.12,0.04,0,0,Carrier behavior for vowel initial words like อาหาร,0.6110,promising
+grapheme,ห,high consonant h and leading H,0.76,0.74,0.78,0.84,0.82,0.9,0.82,0.04,0.1,0.04,0,0,Leading H pattern and food signs like หมู,0.6100,promising
+grapheme,ว,w consonant and glide,0.74,0.72,0.72,0.82,0.82,0.78,0.76,0.04,0.08,0.03,0,0,Builds -าว in ข้าว and later glide patterns,0.6040,promising
+grapheme,้,tone mark mai tho,0.76,0.74,0.72,0.82,0.72,0.84,0.62,0.02,0.1,0.04,0,0,Second early tone mark in ร้าน and ข้าว,0.5930,promising
+grapheme,ช,low consonant ch,0.68,0.66,0.68,0.76,0.88,0.7,0.74,0.06,0.05,0.01,0,0,Menu combo anchor ชุด and contrast with ส,0.5890,promising
+grapheme,ข,high consonant kh,0.72,0.7,0.78,0.82,0.82,0.8,0.78,0.08,0.07,0.02,0,0,Aspirated high class k in survival food words,0.5860,promising
+grapheme,แ,left vowel long ae,0.7,0.68,0.66,0.76,0.84,0.82,0.72,0.04,0.08,0.02,0,0,First before vowel and scanning left rule,0.5830,promising
+grapheme,่,tone mark mai ek,0.74,0.72,0.7,0.8,0.72,0.84,0.62,0.02,0.1,0.04,0,0,Tone mark introduced through sight word แม่,0.5780,promising
+grapheme,leading ห,leading tone helper,0.7,0.68,0.76,0.82,0.68,0.94,0.68,0.03,0.14,0.05,0,0,Cluster like chunk in หมู and later หน หย หร patterns,0.5180,promising
+grapheme,ผ,high consonant ph,0.58,0.6,0.72,0.78,0.82,0.74,0.82,0.07,0.08,0.02,0,0,High value cooking word ผัด and aspirated contrast,0.5070,promising
+grapheme,ตล hidden vowel frame,initial cluster with hidden a,0.5,0.48,0.7,0.74,0.62,0.84,0.62,0.04,0.16,0.06,0,0,Runtime lesson 4 uses ตลาด to teach nonwritten a,0.3420,weak

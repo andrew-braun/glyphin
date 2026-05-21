@@ -1,0 +1,105 @@
+{
+	"course_id": "syriac-reading-v1",
+	"display_name": "Syriac Reading",
+	"language_tag": "syr-Syrc",
+	"script": "Syrc",
+	"direction": "rtl",
+	"target_domains": [
+		"heritage_liturgical_labels",
+		"cultural_site_signage",
+		"classroom_primer_words",
+		"community_wayfinding",
+		"everyday_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Syriac text in NFC and preserve source strings for audit. Keep optional vowel points and dots explicit during analysis rather than compatibility-folding presentation forms. Never ship presentation-form code points as canonical lesson text."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_manual_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters",
+		"pedagogical_units": "base consonants, matres lectionis, dot distinctions, optional vowel points, joining behavior, and common word-final forms",
+		"notes": "Syriac is an RTL joining script. Treat contextual glyph forms as rendering variants of one pedagogical letter while preserving combining marks and dot contrasts for reviewer inspection."
+	},
+	"sources": [
+		{
+			"id": "unicode-syriac-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U0700.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.4,
+			"notes": "Syriac block metadata for letters, points, punctuation, and shaping-sensitive code points."
+		},
+		{
+			"id": "unicode-joining-data",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/Public/UCD/latest/ucd/ArabicShaping.txt",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Joining-type metadata needed for Syriac contextual shaping and font QA."
+		},
+		{
+			"id": "cldr-syr-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Locale metadata and exemplar checks where available. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "syriac-wiktionary-discovery",
+			"kind": "lexicon",
+			"url": "https://en.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Useful for spelling and gloss discovery only. Do not ship copied entries."
+		},
+		{
+			"id": "syriaca-org-gazetteer",
+			"kind": "cultural_reference",
+			"url": "https://syriaca.org/",
+			"license": "source license and attribution terms require review",
+			"use": "discovery_only",
+			"domain_weight": 0.4,
+			"notes": "Cultural and place-name reference for reviewer planning only."
+		},
+		{
+			"id": "openstreetmap-syriac-names",
+			"kind": "environmental_print",
+			"url": "https://www.openstreetmap.org/",
+			"license": "ODbL; derived-data obligations require review",
+			"use": "scoring_only",
+			"domain_weight": 0.55,
+			"notes": "Potential validation source for churches, cultural sites, and community labels. Do not ship raw extracts."
+		},
+		{
+			"id": "app-authored-syriac-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"rtl_bidi_required": true,
+		"specialist_review_required": true
+	}
+}

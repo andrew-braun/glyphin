@@ -1,0 +1,23 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ჩაი,tea,0.62,0.9,0.7,0.76,0.66,0.86,0.68,0.86,0.52,0.08,0.01,0.02,0,0,Short cafe anchor with strong first win
+anchor,ყავა,coffee,0.6,0.92,0.72,0.58,0.74,0.66,0.7,0.86,0.5,0.18,0.03,0.02,0,0,High utility but introduces high-load ყ
+anchor,პური,bread,0.58,0.9,0.68,0.7,0.64,0.82,0.68,0.84,0.52,0.1,0.01,0.02,0,0,Useful food anchor and p contrast gateway
+anchor,წყალი,water,0.6,0.95,0.74,0.42,0.82,0.62,0.74,0.88,0.5,0.28,0.04,0.03,0,0,Survival word but consonant cluster makes it Stage 2
+anchor,რძე,milk,0.52,0.86,0.62,0.5,0.66,0.68,0.64,0.78,0.48,0.2,0.03,0.03,0,0,Compact food anchor with high consonant load
+anchor,ხაჭაპური,khachapuri,0.52,0.92,0.68,0.36,0.78,0.6,0.72,0.9,0.46,0.32,0.04,0.03,0,0,Cultural food anchor best saved for later chunking
+anchor,რესტორანი,restaurant,0.56,0.92,0.7,0.58,0.62,0.82,0.68,0.84,0.5,0.16,0.02,0.02,0,0,Recognizable restaurant loanword
+anchor,მენიუ,menu,0.54,0.9,0.66,0.72,0.58,0.86,0.66,0.84,0.5,0.08,0.01,0.02,0,0,Short menu anchor and useful label word
+anchor,მეტრო,metro,0.52,0.88,0.64,0.72,0.58,0.86,0.64,0.82,0.5,0.08,0.01,0.02,0,0,Transit loanword with simple chunking
+anchor,გაჩერება,stop,0.52,0.9,0.66,0.48,0.66,0.76,0.68,0.78,0.48,0.22,0.02,0.03,0,0,Transit stop anchor with repeated vowels
+anchor,შესასვლელი,entrance,0.5,0.92,0.66,0.36,0.78,0.72,0.7,0.8,0.46,0.3,0.03,0.03,0,0,Important sign word but long
+anchor,გასასვლელი,exit,0.5,0.94,0.68,0.36,0.8,0.72,0.72,0.82,0.46,0.3,0.03,0.03,0,0,Pairs with entrance and shares visible chunks
+anchor,ქუჩა,street,0.5,0.88,0.62,0.58,0.66,0.72,0.66,0.8,0.48,0.16,0.03,0.02,0,0,Street-sign word and aspirated ქ gateway
+anchor,ბაზარი,market,0.48,0.86,0.6,0.66,0.58,0.82,0.64,0.8,0.48,0.12,0.01,0.02,0,0,Shopping anchor with stable sounds
+anchor,სასტუმრო,hotel,0.48,0.9,0.62,0.54,0.62,0.78,0.66,0.8,0.48,0.18,0.02,0.02,0,0,Lodging anchor with repeated ს
+anchor,აფთიაქი,pharmacy,0.46,0.9,0.62,0.42,0.74,0.68,0.68,0.8,0.46,0.26,0.03,0.03,0,0,Facility anchor with aspirated consonants
+anchor,მუზეუმი,museum,0.46,0.86,0.6,0.66,0.58,0.82,0.64,0.78,0.48,0.12,0.01,0.02,0,0,Cultural-site anchor with familiar vowels
+anchor,ტუალეტი,restroom,0.46,0.95,0.64,0.62,0.58,0.82,0.68,0.84,0.48,0.14,0.01,0.02,0,0,High utility loanword-like facility anchor
+anchor,ფასი,price,0.48,0.86,0.58,0.68,0.6,0.82,0.64,0.78,0.48,0.12,0.01,0.02,0,0,Short shopping anchor and ფ gateway
+anchor,ღია,open,0.46,0.86,0.56,0.56,0.64,0.66,0.62,0.8,0.46,0.18,0.03,0.02,0,0,Storefront sign word with high-load ღ
+anchor,დაკეტილია,closed,0.46,0.86,0.56,0.44,0.66,0.76,0.62,0.78,0.46,0.24,0.02,0.03,0,0,Pairs with open but length delays it
+anchor,გამარჯობა,hello,0.56,0.78,0.58,0.48,0.66,0.78,0.64,0.9,0.48,0.22,0.02,0.03,0,0,Useful greeting after core letters are stable

@@ -1,0 +1,29 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ㄚ,a final,0.94,0.9,0.86,0.94,0.94,0.84,0.8,0.02,0.04,0.01,0,0,High payoff open final for tone contrast syllables,0.8330,strong
+grapheme,ㄇ,m initial,0.88,0.86,0.82,0.92,0.92,0.72,0.84,0.03,0.04,0.01,0,0,Early anchor ㄇㄚ and transparent m sound,0.7770,strong
+grapheme,ㄧ,i medial final,0.9,0.86,0.82,0.9,0.9,0.82,0.76,0.03,0.06,0.01,0,0,Core medial in greetings and wayfinding,0.7650,strong
+grapheme,ㄨ,u medial final,0.86,0.84,0.82,0.88,0.9,0.82,0.76,0.03,0.06,0.01,0,0,Core medial in ㄕㄨㄟˇ and ㄔㄨ,0.7470,promising
+grapheme,unmarked first tone,first tone no mark,0.9,0.88,0.84,0.92,0.82,0.9,0.7,0.02,0.08,0.03,0,0,Mandarin first tone is often represented by no tone mark,0.7410,promising
+grapheme,ㄋ,n initial,0.84,0.82,0.78,0.86,0.92,0.68,0.82,0.03,0.04,0.01,0,0,High utility for ㄋㄧˇ and public labels,0.7400,promising
+grapheme,ㄏ,h initial,0.82,0.8,0.76,0.86,0.9,0.68,0.82,0.03,0.04,0.01,0,0,Greeting anchor ㄏㄠˇ and ㄏㄜ drink verbs,0.7250,promising
+grapheme,ㄢ,an final,0.78,0.76,0.78,0.84,0.88,0.76,0.78,0.04,0.06,0.01,0,0,High payoff nasal final for food and public words,0.6800,promising
+grapheme,ˋ,fourth tone mark,0.78,0.76,0.78,0.86,0.86,0.86,0.68,0.02,0.08,0.02,0,0,Core falling tone mark in ㄈㄢˋ and ㄖㄨˋ,0.6750,promising
+grapheme,ㄠ,ao final,0.76,0.74,0.74,0.84,0.88,0.78,0.78,0.04,0.06,0.01,0,0,Useful final for ㄏㄠˇ and wayfinding words,0.6660,promising
+grapheme,ㄈ,f initial,0.7,0.68,0.78,0.82,0.9,0.68,0.82,0.03,0.05,0.01,0,0,Meal anchor ㄈㄢˋ and common loanwords,0.6540,promising
+grapheme,ˇ,third tone mark,0.74,0.72,0.76,0.86,0.82,0.86,0.68,0.02,0.08,0.02,0,0,High payoff tone mark in ㄋㄧˇ ㄏㄠˇ and ㄕㄨㄟˇ,0.6480,promising
+grapheme,ㄟ,ei final,0.72,0.7,0.74,0.82,0.86,0.76,0.78,0.04,0.06,0.01,0,0,Menu and water anchor final,0.6400,promising
+grapheme,ˊ,second tone mark,0.72,0.7,0.7,0.84,0.86,0.86,0.68,0.02,0.08,0.02,0,0,Core rising tone mark in ㄔㄚˊ and ㄇㄣˊ,0.6310,promising
+grapheme,ㄎ,k initial,0.7,0.68,0.72,0.8,0.9,0.66,0.82,0.04,0.05,0.01,0,0,Coffee and opening sign words,0.6310,promising
+grapheme,ㄕ,sh initial,0.78,0.76,0.78,0.84,0.82,0.78,0.78,0.06,0.08,0.02,0,0,Retroflex initial for water and public words,0.6260,promising
+grapheme,ㄔ,ch initial,0.76,0.74,0.76,0.82,0.82,0.78,0.78,0.06,0.08,0.02,0,0,Retroflex affricate in eat and tea anchors,0.6110,promising
+grapheme,ㄡ,ou final,0.68,0.66,0.7,0.78,0.84,0.72,0.78,0.04,0.06,0.01,0,0,Exit and entrance word ㄎㄡˇ,0.6040,promising
+grapheme,ㄐ,j initial,0.68,0.66,0.68,0.76,0.82,0.66,0.78,0.04,0.06,0.01,0,0,Useful after core finals for price and station words,0.5910,promising
+grapheme,ㄜ,e final,0.7,0.68,0.68,0.78,0.82,0.74,0.76,0.04,0.08,0.02,0,0,Core Mandarin final in drink related words,0.5800,promising
+grapheme,ㄒ,x initial,0.68,0.66,0.66,0.76,0.78,0.64,0.78,0.05,0.08,0.02,0,0,Useful for thanks and some signage but pronunciation needs care,0.5420,promising
+grapheme,ㄗ,z initial,0.64,0.62,0.66,0.72,0.82,0.66,0.78,0.05,0.08,0.02,0,0,Left direction ㄗㄨㄛˇ and contrast family,0.5240,promising
+grapheme,ㄓ,zh initial,0.66,0.64,0.64,0.74,0.76,0.72,0.78,0.06,0.08,0.02,0,0,Retroflex contrast with ㄐ and ㄗ in later lessons,0.5230,promising
+grapheme,ㄥ,eng final,0.62,0.6,0.62,0.7,0.78,0.68,0.76,0.04,0.08,0.02,0,0,Later nasal final and Mandarin contrast point,0.5130,promising
+grapheme,ㄑ,q initial,0.62,0.6,0.62,0.72,0.78,0.64,0.78,0.05,0.08,0.02,0,0,Lower early utility but needed for money and exit compounds,0.5020,promising
+grapheme,ㄖ,r initial,0.58,0.58,0.68,0.72,0.72,0.66,0.76,0.04,0.1,0.03,0,0,Entrance anchor ㄖㄨˋ and pronunciation load,0.4700,weak
+grapheme,ㄩ,ü final,0.56,0.54,0.66,0.7,0.72,0.72,0.78,0.05,0.1,0.03,0,0,Needed for ㄋㄩˇ and j q x spelling behavior,0.4480,weak
+grapheme,˙,neutral tone dot,0.4,0.42,0.4,0.52,0.72,0.7,0.66,0.03,0.12,0.04,0,0,Needs explicit placement review and can be late,0.3010,weak

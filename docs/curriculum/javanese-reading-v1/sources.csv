@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-javanese-block,unicode_metadata,https://www.unicode.org/charts/PDF/UA980.pdf,Unicode License reviewed for metadata use,scoring,0.45,Javanese aksara and mark metadata for infrastructure use only
+cldr-jv-java-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.45,Javanese-script exemplar metadata where available; confirm exact CLDR release before ingestion
+wiktionary-javanese-discovery,lexicon,https://en.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Spelling and gloss discovery only until share-alike obligations are approved
+javanese-script-learning-references,orthography_reference,,publisher or site licenses require review,discovery_only,0.35,Use only to plan specialist review around sandhangan and pasangan
+openstreetmap-java-script-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.55,Cultural-site and wayfinding validation only; do not ship raw extracts
+app-authored-javanese-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora

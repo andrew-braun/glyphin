@@ -1,0 +1,105 @@
+{
+	"course_id": "mongolian-reading-v1",
+	"display_name": "Mongolian Reading",
+	"language_tag": "mn-Mong",
+	"script": "Mong",
+	"direction": "ttb",
+	"target_domains": [
+		"public_signage",
+		"cultural_site_labels",
+		"food_cafe_menus",
+		"classroom_primer_words",
+		"everyday_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store traditional Mongolian text in NFC and preserve original strings because variation selectors and positional shaping may affect visible forms. Do not compatibility-fold variation sequences or punctuation without reviewer sign-off."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "whitespace_with_manual_morphology_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters_with_variation_sequence_audit",
+		"pedagogical_units": "letters with positional forms, vowel letters, variation sequences, syllable chunks, and vertical punctuation",
+		"notes": "Traditional Mongolian is written top to bottom in columns and relies on contextual shaping. Treat positional forms as rendered variants unless a variation sequence must be explicitly taught."
+	},
+	"sources": [
+		{
+			"id": "unicode-mongolian-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U1800.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Mongolian block metadata for letters, punctuation, and free variation selectors."
+		},
+		{
+			"id": "unicode-standardized-variants",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/Public/UCD/latest/ucd/StandardizedVariants.txt",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Variation-sequence metadata for Mongolian rendering and QA."
+		},
+		{
+			"id": "cldr-mn-mong-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Locale metadata for Mongolian script where available. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "wiktionary-mn-mong-discovery",
+			"kind": "lexicon",
+			"url": "https://en.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Useful for spelling discovery only. Do not ship copied entries."
+		},
+		{
+			"id": "openstreetmap-mongolian-script-names",
+			"kind": "environmental_print",
+			"url": "https://www.openstreetmap.org/",
+			"license": "ODbL; derived-data obligations require review",
+			"use": "scoring_only",
+			"domain_weight": 0.55,
+			"notes": "Potential validation source for place labels and signs. Do not ship raw extracts."
+		},
+		{
+			"id": "mongolian-script-grammar-references",
+			"kind": "orthography_reference",
+			"url": "",
+			"license": "publisher or site licenses require review",
+			"use": "discovery_only",
+			"domain_weight": 0.3,
+			"notes": "Use only to plan specialist review of positional forms and spelling conventions."
+		},
+		{
+			"id": "app-authored-mongolian-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true,
+		"vertical_layout_required": true,
+		"specialist_review_required": true
+	}
+}

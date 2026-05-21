@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,ⰰ,a letter azu,0.88,0.82,0.78,0.9,0.72,0.68,0.86,0.03,0.06,0.04,0.04,0,Core vowel and alphabet-name anchor
+grapheme,ⰱ,b letter buki,0.58,0.54,0.58,0.68,0.72,0.56,0.86,0.03,0.06,0.04,0.04,0,Useful in bogu and dobro anchors
+grapheme,ⰲ,v letter vedi,0.62,0.58,0.6,0.7,0.72,0.56,0.86,0.03,0.06,0.04,0.04,0,Common in voda and word forms
+grapheme,ⰳ,g letter glagoli,0.56,0.52,0.56,0.66,0.72,0.56,0.86,0.03,0.06,0.04,0.04,0,Script-identity letter and useful in bogu or gradu
+grapheme,ⰴ,d letter dobro,0.64,0.6,0.64,0.74,0.72,0.6,0.86,0.03,0.06,0.04,0.04,0,High-payoff letter and alphabet-name word
+grapheme,ⰵ,e letter jestu,0.58,0.54,0.54,0.64,0.72,0.54,0.86,0.03,0.06,0.04,0.04,0,Common vowel with manuscript review needs
+grapheme,ⰸ,z letter zemlja,0.46,0.42,0.42,0.52,0.7,0.5,0.86,0.03,0.06,0.04,0.04,0,Lower early coverage but distinctive
+grapheme,ⰻ,i letter,0.72,0.66,0.66,0.78,0.72,0.62,0.86,0.03,0.06,0.04,0.04,0,Useful in miru and liturgical words
+grapheme,ⰽ,k letter kako,0.54,0.5,0.52,0.6,0.72,0.52,0.86,0.03,0.06,0.04,0.04,0,Core consonant for later review
+grapheme,ⰾ,l letter ljudi,0.68,0.62,0.64,0.74,0.72,0.6,0.86,0.03,0.06,0.04,0.04,0,High payoff in slovo and people anchors
+grapheme,ⰿ,m letter myslite,0.66,0.6,0.62,0.72,0.72,0.58,0.86,0.03,0.06,0.04,0.04,0,Useful in miru and manuscript text
+grapheme,ⱀ,n letter nashi,0.58,0.54,0.54,0.64,0.72,0.54,0.86,0.03,0.06,0.04,0.04,0,Common consonant and name component
+grapheme,ⱁ,o letter onu,0.8,0.74,0.76,0.84,0.72,0.66,0.86,0.03,0.06,0.04,0.04,0,Core vowel for bogu slovo and dobro
+grapheme,ⱃ,r letter rtsy,0.66,0.6,0.62,0.72,0.72,0.58,0.86,0.03,0.06,0.04,0.04,0,Useful in dobro miru and gradu
+grapheme,ⱄ,s letter slovo,0.7,0.64,0.66,0.76,0.72,0.62,0.86,0.03,0.06,0.04,0.04,0,High-payoff letter and word anchor
+grapheme,ⱅ,t letter tvrdo,0.62,0.56,0.58,0.68,0.72,0.56,0.86,0.03,0.06,0.04,0.04,0,Common consonant and liturgical support
+grapheme,ⱏ,yer sign,0.68,0.62,0.62,0.74,0.5,0.72,0.78,0.04,0.12,0.08,0.04,0,Historic vowel sign and pronunciation policy needed

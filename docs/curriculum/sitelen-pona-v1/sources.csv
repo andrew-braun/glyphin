@@ -1,0 +1,6 @@
+id,kind,url,license,use,domain_weight,notes
+ucsur-sitelen-pona-reference,encoding_reference,https://www.kreativekorp.com/ucsur/charts/sitelen.html,terms require review before derived use,discovery_only,0.35,Private-use encoding discovery only; not a stable Unicode standard for shipped content
+nasin-nanpa-font-reference,font_reference,https://github.com/ETBCOR/nasin-nanpa,font license requires review before bundling,discovery_only,0.45,Glyph coverage and rendering discovery only until license and variant policy are approved
+lipu-linku-reference,lexicon_reference,https://linku.la/,terms and dataset licenses require review,discovery_only,0.55,Toki Pona word selection and community usage discovery only
+toki-pona-official-reference,pedagogy_reference,https://tokipona.org/,terms require review before derived use,discovery_only,0.45,Language and script context discovery only; do not copy examples or glyph art
+app-authored-sitelen-pona-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed glyph-ID sequences authored by GlyphBridge after font and glyph-license approvalid,kind,url,license,use,domain_weight,notes

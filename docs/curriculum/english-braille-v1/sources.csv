@@ -1,0 +1,6 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-braille-patterns,unicode_metadata,https://www.unicode.org/charts/PDF/U2800.pdf,Unicode License reviewed for metadata use,scoring,0.45,Unicode Braille Patterns metadata for code point inventory and rendering checks
+iceb-ueb-rules,standard,https://www.iceb.org/ueb.html,official standard terms require review,discovery_only,0.8,Unified English Braille rules reference with no copied tables in shipped lessons
+bana-resources,accessibility_reference,https://www.brailleauthority.org/,terms require review,discovery_only,0.6,Braille usage and accessibility guidance for United States contexts
+liblouis,translation_tool,https://liblouis.io/,LGPL terms require integration review,scoring_only,0.2,Translation checker for analysis only and not a shipped content source
+app-authored-braille-examples,authored_examples,,app_owned,shipped_content,0.95,Short uncontracted braille examples authored by GlyphBridge and checked by braille readers

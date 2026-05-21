@@ -1,0 +1,21 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ာ,aa vowel sign,0.9,0.86,0.8,0.88,0.84,0.74,0.7,0.02,0.06,0.02,0.03,0,High-frequency right-side vowel sign,0.7130,promising
+grapheme,က,k consonant,0.86,0.82,0.78,0.86,0.82,0.68,0.8,0.02,0.04,0.02,0.03,0,Core consonant for coffee and market words,0.7050,promising
+grapheme,မ,m consonant,0.82,0.78,0.72,0.78,0.82,0.58,0.8,0.02,0.04,0.02,0.03,0,Common base for rice food and place words,0.6580,promising
+grapheme,လ,l consonant,0.78,0.74,0.76,0.8,0.82,0.58,0.8,0.02,0.04,0.02,0.03,0,Useful for road and shop words,0.6460,promising
+grapheme,ရ,ra/ya-like consonant,0.84,0.8,0.78,0.9,0.72,0.62,0.78,0.04,0.06,0.03,0.03,0,High-payoff base for water and route words,0.6320,promising
+grapheme,တ,t consonant,0.78,0.74,0.7,0.76,0.82,0.58,0.78,0.02,0.04,0.02,0.03,0,Common base for rice and hotel words,0.6320,promising
+grapheme,အ,independent vowel carrier,0.78,0.74,0.7,0.78,0.74,0.72,0.82,0.03,0.08,0.03,0.03,0,Carrier letter needed for food and toilet words,0.5820,promising
+grapheme,ဆ,s consonant,0.68,0.64,0.74,0.82,0.78,0.62,0.8,0.03,0.06,0.02,0.03,0,Unlocks shop and hospital anchors,0.5650,promising
+grapheme,ေ,e vowel sign,0.78,0.74,0.8,0.88,0.78,0.82,0.66,0.03,0.12,0.03,0.04,0,Preposed vowel sign and major visual-order lesson,0.5630,promising
+grapheme,ိ,i vowel sign,0.72,0.68,0.68,0.74,0.82,0.7,0.68,0.02,0.08,0.02,0.04,0,Above vowel sign for coffee and closed words,0.5540,promising
+grapheme,ဝ,w consonant,0.66,0.62,0.68,0.72,0.76,0.58,0.8,0.03,0.05,0.02,0.03,0,Useful for enter and open signs,0.5400,promising
+grapheme,ု,u vowel sign,0.68,0.64,0.66,0.72,0.8,0.68,0.68,0.02,0.08,0.02,0.04,0,Below vowel sign for facility and road vocabulary,0.5250,promising
+grapheme,ဖ,ph/f consonant,0.58,0.54,0.7,0.78,0.72,0.62,0.8,0.03,0.06,0.03,0.03,0,Needed for tea and open words,0.4890,weak
+grapheme,ထ,ht consonant,0.58,0.54,0.66,0.7,0.74,0.58,0.78,0.03,0.06,0.02,0.03,0,Needed for exit and tea-shop vocabulary,0.4820,weak
+grapheme,်,asat killer mark,0.82,0.78,0.78,0.84,0.52,0.9,0.56,0.04,0.18,0.08,0.06,0,Essential for final consonants and closed syllables,0.4130,weak
+grapheme,ံ,anusvara sign,0.58,0.54,0.64,0.7,0.64,0.72,0.62,0.03,0.12,0.04,0.05,0,Nasal sign needs rendering and syllable metadata,0.3750,weak
+grapheme,း,tone mark visarga,0.6,0.56,0.68,0.74,0.58,0.78,0.62,0.04,0.14,0.05,0.04,0,Tone-like mark needed for signs and common words,0.3650,weak
+grapheme,့,tone mark auk myit,0.56,0.52,0.68,0.74,0.58,0.78,0.62,0.04,0.14,0.05,0.04,0,Common tone/creaky mark needs syllable-level metadata,0.3450,weak
+grapheme,ြ,medial ra sign,0.54,0.5,0.62,0.68,0.54,0.78,0.62,0.04,0.18,0.08,0.06,0,Medial shaping should wait until base syllables are stable,0.2260,weak
+grapheme,ျ,medial ya sign,0.5,0.46,0.58,0.64,0.56,0.76,0.62,0.04,0.18,0.08,0.06,0,Medial sign useful later for market and loanword chunks,0.1960,weak

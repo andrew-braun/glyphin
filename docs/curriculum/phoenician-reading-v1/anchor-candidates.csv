@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,𐤌𐤋𐤊,mlk king,0.72,0.84,0.78,0.78,0.72,0.58,0.78,0.86,0.44,0.08,0.04,0.04,0.02,0,Compact high-frequency inscription word
+anchor,𐤁𐤍,bn son,0.7,0.82,0.74,0.84,0.68,0.62,0.76,0.84,0.44,0.06,0.03,0.04,0,0,Common genealogical formula anchor
+anchor,𐤔𐤌,šm name,0.66,0.78,0.7,0.82,0.66,0.58,0.72,0.82,0.42,0.08,0.03,0.04,0,0,Useful museum label concept and short consonant skeleton
+anchor,𐤀𐤁,ʾb father,0.58,0.7,0.6,0.74,0.6,0.42,0.66,0.78,0.4,0.1,0.05,0.05,0,0,Short kinship anchor with alep caveat
+anchor,𐤁𐤕,bt house or daughter,0.62,0.74,0.64,0.76,0.62,0.58,0.68,0.78,0.4,0.1,0.04,0.08,0,0,Ambiguous gloss requires epigraphic review
+anchor,𐤀𐤋,ʾl god,0.62,0.76,0.66,0.76,0.66,0.4,0.74,0.82,0.4,0.1,0.05,0.05,0.04,0,Sacred term needs cultural context
+anchor,𐤁𐤏𐤋,bʿl lord or Baal,0.64,0.8,0.68,0.68,0.72,0.34,0.78,0.86,0.4,0.16,0.07,0.06,0.05,0,Important inscription term with deity context
+anchor,𐤀𐤓𐤑,ʾrṣ land,0.56,0.72,0.62,0.62,0.64,0.34,0.68,0.78,0.38,0.16,0.08,0.06,0,0,Adds sade and alep so it belongs after core letters
+anchor,𐤏𐤌,ʿm people,0.56,0.72,0.6,0.68,0.62,0.32,0.68,0.78,0.38,0.14,0.08,0.06,0,0,Useful short word but ayin pronunciation is hard
+anchor,𐤉𐤌,ym sea,0.5,0.66,0.54,0.68,0.56,0.54,0.62,0.76,0.36,0.1,0.04,0.05,0,0,Simple later anchor for yod and mem
+anchor,𐤊𐤋,kl all,0.54,0.66,0.56,0.76,0.58,0.62,0.62,0.74,0.36,0.06,0.03,0.05,0,0,Short utility word for kap and lamed review
+anchor,𐤀𐤌,ʾm mother,0.48,0.64,0.52,0.72,0.56,0.42,0.6,0.74,0.36,0.1,0.05,0.05,0,0,Kinship anchor and alep review

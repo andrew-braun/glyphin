@@ -1,0 +1,16 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,കട,shop,0.66,0.9,0.78,0.72,0.76,0.84,0.68,0.86,0.5,0.08,0.02,0.02,0,0,Compact first win for consonant bases and inherent vowel
+anchor,വില,price,0.62,0.9,0.74,0.68,0.7,0.84,0.68,0.82,0.5,0.08,0.02,0.02,0,0,Shopping anchor with short i sign and common consonants
+anchor,ചായ,tea,0.6,0.9,0.72,0.62,0.64,0.86,0.66,0.88,0.5,0.1,0.02,0.02,0,0,Short cafe anchor with long aa sign
+anchor,പാൽ,milk,0.64,0.9,0.76,0.58,0.78,0.86,0.7,0.88,0.5,0.14,0.02,0.02,0,0,Teaches long aa and chillu l in a short menu word
+anchor,അരി,rice,0.62,0.88,0.72,0.64,0.68,0.86,0.68,0.86,0.5,0.08,0.02,0.02,0,0,Food staple with independent vowel and i sign
+anchor,കാപ്പി,coffee,0.62,0.88,0.72,0.48,0.78,0.78,0.7,0.86,0.5,0.2,0.03,0.02,0,0,Cafe loanword but geminate ppa makes it Stage 2+
+anchor,അപ്പം,appam or bread,0.58,0.88,0.7,0.42,0.8,0.8,0.72,0.9,0.5,0.22,0.03,0.02,0,0,Food anchor with geminate pp and anusvara
+anchor,വെള്ളം,water,0.68,0.94,0.82,0.34,0.84,0.74,0.78,0.9,0.5,0.3,0.04,0.02,0,0,Survival word but ll conjunct and anusvara make it later
+anchor,ബസ്,bus,0.52,0.86,0.66,0.46,0.7,0.76,0.66,0.78,0.5,0.18,0.04,0.03,0,0,Transit loanword and chandrakkala endpoint
+anchor,ഹോട്ടൽ,hotel,0.56,0.88,0.7,0.42,0.72,0.78,0.7,0.82,0.5,0.24,0.03,0.02,0,0,Common sign loanword with o sign and chillu l
+anchor,മരുന്ന്,medicine,0.6,0.88,0.72,0.42,0.8,0.78,0.72,0.84,0.5,0.24,0.04,0.02,0,0,Useful pharmacy concept with geminate nn and final chandrakkala
+anchor,ട്രെയിൻ,train,0.54,0.88,0.7,0.28,0.82,0.72,0.72,0.82,0.5,0.34,0.05,0.04,0,0,Transit anchor but tra cluster and chillu n are high load
+anchor,പ്രവേശനം,entrance,0.52,0.9,0.72,0.32,0.84,0.76,0.76,0.82,0.5,0.32,0.04,0.02,0,0,High signage utility but pr cluster and long word make it late
+anchor,പുറത്ത്,exit or outside,0.52,0.88,0.7,0.34,0.82,0.74,0.74,0.82,0.5,0.3,0.04,0.03,0,0,Useful sign concept but doubled tta needs review
+anchor,ശൗചാലയം,toilet,0.46,0.88,0.66,0.28,0.8,0.72,0.72,0.8,0.5,0.34,0.04,0.03,0,0,Useful facility word but too many new signs for early lessons

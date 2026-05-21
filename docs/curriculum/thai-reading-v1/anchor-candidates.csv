@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,มาก,very / a lot,0.86,0.82,0.78,0.76,0.84,0.82,0.74,0.78,0.9,0.08,0.02,0.02,0,0,Runtime lesson 1 high payoff word for final k and long aa
+anchor,ดี,good,0.9,0.82,0.74,0.82,0.78,0.9,0.72,0.8,0.9,0.06,0.01,0.02,0,0,Runtime lesson 2 and above vowel intro
+anchor,กิน,to eat,0.88,0.94,0.82,0.78,0.84,0.88,0.78,0.86,0.9,0.08,0.01,0.02,0,0,Runtime lesson 3 and core food verb
+anchor,ตลาด,market,0.74,0.96,0.84,0.64,0.9,0.78,0.82,0.9,0.9,0.14,0.04,0.02,0,0,Runtime lesson 4 and hidden vowel plus market signage
+anchor,บิน,to fly,0.68,0.78,0.66,0.8,0.76,0.86,0.74,0.78,0.9,0.06,0.01,0.02,0,0,Runtime lesson 5 reuses the in frame
+anchor,แม่,mother,0.78,0.72,0.64,0.72,0.88,0.78,0.72,0.8,0.9,0.12,0.03,0.02,0,0,Runtime lesson 6 introduces before vowel and mai ek tone mark
+anchor,ร้าน,shop,0.82,0.96,0.88,0.72,0.9,0.8,0.82,0.92,0.9,0.1,0.03,0.02,0,0,Runtime lesson 7 and storefront anchor
+anchor,ชุด,set / combo,0.68,0.9,0.74,0.68,0.78,0.82,0.76,0.82,0.9,0.1,0.02,0.02,0,0,Runtime lesson 8 and below short u in menu contexts
+anchor,สิบ,ten,0.84,0.92,0.82,0.72,0.78,0.82,0.76,0.82,0.9,0.08,0.02,0.02,0,0,Runtime lesson 9 and price reading payoff
+anchor,ข้าว,rice,0.9,0.98,0.9,0.66,0.9,0.8,0.84,0.94,0.9,0.16,0.04,0.02,0,0,Runtime lesson 10 and essential Thai menu word
+anchor,หมู,pork,0.84,0.96,0.86,0.62,0.92,0.76,0.84,0.94,0.9,0.18,0.05,0.02,0,0,Runtime lesson 11 and leading H pattern
+anchor,อาหาร,food,0.86,0.96,0.9,0.58,0.94,0.72,0.86,0.9,0.9,0.2,0.06,0.03,0,0,Runtime lesson 12 and silent carrier plus final r to n
+anchor,ผัด,stir-fry,0.8,0.98,0.86,0.68,0.84,0.82,0.82,0.94,0.9,0.12,0.03,0.02,0,0,Runtime lesson 13 and high value cooking word
+anchor,ผัก,vegetable,0.78,0.94,0.82,0.72,0.78,0.82,0.78,0.9,0.75,0.1,0.02,0.02,0,0,Runtime support word for ผัด and menu expansion
+anchor,ออก,exit / go out,0.78,0.94,0.82,0.62,0.86,0.72,0.8,0.86,0.75,0.16,0.05,0.03,0,0,Runtime support word and public wayfinding gap
+anchor,ร้านอาหาร,restaurant,0.82,0.98,0.9,0.5,0.9,0.72,0.86,0.94,0.75,0.24,0.06,0.03,0,0,High payoff compound assembled from runtime anchors

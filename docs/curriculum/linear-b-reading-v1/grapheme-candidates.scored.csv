@@ -1,0 +1,18 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,𐀏,ka syllabogram,0.78,0.72,0.72,0.84,0.7,0.68,0.84,0.03,0.06,0.04,0.05,0,High-payoff in ka-ko and wa-na-ka,0.5700,promising
+grapheme,𐀙,na syllabogram,0.76,0.7,0.7,0.82,0.72,0.64,0.84,0.03,0.05,0.04,0.05,0,Common syllable and strong anchor availability,0.5630,promising
+grapheme,𐀒,ko syllabogram,0.72,0.66,0.7,0.8,0.7,0.64,0.84,0.03,0.06,0.04,0.05,0,Useful in bronze and Knossos anchors,0.5290,promising
+grapheme,𐀀,a syllabogram,0.72,0.66,0.6,0.72,0.74,0.58,0.82,0.03,0.05,0.04,0.05,0,Core open vowel and early syllabary concept,0.5130,promising
+grapheme,𐀴,ti syllabogram,0.7,0.64,0.64,0.76,0.72,0.62,0.84,0.03,0.06,0.04,0.05,0,High-payoff syllable in Potnia and tripod,0.5060,promising
+grapheme,𐀡,po syllabogram,0.68,0.62,0.64,0.76,0.7,0.62,0.84,0.03,0.06,0.04,0.05,0,Useful in po-ti-ni-ja and ti-ri-po,0.4940,weak
+grapheme,𐀷,wa syllabogram,0.66,0.6,0.66,0.76,0.66,0.64,0.86,0.03,0.08,0.05,0.05,0,Important for wa-na-ka but value needs review,0.4560,weak
+grapheme,𐀛,ni syllabogram,0.64,0.58,0.58,0.68,0.72,0.58,0.84,0.03,0.06,0.04,0.05,0,Useful in po-ti-ni-ja,0.4550,weak
+grapheme,𐀞,pa syllabogram,0.62,0.56,0.56,0.66,0.72,0.56,0.84,0.03,0.06,0.04,0.05,0,Useful in pa-ka-na and administrative words,0.4380,weak
+grapheme,𐀵,to syllabogram,0.6,0.56,0.54,0.62,0.72,0.54,0.84,0.03,0.06,0.04,0.05,0,Useful for a-to-ro-qo and tablet terms,0.4230,weak
+grapheme,𐀰,so syllabogram,0.56,0.52,0.54,0.62,0.72,0.54,0.84,0.03,0.06,0.04,0.05,0,Useful in Knossos anchor after ko and no,0.4030,weak
+grapheme,𐀜,no syllabogram,0.56,0.52,0.54,0.62,0.72,0.54,0.84,0.03,0.06,0.04,0.05,0,Useful in Knossos anchor after core syllables,0.4030,weak
+grapheme,𐀪,ri syllabogram,0.58,0.54,0.54,0.62,0.66,0.56,0.84,0.03,0.07,0.05,0.05,0,Linear B r and l conventions need explicit review,0.3890,weak
+grapheme,𐀨,ra syllabogram,0.58,0.54,0.52,0.6,0.66,0.56,0.84,0.03,0.07,0.05,0.05,0,r and l convention makes this a later unit,0.3840,weak
+grapheme,𐀆,de syllabogram,0.54,0.5,0.5,0.56,0.7,0.52,0.84,0.03,0.06,0.04,0.05,0,Late support for ti-ri-po-de style forms,0.3770,weak
+grapheme,𐀊,ja syllabogram,0.56,0.52,0.54,0.64,0.58,0.58,0.86,0.03,0.08,0.05,0.05,0,Final value in Potnia anchor and yod-like convention caveat,0.3660,weak
+grapheme,𐀦,qo syllabogram,0.52,0.48,0.5,0.58,0.5,0.6,0.86,0.03,0.1,0.06,0.05,0,Special labiovelar convention has high explanation load,0.2980,weak

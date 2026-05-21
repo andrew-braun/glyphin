@@ -1,0 +1,15 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,𐑞,voiced th / they,0.92,0.88,0.8,0.84,0.78,0.78,0.82,0.04,0.08,0.04,0.08,0,High-frequency English sound but dialect and function-word use need review
+grapheme,𐑑,t / tot,0.88,0.84,0.78,0.86,0.82,0.72,0.8,0.04,0.06,0.02,0.08,0,Common consonant and strong anchor availability
+grapheme,𐑒,k / kick,0.84,0.8,0.76,0.82,0.82,0.7,0.82,0.04,0.06,0.02,0.08,0,Useful for cafe and taxi anchors
+grapheme,𐑕,s / so,0.82,0.78,0.72,0.8,0.82,0.68,0.82,0.04,0.06,0.02,0.08,0,Common consonant in signs and public labels
+grapheme,𐑯,n / nun,0.78,0.74,0.68,0.76,0.82,0.66,0.82,0.04,0.06,0.02,0.08,0,Useful for open and common English anchors
+grapheme,𐑦,short i / if,0.8,0.76,0.7,0.78,0.78,0.7,0.82,0.04,0.08,0.03,0.08,0,Core vowel letter with strong word coverage
+grapheme,𐑧,short e / egg,0.76,0.72,0.66,0.74,0.78,0.68,0.82,0.04,0.08,0.03,0.08,0,Useful for exit and spelling contrast
+grapheme,𐑨,ash vowel,0.7,0.66,0.62,0.72,0.7,0.68,0.84,0.04,0.1,0.04,0.08,0,Dialect-sensitive vowel but useful for taxi
+grapheme,𐑩,schwa / ado,0.86,0.82,0.7,0.76,0.58,0.78,0.76,0.04,0.14,0.08,0.08,0,Very frequent but conceptually high-load for beginners
+grapheme,𐑰,ee / eat,0.72,0.68,0.64,0.74,0.78,0.66,0.82,0.04,0.08,0.03,0.08,0,Useful for taxi and clear long-vowel contrast
+grapheme,𐑷,awe vowel,0.62,0.58,0.56,0.62,0.64,0.6,0.82,0.04,0.12,0.06,0.08,0,Dialect-sensitive vowel in water-like anchors
+grapheme,𐑖,sh / sure,0.58,0.56,0.54,0.7,0.82,0.58,0.86,0.03,0.06,0.02,0.08,0,Script-name gateway and visually distinct
+grapheme,𐑱,age vowel,0.58,0.56,0.54,0.66,0.74,0.58,0.82,0.04,0.1,0.04,0.08,0,Useful in Shavian name but dialect-sensitive
+grapheme,𐑼,r-colored schwa,0.64,0.6,0.58,0.62,0.5,0.7,0.76,0.04,0.16,0.08,0.08,0,R-colored vowel needs chosen English accent policycandidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes

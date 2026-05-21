@@ -1,0 +1,85 @@
+{
+	"course_id": "sitelen-pona-v1",
+	"display_name": "Sitelen Pona Reading",
+	"language_tag": "tok-Zsym",
+	"script": "Zsym",
+	"direction": "ltr",
+	"target_domains": [
+		"community_learning_materials",
+		"short_app_authored_sentences",
+		"glyph_identity_drills",
+		"constructed_script_culture",
+		"font_rendering_tests"
+	],
+	"normalization": {
+		"unicode_form": "none",
+		"preserve_original": true,
+		"notes": "Sitelen pona has no universally accepted standard Unicode encoding for shipped text in this bootstrap. Store reviewed glyph IDs and preserve any source font or PUA strings only as audit artifacts until an encoding and font policy is approved."
+	},
+	"segmentation": {
+		"baseline": "custom_glyph_id_sequence",
+		"word_segmenter": "toki_pona_token_sequence_with_glyph_review",
+		"grapheme_segmenter": "reviewed_glyph_ids_not_codepoints",
+		"pedagogical_units": "sitelen pona glyph IDs, compounds, cartouches if approved, punctuation policy, and Toki Pona word chunks",
+		"notes": "Treat glyph identity separately from any particular font. Do not ship PUA or font-specific codepoints until licensing, accessibility, and rendering are reviewed."
+	},
+	"sources": [
+		{
+			"id": "ucsur-sitelen-pona-reference",
+			"kind": "encoding_reference",
+			"url": "https://www.kreativekorp.com/ucsur/charts/sitelen.html",
+			"license": "terms require review before derived use",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Private-use encoding discovery only. Do not treat as a stable Unicode standard for shipped content."
+		},
+		{
+			"id": "nasin-nanpa-font-reference",
+			"kind": "font_reference",
+			"url": "https://github.com/ETBCOR/nasin-nanpa",
+			"license": "font license requires review before bundling",
+			"use": "discovery_only",
+			"domain_weight": 0.45,
+			"notes": "Useful for glyph coverage and rendering tests. Confirm license and variant policy before use."
+		},
+		{
+			"id": "lipu-linku-reference",
+			"kind": "lexicon_reference",
+			"url": "https://linku.la/",
+			"license": "terms and dataset licenses require review",
+			"use": "discovery_only",
+			"domain_weight": 0.55,
+			"notes": "Useful for Toki Pona word selection and community usage. Keep discovery-only until license and attribution are approved."
+		},
+		{
+			"id": "toki-pona-official-reference",
+			"kind": "pedagogy_reference",
+			"url": "https://tokipona.org/",
+			"license": "terms require review before derived use",
+			"use": "discovery_only",
+			"domain_weight": 0.45,
+			"notes": "Discovery source for language and script context. Do not copy examples or glyph art into shipped content."
+		},
+		{
+			"id": "app-authored-sitelen-pona-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short Toki Pona sentences and glyph-ID sequences authored by GlyphBridge after font and glyph-license approval."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": false,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true
+	}
+}

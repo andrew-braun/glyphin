@@ -1,0 +1,25 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes
+grapheme,अ,inherent vowel a and independent a,0.92,0.9,0.86,0.9,0.82,0.95,0.82,0.02,0.04,0.04,0,0,Core abugida gateway; every bare consonant needs inherent vowel review
+grapheme,आ / ा,aa vowel and matra,0.86,0.82,0.82,0.88,0.9,0.88,0.84,0.02,0.06,0.02,0,0,High payoff in पानी चाय बाज़ार
+grapheme,इ / ि,i vowel and pre-base matra,0.76,0.72,0.72,0.78,0.86,0.9,0.62,0.04,0.1,0.02,0,0,Pre-base matra introduces visual order versus sound order
+grapheme,ई / ी,ii vowel and matra,0.72,0.68,0.66,0.72,0.88,0.74,0.76,0.03,0.07,0.01,0,0,Useful for पानी and Hindi labels
+grapheme,उ / ु,u vowel and matra,0.68,0.64,0.62,0.7,0.86,0.72,0.7,0.04,0.08,0.02,0,0,Matra appears below consonant and needs font-size testing
+grapheme,ए / े,e vowel and matra,0.72,0.7,0.72,0.76,0.9,0.76,0.74,0.03,0.06,0.01,0,0,Common in रेल स्टेशन होटल
+grapheme,ओ / ो,o vowel and matra,0.68,0.66,0.68,0.72,0.9,0.76,0.76,0.03,0.06,0.01,0,0,Useful for होटल रोड खोलें
+grapheme,क,k consonant base,0.84,0.82,0.78,0.84,0.9,0.82,0.78,0.03,0.04,0.01,0,0,High frequency base with clear anchor availability
+grapheme,न,n consonant base,0.86,0.84,0.78,0.84,0.9,0.78,0.78,0.04,0.04,0.01,0,0,Common nasal for नाम पानी बंद
+grapheme,प,p consonant base,0.78,0.76,0.78,0.82,0.9,0.74,0.8,0.03,0.04,0.01,0,0,High menu and public-word payoff
+grapheme,म,m consonant base,0.78,0.76,0.72,0.8,0.9,0.72,0.82,0.03,0.04,0.01,0,0,Common and visually stable
+grapheme,र,r consonant base,0.84,0.82,0.8,0.84,0.78,0.84,0.72,0.06,0.08,0.03,0,0,Gateway to repha and rakar later; base form early
+grapheme,ल,l consonant base,0.72,0.7,0.7,0.76,0.9,0.68,0.78,0.03,0.04,0.01,0,0,Useful in रेल होटल खुला
+grapheme,द,d consonant base,0.76,0.74,0.72,0.78,0.86,0.7,0.76,0.04,0.05,0.02,0,0,Dental stop needs contrast from ड later
+grapheme,ब,b consonant base,0.74,0.72,0.72,0.78,0.9,0.7,0.78,0.04,0.05,0.01,0,0,Needed for बस बंद बाज़ार
+grapheme,स,s consonant base,0.82,0.8,0.82,0.84,0.9,0.74,0.74,0.04,0.05,0.01,0,0,High sign payoff in स्टेशन स्कूल बस
+grapheme,ह,h consonant base,0.72,0.7,0.68,0.72,0.88,0.66,0.78,0.03,0.04,0.01,0,0,Useful for हिंदी होटल हाथ and aspiration awareness
+grapheme,य,y consonant base,0.68,0.66,0.64,0.7,0.86,0.62,0.76,0.03,0.04,0.01,0,0,Useful in चाय and compounds
+grapheme,च,ch consonant base,0.62,0.58,0.62,0.68,0.88,0.6,0.8,0.04,0.04,0.01,0,0,Strong menu anchor in चाय
+grapheme,ट,retroflex t base,0.6,0.58,0.66,0.72,0.72,0.7,0.8,0.08,0.08,0.04,0,0,Needed for होटल स्टेशन and retroflex contrast
+grapheme,ं,anusvara nasal sign,0.62,0.6,0.62,0.66,0.68,0.78,0.7,0.04,0.1,0.08,0,0,Common nasal marker but pronunciation depends on context
+grapheme,्,virama halant,0.58,0.56,0.62,0.7,0.72,0.94,0.62,0.04,0.16,0.06,0.02,0,0,Suppresses inherent vowel and enables conjuncts
+grapheme,क्ष,ksha conjunct,0.34,0.3,0.42,0.52,0.64,0.72,0.68,0.06,0.18,0.08,0.04,0,0,Late conjunct exemplar for syllable segmentation
+grapheme,़,nukta mark,0.34,0.32,0.46,0.58,0.72,0.76,0.58,0.04,0.14,0.06,0.02,0,0,Needed for loan sounds in बाज़ार and फ़ोन style words

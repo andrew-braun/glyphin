@@ -1,0 +1,25 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,space,word separator,0.95,0.92,0.9,0.95,0.95,0.8,0.7,0.02,0.02,0,0,0,Spacing is part of braille reading not decoration,0.8690,strong
+grapheme,⠑,e dots 15,0.94,0.9,0.84,0.94,0.92,0.7,0.78,0.05,0.04,0,0.04,0,High-frequency English letter and exit anchor gateway,0.7530,strong
+grapheme,⠁,a dot 1,0.92,0.88,0.82,0.92,0.92,0.68,0.78,0.04,0.04,0,0.04,0,First letter of the braille alphabet and core cell,0.7460,promising
+grapheme,⠕,o dots 135,0.88,0.84,0.8,0.88,0.92,0.62,0.78,0.05,0.04,0,0.04,0,Open food room and door anchors,0.7030,promising
+grapheme,⠊,i dots 24,0.86,0.82,0.78,0.88,0.92,0.64,0.78,0.05,0.04,0,0.04,0,High-frequency letter and exit lift anchors,0.6920,promising
+grapheme,⠞,t dots 2345,0.86,0.82,0.8,0.86,0.9,0.62,0.76,0.05,0.04,0,0.04,0,Tea toilet train and exit support,0.6880,promising
+grapheme,⠗,r dots 1235,0.84,0.8,0.78,0.84,0.9,0.6,0.76,0.05,0.04,0,0.04,0,Room train and water anchors,0.6710,promising
+grapheme,⠎,s dots 234,0.82,0.78,0.76,0.84,0.9,0.6,0.76,0.05,0.04,0,0.04,0,Bus yes and signage support,0.6580,promising
+grapheme,⠝,n dots 1345,0.82,0.78,0.74,0.82,0.9,0.6,0.76,0.05,0.04,0,0.04,0,High-frequency English letter and no anchor,0.6530,promising
+grapheme,⠃,b dots 12,0.78,0.74,0.7,0.78,0.9,0.62,0.76,0.05,0.04,0,0.04,0,Core early letter and tactile pattern extension from a,0.6250,promising
+grapheme,⠇,l dots 123,0.78,0.74,0.72,0.78,0.9,0.58,0.76,0.05,0.04,0,0.04,0,Lift and label anchor support,0.6240,promising
+grapheme,⠉,c dots 14,0.76,0.72,0.72,0.8,0.9,0.62,0.76,0.05,0.04,0,0.04,0,Useful for cat and cafe anchors,0.6200,promising
+grapheme,⠍,m dots 134,0.74,0.7,0.68,0.76,0.9,0.58,0.76,0.05,0.04,0,0.04,0,Menu and medicine-domain support,0.5960,promising
+grapheme,⠙,d dots 145,0.72,0.68,0.68,0.74,0.9,0.6,0.76,0.05,0.04,0,0.04,0,Core first-decade cell,0.5860,promising
+grapheme,⠋,f dots 124,0.68,0.64,0.66,0.72,0.9,0.58,0.76,0.05,0.05,0,0.04,0,Food and facility anchor support,0.5490,promising
+grapheme,⠓,h dots 125,0.7,0.66,0.62,0.7,0.9,0.56,0.76,0.05,0.05,0,0.04,0,Useful for help and haptic naming,0.5490,promising
+grapheme,⠏,p dots 1234,0.68,0.64,0.66,0.7,0.9,0.56,0.76,0.05,0.05,0,0.04,0,Open and public labels,0.5450,promising
+grapheme,⠛,g dots 1245,0.64,0.6,0.58,0.66,0.9,0.56,0.76,0.05,0.05,0,0.04,0,Early word-family extension from f and d,0.5090,promising
+grapheme,⠠,capital indicator,0.6,0.56,0.66,0.72,0.9,0.82,0.72,0.04,0.1,0.02,0.04,0,Needed for signs like EXIT but not a letter,0.4710,weak
+grapheme,⠅,k dots 13,0.56,0.52,0.5,0.58,0.9,0.52,0.76,0.05,0.05,0,0.04,0,Useful in okay and navigation words,0.4450,weak
+grapheme,⠼,number indicator,0.58,0.54,0.66,0.68,0.9,0.82,0.72,0.04,0.12,0.02,0.04,0,Needed for room and elevator labels,0.4370,weak
+grapheme,⠚,j dots 245,0.46,0.42,0.38,0.48,0.88,0.52,0.76,0.05,0.05,0,0.04,0,Lower early utility but completes first decade,0.3650,weak
+grapheme,⠲,period cell,0.52,0.48,0.46,0.5,0.9,0.5,0.72,0.05,0.08,0.02,0.04,0,Useful for labels and abbreviations after core letters,0.3570,weak
+grapheme,⠂,comma cell,0.5,0.46,0.42,0.48,0.9,0.5,0.72,0.05,0.08,0.02,0.04,0,Punctuation can wait until words are stable,0.3390,weak

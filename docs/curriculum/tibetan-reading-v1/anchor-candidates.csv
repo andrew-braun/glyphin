@@ -1,0 +1,16 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,ཇ,tea,0.5,0.9,0.72,0.9,0.52,0.72,0.62,0.9,0.45,0.04,0.03,0.02,0,0,Compact tea-house anchor with one visible syllable
+anchor,ཆུ,water,0.66,0.95,0.82,0.76,0.68,0.78,0.7,0.88,0.45,0.08,0.03,0.02,0,0,High survival utility and introduces below vowel sign
+anchor,ལམ,road / path,0.68,0.88,0.76,0.72,0.62,0.74,0.66,0.82,0.45,0.08,0.04,0.02,0,0,Useful wayfinding word with compact consonant sequence
+anchor,ཁང,house / building,0.62,0.82,0.72,0.66,0.66,0.64,0.68,0.78,0.45,0.1,0.05,0.03,0,0,Common compound element for shops and facilities
+anchor,ཟ་ཁང,restaurant / eating house,0.58,0.92,0.78,0.58,0.78,0.68,0.74,0.86,0.45,0.14,0.05,0.03,0,0,Strong menu anchor and clear tsheg-syllable compound
+anchor,ཇ་ཁང,tea house,0.54,0.86,0.72,0.62,0.74,0.68,0.7,0.86,0.45,0.12,0.05,0.03,0,0,Pairs with tea and building after both units are known
+anchor,སྒོ,door,0.5,0.84,0.7,0.42,0.82,0.48,0.76,0.8,0.45,0.22,0.08,0.04,0,0,Useful sign word but needs stacked-letter support
+anchor,ནང,inside,0.58,0.76,0.62,0.62,0.62,0.64,0.62,0.68,0.45,0.1,0.05,0.04,0,0,Useful direction word after final nga pattern
+anchor,ཕྱི,outside,0.46,0.76,0.58,0.34,0.76,0.42,0.66,0.7,0.45,0.26,0.08,0.04,0,0,High stack load makes this late despite wayfinding utility
+anchor,བོད,Tibet / Tibetan,0.64,0.82,0.7,0.54,0.7,0.54,0.72,0.84,0.45,0.16,0.07,0.04,0,0,Identity and signage anchor with written-pronounced mismatch
+anchor,དགོན་པ,monastery,0.5,0.9,0.72,0.36,0.84,0.44,0.76,0.86,0.45,0.28,0.1,0.04,0,0,Essential cultural-site anchor but too complex for early lessons
+anchor,སློབ་གྲྭ,school,0.5,0.82,0.66,0.28,0.86,0.38,0.72,0.78,0.45,0.32,0.12,0.04,0,0,Dense stacked form belongs in late cluster review
+anchor,མགྲོན་ཁང,guest house / hotel,0.46,0.88,0.7,0.28,0.84,0.38,0.74,0.82,0.45,0.34,0.12,0.04,0,0,High facility utility but requires stack and silent-prefix review
+anchor,འགྲོ,go,0.7,0.72,0.6,0.34,0.82,0.42,0.7,0.7,0.45,0.28,0.1,0.05,0,0,Common verb form with stack behavior; not first-session material
+anchor,ཨང,number,0.48,0.78,0.62,0.54,0.6,0.64,0.62,0.74,0.45,0.14,0.05,0.04,0,0,Useful for labels and counters after syllable structure is stable

@@ -1,0 +1,17 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ⲡⲉ,is or he,0.72,0.72,0.62,0.86,0.6,0.78,0.62,0.72,0.44,0.04,0.03,0.06,0,0,Very common but grammatical gloss needs specialist framing,0.5748,promising
+anchor,ⲙⲟⲟⲩ,water,0.62,0.78,0.7,0.78,0.58,0.78,0.68,0.82,0.46,0.08,0.02,0.03,0,0,Compact high-frequency word with early vowel payoff,0.5712,promising
+anchor,ⲧⲉ,is or she,0.68,0.7,0.6,0.86,0.6,0.78,0.62,0.72,0.44,0.04,0.03,0.06,0,0,Pairs with ⲡⲉ and introduces article-like ambiguity,0.5592,promising
+anchor,ⲣⲱⲙⲉ,person,0.64,0.76,0.68,0.72,0.58,0.76,0.68,0.8,0.46,0.1,0.02,0.03,0,0,Common reading anchor and long-vowel gateway,0.5380,promising
+anchor,ⲛⲁⲩ,see,0.58,0.72,0.62,0.76,0.58,0.76,0.64,0.76,0.44,0.08,0.02,0.03,0,0,Short verb anchor with ⲁⲩ sequence,0.5292,promising
+anchor,ⲙⲁⲁⲩ,mother,0.5,0.68,0.56,0.74,0.58,0.76,0.62,0.78,0.44,0.08,0.02,0.03,0,0,Kinship word with repeated vowel pattern,0.4916,weak
+anchor,ⲥⲱⲧⲙ,hear,0.56,0.72,0.62,0.64,0.64,0.74,0.66,0.78,0.44,0.12,0.02,0.03,0,0,Common verb and long-vowel review,0.4744,weak
+anchor,ⲁⲛⲟⲕ,I,0.58,0.7,0.6,0.7,0.62,0.76,0.64,0.78,0.44,0.12,0.02,0.04,0,0,Common pronoun but grammar explanation needed,0.4688,weak
+anchor,ⲏⲓ,house,0.46,0.68,0.54,0.72,0.56,0.72,0.6,0.74,0.42,0.08,0.02,0.03,0,0,Compact noun but lower target confidence,0.4684,weak
+anchor,ⲥⲱⲛ,brother,0.5,0.66,0.56,0.7,0.58,0.76,0.62,0.76,0.44,0.1,0.02,0.03,0,0,Short kinship and long-vowel anchor,0.4616,weak
+anchor,ⲉⲓⲱⲧ,father,0.5,0.68,0.56,0.66,0.62,0.74,0.62,0.78,0.44,0.12,0.02,0.03,0,0,Kinship word and ⲱ review,0.4428,weak
+anchor,ⲟⲩⲱⲙ,eat,0.54,0.7,0.6,0.62,0.68,0.72,0.64,0.78,0.44,0.14,0.02,0.03,0,0,Common verb and ⲟⲩ plus ⲱ review,0.4416,weak
+anchor,ⲡⲛⲟⲩⲧⲉ,God,0.66,0.86,0.72,0.56,0.72,0.78,0.76,0.86,0.46,0.18,0.03,0.05,0.02,0,High liturgical payoff but cultural review required,0.4372,weak
+anchor,ⲟⲩⲟⲉⲓⲛ,light,0.56,0.78,0.64,0.58,0.7,0.72,0.7,0.82,0.44,0.18,0.03,0.04,0,0,Useful thematic anchor with ⲟⲩ chunk,0.4084,weak
+anchor,ⲁⲅⲁⲡⲏ,love,0.48,0.72,0.58,0.58,0.68,0.72,0.66,0.84,0.42,0.16,0.03,0.04,0,0,Greek loan anchor with cultural and pronunciation review,0.3864,weak
+anchor,ⲛⲧⲟⲕ,you masculine,0.52,0.68,0.58,0.62,0.64,0.72,0.64,0.76,0.42,0.16,0.03,0.05,0,0,Pronoun anchor with dialect and gender notes,0.3752,weak

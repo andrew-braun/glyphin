@@ -1,0 +1,21 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,לא,no,0.84,0.9,0.78,0.9,0.72,0.8,0.7,0.78,0.5,0.04,0.03,0.02,0,0,Compact survival word and first RTL win
+anchor,מים,water,0.74,0.96,0.84,0.72,0.82,0.82,0.72,0.9,0.5,0.08,0.03,0.02,0,0,High survival utility and final mem payoff
+anchor,קפה,coffee,0.68,0.92,0.78,0.62,0.72,0.84,0.68,0.9,0.5,0.1,0.03,0.02,0,0,Common cafe anchor with qof pe and final he
+anchor,שלום,hello or peace,0.76,0.84,0.72,0.58,0.78,0.78,0.72,0.9,0.5,0.14,0.03,0.04,0,0,Culturally familiar word with shin vav and final mem
+anchor,כן,yes,0.82,0.86,0.72,0.58,0.78,0.78,0.68,0.76,0.5,0.12,0.03,0.04,0,0,Short high-frequency word but final nun and kaf need setup
+anchor,שוק,market,0.62,0.9,0.74,0.68,0.64,0.84,0.66,0.84,0.5,0.08,0.02,0.03,0,0,Useful market sign word with vav and qof
+anchor,לחם,bread,0.58,0.9,0.7,0.66,0.62,0.68,0.66,0.88,0.5,0.1,0.03,0.03,0,0,Menu anchor with final mem and het
+anchor,חלב,milk,0.58,0.88,0.68,0.7,0.62,0.68,0.66,0.86,0.5,0.08,0.03,0.03,0,0,Short food word and useful het bet review
+anchor,מחיר,price,0.6,0.9,0.74,0.62,0.72,0.7,0.7,0.82,0.5,0.1,0.03,0.03,0,0,Shopping anchor with yod as vowel marker
+anchor,רחוב,street,0.62,0.9,0.74,0.58,0.72,0.66,0.7,0.8,0.5,0.12,0.04,0.03,0,0,High signage utility and vav vowel-marker practice
+anchor,מסעדה,restaurant,0.58,0.94,0.76,0.46,0.78,0.64,0.74,0.88,0.5,0.2,0.05,0.03,0,0,Essential but longer and includes ayin
+anchor,כניסה,entrance,0.58,0.92,0.76,0.5,0.82,0.7,0.74,0.84,0.5,0.16,0.04,0.03,0,0,Pairs naturally with exit and teaches kaf nun samekh
+anchor,יציאה,exit,0.58,0.94,0.78,0.48,0.82,0.7,0.76,0.86,0.5,0.18,0.04,0.03,0,0,Essential sign word but tsadi and alef sequence add load
+anchor,תחנה,station,0.58,0.9,0.72,0.58,0.7,0.7,0.7,0.82,0.5,0.14,0.03,0.03,0,0,Transit anchor with tav het nun he
+anchor,מונית,taxi,0.56,0.9,0.7,0.64,0.62,0.76,0.66,0.84,0.5,0.1,0.03,0.03,0,0,Travel word and matres lectionis review
+anchor,אוטובוס,bus,0.56,0.9,0.7,0.48,0.72,0.72,0.7,0.82,0.5,0.18,0.04,0.03,0,0,Familiar transit word but long and vowel-letter heavy
+anchor,פתוח,open,0.54,0.9,0.7,0.5,0.78,0.68,0.72,0.8,0.5,0.18,0.04,0.03,0,0,Common storefront sign and pair with closed
+anchor,סגור,closed,0.54,0.9,0.7,0.52,0.78,0.72,0.72,0.8,0.5,0.16,0.03,0.03,0,0,Pairs with open and introduces gimel
+anchor,שירותים,restrooms,0.56,0.94,0.76,0.42,0.78,0.7,0.76,0.88,0.5,0.24,0.04,0.03,0,0,Essential facility word but long and suffix-heavy
+anchor,מלון,hotel,0.54,0.88,0.68,0.64,0.62,0.76,0.66,0.82,0.5,0.1,0.03,0.03,0,0,Useful travel word and final nun review

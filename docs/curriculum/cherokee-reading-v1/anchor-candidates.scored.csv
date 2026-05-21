@@ -1,0 +1,11 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ᎣᏏᏲ,hello,0.74,0.94,0.8,0.74,0.72,0.74,0.86,0.92,0.48,0.1,0.03,0.02,0.02,0,High-value greeting anchor; spelling and dialect must be confirmed by reviewer,0.6228,promising
+anchor,ᏩᏙ,thank you,0.68,0.92,0.72,0.78,0.64,0.72,0.84,0.9,0.48,0.08,0.03,0.02,0.02,0,Compact gratitude anchor with strong community-use payoff,0.6072,promising
+anchor,ᎠᎹ,water,0.62,0.86,0.66,0.72,0.58,0.72,0.76,0.82,0.42,0.08,0.03,0.02,0.02,0,Compact survival noun candidate requiring pronunciation review,0.5500,promising
+anchor,ᏣᎳᎩ,Cherokee,0.72,0.9,0.78,0.58,0.82,0.68,0.9,0.88,0.48,0.16,0.04,0.03,0.04,0,Identity word and course-name anchor; treat with cultural review,0.4916,weak
+anchor,ᎠᏂ,they / people marker candidate,0.5,0.58,0.48,0.62,0.52,0.62,0.74,0.58,0.34,0.08,0.05,0.06,0.02,0,Grammar-sensitive candidate; reviewer must decide if it belongs in reading v1,0.3440,weak
+anchor,ᎩᎦᎨ,red,0.52,0.64,0.5,0.48,0.58,0.66,0.64,0.66,0.38,0.16,0.04,0.04,0.02,0,Color-word candidate with repeated ga-series review,0.3000,weak
+anchor,ᎤᏁᎦ,white,0.52,0.62,0.5,0.5,0.58,0.66,0.64,0.64,0.38,0.16,0.04,0.04,0.02,0,Color word useful for signs but lower practical utility,0.2984,weak
+anchor,ᎢᎬᏱ,first / ahead candidate,0.44,0.56,0.46,0.34,0.56,0.56,0.68,0.58,0.3,0.24,0.06,0.06,0.02,0,Useful only if community labels support it,0.1096,weak
+anchor,ᎠᎦᏙᎲᏍᏗ,information / knowledge candidate,0.42,0.7,0.58,0.28,0.7,0.54,0.82,0.72,0.3,0.32,0.08,0.06,0.04,0,Long public-label candidate; defer until expert confirms form and domain fit,0.0476,weak
+anchor,ᏗᎪᏪᎶᏗ,writing / text candidate,0.4,0.68,0.54,0.26,0.72,0.52,0.82,0.76,0.28,0.34,0.08,0.06,0.04,0,Script-identity anchor candidate; keep late and expert-reviewedcandidate_type,0.0120,weak

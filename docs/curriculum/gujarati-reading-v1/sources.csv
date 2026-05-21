@@ -1,0 +1,9 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-gujarati-block,unicode_metadata,https://www.unicode.org/charts/PDF/U0A80.pdf,Unicode License reviewed for metadata use,scoring,0.4,Gujarati metadata for letters signs virama nukta and digits
+cldr-gu-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.5,Gujarati exemplar characters and locale behavior
+wordfreq-gu,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.5,Broad Gujarati frequency intuition only
+indic-nlp-library-gu,tokenizer_transliteration_tool,https://github.com/anoopkunchukuttan/indic_nlp_library,MIT package license reviewed for tooling use,discovery_only,0.1,Normalization and transliteration tooling only
+dakshina-gu,transliteration_pronunciation_dataset,https://github.com/google-research-datasets/dakshina,CC BY-SA 4.0; attribution and share-alike review required,discovery_only,0.3,Romanization and pronunciation discovery only
+gu-wiktionary,lexicon,https://gu.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.4,Gloss and spelling discovery only
+openstreetmap-gujarat-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.75,Place transit commerce and public-signage validation only
+app-authored-gujarati-domain-examples,authored_examples,,app_owned,shipped_content,0.95,Reviewed examples authored by GlyphBridge

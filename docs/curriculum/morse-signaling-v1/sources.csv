@@ -1,0 +1,5 @@
+id,kind,url,license,use,domain_weight,notes
+itu-morse-m1677,standard,https://www.itu.int/rec/R-REC-M.1677/,ITU terms require review,discovery_only,0.8,International Morse reference for code assignments and spacing concepts with no copied tables in shipped lessons
+unicode-symbol-metadata,unicode_metadata,https://www.unicode.org/charts/,Unicode License reviewed for metadata use,scoring,0.2,Symbol metadata for display choices such as dot hyphen slash and timing labels
+arrl-morse-learning,radio_reference,https://www.arrl.org/learning-morse-code,terms require review,discovery_only,0.45,Radio-learning context and practice conventions kept discovery-only until terms are approved
+app-authored-morse-exercises,authored_examples,,app_owned,shipped_content,0.95,Short dot-dash and future timed exercises authored by GlyphBridge and reviewed by operators

@@ -1,0 +1,6 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-shavian-block,unicode_metadata,https://www.unicode.org/charts/PDF/U10450.pdf,Unicode License reviewed for metadata use,scoring,0.45,Shavian code point metadata and letter names
+noto-sans-shavian-font,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Shavian,OFL reviewed for font testing,scoring,0.2,Rendering and fallback test source; not a text corpus
+shavian-community-references,community_reference,https://www.shavian.info/,terms require review before derived use,discovery_only,0.5,Discovery source for conventions and teaching order; do not copy examples
+english-wordfreq-for-anchor-selection,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.45,English anchor utility only; Shavian spellings must be app-authored and reviewed
+app-authored-shavian-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed phonemic examples authored by GlyphBridge rather than copied from third-party corporaid,kind,url,license,use,domain_weight,notes

@@ -1,0 +1,103 @@
+{
+	"course_id": "tibetan-reading-v1",
+	"display_name": "Tibetan Reading",
+	"language_tag": "bo-Tibt",
+	"script": "Tibt",
+	"direction": "ltr",
+	"target_domains": [
+		"tea_house_menus",
+		"cultural_site_signage",
+		"transit_place_names",
+		"public_facilities",
+		"everyday_labels"
+	],
+	"normalization": {
+		"unicode_form": "NFC",
+		"preserve_original": true,
+		"notes": "Store Tibetan text in NFC while preserving source order for vowel signs, subjoined letters, tsheg, and shad punctuation. Analysis tooling may inspect root consonant, prefix, suffix, and stack structure without rewriting the source text."
+	},
+	"segmentation": {
+		"baseline": "unicode_uax_29",
+		"word_segmenter": "tsheg_syllable_segmentation_with_manual_word_review",
+		"grapheme_segmenter": "unicode_grapheme_clusters_with_stacked_cluster_review",
+		"pedagogical_units": "root consonants, vowel signs, tsheg-delimited syllables, prefixes, suffixes, subjoined letters, stacked clusters, and shad punctuation",
+		"notes": "Tibetan spacing is syllable-oriented rather than word-oriented. Count tsheg syllables, visible stacks, and teachable root-letter behavior separately because written clusters often encode more than the beginner pronunciation."
+	},
+	"sources": [
+		{
+			"id": "unicode-tibetan-block",
+			"kind": "unicode_metadata",
+			"url": "https://www.unicode.org/charts/PDF/U0F00.pdf",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.4,
+			"notes": "Tibetan code point metadata for base letters, vowel signs, subjoined signs, punctuation, numerals, and Sanskrit extensions. Use as infrastructure metadata only."
+		},
+		{
+			"id": "cldr-bo-exemplars",
+			"kind": "locale_metadata",
+			"url": "https://cldr.unicode.org/",
+			"license": "Unicode License reviewed for metadata use",
+			"use": "scoring",
+			"domain_weight": 0.45,
+			"notes": "Tibetan exemplar and locale metadata. Confirm exact CLDR release before ingestion."
+		},
+		{
+			"id": "wordfreq-bo",
+			"kind": "frequency",
+			"url": "https://github.com/rspeer/wordfreq",
+			"license": "MIT package license; upstream corpus licenses require review",
+			"use": "scoring_only",
+			"domain_weight": 0.45,
+			"notes": "Broad frequency intuition only if Tibetan coverage is sufficient. Do not ship derived upstream example text."
+		},
+		{
+			"id": "tibetan-wiktionary",
+			"kind": "lexicon",
+			"url": "https://bo.wiktionary.org/",
+			"license": "CC BY-SA; attribution and share-alike review required",
+			"use": "discovery_only",
+			"domain_weight": 0.35,
+			"notes": "Gloss and spelling discovery only until attribution and share-alike implications are approved."
+		},
+		{
+			"id": "openstreetmap-tibetan-names",
+			"kind": "environmental_print",
+			"url": "https://www.openstreetmap.org/",
+			"license": "ODbL; derived-data obligations require review",
+			"use": "scoring_only",
+			"domain_weight": 0.7,
+			"notes": "Place-name and facility-sign validation for Tibetan-script signage. Do not ship raw OSM extracts without review."
+		},
+		{
+			"id": "botok-tokenizer",
+			"kind": "segmentation_tooling",
+			"url": "https://github.com/OpenPecha/Botok",
+			"license": "package license and model data require review",
+			"use": "discovery_only",
+			"domain_weight": 0,
+			"notes": "Potential Tibetan word segmentation aid for analysis only. It is not a content source."
+		},
+		{
+			"id": "app-authored-tibetan-domain-examples",
+			"kind": "authored_examples",
+			"url": "",
+			"license": "app_owned",
+			"use": "shipped_content",
+			"domain_weight": 0.9,
+			"notes": "Short tea-house, sign, and label examples authored by GlyphBridge after reviewer approval."
+		}
+	],
+	"database": {
+		"strategy_file": "db-ingestion-strategy.md",
+		"target_schemas": ["curriculum", "delivery"],
+		"publication_required": true
+	},
+	"review": {
+		"native_speaker_required": true,
+		"pronunciation_required": true,
+		"license_signoff_required": true,
+		"cultural_review_required": true,
+		"font_rendering_required": true
+	}
+}

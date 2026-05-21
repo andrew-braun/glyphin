@@ -1,0 +1,7 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-gothic-block,unicode_metadata,https://www.unicode.org/charts/PDF/U10330.pdf,Unicode License reviewed for metadata use,scoring,0.45,Encoded Gothic letters for inventory and rendering checks
+wulfila-project,text_reference,https://www.wulfila.be/,site and text reuse terms require review,discovery_only,0.55,Gothic biblical text and grammar reference for discovery only
+titus-gothic,corpus_reference,https://titus.uni-frankfurt.de/,corpus terms require review,scoring_only,0.55,Gothic text evidence for scoring only pending license review
+wiktionary-gothic,lexicon,https://en.wiktionary.org/wiki/Category:Gothic_language,CC BY-SA attribution and share-alike review required,discovery_only,0.35,Gloss and spelling discovery only until attribution review
+noto-sans-gothic,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Gothic,SIL Open Font License,scoring,0.2,Rendering reference for Gothic letters
+app-authored-gothic-examples,authored_examples,,app_owned,shipped_content,0.9,Reviewed Gothic examples authored by GlyphBridge

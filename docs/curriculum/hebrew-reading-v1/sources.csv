@@ -1,0 +1,8 @@
+id,kind,url,license,use,domain_weight,notes
+unicode-hebrew-block,unicode_metadata,https://www.unicode.org/charts/PDF/U0590.pdf,Unicode License reviewed for metadata use,scoring,0.4,Hebrew metadata for letters marks punctuation and final forms
+cldr-he-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.5,Hebrew exemplar characters and locale metadata pending exact release review
+wordfreq-he,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.55,Broad frequency intuition only and no upstream example text may ship
+hebrew-wiktionary,lexicon,https://he.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.45,Spelling and gloss discovery only until share-alike review is complete
+academy-hebrew-terms,terminology_reference,https://hebrew-academy.org.il/,terms and reuse permissions require review,discovery_only,0.35,Standard spelling reference only after reuse terms are reviewed
+openstreetmap-israel-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.8,Street transit and facility-name validation only
+app-authored-hebrew-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge

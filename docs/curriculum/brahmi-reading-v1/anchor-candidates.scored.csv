@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,𑀤𑀸𑀦,dana gift,0.6,0.82,0.7,0.74,0.68,0.72,0.68,0.82,0.42,0.1,0.04,0.04,0,0,Donative label anchor with aa sign payoff,0.5228,promising
+anchor,𑀫𑀳𑀸,maha great,0.58,0.8,0.66,0.7,0.68,0.7,0.66,0.8,0.4,0.1,0.04,0.04,0,0,Common modifier and aa sign review,0.4988,weak
+anchor,𑀭𑀸𑀚,raja king,0.64,0.86,0.74,0.72,0.72,0.7,0.7,0.86,0.42,0.12,0.06,0.06,0.02,0,High royal and inscriptional payoff,0.4676,weak
+anchor,𑀦𑀫𑁄,namo homage,0.58,0.82,0.68,0.68,0.7,0.66,0.68,0.84,0.4,0.14,0.06,0.06,0.04,0,Liturgical or inscriptional term with context needs,0.3844,weak
+anchor,𑀅𑀰𑁄𑀓,Asoka,0.62,0.9,0.76,0.52,0.78,0.62,0.74,0.9,0.42,0.24,0.08,0.06,0.02,0,Royal name anchor with extra vowel-sign load,0.3092,weak
+anchor,𑀯𑀺𑀚𑀬,vijaya victory,0.48,0.76,0.58,0.56,0.66,0.64,0.62,0.8,0.36,0.18,0.06,0.06,0,0,Name and royal-domain word with i sign,0.3072,weak
+anchor,𑀥𑀭𑁆𑀫,dharma,0.66,0.88,0.78,0.54,0.86,0.58,0.78,0.9,0.42,0.24,0.08,0.08,0.06,0,High cultural payoff but virama and concept load are high,0.2676,weak
+anchor,𑀅𑀬𑀁,ayam this,0.5,0.68,0.52,0.62,0.58,0.64,0.56,0.66,0.34,0.16,0.08,0.1,0,0,Short grammar-heavy candidate for later review,0.2384,weak
+anchor,𑀮𑀸,laa sequence,0.38,0.58,0.4,0.64,0.48,0.64,0.5,0.6,0.3,0.1,0.06,0.12,0,0,Low-confidence vowel-sign practice sequence,0.2208,weak
+anchor,𑀲𑀯,sa va sequence,0.42,0.62,0.44,0.62,0.5,0.62,0.52,0.62,0.32,0.12,0.08,0.12,0,0,Reviewer-gated practice sequence,0.2032,weak
+anchor,𑀲𑀁𑀖,sangha,0.54,0.82,0.66,0.52,0.74,0.56,0.68,0.86,0.38,0.24,0.1,0.08,0.06,0,Cultural term with anusvara and aspiration review,0.1664,weak
+anchor,𑀩𑁆𑀭𑀸𑀳𑁆𑀫𑀻,Brahmi,0.5,0.86,0.64,0.34,0.84,0.52,0.72,0.9,0.36,0.34,0.12,0.1,0,0,Script-name anchor is late because conjunct load is high,0.0668,weak

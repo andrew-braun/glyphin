@@ -1,0 +1,13 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes
+anchor,AJAW,lord or ruler title,0.7,0.9,0.82,0.72,0.86,0.38,0.78,0.9,0.4,0.16,0.16,0.12,0.02,0,High-payoff title anchor for stelae and royal names
+anchor,K'IN,sun or day,0.68,0.88,0.78,0.74,0.82,0.44,0.76,0.88,0.4,0.16,0.14,0.1,0,0,Calendar and name anchor with strong visual salience
+anchor,HA',water,0.5,0.74,0.58,0.64,0.62,0.42,0.64,0.78,0.36,0.16,0.14,0.12,0,0,Concrete semantic anchor once sign mapping is reviewed
+anchor,CHAN,sky,0.52,0.76,0.62,0.62,0.66,0.4,0.64,0.8,0.36,0.18,0.14,0.12,0,0,Common semantic and name component
+anchor,KAB',earth,0.46,0.7,0.56,0.6,0.62,0.4,0.6,0.78,0.34,0.18,0.14,0.12,0,0,Concrete word but needs catalog validation
+anchor,WITZ,mountain,0.44,0.74,0.58,0.58,0.64,0.38,0.6,0.82,0.34,0.18,0.14,0.12,0,0,Useful for place and stela contexts
+anchor,TZ'IB',writing,0.42,0.72,0.56,0.52,0.68,0.36,0.62,0.84,0.34,0.22,0.14,0.12,0,0,Thematic late anchor for inscription literacy
+anchor,YAX,green or first,0.52,0.78,0.62,0.58,0.72,0.38,0.66,0.8,0.36,0.2,0.16,0.14,0,0,Common royal and calendrical element with semantic range
+anchor,MUTAL,place name Mutal,0.46,0.82,0.62,0.48,0.7,0.34,0.66,0.86,0.32,0.26,0.16,0.16,0,0,Place-name anchor should wait for name and block support
+anchor,BAK'TUN,calendar cycle,0.48,0.86,0.66,0.46,0.82,0.36,0.7,0.88,0.34,0.28,0.16,0.14,0,0,High calendar payoff but concept load is high
+anchor,HAAB',calendar year,0.46,0.84,0.64,0.48,0.8,0.36,0.68,0.84,0.34,0.26,0.16,0.14,0,0,Calendar anchor after numeral and block basics
+anchor,IX,feminine title,0.44,0.74,0.54,0.52,0.66,0.34,0.62,0.76,0.32,0.2,0.16,0.16,0.02,0,Title anchor needs social and epigraphic context

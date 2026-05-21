@@ -1,0 +1,12 @@
+candidate_type,candidate,gloss,weighted_word_frequency,real_world_utility,coverage_gain,decodability,rule_payoff,pronunciation_clarity,review_value,memorability,source_confidence,new_load_penalty,irregularity_penalty,ambiguity_penalty,sensitivity_penalty,license_penalty,notes,candidate_score,score_band
+anchor,ᚋᚐᚊᚊᚔ,MAQI son of,0.72,0.88,0.82,0.78,0.82,0.62,0.82,0.9,0.46,0.1,0.04,0.04,0,0,Core formulaic inscription chunk,0.6032,promising
+anchor,ᚐᚃᚔ,AVI descendant of,0.58,0.78,0.66,0.76,0.68,0.56,0.72,0.82,0.42,0.08,0.04,0.05,0,0,Compact kinship formula anchor,0.5072,promising
+anchor,ᚋᚒᚉᚑᚔ,MUCOI tribe or people of,0.68,0.84,0.78,0.72,0.8,0.58,0.8,0.86,0.44,0.14,0.05,0.06,0,0,Common formula chunk but gloss needs specialist review,0.4940,weak
+anchor,᚛ᚋᚐᚊᚊᚔ᚜,marked MAQI,0.56,0.8,0.68,0.64,0.78,0.66,0.76,0.84,0.42,0.16,0.04,0.05,0,0,Adds start and end marks as display metadata,0.4340,weak
+anchor,ᚋᚐᚉᚑ,MACO name fragment,0.48,0.66,0.54,0.68,0.56,0.58,0.6,0.76,0.36,0.1,0.04,0.08,0,0,Name-style chunk for m a c o review,0.3620,weak
+anchor,ᚉᚑᚔ,COI formula fragment,0.48,0.66,0.54,0.7,0.56,0.54,0.6,0.74,0.36,0.1,0.04,0.08,0,0,Fragment requires epigraphic validation before lesson use,0.3608,weak
+anchor,ᚅᚓᚈᚐ,NETA kinship title,0.52,0.7,0.58,0.6,0.62,0.54,0.68,0.78,0.38,0.16,0.05,0.08,0,0,Useful after vowels and t but gloss is context-sensitive,0.3120,weak
+anchor,ᚇᚐᚂᚐ,DALA name fragment,0.44,0.62,0.5,0.62,0.54,0.6,0.58,0.74,0.34,0.12,0.04,0.08,0,0,Name fragment for d and l after formula basics,0.3084,weak
+anchor,ᚐᚋᚋᚔ,AMMI name fragment,0.42,0.6,0.48,0.64,0.52,0.58,0.56,0.72,0.34,0.12,0.04,0.08,0,0,Name fragment and doubled m review,0.2944,weak
+anchor,ᚁᚓᚅᚔ,BENI name fragment,0.42,0.6,0.48,0.62,0.52,0.6,0.56,0.72,0.34,0.12,0.04,0.08,0,0,Later anchor for b e n i review,0.2932,weak
+anchor,ᚋᚐᚊᚊᚔᚋᚒᚉᚑᚔ,MAQI MUCOI formula pair,0.5,0.82,0.7,0.48,0.84,0.52,0.8,0.86,0.4,0.26,0.06,0.06,0,0,High payoff but too long for early lessons,0.2728,weak

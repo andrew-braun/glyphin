@@ -1,0 +1,23 @@
+candidate_type,candidate,gloss,corpus_frequency,distinct_word_coverage,domain_coverage_gain,anchor_availability,pronunciation_clarity,rule_gateway_value,visual_distinctiveness,confusability_penalty,load_penalty,irregularity_penalty,font_penalty,license_penalty,notes,candidate_score,score_band
+grapheme,ଆ / ା,aa vowel and matra,0.86,0.82,0.82,0.88,0.9,0.88,0.84,0.02,0.06,0.02,0,0,High payoff in ପାଣି ଚା ଭାତ ନାମ,0.7530,strong
+grapheme,ଅ,inherent vowel a and independent a,0.9,0.88,0.82,0.86,0.8,0.94,0.82,0.03,0.05,0.04,0,0,Core abugida gateway,0.7500,strong
+grapheme,ନ,n consonant base,0.8,0.78,0.74,0.8,0.88,0.72,0.76,0.04,0.04,0.01,0,0,Common in ପାଣି ନାମ ଦୋକାନ,0.6950,promising
+grapheme,କ,k consonant base,0.78,0.76,0.72,0.78,0.88,0.76,0.78,0.04,0.04,0.01,0,0,Common base for ଦୋକାନ and ସ୍କୁଲ,0.6850,promising
+grapheme,ସ,s consonant base,0.78,0.76,0.76,0.8,0.88,0.74,0.74,0.04,0.05,0.01,0,0,High sign payoff in ବସ ସ୍କୁଲ ରାସ୍ତା,0.6790,promising
+grapheme,ବ,b consonant base,0.78,0.76,0.74,0.8,0.88,0.72,0.78,0.04,0.05,0.01,0,0,High payoff in ବସ ବଜାର ବନ୍ଦ,0.6760,promising
+grapheme,ର,r consonant base,0.82,0.8,0.78,0.82,0.84,0.78,0.74,0.05,0.06,0.02,0,0,High utility in ରେଳ ରାସ୍ତା ବଜାର,0.6740,promising
+grapheme,ଦ,d consonant base,0.8,0.78,0.76,0.8,0.86,0.72,0.76,0.05,0.05,0.02,0,0,Needed for ଦୁଧ ଦୋକାନ,0.6660,promising
+grapheme,ପ,p consonant base,0.74,0.72,0.72,0.76,0.88,0.68,0.78,0.03,0.04,0.01,0,0,Needed for ପାଣି and public words,0.6650,promising
+grapheme,ଲ,l consonant base,0.74,0.72,0.7,0.76,0.88,0.68,0.78,0.03,0.04,0.01,0,0,Useful in ରେଳ ଖୋଲା,0.6620,promising
+grapheme,ମ,m consonant base,0.72,0.7,0.66,0.72,0.9,0.64,0.8,0.03,0.04,0.01,0,0,Common and visually stable,0.6410,promising
+grapheme,ଏ / େ,e vowel and matra,0.7,0.68,0.7,0.74,0.9,0.74,0.72,0.03,0.06,0.01,0,0,Useful in ରେଳ and labels,0.6250,promising
+grapheme,ଓ / ୋ,o vowel and matra,0.68,0.66,0.68,0.72,0.9,0.74,0.76,0.03,0.06,0.01,0,0,Useful in ଦୋକାନ ଖୋଲା,0.6120,promising
+grapheme,ଚ,ch consonant base,0.66,0.62,0.66,0.72,0.88,0.66,0.8,0.03,0.04,0.01,0,0,Strong early anchor in ଚା,0.6070,promising
+grapheme,ହ,h consonant base,0.68,0.66,0.64,0.68,0.86,0.62,0.78,0.03,0.04,0.02,0,0,Useful for common public words,0.5970,promising
+grapheme,ଇ / ି,i vowel and matra,0.72,0.68,0.66,0.72,0.84,0.86,0.68,0.04,0.08,0.02,0,0,Common sign and name vowel,0.5870,promising
+grapheme,ଉ / ୁ,u vowel and matra,0.7,0.66,0.66,0.72,0.86,0.72,0.7,0.04,0.08,0.02,0,0,Below-base sign and useful in ଦୁଧ,0.5660,promising
+grapheme,ଈ / ୀ,ii vowel and matra,0.58,0.54,0.52,0.58,0.84,0.58,0.72,0.04,0.08,0.02,0,0,Lower early payoff but needed for complete matra awareness,0.4560,weak
+grapheme,ଂ,anusvara nasal sign,0.56,0.54,0.56,0.6,0.72,0.74,0.7,0.04,0.1,0.06,0,0,Common nasal mark and needs font check,0.4010,weak
+grapheme,୍,virama halant,0.52,0.5,0.58,0.66,0.72,0.9,0.62,0.04,0.16,0.06,0.02,0,0,0.3220,weak
+grapheme,ଡ଼,nukta-marked dda,0.42,0.38,0.48,0.58,0.76,0.74,0.66,0.05,0.12,0.05,0.02,0,0,0.2750,weak
+grapheme,ସ୍କ,sk conjunct cluster,0.34,0.3,0.42,0.52,0.7,0.7,0.66,0.06,0.18,0.06,0.04,0,0,0.1100,weak
