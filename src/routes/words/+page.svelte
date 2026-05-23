@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>Known Words — GlyphBridge</title>
+	<title>Known Words — Glyphin</title>
 	<meta
 		name="description"
 		content="Browse the Thai words you have unlocked so far, including pronunciation, meanings, syllable breakdowns, and real-world context notes."

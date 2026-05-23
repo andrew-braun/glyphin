@@ -28,25 +28,22 @@
 
 <style lang="scss">
 	.reveal {
-		animation: revealRise var(--reveal-duration) cubic-bezier(0.2, 0.84, 0.2, 1) both;
+		@include motion-safe-animation(
+			revealRise var(--reveal-duration) $motion-ease-standard both
+		);
 		animation-delay: var(--reveal-delay);
 	}
 
 	@keyframes revealRise {
 		from {
 			opacity: 0;
-			transform: translateY(var(--reveal-distance)) scale(0.985);
+			transform: translateY(var(--reveal-distance, #{$motion-distance-md}))
+				scale($motion-scale-enter);
 		}
 
 		to {
 			opacity: 1;
 			transform: translateY(0) scale(1);
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.reveal {
-			animation: none;
 		}
 	}
 </style>

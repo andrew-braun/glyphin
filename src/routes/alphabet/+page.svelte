@@ -2,6 +2,7 @@
 	import LetterDetailPanel from "$lib/components/content/alphabet/LetterDetailPanel.svelte";
 	import PageShell from "$lib/components/layout/PageShell.svelte";
 	import Progress from "$lib/components/ui/Progress.svelte";
+	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import ToggleTiles, { type ToggleTileOption } from "$lib/components/ui/ToggleTiles.svelte";
 	import { thaiPack } from "$lib/data/thai";
 	import type { Letter } from "$lib/data/types";
@@ -59,7 +60,7 @@
 </script>
 
 <svelte:head>
-	<title>Alphabet — GlyphBridge</title>
+	<title>Alphabet — Glyphin</title>
 	<meta
 		name="description"
 		content="Review the Thai consonants, vowels, and tone marks you have unlocked so far, with pronunciation details and memory cues."
@@ -78,22 +79,26 @@
 <PageShell class="alphabet">
 	<!-- Visual progress bar: fill width is the percentage of letters learned -->
 	<div class="alphabet__progress">
-		<Progress
-			label="Letters learned progress"
-			value={$knownLetters.length}
-			max={allLetters.length}
-			valueLabel={`${$knownLetters.length} of ${allLetters.length} letters learned`}
-		/>
+		<Reveal as="div" distance={14}>
+			<Progress
+				label="Letters learned progress"
+				value={$knownLetters.length}
+				max={allLetters.length}
+				valueLabel={`${$knownLetters.length} of ${allLetters.length} letters learned`}
+			/>
+		</Reveal>
 	</div>
 
-	{#each letterSections as section}
+	{#each letterSections as section, index}
 		<section class="letter-section">
-			<h2 id={section.headingId}>{section.title}</h2>
-			<ToggleTiles
-				labelledBy={section.headingId}
-				options={section.options}
-				bind:value={selectedCharacter}
-			/>
+			<Reveal as="div" delay={70 + index * 80} distance={16}>
+				<h2 id={section.headingId}>{section.title}</h2>
+				<ToggleTiles
+					labelledBy={section.headingId}
+					options={section.options}
+					bind:value={selectedCharacter}
+				/>
+			</Reveal>
 		</section>
 	{/each}
 

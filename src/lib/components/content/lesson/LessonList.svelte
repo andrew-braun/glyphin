@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Badge from "$lib/components/ui/Badge.svelte";
 	import Heading from "$lib/components/ui/Heading.svelte";
+	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import { thaiPack } from "$lib/data/thai";
 	import type { Word } from "$lib/data/types";
 	import { cn } from "$lib/utils/cn";
@@ -30,35 +31,39 @@
 			{@const isCompleted = knownWords.some((w) => w.thai === lesson.anchorWord.thai)}
 			{@const isCurrent = lesson.id === currentLessonId}
 			{@const isLocked = lesson.id > currentLessonId}
-			<svelte:element
-				this={isLocked ? "div" : "a"}
-				href={isLocked ? undefined : `/learn/${lesson.id}`}
-				class={getLessonItemClasses(isCompleted, isCurrent, isLocked)}
-				aria-disabled={isLocked ? "true" : undefined}
-			>
-				<div class="lesson-item__status">
-					{#if isCompleted}
-						<span class="lesson-item__check">&#10003;</span>
-					{:else if isCurrent}
-						<span class="lesson-item__dot"></span>
-					{:else}
-						<span class="lesson-item__lock">&#128274;</span>
-					{/if}
-				</div>
+			<Reveal as="div" delay={30 + (lesson.stage - 1) * 45} distance={14}>
+				<svelte:element
+					this={isLocked ? "div" : "a"}
+					href={isLocked ? undefined : `/learn/${lesson.id}`}
+					class={getLessonItemClasses(isCompleted, isCurrent, isLocked)}
+					aria-disabled={isLocked ? "true" : undefined}
+				>
+					<div class="lesson-item__status">
+						{#if isCompleted}
+							<span class="lesson-item__check">&#10003;</span>
+						{:else if isCurrent}
+							<span class="lesson-item__dot"></span>
+						{:else}
+							<span class="lesson-item__lock">&#128274;</span>
+						{/if}
+					</div>
 
-				<div class="lesson-item__content">
-					<Badge class="lesson-item__stage">Stage {lesson.stage}</Badge>
-					<h3 class="lesson-item__title">{lesson.title}</h3>
-					<span class="lesson-item__word thai thai--sm">{lesson.anchorWord.thai}</span>
-					<span class="lesson-item__meaning">{lesson.anchorWord.meaning}</span>
-				</div>
+					<div class="lesson-item__content">
+						<Badge class="lesson-item__stage">Stage {lesson.stage}</Badge>
+						<h3 class="lesson-item__title">{lesson.title}</h3>
+						<span class="lesson-item__word thai thai--sm">{lesson.anchorWord.thai}</span
+						>
+						<span class="lesson-item__meaning">{lesson.anchorWord.meaning}</span>
+					</div>
 
-				<div class="lesson-item__letters">
-					{#each lesson.newLetters as letter}
-						<span class="lesson-item__letter thai thai--sm">{letter.character}</span>
-					{/each}
-				</div>
-			</svelte:element>
+					<div class="lesson-item__letters">
+						{#each lesson.newLetters as letter}
+							<span class="lesson-item__letter thai thai--sm">{letter.character}</span
+							>
+						{/each}
+					</div>
+				</svelte:element>
+			</Reveal>
 		{/each}
 	</div>
 </section>
@@ -82,7 +87,16 @@
 		gap: $space-lg;
 		padding: $space-lg $space-xl;
 		text-decoration: none;
-		transition: all $transition-base;
+		@include motion-safe-transition(
+			border-color $transition-base,
+			box-shadow $transition-base,
+			transform $transition-base,
+			opacity $transition-fast
+		);
+
+		&:hover {
+			transform: translateY(-2px);
+		}
 
 		&--completed {
 			border-left: 4px solid var(--color-success);
@@ -99,6 +113,7 @@
 
 			&:hover {
 				box-shadow: $shadow-md;
+				transform: none;
 			}
 		}
 
@@ -118,7 +133,7 @@
 		}
 
 		&__dot {
-			animation: pulse 2s ease-in-out infinite;
+			@include motion-safe-animation(pulse 2s ease-in-out infinite);
 			background: var(--color-primary);
 			border-radius: $radius-full;
 			height: 14px;

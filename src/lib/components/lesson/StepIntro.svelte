@@ -19,28 +19,52 @@
 </script>
 
 <StepLayout class="step--intro">
-	<Badge>Stage {lesson.stage}</Badge>
-	<h1 class="step__title">{lesson.title}</h1>
+	<div class="intro-shell">
+		<div class="intro-shell__copy">
+			<Badge>Stage {lesson.stage}</Badge>
+			<h1 class="step__title">{lesson.title}</h1>
+		</div>
 
-	<!-- Large word reveal — the learner's first look at the anchor word -->
-	<div class="word-reveal">
-		<div class="word-reveal__thai thai thai--lg">{lesson.anchorWord.thai}</div>
-		<p class="word-reveal__hint">Try reading it once before we pull it apart.</p>
+		<!-- Large word reveal — the learner's first look at the anchor word -->
+		<div class="word-reveal">
+			<div class="word-reveal__thai thai thai--lg">{lesson.anchorWord.thai}</div>
+			<p class="word-reveal__hint">Try reading it once before we pull it apart.</p>
+		</div>
+
+		<div class="intro-shell__support">
+			<!-- Context note explaining where this word appears in the real world -->
+			{#if lesson.anchorWord.contextNote}
+				<NoticeBox>
+					<p>{lesson.anchorWord.contextNote}</p>
+				</NoticeBox>
+			{/if}
+
+			<Button variant="primary" size="large" fullWidth={true} onclick={onNext}>
+				Open this word ->
+			</Button>
+		</div>
 	</div>
-
-	<!-- Context note explaining where this word appears in the real world -->
-	{#if lesson.anchorWord.contextNote}
-		<NoticeBox>
-			<p>{lesson.anchorWord.contextNote}</p>
-		</NoticeBox>
-	{/if}
-
-	<Button variant="primary" size="large" fullWidth={true} onclick={onNext}>
-		Open this word ->
-	</Button>
 </StepLayout>
 
 <style lang="scss">
+	.intro-shell {
+		display: flex;
+		flex-direction: column;
+		gap: $space-xl;
+
+		&__copy {
+			display: flex;
+			flex-direction: column;
+			gap: $space-md;
+		}
+
+		&__support {
+			display: flex;
+			flex-direction: column;
+			gap: $space-lg;
+		}
+	}
+
 	.step__title {
 		font-size: $font-size-2xl;
 	}
@@ -61,6 +85,25 @@
 		.word-reveal__hint {
 			color: var(--color-text-muted);
 			margin-top: $space-md;
+		}
+	}
+
+	@media (min-width: $bp-md) {
+		.intro-shell {
+			align-items: center;
+			display: grid;
+			gap: $space-lg $space-xl;
+			grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1.15fr);
+
+			&__support {
+				gap: $space-md;
+			}
+		}
+
+		.word-reveal {
+			grid-column: 2;
+			grid-row: 1 / span 2;
+			padding: $space-xl;
 		}
 	}
 </style>

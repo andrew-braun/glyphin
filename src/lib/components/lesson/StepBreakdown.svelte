@@ -11,6 +11,7 @@
 <script lang="ts">
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
+	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import type { Lesson } from "$lib/data/types";
 
 	let { lesson, onNext }: { lesson: Lesson; onNext: () => void } = $props();
@@ -20,25 +21,61 @@
 	<h2>Let&apos;s take <span class="thai">{lesson.anchorWord.thai}</span> apart.</h2>
 
 	<div class="breakdown">
-		<!-- Full word displayed at the top -->
-		<div class="breakdown__word thai thai--lg">{lesson.anchorWord.thai}</div>
-		<div class="breakdown__arrow">&darr;</div>
+		<section
+			class="breakdown__panel breakdown__panel--whole surface-panel surface-panel--accent card"
+		>
+			<div class="breakdown__panel-header">
+				<span class="breakdown__eyebrow">Whole word</span>
+				<p class="breakdown__hint">Read it as one chunk before splitting it up.</p>
+			</div>
 
-		<!-- Individual syllable cards -->
-		<div class="breakdown__syllables">
-			{#each lesson.anchorWord.syllables as syllable}
-				<div class="syllable-card card">
-					<span class="syllable-card__thai thai">{syllable.thai}</span>
-					<span class="syllable-card__sound">{syllable.sound}</span>
+			<div class="breakdown__word-wrap">
+				<div class="breakdown__word thai thai--lg">
+					<Reveal as="span" distance={12}>{lesson.anchorWord.thai}</Reveal>
 				</div>
-			{/each}
+			</div>
+		</section>
+
+		<div class="breakdown__connector" aria-hidden="true">
+			<div class="breakdown__arrow breakdown__arrow--down">
+				<Reveal as="span" delay={80} distance={10}>&darr;</Reveal>
+			</div>
+			<div class="breakdown__arrow breakdown__arrow--right">
+				<Reveal as="span" delay={80} distance={10}>&rarr;</Reveal>
+			</div>
+			<span class="breakdown__connector-label">Break it apart</span>
 		</div>
 
-		<!-- Combined pronunciation and meaning -->
-		<div class="breakdown__full">
-			<span class="breakdown__pronunciation">{lesson.anchorWord.pronunciation}</span>
-			<span class="breakdown__meaning">= "{lesson.anchorWord.meaning}"</span>
-		</div>
+		<section class="breakdown__panel breakdown__panel--parts surface-panel card">
+			<div class="breakdown__panel-header">
+				<span class="breakdown__eyebrow">Broken into syllables</span>
+				<p class="breakdown__hint">
+					Each block shows one piece and the sound it contributes.
+				</p>
+			</div>
+
+			<div class="breakdown__syllables">
+				{#each lesson.anchorWord.syllables as syllable, index}
+					<div class="syllable-card card card--flat">
+						<Reveal as="div" delay={140 + index * 90} distance={14}>
+							<span class="syllable-card__thai thai">{syllable.thai}</span>
+							<span class="syllable-card__sound">{syllable.sound}</span>
+						</Reveal>
+					</div>
+				{/each}
+			</div>
+
+			<div class="breakdown__full">
+				<div class="breakdown__gloss">
+					<Reveal as="div" delay={260} distance={12}>
+						<span class="breakdown__chip breakdown__chip--pronunciation">
+							{lesson.anchorWord.pronunciation}
+						</span>
+						<span class="breakdown__chip">&quot;{lesson.anchorWord.meaning}&quot;</span>
+					</Reveal>
+				</div>
+			</div>
+		</section>
 	</div>
 
 	<Button variant="primary" size="large" fullWidth={true} onclick={onNext}>
@@ -47,65 +84,217 @@
 </StepLayout>
 
 <style lang="scss">
-	// Vertical flow: word → arrow → syllable cards → pronunciation
 	.breakdown {
 		align-items: center;
-		display: flex;
-		flex-direction: column;
+		display: grid;
 		gap: $space-lg;
-		text-align: center;
+		grid-template-columns: minmax(0, 1fr);
+		margin-inline: auto;
+		max-width: 72rem;
+		width: 100%;
 
-		&__word {
-			color: var(--color-primary-strong);
-		}
-
-		&__arrow {
-			color: var(--color-text-soft);
-			font-size: $font-size-2xl;
-		}
-
-		&__syllables {
+		&__panel {
 			display: flex;
-			flex-wrap: wrap;
+			flex-direction: column;
 			gap: $space-md;
-			justify-content: center;
+			padding: clamp($space-lg, 3vw, $space-2xl);
+			position: relative;
+			width: 100%;
 		}
 
-		&__full {
+		&__panel--whole {
+			overflow: hidden;
+		}
+
+		&__panel-header {
 			display: flex;
 			flex-direction: column;
 			gap: $space-xs;
+			text-align: left;
 		}
 
-		&__pronunciation {
-			color: var(--color-primary-strong);
-			font-size: $font-size-xl;
-			font-weight: 600;
+		&__eyebrow {
+			color: var(--color-text-soft);
+			font-size: $font-size-xs;
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
 		}
 
-		&__meaning {
+		&__hint {
 			color: var(--color-text-muted);
-			font-size: $font-size-lg;
+			font-size: $font-size-sm;
+			line-height: 1.6;
+			margin: 0;
+		}
+
+		&__word-wrap {
+			align-items: center;
+			background:
+				radial-gradient(circle at center, rgb(164 236 227 / 0.14), transparent 65%),
+				linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 100%);
+			border: 1px solid var(--color-border);
+			border-radius: $radius-xl;
+			display: grid;
+			justify-items: center;
+			margin-inline: auto;
+			max-width: 26rem;
+			min-height: clamp(9.5rem, 24vw, 13rem);
+			padding: $space-lg;
+			width: 100%;
+		}
+
+		&__word {
+			color: var(--color-primary-strong);
+			line-height: 1;
+			text-align: center;
+		}
+
+		&__connector {
+			align-items: center;
+			align-self: center;
+			display: flex;
+			flex-direction: column;
+			gap: $space-sm;
+			justify-content: center;
+			justify-self: center;
+		}
+
+		&__arrow {
+			align-items: center;
+			background: var(--color-surface-card);
+			border: 1px solid var(--color-border-strong);
+			border-radius: 999px;
+			color: var(--color-text-soft);
+			display: grid;
+			font-size: $font-size-xl;
+			height: 3rem;
+			justify-items: center;
+			width: 3rem;
+
+			&--right {
+				display: none;
+			}
+		}
+
+		&__connector-label {
+			color: var(--color-text-soft);
+			font-size: $font-size-xs;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
+
+		&__syllables {
+			align-items: stretch;
+			display: flex;
+			flex-wrap: wrap;
+			gap: $space-md;
+			justify-content: flex-start;
+		}
+
+		&__full {
+			border-top: 1px solid var(--color-border);
+			padding-top: $space-md;
+		}
+
+		&__gloss {
+			display: flex;
+			flex-wrap: wrap;
+			gap: $space-sm;
+			justify-content: flex-start;
+		}
+
+		&__chip {
+			background: var(--color-surface-card);
+			border: 1px solid var(--color-border);
+			border-radius: 999px;
+			color: var(--color-text-muted);
+			display: inline-flex;
+			font-size: $font-size-sm;
+			font-weight: 600;
+			padding: $space-sm $space-md;
+		}
+
+		&__chip--pronunciation {
+			color: var(--color-primary-strong);
 		}
 	}
 
-	// Individual syllable display cards
+	@media (min-width: $bp-md) {
+		.breakdown {
+			align-items: stretch;
+			gap: $space-lg clamp($space-md, 2vw, $space-xl);
+			grid-template-columns: minmax(0, 0.92fr) minmax(4.5rem, 5.5rem) minmax(0, 1.08fr);
+
+			&__panel {
+				min-height: 100%;
+			}
+
+			&__word-wrap {
+				flex: 1;
+
+				:global(.reveal) {
+					display: block;
+				}
+			}
+
+			&__word {
+				font-size: clamp(3rem, 6vw, 4.5rem);
+			}
+
+			&__connector {
+				padding-top: 0;
+			}
+
+			&__arrow {
+				&--down {
+					display: none;
+				}
+
+				&--right {
+					display: block;
+				}
+			}
+
+			&__panel--parts {
+				justify-content: space-between;
+			}
+
+			&__gloss {
+				justify-content: flex-start;
+			}
+		}
+	}
+
 	.syllable-card {
 		align-items: center;
 		background: var(--surface-panel);
 		border: 1px solid var(--color-border);
 		display: flex;
 		flex-direction: column;
-		gap: $space-sm;
+		justify-content: center;
+		min-height: 9rem;
+		min-width: min(8.5rem, 100%);
 		padding: $space-lg $space-xl;
+
+		> :global(.reveal) {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			gap: $space-sm;
+			justify-content: center;
+			min-height: 100%;
+		}
 
 		&__thai {
 			color: var(--color-primary-strong);
+			font-size: clamp(2.25rem, 4vw, 3rem);
 		}
 
 		&__sound {
 			color: var(--color-text-muted);
-			font-size: $font-size-sm;
+			font-size: $font-size-base;
 			font-weight: 500;
 		}
 	}

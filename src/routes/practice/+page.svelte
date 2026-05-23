@@ -24,6 +24,7 @@
 	import MetricDisplay from "$lib/components/ui/MetricDisplay.svelte";
 	import MetricPill from "$lib/components/ui/MetricPill.svelte";
 	import Progress from "$lib/components/ui/Progress.svelte";
+	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import { thaiPack } from "$lib/data/thai";
 	import type { DrillQuestion } from "$lib/data/types";
 	import { knownLetters, knownWords, progress } from "$lib/stores/progress";
@@ -88,7 +89,7 @@
 </script>
 
 <svelte:head>
-	<title>Practice — GlyphBridge</title>
+	<title>Practice — Glyphin</title>
 	<meta
 		name="description"
 		content="Practice Thai reading with randomized drills drawn from the lessons you have completed and review the letters and words you already know."
@@ -98,69 +99,92 @@
 <PageShell narrow class="practice">
 	<!-- STATE: No drills available (user hasn't completed any lessons) -->
 	{#if availableDrills.length === 0}
-		<EmptyState
-			title="Your practice deck opens after the first lesson."
-			description="Finish one lesson and GlyphBridge will turn its drills into a short review sprint here."
-		>
-			{#snippet art()}
-				<GlyphRibbon tokens={["ท", "ฝ", "ก"]} />
-			{/snippet}
-			{#snippet actions()}
-				<Button href="/learn" variant="primary" size="large">Start lesson 1</Button>
-			{/snippet}
-		</EmptyState>
+		<Reveal as="div" distance={16}>
+			<EmptyState
+				title="Your practice deck opens after the first lesson."
+				description="Finish one lesson and Glyphin will turn its drills into a short review sprint here."
+			>
+				{#snippet art()}
+					<GlyphRibbon tokens={["ท", "ฝ", "ก"]} />
+				{/snippet}
+				{#snippet actions()}
+					<Button href="/learn" variant="primary" size="large">Start lesson 1</Button>
+				{/snippet}
+			</EmptyState>
+		</Reveal>
 
 		<!-- STATE: Session not started — show stats and start button -->
 	{:else if !sessionActive}
 		<div class="start surface-panel surface-panel--accent card">
-			<h2>Practice what already feels familiar.</h2>
-			<p>
-				You have <strong>{availableDrills.length}</strong> review prompts ready from completed
-				lessons.
-			</p>
+			<Reveal as="div" distance={18}>
+				<h2>Practice what already feels familiar.</h2>
+			</Reveal>
+			<Reveal as="div" delay={60} distance={14}>
+				<p>
+					You have <strong>{availableDrills.length}</strong> review prompts ready from completed
+					lessons.
+				</p>
+			</Reveal>
 			<div class="metric-row start__stats">
-				<MetricPill value={$knownLetters.length} label="letters ready" />
-				<MetricPill value={$knownWords.length} label="words in memory" />
+				<Reveal as="div" delay={120} distance={12}>
+					<MetricPill value={$knownLetters.length} label="letters ready" />
+					<MetricPill value={$knownWords.length} label="words in memory" />
+				</Reveal>
 			</div>
-			<Button variant="primary" size="large" onclick={startSession}>
-				Start Practice Session ({Math.min(SESSION_SIZE, availableDrills.length)}
-				questions)
-			</Button>
+			<Reveal as="div" delay={180} distance={12}>
+				<Button variant="primary" size="large" onclick={startSession}>
+					Start Practice Session ({Math.min(SESSION_SIZE, availableDrills.length)}
+					questions)
+				</Button>
+			</Reveal>
 		</div>
 
 		<!-- STATE: Session complete — show results -->
 	{:else if sessionComplete}
 		<div class="results surface-panel surface-panel--success card">
 			<GlyphRibbon tokens={["ไ", "ท", "ย"]} tone="success" class="results__art" />
-			<Eyebrow tone="success">
-				{#if correctCount === totalAnswered}
-					Perfect run
-				{:else if correctCount >= totalAnswered * 0.7}
-					Strong pass
-				{:else}
-					Solid reset
-				{/if}
-			</Eyebrow>
-			<h2>Session complete.</h2>
-			<p class="results__summary">
-				You just reviewed {totalAnswered} prompts pulled from words you already unlocked.
-			</p>
+			<Reveal as="div" distance={18}>
+				<Eyebrow tone="success">
+					{#if correctCount === totalAnswered}
+						Perfect run
+					{:else if correctCount >= totalAnswered * 0.7}
+						Strong pass
+					{:else}
+						Solid reset
+					{/if}
+				</Eyebrow>
+			</Reveal>
+			<Reveal as="div" delay={60} distance={14}>
+				<h2>Session complete.</h2>
+			</Reveal>
+			<Reveal as="div" delay={100} distance={12}>
+				<p class="results__summary">
+					You just reviewed {totalAnswered} prompts pulled from words you already unlocked.
+				</p>
+			</Reveal>
 
 			<div class="results__score surface-panel card card--flat">
-				<MetricDisplay
-					value={`${correctCount}/${totalAnswered}`}
-					label="Correct"
-					tone="success"
-				/>
+				<Reveal as="div" delay={150} distance={12}>
+					<MetricDisplay
+						value={`${correctCount}/${totalAnswered}`}
+						label="Correct"
+						tone="success"
+					/>
+				</Reveal>
 			</div>
 			<div class="results__pct">
-				{Math.round((correctCount / totalAnswered) * 100)}%
+				<Reveal as="span" delay={190} distance={10}>
+					{Math.round((correctCount / totalAnswered) * 100)}%
+				</Reveal>
 			</div>
-			<ActionGroup justify="center">
-				<Button variant="primary" size="large" onclick={startSession}>Practice Again</Button
-				>
-				<Button href="/learn" variant="secondary" size="large">Back to Lessons</Button>
-			</ActionGroup>
+			<Reveal as="div" delay={230} distance={10}>
+				<ActionGroup justify="center">
+					<Button variant="primary" size="large" onclick={startSession}
+						>Practice Again</Button
+					>
+					<Button href="/learn" variant="secondary" size="large">Back to Lessons</Button>
+				</ActionGroup>
+			</Reveal>
 		</div>
 
 		<!-- STATE: Active session — show current drill -->
@@ -169,16 +193,20 @@
 			<!-- Progress bar for the session -->
 			<div class="session__header">
 				<div class="session__progress">
-					<Progress
-						label="Practice session progress"
-						value={totalAnswered}
-						max={SESSION_SIZE}
-						valueLabel={`${totalAnswered} of ${SESSION_SIZE} questions answered`}
-					/>
+					<Reveal as="div" distance={14} duration={360}>
+						<Progress
+							label="Practice session progress"
+							value={totalAnswered}
+							max={SESSION_SIZE}
+							valueLabel={`${totalAnswered} of ${SESSION_SIZE} questions answered`}
+						/>
+					</Reveal>
 				</div>
-				<span class="session__count"
-					>{totalAnswered + 1} / {Math.min(SESSION_SIZE, drillPool.length)}</span
-				>
+				<Reveal as="div" delay={80} distance={10} duration={320}>
+					<span class="session__count"
+						>{totalAnswered + 1} / {Math.min(SESSION_SIZE, drillPool.length)}</span
+					>
+				</Reveal>
 			</div>
 
 			<!-- Reusable drill component handles the answer UI -->
@@ -195,7 +223,9 @@
 
 			<!-- Running score counter -->
 			<div class="session__score">
-				Score: {correctCount} / {totalAnswered}
+				<Reveal as="span" delay={120} distance={10} duration={320}>
+					Score: {correctCount} / {totalAnswered}
+				</Reveal>
 			</div>
 		</div>
 	{/if}

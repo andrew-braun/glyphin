@@ -1,12 +1,12 @@
-# GlyphBridge
+# Glyphin
 
-GlyphBridge is a Thai reading app built around a simple idea: learners remember script faster when it is tied to real words they would actually encounter.
+Glyphin is a Thai reading app built around a simple idea: learners remember script faster when it is tied to real words they would actually encounter.
 
-Instead of dumping an alphabet chart on day one, GlyphBridge starts with useful Thai words from signs, roads, food, and daily life. Each lesson breaks a word into readable pieces, teaches only the letters and rules needed for that word, and then reinforces the pattern with short drills.
+Instead of dumping an alphabet chart on day one, Glyphin starts with useful Thai words from signs, roads, food, and daily life. Each lesson breaks a word into readable pieces, teaches only the letters and rules needed for that word, and then reinforces the pattern with short drills.
 
 ## Why It Exists
 
-Many beginner resources make Thai script feel abstract, dense, or disconnected from the real world. GlyphBridge is designed to feel practical from the first lesson.
+Many beginner resources make Thai script feel abstract, dense, or disconnected from the real world. Glyphin is designed to feel practical from the first lesson.
 
 - Real-world anchor words instead of isolated symbol memorization
 - Tight, step-based lessons that keep cognitive load manageable
@@ -86,7 +86,7 @@ pnpm build
 
 ## Security Posture
 
-GlyphBridge is still early, but the security bar is already strict.
+Glyphin is still early, but the security bar is already strict.
 
 - Anything involving auth, databases, environment variables, sessions, cookies, storage, or secure routes is treated as high-risk work
 - High-risk changes require current-doc research and explicit sign-off before deployment

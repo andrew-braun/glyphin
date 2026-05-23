@@ -114,7 +114,7 @@
 					<Heading as="h1">Pick a language. Start in under a minute.</Heading>
 				</div>
 				<p class="home-hero__lead">
-					GlyphBridge teaches script and vocabulary together, so your first lesson already
+					Glyphin teaches script and vocabulary together, so your first lesson already
 					feels like reading the real thing.
 				</p>
 
@@ -233,7 +233,12 @@
 			gap: $space-sm;
 			justify-content: space-between;
 			padding: $space-md;
-			transition: all 0.2s;
+			@include motion-safe-transition(
+				border-color $transition-fast,
+				box-shadow $transition-fast,
+				transform $transition-fast,
+				background-color $transition-fast
+			);
 
 			@media (max-width: $bp-sm) {
 				align-items: center;

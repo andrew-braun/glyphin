@@ -15,14 +15,14 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import PageShell from "$lib/components/layout/PageShell.svelte";
+	import LessonBackLink from "$lib/components/lesson/LessonBackLink.svelte";
+	import LessonProgressTracker from "$lib/components/lesson/LessonProgressTracker.svelte";
 	import StepBreakdown from "$lib/components/lesson/StepBreakdown.svelte";
 	import StepComplete from "$lib/components/lesson/StepComplete.svelte";
 	import StepDrills from "$lib/components/lesson/StepDrills.svelte";
 	import StepIntro from "$lib/components/lesson/StepIntro.svelte";
 	import StepLetters from "$lib/components/lesson/StepLetters.svelte";
 	import StepRules from "$lib/components/lesson/StepRules.svelte";
-	import Button from "$lib/components/ui/Button.svelte";
-	import Progress from "$lib/components/ui/Progress.svelte";
 	import { completeLesson } from "$lib/stores/progress";
 	import {
 		createLessonCompletionSyncInput,
@@ -52,6 +52,17 @@
 
 	// Check if there's a lesson after this one
 	const hasNextLesson = $derived(nextLessonId !== null);
+
+	function resetLessonFlow(lessonId: number) {
+		if (lessonId < 1) return;
+
+		currentStepIndex = 0;
+		drillCorrectCount = 0;
+	}
+
+	$effect(() => {
+		resetLessonFlow(lesson.id);
+	});
 
 	/** Advance to the next step in the lesson flow. */
 	function nextStep() {
@@ -94,7 +105,7 @@
 </script>
 
 <svelte:head>
-	<title>{lesson.title} — GlyphBridge</title>
+	<title>{lesson.title} — Glyphin</title>
 	<meta
 		name="description"
 		content={`Learn to read ${lesson.anchorWord.thai}, meaning ${lesson.anchorWord.meaning}, through letters, reading rules, and short Thai practice drills.`}
@@ -103,64 +114,61 @@
 	<meta name="glyphbridge-publication-cache-key" content={publication.publicationCacheKey} />
 </svelte:head>
 
-<PageShell narrow class="lesson">
-	<!-- Top bar: back button + progress bar + step indicator -->
-	<div class="lesson__progress surface-panel card card--flat">
-		<Button href="/learn" variant="ghost">&larr; Lessons</Button>
-		<div class="lesson__progress-bar">
-			<Progress
-				label="Lesson progress"
-				value={progressPercent}
-				valueLabel={`${currentStepIndex + 1} of ${stepOrder.length} steps complete`}
-			/>
-		</div>
-		<span class="lesson__step-label">{currentStepIndex + 1} / {stepOrder.length}</span>
+<PageShell class="lesson">
+	<div class="lesson__chrome">
+		<LessonBackLink />
+		<LessonProgressTracker
+			currentStep={currentStepIndex + 1}
+			totalSteps={stepOrder.length}
+			value={progressPercent}
+		/>
 	</div>
 
 	<!-- Render the current step component -->
-	{#if currentStep === "intro"}
-		<StepIntro {lesson} onNext={nextStep} />
-	{:else if currentStep === "breakdown"}
-		<StepBreakdown {lesson} onNext={nextStep} />
-	{:else if currentStep === "letters"}
-		<StepLetters letters={lesson.newLetters} onComplete={nextStep} />
-	{:else if currentStep === "rules"}
-		<StepRules rules={lesson.rulesIntroduced} onComplete={nextStep} />
-	{:else if currentStep === "drills"}
-		<StepDrills drills={lesson.drills} onComplete={handleDrillsComplete} />
-	{:else if currentStep === "complete"}
-		<StepComplete
-			{lesson}
-			correctCount={drillCorrectCount}
-			totalDrills={lesson.drills.length}
-			onNextLesson={goToNextLesson}
-			{hasNextLesson}
-		/>
-	{/if}
+	{#key `${lesson.id}-${currentStep}`}
+		<div class="lesson__stage">
+			{#if currentStep === "intro"}
+				<StepIntro {lesson} onNext={nextStep} />
+			{:else if currentStep === "breakdown"}
+				<StepBreakdown {lesson} onNext={nextStep} />
+			{:else if currentStep === "letters"}
+				<StepLetters letters={lesson.newLetters} onComplete={nextStep} />
+			{:else if currentStep === "rules"}
+				<StepRules rules={lesson.rulesIntroduced} onComplete={nextStep} />
+			{:else if currentStep === "drills"}
+				<StepDrills drills={lesson.drills} onComplete={handleDrillsComplete} />
+			{:else if currentStep === "complete"}
+				<StepComplete
+					{lesson}
+					correctCount={drillCorrectCount}
+					totalDrills={lesson.drills.length}
+					onNextLesson={goToNextLesson}
+					{hasNextLesson}
+				/>
+			{/if}
+		</div>
+	{/key}
 </PageShell>
 
 <style lang="scss">
-	.lesson__progress {
+	.lesson__stage {
+		@include fade-in-animation($motion-distance-md, $motion-duration-slow);
+	}
+
+	.lesson__chrome {
 		align-items: center;
-		background: var(--surface-panel);
-		display: flex;
-		gap: $space-md;
-		margin-bottom: $space-sm;
-
-		.lesson__progress-bar {
-			flex: 1;
-		}
-
-		.lesson__step-label {
-			@include step-counter;
-			white-space: nowrap;
-		}
+		display: grid;
+		gap: $space-sm;
+		grid-template-columns: auto minmax(12rem, 1fr);
+		margin: 0 auto;
+		max-width: 64rem;
+		width: 100%;
 	}
 
 	@media (max-width: $bp-sm) {
-		.lesson__progress {
+		.lesson__chrome {
 			align-items: stretch;
-			flex-direction: column;
+			grid-template-columns: 1fr;
 		}
 	}
 </style>

@@ -122,15 +122,15 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is มาก?",
+				prompt: 'Which Thai spelling means "very / a lot"?',
 				options: ["มาก", "กาม", "มกา", "ดาก"],
 				correctIndex: 0,
 			},
 			{
 				type: "sound",
-				prompt: "How does final ก sound in มาก?",
-				options: ["maa", "maad", "maak", "maan"],
-				correctIndex: 2,
+				prompt: "How does the final ก sound in มาก?",
+				options: ["m", "k", "g", "n"],
+				correctIndex: 1,
 			},
 		],
 	},
@@ -207,7 +207,7 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is ดี?",
+				prompt: 'Which Thai spelling means "good"?',
 				options: ["ดี", "ดิ", "ดา", "มี"],
 				correctIndex: 0,
 			},
@@ -301,7 +301,7 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is กิน?",
+				prompt: 'Which Thai spelling means "to eat"?',
 				options: ["กิน", "กีน", "นิก", "มิน"],
 				correctIndex: 0,
 			},
@@ -407,7 +407,7 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is ตลาด (market)?",
+				prompt: 'Which Thai spelling means "market"?',
 				options: ["ตลาด", "ตาลด", "ลาดต", "ดาลต"],
 				correctIndex: 0,
 			},
@@ -476,7 +476,7 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is บิน?",
+				prompt: 'Which Thai spelling means "to fly"?',
 				options: ["บิน", "นบิ", "บีน", "ดิน"],
 				correctIndex: 0,
 			},
@@ -571,7 +571,7 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is แม่?",
+				prompt: 'Which Thai spelling means "mother"?',
 				options: ["แม่", "แม", "มา", "แน"],
 				correctIndex: 0,
 			},
@@ -666,7 +666,7 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is ร้าน?",
+				prompt: 'Which Thai spelling means "shop"?',
 				options: ["ร้าน", "ร่าน", "ราน", "น้าร"],
 				correctIndex: 0,
 			},
@@ -762,14 +762,14 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is ชุด?",
+				prompt: 'Which Thai spelling means "set / combo"?',
 				options: ["ชุด", "ชาด", "สด", "ชดุ"],
 				correctIndex: 0,
 			},
 			{
 				type: "sound",
-				prompt: "How does final ด sound in ชุด?",
-				options: ["chud", "chut", "chun", "chuu"],
+				prompt: "How does the final ด sound in ชุด?",
+				options: ["d", "t", "n", "silent"],
 				correctIndex: 1,
 			},
 		],
@@ -847,7 +847,7 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is สิบ?",
+				prompt: 'Which Thai spelling means "ten"?',
 				options: ["สิบ", "บิส", "สด", "สบิ"],
 				correctIndex: 0,
 			},
@@ -938,7 +938,7 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is ข้าว?",
+				prompt: 'Which Thai spelling means "rice"?',
 				options: ["ข้าว", "ขาว", "ข้า", "ขน"],
 				correctIndex: 0,
 			},
@@ -1033,7 +1033,7 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is หมู?",
+				prompt: 'Which Thai spelling means "pork"?',
 				options: ["หมู", "มู", "หมา", "ขู"],
 				correctIndex: 0,
 			},
@@ -1116,14 +1116,14 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is อาหาร?",
+				prompt: 'Which Thai spelling means "food"?',
 				options: ["อาหาร", "หารอา", "หมู", "ผัด"],
 				correctIndex: 0,
 			},
 			{
 				type: "sound",
-				prompt: "How does final ร sound in อาหาร?",
-				options: ["r", "l", "n", "it disappears completely"],
+				prompt: "How does the final ร sound in อาหาร?",
+				options: ["r", "l", "n", "silent"],
 				correctIndex: 2,
 			},
 			{
@@ -1216,7 +1216,7 @@ const baseLessons: BaseLesson[] = [
 			},
 			{
 				type: "spot",
-				prompt: "Which word is ผัด?",
+				prompt: 'Which Thai spelling means "stir-fry"?',
 				options: ["ผัด", "ผาด", "ผาก", "ชุด"],
 				correctIndex: 0,
 			},

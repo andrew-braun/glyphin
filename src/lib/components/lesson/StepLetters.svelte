@@ -17,6 +17,7 @@
 	import Button from "$lib/components/ui/Button.svelte";
 	import DetailRow from "$lib/components/ui/DetailRow.svelte";
 	import NoticeBox from "$lib/components/ui/NoticeBox.svelte";
+	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import type { Letter } from "$lib/data/types";
 
 	let {
@@ -42,40 +43,48 @@
 </script>
 
 <StepLayout counter={`Letter ${currentIndex + 1} of ${letters.length}`}>
-	<div class="letter-intro">
-		<!-- Large character display -->
-		<div class="letter-intro__char thai">
-			{currentLetter.character}
-		</div>
+	{#key currentLetter.character}
+		<div class="letter-intro">
+			<!-- Large character display -->
+			<div class="letter-intro__char thai">
+				<Reveal as="span" distance={14}>{currentLetter.character}</Reveal>
+			</div>
 
-		<!-- Letter details table -->
-		<div class="letter-intro__details">
-			<DetailRow label="Sound" value={currentLetter.romanization} />
-			<DetailRow label="Pronunciation" value={currentLetter.pronunciation} />
-			<DetailRow label="Type">
-				<Badge>
-					{currentLetter.type}{currentLetter.class
-						? ` (${currentLetter.class} class)`
-						: ""}
-				</Badge>
-			</DetailRow>
-			<!-- Position only shown for non-standalone characters (vowels that sit above/below/around) -->
-			{#if currentLetter.position && currentLetter.position !== "standalone"}
-				<DetailRow
-					label="Position"
-					value={`Written ${currentLetter.position} the consonant`}
-				/>
-			{/if}
-		</div>
+			<!-- Letter details table -->
+			<div class="letter-intro__details">
+				<div class="letter-intro__details-content">
+					<Reveal as="div" delay={80} distance={14}>
+						<DetailRow label="Sound" value={currentLetter.romanization} />
+						<DetailRow label="Pronunciation" value={currentLetter.pronunciation} />
+						<DetailRow label="Type">
+							<Badge>
+								{currentLetter.type}{currentLetter.class
+									? ` (${currentLetter.class} class)`
+									: ""}
+							</Badge>
+						</DetailRow>
+						<!-- Position only shown for non-standalone characters (vowels that sit above/below/around) -->
+						{#if currentLetter.position && currentLetter.position !== "standalone"}
+							<DetailRow
+								label="Position"
+								value={`Written ${currentLetter.position} the consonant`}
+							/>
+						{/if}
+					</Reveal>
+				</div>
+			</div>
 
-		<!-- Mnemonic memory trick -->
-		<div class="letter-intro__mnemonic">
-			<NoticeBox>
-				<strong>Remember:</strong>
-				{currentLetter.mnemonic}
-			</NoticeBox>
+			<!-- Mnemonic memory trick -->
+			<div class="letter-intro__mnemonic">
+				<Reveal as="div" delay={160} distance={12}>
+					<NoticeBox>
+						<strong>Remember:</strong>
+						{currentLetter.mnemonic}
+					</NoticeBox>
+				</Reveal>
+			</div>
 		</div>
-	</div>
+	{/key}
 
 	<Button variant="primary" size="large" fullWidth={true} onclick={next}>
 		{currentIndex < letters.length - 1
@@ -111,6 +120,10 @@
 
 		// Stacked rows of letter properties
 		&__details {
+			width: 100%;
+		}
+
+		&__details-content {
 			display: flex;
 			flex-direction: column;
 			gap: $space-sm;
@@ -121,6 +134,31 @@
 		&__mnemonic {
 			text-align: left;
 			width: 100%;
+		}
+	}
+
+	@media (min-width: $bp-md) {
+		.letter-intro {
+			align-items: stretch;
+			display: grid;
+			gap: $space-lg $space-xl;
+			grid-template-columns: 14rem minmax(0, 1fr);
+			text-align: left;
+
+			&__char {
+				font-size: 6rem;
+				height: 100%;
+				min-height: 14rem;
+				width: 100%;
+			}
+
+			&__details {
+				align-self: center;
+			}
+
+			&__mnemonic {
+				grid-column: 1 / -1;
+			}
 		}
 	}
 </style>

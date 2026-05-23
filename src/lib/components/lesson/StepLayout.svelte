@@ -31,6 +31,13 @@
 		gap: $space-xl;
 		margin: 0 auto;
 		max-width: var(--content-max-width);
-		@include fade-in-animation;
+		width: 100%;
+	}
+
+	@media (min-width: $bp-md) {
+		.step {
+			gap: $space-lg;
+			max-width: 64rem;
+		}
 	}
 </style>

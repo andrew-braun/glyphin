@@ -9,10 +9,10 @@
 </script>
 
 <svelte:head>
-	<title>How GlyphBridge Works — Reading a new script, fast</title>
+	<title>How Glyphin Works — Reading a new script, fast</title>
 	<meta
 		name="description"
-		content="GlyphBridge teaches you to read a new script by starting with real words you'd actually encounter — not alphabet charts. Here's how, and the research behind it."
+		content="Glyphin teaches you to read a new script by starting with real words you'd actually encounter — not alphabet charts. Here's how, and the research behind it."
 	/>
 </svelte:head>
 
@@ -20,15 +20,15 @@
 	<!-- =================== HERO =================== -->
 	<section class="hero">
 		<div class="hero__copy">
-			<Eyebrow>How GlyphBridge works</Eyebrow>
+			<Eyebrow>How Glyphin works</Eyebrow>
 			<h1 class="hero__title">
 				Read a new script.
 				<span class="hero__title-accent">Fast.</span>
 			</h1>
 			<p class="hero__lede">
-				Most apps drop you in front of an alphabet chart and ask you to memorize it.
-				GlyphBridge starts with words you'd actually see on a street sign, a menu, or a
-				packet — and teaches the letters as you go.
+				Most apps drop you in front of an alphabet chart and ask you to memorize it. Glyphin
+				starts with words you'd actually see on a street sign, a menu, or a packet — and
+				teaches the letters as you go.
 			</p>
 			<ActionGroup justify="center" stackAt="sm" class="hero__actions">
 				<Button href="/learn" variant="primary" size="large">Start the first lesson</Button>

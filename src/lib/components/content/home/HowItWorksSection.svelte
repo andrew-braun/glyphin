@@ -42,8 +42,8 @@
 		<div class="method__header">
 			<Heading align="center">How it works</Heading>
 			<p class="method__lead">
-				GlyphBridge teaches reading the way you actually use it: spot the word, understand
-				the pieces, then read it back yourself.
+				Glyphin teaches reading the way you actually use it: spot the word, understand the
+				pieces, then read it back yourself.
 			</p>
 		</div>
 	</Reveal>

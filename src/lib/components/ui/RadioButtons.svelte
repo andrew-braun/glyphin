@@ -27,7 +27,16 @@
 		class?: string;
 	} = $props();
 
-	const classes = $derived(cn("radio-buttons", className));
+	const columnClass = $derived(
+		columns === 1
+			? "radio-buttons--columns-1"
+			: columns === 3
+				? "radio-buttons--columns-3"
+				: columns === 4
+					? "radio-buttons--columns-4"
+					: "radio-buttons--columns-2",
+	);
+	const classes = $derived(cn("radio-buttons", columnClass, className));
 
 	function getOptionClasses(option: RadioButtonOption, checked: boolean) {
 		return cn(
@@ -39,12 +48,7 @@
 	}
 </script>
 
-<RadioGroup.Root
-	class={classes}
-	aria-labelledby={labelledBy}
-	bind:value
-	style={`--radio-buttons-columns: ${columns}`}
->
+<RadioGroup.Root class={classes} aria-labelledby={labelledBy} bind:value>
 	{#each options as option}
 		<RadioGroup.Item value={option.value} disabled={option.disabled}>
 			{#snippet child({ props, checked })}
@@ -59,14 +63,42 @@
 </RadioGroup.Root>
 
 <style lang="scss">
-	.radio-buttons {
+	:global(.radio-buttons) {
 		display: grid;
 		gap: $space-md;
-		grid-template-columns: repeat(var(--radio-buttons-columns), minmax(0, 1fr));
+		width: 100%;
+	}
 
+	:global(.radio-buttons > button[role="radio"]) {
+		width: 100%;
+	}
+
+	:global(.radio-buttons.radio-buttons--columns-1) {
+		grid-template-columns: 1fr;
+	}
+
+	:global(.radio-buttons.radio-buttons--columns-2) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	:global(.radio-buttons.radio-buttons--columns-3) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	:global(.radio-buttons.radio-buttons--columns-4) {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.radio-buttons {
 		&__option {
 			@include drill-option;
 			@include drill-option-states;
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			min-height: 5.5rem;
+			text-align: center;
+			width: 100%;
 		}
 
 		&__label.thai {
@@ -75,8 +107,14 @@
 	}
 
 	@media (max-width: $bp-sm) {
-		.radio-buttons {
+		:global(.radio-buttons) {
 			grid-template-columns: 1fr;
+		}
+
+		.radio-buttons {
+			&__option {
+				min-height: 4.75rem;
+			}
 		}
 	}
 </style>

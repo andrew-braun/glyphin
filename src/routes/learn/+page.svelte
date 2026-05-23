@@ -3,6 +3,7 @@
 
 	import PageShell from "$lib/components/layout/PageShell.svelte";
 	import Badge from "$lib/components/ui/Badge.svelte";
+	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import { currentLessonId } from "$lib/stores/progress";
 	import { cn } from "$lib/utils/cn";
 
@@ -47,7 +48,7 @@
 </script>
 
 <svelte:head>
-	<title>Learn — GlyphBridge</title>
+	<title>Learn — Glyphin</title>
 	<meta
 		name="description"
 		content="Work through step-by-step Thai reading lessons built around real words, new letters, pronunciation rules, and quick drills."
@@ -73,39 +74,43 @@
 			{@const hydratedLessonState = hasHydratedProgress
 				? getHydratedLessonState(lesson.id, $currentLessonId)
 				: null}
-			<svelte:element
-				this={hydratedLessonState !== null && !hydratedLessonState.isUnlocked ? "div" : "a"}
-				href={hydratedLessonState !== null && !hydratedLessonState.isUnlocked
-					? undefined
-					: `/learn/${lesson.id}`}
-				class={getLessonCardClasses(hydratedLessonState)}
-				aria-disabled={hydratedLessonState !== null && !hydratedLessonState.isUnlocked
-					? "true"
-					: undefined}
-			>
-				<!-- Header badges: stage number is static, progress badges appear after hydration. -->
-				<div class="lesson-card__header">
-					<Badge>Stage {lesson.stage}</Badge>
-					{#if hydratedLessonState?.isDone}
-						<Badge tone="success">Complete</Badge>
-					{:else if hydratedLessonState?.isCurrent}
-						<Badge tone="accent">Current</Badge>
+			<Reveal as="div" delay={40 + (lesson.stage - 1) * 55} distance={16}>
+				<svelte:element
+					this={hydratedLessonState !== null && !hydratedLessonState.isUnlocked
+						? "div"
+						: "a"}
+					href={hydratedLessonState !== null && !hydratedLessonState.isUnlocked
+						? undefined
+						: `/learn/${lesson.id}`}
+					class={getLessonCardClasses(hydratedLessonState)}
+					aria-disabled={hydratedLessonState !== null && !hydratedLessonState.isUnlocked
+						? "true"
+						: undefined}
+				>
+					<!-- Header badges: stage number is static, progress badges appear after hydration. -->
+					<div class="lesson-card__header">
+						<Badge>Stage {lesson.stage}</Badge>
+						{#if hydratedLessonState?.isDone}
+							<Badge tone="success">Complete</Badge>
+						{:else if hydratedLessonState?.isCurrent}
+							<Badge tone="accent">Current</Badge>
+						{/if}
+					</div>
+					<div class="lesson-card__word thai">{lesson.anchorWord.thai}</div>
+					<h3>{lesson.title}</h3>
+					<p class="lesson-card__meaning">{lesson.anchorWord.meaning}</p>
+					<!-- Chips previewing the new Thai letters this lesson introduces -->
+					<div class="lesson-card__new-letters">
+						{#each lesson.newLetters as letter}
+							<span class="letter-chip thai thai--sm">{letter.character}</span>
+						{/each}
+					</div>
+					<!-- Locked-state overlay is learner-specific and appears after hydration. -->
+					{#if hydratedLessonState !== null && !hydratedLessonState.isUnlocked}
+						<div class="lesson-card__overlay">&#128274; Complete previous lesson</div>
 					{/if}
-				</div>
-				<div class="lesson-card__word thai">{lesson.anchorWord.thai}</div>
-				<h3>{lesson.title}</h3>
-				<p class="lesson-card__meaning">{lesson.anchorWord.meaning}</p>
-				<!-- Chips previewing the new Thai letters this lesson introduces -->
-				<div class="lesson-card__new-letters">
-					{#each lesson.newLetters as letter}
-						<span class="letter-chip thai thai--sm">{letter.character}</span>
-					{/each}
-				</div>
-				<!-- Locked-state overlay is learner-specific and appears after hydration. -->
-				{#if hydratedLessonState !== null && !hydratedLessonState.isUnlocked}
-					<div class="lesson-card__overlay">&#128274; Complete previous lesson</div>
-				{/if}
-			</svelte:element>
+				</svelte:element>
+			</Reveal>
 		{/each}
 	</div>
 </PageShell>
@@ -133,6 +138,16 @@
 		overflow: hidden;
 		position: relative;
 		text-decoration: none;
+		@include motion-safe-transition(
+			border-color $transition-base,
+			box-shadow $transition-base,
+			transform $transition-base,
+			opacity $transition-fast
+		);
+
+		&:hover {
+			transform: translateY(-2px);
+		}
 
 		&--current {
 			border-color: var(--color-primary);
@@ -146,6 +161,10 @@
 		&--locked {
 			cursor: not-allowed;
 			opacity: 0.5;
+
+			&:hover {
+				transform: none;
+			}
 		}
 
 		&__header {
@@ -178,6 +197,7 @@
 			inset: 0;
 			justify-content: center;
 			position: absolute;
+			@include motion-safe-transition(opacity $transition-fast);
 		}
 	}
 

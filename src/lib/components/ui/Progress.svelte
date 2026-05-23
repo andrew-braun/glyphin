@@ -9,6 +9,7 @@
 		min = 0,
 		label = "Progress",
 		valueLabel,
+		showValueLabel = true,
 		class: className = "",
 	}: {
 		value: number;
@@ -16,6 +17,7 @@
 		min?: number;
 		label?: string;
 		valueLabel?: string;
+		showValueLabel?: boolean;
 		class?: string;
 	} = $props();
 
@@ -39,7 +41,9 @@
 			</div>
 		{/snippet}
 	</BitsProgress.Root>
-	<span class="progress__label">{resolvedValueLabel}</span>
+	{#if showValueLabel}
+		<span class="progress__label">{resolvedValueLabel}</span>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -58,7 +62,7 @@
 			background: var(--color-primary);
 			border-radius: $radius-full;
 			height: 100%;
-			transition: width $transition-slow;
+			@include motion-safe-transition(width $transition-slow);
 		}
 
 		&__label {

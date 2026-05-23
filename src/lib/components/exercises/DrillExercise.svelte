@@ -2,6 +2,7 @@
 	import Button from "$lib/components/ui/Button.svelte";
 	import FeedbackBanner from "$lib/components/ui/FeedbackBanner.svelte";
 	import RadioButtons, { type RadioButtonOption } from "$lib/components/ui/RadioButtons.svelte";
+	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import { isThai } from "$lib/utils/thai";
 
 	let {
@@ -67,24 +68,29 @@
 	<h2 class="drill__prompt" id={promptId}>{prompt}</h2>
 
 	<RadioButtons
+		class="drill__options"
 		labelledBy={promptId}
 		options={radioOptions}
 		bind:value={getSelectedValue, setSelectedValue}
 	/>
 
 	{#if answered}
-		<FeedbackBanner tone={isCorrect ? "correct" : "wrong"}>
-			{#if isCorrect}
-				<strong>Correct.</strong> You matched the sound to the right Thai form.
-			{:else}
-				<strong>Not quite.</strong> The answer is:
-				<span class="thai thai--sm">{options[correctIndex]}</span>
-			{/if}
-		</FeedbackBanner>
+		<Reveal as="div" distance={10} duration={320}>
+			<FeedbackBanner tone={isCorrect ? "correct" : "wrong"}>
+				{#if isCorrect}
+					<strong>Correct.</strong> You matched the sound to the right Thai form.
+				{:else}
+					<strong>Not quite.</strong> The answer is:
+					<span class="thai thai--sm">{options[correctIndex]}</span>
+				{/if}
+			</FeedbackBanner>
+		</Reveal>
 
-		<Button variant="primary" size="large" fullWidth={true} onclick={handleNext}>
-			{nextLabel}
-		</Button>
+		<Reveal as="div" delay={80} distance={8} duration={320}>
+			<Button variant="primary" size="large" fullWidth={true} onclick={handleNext}>
+				{nextLabel}
+			</Button>
+		</Reveal>
 	{/if}
 </div>
 
@@ -92,11 +98,26 @@
 	.drill {
 		display: flex;
 		flex-direction: column;
-		gap: $space-xl;
+		gap: $space-lg;
+		margin: 0 auto;
+		max-width: 48rem;
+		width: 100%;
 
 		&__prompt {
 			font-size: $font-size-xl;
 			text-align: center;
+		}
+
+		:global(.drill__options) {
+			gap: $space-lg;
+		}
+	}
+
+	@media (min-width: $bp-md) {
+		.drill {
+			:global(.drill__options) {
+				gap: $space-xl;
+			}
 		}
 	}
 </style>

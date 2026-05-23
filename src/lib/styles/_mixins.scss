@@ -20,7 +20,12 @@
 	font-family: $font-body;
 	font-size: $font-size-base;
 	padding: $space-lg;
-	transition: all $transition-fast;
+	@include motion-safe-transition(
+		background-color $transition-fast,
+		border-color $transition-fast,
+		box-shadow $transition-fast,
+		transform $transition-fast
+	);
 
 	&:hover:not(:disabled) {
 		background: var(--surface-interactive);
@@ -154,16 +159,43 @@
 }
 
 // ---------------------------------------------------------------------------
+// Motion safety helpers — keep transitions and animations centralized and
+// easier to disable for reduced-motion users.
+// ---------------------------------------------------------------------------
+@mixin prefers-reduced-motion {
+	@media (prefers-reduced-motion: reduce) {
+		@content;
+	}
+}
+
+@mixin motion-safe-transition($values...) {
+	transition: $values;
+
+	@include prefers-reduced-motion {
+		transition: none;
+	}
+}
+
+@mixin motion-safe-animation($value) {
+	animation: $value;
+
+	@include prefers-reduced-motion {
+		animation: none;
+	}
+}
+
+// ---------------------------------------------------------------------------
 // Fade-in animation — subtle entrance for lesson steps and cards.
 // ---------------------------------------------------------------------------
-@mixin fade-in-animation {
-	animation: fadeIn 300ms ease;
+@mixin fade-in-animation($distance: $motion-distance-sm, $duration: $motion-duration-base) {
+	--fade-in-distance: #{$distance};
+	@include motion-safe-animation(fadeIn $duration $motion-ease-standard both);
 }
 
 @keyframes fadeIn {
 	from {
 		opacity: 0;
-		transform: translateY(8px);
+		transform: translateY(var(--fade-in-distance, #{$motion-distance-sm}));
 	}
 	to {
 		opacity: 1;

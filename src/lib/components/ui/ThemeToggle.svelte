@@ -50,10 +50,11 @@
 			display: inline-flex;
 			gap: $space-sm;
 			padding: 0.25rem 0.35rem 0.25rem 0.75rem;
-			transition:
+			@include motion-safe-transition(
 				background-color $transition-fast,
 				border-color $transition-fast,
-				transform $transition-fast;
+				transform $transition-fast
+			);
 		}
 
 		&:hover {
@@ -84,9 +85,7 @@
 
 		.theme-toggle__icon {
 			position: absolute;
-			transition:
-				opacity $transition-fast,
-				transform $transition-fast;
+			@include motion-safe-transition(opacity $transition-fast, transform $transition-fast);
 
 			&::before,
 			&::after {

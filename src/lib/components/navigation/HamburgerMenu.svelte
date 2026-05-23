@@ -130,6 +130,12 @@
 		height: 44px;
 		justify-content: center;
 		padding: 0;
+		@include motion-safe-transition(
+			background-color $transition-fast,
+			border-color $transition-fast,
+			color $transition-fast,
+			transform $transition-fast
+		);
 		width: 44px;
 
 		&:hover {
@@ -152,7 +158,7 @@
 		inset: 0;
 		opacity: 0;
 		position: fixed;
-		transition: opacity 200ms ease;
+		@include motion-safe-transition(opacity $motion-duration-base $motion-ease-standard);
 
 		&[data-state="open"] {
 			opacity: 1;
@@ -172,7 +178,7 @@
 		right: 0;
 		top: 0;
 		transform: translateX(100%);
-		transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+		@include motion-safe-transition(transform $motion-duration-slow $motion-ease-emphasized);
 		width: min(280px, 80vw);
 		will-change: transform;
 
@@ -196,6 +202,12 @@
 				height: 44px;
 				justify-content: center;
 				padding: 0;
+				@include motion-safe-transition(
+					background-color $transition-fast,
+					border-color $transition-fast,
+					color $transition-fast,
+					transform $transition-fast
+				);
 				width: 44px;
 
 				&:hover {

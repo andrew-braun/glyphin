@@ -75,10 +75,10 @@
 </script>
 
 <svelte:head>
-	<title>Sign in - GlyphBridge</title>
+	<title>Sign in - Glyphin</title>
 	<meta
 		name="description"
-		content="Sign in to GlyphBridge with an email code and sync your Thai reading progress across devices."
+		content="Sign in to Glyphin with an email code and sync your Thai reading progress across devices."
 	/>
 </svelte:head>
 
@@ -95,7 +95,7 @@
 				<div class="auth__summary-card">
 					<span class="auth__summary-label">Sign-in email</span>
 					<strong>{accountEmail}</strong>
-					<p>You are using GlyphBridge's email code sign-in flow.</p>
+					<p>You are using Glyphin's email code sign-in flow.</p>
 				</div>
 
 				<div class="auth__summary-card">
