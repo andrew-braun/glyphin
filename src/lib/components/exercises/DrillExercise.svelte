@@ -64,7 +64,7 @@
 	}
 </script>
 
-<div class="drill surface-panel card">
+<div class="drill surface-panel lesson-accent-panel">
 	<h2 class="drill__prompt" id={promptId}>{prompt}</h2>
 
 	<RadioButtons
@@ -96,11 +96,11 @@
 
 <style lang="scss">
 	.drill {
-		display: flex;
-		flex-direction: column;
-		gap: $space-lg;
+		display: grid;
+		gap: clamp(#{$space-lg}, 3vw, #{$space-xl});
 		margin: 0 auto;
 		max-width: 48rem;
+		padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
 		width: 100%;
 
 		&__prompt {

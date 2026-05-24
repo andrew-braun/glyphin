@@ -23,16 +23,17 @@ GlyphBridge is a real-word-first reading app for scripts and writing systems. It
 
 ## Lesson Contract
 
-Every lesson follows the same six-step structure:
+Every lesson follows the same seven-step structure when support vocabulary exists:
 
 1. Intro: present the anchor word and why it matters.
 2. Breakdown: show how the word segments into readable parts.
 3. Letters: introduce only the new graphemes required for this lesson.
 4. Rules: explain the specific patterns that make the word readable.
-5. Drills: verify recognition, mapping, pronunciation, and discrimination.
-6. Complete: summarize performance and unlock the next lesson.
+5. Same letters, new words: show support vocabulary that reuses the new graphemes and patterns in different real words.
+6. Drills: verify recognition, mapping, pronunciation, and discrimination.
+7. Complete: summarize performance and unlock the next lesson.
 
-Each lesson should define a stable identifier, stage, title, anchor word, new graphemes, introduced rules, drills, and optional review graphemes. Components should render this contract. They should not invent lesson-specific structures or duplicate curriculum facts in UI code.
+Each lesson should define a stable identifier, stage, title, anchor word, support vocabulary, new graphemes, introduced rules, drills, and optional review graphemes. Components should render this contract. They should not invent lesson-specific structures or duplicate curriculum facts in UI code.
 
 ## Progress Path
 

@@ -24,6 +24,8 @@ $color-primary-light: #67cbbf;
 $color-primary-dark: #167e74;
 $color-accent: #e86aa6;
 $color-accent-light: #f2a7c9;
+$color-sky: #3fa7f5;
+$color-mango: #f5b84b;
 $color-success: #2a8f85;
 $color-success-light: #8ad7cf;
 $color-warning: #d6a14f;
@@ -105,6 +107,8 @@ $space-heading-section: $space-xl;
 	--rgb-primary: 31 168 154;
 	--rgb-primary-strong: 164 236 227;
 	--rgb-accent: 232 106 166;
+	--rgb-sky: 63 167 245;
+	--rgb-mango: 245 184 75;
 	--rgb-success: 42 143 133;
 	--rgb-warning: 214 161 79;
 	--rgb-danger: 207 91 119;
@@ -120,11 +124,20 @@ $space-heading-section: $space-xl;
 	--color-border: rgb(131 151 171 / 0.2);
 	--color-border-strong: rgb(131 151 171 / 0.34);
 	--color-primary: #1fa89a;
+	--color-primary-dark: #167e74;
 	--color-primary-strong: #a4ece3;
 	--color-accent: #e86aa6;
+	--color-sky: #3fa7f5;
+	--color-mango: #f5b84b;
 	--color-success: #2a8f85;
 	--color-warning: #d6a14f;
 	--color-danger: #cf5b77;
+	--color-on-primary: #000000;
+	--color-on-accent: #2b0618;
+	--color-on-sky: #061d2f;
+	--color-on-mango: #2a1903;
+	--color-on-success: #000000;
+	--color-on-warning: #291704;
 	--color-link: #82ddd1;
 	--color-link-hover: #b3f1e8;
 	--shadow-soft: 0 2px 6px rgb(0 0 0 / 0.14);
@@ -134,6 +147,8 @@ $space-heading-section: $space-xl;
 	--surface-hero: var(--color-surface-card);
 	--surface-panel: var(--color-surface-card);
 	--surface-panel-accent: #3a2330;
+	--surface-panel-sky: var(--surface-panel);
+	--surface-panel-mango: var(--surface-panel);
 	--surface-panel-success: #18302d;
 	--surface-panel-warning: #352a1c;
 	--surface-interactive: rgb(var(--rgb-primary) / 0.06);
@@ -152,6 +167,8 @@ $space-heading-section: $space-xl;
 	--rgb-primary: 31 168 154;
 	--rgb-primary-strong: 22 126 116;
 	--rgb-accent: 232 106 166;
+	--rgb-sky: 63 167 245;
+	--rgb-mango: 245 184 75;
 	--rgb-success: 42 143 133;
 	--rgb-warning: 214 161 79;
 	--rgb-danger: 207 91 119;
@@ -167,11 +184,20 @@ $space-heading-section: $space-xl;
 	--color-border: rgb(104 137 170 / 0.18);
 	--color-border-strong: rgb(104 137 170 / 0.28);
 	--color-primary: #1fa89a;
+	--color-primary-dark: #167e74;
 	--color-primary-strong: #167e74;
 	--color-accent: #e86aa6;
+	--color-sky: #3fa7f5;
+	--color-mango: #f5b84b;
 	--color-success: #2a8f85;
 	--color-warning: #d6a14f;
 	--color-danger: #cf5b77;
+	--color-on-primary: #000000;
+	--color-on-accent: #2b0618;
+	--color-on-sky: #061d2f;
+	--color-on-mango: #2a1903;
+	--color-on-success: #000000;
+	--color-on-warning: #291704;
 	--color-link: #168579;
 	--color-link-hover: #0f655c;
 	--shadow-soft: 0 2px 6px rgb(46 72 104 / 0.06);
@@ -181,6 +207,8 @@ $space-heading-section: $space-xl;
 	--surface-hero: var(--color-surface-card);
 	--surface-panel: var(--color-surface-card);
 	--surface-panel-accent: #fceaf2;
+	--surface-panel-sky: var(--surface-panel);
+	--surface-panel-mango: var(--surface-panel);
 	--surface-panel-success: #e8f7f4;
 	--surface-panel-warning: #fbf2df;
 	--surface-interactive: rgb(var(--rgb-primary) / 0.05);
@@ -274,12 +302,62 @@ body {
 		background: var(--surface-panel-accent);
 	}
 
+	&--sky {
+		background: var(--surface-panel);
+		border-color: var(--color-sky);
+		color: var(--color-text);
+	}
+
+	&--mango {
+		background: var(--surface-panel);
+		border-color: var(--color-mango);
+		color: var(--color-text);
+	}
+
 	&--success {
 		background: var(--surface-panel-success);
 	}
 
 	&--warning {
 		background: var(--surface-panel-warning);
+	}
+}
+
+.lesson-accent-panel {
+	--lesson-accent: var(--color-primary);
+
+	background: var(--surface-panel);
+	border-color: var(--lesson-accent);
+	overflow: hidden;
+	position: relative;
+
+	&::before {
+		background: var(--lesson-accent);
+		content: "";
+		height: 0.45rem;
+		inset: 0 0 auto;
+		pointer-events: none;
+		position: absolute;
+	}
+
+	&--sky {
+		--lesson-accent: var(--color-sky);
+	}
+
+	&--mango {
+		--lesson-accent: var(--color-mango);
+	}
+
+	&--accent {
+		--lesson-accent: var(--color-accent);
+	}
+
+	&--success {
+		--lesson-accent: var(--color-success);
+	}
+
+	&--warning {
+		--lesson-accent: var(--color-warning);
 	}
 }
 
@@ -433,7 +511,7 @@ a {
 	&--primary {
 		background: var(--color-primary);
 		box-shadow: none;
-		color: white;
+		color: var(--color-on-primary);
 
 		&:hover:not(:disabled) {
 			box-shadow: none;
@@ -464,7 +542,7 @@ a {
 
 	&--success {
 		background: var(--color-success);
-		color: white;
+		color: var(--color-on-success);
 
 		&:hover:not(:disabled) {
 			box-shadow: none;
@@ -536,6 +614,16 @@ a {
 	&--accent {
 		background: rgb(var(--rgb-accent) / 0.14);
 		color: var(--color-accent);
+	}
+
+	&--sky {
+		background: var(--color-sky);
+		color: var(--color-on-sky);
+	}
+
+	&--mango {
+		background: var(--color-mango);
+		color: var(--color-on-mango);
 	}
 
 	&--muted {

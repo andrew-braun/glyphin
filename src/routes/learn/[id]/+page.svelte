@@ -1,13 +1,15 @@
 <!--
   Lesson Page — /learn/[id]
   ==========================
-  The core learning experience. Orchestrates a 6-step lesson flow:
-    1. Intro     — Show the anchor word, spark curiosity
-    2. Breakdown — Reveal syllable structure
-    3. Letters   — Teach new letters one at a time
-    4. Rules     — Explain spelling/pronunciation rules
-    5. Drills    — Multiple-choice practice questions
-    6. Complete  — Score summary and navigation
+	The core learning experience. Orchestrates a 7-step lesson flow when support
+	vocabulary exists:
+		1. Intro      — Show the anchor word, spark curiosity
+		2. Breakdown  — Reveal syllable structure
+		3. Letters    — Teach new letters one at a time
+		4. Rules      — Explain spelling/pronunciation rules
+		5. New Words  — Transfer the same letters into fresh word contexts
+		6. Drills     — Multiple-choice practice questions
+		7. Complete   — Score summary and navigation
 
   Each step is its own component (in $lib/components/lesson/).
   This page manages the step state machine and progress persistence.
@@ -23,6 +25,7 @@
 	import StepIntro from "$lib/components/lesson/StepIntro.svelte";
 	import StepLetters from "$lib/components/lesson/StepLetters.svelte";
 	import StepRules from "$lib/components/lesson/StepRules.svelte";
+	import StepSameLettersNewWords from "$lib/components/lesson/StepSameLettersNewWords.svelte";
 	import { completeLesson } from "$lib/stores/progress";
 	import {
 		createLessonCompletionSyncInput,
@@ -35,11 +38,24 @@
 	const publication = $derived(data.publication);
 	const lesson = $derived(data.lesson);
 	const nextLessonId = $derived(data.nextLessonId);
+	const supportingWords = $derived(lesson.vocabulary.filter((entry) => entry.role === "support"));
 
 	// --- Step state machine ---
 	// The lesson progresses linearly through these steps.
-	type Step = "intro" | "breakdown" | "letters" | "rules" | "drills" | "complete";
-	const stepOrder: Step[] = ["intro", "breakdown", "letters", "rules", "drills", "complete"];
+	type Step = "intro" | "breakdown" | "letters" | "rules" | "sameLetters" | "drills" | "complete";
+	const stepOrder = $derived(
+		supportingWords.length > 0
+			? ([
+					"intro",
+					"breakdown",
+					"letters",
+					"rules",
+					"sameLetters",
+					"drills",
+					"complete",
+				] satisfies Step[])
+			: (["intro", "breakdown", "letters", "rules", "drills", "complete"] satisfies Step[]),
+	);
 
 	let currentStepIndex = $state(0);
 	let currentStep = $derived(stepOrder[currentStepIndex]);
@@ -134,7 +150,15 @@
 			{:else if currentStep === "letters"}
 				<StepLetters letters={lesson.newLetters} onComplete={nextStep} />
 			{:else if currentStep === "rules"}
-				<StepRules rules={lesson.rulesIntroduced} onComplete={nextStep} />
+				<StepRules
+					rules={lesson.rulesIntroduced}
+					onComplete={nextStep}
+					completeLabel={supportingWords.length > 0
+						? "Try them in new words ->"
+						: "Bring on the drills ->"}
+				/>
+			{:else if currentStep === "sameLetters"}
+				<StepSameLettersNewWords {lesson} words={supportingWords} onComplete={nextStep} />
 			{:else if currentStep === "drills"}
 				<StepDrills drills={lesson.drills} onComplete={handleDrillsComplete} />
 			{:else if currentStep === "complete"}

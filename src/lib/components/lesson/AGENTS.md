@@ -6,7 +6,7 @@
 
 ## Pedagogical Constraints
 
-- Preserve the canonical order of the learning flow: intro, breakdown, letters, rules, drills, complete.
+- Preserve the canonical order of the learning flow: intro, breakdown, letters, rules, same letters/new words, drills, complete.
 - Each step should have one clear learning objective.
 - Keep explanations concise, concrete, and cumulative.
 - Prefer reinforcing previously introduced patterns over introducing surprise complexity.
@@ -15,6 +15,7 @@
 
 - Step components render data that comes from the lesson model.
 - Do not hardcode duplicate lesson facts in multiple step components when they belong in `src/lib/data`.
+- Support-word transfer sections should render lesson vocabulary, not route-local or component-local word lists.
 - If a step needs new structured content, extend the data model deliberately rather than sprinkling string literals through the UI.
 
 ## Interaction Standards

@@ -63,16 +63,17 @@ This is why GlyphBridge ends every lesson with drills rather than re-reading, an
 
 Every GlyphBridge course is defined by a strict, repeatable architecture. The same shape works for any script because the contract is script-agnostic — it carries content, it does not enshrine any particular language's quirks.
 
-### 3.1 The Lesson Contract (six steps)
+### 3.1 The Lesson Contract (seven steps)
 
-Every lesson, in every course, follows the same six-step flow:
+Every lesson, in every course, follows the same seven-step flow when support vocabulary exists:
 
 1. **Intro** — present the anchor word and why a learner will encounter it.
 2. **Breakdown** — show how the word segments into readable parts (syllables, consonant + vowel slots, tone, etc.).
 3. **Letters** — introduce only the graphemes new to this lesson, with type, class, pronunciation, mnemonic, and positional behavior.
 4. **Rules** — surface the orthographic or phonetic patterns that make this word readable (and that will pay off in future words).
-5. **Drills** — verify recognition, mapping, pronunciation, and visual discrimination via short multiple-choice items.
-6. **Complete** — summarize performance and unlock the next lesson.
+5. **Same letters, new words** — transfer the new graphemes and patterns into different real words before scoring begins.
+6. **Drills** — verify recognition, mapping, pronunciation, and visual discrimination via short multiple-choice items.
+7. **Complete** — summarize performance and unlock the next lesson.
 
 This contract is enforced by the runtime data model ([`src/lib/data/types.ts`](../../src/lib/data/types.ts#L114-L133)) and by the step components in [`src/lib/components/lesson/`](../../src/lib/components/lesson/). Components render the contract — they do not invent lesson-specific structures, and curriculum facts are never duplicated into UI code.
 
@@ -83,7 +84,7 @@ Each lesson must define:
 - A stable numeric `id` and a `stage` (the curriculum band it belongs to).
 - A human-readable `title` whose first half is the anchor word in script.
 - One `anchorWord` with Thai/script form, romanization, gloss, category, a syllable breakdown, and a context note explaining where the learner will actually meet this word.
-- An ordered `vocabulary` list of `LessonVocabularyEntry` items, each tagged `anchor` or `support` and flagged for drill eligibility.
+- An ordered `vocabulary` list of `LessonVocabularyEntry` items, each tagged `anchor` or `support` and flagged for drill eligibility. Support words should give the learner same-lesson transfer into different real-word contexts.
 - A `newLetters` set — only the graphemes introduced for the first time in this lesson.
 - A `rulesIntroduced` set — concise, named, reusable orthographic/phonetic rules with examples.
 - A `drills` set covering at least recognition, mapping, sound, and visual discrimination.
@@ -128,7 +129,7 @@ These are the binding rules. If a proposed lesson, drill, vocabulary item, or cu
 
 ### 4.2 Authoring Principles
 
-1. **One anchor word per lesson, with optional support vocabulary.** Support words reuse only graphemes already introduced (or being introduced this lesson).
+1. **One anchor word per lesson, plus support vocabulary.** Support words reuse only graphemes already introduced (or being introduced this lesson) and should appear inside the lesson before scored drills.
 2. **Every new grapheme is introduced exactly once.** Subsequent appearances are `review`, not `new`.
 3. **Every rule has a name, a one-line summary, an explanation, and concrete examples.** Rules are reusable named units; do not paraphrase the same rule under three names.
 4. **Every drill targets a specific competence** — recognition (glyph → sound), mapping (word → meaning), sound (correct pronunciation), or visual discrimination (the right form among near look-alikes). Don't ship four drills that test the same competence.
@@ -211,7 +212,7 @@ Our level-6 Thai list is mostly globalization loanwords (`คอมพิวเ�
 
 ## 6. Summary
 
-GlyphBridge teaches script-illiterate adults to read real text in a new writing system, fast. It does that by sequencing graphemes by **decoding payoff**, anchoring every lesson in **one real-world word**, teaching **rules from words**, drilling in **small cumulative sets** within a fixed six-step contract, and treating environmental print as the validation surface.
+GlyphBridge teaches script-illiterate adults to read real text in a new writing system, fast. It does that by sequencing graphemes by **decoding payoff**, anchoring every lesson in **one real-world word**, transferring those graphemes into **same-lesson support words**, teaching **rules from words**, drilling in **small cumulative sets** within a fixed seven-step contract, and treating environmental print as the validation surface.
 
 The approach is consistent with the usage-based account of L2 acquisition, systematic-phonics evidence, Ehri's orthographic mapping, cognitive-load theory, Bjork's desirable-difficulty framework, and motivation research. The main places it can still grow are: adding **production drills**, adding **scheduled spaced retrieval**, adding **audio for tone**, adding a **between-lessons extensive-reading surface**, and being **explicit about the blocked-then-interleaved schedule** the research supports.
 

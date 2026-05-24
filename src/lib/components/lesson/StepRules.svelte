@@ -19,16 +19,18 @@
 	let {
 		rules,
 		onComplete,
+		completeLabel = "Bring on the drills ->",
 	}: {
 		rules: Rule[];
 		onComplete: () => void;
+		completeLabel?: string;
 	} = $props();
 
 	// Track which rule the learner is currently viewing
 	let currentIndex = $state(0);
 	const currentRule = $derived(rules[currentIndex]);
 
-	/** Advance to next rule, or move to drills if all rules shown. */
+	/** Advance to next rule, or move to the next lesson step if all rules shown. */
 	function next() {
 		if (currentIndex < rules.length - 1) {
 			currentIndex++;
@@ -40,7 +42,7 @@
 
 <StepLayout counter={`Rule ${currentIndex + 1} of ${rules.length}`}>
 	{#key `${currentIndex}-${currentRule.name}`}
-		<div class="rule-card">
+		<section class="rule-card surface-panel lesson-accent-panel lesson-accent-panel--accent">
 			<h2><Reveal as="span" distance={14}>{currentRule.name}</Reveal></h2>
 			<p class="rule-card__short">
 				<Reveal as="span" delay={60} distance={12}>{currentRule.shortDescription}</Reveal>
@@ -70,52 +72,69 @@
 					</div>
 				{/each}
 			</div>
-		</div>
+		</section>
 	{/key}
 
 	<Button variant="primary" size="large" fullWidth={true} onclick={next}>
-		{currentIndex < rules.length - 1 ? "Next rule ->" : "Bring on the drills ->"}
+		{currentIndex < rules.length - 1 ? "Next rule ->" : completeLabel}
 	</Button>
 </StepLayout>
 
 <style lang="scss">
 	.rule-card {
-		display: flex;
-		flex-direction: column;
-		gap: $space-md;
+		display: grid;
+		gap: $space-lg;
+		padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
 
-		// Short description — acts as a subtitle for the rule name
 		&__short {
-			color: var(--color-primary-strong);
+			color: var(--color-accent);
 			font-size: $font-size-lg;
 			font-weight: 500;
 		}
 
 		&__explanation {
+			border-top: 0.35rem solid var(--color-accent);
 			line-height: 1.7;
 		}
 
-		// Example list with Thai script + romanization
 		&__examples {
 			display: flex;
 			flex-direction: column;
-			gap: $space-sm;
+			gap: $space-md;
 
 			h4 {
 				@include step-counter; // reuse the small uppercase label style
 			}
 		}
 
-		// Individual example row
 		&__example {
 			align-items: center;
 			background: var(--surface-interactive);
 			border: 1px solid var(--color-border);
 			border-radius: $radius-md;
 			display: flex;
+			flex-wrap: wrap;
 			font-size: $font-size-sm;
 			gap: $space-md;
-			padding: $space-sm $space-md;
+			padding: $space-md;
+
+			:global(.thai) {
+				align-items: center;
+				background: var(--color-accent);
+				border-radius: $radius-full;
+				color: var(--color-on-accent);
+				display: inline-flex;
+				font-weight: 800;
+				justify-content: center;
+				line-height: 1.2;
+				min-width: 3.25rem;
+				padding: $space-xs $space-sm;
+			}
+
+			:global(.reveal:not(.thai)) {
+				flex: 1 1 12rem;
+				min-width: 0;
+			}
 		}
 	}
 

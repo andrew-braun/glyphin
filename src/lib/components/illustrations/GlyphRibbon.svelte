@@ -1,5 +1,5 @@
 <script lang="ts">
-	type GlyphRibbonTone = "mixed" | "primary" | "accent" | "success" | "warning";
+	type GlyphRibbonTone = "mixed" | "primary" | "accent" | "sky" | "mango" | "success" | "warning";
 	type GlyphRibbonSize = "sm" | "md";
 
 	let {
@@ -18,6 +18,8 @@
 
 	const mixedTones: Array<Exclude<GlyphRibbonTone, "mixed">> = [
 		"primary",
+		"sky",
+		"mango",
 		"accent",
 		"success",
 		"warning",
@@ -54,33 +56,43 @@
 			align-items: center;
 			animation: glyphRibbonFloat 4.8s ease-in-out infinite;
 			animation-delay: var(--glyph-delay);
-			backdrop-filter: blur(6px);
-			border: 1px solid var(--color-border-strong);
+			border: 0;
 			border-radius: $radius-full;
 			box-shadow: var(--shadow-soft);
 			display: inline-flex;
+			font-weight: 800;
 			justify-content: center;
 			min-width: 3rem;
 			padding: 0.2rem 0.95rem;
 
 			&.glyph-ribbon__token--primary {
-				background: rgb(var(--rgb-primary) / 0.12);
-				color: var(--color-primary-strong);
+				background: var(--color-primary);
+				color: var(--color-on-primary);
 			}
 
 			&.glyph-ribbon__token--accent {
-				background: rgb(var(--rgb-accent) / 0.12);
-				color: var(--color-accent);
+				background: var(--color-accent);
+				color: var(--color-on-accent);
+			}
+
+			&.glyph-ribbon__token--sky {
+				background: var(--color-sky);
+				color: var(--color-on-sky);
+			}
+
+			&.glyph-ribbon__token--mango {
+				background: var(--color-mango);
+				color: var(--color-on-mango);
 			}
 
 			&.glyph-ribbon__token--success {
-				background: rgb(var(--rgb-success) / 0.12);
-				color: var(--color-success);
+				background: var(--color-success);
+				color: var(--color-on-success);
 			}
 
 			&.glyph-ribbon__token--warning {
-				background: rgb(var(--rgb-warning) / 0.16);
-				color: var(--color-warning);
+				background: var(--color-warning);
+				color: var(--color-on-warning);
 			}
 		}
 

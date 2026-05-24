@@ -19,7 +19,7 @@
 </script>
 
 <StepLayout class="step--intro">
-	<div class="intro-shell">
+	<section class="intro-shell surface-panel lesson-accent-panel">
 		<div class="intro-shell__copy">
 			<Badge>Stage {lesson.stage}</Badge>
 			<h1 class="step__title">{lesson.title}</h1>
@@ -43,14 +43,14 @@
 				Open this word ->
 			</Button>
 		</div>
-	</div>
+	</section>
 </StepLayout>
 
 <style lang="scss">
 	.intro-shell {
-		display: flex;
-		flex-direction: column;
-		gap: $space-xl;
+		display: grid;
+		gap: clamp(#{$space-lg}, 3vw, #{$space-2xl});
+		padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
 
 		&__copy {
 			display: flex;
@@ -69,21 +69,22 @@
 		font-size: $font-size-2xl;
 	}
 
-	// Large reveal area with subtle gradient background
 	.word-reveal {
-		background: var(--surface-hero);
-		border: 1px solid var(--color-border);
+		background: var(--color-primary);
+		border: 1px solid var(--color-primary);
 		border-radius: $radius-xl;
 		box-shadow: var(--shadow-card);
+		color: var(--color-on-primary);
 		padding: $space-2xl;
 		text-align: center;
 
 		.word-reveal__thai {
-			color: var(--color-primary-strong);
+			color: var(--color-on-primary);
 		}
 
 		.word-reveal__hint {
-			color: var(--color-text-muted);
+			color: var(--color-on-primary);
+			font-weight: 700;
 			margin-top: $space-md;
 		}
 	}
@@ -91,7 +92,6 @@
 	@media (min-width: $bp-md) {
 		.intro-shell {
 			align-items: center;
-			display: grid;
 			gap: $space-lg $space-xl;
 			grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1.15fr);
 

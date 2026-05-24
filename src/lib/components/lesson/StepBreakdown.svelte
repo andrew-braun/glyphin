@@ -21,9 +21,7 @@
 	<h2>Let&apos;s take <span class="thai">{lesson.anchorWord.thai}</span> apart.</h2>
 
 	<div class="breakdown">
-		<section
-			class="breakdown__panel breakdown__panel--whole surface-panel surface-panel--accent card"
-		>
+		<section class="breakdown__panel breakdown__panel--whole surface-panel lesson-accent-panel">
 			<div class="breakdown__panel-header">
 				<span class="breakdown__eyebrow">Whole word</span>
 				<p class="breakdown__hint">Read it as one chunk before splitting it up.</p>
@@ -46,7 +44,9 @@
 			<span class="breakdown__connector-label">Break it apart</span>
 		</div>
 
-		<section class="breakdown__panel breakdown__panel--parts surface-panel card">
+		<section
+			class="breakdown__panel breakdown__panel--parts surface-panel lesson-accent-panel lesson-accent-panel--sky"
+		>
 			<div class="breakdown__panel-header">
 				<span class="breakdown__eyebrow">Broken into syllables</span>
 				<p class="breakdown__hint">
@@ -130,11 +130,11 @@
 
 		&__word-wrap {
 			align-items: center;
-			background:
-				radial-gradient(circle at center, rgb(164 236 227 / 0.14), transparent 65%),
-				linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 100%);
-			border: 1px solid var(--color-border);
+			background: var(--color-primary);
+			border: 1px solid var(--color-primary);
 			border-radius: $radius-xl;
+			box-shadow: var(--shadow-card);
+			color: var(--color-on-primary);
 			display: grid;
 			justify-items: center;
 			margin-inline: auto;
@@ -145,7 +145,7 @@
 		}
 
 		&__word {
-			color: var(--color-primary-strong);
+			color: var(--color-on-primary);
 			line-height: 1;
 			text-align: center;
 		}
@@ -217,7 +217,7 @@
 		}
 
 		&__chip--pronunciation {
-			color: var(--color-primary-strong);
+			color: var(--color-sky);
 		}
 	}
 
@@ -253,7 +253,7 @@
 				}
 
 				&--right {
-					display: block;
+					display: grid;
 				}
 			}
 
@@ -288,7 +288,7 @@
 		}
 
 		&__thai {
-			color: var(--color-primary-strong);
+			color: var(--color-sky);
 			font-size: clamp(2.25rem, 4vw, 3rem);
 		}
 

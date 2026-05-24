@@ -44,7 +44,7 @@
 
 <StepLayout counter={`Letter ${currentIndex + 1} of ${letters.length}`}>
 	{#key currentLetter.character}
-		<div class="letter-intro">
+		<section class="letter-intro surface-panel lesson-accent-panel lesson-accent-panel--sky">
 			<!-- Large character display -->
 			<div class="letter-intro__char thai">
 				<Reveal as="span" distance={14}>{currentLetter.character}</Reveal>
@@ -83,7 +83,7 @@
 					</NoticeBox>
 				</Reveal>
 			</div>
-		</div>
+		</section>
 	{/key}
 
 	<Button variant="primary" size="large" fullWidth={true} onclick={next}>
@@ -94,22 +94,21 @@
 </StepLayout>
 
 <style lang="scss">
-	// Centered letter showcase with details below
 	.letter-intro {
 		align-items: center;
-		display: flex;
-		flex-direction: column;
-		gap: $space-xl;
+		display: grid;
+		gap: clamp(#{$space-lg}, 3vw, #{$space-2xl});
+		justify-items: center;
+		padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
 		text-align: center;
 
-		// Large character in a subtle colored box
 		&__char {
 			align-items: center;
-			background: var(--surface-hero);
-			border: 1px solid var(--color-border);
+			background: var(--color-sky);
+			border: 1px solid var(--color-sky);
 			border-radius: $radius-xl;
 			box-shadow: var(--shadow-card);
-			color: var(--color-primary-strong);
+			color: var(--color-on-sky);
 			display: flex;
 			font-size: 5rem;
 			height: 140px;
@@ -130,7 +129,6 @@
 			width: 100%;
 		}
 
-		// Mnemonic box at the bottom
 		&__mnemonic {
 			text-align: left;
 			width: 100%;
@@ -143,6 +141,7 @@
 			display: grid;
 			gap: $space-lg $space-xl;
 			grid-template-columns: 14rem minmax(0, 1fr);
+			justify-items: stretch;
 			text-align: left;
 
 			&__char {
