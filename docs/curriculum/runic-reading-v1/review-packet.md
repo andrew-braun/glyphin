@@ -27,7 +27,7 @@ Generated from `runic-reading-v1` authoring artifacts.
 | rundata-derived-references       | corpus_reference     | scoring_only    | derived corpus terms require review                       | Scoring intuition for formulaic chunks and rune distribution after license review.                |
 | wiktionary-runic-names           | lexicon              | discovery_only  | CC BY-SA with attribution and share-alike review required | Rune-name discovery only until share-alike implications are approved.                             |
 | junicode-font                    | font_reference       | scoring         | SIL Open Font License                                     | Rendering reference for Runic glyph support and scholarly typography.                             |
-| app-authored-runic-examples      | authored_examples    | shipped_content | app_owned                                                 | Short transliteration and rune-name examples authored by GlyphBridge after specialist review.     |
+| app-authored-runic-examples      | authored_examples    | shipped_content | app_owned                                                 | Short transliteration and rune-name examples authored by Glyphin after specialist review.         |
 
 ## Candidate Highlights
 

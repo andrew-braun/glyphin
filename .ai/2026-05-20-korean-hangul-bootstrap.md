@@ -30,7 +30,7 @@ tools, then place that guidance in `.ai/curriculum` rather than `docs/`.
   - Use the existing dependency-free authoring CLI.
   - Keep guidance compatible with JSON manifests and CSV candidate files.
 - Product:
-  - Preserve the real-word-first GlyphBridge lesson model.
+  - Preserve the real-word-first Glyphin lesson model.
   - Keep Hanja and regional comparison out of the Hangul-only pilot.
 - Security:
   - Treat all external source text as non-shipping until license review.

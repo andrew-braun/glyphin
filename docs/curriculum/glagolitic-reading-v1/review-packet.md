@@ -20,14 +20,14 @@ Generated from `glagolitic-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                           | Kind                 | Use             | License                                              | Notes                                                                                         |
-| -------------------------------- | -------------------- | --------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| unicode-glagolitic-block         | unicode_metadata     | scoring         | Unicode License reviewed for metadata use            | Encoded Glagolitic letters for inventory and rendering checks.                                |
-| titus-old-church-slavonic        | corpus_reference     | scoring_only    | corpus terms require review                          | Old Church Slavonic text evidence for scoring only pending license review.                    |
-| codex-suprasliensis-reference    | manuscript_reference | discovery_only  | image and transcription reuse terms require review   | Manuscript context for discovery only and not a source for copied learner text.               |
-| wiktionary-old-church-slavonic   | lexicon              | discovery_only  | CC BY-SA attribution and share-alike review required | Gloss and spelling discovery only until attribution review.                                   |
-| noto-sans-glagolitic             | font_reference       | scoring         | SIL Open Font License                                | Rendering reference for Glagolitic letters.                                                   |
-| app-authored-glagolitic-examples | authored_examples    | shipped_content | app_owned                                            | Short reviewed Glagolitic examples authored by GlyphBridge from cleared vocabulary decisions. |
+| Source                           | Kind                 | Use             | License                                              | Notes                                                                                     |
+| -------------------------------- | -------------------- | --------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| unicode-glagolitic-block         | unicode_metadata     | scoring         | Unicode License reviewed for metadata use            | Encoded Glagolitic letters for inventory and rendering checks.                            |
+| titus-old-church-slavonic        | corpus_reference     | scoring_only    | corpus terms require review                          | Old Church Slavonic text evidence for scoring only pending license review.                |
+| codex-suprasliensis-reference    | manuscript_reference | discovery_only  | image and transcription reuse terms require review   | Manuscript context for discovery only and not a source for copied learner text.           |
+| wiktionary-old-church-slavonic   | lexicon              | discovery_only  | CC BY-SA attribution and share-alike review required | Gloss and spelling discovery only until attribution review.                               |
+| noto-sans-glagolitic             | font_reference       | scoring         | SIL Open Font License                                | Rendering reference for Glagolitic letters.                                               |
+| app-authored-glagolitic-examples | authored_examples    | shipped_content | app_owned                                            | Short reviewed Glagolitic examples authored by Glyphin from cleared vocabulary decisions. |
 
 ## Candidate Highlights
 

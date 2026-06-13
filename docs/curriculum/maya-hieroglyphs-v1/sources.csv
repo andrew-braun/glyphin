@@ -4,4 +4,4 @@ cmhi,epigraphic_corpus,https://peabody.harvard.edu/corpus-maya-hieroglyphic-insc
 mesoweb,reference,https://www.mesoweb.com/,site and article licenses require review,discovery_only,0.55,Introductory decipherment and sign-label reference for research only
 famsi-archives,reference_archive,http://www.famsi.org/,source-specific rights require review,discovery_only,0.45,Legacy Mayanist bibliography and discovery source
 maya-hieroglyphic-database,catalog_reference,https://mayadatabase.org/,license and API terms require review,scoring_only,0.6,Sign catalog and text data for scoring only pending review
-app-authored-maya-examples,authored_examples,,app_owned,shipped_content,0.9,Reviewed sign-label examples authored by GlyphBridge
+app-authored-maya-examples,authored_examples,,app_owned,shipped_content,0.9,Reviewed sign-label examples authored by Glyphin

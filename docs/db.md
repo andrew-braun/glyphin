@@ -1,6 +1,6 @@
 # Database Guide
 
-This is the durable operations guide for GlyphBridge's database. Use it when you need
+This is the durable operations guide for Glyphin's database. Use it when you need
 to understand how the database is organized, which schema a feature should read or
 write, how to inspect the live database, which Supabase CLI commands matter day to
 day, and how to deploy the schema to a remote Supabase project safely.

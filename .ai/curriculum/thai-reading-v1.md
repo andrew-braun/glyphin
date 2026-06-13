@@ -29,10 +29,16 @@ backfill packet for the existing runtime Thai course.
 - [ ] DB ingestion strategy reviewed
 - [ ] Lessons authored beyond existing runtime data
 - [ ] Publication path designed
+- [ ] Practice vocabulary expanded to at least 1 anchor + 10 core practice
+      targets per lesson
+- [ ] Lesson 1 spoiler audit completed so practice words are not revealed before
+      read-before-reveal practice
 
 ## Open Questions
 
 - See `docs/curriculum/thai-reading-v1/questions.md`.
+- See `.ai/2026-06-13-practice-vocabulary-expansion.md` for the current
+  practice-vocabulary expansion plan.
 
 ## Notes
 
@@ -40,3 +46,6 @@ backfill packet for the existing runtime Thai course.
   `docs/curriculum/thai.md`.
 - Preserve the runtime order: มาก, ดี, กิน, ตลาด, บิน, แม่, ร้าน, ชุด, สิบ,
   ข้าว, หมู, อาหาร, ผัด.
+- The old two-support-word pattern is now considered underpowered. Future Thai
+  authoring should use one anchor, at least ten core practice targets, and
+  optional extra practice where the grapheme pool allows it.

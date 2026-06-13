@@ -29,7 +29,7 @@ Generated from `mandarin-han-v1` authoring artifacts.
 | jieba-frequency                | tokenizer_frequency   | scoring_only    | MIT package license; corpus provenance requires review       | Segmentation and word-frequency intuition for analysis only.                                      |
 | cc-cedict                      | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss, pinyin, and traditional-variant discovery only until attribution obligations are approved. |
 | opencc                         | variant_tool          | discovery_only  | Apache 2.0                                                   | Simplified/traditional conversion reference for analysis and QA only.                             |
-| app-authored-mandarin-examples | authored_examples     | shipped_content | app_owned                                                    | Short menu, transit, sign, and retail examples authored by GlyphBridge.                           |
+| app-authored-mandarin-examples | authored_examples     | shipped_content | app_owned                                                    | Short menu, transit, sign, and retail examples authored by Glyphin.                               |
 
 ## Candidate Highlights
 

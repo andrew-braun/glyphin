@@ -27,7 +27,7 @@ Generated from `russian-cyrillic-v1` authoring artifacts.
 | wordfreq-ru                   | frequency           | scoring_only    | MIT package license; upstream corpus licenses require review | Broad Russian frequency intuition. Do not ship derived corpus examples.              |
 | russian-wiktionary            | lexicon             | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and stress discovery only until attribution obligations are approved.          |
 | openstreetmap-russia-names    | environmental_print | scoring_only    | ODbL; derived-data obligations require review                | Street, transit, and place-name validation. Do not ship raw extracts without review. |
-| app-authored-russian-examples | authored_examples   | shipped_content | app_owned                                                    | Short menu, transit, public facility, and label examples authored by GlyphBridge.    |
+| app-authored-russian-examples | authored_examples   | shipped_content | app_owned                                                    | Short menu, transit, public facility, and label examples authored by Glyphin.        |
 
 ## Candidate Highlights
 

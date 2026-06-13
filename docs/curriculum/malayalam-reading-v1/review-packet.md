@@ -28,7 +28,7 @@ Generated from `malayalam-reading-v1` authoring artifacts.
 | malayalam-wiktionary                   | lexicon              | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution and share-alike implications are approved.                                                     |
 | openstreetmap-malayalam-names          | environmental_print  | scoring_only    | ODbL; derived-data obligations require review                | Place, transit, and facility-name validation for Malayalam-language signage. Do not ship raw extracts without license review.                      |
 | indic-nlp-library-ml                   | segmentation_tooling | scoring_only    | MIT package license; bundled resources require review        | Potential tokenizer and normalization aid for analysis only. Confirm maintained behavior before pipeline use.                                      |
-| app-authored-malayalam-domain-examples | authored_examples    | shipped_content | app_owned                                                    | Short menu, sign, and label examples authored by GlyphBridge after reviewer approval.                                                              |
+| app-authored-malayalam-domain-examples | authored_examples    | shipped_content | app_owned                                                    | Short menu, sign, and label examples authored by Glyphin after reviewer approval.                                                                  |
 
 ## Candidate Highlights
 

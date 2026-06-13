@@ -20,14 +20,14 @@ Generated from `phoenician-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                                   | Kind                      | Use             | License                                                    | Notes                                                                              |
-| ---------------------------------------- | ------------------------- | --------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| unicode-phoenician-block                 | unicode_metadata          | scoring         | Unicode License reviewed for metadata use                  | Phoenician block metadata for encoded letters and direction checks.                |
-| kai-inscription-references               | inscription_reference     | discovery_only  | edition copyright and citation requirements require review | Discovery reference for common inscription vocabulary. Do not ship copied text.    |
-| semitic-epigraphy-transliteration-guides | transliteration_reference | discovery_only  | source-specific terms require review                       | Discovery source for consonant names and scholarly transliteration conventions.    |
-| wiktionary-phoenician                    | lexicon                   | discovery_only  | CC BY-SA with attribution and share-alike review required  | Gloss and root discovery only until share-alike obligations are approved.          |
-| noto-sans-phoenician                     | font_reference            | scoring         | SIL Open Font License                                      | Rendering reference for Phoenician letters in modern browsers.                     |
-| app-authored-phoenician-examples         | authored_examples         | shipped_content | app_owned                                                  | Short consonant-skeleton examples authored by GlyphBridge after specialist review. |
+| Source                                   | Kind                      | Use             | License                                                    | Notes                                                                           |
+| ---------------------------------------- | ------------------------- | --------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| unicode-phoenician-block                 | unicode_metadata          | scoring         | Unicode License reviewed for metadata use                  | Phoenician block metadata for encoded letters and direction checks.             |
+| kai-inscription-references               | inscription_reference     | discovery_only  | edition copyright and citation requirements require review | Discovery reference for common inscription vocabulary. Do not ship copied text. |
+| semitic-epigraphy-transliteration-guides | transliteration_reference | discovery_only  | source-specific terms require review                       | Discovery source for consonant names and scholarly transliteration conventions. |
+| wiktionary-phoenician                    | lexicon                   | discovery_only  | CC BY-SA with attribution and share-alike review required  | Gloss and root discovery only until share-alike obligations are approved.       |
+| noto-sans-phoenician                     | font_reference            | scoring         | SIL Open Font License                                      | Rendering reference for Phoenician letters in modern browsers.                  |
+| app-authored-phoenician-examples         | authored_examples         | shipped_content | app_owned                                                  | Short consonant-skeleton examples authored by Glyphin after specialist review.  |
 
 ## Candidate Highlights
 

@@ -28,7 +28,7 @@ Generated from `tibetan-reading-v1` authoring artifacts.
 | tibetan-wiktionary                   | lexicon              | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution and share-alike implications are approved.                                                                   |
 | openstreetmap-tibetan-names          | environmental_print  | scoring_only    | ODbL; derived-data obligations require review                | Place-name and facility-sign validation for Tibetan-script signage. Do not ship raw OSM extracts without review.                                                 |
 | botok-tokenizer                      | segmentation_tooling | discovery_only  | package license and model data require review                | Potential Tibetan word segmentation aid for analysis only. It is not a content source.                                                                           |
-| app-authored-tibetan-domain-examples | authored_examples    | shipped_content | app_owned                                                    | Short tea-house, sign, and label examples authored by GlyphBridge after reviewer approval.                                                                       |
+| app-authored-tibetan-domain-examples | authored_examples    | shipped_content | app_owned                                                    | Short tea-house, sign, and label examples authored by Glyphin after reviewer approval.                                                                           |
 
 ## Candidate Highlights
 

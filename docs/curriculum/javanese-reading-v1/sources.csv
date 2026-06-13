@@ -4,4 +4,4 @@ cldr-jv-java-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License
 wiktionary-javanese-discovery,lexicon,https://en.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Spelling and gloss discovery only until share-alike obligations are approved
 javanese-script-learning-references,orthography_reference,,publisher or site licenses require review,discovery_only,0.35,Use only to plan specialist review around sandhangan and pasangan
 openstreetmap-java-script-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.55,Cultural-site and wayfinding validation only; do not ship raw extracts
-app-authored-javanese-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora
+app-authored-javanese-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin rather than copied from third-party corpora

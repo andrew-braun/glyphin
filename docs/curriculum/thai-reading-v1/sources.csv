@@ -1,9 +1,9 @@
 id,kind,url,license,use,domain_weight,notes
-runtime-thai-course,runtime_seed,src/lib/data/thai.ts,app_owned,shipped_content,1,Existing GlyphBridge Thai runtime lessons used as the source of truth for this backfill
+runtime-thai-course,runtime_seed,src/lib/data/thai.ts,app_owned,shipped_content,1,Existing Glyphin Thai runtime lessons used as the source of truth for this backfill
 thai-curriculum-strategy,curriculum_reference,docs/curriculum/thai.md,app_owned,scoring,0.9,Durable Thai frequency first rationale and broader stage guidance
 unicode-thai-block,unicode_metadata,https://www.unicode.org/charts/PDF/U0E00.pdf,Unicode License reviewed for metadata use,scoring,0.4,Thai code point vowel sign tone mark numeral and punctuation metadata
 cldr-th-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.45,Thai exemplar and locale metadata with exact release pending
 wordfreq-th,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.55,Broad Thai frequency intuition only with no derived shipped examples
 pythainlp,tokenizer_tool,https://github.com/PyThaiNLP/pythainlp,Apache 2.0 package license,discovery_only,0,Future tokenizer and syllable review tool rather than a content source
 thai-language-reference,lexicon_reference,http://www.thai-language.com/,site terms require review before derived use,discovery_only,0.35,Consonant class final sound and gloss checks kept discovery only
-app-authored-thai-domain-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora
+app-authored-thai-domain-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed examples authored by Glyphin rather than copied from third-party corpora

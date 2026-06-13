@@ -7,7 +7,7 @@
 ## Goal
 
 Design a reusable, research-backed framework and tool plan for building
-GlyphBridge curricula across real and fictional writing systems.
+Glyphin curricula across real and fictional writing systems.
 
 ## Scope
 

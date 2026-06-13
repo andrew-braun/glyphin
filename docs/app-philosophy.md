@@ -1,6 +1,6 @@
 # App Philosophy
 
-GlyphBridge is a real-word-first reading app for scripts and writing systems. Its purpose is to help learners decode useful text quickly enough to feel momentum early. The app is not an abstract alphabet chart, a grammar course, or a dictionary. It teaches reading through real words, recurring patterns, and short drills that turn unfamiliar script into legible text.
+Glyphin is a real-word-first reading app for scripts and writing systems. Its purpose is to help learners decode useful text quickly enough to feel momentum early. The app is not an abstract alphabet chart, a grammar course, or a dictionary. It teaches reading through real words, recurring patterns, and short drills that turn unfamiliar script into legible text.
 
 ## Product Definition
 

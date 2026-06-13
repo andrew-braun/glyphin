@@ -5,4 +5,4 @@ damos-mycenaean-database,tablet_database,https://damos.hf.uio.no/,database terms
 pasp-aegean-scripts-references,script_reference,https://sites.utexas.edu/scripts/,source-specific terms require review,discovery_only,0.45,Sign values and syllabary convention discovery only
 wiktionary-mycenaean-greek,lexicon,https://en.wiktionary.org/wiki/Category:Mycenaean_Greek_language,CC BY-SA with attribution and share-alike review required,discovery_only,0.35,Gloss and transliteration discovery only
 noto-sans-linear-b,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Linear+B,SIL Open Font License,scoring,0.2,Rendering reference for syllabograms and ideograms
-app-authored-linear-b-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge
+app-authored-linear-b-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin

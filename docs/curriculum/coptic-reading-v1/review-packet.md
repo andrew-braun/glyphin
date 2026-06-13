@@ -27,7 +27,7 @@ Generated from `coptic-reading-v1` authoring artifacts.
 | coptic-scriptorium           | corpus            | scoring_only    | source-specific licenses require review      | Digitized Coptic texts and annotations for frequency intuition. Confirm per-text licenses before derived use. |
 | coptic-dictionary-online     | lexicon           | discovery_only  | license and attribution terms require review | Gloss and spelling discovery only until attribution obligations are approved.                                 |
 | antinoou-fonts               | font_reference    | scoring         | SIL Open Font License                        | Rendering reference for Coptic script support.                                                                |
-| app-authored-coptic-examples | authored_examples | shipped_content | app_owned                                    | Short reviewed Coptic examples authored by GlyphBridge from cleared vocabulary decisions.                     |
+| app-authored-coptic-examples | authored_examples | shipped_content | app_owned                                    | Short reviewed Coptic examples authored by Glyphin from cleared vocabulary decisions.                         |
 
 ## Candidate Highlights
 

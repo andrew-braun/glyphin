@@ -20,14 +20,14 @@ Generated from `old-persian-cuneiform-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                            | Kind              | Use             | License                                   | Notes                                                                                          |
-| --------------------------------- | ----------------- | --------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| unicode-old-persian-block         | unicode_metadata  | scoring         | Unicode License reviewed for metadata use | Encoded Old Persian cuneiform signs and word divider.                                          |
-| achemenet-inscriptions            | epigraphic_corpus | discovery_only  | site and text reuse terms require review  | Achaemenid inscription context and bibliography for discovery only.                            |
-| livius-achaemenid-inscriptions    | reference         | discovery_only  | reuse terms require review                | Introductory inscription reference for human research only.                                    |
-| titus-old-persian                 | corpus_reference  | scoring_only    | corpus terms require review               | Comparative text and transliteration evidence for scoring only.                                |
-| noto-sans-old-persian             | font_reference    | scoring         | SIL Open Font License                     | Rendering reference for Old Persian signs and word divider.                                    |
-| app-authored-old-persian-examples | authored_examples | shipped_content | app_owned                                 | Short royal-inscription style examples authored by GlyphBridge from reviewed signs and labels. |
+| Source                            | Kind              | Use             | License                                   | Notes                                                                                      |
+| --------------------------------- | ----------------- | --------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------ |
+| unicode-old-persian-block         | unicode_metadata  | scoring         | Unicode License reviewed for metadata use | Encoded Old Persian cuneiform signs and word divider.                                      |
+| achemenet-inscriptions            | epigraphic_corpus | discovery_only  | site and text reuse terms require review  | Achaemenid inscription context and bibliography for discovery only.                        |
+| livius-achaemenid-inscriptions    | reference         | discovery_only  | reuse terms require review                | Introductory inscription reference for human research only.                                |
+| titus-old-persian                 | corpus_reference  | scoring_only    | corpus terms require review               | Comparative text and transliteration evidence for scoring only.                            |
+| noto-sans-old-persian             | font_reference    | scoring         | SIL Open Font License                     | Rendering reference for Old Persian signs and word divider.                                |
+| app-authored-old-persian-examples | authored_examples | shipped_content | app_owned                                 | Short royal-inscription style examples authored by Glyphin from reviewed signs and labels. |
 
 ## Candidate Highlights
 

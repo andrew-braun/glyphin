@@ -28,7 +28,7 @@ Generated from `khmer-reading-v1` authoring artifacts.
 | khmer-wiktionary                   | lexicon              | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution and share-alike implications are approved.                                                           |
 | openstreetmap-cambodia-khmer-names | environmental_print  | scoring_only    | ODbL; derived-data obligations require review                | Place, transit, and facility-name validation for Khmer signage. Do not ship raw OSM extracts without review.                                             |
 | khmer-tokenizer-tools              | segmentation_tooling | discovery_only  | tool and model licenses require review                       | Placeholder for a reviewed Khmer word segmenter. It is not a content source.                                                                             |
-| app-authored-khmer-domain-examples | authored_examples    | shipped_content | app_owned                                                    | Short menu, market, sign, and label examples authored by GlyphBridge after reviewer approval.                                                            |
+| app-authored-khmer-domain-examples | authored_examples    | shipped_content | app_owned                                                    | Short menu, market, sign, and label examples authored by Glyphin after reviewer approval.                                                                |
 
 ## Candidate Highlights
 

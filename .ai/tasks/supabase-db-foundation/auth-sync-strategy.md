@@ -12,7 +12,7 @@
 
 ## Goal
 
-Plan a secure, low-cost path for adding user accounts and progress syncing to GlyphBridge without paying for premium auth SaaS or hand-rolling authentication.
+Plan a secure, low-cost path for adding user accounts and progress syncing to Glyphin without paying for premium auth SaaS or hand-rolling authentication.
 
 ## Scope
 

@@ -6,7 +6,7 @@
 
 ## Goal
 
-Create a durable curriculum catalog of writing systems GlyphBridge could cover,
+Create a durable curriculum catalog of writing systems Glyphin could cover,
 grouped by living, historical, and fictional or constructed systems, with each
 group ranked by likely appeal to native Anglophone and European learners.
 

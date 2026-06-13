@@ -4,4 +4,4 @@ cldr-tl-tglg-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License
 wiktionary-tagalog-discovery,lexicon,https://en.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Tagalog gloss discovery only until share-alike obligations are approved
 baybayin-learning-references,orthography_reference,,publisher or site licenses require review,discovery_only,0.35,Use only to plan specialist review around historic and modern final-consonant notation
 modern-baybayin-community-samples,environmental_print,,sample licenses and permissions require review,discovery_only,0.45,Modern usage discovery only; do not ship copied community text
-app-authored-baybayin-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora
+app-authored-baybayin-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin rather than copied from third-party corpora

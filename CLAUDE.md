@@ -1,4 +1,4 @@
-# GlyphBridge Claude Instructions
+# Glyphin Claude Instructions
 
 @AGENTS.md
 

@@ -20,15 +20,15 @@ Generated from `mongolian-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                                 | Kind                  | Use             | License                                               | Notes                                                                                                                 |
-| -------------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| unicode-mongolian-block                | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Mongolian block metadata for letters, punctuation, and free variation selectors.                                      |
-| unicode-standardized-variants          | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Variation-sequence metadata for Mongolian rendering and QA.                                                           |
-| cldr-mn-mong-exemplars                 | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Locale metadata for Mongolian script where available. Confirm exact CLDR release before ingestion.                    |
-| wiktionary-mn-mong-discovery           | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling discovery only. Do not ship copied entries.                                                       |
-| openstreetmap-mongolian-script-names   | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for place labels and signs. Do not ship raw extracts.                                     |
-| mongolian-script-grammar-references    | orthography_reference | discovery_only  | publisher or site licenses require review             | Use only to plan specialist review of positional forms and spelling conventions.                                      |
-| app-authored-mongolian-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora. |
+| Source                                 | Kind                  | Use             | License                                               | Notes                                                                                                             |
+| -------------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| unicode-mongolian-block                | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Mongolian block metadata for letters, punctuation, and free variation selectors.                                  |
+| unicode-standardized-variants          | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Variation-sequence metadata for Mongolian rendering and QA.                                                       |
+| cldr-mn-mong-exemplars                 | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Locale metadata for Mongolian script where available. Confirm exact CLDR release before ingestion.                |
+| wiktionary-mn-mong-discovery           | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling discovery only. Do not ship copied entries.                                                   |
+| openstreetmap-mongolian-script-names   | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for place labels and signs. Do not ship raw extracts.                                 |
+| mongolian-script-grammar-references    | orthography_reference | discovery_only  | publisher or site licenses require review             | Use only to plan specialist review of positional forms and spelling conventions.                                  |
+| app-authored-mongolian-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by Glyphin from approved vocabulary rather than copied from third-party corpora. |
 
 ## Candidate Highlights
 

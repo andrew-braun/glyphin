@@ -109,13 +109,13 @@
 	<div class="home-hero__container card">
 		<Reveal delay={40}>
 			<div class="home-hero__copy">
-				<span class="badge badge--accent">Learn a language by reading it</span>
+				<!-- <span class="badge badge--accent">Learn alphabets by reading, not by drilling</span> -->
 				<div class="home-hero__heading">
-					<Heading as="h1">Pick a language. Start in under a minute.</Heading>
+					<Heading as="h1">Skip the drills. Start reading.</Heading>
 				</div>
 				<p class="home-hero__lead">
-					Glyphin teaches script and vocabulary together, so your first lesson already
-					feels like reading the real thing.
+					Glyphin teaches you the highest-frequency letter/word combinations first, so you
+					can start reading real words from day one.
 				</p>
 
 				<div class="home-hero__actions">
@@ -124,7 +124,9 @@
 							>Continue</Button
 						>
 					{:else}
-						<Button href="/auth" variant="primary" size="large">Sign Up</Button>
+						<Button href="/auth" variant="primary" size="large"
+							>Get Started for Free</Button
+						>
 					{/if}
 				</div>
 			</div>

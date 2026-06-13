@@ -28,7 +28,7 @@ Generated from `linear-b-reading-v1` authoring artifacts.
 | pasp-aegean-scripts-references | script_reference  | discovery_only  | source-specific terms require review                      | Discovery source for sign values, syllabary conventions, and bibliography.                  |
 | wiktionary-mycenaean-greek     | lexicon           | discovery_only  | CC BY-SA with attribution and share-alike review required | Gloss and transliteration discovery only until share-alike obligations are approved.        |
 | noto-sans-linear-b             | font_reference    | scoring         | SIL Open Font License                                     | Rendering reference for Linear B syllabograms and ideograms.                                |
-| app-authored-linear-b-examples | authored_examples | shipped_content | app_owned                                                 | Short tablet-style examples authored by GlyphBridge after specialist review.                |
+| app-authored-linear-b-examples | authored_examples | shipped_content | app_owned                                                 | Short tablet-style examples authored by Glyphin after specialist review.                    |
 
 ## Candidate Highlights
 

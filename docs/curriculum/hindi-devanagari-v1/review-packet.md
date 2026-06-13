@@ -29,7 +29,7 @@ Generated from `hindi-devanagari-v1` authoring artifacts.
 | dakshina-hi                        | transliteration_pronunciation_dataset | discovery_only  | CC BY-SA 4.0; attribution and share-alike review required    | Useful for romanization and pronunciation discovery only until share-alike implications are reviewed.                       |
 | hindi-wiktionary                   | lexicon                               | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only. Keep out of shipped content until license obligations are approved.                      |
 | openstreetmap-india-names          | environmental_print                   | scoring_only    | ODbL; derived-data obligations require review                | Useful for transit, street, market, and public facility validation. Do not ship raw extracts without review.                |
-| app-authored-hindi-domain-examples | authored_examples                     | shipped_content | app_owned                                                    | Short menu, sign, and label examples authored by GlyphBridge after reviewer validation.                                     |
+| app-authored-hindi-domain-examples | authored_examples                     | shipped_content | app_owned                                                    | Short menu, sign, and label examples authored by Glyphin after reviewer validation.                                         |
 
 ## Candidate Highlights
 

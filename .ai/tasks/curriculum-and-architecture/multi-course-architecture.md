@@ -13,7 +13,7 @@
 
 ## Goal
 
-Define a simple, scalable architecture for evolving GlyphBridge from a Thai-only app into a multi-course reading app that can launch with Thai, Georgian, Greek, Ukrainian, and Korean, while making future script and course additions standardized and low-friction.
+Define a simple, scalable architecture for evolving Glyphin from a Thai-only app into a multi-course reading app that can launch with Thai, Georgian, Greek, Ukrainian, and Korean, while making future script and course additions standardized and low-friction.
 
 ## Scope
 

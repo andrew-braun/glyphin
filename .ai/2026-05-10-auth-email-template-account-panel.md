@@ -6,7 +6,7 @@
 
 ## Goal
 
-Clean up the remaining auth-related warning, replace the default local Supabase magic-link email copy with a GlyphBridge code-first template, and add a first account management panel for signed-in learners.
+Clean up the remaining auth-related warning, replace the default local Supabase magic-link email copy with a Glyphin code-first template, and add a first account management panel for signed-in learners.
 
 ## Scope
 
@@ -25,7 +25,7 @@ Clean up the remaining auth-related warning, replace the default local Supabase 
 
 - Removed the unused home stats derivation that was leaving the last ESLint warning behind.
 - Added a committed OTP-first local auth email template at `supabase/templates/magic-link.html`.
-- Wired the custom template in `supabase/config.toml` with a GlyphBridge-specific subject line.
+- Wired the custom template in `supabase/config.toml` with a Glyphin-specific subject line.
 - Expanded `/auth` so signed-in learners now see an account panel with sync status, synced lesson count, resume link, manual projection refresh, and sign-out.
 - Updated the safe redirect allow-list so sign-in from `/auth` returns to the account panel by default.
 

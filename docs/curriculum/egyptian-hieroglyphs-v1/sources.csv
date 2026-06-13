@@ -5,4 +5,4 @@ thesaurus-linguae-aegyptiae,corpus_lexicon,https://thesaurus-linguae-aegyptiae.d
 manuel-de-codage-conventions,transliteration_reference,https://www.unicode.org/notes/tn32/,Unicode technical note terms require review for derived use,discovery_only,0.55,Encoding and transliteration convention reference
 wiktionary-egyptian,lexicon,https://en.wiktionary.org/wiki/Category:Egyptian_language,CC BY-SA with attribution and share-alike review required,discovery_only,0.35,Gloss and transliteration discovery only
 noto-sans-egyptian-hieroglyphs,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Egyptian+Hieroglyphs,SIL Open Font License,scoring,0.2,Rendering reference for encoded signs
-app-authored-egyptian-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge
+app-authored-egyptian-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin

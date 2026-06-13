@@ -4,4 +4,4 @@ scandinavian-runic-text-database,inscription_database,https://www.nordiska.uu.se
 rundata-derived-references,corpus_reference,https://www.nordiska.uu.se/forskn/samnord.htm,derived corpus terms require review,scoring_only,0.55,Formulaic chunk and rune distribution scoring only
 wiktionary-runic-names,lexicon,https://en.wiktionary.org/wiki/Appendix:Runic_script,CC BY-SA with attribution and share-alike review required,discovery_only,0.35,Rune-name discovery only
 junicode-font,font_reference,https://github.com/psb1558/Junicode-font,SIL Open Font License,scoring,0.2,Rendering reference for scholarly Runic typography
-app-authored-runic-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge
+app-authored-runic-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin

@@ -76,7 +76,7 @@
 			"license": "app_owned",
 			"use": "shipped_content",
 			"domain_weight": 0.9,
-			"notes": "Short sign-recognition examples authored by GlyphBridge from reviewed sign values and not copied from editions."
+			"notes": "Short sign-recognition examples authored by Glyphin from reviewed sign values and not copied from editions."
 		}
 	],
 	"database": {

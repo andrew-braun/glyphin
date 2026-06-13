@@ -28,4 +28,4 @@
 
 - The current route reads `.generated` publication artifacts before falling back to delivery reads, so content changes must refresh generated artifacts to appear in the local runtime.
 - Validation passed with `pnpm check`, `pnpm stylelint`, `pnpm db:smoke:delivery` using local public Supabase env mapping, and `pnpm build`.
-- During the work, unrelated GlyphBridge/Glyphin naming diffs appeared in other files; they were left untouched.
+- During the work, unrelated Glyphin/Glyphin naming diffs appeared in other files; they were left untouched.

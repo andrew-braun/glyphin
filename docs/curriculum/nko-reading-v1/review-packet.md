@@ -26,7 +26,7 @@ Generated from `nko-reading-v1` authoring artifacts.
 | cldr-nqo-exemplars               | locale_metadata          | scoring         | Unicode License reviewed for metadata use             | N'Ko locale data where available. Confirm exact CLDR release before ingestion.                                       |
 | noto-sans-nko-font               | font_reference           | scoring         | OFL reviewed for font testing                         | Rendering and fallback test source for letters and combining marks. Not a text corpus.                               |
 | nko-wikimedia-references         | lexicon_corpus_reference | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for modern digital text discovery only until share-alike implications are reviewed.                           |
-| app-authored-nko-domain-examples | authored_examples        | shipped_content | app_owned                                             | Short reviewed labels and examples authored by GlyphBridge with N'Ko-literate reviewer approval.                     |
+| app-authored-nko-domain-examples | authored_examples        | shipped_content | app_owned                                             | Short reviewed labels and examples authored by Glyphin with N'Ko-literate reviewer approval.                         |
 
 ## Candidate Highlights
 

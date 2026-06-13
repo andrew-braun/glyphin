@@ -20,14 +20,14 @@ Generated from `tifinagh-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                                | Kind                  | Use             | License                                               | Notes                                                                                                                 |
-| ------------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| unicode-tifinagh-block                | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Tifinagh block metadata for code point inventory and font QA.                                                         |
-| cldr-zgh-exemplars                    | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Standard Moroccan Amazigh exemplar and locale metadata. Confirm exact CLDR release before ingestion.                  |
-| irc-amazigh-references                | orthography_reference | discovery_only  | site and publication licenses require review          | Potential reference for Neo-Tifinagh standardization and vocabulary. Discovery only until license review.             |
-| wiktionary-tamazight-discovery        | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for gloss and spelling checks only. Do not ship copied entries.                                                |
-| openstreetmap-tifinagh-names          | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for public labels and place names. Do not ship raw extracts.                              |
-| app-authored-tifinagh-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora. |
+| Source                                | Kind                  | Use             | License                                               | Notes                                                                                                             |
+| ------------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| unicode-tifinagh-block                | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Tifinagh block metadata for code point inventory and font QA.                                                     |
+| cldr-zgh-exemplars                    | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Standard Moroccan Amazigh exemplar and locale metadata. Confirm exact CLDR release before ingestion.              |
+| irc-amazigh-references                | orthography_reference | discovery_only  | site and publication licenses require review          | Potential reference for Neo-Tifinagh standardization and vocabulary. Discovery only until license review.         |
+| wiktionary-tamazight-discovery        | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for gloss and spelling checks only. Do not ship copied entries.                                            |
+| openstreetmap-tifinagh-names          | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for public labels and place names. Do not ship raw extracts.                          |
+| app-authored-tifinagh-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by Glyphin from approved vocabulary rather than copied from third-party corpora. |
 
 ## Candidate Highlights
 

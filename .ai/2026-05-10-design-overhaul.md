@@ -61,7 +61,7 @@
 ## Anti-AI Design Rules
 
 1. Avoid overly smooth, interchangeable hero patterns. Prefer asymmetric composition, product-specific copy, and visuals tied to reading Thai rather than a generic “app landing page” formula.
-2. Avoid emoji-only empty and success states. Use lightweight branded glyph or illustration treatments that belong to GlyphBridge.
+2. Avoid emoji-only empty and success states. Use lightweight branded glyph or illustration treatments that belong to Glyphin.
 3. Avoid neutral filler copy. Every heading and support line should say something concrete about the learner’s next step, current progress, or what makes the product different.
 4. Avoid infinite card sameness. Shared surfaces should come from the same system, but emphasis should shift by context through accent panels, specific badges, and purposeful layout changes.
 5. Avoid trend-driven decoration without teaching value. Motion, glow, and synthwave accents should guide attention or reinforce progress, not exist as generic polish.
@@ -71,7 +71,7 @@
 - Accessibility baseline: readable body text and interactive states matter more than brand hue preference. Contrast has to hold across text, focus states, and tinted surfaces, not just on flat backgrounds.
 - Product signal: for an education app, dominant cool hues and warm neutrals feel more reliable and approachable than high-chroma magenta-purple pairings. Blue carries the trust and clarity role better than neon violet when the product needs to feel easy to use.
 - Emotional balance: the most promising direction is a softened split-complementary system with one calm dominant color and smaller warm accents. That keeps the UI playful without making every surface feel promotional.
-- Practical conclusion for GlyphBridge: use muted sky/ink blue as the main structural color, warm paper neutrals for the resting surfaces, coral as the encouragement accent, and mint/marigold only for success and warning semantics.
+- Practical conclusion for Glyphin: use muted sky/ink blue as the main structural color, warm paper neutrals for the resting surfaces, coral as the encouragement accent, and mint/marigold only for success and warning semantics.
 - Synthwave should survive only as a hint in glow, illustration, and celebratory accents. It should not own the base surfaces or primary reading experience.
 - As of 2026-05-17, the next simplification step is flatter still: fewer gradients, calmer dark neutrals, cleaner light surfaces, and solid-color buttons/surfaces so the product reads as approachable teaching software instead of a stylized startup or game UI.
 - Updated on 2026-05-17: the active palette direction shifted again to a black-and-sky scheme with near-black dark surfaces, very light blue light surfaces, teal as the structural accent, and pink reserved for emphasis. The goal is to feel crisp, modern, and expressive without drifting back into gradient-heavy or spacey styling.

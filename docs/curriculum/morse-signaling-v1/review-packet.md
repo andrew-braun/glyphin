@@ -25,7 +25,7 @@ Generated from `morse-signaling-v1` authoring artifacts.
 | itu-morse-m1677              | standard          | discovery_only  | ITU terms require review                  | International Morse reference for code assignments and spacing concepts. Do not copy standard tables into shipped lessons without review. |
 | unicode-symbol-metadata      | unicode_metadata  | scoring         | Unicode License reviewed for metadata use | Symbol metadata for display choices such as dot, hyphen, slash, and timing labels.                                                        |
 | arrl-morse-learning          | radio_reference   | discovery_only  | terms require review                      | Radio-learning context and practice conventions. Keep discovery-only until terms are approved.                                            |
-| app-authored-morse-exercises | authored_examples | shipped_content | app_owned                                 | Short dot-dash and future timed exercises authored by GlyphBridge and reviewed by operators.                                              |
+| app-authored-morse-exercises | authored_examples | shipped_content | app_owned                                 | Short dot-dash and future timed exercises authored by Glyphin and reviewed by operators.                                                  |
 
 ## Candidate Highlights
 

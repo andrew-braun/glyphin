@@ -5,4 +5,4 @@ wordfreq-bo,frequency,https://github.com/rspeer/wordfreq,MIT package license; up
 tibetan-wiktionary,lexicon,https://bo.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Gloss and spelling discovery only until license implications are approved
 openstreetmap-tibetan-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.7,Place-name and facility-sign validation; do not ship raw extracts
 botok-tokenizer,segmentation_tooling,https://github.com/OpenPecha/Botok,package license and model data require review,discovery_only,0,Potential Tibetan segmentation aid for analysis only
-app-authored-tibetan-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora
+app-authored-tibetan-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin rather than copied from third-party corpora

@@ -20,15 +20,15 @@ Generated from `amharic-ethiopic-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                         | Kind              | Use             | License                                                        | Notes                                                                                                    |
-| ------------------------------ | ----------------- | --------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| unicode-ethiopic-blocks        | unicode_metadata  | scoring         | Unicode License reviewed for metadata use                      | Ethiopic, Ethiopic Supplement, and Ethiopic Extended metadata for code points and rendering checks.      |
-| cldr-am-exemplars              | locale_metadata   | scoring         | Unicode License reviewed for metadata use                      | Amharic exemplar characters and locale metadata. Confirm exact CLDR release before ingestion.            |
-| wordfreq-am                    | frequency         | scoring_only    | MIT package license; upstream corpus licenses require review   | Broad Amharic frequency intuition only. Do not ship derived corpus examples.                             |
-| leipzig-amharic                | frequency_corpus  | scoring_only    | Leipzig corpus terms require review before derived publication | Useful broad frequency cross-check. Register and license require review.                                 |
-| amharic-wiktionary             | lexicon           | discovery_only  | CC BY-SA; attribution and share-alike review required          | Gloss and spelling discovery only until attribution obligations are approved.                            |
-| universal-dependencies-amharic | treebank          | discovery_only  | treebank license requires review before derived use            | Potential morphology and tokenization reference. Weak direct domain match for traveler-first lessons.    |
-| app-authored-amharic-examples  | authored_examples | shipped_content | app_owned                                                      | Short menu, market, transit, and facility examples authored by GlyphBridge after Amharic speaker review. |
+| Source                         | Kind              | Use             | License                                                        | Notes                                                                                                 |
+| ------------------------------ | ----------------- | --------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| unicode-ethiopic-blocks        | unicode_metadata  | scoring         | Unicode License reviewed for metadata use                      | Ethiopic, Ethiopic Supplement, and Ethiopic Extended metadata for code points and rendering checks.   |
+| cldr-am-exemplars              | locale_metadata   | scoring         | Unicode License reviewed for metadata use                      | Amharic exemplar characters and locale metadata. Confirm exact CLDR release before ingestion.         |
+| wordfreq-am                    | frequency         | scoring_only    | MIT package license; upstream corpus licenses require review   | Broad Amharic frequency intuition only. Do not ship derived corpus examples.                          |
+| leipzig-amharic                | frequency_corpus  | scoring_only    | Leipzig corpus terms require review before derived publication | Useful broad frequency cross-check. Register and license require review.                              |
+| amharic-wiktionary             | lexicon           | discovery_only  | CC BY-SA; attribution and share-alike review required          | Gloss and spelling discovery only until attribution obligations are approved.                         |
+| universal-dependencies-amharic | treebank          | discovery_only  | treebank license requires review before derived use            | Potential morphology and tokenization reference. Weak direct domain match for traveler-first lessons. |
+| app-authored-amharic-examples  | authored_examples | shipped_content | app_owned                                                      | Short menu, market, transit, and facility examples authored by Glyphin after Amharic speaker review.  |
 
 ## Candidate Highlights
 

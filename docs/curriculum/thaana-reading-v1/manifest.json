@@ -76,7 +76,7 @@
 			"license": "app_owned",
 			"use": "shipped_content",
 			"domain_weight": 0.9,
-			"notes": "Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora."
+			"notes": "Short reviewed examples authored by Glyphin from approved vocabulary rather than copied from third-party corpora."
 		}
 	],
 	"database": {

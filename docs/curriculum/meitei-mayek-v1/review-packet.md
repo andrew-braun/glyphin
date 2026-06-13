@@ -20,14 +20,14 @@ Generated from `meitei-mayek-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                              | Kind                  | Use             | License                                               | Notes                                                                                                                 |
-| ----------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| unicode-meetei-mayek-block          | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Meetei Mayek block metadata for letters, lonsum final letters, signs, and punctuation.                                |
-| cldr-mni-mtei-exemplars             | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Manipuri Meitei Mayek locale metadata where available. Confirm exact CLDR release before ingestion.                   |
-| wiktionary-manipuri-discovery       | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling and gloss discovery only. Do not ship copied entries.                                             |
-| meitei-mayek-learning-references    | orthography_reference | discovery_only  | publisher or site licenses require review             | Use for specialist planning around vowel signs, final letters, and spelling conventions only.                         |
-| openstreetmap-meitei-names          | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for place and public labels. Do not ship raw extracts.                                    |
-| app-authored-meitei-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora. |
+| Source                              | Kind                  | Use             | License                                               | Notes                                                                                                             |
+| ----------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| unicode-meetei-mayek-block          | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Meetei Mayek block metadata for letters, lonsum final letters, signs, and punctuation.                            |
+| cldr-mni-mtei-exemplars             | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Manipuri Meitei Mayek locale metadata where available. Confirm exact CLDR release before ingestion.               |
+| wiktionary-manipuri-discovery       | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling and gloss discovery only. Do not ship copied entries.                                         |
+| meitei-mayek-learning-references    | orthography_reference | discovery_only  | publisher or site licenses require review             | Use for specialist planning around vowel signs, final letters, and spelling conventions only.                     |
+| openstreetmap-meitei-names          | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for place and public labels. Do not ship raw extracts.                                |
+| app-authored-meitei-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by Glyphin from approved vocabulary rather than copied from third-party corpora. |
 
 ## Candidate Highlights
 

@@ -27,7 +27,7 @@ Generated from `latin-diacritics-v1` authoring artifacts.
 | wordfreq-multilingual-latin           | frequency           | scoring_only    | MIT package license; upstream corpus licenses require review | Broad frequency intuition across target European languages. Do not ship derived corpus examples.              |
 | openstreetmap-europe-names            | environmental_print | scoring_only    | ODbL; derived-data obligations require review                | Street, station, and place-name validation for diacritic visibility. Do not ship raw extracts without review. |
 | wiktionary-multilingual-latin         | lexicon             | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution and share-alike implications are approved.                |
-| app-authored-latin-diacritic-examples | authored_examples   | shipped_content | app_owned                                                    | Short menu, hotel, transit, and label examples authored by GlyphBridge.                                       |
+| app-authored-latin-diacritic-examples | authored_examples   | shipped_content | app_owned                                                    | Short menu, hotel, transit, and label examples authored by Glyphin.                                           |
 
 ## Candidate Highlights
 

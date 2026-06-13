@@ -20,14 +20,14 @@ Generated from `thaana-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                              | Kind                  | Use             | License                                               | Notes                                                                                                                 |
-| ----------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| unicode-thaana-block                | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Thaana block metadata for letters, vowel signs, sukun, and punctuation.                                               |
-| cldr-dv-exemplars                   | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Dhivehi exemplar and locale metadata. Confirm exact CLDR release before ingestion.                                    |
-| wiktionary-dhivehi-discovery        | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling and gloss discovery only. Do not ship copied entries.                                             |
-| dhivehi-language-references         | orthography_reference | discovery_only  | publisher or site licenses require review             | Use for specialist planning around vowel signs and romanization only.                                                 |
-| openstreetmap-dhivehi-names         | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for island, road, and facility labels. Do not ship raw extracts.                          |
-| app-authored-thaana-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora. |
+| Source                              | Kind                  | Use             | License                                               | Notes                                                                                                             |
+| ----------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| unicode-thaana-block                | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Thaana block metadata for letters, vowel signs, sukun, and punctuation.                                           |
+| cldr-dv-exemplars                   | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Dhivehi exemplar and locale metadata. Confirm exact CLDR release before ingestion.                                |
+| wiktionary-dhivehi-discovery        | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling and gloss discovery only. Do not ship copied entries.                                         |
+| dhivehi-language-references         | orthography_reference | discovery_only  | publisher or site licenses require review             | Use for specialist planning around vowel signs and romanization only.                                             |
+| openstreetmap-dhivehi-names         | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for island, road, and facility labels. Do not ship raw extracts.                      |
+| app-authored-thaana-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by Glyphin from approved vocabulary rather than copied from third-party corpora. |
 
 ## Candidate Highlights
 

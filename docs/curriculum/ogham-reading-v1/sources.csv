@@ -4,4 +4,4 @@ ogham-in-3d,inscription_database,https://ogham.celt.dias.ie/,project terms and a
 ciic-edition-references,inscription_reference,,edition copyright and citation requirements require review,discovery_only,0.55,CIIC style numbering and reading discovery only
 edil-old-irish,lexicon,https://dil.ie/,dictionary terms require review,discovery_only,0.35,Old Irish lexical discovery only
 noto-sans-ogham,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Ogham,SIL Open Font License,scoring,0.2,Rendering reference for horizontal Ogham
-app-authored-ogham-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge
+app-authored-ogham-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin

@@ -26,7 +26,7 @@ Generated from `vai-reading-v1` authoring artifacts.
 | cldr-vai-exemplars               | locale_metadata     | scoring         | Unicode License reviewed for metadata use | Vai locale exemplar data where available. Confirm exact CLDR release before ingestion.                       |
 | noto-sans-vai-font               | font_reference      | scoring         | OFL reviewed for font testing             | Rendering and fallback test source. Not a text corpus.                                                       |
 | vai-scholarship-references       | scholarly_reference | discovery_only  | terms require review before derived use   | Discovery source for script inventory and history. Do not copy examples into shipped content without review. |
-| app-authored-vai-domain-examples | authored_examples   | shipped_content | app_owned                                 | Short reviewed labels and examples authored by GlyphBridge with Vai reviewer approval.                       |
+| app-authored-vai-domain-examples | authored_examples   | shipped_content | app_owned                                 | Short reviewed labels and examples authored by Glyphin with Vai reviewer approval.                           |
 
 ## Candidate Highlights
 

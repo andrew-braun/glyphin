@@ -69,9 +69,7 @@
 		<a href="/" class="nav__logo">
 			<span class="nav__logo-mark">GB</span>
 			<span class="nav__logo-copy">
-				<span class="nav__logo-spark">Glyph</span><span class="nav__logo-scripts"
-					>Bridge</span
-				>
+				<span class="nav__logo-spark">Glyph</span><span class="nav__logo-scripts">in</span>
 			</span>
 		</a>
 

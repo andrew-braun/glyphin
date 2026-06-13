@@ -4,7 +4,7 @@ Date: 2026-05-17
 
 ## Goal
 
-Move GlyphBridge toward a component-centered design system by extracting repeated UI and presentation patterns into reusable primitives and feature components, while preserving current route behavior and learner flow.
+Move Glyphin toward a component-centered design system by extracting repeated UI and presentation patterns into reusable primitives and feature components, while preserving current route behavior and learner flow.
 
 ## Scope
 

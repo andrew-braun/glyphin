@@ -4,4 +4,4 @@ cldr-zh-bopo-transforms,locale_metadata,https://cldr.unicode.org/,Unicode Licens
 moe-mandarin-dictionary,official_lexicon,https://dict.revised.moe.edu.tw/,Taiwan MOE data terms require review before derived publication,discovery_only,0.7,Authoritative Traditional Chinese and Zhuyin reference kept discovery only
 cc-cedict,lexicon,https://www.mdbg.net/chinese/dictionary?page=cedict,CC BY-SA; attribution and share-alike review required,discovery_only,0.55,Gloss and pinyin cross checks only until obligations are approved
 wordfreq-zh,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.55,Broad Mandarin word frequency intuition only with no derived shipped examples
-app-authored-bopomofo-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed Bopomofo tone menu and wayfinding examples authored by GlyphBridge
+app-authored-bopomofo-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed Bopomofo tone menu and wayfinding examples authored by Glyphin

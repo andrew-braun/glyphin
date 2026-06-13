@@ -27,7 +27,7 @@ Generated from `ogham-reading-v1` authoring artifacts.
 | ciic-edition-references     | inscription_reference | discovery_only  | edition copyright and citation requirements require review | Discovery reference for Corpus Inscriptionum Insularum Celticarum style numbering and readings.       |
 | edil-old-irish              | lexicon               | discovery_only  | dictionary terms require review                            | Old Irish lexical discovery only until reuse terms are approved.                                      |
 | noto-sans-ogham             | font_reference        | scoring         | SIL Open Font License                                      | Rendering reference for horizontal Ogham display.                                                     |
-| app-authored-ogham-examples | authored_examples     | shipped_content | app_owned                                                  | Short formula-style examples authored by GlyphBridge after specialist review.                         |
+| app-authored-ogham-examples | authored_examples     | shipped_content | app_owned                                                  | Short formula-style examples authored by Glyphin after specialist review.                             |
 
 ## Candidate Highlights
 

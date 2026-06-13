@@ -20,14 +20,14 @@ Generated from `javanese-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                                | Kind                  | Use             | License                                               | Notes                                                                                                                 |
-| ------------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| unicode-javanese-block                | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Javanese block metadata for aksara, vowel signs, final signs, digits, and punctuation.                                |
-| cldr-jv-java-exemplars                | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Javanese-script exemplar metadata where available. Confirm exact CLDR release before ingestion.                       |
-| wiktionary-javanese-discovery         | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling and gloss discovery only. Do not ship copied entries.                                             |
-| javanese-script-learning-references   | orthography_reference | discovery_only  | publisher or site licenses require review             | Use for specialist planning around sandhangan and pasangan only.                                                      |
-| openstreetmap-java-script-names       | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for cultural-site and wayfinding labels. Do not ship raw extracts.                        |
-| app-authored-javanese-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora. |
+| Source                                | Kind                  | Use             | License                                               | Notes                                                                                                             |
+| ------------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| unicode-javanese-block                | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Javanese block metadata for aksara, vowel signs, final signs, digits, and punctuation.                            |
+| cldr-jv-java-exemplars                | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Javanese-script exemplar metadata where available. Confirm exact CLDR release before ingestion.                   |
+| wiktionary-javanese-discovery         | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling and gloss discovery only. Do not ship copied entries.                                         |
+| javanese-script-learning-references   | orthography_reference | discovery_only  | publisher or site licenses require review             | Use for specialist planning around sandhangan and pasangan only.                                                  |
+| openstreetmap-java-script-names       | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for cultural-site and wayfinding labels. Do not ship raw extracts.                    |
+| app-authored-javanese-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by Glyphin from approved vocabulary rather than copied from third-party corpora. |
 
 ## Candidate Highlights
 

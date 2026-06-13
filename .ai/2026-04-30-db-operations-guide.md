@@ -7,7 +7,7 @@
 ## Goal
 
 Refresh the durable database guide in `docs/` so it accurately explains how to
-interact with the current GlyphBridge database locally and remotely.
+interact with the current Glyphin database locally and remotely.
 
 ## Scope
 

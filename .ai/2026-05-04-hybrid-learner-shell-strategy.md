@@ -6,7 +6,7 @@
 
 ## Goal
 
-Update the auth and offline planning docs so GlyphBridge explicitly targets a
+Update the auth and offline planning docs so Glyphin explicitly targets a
 hybrid architecture: publication-owned lesson content stays prerendered and
 cacheable, while the learner-aware main screen and progress state are local-first
 with authenticated server revalidation when available.

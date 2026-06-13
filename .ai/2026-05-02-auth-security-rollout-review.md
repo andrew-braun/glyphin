@@ -6,7 +6,7 @@
 
 ## Goal
 
-Review and update the current GlyphBridge auth rollout plan so it matches the
+Review and update the current Glyphin auth rollout plan so it matches the
 actual SvelteKit and Supabase architecture, with security-first guidance for the
 first authenticated release.
 

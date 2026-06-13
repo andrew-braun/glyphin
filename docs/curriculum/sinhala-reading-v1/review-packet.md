@@ -28,7 +28,7 @@ Generated from `sinhala-reading-v1` authoring artifacts.
 | sinhala-wiktionary                    | lexicon              | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution and share-alike implications are approved.                                             |
 | openstreetmap-sri-lanka-sinhala-names | environmental_print  | scoring_only    | ODbL; derived-data obligations require review                | Place, transit, school, lodging, and facility-name validation for Sinhala signage. Do not ship raw OSM extracts without review.            |
 | indic-nlp-library-si                  | segmentation_tooling | scoring_only    | MIT package license; bundled resources require review        | Potential normalization or segmentation aid for analysis only. Confirm Sinhala coverage before pipeline use.                               |
-| app-authored-sinhala-domain-examples  | authored_examples    | shipped_content | app_owned                                                    | Short tea, menu, sign, transit, and label examples authored by GlyphBridge after reviewer approval.                                        |
+| app-authored-sinhala-domain-examples  | authored_examples    | shipped_content | app_owned                                                    | Short tea, menu, sign, transit, and label examples authored by Glyphin after reviewer approval.                                            |
 
 ## Candidate Highlights
 

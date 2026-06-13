@@ -20,15 +20,15 @@ Generated from `syriac-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                              | Kind                | Use             | License                                               | Notes                                                                                                                 |
-| ----------------------------------- | ------------------- | --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| unicode-syriac-block                | unicode_metadata    | scoring         | Unicode License reviewed for metadata use             | Syriac block metadata for letters, points, punctuation, and shaping-sensitive code points.                            |
-| unicode-joining-data                | unicode_metadata    | scoring         | Unicode License reviewed for metadata use             | Joining-type metadata needed for Syriac contextual shaping and font QA.                                               |
-| cldr-syr-exemplars                  | locale_metadata     | scoring         | Unicode License reviewed for metadata use             | Locale metadata and exemplar checks where available. Confirm exact CLDR release before ingestion.                     |
-| syriac-wiktionary-discovery         | lexicon             | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling and gloss discovery only. Do not ship copied entries.                                             |
-| syriaca-org-gazetteer               | cultural_reference  | discovery_only  | source license and attribution terms require review   | Cultural and place-name reference for reviewer planning only.                                                         |
-| openstreetmap-syriac-names          | environmental_print | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for churches, cultural sites, and community labels. Do not ship raw extracts.             |
-| app-authored-syriac-domain-examples | authored_examples   | shipped_content | app_owned                                             | Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora. |
+| Source                              | Kind                | Use             | License                                               | Notes                                                                                                             |
+| ----------------------------------- | ------------------- | --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| unicode-syriac-block                | unicode_metadata    | scoring         | Unicode License reviewed for metadata use             | Syriac block metadata for letters, points, punctuation, and shaping-sensitive code points.                        |
+| unicode-joining-data                | unicode_metadata    | scoring         | Unicode License reviewed for metadata use             | Joining-type metadata needed for Syriac contextual shaping and font QA.                                           |
+| cldr-syr-exemplars                  | locale_metadata     | scoring         | Unicode License reviewed for metadata use             | Locale metadata and exemplar checks where available. Confirm exact CLDR release before ingestion.                 |
+| syriac-wiktionary-discovery         | lexicon             | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling and gloss discovery only. Do not ship copied entries.                                         |
+| syriaca-org-gazetteer               | cultural_reference  | discovery_only  | source license and attribution terms require review   | Cultural and place-name reference for reviewer planning only.                                                     |
+| openstreetmap-syriac-names          | environmental_print | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for churches, cultural sites, and community labels. Do not ship raw extracts.         |
+| app-authored-syriac-domain-examples | authored_examples   | shipped_content | app_owned                                             | Short reviewed examples authored by Glyphin from approved vocabulary rather than copied from third-party corpora. |
 
 ## Candidate Highlights
 

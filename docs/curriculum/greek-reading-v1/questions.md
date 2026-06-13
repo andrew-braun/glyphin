@@ -38,7 +38,7 @@ the `greek-reading-v1` bootstrap.
   glosses, and pronunciation notes.
 - Spot-check real signage or menu samples from Greece to confirm the first 12
   anchors match visible environmental print.
-- Verify fonts used by GlyphBridge render tonos, final sigma, and common Greek
+- Verify fonts used by Glyphin render tonos, final sigma, and common Greek
   lowercase forms clearly at drill sizes.
 
 ## App Expansion Recommendations

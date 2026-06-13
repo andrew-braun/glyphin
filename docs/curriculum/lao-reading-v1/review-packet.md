@@ -28,7 +28,7 @@ Generated from `lao-reading-v1` authoring artifacts.
 | lao-wiktionary                   | lexicon              | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution and share-alike implications are approved.                                |
 | openstreetmap-laos-lao-names     | environmental_print  | scoring_only    | ODbL; derived-data obligations require review                | Place, transit, lodging, and facility-name validation for Lao signage. Do not ship raw OSM extracts without review.           |
 | lao-tokenizer-tools              | segmentation_tooling | discovery_only  | tool and model licenses require review                       | Placeholder for a reviewed Lao tokenizer or word segmenter. It is not a content source.                                       |
-| app-authored-lao-domain-examples | authored_examples    | shipped_content | app_owned                                                    | Short menu, sign, market, and label examples authored by GlyphBridge after reviewer approval.                                 |
+| app-authored-lao-domain-examples | authored_examples    | shipped_content | app_owned                                                    | Short menu, sign, market, and label examples authored by Glyphin after reviewer approval.                                     |
 
 ## Candidate Highlights
 

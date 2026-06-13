@@ -5,4 +5,4 @@ wordfreq-si,frequency,https://github.com/rspeer/wordfreq,MIT package license; up
 sinhala-wiktionary,lexicon,https://si.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.4,Gloss and spelling discovery only until license implications are approved
 openstreetmap-sri-lanka-sinhala-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.75,Sinhala place transit school lodging and facility-name validation; do not ship raw extracts
 indic-nlp-library-si,segmentation_tooling,https://github.com/anoopkunchukuttan/indic_nlp_library,MIT package license; bundled resources require review,scoring_only,0.35,Potential Sinhala normalization or segmentation aid for analysis only
-app-authored-sinhala-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora
+app-authored-sinhala-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin rather than copied from third-party corpora

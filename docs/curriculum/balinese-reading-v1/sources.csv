@@ -4,4 +4,4 @@ cldr-ban-bali-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode Licens
 wiktionary-balinese-discovery,lexicon,https://en.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Spelling and gloss discovery only until share-alike obligations are approved
 balinese-script-learning-references,orthography_reference,,publisher or site licenses require review,discovery_only,0.35,Use only to plan specialist review around vowel signs and adeg-adeg
 openstreetmap-balinese-script-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.55,Cultural-site and place-label validation only; do not ship raw extracts
-app-authored-balinese-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora
+app-authored-balinese-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin rather than copied from third-party corpora

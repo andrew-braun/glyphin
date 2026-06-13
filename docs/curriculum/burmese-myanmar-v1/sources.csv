@@ -5,4 +5,4 @@ wordfreq-my,frequency,https://github.com/rspeer/wordfreq,MIT package license; up
 myanmar-wiktionary,lexicon,https://my.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.4,Gloss and spelling discovery only until license implications are approved
 openstreetmap-myanmar-burmese-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.75,Burmese place transit lodging and facility-name validation; do not ship raw extracts
 burmese-segmentation-tools,segmentation_tooling,https://github.com/,tool and model licenses require review,discovery_only,0,Placeholder for a reviewed Burmese word segmenter
-app-authored-burmese-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora
+app-authored-burmese-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin rather than copied from third-party corpora

@@ -20,14 +20,14 @@ Generated from `maya-hieroglyphs-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                     | Kind              | Use             | License                                   | Notes                                                                                                      |
-| -------------------------- | ----------------- | --------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| unicode-mayan-numerals     | unicode_metadata  | scoring         | Unicode License reviewed for metadata use | Mayan numeral metadata only. This does not cover full Maya hieroglyphs.                                    |
-| cmhi                       | epigraphic_corpus | discovery_only  | rights and reuse terms require review     | Corpus and image references for domain discovery only. Do not ship drawings or exact text.                 |
-| mesoweb                    | reference         | discovery_only  | site and article licenses require review  | Introductory decipherment and sign-label reference for human research only.                                |
-| famsi-archives             | reference_archive | discovery_only  | source-specific rights require review     | Legacy Mayanist reference material for discovery and bibliography only.                                    |
-| maya-hieroglyphic-database | catalog_reference | scoring_only    | license and API terms require review      | Sign catalog and text data for scoring only pending permission review.                                     |
-| app-authored-maya-examples | authored_examples | shipped_content | app_owned                                 | Short sign-label examples authored by GlyphBridge from reviewed terminology and not copied from monuments. |
+| Source                     | Kind              | Use             | License                                   | Notes                                                                                                  |
+| -------------------------- | ----------------- | --------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| unicode-mayan-numerals     | unicode_metadata  | scoring         | Unicode License reviewed for metadata use | Mayan numeral metadata only. This does not cover full Maya hieroglyphs.                                |
+| cmhi                       | epigraphic_corpus | discovery_only  | rights and reuse terms require review     | Corpus and image references for domain discovery only. Do not ship drawings or exact text.             |
+| mesoweb                    | reference         | discovery_only  | site and article licenses require review  | Introductory decipherment and sign-label reference for human research only.                            |
+| famsi-archives             | reference_archive | discovery_only  | source-specific rights require review     | Legacy Mayanist reference material for discovery and bibliography only.                                |
+| maya-hieroglyphic-database | catalog_reference | scoring_only    | license and API terms require review      | Sign catalog and text data for scoring only pending permission review.                                 |
+| app-authored-maya-examples | authored_examples | shipped_content | app_owned                                 | Short sign-label examples authored by Glyphin from reviewed terminology and not copied from monuments. |
 
 ## Candidate Highlights
 

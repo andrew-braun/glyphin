@@ -27,7 +27,7 @@ Generated from `cherokee-reading-v1` authoring artifacts.
 | cldr-chr-exemplars                    | locale_metadata    | scoring         | Unicode License reviewed for metadata use             | Locale exemplar and casing data for Cherokee. Confirm exact CLDR release before ingestion.                                 |
 | cherokee-nation-language-resources    | pedagogy_reference | discovery_only  | terms require review before derived use               | Use to identify community-preferred pedagogy and review needs. Do not copy examples into shipped content without approval. |
 | cherokee-wiktionary                   | lexicon            | discovery_only  | CC BY-SA; attribution and share-alike review required | Gloss and spelling discovery only until share-alike implications are approved.                                             |
-| app-authored-cherokee-domain-examples | authored_examples  | shipped_content | app_owned                                             | Short reviewed labels and examples authored by GlyphBridge with Cherokee reviewer approval.                                |
+| app-authored-cherokee-domain-examples | authored_examples  | shipped_content | app_owned                                             | Short reviewed labels and examples authored by Glyphin with Cherokee reviewer approval.                                    |
 
 ## Candidate Highlights
 

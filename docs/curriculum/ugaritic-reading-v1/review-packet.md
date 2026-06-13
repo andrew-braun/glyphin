@@ -20,14 +20,14 @@ Generated from `ugaritic-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                         | Kind              | Use             | License                                              | Notes                                                                                |
-| ------------------------------ | ----------------- | --------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| unicode-ugaritic-block         | unicode_metadata  | scoring         | Unicode License reviewed for metadata use            | Encoded Ugaritic signs and word divider metadata.                                    |
-| ugaritic-data-bank             | epigraphic_corpus | scoring_only    | access and reuse terms require review                | Corpus and lexical evidence for scoring only pending terms review.                   |
-| oracc-ugaritic-reference       | reference         | discovery_only  | project-specific licenses require review             | Ancient Near Eastern reference context for human discovery only.                     |
-| wiktionary-ugaritic            | lexicon           | discovery_only  | CC BY-SA attribution and share-alike review required | Gloss discovery only until attribution and derivative-use obligations are settled.   |
-| noto-sans-ugaritic             | font_reference    | scoring         | SIL Open Font License                                | Rendering reference for Ugaritic signs.                                              |
-| app-authored-ugaritic-examples | authored_examples | shipped_content | app_owned                                            | Short sign and transliteration examples authored by GlyphBridge from reviewed forms. |
+| Source                         | Kind              | Use             | License                                              | Notes                                                                              |
+| ------------------------------ | ----------------- | --------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| unicode-ugaritic-block         | unicode_metadata  | scoring         | Unicode License reviewed for metadata use            | Encoded Ugaritic signs and word divider metadata.                                  |
+| ugaritic-data-bank             | epigraphic_corpus | scoring_only    | access and reuse terms require review                | Corpus and lexical evidence for scoring only pending terms review.                 |
+| oracc-ugaritic-reference       | reference         | discovery_only  | project-specific licenses require review             | Ancient Near Eastern reference context for human discovery only.                   |
+| wiktionary-ugaritic            | lexicon           | discovery_only  | CC BY-SA attribution and share-alike review required | Gloss discovery only until attribution and derivative-use obligations are settled. |
+| noto-sans-ugaritic             | font_reference    | scoring         | SIL Open Font License                                | Rendering reference for Ugaritic signs.                                            |
+| app-authored-ugaritic-examples | authored_examples | shipped_content | app_owned                                            | Short sign and transliteration examples authored by Glyphin from reviewed forms.   |
 
 ## Candidate Highlights
 

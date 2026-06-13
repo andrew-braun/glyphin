@@ -5,4 +5,4 @@ wordfreq-te,frequency,https://github.com/rspeer/wordfreq,MIT package license; up
 telugu-wiktionary,lexicon,https://te.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.45,Gloss and spelling discovery only until attribution implications are approved
 openstreetmap-telugu-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.75,Transit place-name and facility-sign validation; do not ship raw extracts without review
 indic-nlp-library-te,segmentation_tooling,https://github.com/anoopkunchukuttan/indic_nlp_library,MIT package license; bundled resources require review,scoring_only,0.45,Tokenizer and normalization analysis only until behavior is reviewed
-app-authored-telugu-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora
+app-authored-telugu-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin rather than copied from third-party corpora

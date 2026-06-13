@@ -20,14 +20,14 @@ Generated from `georgian-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                         | Kind                | Use             | License                                                      | Notes                                                                                            |
-| ------------------------------ | ------------------- | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| unicode-georgian-block         | unicode_metadata    | scoring         | Unicode License reviewed for metadata use                    | Georgian code point metadata for Mkhedruli, Mtavruli, and historical forms.                      |
-| cldr-ka-exemplars              | locale_metadata     | scoring         | Unicode License reviewed for metadata use                    | Georgian exemplar characters and locale metadata. Confirm exact CLDR release before ingestion.   |
-| wordfreq-ka                    | frequency           | scoring_only    | MIT package license; upstream corpus licenses require review | Broad Georgian frequency intuition only. Do not ship derived corpus examples.                    |
-| georgian-wiktionary            | lexicon             | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution obligations are approved.                    |
-| openstreetmap-georgia-names    | environmental_print | scoring_only    | ODbL; derived-data obligations require review                | Place-name, transit, and public-sign validation. Do not ship raw extracts without review.        |
-| app-authored-georgian-examples | authored_examples   | shipped_content | app_owned                                                    | Short menu, transit, facility, and label examples authored by GlyphBridge after reviewer checks. |
+| Source                         | Kind                | Use             | License                                                      | Notes                                                                                          |
+| ------------------------------ | ------------------- | --------------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| unicode-georgian-block         | unicode_metadata    | scoring         | Unicode License reviewed for metadata use                    | Georgian code point metadata for Mkhedruli, Mtavruli, and historical forms.                    |
+| cldr-ka-exemplars              | locale_metadata     | scoring         | Unicode License reviewed for metadata use                    | Georgian exemplar characters and locale metadata. Confirm exact CLDR release before ingestion. |
+| wordfreq-ka                    | frequency           | scoring_only    | MIT package license; upstream corpus licenses require review | Broad Georgian frequency intuition only. Do not ship derived corpus examples.                  |
+| georgian-wiktionary            | lexicon             | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution obligations are approved.                  |
+| openstreetmap-georgia-names    | environmental_print | scoring_only    | ODbL; derived-data obligations require review                | Place-name, transit, and public-sign validation. Do not ship raw extracts without review.      |
+| app-authored-georgian-examples | authored_examples   | shipped_content | app_owned                                                    | Short menu, transit, facility, and label examples authored by Glyphin after reviewer checks.   |
 
 ## Candidate Highlights
 

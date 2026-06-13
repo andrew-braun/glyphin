@@ -20,14 +20,14 @@ Generated from `brahmi-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                        | Kind                 | Use             | License                                       | Notes                                                                                     |
-| ----------------------------- | -------------------- | --------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| unicode-brahmi-block          | unicode_metadata     | scoring         | Unicode License reviewed for metadata use     | Encoded Brahmi characters and combining marks for inventory and rendering checks.         |
-| siddham-inscription-database  | epigraphic_database  | discovery_only  | database and image reuse terms require review | South Asian inscription context and bibliography for discovery only.                      |
-| gretel-sanskrit-reference     | text_reference       | discovery_only  | text-specific reuse terms require review      | Sanskrit lexical context only and not an inscription corpus for shipped examples.         |
-| ashoka-inscription-references | epigraphic_reference | discovery_only  | reuse terms require review                    | Edict terminology and bibliography for human research only.                               |
-| noto-sans-brahmi              | font_reference       | scoring         | SIL Open Font License                         | Rendering reference for Brahmi letters and vowel signs.                                   |
-| app-authored-brahmi-examples  | authored_examples    | shipped_content | app_owned                                     | Short reviewed Brahmi examples authored by GlyphBridge from cleared vocabulary decisions. |
+| Source                        | Kind                 | Use             | License                                       | Notes                                                                                 |
+| ----------------------------- | -------------------- | --------------- | --------------------------------------------- | ------------------------------------------------------------------------------------- |
+| unicode-brahmi-block          | unicode_metadata     | scoring         | Unicode License reviewed for metadata use     | Encoded Brahmi characters and combining marks for inventory and rendering checks.     |
+| siddham-inscription-database  | epigraphic_database  | discovery_only  | database and image reuse terms require review | South Asian inscription context and bibliography for discovery only.                  |
+| gretel-sanskrit-reference     | text_reference       | discovery_only  | text-specific reuse terms require review      | Sanskrit lexical context only and not an inscription corpus for shipped examples.     |
+| ashoka-inscription-references | epigraphic_reference | discovery_only  | reuse terms require review                    | Edict terminology and bibliography for human research only.                           |
+| noto-sans-brahmi              | font_reference       | scoring         | SIL Open Font License                         | Rendering reference for Brahmi letters and vowel signs.                               |
+| app-authored-brahmi-examples  | authored_examples    | shipped_content | app_owned                                     | Short reviewed Brahmi examples authored by Glyphin from cleared vocabulary decisions. |
 
 ## Candidate Highlights
 

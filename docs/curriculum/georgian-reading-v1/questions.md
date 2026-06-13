@@ -36,7 +36,7 @@ the `georgian-reading-v1` bootstrap.
   pronunciation hints.
 - Spot-check real menu, transit, and facility signs from Georgia to verify the
   first 12 anchors match environmental print.
-- Verify GlyphBridge fonts render Mkhedruli clearly at small and large drill
+- Verify Glyphin fonts render Mkhedruli clearly at small and large drill
   sizes.
 
 ## App Expansion Recommendations

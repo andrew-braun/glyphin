@@ -7,7 +7,7 @@
 ## Goal
 
 Record the schema and DTO changes needed to support first-class reusable lesson
-vocabulary so GlyphBridge can grow from anchor-word lessons into both script teaching
+vocabulary so Glyphin can grow from anchor-word lessons into both script teaching
 and vocabulary drilling.
 
 ## Decision

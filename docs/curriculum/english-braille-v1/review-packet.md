@@ -26,7 +26,7 @@ Generated from `english-braille-v1` authoring artifacts.
 | iceb-ueb-rules                | standard                | discovery_only  | official standard terms require review    | Unified English Braille rules reference. Do not copy rules or tables into shipped lessons without review. |
 | bana-resources                | accessibility_reference | discovery_only  | terms require review                      | Braille usage and accessibility guidance for United States contexts.                                      |
 | liblouis                      | translation_tool        | scoring_only    | LGPL terms require integration review     | Useful for checking uncontracted and contracted braille translations. Not a shipped content source.       |
-| app-authored-braille-examples | authored_examples       | shipped_content | app_owned                                 | Short uncontracted braille examples authored by GlyphBridge and checked by braille readers.               |
+| app-authored-braille-examples | authored_examples       | shipped_content | app_owned                                 | Short uncontracted braille examples authored by Glyphin and checked by braille readers.                   |
 
 ## Candidate Highlights
 

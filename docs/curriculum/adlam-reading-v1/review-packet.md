@@ -26,7 +26,7 @@ Generated from `adlam-reading-v1` authoring artifacts.
 | cldr-ff-adlm-exemplars             | locale_metadata     | scoring         | Unicode License reviewed for metadata use | Fulani Adlam locale data where available. Confirm exact CLDR release and locale coverage before ingestion.            |
 | noto-sans-adlam-font               | font_reference      | scoring         | OFL reviewed for font testing             | Rendering and fallback test source. Not a text corpus.                                                                |
 | winden-jangen-adlam-resources      | community_reference | discovery_only  | terms require review before derived use   | Community and literacy discovery only. Do not copy examples into shipped content without approval.                    |
-| app-authored-adlam-domain-examples | authored_examples   | shipped_content | app_owned                                 | Short reviewed labels and examples authored by GlyphBridge with Adlam-literate reviewer approval.                     |
+| app-authored-adlam-domain-examples | authored_examples   | shipped_content | app_owned                                 | Short reviewed labels and examples authored by Glyphin with Adlam-literate reviewer approval.                         |
 
 ## Candidate Highlights
 

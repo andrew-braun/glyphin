@@ -1,6 +1,6 @@
 # Curriculum Authoring Tools
 
-GlyphBridge's first curriculum tools are offline authoring helpers. They create
+Glyphin's first curriculum tools are offline authoring helpers. They create
 reviewable files, validate course manifests, score hand-entered candidates, and
 generate review packets. They do not download corpora, call external services,
 write to Supabase, or publish runtime lessons.

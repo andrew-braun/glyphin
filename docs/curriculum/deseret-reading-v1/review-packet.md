@@ -26,7 +26,7 @@ Generated from `deseret-reading-v1` authoring artifacts.
 | noto-sans-deseret-font                        | font_reference       | scoring         | OFL reviewed for font testing                                | Rendering and fallback test source. Not a text corpus.                                                         |
 | deseret-historical-references                 | historical_reference | discovery_only  | terms require review before derived use                      | Discovery source for history and encoding rationale. Do not copy examples into shipped content without review. |
 | english-wordfreq-for-deseret-anchor-selection | frequency            | scoring_only    | MIT package license; upstream corpus licenses require review | Useful for English anchor utility only. Deseret spellings must be app-authored and reviewed.                   |
-| app-authored-deseret-domain-examples          | authored_examples    | shipped_content | app_owned                                                    | Short phonemic examples authored by GlyphBridge and reviewed against the chosen Deseret transcription policy.  |
+| app-authored-deseret-domain-examples          | authored_examples    | shipped_content | app_owned                                                    | Short phonemic examples authored by Glyphin and reviewed against the chosen Deseret transcription policy.      |
 
 ## Candidate Highlights
 

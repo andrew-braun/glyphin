@@ -29,7 +29,7 @@ Generated from `bengali-assamese-v1` authoring artifacts.
 | bn-wiktionary                        | lexicon                        | discovery_only  | CC BY-SA; attribution and share-alike review required        | Bengali spelling and gloss discovery only until share-alike implications are reviewed.                                     |
 | as-wiktionary                        | lexicon                        | discovery_only  | CC BY-SA; attribution and share-alike review required        | Assamese contrast notes only. Do not use for shipped examples in Bengali-first v1 without separate review.                 |
 | openstreetmap-bangladesh-assam-names | environmental_print            | scoring_only    | ODbL; derived-data obligations require review                | Place, transit, and public-signage validation across Bengali-script environments. Do not ship raw extracts without review. |
-| app-authored-bengali-domain-examples | authored_examples              | shipped_content | app_owned                                                    | Bengali-first menu, sign, and label examples authored by GlyphBridge after reviewer validation.                            |
+| app-authored-bengali-domain-examples | authored_examples              | shipped_content | app_owned                                                    | Bengali-first menu, sign, and label examples authored by Glyphin after reviewer validation.                                |
 
 ## Candidate Highlights
 

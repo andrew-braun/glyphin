@@ -20,14 +20,14 @@ Generated from `cuneiform-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                          | Kind              | Use             | License                                           | Notes                                                                                                           |
-| ------------------------------- | ----------------- | --------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| unicode-cuneiform-block         | unicode_metadata  | scoring         | Unicode License reviewed for metadata use         | Encoded cuneiform signs for infrastructure and rendering checks only.                                           |
-| cdli-catalog                    | epigraphic_corpus | scoring_only    | license and per-record reuse terms require review | Tablet catalog and transliteration evidence for corpus scarcity and inscription-domain frequency.               |
-| oracc-projects                  | epigraphic_corpus | scoring_only    | project-specific licenses require review          | Structured editions and sign values for discovery and scoring only.                                             |
-| epsd2                           | lexicon           | discovery_only  | license and attribution terms require review      | Gloss and sign-value discovery only until attribution and derivative-use questions are resolved.                |
-| noto-sans-cuneiform             | font_reference    | scoring         | SIL Open Font License                             | Rendering reference for encoded sign visibility at drill sizes.                                                 |
-| app-authored-cuneiform-examples | authored_examples | shipped_content | app_owned                                         | Short sign-recognition examples authored by GlyphBridge from reviewed sign values and not copied from editions. |
+| Source                          | Kind              | Use             | License                                           | Notes                                                                                                       |
+| ------------------------------- | ----------------- | --------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| unicode-cuneiform-block         | unicode_metadata  | scoring         | Unicode License reviewed for metadata use         | Encoded cuneiform signs for infrastructure and rendering checks only.                                       |
+| cdli-catalog                    | epigraphic_corpus | scoring_only    | license and per-record reuse terms require review | Tablet catalog and transliteration evidence for corpus scarcity and inscription-domain frequency.           |
+| oracc-projects                  | epigraphic_corpus | scoring_only    | project-specific licenses require review          | Structured editions and sign values for discovery and scoring only.                                         |
+| epsd2                           | lexicon           | discovery_only  | license and attribution terms require review      | Gloss and sign-value discovery only until attribution and derivative-use questions are resolved.            |
+| noto-sans-cuneiform             | font_reference    | scoring         | SIL Open Font License                             | Rendering reference for encoded sign visibility at drill sizes.                                             |
+| app-authored-cuneiform-examples | authored_examples | shipped_content | app_owned                                         | Short sign-recognition examples authored by Glyphin from reviewed sign values and not copied from editions. |
 
 ## Candidate Highlights
 

@@ -5,4 +5,4 @@ wordfreq-lo,frequency,https://github.com/rspeer/wordfreq,MIT package license; up
 lao-wiktionary,lexicon,https://lo.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.4,Gloss and spelling discovery only until license implications are approved
 openstreetmap-laos-lao-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.75,Lao place transit lodging and facility-name validation; do not ship raw extracts
 lao-tokenizer-tools,segmentation_tooling,https://github.com/,tool and model licenses require review,discovery_only,0,Placeholder for a reviewed Lao tokenizer
-app-authored-lao-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora
+app-authored-lao-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin rather than copied from third-party corpora

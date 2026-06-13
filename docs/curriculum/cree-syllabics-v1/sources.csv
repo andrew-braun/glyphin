@@ -3,4 +3,4 @@ unicode-canadian-syllabics-block,unicode_metadata,https://www.unicode.org/charts
 cldr-cr-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License reviewed for metadata use,scoring,0.45,Cree exemplar data where available; confirm release and dialect coverage
 cree-dictionary-online,lexicon,https://www.creedictionary.com/,terms require review before derived use,discovery_only,0.65,Spelling and dialect discovery only until terms and attribution are approved
 learn-cree-resource-references,pedagogy_reference,https://learncree.ca/,terms require review before derived use,discovery_only,0.55,Syllabics pedagogy discovery only; do not copy lesson text
-app-authored-cree-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed labels and examples authored by GlyphBridge rather than copied from third-party corporaid,kind,url,license,use,domain_weight,notes
+app-authored-cree-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed labels and examples authored by Glyphin rather than copied from third-party corporaid,kind,url,license,use,domain_weight,notes

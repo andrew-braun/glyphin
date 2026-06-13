@@ -28,7 +28,7 @@ Generated from `egyptian-hieroglyphs-v1` authoring artifacts.
 | manuel-de-codage-conventions       | transliteration_reference | discovery_only  | Unicode technical note terms require review for derived use | Reference for encoding and transliteration conventions. Use for modeling decisions after review.  |
 | wiktionary-egyptian                | lexicon                   | discovery_only  | CC BY-SA with attribution and share-alike review required   | Gloss and transliteration discovery only until share-alike obligations are approved.              |
 | noto-sans-egyptian-hieroglyphs     | font_reference            | scoring         | SIL Open Font License                                       | Rendering reference for encoded signs. Does not solve quadrat layout by itself.                   |
-| app-authored-egyptian-examples     | authored_examples         | shipped_content | app_owned                                                   | Short museum-style sign examples authored by GlyphBridge after specialist review.                 |
+| app-authored-egyptian-examples     | authored_examples         | shipped_content | app_owned                                                   | Short museum-style sign examples authored by Glyphin after specialist review.                     |
 
 ## Candidate Highlights
 

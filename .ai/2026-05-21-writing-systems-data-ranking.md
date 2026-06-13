@@ -16,7 +16,7 @@ academic research, and pedagogical literature.
   - Preserve the existing popularity rankings.
   - Add a new `Ranking By Available Data` section to
     `docs/curriculum/writing-systems-catalog.md`.
-  - Rank candidates from easiest to hardest to bootstrap for GlyphBridge.
+  - Rank candidates from easiest to hardest to bootstrap for Glyphin.
 - Out of scope:
   - Creating detailed source manifests for every candidate.
   - Changing course data, DB schema, or authoring tools.

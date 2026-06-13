@@ -29,7 +29,7 @@ Generated from `gujarati-reading-v1` authoring artifacts.
 | dakshina-gu                           | transliteration_pronunciation_dataset | discovery_only  | CC BY-SA 4.0; attribution and share-alike review required    | Pronunciation and romanization discovery only until share-alike obligations are reviewed.                                        |
 | gu-wiktionary                         | lexicon                               | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution obligations are approved.                                                    |
 | openstreetmap-gujarat-names           | environmental_print                   | scoring_only    | ODbL; derived-data obligations require review                | Useful for place names, transit labels, commerce signs, and public-facility validation. Do not ship raw extracts without review. |
-| app-authored-gujarati-domain-examples | authored_examples                     | shipped_content | app_owned                                                    | Short Gujarati menu, sign, and label examples authored by GlyphBridge after reviewer validation.                                 |
+| app-authored-gujarati-domain-examples | authored_examples                     | shipped_content | app_owned                                                    | Short Gujarati menu, sign, and label examples authored by Glyphin after reviewer validation.                                     |
 
 ## Candidate Highlights
 

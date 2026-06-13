@@ -27,7 +27,7 @@ Generated from `japanese-kana-kanji-v1` authoring artifacts.
 | jmdict                         | lexicon           | discovery_only  | EDRDG and share-alike terms require review             | Headword and gloss discovery only until attribution obligations are approved.                                      |
 | kanjidic2                      | kanji_reference   | discovery_only  | EDRDG and share-alike terms require review             | Kanji readings, meanings, stroke counts, and component discovery.                                                  |
 | unicode-japanese-blocks        | unicode_metadata  | scoring         | Unicode License reviewed for metadata use              | Hiragana, Katakana, CJK, and modifier code point metadata.                                                         |
-| app-authored-japanese-examples | authored_examples | shipped_content | app_owned                                              | Short menu, transit, store, and public-sign examples authored by GlyphBridge.                                      |
+| app-authored-japanese-examples | authored_examples | shipped_content | app_owned                                              | Short menu, transit, store, and public-sign examples authored by Glyphin.                                          |
 
 ## Candidate Highlights
 

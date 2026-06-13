@@ -67,7 +67,7 @@
 			"license": "app_owned",
 			"use": "shipped_content",
 			"domain_weight": 0.95,
-			"notes": "Short uncontracted braille examples authored by GlyphBridge and checked by braille readers."
+			"notes": "Short uncontracted braille examples authored by Glyphin and checked by braille readers."
 		}
 	],
 	"database": {

@@ -28,7 +28,7 @@ Generated from `burmese-myanmar-v1` authoring artifacts.
 | myanmar-wiktionary                   | lexicon              | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution and share-alike implications are approved.                                                   |
 | openstreetmap-myanmar-burmese-names  | environmental_print  | scoring_only    | ODbL; derived-data obligations require review                | Place, transit, lodging, and facility-name validation for Burmese signage. Do not ship raw OSM extracts without review.                          |
 | burmese-segmentation-tools           | segmentation_tooling | discovery_only  | tool and model licenses require review                       | Placeholder for a reviewed Burmese word segmenter. It is not a content source.                                                                   |
-| app-authored-burmese-domain-examples | authored_examples    | shipped_content | app_owned                                                    | Short tea-shop, menu, sign, transit, and label examples authored by GlyphBridge after reviewer approval.                                         |
+| app-authored-burmese-domain-examples | authored_examples    | shipped_content | app_owned                                                    | Short tea-shop, menu, sign, transit, and label examples authored by Glyphin after reviewer approval.                                             |
 
 ## Candidate Highlights
 

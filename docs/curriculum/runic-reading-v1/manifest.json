@@ -76,7 +76,7 @@
 			"license": "app_owned",
 			"use": "shipped_content",
 			"domain_weight": 0.9,
-			"notes": "Short transliteration and rune-name examples authored by GlyphBridge after specialist review."
+			"notes": "Short transliteration and rune-name examples authored by Glyphin after specialist review."
 		}
 	],
 	"database": {

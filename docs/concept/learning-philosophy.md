@@ -1,10 +1,10 @@
-# GlyphBridge Learning Philosophy
+# Glyphin Learning Philosophy
 
-> Canonical pedagogical concept document. Curriculum authors, designers, and engineers should treat this file as the source of truth for **what GlyphBridge teaches, why it teaches that way, how lessons are structured, and which principles bind every course**. Curriculum-specific sequencing (e.g. Thai) lives in sibling concept files such as [approach-thai.md](./approach-thai.md); this file is script-agnostic.
+> Canonical pedagogical concept document. Curriculum authors, designers, and engineers should treat this file as the source of truth for **what Glyphin teaches, why it teaches that way, how lessons are structured, and which principles bind every course**. Curriculum-specific sequencing (e.g. Thai) lives in sibling concept files such as [approach-thai.md](./approach-thai.md); this file is script-agnostic.
 
-## 1. What GlyphBridge Is
+## 1. What Glyphin Is
 
-GlyphBridge is a **real-word-first reading app for unfamiliar writing systems**. Its job is to turn opaque script into legible text for an adult learner, fast enough that the learner feels useful momentum inside the first session.
+Glyphin is a **real-word-first reading app for unfamiliar writing systems**. Its job is to turn opaque script into legible text for an adult learner, fast enough that the learner feels useful momentum inside the first session.
 
 Concretely:
 
@@ -13,11 +13,11 @@ Concretely:
 - Lessons teach the **smallest set of graphemes and rules** needed to decode that anchor, plus the patterns that generalize from it.
 - Practice is drill-based, deterministic, and tightly scoped to what the lesson just introduced, with cumulative review of earlier material.
 
-GlyphBridge is deliberately **not** an alphabet chart, a grammar course, a phrasebook, a translation tool, or a passive flashcard deck. The unit of progress is _decoded useful text_, not _symbols memorized_.
+Glyphin is deliberately **not** an alphabet chart, a grammar course, a phrasebook, a translation tool, or a passive flashcard deck. The unit of progress is _decoded useful text_, not _symbols memorized_.
 
 ## 2. Why This Approach — Backed by Research
 
-The conventional way to teach a new script (start at the top of the alphabet chart, march through 44+ symbols in their native lexicographic order, drill them in isolation, then years later try to read something useful) is pedagogically defensible only by tradition. GlyphBridge inverts that order on the strength of several converging bodies of evidence.
+The conventional way to teach a new script (start at the top of the alphabet chart, march through 44+ symbols in their native lexicographic order, drill them in isolation, then years later try to read something useful) is pedagogically defensible only by tradition. Glyphin inverts that order on the strength of several converging bodies of evidence.
 
 ### 2.1 The Usage-Based Account: frequency drives acquisition
 
@@ -27,19 +27,19 @@ The direct implication for a script app: teach the **graphemes and words that ap
 
 ### 2.2 Systematic grapheme–phoneme correspondence beats whole-word guessing
 
-The Science of Reading consensus, drawn from the National Reading Panel and replicated across decades, is that **explicit, systematic teaching of grapheme–phoneme correspondences (GPCs)** produces significantly better reading outcomes than meaning-first or whole-language approaches ([National Reading Panel, 2003](https://eric.ed.gov/?id=ED479646); [Castles, Rastle & Nation, 2018, _Ending the Reading Wars_](https://eric.ed.gov/?id=EJ1267539)). GlyphBridge's lesson contract — _introduce only the new graphemes required for this lesson, then surface the rule that ties them to sound, then drill it_ — is a direct implementation of systematic phonics applied to a non-Roman script.
+The Science of Reading consensus, drawn from the National Reading Panel and replicated across decades, is that **explicit, systematic teaching of grapheme–phoneme correspondences (GPCs)** produces significantly better reading outcomes than meaning-first or whole-language approaches ([National Reading Panel, 2003](https://eric.ed.gov/?id=ED479646); [Castles, Rastle & Nation, 2018, _Ending the Reading Wars_](https://eric.ed.gov/?id=EJ1267539)). Glyphin's lesson contract — _introduce only the new graphemes required for this lesson, then surface the rule that ties them to sound, then drill it_ — is a direct implementation of systematic phonics applied to a non-Roman script.
 
 ### 2.3 Orthographic mapping is what makes a "sight word"
 
 Ehri's orthographic-mapping research is the bridge between "decode a word" and "recognize it instantly." Sight-word recognition is **not** rote memorization of a shape; it is the automatic recall of a fully decoded word whose letter–sound mapping has been internalized through repeated, phonologically grounded exposure ([Ehri, 2014, _Orthographic Mapping in the Acquisition of Sight Word Reading_](https://library.ecu.edu/networkingsummit/wp-content/pv-uploads/sites/257/2019/07/ehri.pdf)). Once a learner has the GPCs in place, only **one to four well-decoded exposures** are typically needed to make a word automatic.
 
-This is exactly why GlyphBridge anchors every lesson to a real word and decodes it before drilling: we are not asking the learner to memorize a glyph in the abstract, we are giving them an immediate, repeatable mapping from the glyph to a meaningful, pronounceable, real-world unit.
+This is exactly why Glyphin anchors every lesson to a real word and decodes it before drilling: we are not asking the learner to memorize a glyph in the abstract, we are giving them an immediate, repeatable mapping from the glyph to a meaningful, pronounceable, real-world unit.
 
 ### 2.4 Cognitive load theory: small cumulative sets, not symbol firehoses
 
 Cognitive Load Theory ([Sweller, 1988; Paas & van Merriënboer, 2020](https://journals.sagepub.com/doi/10.1177/0963721420922183)) shows working memory can hold roughly four chunks of novel information at once, and that **extraneous and intrinsic load compete for the same limited budget**. A first lesson that dumps 44 consonants, 32 vowels, 4 tone marks, and 3 consonant classes onto an adult learner will saturate working memory before any of it can be encoded.
 
-GlyphBridge's lesson contract minimizes intrinsic load by:
+Glyphin's lesson contract minimizes intrinsic load by:
 
 - introducing only the graphemes the anchor word requires,
 - making rules concrete by attaching them to the word that just used them,
@@ -57,11 +57,11 @@ Environmental print — the script the learner physically lives next to — is t
 
 Robert Bjork's framework of [_desirable difficulties_](https://bjorklab.psych.ucla.edu/research/) holds that learning is durably stronger when retrieval is _harder_ in the moment — spaced rather than massed, mixed rather than blocked, recalled rather than re-read ([Bjork & Bjork; Roediger & Karpicke on the testing effect](https://pmc.ncbi.nlm.nih.gov/articles/PMC4480221/)). A drill that asks the learner to retrieve the sound of a glyph after a short gap and among distractors does more for long-term retention than another minute of staring at a flashcard.
 
-This is why GlyphBridge ends every lesson with drills rather than re-reading, and why review graphemes from prior lessons keep appearing in later lessons rather than being declared "done."
+This is why Glyphin ends every lesson with drills rather than re-reading, and why review graphemes from prior lessons keep appearing in later lessons rather than being declared "done."
 
-## 3. How GlyphBridge Structures a Curriculum
+## 3. How Glyphin Structures a Curriculum
 
-Every GlyphBridge course is defined by a strict, repeatable architecture. The same shape works for any script because the contract is script-agnostic — it carries content, it does not enshrine any particular language's quirks.
+Every Glyphin course is defined by a strict, repeatable architecture. The same shape works for any script because the contract is script-agnostic — it carries content, it does not enshrine any particular language's quirks.
 
 ### 3.1 The Lesson Contract (seven steps)
 
@@ -158,11 +158,11 @@ A "no" on any of the first three is a strong signal the change is wrong-shaped.
 
 ## 5. Potential Improvements and Open Tensions
 
-This section is honest. Our approach is well-supported in its core, but the literature also flags places where current GlyphBridge defaults are weaker than they could be. Each item below is a research-backed candidate for the roadmap, not a current promise.
+This section is honest. Our approach is well-supported in its core, but the literature also flags places where current Glyphin defaults are weaker than they could be. Each item below is a research-backed candidate for the roadmap, not a current promise.
 
 ### 5.1 Multiple-choice drills under-train production
 
-GlyphBridge's drill primitives (`recognize`, `match`, `sound`, `spot`) are all four-option multiple-choice. Multiple-choice testing **is** a desirable difficulty and does drive retention, but the literature is clear that it preferentially trains **recognition** at the cost of **production**, and can occasionally encode plausible-but-wrong distractors as "false knowledge" if a learner picks a lure repeatedly ([Roediger & Marsh, 2005, _The Positive and Negative Consequences of Multiple-Choice Testing_](http://psychnet.wustl.edu/memory/wp-content/uploads/2018/04/Roediger-Marsh-2005_JEPLMC.pdf); [Little & Bjork, _Optimizing multiple-choice tests as tools for learning_](https://bjorklab.psych.ucla.edu/wp-content/uploads/sites/13/2017/01/LittleBjorkMC2014.pdf)). A linguistic critique additionally notes MC items "cannot assess productive language skills" ([_A Linguistic Perspective on Multiple Choice Questioning_](https://www.researchgate.net/publication/238398042_A_Linguistic_Perspective_on_Multiple_Choice_Questioning)).
+Glyphin's drill primitives (`recognize`, `match`, `sound`, `spot`) are all four-option multiple-choice. Multiple-choice testing **is** a desirable difficulty and does drive retention, but the literature is clear that it preferentially trains **recognition** at the cost of **production**, and can occasionally encode plausible-but-wrong distractors as "false knowledge" if a learner picks a lure repeatedly ([Roediger & Marsh, 2005, _The Positive and Negative Consequences of Multiple-Choice Testing_](http://psychnet.wustl.edu/memory/wp-content/uploads/2018/04/Roediger-Marsh-2005_JEPLMC.pdf); [Little & Bjork, _Optimizing multiple-choice tests as tools for learning_](https://bjorklab.psych.ucla.edu/wp-content/uploads/sites/13/2017/01/LittleBjorkMC2014.pdf)). A linguistic critique additionally notes MC items "cannot assess productive language skills" ([_A Linguistic Perspective on Multiple Choice Questioning_](https://www.researchgate.net/publication/238398042_A_Linguistic_Perspective_on_Multiple_Choice_Questioning)).
 
 **Candidate change:** add at least one **production-style** drill per lesson — type the romanization, tap-to-build the word from its graphemes, or speak-and-compare against a reference. This raises drill difficulty in the desirable direction and closes the recognition / production gap.
 
@@ -174,7 +174,7 @@ Our review system surfaces prior graphemes inside later lessons, which is a form
 
 ### 5.3 Mnemonics are useful but oversold
 
-GlyphBridge writes a mnemonic for every new grapheme. The keyword/mnemonic method does work — meta-analyses show modest retention gains — but it has documented weaknesses: it equates dissimilar L1/L2 phonemes, generates extended recall latencies, and **provided** mnemonics consistently underperform **learner-generated** ones ([Wang, Thomas & Ouellette, summarized in _Use of Mnemonics in Learning Novel Foreign Vocabulary: Help or Hindrance?_](https://journals.library.columbia.edu/index.php/SALT/article/view/1661/705); [Levin et al. on long-term limitations of keyword mnemonics](https://www.researchgate.net/publication/232550022_Mnemotechnics_Some_limitations_of_the_mnemonic_keyword_method_for_the_study_of_foreign_language_vocabulary)). [Adding keyword mnemonics _to_ retrieval practice can compound benefits](https://link.springer.com/article/10.3758/s13421-019-00936-2), but mnemonics in isolation are a fragile crutch.
+Glyphin writes a mnemonic for every new grapheme. The keyword/mnemonic method does work — meta-analyses show modest retention gains — but it has documented weaknesses: it equates dissimilar L1/L2 phonemes, generates extended recall latencies, and **provided** mnemonics consistently underperform **learner-generated** ones ([Wang, Thomas & Ouellette, summarized in _Use of Mnemonics in Learning Novel Foreign Vocabulary: Help or Hindrance?_](https://journals.library.columbia.edu/index.php/SALT/article/view/1661/705); [Levin et al. on long-term limitations of keyword mnemonics](https://www.researchgate.net/publication/232550022_Mnemotechnics_Some_limitations_of_the_mnemonic_keyword_method_for_the_study_of_foreign_language_vocabulary)). [Adding keyword mnemonics _to_ retrieval practice can compound benefits](https://link.springer.com/article/10.3758/s13421-019-00936-2), but mnemonics in isolation are a fragile crutch.
 
 **Candidate change:** keep authored mnemonics as defaults but (a) bias them toward **shape- and behavior-based** associations (which generalize) over **L1-pun** associations (which don't), and (b) consider giving learners a slot to **write their own** mnemonic at lesson time, since learner-generated cues encode more durably.
 
@@ -188,7 +188,7 @@ The Thai curriculum teaches tone marks as visual modifiers and tone-bearing sigh
 
 Bjork's framework recommends interleaved over blocked practice — but recent applied research in L2 instruction shows the picture is more nuanced. **Blocked early practice followed by interleaved later practice** ("hybrid" scheduling) outperforms either pure strategy for declarative knowledge in low-achieving or beginner learners ([Hwang, 2025, _Undesirable Difficulty of Interleaved Practice_, Language Learning](https://onlinelibrary.wiley.com/doi/10.1111/lang.12659); [Nakata & Suzuki, 2019, _Effects of Blocking, Interleaving, and Increasing Practice_, MLJ](https://yuichisuzuki.net/wp-content/uploads/2023/04/Nakata-Suzuki-2019-MLJ.pdf)).
 
-**Current state:** within a lesson, GlyphBridge is essentially blocked (all drills target the lesson's new material). Across lessons, we get implicit interleaving via review graphemes. This is approximately right for beginners, but we have not made the choice deliberately.
+**Current state:** within a lesson, Glyphin is essentially blocked (all drills target the lesson's new material). Across lessons, we get implicit interleaving via review graphemes. This is approximately right for beginners, but we have not made the choice deliberately.
 
 **Candidate change:** make the schedule explicit. State in the curriculum-authoring guide that drills _inside_ a lesson should remain blocked, and that interleaving should happen at the cross-lesson review surface (see §5.2). This is one of the few cases where the research supports keeping our default and being more confident in it.
 
@@ -212,7 +212,7 @@ Our level-6 Thai list is mostly globalization loanwords (`คอมพิวเ�
 
 ## 6. Summary
 
-GlyphBridge teaches script-illiterate adults to read real text in a new writing system, fast. It does that by sequencing graphemes by **decoding payoff**, anchoring every lesson in **one real-world word**, asking learners to transfer those graphemes into **same-lesson support words before answers are revealed**, teaching **rules from words**, drilling in **small cumulative sets** within a fixed seven-step contract, and treating environmental print as the validation surface.
+Glyphin teaches script-illiterate adults to read real text in a new writing system, fast. It does that by sequencing graphemes by **decoding payoff**, anchoring every lesson in **one real-world word**, asking learners to transfer those graphemes into **same-lesson support words before answers are revealed**, teaching **rules from words**, drilling in **small cumulative sets** within a fixed seven-step contract, and treating environmental print as the validation surface.
 
 The approach is consistent with the usage-based account of L2 acquisition, systematic-phonics evidence, Ehri's orthographic mapping, cognitive-load theory, Bjork's desirable-difficulty framework, and motivation research. The main places it can still grow are: adding **production drills**, adding **scheduled spaced retrieval**, adding **audio for tone**, adding a **between-lessons extensive-reading surface**, and being **explicit about the blocked-then-interleaved schedule** the research supports.
 

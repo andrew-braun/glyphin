@@ -1,4 +1,4 @@
-# GlyphBridge — Scaling Plan
+# Glyphin — Scaling Plan
 
 Related docs: `README.md` for the bundle index and `dev-tooling-setup.md` for the concrete tooling implementation slice that already shipped.
 

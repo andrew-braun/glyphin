@@ -20,14 +20,14 @@ Generated from `gothic-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                       | Kind              | Use             | License                                              | Notes                                                                                     |
-| ---------------------------- | ----------------- | --------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| unicode-gothic-block         | unicode_metadata  | scoring         | Unicode License reviewed for metadata use            | Encoded Gothic letters for inventory and rendering checks.                                |
-| wulfila-project              | text_reference    | discovery_only  | site and text reuse terms require review             | Gothic biblical text and grammar reference for discovery only.                            |
-| titus-gothic                 | corpus_reference  | scoring_only    | corpus terms require review                          | Gothic text evidence for scoring only pending license review.                             |
-| wiktionary-gothic            | lexicon           | discovery_only  | CC BY-SA attribution and share-alike review required | Gloss and spelling discovery only until attribution review.                               |
-| noto-sans-gothic             | font_reference    | scoring         | SIL Open Font License                                | Rendering reference for Gothic letters.                                                   |
-| app-authored-gothic-examples | authored_examples | shipped_content | app_owned                                            | Short reviewed Gothic examples authored by GlyphBridge from cleared vocabulary decisions. |
+| Source                       | Kind              | Use             | License                                              | Notes                                                                                 |
+| ---------------------------- | ----------------- | --------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| unicode-gothic-block         | unicode_metadata  | scoring         | Unicode License reviewed for metadata use            | Encoded Gothic letters for inventory and rendering checks.                            |
+| wulfila-project              | text_reference    | discovery_only  | site and text reuse terms require review             | Gothic biblical text and grammar reference for discovery only.                        |
+| titus-gothic                 | corpus_reference  | scoring_only    | corpus terms require review                          | Gothic text evidence for scoring only pending license review.                         |
+| wiktionary-gothic            | lexicon           | discovery_only  | CC BY-SA attribution and share-alike review required | Gloss and spelling discovery only until attribution review.                           |
+| noto-sans-gothic             | font_reference    | scoring         | SIL Open Font License                                | Rendering reference for Gothic letters.                                               |
+| app-authored-gothic-examples | authored_examples | shipped_content | app_owned                                            | Short reviewed Gothic examples authored by Glyphin from cleared vocabulary decisions. |
 
 ## Candidate Highlights
 

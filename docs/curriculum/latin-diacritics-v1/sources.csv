@@ -4,4 +4,4 @@ cldr-latin-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License r
 wordfreq-multilingual-latin,frequency,https://github.com/rspeer/wordfreq,MIT package license; upstream corpus licenses require review,scoring_only,0.6,Broad frequency intuition across European Latin-script languages; do not ship derived examples
 openstreetmap-europe-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.8,Street station and place-name validation; do not ship raw extracts without review
 wiktionary-multilingual-latin,lexicon,https://www.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.45,Gloss and spelling discovery only until attribution obligations are approved
-app-authored-latin-diacritic-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed examples authored by GlyphBridge
+app-authored-latin-diacritic-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed examples authored by Glyphin

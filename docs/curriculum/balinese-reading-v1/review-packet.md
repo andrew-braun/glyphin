@@ -20,14 +20,14 @@ Generated from `balinese-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                                | Kind                  | Use             | License                                               | Notes                                                                                                                 |
-| ------------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| unicode-balinese-block                | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Balinese block metadata for letters, marks, digits, punctuation, and signs.                                           |
-| cldr-ban-bali-exemplars               | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Balinese-script locale metadata where available. Confirm exact CLDR release before ingestion.                         |
-| wiktionary-balinese-discovery         | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling and gloss discovery only. Do not ship copied entries.                                             |
-| balinese-script-learning-references   | orthography_reference | discovery_only  | publisher or site licenses require review             | Use for specialist planning around vowel signs, adeg-adeg, and register only.                                         |
-| openstreetmap-balinese-script-names   | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for cultural-site and place labels. Do not ship raw extracts.                             |
-| app-authored-balinese-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora. |
+| Source                                | Kind                  | Use             | License                                               | Notes                                                                                                             |
+| ------------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| unicode-balinese-block                | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Balinese block metadata for letters, marks, digits, punctuation, and signs.                                       |
+| cldr-ban-bali-exemplars               | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Balinese-script locale metadata where available. Confirm exact CLDR release before ingestion.                     |
+| wiktionary-balinese-discovery         | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for spelling and gloss discovery only. Do not ship copied entries.                                         |
+| balinese-script-learning-references   | orthography_reference | discovery_only  | publisher or site licenses require review             | Use for specialist planning around vowel signs, adeg-adeg, and register only.                                     |
+| openstreetmap-balinese-script-names   | environmental_print   | scoring_only    | ODbL; derived-data obligations require review         | Potential validation source for cultural-site and place labels. Do not ship raw extracts.                         |
+| app-authored-balinese-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by Glyphin from approved vocabulary rather than copied from third-party corpora. |
 
 ## Candidate Highlights
 

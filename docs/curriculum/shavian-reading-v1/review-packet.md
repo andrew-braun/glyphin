@@ -20,13 +20,13 @@ Generated from `shavian-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                                | Kind                | Use             | License                                                      | Notes                                                                                                         |
-| ------------------------------------- | ------------------- | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| unicode-shavian-block                 | unicode_metadata    | scoring         | Unicode License reviewed for metadata use                    | Shavian code point metadata and letter names. Use as infrastructure metadata only.                            |
-| noto-sans-shavian-font                | font_reference      | scoring         | OFL reviewed for font testing                                | Rendering and fallback test source. Not a text corpus.                                                        |
-| shavian-community-references          | community_reference | discovery_only  | terms require review before derived use                      | Discovery source for conventions and teaching order. Do not copy examples without license review.             |
-| english-wordfreq-for-anchor-selection | frequency           | scoring_only    | MIT package license; upstream corpus licenses require review | Useful for English anchor utility only. Shavian spellings must be app-authored and reviewed.                  |
-| app-authored-shavian-domain-examples  | authored_examples   | shipped_content | app_owned                                                    | Short phonemic examples authored by GlyphBridge and reviewed against the chosen Shavian transcription policy. |
+| Source                                | Kind                | Use             | License                                                      | Notes                                                                                                     |
+| ------------------------------------- | ------------------- | --------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| unicode-shavian-block                 | unicode_metadata    | scoring         | Unicode License reviewed for metadata use                    | Shavian code point metadata and letter names. Use as infrastructure metadata only.                        |
+| noto-sans-shavian-font                | font_reference      | scoring         | OFL reviewed for font testing                                | Rendering and fallback test source. Not a text corpus.                                                    |
+| shavian-community-references          | community_reference | discovery_only  | terms require review before derived use                      | Discovery source for conventions and teaching order. Do not copy examples without license review.         |
+| english-wordfreq-for-anchor-selection | frequency           | scoring_only    | MIT package license; upstream corpus licenses require review | Useful for English anchor utility only. Shavian spellings must be app-authored and reviewed.              |
+| app-authored-shavian-domain-examples  | authored_examples   | shipped_content | app_owned                                                    | Short phonemic examples authored by Glyphin and reviewed against the chosen Shavian transcription policy. |
 
 ## Candidate Highlights
 

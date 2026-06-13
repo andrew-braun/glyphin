@@ -26,7 +26,7 @@ Generated from `bamum-reading-v1` authoring artifacts.
 | unicode-bamum-supplement           | unicode_metadata    | scoring         | Unicode License reviewed for metadata use | Historical-stage Bamum Supplement metadata. Use for scope decisions and avoid mixing into v1 without review.         |
 | noto-sans-bamum-font               | font_reference      | scoring         | OFL reviewed for font testing             | Rendering and fallback test source. Not a text corpus.                                                               |
 | bamum-scholarship-references       | scholarly_reference | discovery_only  | terms require review before derived use   | Discovery source for script stages and encoding rationale. Do not copy examples into shipped content without review. |
-| app-authored-bamum-domain-examples | authored_examples   | shipped_content | app_owned                                 | Short reviewed labels and examples authored by GlyphBridge with Bamum reviewer approval.                             |
+| app-authored-bamum-domain-examples | authored_examples   | shipped_content | app_owned                                 | Short reviewed labels and examples authored by Glyphin with Bamum reviewer approval.                                 |
 
 ## Candidate Highlights
 

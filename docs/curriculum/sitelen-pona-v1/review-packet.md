@@ -26,7 +26,7 @@ Generated from `sitelen-pona-v1` authoring artifacts.
 | nasin-nanpa-font-reference         | font_reference     | discovery_only  | font license requires review before bundling | Useful for glyph coverage and rendering tests. Confirm license and variant policy before use.                            |
 | lipu-linku-reference               | lexicon_reference  | discovery_only  | terms and dataset licenses require review    | Useful for Toki Pona word selection and community usage. Keep discovery-only until license and attribution are approved. |
 | toki-pona-official-reference       | pedagogy_reference | discovery_only  | terms require review before derived use      | Discovery source for language and script context. Do not copy examples or glyph art into shipped content.                |
-| app-authored-sitelen-pona-examples | authored_examples  | shipped_content | app_owned                                    | Short Toki Pona sentences and glyph-ID sequences authored by GlyphBridge after font and glyph-license approval.          |
+| app-authored-sitelen-pona-examples | authored_examples  | shipped_content | app_owned                                    | Short Toki Pona sentences and glyph-ID sequences authored by Glyphin after font and glyph-license approval.              |
 
 ## Candidate Highlights
 

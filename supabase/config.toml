@@ -247,7 +247,7 @@ otp_expiry = 3600
 # content_path = "./supabase/templates/invite.html"
 
 [auth.email.template.magic_link]
-subject = "Your GlyphBridge sign-in code"
+subject = "Your Glyphin sign-in code"
 content_path = "./supabase/templates/magic-link.html"
 
 # Uncomment to customize notification email template

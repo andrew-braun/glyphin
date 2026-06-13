@@ -6,4 +6,4 @@ wordfreq-zh,frequency,https://github.com/rspeer/wordfreq,MIT package license; up
 jieba-frequency,tokenizer_frequency,https://github.com/fxsjy/jieba,MIT package license; corpus provenance requires review,scoring_only,0.55,Segmentation and word-frequency intuition for analysis only
 cc-cedict,lexicon,https://www.mdbg.net/chinese/dictionary?page=cedict,CC BY-SA; attribution and share-alike review required,discovery_only,0.6,Gloss pinyin and traditional-variant discovery only until attribution obligations are approved
 opencc,variant_tool,https://github.com/BYVoid/OpenCC,Apache 2.0,discovery_only,0.1,Simplified/traditional conversion reference for analysis and QA only
-app-authored-mandarin-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed examples authored by GlyphBridge
+app-authored-mandarin-examples,authored_examples,,app_owned,shipped_content,0.95,Short reviewed examples authored by Glyphin

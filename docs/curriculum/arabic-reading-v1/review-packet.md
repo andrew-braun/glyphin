@@ -29,7 +29,7 @@ Generated from `arabic-reading-v1` authoring artifacts.
 | arabic-wiktionary                   | lexicon                        | discovery_only  | CC BY-SA; attribution and share-alike review required        | Useful for spelling and gloss checks. Keep discovery-only until share-alike obligations are reviewed.                                |
 | camel-tools                         | tokenizer_transliteration_tool | discovery_only  | tool license and model/data licenses require review          | Potential analysis aid for tokenization, morphology, and transliteration. Not a text source and not needed for shipped examples.     |
 | openstreetmap-arabic-names          | environmental_print            | scoring_only    | ODbL; derived-data obligations require review                | Useful for street, transit, and facility-name validation in Arabic-script contexts. Do not ship raw extracts without license review. |
-| app-authored-arabic-domain-examples | authored_examples              | shipped_content | app_owned                                                    | Short menu, sign, and label examples authored by GlyphBridge from reviewed vocabulary rather than copied from third-party corpora.   |
+| app-authored-arabic-domain-examples | authored_examples              | shipped_content | app_owned                                                    | Short menu, sign, and label examples authored by Glyphin from reviewed vocabulary rather than copied from third-party corpora.       |
 
 ## Candidate Highlights
 

@@ -20,14 +20,14 @@ Generated from `baybayin-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                                | Kind                  | Use             | License                                               | Notes                                                                                                                 |
-| ------------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| unicode-tagalog-block                 | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Tagalog block metadata for Baybayin letters, vowel marks, and virama.                                                 |
-| cldr-tl-tglg-exemplars                | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Tagalog-script locale metadata where available. Confirm exact CLDR release before ingestion.                          |
-| wiktionary-tagalog-discovery          | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for Tagalog gloss checks only. Do not ship copied entries.                                                     |
-| baybayin-learning-references          | orthography_reference | discovery_only  | publisher or site licenses require review             | Use for specialist planning around historic and modern final-consonant notation only.                                 |
-| modern-baybayin-community-samples     | environmental_print   | discovery_only  | sample licenses and permissions require review        | Discovery-only examples for modern usage patterns. Do not ship copied community text.                                 |
-| app-authored-baybayin-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by GlyphBridge from approved vocabulary rather than copied from third-party corpora. |
+| Source                                | Kind                  | Use             | License                                               | Notes                                                                                                             |
+| ------------------------------------- | --------------------- | --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| unicode-tagalog-block                 | unicode_metadata      | scoring         | Unicode License reviewed for metadata use             | Tagalog block metadata for Baybayin letters, vowel marks, and virama.                                             |
+| cldr-tl-tglg-exemplars                | locale_metadata       | scoring         | Unicode License reviewed for metadata use             | Tagalog-script locale metadata where available. Confirm exact CLDR release before ingestion.                      |
+| wiktionary-tagalog-discovery          | lexicon               | discovery_only  | CC BY-SA; attribution and share-alike review required | Useful for Tagalog gloss checks only. Do not ship copied entries.                                                 |
+| baybayin-learning-references          | orthography_reference | discovery_only  | publisher or site licenses require review             | Use for specialist planning around historic and modern final-consonant notation only.                             |
+| modern-baybayin-community-samples     | environmental_print   | discovery_only  | sample licenses and permissions require review        | Discovery-only examples for modern usage patterns. Do not ship copied community text.                             |
+| app-authored-baybayin-domain-examples | authored_examples     | shipped_content | app_owned                                             | Short reviewed examples authored by Glyphin from approved vocabulary rather than copied from third-party corpora. |
 
 ## Candidate Highlights
 

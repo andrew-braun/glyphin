@@ -20,14 +20,14 @@ Generated from `armenian-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                         | Kind                | Use             | License                                                      | Notes                                                                                            |
-| ------------------------------ | ------------------- | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| unicode-armenian-block         | unicode_metadata    | scoring         | Unicode License reviewed for metadata use                    | Armenian code point and punctuation metadata for script inventory work.                          |
-| cldr-hy-exemplars              | locale_metadata     | scoring         | Unicode License reviewed for metadata use                    | Armenian exemplar characters and casing behavior. Confirm exact CLDR release before ingestion.   |
-| wordfreq-hy                    | frequency           | scoring_only    | MIT package license; upstream corpus licenses require review | Broad Eastern Armenian frequency intuition only. Do not ship derived corpus examples.            |
-| armenian-wiktionary            | lexicon             | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution obligations are approved.                    |
-| openstreetmap-armenia-names    | environmental_print | scoring_only    | ODbL; derived-data obligations require review                | Place-name and public-sign validation. Do not ship raw extracts without review.                  |
-| app-authored-armenian-examples | authored_examples   | shipped_content | app_owned                                                    | Short menu, transit, facility, and label examples authored by GlyphBridge after reviewer checks. |
+| Source                         | Kind                | Use             | License                                                      | Notes                                                                                          |
+| ------------------------------ | ------------------- | --------------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| unicode-armenian-block         | unicode_metadata    | scoring         | Unicode License reviewed for metadata use                    | Armenian code point and punctuation metadata for script inventory work.                        |
+| cldr-hy-exemplars              | locale_metadata     | scoring         | Unicode License reviewed for metadata use                    | Armenian exemplar characters and casing behavior. Confirm exact CLDR release before ingestion. |
+| wordfreq-hy                    | frequency           | scoring_only    | MIT package license; upstream corpus licenses require review | Broad Eastern Armenian frequency intuition only. Do not ship derived corpus examples.          |
+| armenian-wiktionary            | lexicon             | discovery_only  | CC BY-SA; attribution and share-alike review required        | Gloss and spelling discovery only until attribution obligations are approved.                  |
+| openstreetmap-armenia-names    | environmental_print | scoring_only    | ODbL; derived-data obligations require review                | Place-name and public-sign validation. Do not ship raw extracts without review.                |
+| app-authored-armenian-examples | authored_examples   | shipped_content | app_owned                                                    | Short menu, transit, facility, and label examples authored by Glyphin after reviewer checks.   |
 
 ## Candidate Highlights
 

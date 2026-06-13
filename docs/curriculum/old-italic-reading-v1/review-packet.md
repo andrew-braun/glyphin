@@ -20,14 +20,14 @@ Generated from `old-italic-reading-v1` authoring artifacts.
 
 ## Sources To Review
 
-| Source                           | Kind               | Use             | License                                              | Notes                                                                                   |
-| -------------------------------- | ------------------ | --------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| unicode-old-italic-block         | unicode_metadata   | scoring         | Unicode License reviewed for metadata use            | Encoded Old Italic letters and direction metadata for infrastructure use.               |
-| etruscan-texts-project           | epigraphic_corpus  | scoring_only    | database and text reuse terms require review         | Etruscan inscription evidence for scoring only pending permissions review.              |
-| eagle-europeana-epigraphy        | epigraphic_catalog | discovery_only  | record-specific licenses require review              | Epigraphic catalog context for discovery only.                                          |
-| wiktionary-etruscan              | lexicon            | discovery_only  | CC BY-SA attribution and share-alike review required | Gloss discovery only until attribution and derivative-use obligations are reviewed.     |
-| noto-sans-old-italic             | font_reference     | scoring         | SIL Open Font License                                | Rendering reference for Old Italic letters and RTL display.                             |
-| app-authored-old-italic-examples | authored_examples  | shipped_content | app_owned                                            | Short right-to-left sign and name examples authored by GlyphBridge from reviewed forms. |
+| Source                           | Kind               | Use             | License                                              | Notes                                                                               |
+| -------------------------------- | ------------------ | --------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| unicode-old-italic-block         | unicode_metadata   | scoring         | Unicode License reviewed for metadata use            | Encoded Old Italic letters and direction metadata for infrastructure use.           |
+| etruscan-texts-project           | epigraphic_corpus  | scoring_only    | database and text reuse terms require review         | Etruscan inscription evidence for scoring only pending permissions review.          |
+| eagle-europeana-epigraphy        | epigraphic_catalog | discovery_only  | record-specific licenses require review              | Epigraphic catalog context for discovery only.                                      |
+| wiktionary-etruscan              | lexicon            | discovery_only  | CC BY-SA attribution and share-alike review required | Gloss discovery only until attribution and derivative-use obligations are reviewed. |
+| noto-sans-old-italic             | font_reference     | scoring         | SIL Open Font License                                | Rendering reference for Old Italic letters and RTL display.                         |
+| app-authored-old-italic-examples | authored_examples  | shipped_content | app_owned                                            | Short right-to-left sign and name examples authored by Glyphin from reviewed forms. |
 
 ## Candidate Highlights
 

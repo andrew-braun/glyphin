@@ -45,7 +45,7 @@ the `arabic-reading-v1` bootstrap.
   pronunciation notes, and region-neutral wording.
 - Spot-check real menus, market signs, transit labels, and facility signs across
   more than one Arabic-speaking region before locking the first 12 anchors.
-- Verify fonts used by GlyphBridge render Arabic joining, hamza, ta marbuta,
+- Verify fonts used by Glyphin render Arabic joining, hamza, ta marbuta,
   lam-alif, and optional harakat clearly at drill sizes.
 
 ## App Expansion Recommendations

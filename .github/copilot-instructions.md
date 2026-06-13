@@ -1,4 +1,4 @@
-# GlyphBridge Copilot Instructions
+# Glyphin Copilot Instructions
 
 - This file is the repo-wide Copilot baseline. Path-specific rules live in `.github/instructions/*.instructions.md`.
 - Also respect the nearest `AGENTS.md` when working in a subdirectory.

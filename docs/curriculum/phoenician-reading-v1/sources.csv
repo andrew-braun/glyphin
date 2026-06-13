@@ -4,4 +4,4 @@ kai-inscription-references,inscription_reference,,edition copyright and citation
 semitic-epigraphy-transliteration-guides,transliteration_reference,,source-specific terms require review,discovery_only,0.55,Consonant names and scholarly transliteration conventions
 wiktionary-phoenician,lexicon,https://en.wiktionary.org/wiki/Category:Phoenician_language,CC BY-SA with attribution and share-alike review required,discovery_only,0.35,Gloss and root discovery only
 noto-sans-phoenician,font_reference,https://fonts.google.com/noto/specimen/Noto+Sans+Phoenician,SIL Open Font License,scoring,0.2,Rendering reference for browser support
-app-authored-phoenician-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge
+app-authored-phoenician-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin

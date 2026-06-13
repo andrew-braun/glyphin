@@ -5,4 +5,4 @@ cldr-syr-exemplars,locale_metadata,https://cldr.unicode.org/,Unicode License rev
 syriac-wiktionary-discovery,lexicon,https://en.wiktionary.org/,CC BY-SA; attribution and share-alike review required,discovery_only,0.35,Spelling and gloss discovery only until share-alike obligations are approved
 syriaca-org-gazetteer,cultural_reference,https://syriaca.org/,source license and attribution terms require review,discovery_only,0.4,Cultural and place-name discovery for reviewer planning only
 openstreetmap-syriac-names,environmental_print,https://www.openstreetmap.org/,ODbL; derived-data obligations require review,scoring_only,0.55,Community and cultural-site validation only; do not ship raw extracts
-app-authored-syriac-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by GlyphBridge rather than copied from third-party corpora
+app-authored-syriac-domain-examples,authored_examples,,app_owned,shipped_content,0.9,Short reviewed examples authored by Glyphin rather than copied from third-party corpora

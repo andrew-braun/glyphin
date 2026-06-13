@@ -28,7 +28,7 @@
 
 ## Goal
 
-Define the database foundation for GlyphBridge so curriculum content, lesson structures, and learner progress can move from static TypeScript data into a scalable Supabase-backed PostgreSQL model without breaking the app's teaching philosophy or creating avoidable technical debt.
+Define the database foundation for Glyphin so curriculum content, lesson structures, and learner progress can move from static TypeScript data into a scalable Supabase-backed PostgreSQL model without breaking the app's teaching philosophy or creating avoidable technical debt.
 
 ## Authority
 
@@ -91,7 +91,7 @@ Use a hybrid architecture:
 
 ## Why This Direction
 
-GlyphBridge's current model already implies the right separation of concerns:
+Glyphin's current model already implies the right separation of concerns:
 
 - Curriculum data is canonical.
 - Rendering is separate from content.
@@ -277,7 +277,7 @@ The baseline schema work and the first authenticated runtime rollout are now spl
 - `Zero`
   - Not recommended as the foundation.
   - Official docs explicitly say it is not local-first, does not support offline writes or long offline periods, and is not intended for native mobile.
-  - It also adds a replica/cache service plus dedicated query and mutate endpoints that are harder to justify for GlyphBridge's current shape.
+  - It also adds a replica/cache service plus dedicated query and mutate endpoints that are harder to justify for Glyphin's current shape.
 
 ## Course Version Upgrade And Change Communication
 

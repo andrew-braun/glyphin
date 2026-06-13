@@ -26,7 +26,7 @@ Generated from `cree-syllabics-v1` authoring artifacts.
 | cldr-cr-exemplars                 | locale_metadata    | scoring         | Unicode License reviewed for metadata use | Cree locale exemplar data where available. Confirm exact CLDR release and dialect coverage before ingestion.         |
 | cree-dictionary-online            | lexicon            | discovery_only  | terms require review before derived use   | Useful for spellings and dialect checks. Keep discovery-only until terms and attribution are approved.               |
 | learn-cree-resource-references    | pedagogy_reference | discovery_only  | terms require review before derived use   | Pedagogical discovery for syllabics patterns and learner order. Do not copy lesson text.                             |
-| app-authored-cree-domain-examples | authored_examples  | shipped_content | app_owned                                 | Short reviewed labels and examples authored by GlyphBridge with Cree reviewer approval.                              |
+| app-authored-cree-domain-examples | authored_examples  | shipped_content | app_owned                                 | Short reviewed labels and examples authored by Glyphin with Cree reviewer approval.                                  |
 
 ## Candidate Highlights
 

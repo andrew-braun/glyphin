@@ -1,7 +1,7 @@
 # Auth Guide
 
 This document is the durable reference for adding authentication and authenticated
-learner sync to GlyphBridge.
+learner sync to Glyphin.
 
 Use it together with `docs/security-review-checklist.md`, `docs/db.md`, and
 `docs/database-dto-spec.md` whenever auth, sessions, cookies, secure routes, or
@@ -9,7 +9,7 @@ learner-owned data are being changed.
 
 ## Current Architecture Snapshot
 
-- GlyphBridge now has a real server runtime via `@sveltejs/adapter-node`.
+- Glyphin now has a real server runtime via `@sveltejs/adapter-node`.
 - `/learn` now renders through a dedicated `ssr = true` and `prerender = true`
   route branch that reads published lesson bundles from `delivery.*` into a
   build-time lesson artifact.
@@ -63,7 +63,7 @@ learner-owned data are being changed.
   `supabase/config.toml`.
 - The local email template intentionally emphasizes `{{ .Token }}` and a link
   back to `/auth` instead of relying on one-click magic-link sign-in, which
-  avoids email-link scanner issues and matches GlyphBridge's current product
+  avoids email-link scanner issues and matches Glyphin's current product
   flow.
 
 ## Required App Boundary

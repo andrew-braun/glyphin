@@ -6,7 +6,7 @@
 
 ## Goal
 
-Implement the first secure GlyphBridge account flow with server-owned Supabase auth, email-code sign-in, local-first learner UI, and authenticated progress projection without exposing a browser Supabase client.
+Implement the first secure Glyphin account flow with server-owned Supabase auth, email-code sign-in, local-first learner UI, and authenticated progress projection without exposing a browser Supabase client.
 
 ## Scope
 

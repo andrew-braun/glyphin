@@ -27,7 +27,7 @@ Generated from `mandarin-bopomofo-v1` authoring artifacts.
 | moe-mandarin-dictionary        | official_lexicon  | discovery_only  | Taiwan MOE data terms require review before derived publication | Authoritative Traditional Chinese and Zhuyin reference. Keep discovery-only until terms and attribution are reviewed.      |
 | cc-cedict                      | lexicon           | discovery_only  | CC BY-SA; attribution and share-alike review required           | Gloss and pinyin cross-checking only until share-alike implications are approved.                                          |
 | wordfreq-zh                    | frequency         | scoring_only    | MIT package license; upstream corpus licenses require review    | Broad Mandarin word frequency intuition. Do not ship derived corpus examples.                                              |
-| app-authored-bopomofo-examples | authored_examples | shipped_content | app_owned                                                       | Short Bopomofo syllable, tone, menu, and wayfinding examples authored by GlyphBridge.                                      |
+| app-authored-bopomofo-examples | authored_examples | shipped_content | app_owned                                                       | Short Bopomofo syllable, tone, menu, and wayfinding examples authored by Glyphin.                                          |
 
 ## Candidate Highlights
 

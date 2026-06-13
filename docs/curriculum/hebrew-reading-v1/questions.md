@@ -45,7 +45,7 @@ the `hebrew-reading-v1` bootstrap.
   pronunciation notes, final-form treatment, and cultural context.
 - Spot-check real menus, street signs, transit labels, storefront signs, and
   facility labels before locking the first 12 anchors.
-- Verify fonts used by GlyphBridge render final forms, niqqud overlays, and
+- Verify fonts used by Glyphin render final forms, niqqud overlays, and
   unpointed Hebrew clearly at drill sizes.
 
 ## App Expansion Recommendations

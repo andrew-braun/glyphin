@@ -32,7 +32,7 @@
 			"license": "app_owned",
 			"use": "shipped_content",
 			"domain_weight": 1,
-			"notes": "Existing GlyphBridge Thai runtime lessons. Treat as the source of truth for this backfill packet."
+			"notes": "Existing Glyphin Thai runtime lessons. Treat as the source of truth for this backfill packet."
 		},
 		{
 			"id": "thai-curriculum-strategy",
@@ -95,7 +95,7 @@
 			"license": "app_owned",
 			"use": "shipped_content",
 			"domain_weight": 0.95,
-			"notes": "Short menu, sign, and label examples authored by GlyphBridge rather than copied from third-party corpora."
+			"notes": "Short menu, sign, and label examples authored by Glyphin rather than copied from third-party corpora."
 		}
 	],
 	"database": {

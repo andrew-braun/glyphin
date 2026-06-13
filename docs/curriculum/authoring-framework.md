@@ -1,6 +1,6 @@
 # Curriculum Authoring Framework
 
-This guide defines how GlyphBridge should design curricula for unfamiliar writing
+This guide defines how Glyphin should design curricula for unfamiliar writing
 systems. It generalizes the Thai course strategy into a repeatable workflow for
 real and fictional scripts while preserving the app's core promise: learners
 decode useful text quickly through real words, high-yield graphemes, concise
@@ -40,7 +40,7 @@ reference course still lives in [thai.md](./thai.md).
 - **Grapheme cluster**: a user-perceived Unicode character boundary, usually
   identified with Unicode UAX #29, ICU BreakIterator, `Intl.Segmenter`, or
   Python `regex` `\X`.
-- **Pedagogical grapheme**: the smallest teachable unit surfaced in GlyphBridge.
+- **Pedagogical grapheme**: the smallest teachable unit surfaced in Glyphin.
   It may be a code point, grapheme cluster, diacritic, vowel sign, akshara part,
   Hangul jamo group, Han component, logogram, syllabogram, or fictional glyph.
 - **Anchor word**: the one real-world word or reading target that drives a
