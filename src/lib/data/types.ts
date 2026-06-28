@@ -1,6 +1,9 @@
 /** Card sections a tip can attach to (mirrors DetailRow slot labels). */
 export type LetterTipSlot = "sound" | "pronunciation" | "type" | "position";
 
+/** Stable authored tip references keyed by card slot. */
+export type LetterTipRefMap = Partial<Record<LetterTipSlot, string>>;
+
 /** A titled section within a modal tip (heading is optional for the first/only section). */
 export interface TipSection {
 	heading?: string;
@@ -41,8 +44,10 @@ export interface Letter {
 	mnemonic: string;
 	/** Where this character is written relative to its associated consonant */
 	position?: "left" | "right" | "above" | "below" | "around" | "standalone";
-	/** Per-letter tip override ids keyed by card slot; values are Tip ids from the registry. */
-	tips?: Partial<Record<LetterTipSlot, string>>;
+	/** Hydrated help tips keyed by card slot, typically coming from published delivery payloads. */
+	tips?: Partial<Record<LetterTipSlot, Tip>>;
+	/** Optional authored override ids used when local TS lesson data resolves fallback tips client-side. */
+	tipOverrides?: LetterTipRefMap;
 }
 
 /**

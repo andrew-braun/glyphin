@@ -1,6 +1,6 @@
-import type { Letter, LetterTipSlot, Tip } from "$lib/data/types";
+import type { Letter, LetterTipRefMap, LetterTipSlot, Tip } from "$lib/data/types";
 
-export const tips: Record<string, Tip> = {
+export const tipCatalog: Record<string, Tip> = {
 	"sound-romanization": {
 		id: "sound-romanization",
 		title: "Romanization",
@@ -52,46 +52,78 @@ export const tips: Record<string, Tip> = {
 	},
 };
 
-/**
- * Resolves which tips to show for each slot on a letter card.
- * Applies shared concept defaults by letter type/class/position,
- * then merges any per-letter override tip ids from letter.tips.
- * This is the TS analogue of the future tip_attachments DB query.
- */
-export function resolveLetterTips(letter: Letter): Partial<Record<LetterTipSlot, Tip>> {
-	const resolved: Partial<Record<LetterTipSlot, Tip>> = {};
+export function resolveDefaultLetterTipRefs(
+	letter: Pick<Letter, "type" | "class" | "position">,
+): LetterTipRefMap {
+	const refs: LetterTipRefMap = {};
 
-	// Sound slot: romanization explanation for every letter
-	resolved.sound = tips["sound-romanization"];
+	refs.sound = "sound-romanization";
 
-	// Pronunciation slot: consonants get the position-dependent sound tip
 	if (letter.type === "consonant") {
-		resolved.pronunciation = tips["pronunciation-by-position"];
+		refs.pronunciation = "pronunciation-by-position";
 	}
 
-	// Type slot: depends on letter type
 	if (letter.type === "consonant" && letter.class) {
-		resolved.type = tips["consonant-class-tones"];
+		refs.type = "consonant-class-tones";
 	} else if (letter.type === "vowel") {
-		resolved.type = tips["letter-type-vowel"];
+		refs.type = "letter-type-vowel";
 	} else if (letter.type === "tone_mark") {
-		resolved.type = tips["letter-type-tone-mark"];
+		refs.type = "letter-type-tone-mark";
 	}
 
-	// Position slot: non-standalone vowels/marks get the vowel-position tip
 	if (letter.position && letter.position !== "standalone") {
-		resolved.position = tips["vowel-position"];
+		refs.position = "vowel-position";
 	}
 
-	// Apply per-letter overrides (letter.tips values are tip ids)
-	if (letter.tips) {
-		for (const [slot, tipId] of Object.entries(letter.tips) as [LetterTipSlot, string][]) {
-			const override = tips[tipId];
-			if (override) {
-				resolved[slot] = override;
-			}
+	return refs;
+}
+
+export function resolveLetterTipRefs(
+	letter: Pick<Letter, "type" | "class" | "position" | "tipOverrides">,
+): LetterTipRefMap {
+	const refs = resolveDefaultLetterTipRefs(letter);
+
+	if (letter.tipOverrides) {
+		for (const [slot, tipId] of Object.entries(letter.tipOverrides) as [
+			LetterTipSlot,
+			string,
+		][]) {
+			refs[slot] = tipId;
 		}
 	}
 
-	return resolved;
+	return refs;
+}
+
+export function hydrateLetterTips(
+	tipRefs: LetterTipRefMap | undefined,
+	catalog: Readonly<Record<string, Tip>> = tipCatalog,
+): Partial<Record<LetterTipSlot, Tip>> {
+	const tips: Partial<Record<LetterTipSlot, Tip>> = {};
+
+	if (!tipRefs) {
+		return tips;
+	}
+
+	for (const [slot, tipId] of Object.entries(tipRefs) as [LetterTipSlot, string][]) {
+		const tip = catalog[tipId];
+		if (tip) {
+			tips[slot] = tip;
+		}
+	}
+
+	return tips;
+}
+
+/**
+ * Resolves which tips to show for each slot on a letter card.
+ * Delivery-backed lesson payloads hydrate `letter.tips` directly; local TS-authored
+ * lesson data falls back to the shared catalog plus authored override ids.
+ */
+export function resolveLetterTips(letter: Letter): Partial<Record<LetterTipSlot, Tip>> {
+	if (letter.tips) {
+		return letter.tips;
+	}
+
+	return hydrateLetterTips(resolveLetterTipRefs(letter));
 }

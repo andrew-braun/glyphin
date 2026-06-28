@@ -17,6 +17,7 @@ These decisions close the remaining gaps in the planning docs.
 - Use `anchor_targets` and `anchor_segments` as the canonical curriculum names. They match the product vocabulary better than `text_targets` and `text_segments`.
 - Add `vocabulary_items`, `vocabulary_segments`, and `lesson_vocabulary` as first-class curriculum entities so lessons can teach and drill multiple words without burying them inside drill JSON.
 - Keep `anchor_targets` and `anchor_segments` as the featured lesson-word projection for the current runtime contract while the app transitions to the broader vocabulary model.
+- Store reusable instructional help in `curriculum.tips`, scoped per course version by stable `key`, and attach it through typed `curriculum.tip_attachments` rows rather than a loose polymorphic target table.
 - Store instrumentation on `learner.lesson_attempts.time_spent_ms`. Do not duplicate it on canonical progress rows in v1.
 - Keep translation locale modeling out of v1, but include `source_locale` on `curriculum.course_versions` so later localization work does not require a destructive rename.
 
@@ -26,6 +27,7 @@ Build now:
 
 - Reference metadata for languages, scripts, courses, and course versions
 - Normalized curriculum tables for lessons, reusable vocabulary, featured anchor targets, graphemes, rules, drills, and joins
+- Course-version-scoped tip catalogs and typed tip attachments
 - Published delivery bundles per lesson
 - Learner enrollments, lesson attempts, lesson progress, device identities, and preferences
 - Batch attempt sync and batch progress projection
@@ -233,6 +235,46 @@ Indexes:
 
 - index on `(course_version_id)`
 - GIN index on `tags`
+
+### `curriculum.tips`
+
+Purpose: reusable instructional help content within a course version.
+
+| Column              | Type          | Constraints                                                       |
+| ------------------- | ------------- | ----------------------------------------------------------------- |
+| `id`                | `uuid`        | PK default `gen_random_uuid()`                                    |
+| `course_version_id` | `uuid`        | not null FK -> `curriculum.course_versions(id)` on delete cascade |
+| `key`               | `text`        | not null                                                          |
+| `title`             | `text`        | not null                                                          |
+| `body`              | `text`        | not null                                                          |
+| `display`           | `text`        | not null default `'popover'`, check `in ('popover', 'modal')`     |
+| `sections`          | `jsonb`       | not null default `'[]'::jsonb`                                    |
+| `metadata`          | `jsonb`       | not null default `'{}'::jsonb`                                    |
+| `created_at`        | `timestamptz` | not null default `now()`                                          |
+
+Indexes:
+
+- unique on `(course_version_id, key)`
+
+### `curriculum.tip_attachments`
+
+Purpose: typed tip bindings for graphemes, vocabulary items, and rules.
+
+| Column                | Type      | Constraints                                                                               |
+| --------------------- | --------- | ----------------------------------------------------------------------------------------- |
+| `id`                  | `uuid`    | PK default `gen_random_uuid()`                                                            |
+| `course_version_id`   | `uuid`    | not null FK -> matching course version on `curriculum.tips`, `vocabulary_items`, or rules |
+| `tip_id`              | `uuid`    | not null FK -> `curriculum.tips(id)` with matching `course_version_id`                    |
+| `slot_key`            | `text`    | not null                                                                                  |
+| `attachment_order`    | `integer` | not null default `1`, check `> 0`                                                         |
+| `grapheme_id`         | `uuid`    | nullable FK -> `curriculum.graphemes(id)`                                                 |
+| `vocabulary_item_id`  | `uuid`    | nullable FK -> `curriculum.vocabulary_items(id)` with matching `course_version_id`        |
+| `orthography_rule_id` | `uuid`    | nullable FK -> `curriculum.orthography_rules(id)` with matching `course_version_id`       |
+
+Additional rules:
+
+- exactly one of `grapheme_id`, `vocabulary_item_id`, or `orthography_rule_id` must be non-null
+- uniqueness is enforced per concrete target + `slot_key` + `attachment_order`
 
 ### `curriculum.orthography_rules`
 
@@ -540,6 +582,10 @@ Indexes:
 - index on `(publication_id, lesson_ordinal)`
 - index on `(publication_id, payload_hash)`
 
+Payload note:
+
+- published lesson bundles may carry a lesson-local `tips` catalog plus grapheme `tipRefs` maps so runtime mappers can hydrate help content without querying `curriculum.*`
+
 ### `learner.profiles`
 
 Purpose: user profile shell tied to Supabase auth.
@@ -719,7 +765,21 @@ export type GraphemeDTO = {
  pedagogicalGroupKey?: string;
  pedagogicalGroupLabel?: string;
  details?: Record<string, unknown>;
+ tipRefs?: Partial<Record<"sound" | "pronunciation" | "type" | "position", string>>;
  tags?: string[];
+};
+
+export type TipSectionDTO = {
+ heading?: string;
+ body: string;
+};
+
+export type TipDTO = {
+ id: string;
+ title: string;
+ body: string;
+ display?: "popover" | "modal";
+ sections?: TipSectionDTO[];
 };
 
 export type AnchorSegmentDTO = {
@@ -812,6 +872,7 @@ export type LessonBundleDTO = {
   title: string;
   anchor: AnchorTargetDTO;
   vocabulary: LessonVocabularyDTO[];
+  tips?: TipDTO[];
   newGraphemes: GraphemeDTO[];
   reviewGraphemes: GraphemeDTO[];
   rules: RuleDTO[];
@@ -936,6 +997,7 @@ Current runtime model to target backend model:
 - `SyllableBreakdown` -> `curriculum.vocabulary_segments`
 - current featured lesson-word projection -> `curriculum.anchor_targets` + `curriculum.anchor_segments`
 - `Letter` -> `curriculum.graphemes` + `curriculum.course_version_graphemes`
+- `Tip` -> `curriculum.tips` + `curriculum.tip_attachments`
 - `Rule` -> `curriculum.orthography_rules` + `curriculum.orthography_rule_examples`
 - `DrillQuestion` -> `curriculum.drills` + `curriculum.drill_options`
 - `LessonProgress` -> `learner.lesson_progress`
@@ -946,12 +1008,13 @@ Current runtime gap:
 
 - `src/lib/data/types.ts` still keeps one `anchorWord` per lesson while lesson vocabulary carries practice targets only.
 - The publication DTO should carry `anchor`, `practice_core`, and `practice_extension` role keys plus item metadata such as `sourceType` for phrases and nonsense decoding targets.
+- Published lesson bundles should carry a lesson-local tip catalog plus grapheme `tipRefs` for any learner-visible help content.
 
 ## Build-Now Checklist
 
 - Implement the schemas, enums, and tables in this document.
 - Seed the current Thai course into the normalized curriculum model.
 - Materialize anchor words into both `curriculum.anchor_targets` and `curriculum.lesson_vocabulary`, then add core and extension practice vocabulary as the source inventory expands.
-- Implement one publication generator that emits `LessonBundleDTO` payloads into `delivery.course_publication_lessons`, including the lesson vocabulary list.
+- Implement one publication generator that emits `LessonBundleDTO` payloads into `delivery.course_publication_lessons`, including the lesson vocabulary list and any lesson-local tip catalogs plus grapheme `tipRefs`.
 - Implement one server-side batch sync function for lesson attempts.
 - Keep route and component code bound only to the DTOs in this document.

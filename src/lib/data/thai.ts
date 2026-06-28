@@ -1261,6 +1261,711 @@ const baseLessons: BaseLesson[] = [
 		],
 		reviewLetters: ["ด", "ต", "ข", "ห", "อ", "ม", "า"],
 	},
+	{
+		id: 14,
+		stage: 6,
+		title: "ของ — The ng Sound and the aw Vowel",
+		anchorWord: {
+			thai: "ของ",
+			meaning: "of / belonging to",
+			pronunciation: "khǎwng",
+			category: "daily",
+			syllables: [
+				{ thai: "ขอ", sound: "khǎw" },
+				{ thai: "ง", sound: "ng" },
+			],
+			contextNote:
+				"ของ is one of the most common words in Thai. It links things to owners (ของผม, mine), labels stuff to buy or eat (ของกิน, things to eat), and shows up constantly on signs and menus.",
+		},
+		newLetters: [
+			{
+				character: "ง",
+				romanization: "ng",
+				pronunciation: 'ng as in "singer"; used at the start or end of a syllable',
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ง is ง งู (ngor nguu, snake). Picture the curving body of a snake; ง makes the ng sound that English only uses at the ends of words.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "ng-sound",
+				name: "ง Is the ng Sound",
+				shortDescription: "ง gives the ng sound at the start or end of a syllable",
+				explanation:
+					"English only uses ng at the ends of words like 'song'. Thai uses ง freely, including at the start of a syllable. Either way it is the same soft nasal ng.",
+				examples: ["ของ = khǎwng", "งา = ngaa"],
+			},
+			{
+				id: "final-ng",
+				name: "Final ง Closes With ng",
+				shortDescription: "At the end of a syllable, ง closes it with the nasal ng",
+				explanation:
+					"Final ง is extremely common in Thai. It is fully pronounced as the ng you hear at the end of 'song', not clipped like the final stops you learned earlier.",
+				examples: ["ของ = khǎwng", "ทาง = thaang"],
+			},
+			{
+				id: "aw-vowel-or",
+				name: "อ Can Be the aw Vowel",
+				shortDescription: "After a consonant, อ gives the long aw sound",
+				explanation:
+					"You met อ as a silent carrier earlier. When อ is written after a consonant with no other vowel, it instead acts as the long aw vowel you hear in ของ and รอ.",
+				examples: ["ของ = khǎwng", "รอ = raw"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter makes the "ng" sound?',
+				options: ["ง", "ม", "น", "ก"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "At the end of a syllable, how does ง sound?",
+				options: ["k", "ng", "n", "m"],
+				correctIndex: 1,
+			},
+			{
+				type: "sound",
+				prompt: "When อ comes after a consonant as a vowel, what sound does it give?",
+				options: ['long "aw"', 'long "ee"', 'short "a"', 'long "oo"'],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ของ mean?",
+				options: ["of / belonging to", "way", "game", "medicine"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "of / belonging to"?',
+				options: ["ของ", "งอข", "ขงอ", "ของน"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "Which sound ends the word ของ?",
+				options: ["ng", "k", "t", "m"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ข", "อ", "ร", "ก"],
+	},
+	{
+		id: 15,
+		stage: 6,
+		title: "ทาง — Aspirated th and Wayfinding",
+		anchorWord: {
+			thai: "ทาง",
+			meaning: "way / direction",
+			pronunciation: "thaang",
+			category: "sign",
+			syllables: [
+				{ thai: "ทา", sound: "thaa" },
+				{ thai: "ง", sound: "ng" },
+			],
+			contextNote:
+				"ทาง marks routes and directions on signs everywhere. ทางออก (way out / exit) is one of the most useful sign words you can learn to spot.",
+		},
+		newLetters: [
+			{
+				character: "ท",
+				romanization: "th",
+				pronunciation: 'th with a puff of air, like the "t" in "top" (not the th in "the")',
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ท is ท ทหาร (thor thahaan, soldier). Picture a soldier standing tall; ท gives the aspirated th sound with a clear puff of air.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "low-th",
+				name: "ท Is an Aspirated th",
+				shortDescription: "ท starts with a puff of air, like the t in 'top'",
+				explanation:
+					"Thai ท is not the soft th in 'the'. It is a t sound released with a clear puff of air, the same way English starts the word 'top'.",
+				examples: ["ทาง = thaang", "ทา = thaa"],
+			},
+			{
+				id: "th-vs-t",
+				name: "ท and ต Are Different t Sounds",
+				shortDescription: "ต is a tight, unaspirated t (dt); ท adds a puff of air",
+				explanation:
+					"ต and ท both involve the tongue behind the teeth, but ต is clipped with no air (closer to a d/t blend) while ท releases a puff of air. Keeping them apart changes the word.",
+				examples: ["ตา = dtaa", "ทา = thaa"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter makes the aspirated "th" sound?',
+				options: ["ท", "ต", "ด", "บ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How is ท different from ต?",
+				options: [
+					"ท is released with a puff of air",
+					"they are identical",
+					"ท is a vowel",
+					"ต is nasal",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ทาง mean?",
+				options: ["way / direction", "of", "closed", "medicine"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "way / direction"?',
+				options: ["ทาง", "งทา", "ทงา", "ทาน"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "Which sound ends the word ทาง?",
+				options: ["ng", "th", "k", "aa"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["า", "ง", "ต", "อ"],
+	},
+	{
+		id: 16,
+		stage: 6,
+		title: "จะ — j and the Short-a Glottal Stop",
+		anchorWord: {
+			thai: "จะ",
+			meaning: "will (future particle)",
+			pronunciation: "jà",
+			category: "daily",
+			syllables: [{ thai: "จะ", sound: "jà" }],
+			contextNote:
+				"จะ is a core grammar word placed before a verb to mean something will happen: จะกิน (will eat), จะมา (will come). You'll read it in countless sentences.",
+		},
+		newLetters: [
+			{
+				character: "จ",
+				romanization: "j",
+				pronunciation: 'j as in "jar", but lighter and unaspirated',
+				type: "consonant",
+				class: "mid",
+				mnemonic:
+					"จ is จ จาน (jor jaan, plate). Picture a round dinner plate; จ gives a light, crisp j sound.",
+				position: "standalone",
+			},
+			{
+				character: "ะ",
+				romanization: "a",
+				pronunciation: 'short "a" cut off by a quick glottal stop, like a clipped "ah!"',
+				type: "vowel",
+				mnemonic:
+					"ะ is the two-dot short-a written to the right of the consonant. It ends the syllable abruptly, like catching your breath after 'ah'.",
+				position: "right",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "j-sound",
+				name: "จ Is a Light j",
+				shortDescription: "จ gives an unaspirated j sound",
+				explanation:
+					"จ is close to the English j in 'jar' but lighter, with no puff of air. It is a mid-class consonant, which keeps its tones predictable.",
+				examples: ["จะ = jà", "จาน = jaan"],
+			},
+			{
+				id: "short-a-glottal",
+				name: "ะ Is a Clipped Short a",
+				shortDescription: "ะ sits after the consonant and ends with a glottal stop",
+				explanation:
+					"The ะ vowel gives a short a, then closes the syllable sharply with a glottal stop (the catch in the middle of 'uh-oh'). It is quicker than the long า.",
+				examples: ["จะ = jà", "กะ = gà"],
+			},
+			{
+				id: "three-a-vowels",
+				name: "Three Ways to Write a",
+				shortDescription: "า is long; ั is short above; ะ is short with a hard stop",
+				explanation:
+					"You now know all three core a-vowels: า stretches long to the right, ั is a quick short a above the consonant, and ะ is a short a after it that ends in a glottal stop.",
+				examples: ["มา = maa", "มัน = man", "จะ = jà"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter makes the "j" sound?',
+				options: ["จ", "ช", "ต", "ด"],
+				correctIndex: 0,
+			},
+			{
+				type: "recognize",
+				prompt: 'Which vowel is the short "a" that ends with a glottal stop?',
+				options: ["ะ", "า", "ั", "ิ"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does จะ mean?",
+				options: ["will (future)", "way", "of", "game"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How does the syllable จะ end?",
+				options: [
+					"with a quick glottal stop",
+					"with a long aa",
+					"with an ng sound",
+					"with a k sound",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: "Which Thai spelling is the future particle?",
+				options: ["จะ", "ชะ", "จา", "ตะ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ก", "ช", "า", "ั"],
+	},
+	{
+		id: 17,
+		stage: 6,
+		title: "เกม — Your First Leading Vowel",
+		anchorWord: {
+			thai: "เกม",
+			meaning: "game",
+			pronunciation: "geem",
+			category: "daily",
+			syllables: [
+				{ thai: "เก", sound: "gee" },
+				{ thai: "ม", sound: "m" },
+			],
+			contextNote:
+				"เกม is a loanword you'll see on phones, arcades, and shopfronts like ร้านเกม (game shop). It's a clean way to learn how leading vowels work.",
+		},
+		newLetters: [
+			{
+				character: "เ",
+				romanization: "e",
+				pronunciation: 'long "e" as in "they"',
+				type: "vowel",
+				mnemonic:
+					"เ is the long-e vowel written BEFORE the consonant, even though you say the consonant first. Spot เ, jump to the consonant after it, then add the e.",
+				position: "left",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "leading-e-vowel",
+				name: "เ Is Written Before the Consonant",
+				shortDescription: "เ appears to the left but is pronounced after the consonant",
+				explanation:
+					"Some Thai vowels are written in front of their consonant even though they are spoken after it. เ is the first of these: it gives a long e, but you read the consonant that follows it first.",
+				examples: ["เก = gee", "เกม = geem"],
+			},
+			{
+				id: "scan-left-rule",
+				name: "Scan Left for Leading Vowels",
+				shortDescription: "When a word starts with เ, read the next consonant first",
+				explanation:
+					"When you see a leading vowel like เ at the front of a syllable, do not read straight across. Read the consonant after it, then wrap the vowel around. This same habit covers ไ, ใ, and โ next.",
+				examples: ["เกม = geem", "เท = thee"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which vowel is written before the consonant and gives a long "e"?',
+				options: ["เ", "แ", "า", "ิ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "In เกม, where is เ written and when is it pronounced?",
+				options: [
+					"before the consonant, but pronounced after it",
+					"after the consonant",
+					"above the consonant",
+					"below the consonant",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does เกม mean?",
+				options: ["game", "way", "medicine", "closed"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "game"?',
+				options: ["เกม", "แกม", "เมก", "กเม"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How do you read a word that starts with เ?",
+				options: [
+					"read the next consonant first, then add the vowel",
+					"read strictly left to right",
+					"ignore the เ",
+					"the เ is silent",
+				],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ก", "ม", "แ"],
+	},
+	{
+		id: 18,
+		stage: 6,
+		title: "ไก่ — The Two ai Vowels",
+		anchorWord: {
+			thai: "ไก่",
+			meaning: "chicken",
+			pronunciation: "gài",
+			category: "food",
+			syllables: [{ thai: "ไก่", sound: "gài" }],
+			contextNote:
+				"ไก่ means chicken and appears on menus everywhere — ข้าวมันไก่ (chicken rice) is a national favorite. It also teaches the two leading ai vowels.",
+		},
+		newLetters: [
+			{
+				character: "ไ",
+				romanization: "ai",
+				pronunciation: 'the "ai" sound as in "Thai"',
+				type: "vowel",
+				mnemonic:
+					"ไ (ไม้มลาย, mai malai) is the common ai vowel, written before the consonant. Note the small flag curling off the top.",
+				position: "left",
+			},
+			{
+				character: "ใ",
+				romanization: "ai",
+				pronunciation: 'the same "ai" sound as ไ',
+				type: "vowel",
+				mnemonic:
+					"ใ (ไม้ม้วน, mai muan) sounds identical to ไ but appears in only about 20 specific words you memorize. Note the curled-in top.",
+				position: "left",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "leading-ai",
+				name: "ไ and ใ Are Leading ai Vowels",
+				shortDescription: "Both sound like 'ai' and are written before the consonant",
+				explanation:
+					"ไ and ใ are leading vowels, just like เ: written in front of the consonant, pronounced after it. Both give the same ai sound you hear in the word 'Thai'.",
+				examples: ["ไก่ = gài", "ใจ = jai"],
+			},
+			{
+				id: "mai-malai-vs-muan",
+				name: "Two Spellings, One Sound",
+				shortDescription: "ไ is the common ai; ใ covers only about 20 must-know words",
+				explanation:
+					"ไ (mai malai) is by far the more common spelling. ใ (mai muan) sounds exactly the same but is used in roughly 20 fixed words, such as ใจ (heart), ใหม่ (new), and ใช่ (yes). Those are worth memorizing as a set.",
+				examples: ["ไก่ = gài", "ใจ = jai"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which vowel gives the "ai" sound and is the common one?',
+				options: ["ไ", "ใ", "เ", "แ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How do ไ and ใ differ in sound?",
+				options: ["they sound identical", "ไ is longer", "ใ is a tone mark", "ไ is silent"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ไก่ mean?",
+				options: ["chicken", "game", "way", "medicine"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "chicken"?',
+				options: ["ไก่", "ใก่", "ไก", "กไ่"],
+				correctIndex: 0,
+			},
+			{
+				type: "recognize",
+				prompt: "ใ (mai muan) is used in roughly how many words?",
+				options: ["about 20", "over a thousand", "none", "about two hundred"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ก", "่", "จ"],
+	},
+	{
+		id: 19,
+		stage: 6,
+		title: "โต — The Leading Long-o Vowel",
+		anchorWord: {
+			thai: "โต",
+			meaning: "big / to grow",
+			pronunciation: "dtoo",
+			category: "daily",
+			syllables: [{ thai: "โต", sound: "dtoo" }],
+			contextNote:
+				"โต means big or to grow up. It teaches the leading long-o vowel โ, which — like เ and ไ — is written before the consonant but spoken after it.",
+		},
+		newLetters: [
+			{
+				character: "โ",
+				romanization: "o",
+				pronunciation: 'long "o" as in "go"',
+				type: "vowel",
+				mnemonic:
+					"โ is the long-o vowel with a tall vertical stroke, written before the consonant. Like เ and ไ, read the consonant after it first.",
+				position: "left",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "leading-long-o",
+				name: "โ Is a Leading Long o",
+				shortDescription: "โ sits before the consonant and gives a long o",
+				explanation:
+					"โ is another leading vowel. It is written in front of the consonant and gives a clean long o, like the vowel in English 'go'.",
+				examples: ["โต = dtoo", "โล = loo"],
+			},
+			{
+				id: "leading-vowel-family",
+				name: "The Leading-Vowel Family",
+				shortDescription: "เ, ไ, ใ, and โ are all written before the consonant",
+				explanation:
+					"You now know four leading vowels: เ (e), ไ and ใ (ai), and โ (o). All four break the left-to-right order — write them first, but read the following consonant before adding the vowel.",
+				examples: ["เกม = geem", "ไก่ = gài", "โต = dtoo"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which vowel gives a long "o" and is written before the consonant?',
+				options: ["โ", "เ", "แ", "ไ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "In โต, which sound do you say first?",
+				options: [
+					"the consonant ต, then the o",
+					"the o, then ต",
+					"they blend together",
+					"ต is silent",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does โต mean?",
+				options: ["big / to grow", "chicken", "closed", "game"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "big"?',
+				options: ["โต", "โด", "เต", "ตโ"],
+				correctIndex: 0,
+			},
+			{
+				type: "recognize",
+				prompt: "Which of these vowels is NOT written before the consonant?",
+				options: ["ี", "เ", "ไ", "โ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ต", "เ", "ไ"],
+	},
+	{
+		id: 20,
+		stage: 6,
+		title: "ปิด — Mid p and the Open/Closed Pair",
+		anchorWord: {
+			thai: "ปิด",
+			meaning: "closed",
+			pronunciation: "bpìt",
+			category: "sign",
+			syllables: [
+				{ thai: "ปิ", sound: "bpì" },
+				{ thai: "ด", sound: "t" },
+			],
+			contextNote:
+				"ปิด (closed) and เปิด (open) are the most useful sign pair in Thailand — on shops, doors, and opening hours. ป is a tight p, easy to confuse with บ.",
+		},
+		newLetters: [
+			{
+				character: "ป",
+				romanization: "bp",
+				pronunciation:
+					'a tight, unaspirated p, like the p in "spin" (between English b and p)',
+				type: "consonant",
+				class: "mid",
+				mnemonic:
+					"ป is ป ปลา (bpor bplaa, fish). Picture a tall fish standing on its tail; ป is the unaspirated p that pairs with the dt sound of ต.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "mid-p",
+				name: "ป Is a Tight, Unaspirated p",
+				shortDescription: "ป has no puff of air, like the p in 'spin'",
+				explanation:
+					"ป is a mid-class p with no aspiration. To an English ear it sits between b and p, like the p in 'spin'. It is distinct from the airy ผ you already know.",
+				examples: ["ปิด = bpìt", "ปา = bpaa"],
+			},
+			{
+				id: "p-vs-b",
+				name: "ป and บ Look and Sound Close",
+				shortDescription: "ป (bp) and บ (b) are easy to mix up",
+				explanation:
+					"ป and บ have similar shapes and similar sounds. ป is taller with a flag on top and is slightly tighter. Compare ปิด (closed) with บิน (to fly) to feel the difference.",
+				examples: ["ปิด = bpìt", "บิน = bin"],
+			},
+			{
+				id: "open-closed-pair",
+				name: "เปิด / ปิด: Open and Closed",
+				shortDescription: "Adding the leading vowel เ turns ปิด (closed) into เปิด (open)",
+				explanation:
+					"This is the highest-value sign pair you can learn. ปิด means closed; put the leading vowel เ in front and you get เปิด, meaning open. You'll read both on doors every day.",
+				examples: ["ปิด = bpìt (closed)", "เปิด = bpèrt (open)"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter is the tight, unaspirated "p"?',
+				options: ["ป", "บ", "ผ", "ด"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How does ป differ from ผ?",
+				options: [
+					"ป has no puff of air; ผ does",
+					"they are identical",
+					"ป is a vowel",
+					"ผ is nasal",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ปิด mean?",
+				options: ["closed", "open", "big", "chicken"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "closed"?',
+				options: ["ปิด", "บิด", "ผิด", "ปิน"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does เปิด mean?",
+				options: ["open", "closed", "medicine", "way"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["บ", "ผ", "ิ", "ด", "เ"],
+	},
+	{
+		id: 21,
+		stage: 6,
+		title: "ยา — y and Glide Finals",
+		anchorWord: {
+			thai: "ยา",
+			meaning: "medicine",
+			pronunciation: "yaa",
+			category: "sign",
+			syllables: [{ thai: "ยา", sound: "yaa" }],
+			contextNote:
+				"ยา means medicine — ร้านขายยา (pharmacy) is a key sign to recognize. ย also closes many words as a y-glide, alongside ว as a w-glide.",
+		},
+		newLetters: [
+			{
+				character: "ย",
+				romanization: "y",
+				pronunciation:
+					'y as in "yes"; at the end of a syllable it forms a glide like the "y" in "boy"',
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ย is ย ยักษ์ (yor yak, giant). Picture a towering giant; ย gives the y sound at the start and a y-glide at the end.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "y-sound",
+				name: "ย Is a y Glide",
+				shortDescription: "ย gives the y sound at the start of a syllable",
+				explanation:
+					"At the start of a syllable, ย is the y in 'yes'. It is a low-class consonant. The same letter can also close a syllable as a y-glide.",
+				examples: ["ยา = yaa", "ยาย = yaai"],
+			},
+			{
+				id: "glide-final-y-w",
+				name: "ย and ว Can Close a Syllable as Glides",
+				shortDescription: "Final ย adds an i/y glide; final ว adds a w glide",
+				explanation:
+					"At the end of a syllable, ย and ว do not act as full consonants. ย adds a short i/y glide (as in ขาย) and ว adds a w glide (as in ขาว). You first met the w-glide back in ข้าว.",
+				examples: ["ขาย = khǎai", "ขาว = khǎao"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter makes the "y" sound?',
+				options: ["ย", "ว", "ร", "ล"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "At the end of a syllable, what does ว add?",
+				options: ["a w glide", "a k stop", "an ng sound", "nothing"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ยา mean?",
+				options: ["medicine", "chicken", "closed", "game"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "medicine"?',
+				options: ["ยา", "วา", "ยาม", "รา"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "Which sound ends the word ขาย?",
+				options: ["a y glide", "a k stop", "an ng sound", "a long aa"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ร", "ว", "า", "ข"],
+	},
 ];
 
 // Practice vocabulary stays ordered and lesson-scoped so the app can present
@@ -1818,6 +2523,163 @@ const practiceVocabularyByLessonId: Record<number, LessonVocabularyEntry[]> = {
 				{ thai: "แม่", sound: "mae" },
 			]),
 			{ tier: "extension", sourceType: "phrase" },
+		),
+	],
+	14: [
+		createPracticeEntry(
+			createWord("รอ", "to wait", "raw", "daily", [{ thai: "รอ", sound: "raw" }]),
+		),
+		createPracticeEntry(
+			createWord("มอง", "to look at", "mawng", "daily", [{ thai: "มอง", sound: "mawng" }]),
+		),
+		createPracticeEntry(
+			createWord("ลอง", "to try", "lawng", "daily", [{ thai: "ลอง", sound: "lawng" }]),
+		),
+		createPracticeEntry(
+			createWord("งา", "sesame", "ngaa", "food", [{ thai: "งา", sound: "ngaa" }]),
+		),
+		createPracticeEntry(
+			createWord("ของกิน", "things to eat", "khǎwng gin", "food", [
+				{ thai: "ของ", sound: "khǎwng" },
+				{ thai: "กิน", sound: "gin" },
+			]),
+			{ sourceType: "phrase" },
+		),
+	],
+	15: [
+		createPracticeEntry(
+			createWord("ทา", "to apply / spread on", "thaa", "daily", [
+				{ thai: "ทา", sound: "thaa" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ทาน", "to eat (polite)", "thaan", "food", [
+				{ thai: "ทาน", sound: "thaan" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ทอง", "gold", "thawng", "daily", [{ thai: "ทอง", sound: "thawng" }]),
+		),
+		createPracticeEntry(
+			createWord("ทางออก", "exit", "thaang awk", "sign", [
+				{ thai: "ทาง", sound: "thaang" },
+				{ thai: "ออก", sound: "awk" },
+			]),
+			{ sourceType: "phrase" },
+		),
+	],
+	16: [
+		createPracticeEntry(
+			createWord("จาน", "plate", "jaan", "food", [{ thai: "จาน", sound: "jaan" }]),
+		),
+		createPracticeEntry(
+			createWord("จด", "to write down", "jòt", "daily", [{ thai: "จด", sound: "jòt" }]),
+		),
+		createPracticeEntry(
+			createWord("กะ", "to estimate / guess", "gà", "daily", [{ thai: "กะ", sound: "gà" }]),
+		),
+		createPracticeEntry(
+			createWord("จะกิน", "will eat", "jà gin", "food", [
+				{ thai: "จะ", sound: "jà" },
+				{ thai: "กิน", sound: "gin" },
+			]),
+			{ sourceType: "phrase" },
+		),
+		createPracticeEntry(
+			createWord("จะมา", "will come", "jà maa", "daily", [
+				{ thai: "จะ", sound: "jà" },
+				{ thai: "มา", sound: "maa" },
+			]),
+			{ sourceType: "phrase" },
+		),
+	],
+	17: [
+		createPracticeEntry(
+			createWord("เท", "to pour", "thee", "daily", [{ thai: "เท", sound: "thee" }]),
+		),
+		createPracticeEntry(
+			createWord("เตะ", "to kick", "dtè", "daily", [{ thai: "เตะ", sound: "dtè" }]),
+		),
+		createPracticeEntry(
+			createWord("เลข", "number", "lêek", "sign", [{ thai: "เลข", sound: "lêek" }]),
+		),
+		createPracticeEntry(
+			createWord("เกะ", "sound-only practice", "gè", "daily", [{ thai: "เกะ", sound: "gè" }]),
+			{ sourceType: "nonsense" },
+		),
+	],
+	18: [
+		createPracticeEntry(
+			createWord("ไม่", "not", "mâi", "daily", [{ thai: "ไม่", sound: "mâi" }]),
+		),
+		createPracticeEntry(
+			createWord("ใจ", "heart / mind", "jai", "daily", [{ thai: "ใจ", sound: "jai" }]),
+		),
+		createPracticeEntry(
+			createWord("ใช่", "yes / that's right", "châi", "daily", [
+				{ thai: "ใช่", sound: "châi" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ไหน", "where / which", "nǎi", "daily", [{ thai: "ไหน", sound: "nǎi" }]),
+		),
+		createPracticeEntry(
+			createWord("ใหม่", "new", "mài", "daily", [{ thai: "ใหม่", sound: "mài" }]),
+		),
+	],
+	19: [
+		createPracticeEntry(
+			createWord("โมง", "o'clock", "moong", "daily", [{ thai: "โมง", sound: "moong" }]),
+		),
+		createPracticeEntry(
+			createWord("โดน", "to get / be affected by", "doon", "daily", [
+				{ thai: "โดน", sound: "doon" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("โง่", "silly / foolish", "ngôo", "daily", [{ thai: "โง่", sound: "ngôo" }]),
+		),
+		createPracticeEntry(
+			createWord("โล", "kilo", "loo", "sign", [{ thai: "โล", sound: "loo" }]),
+		),
+	],
+	20: [
+		createPracticeEntry(
+			createWord("เปิด", "to open", "bpèrt", "sign", [{ thai: "เปิด", sound: "bpèrt" }]),
+		),
+		createPracticeEntry(
+			createWord("ไป", "to go", "bpai", "daily", [{ thai: "ไป", sound: "bpai" }]),
+		),
+		createPracticeEntry(
+			createWord("ปลา", "fish", "bplaa", "food", [{ thai: "ปลา", sound: "bplaa" }]),
+		),
+		createPracticeEntry(
+			createWord("ปี", "year", "bpii", "daily", [{ thai: "ปี", sound: "bpii" }]),
+		),
+		createPracticeEntry(
+			createWord("ปา", "to throw", "bpaa", "daily", [{ thai: "ปา", sound: "bpaa" }]),
+		),
+	],
+	21: [
+		createPracticeEntry(
+			createWord("ยาก", "difficult", "yâak", "daily", [{ thai: "ยาก", sound: "yâak" }]),
+		),
+		createPracticeEntry(
+			createWord("ยาว", "long", "yaao", "daily", [{ thai: "ยาว", sound: "yaao" }]),
+		),
+		createPracticeEntry(
+			createWord("ขาย", "to sell", "khǎai", "sign", [{ thai: "ขาย", sound: "khǎai" }]),
+		),
+		createPracticeEntry(
+			createWord("ขาว", "white", "khǎao", "daily", [{ thai: "ขาว", sound: "khǎao" }]),
+		),
+		createPracticeEntry(
+			createWord("ร้านขายยา", "pharmacy", "ráan khǎai yaa", "sign", [
+				{ thai: "ร้าน", sound: "ráan" },
+				{ thai: "ขาย", sound: "khǎai" },
+				{ thai: "ยา", sound: "yaa" },
+			]),
+			{ sourceType: "phrase" },
 		),
 	],
 };

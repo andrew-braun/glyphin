@@ -24,29 +24,36 @@ next authoring work needed to expand it.
 - The DB content model is already capable of lessons with graphemes, multiple words,
   rule or tip-style explanations, examples, drills, and published lesson bundles.
 - The first authored Thai seed is implemented and validated end to end.
-- The approved runtime curriculum currently covers levels 1 through 5 from
-  `docs/concept/approach-thai.md`.
-- The level 6 loanword and complex-cluster expansion is still future work.
+- The approved runtime curriculum covers `approach-thai.md` levels 1 through 5,
+  plus the lesson-sequence Stage 6 expansion (Lessons 14-21) authored 2026-06-28,
+  which deepens high-frequency consonant and leading-vowel coverage.
+- The `approach-thai.md` level 6 loanword and complex-cluster expansion is still
+  future work. Note the numbering axes differ: lesson-sequence "Stage 6" is the
+  leading-vowel/consonant deepening, not the `approach-thai.md` "Level 6" loanwords.
 
 ## What Exists Now
 
 ### Authored v1 Thai Course
 
-- Lessons: 13
-- Unique new graphemes: 24
-- Lesson-grapheme joins: 96 total
-  - 24 `new`
-  - 72 `review`
-- Rules: 26
-- Rule examples: 55
-- Drills: 65
-- Drill options: 260
-- Vocabulary items: 39
-- Lesson-vocabulary joins: 39 total
-  - 13 `anchor`
-  - 26 `support`
-- Vocabulary segments: 67
-- Anchor segments: 27
+Snapshot as of 2026-06-28 (Stages 1-6 authored). Vocabulary totals also move with
+the separate in-progress per-lesson practice-vocabulary expansion, so treat those
+lines as current-state rather than fixed.
+
+- Lessons: 21
+- Unique new graphemes: 34
+- Lesson-grapheme joins: 136 total
+  - 34 `new`
+  - 102 `review`
+- Rules: 46
+- Rule examples: 95
+- Drills: 107
+- Drill options: 428
+- Vocabulary items: 157
+- Lesson-vocabulary joins: 191 total
+  - 21 `anchor`
+  - 170 `support`
+- Vocabulary segments: 196
+- Anchor segments: 39
 
 ### Implemented Thai Content Capabilities
 
@@ -67,6 +74,11 @@ next authoring work needed to expand it.
 | Level 4: sibilants and short `u`                    | Lessons 8-9      | implemented | `ชุด` and `สิบ` cover `ช`, `ส`, `ุ`, and another final-stop family                     |
 | Level 5: high-class consonants and survival utility | Lessons 10-13    | implemented | `ข้าว`, `หมู`, `อาหาร`, and `ผัด` cover food, leading-`ห`, and silent-carrier patterns |
 | Level 6: loanwords and complex clusters             | none yet         | pending     | `คอมพิวเตอร์`, `เซเว่น`, `แบงก์`, and `ไวไฟ` remain future Thai content                |
+
+> Beyond the `approach-thai.md` levels above, lesson-sequence Stage 6 (Lessons
+> 14-21) is now authored and seeded: `ง` + final ng, the `อ`-as-aw vowel, low `ท`,
+> `จ` + the `ะ` glottal short-a, the leading-vowel family (`เ ไ ใ โ`), mid `ป`, and
+> `ย` + glide finals. See `docs/curriculum/thai-reading-v1/lesson-sequence.md`.
 
 ## Current Source Hierarchy
 
@@ -102,7 +114,15 @@ next authoring work needed to expand it.
   proposed Stage 6+ lesson sequence (Lessons 14-46) is drafted in
   `docs/curriculum/thai-reading-v1/lesson-sequence.md`. Tracking file:
   `.ai/archive/2026-06-27-thai-full-alphabet-research.md`. Next: Thai-speaker review of
-  first-pass scores, anchor scoring for new lessons, then authoring.
+  first-pass scores and the Stage 6 glosses/pronunciations.
+- Stage 6 (Lessons 14-21) is now authored and seeded (2026-06-28). The 8 lessons
+  (ของ, ทาง, จะ, เกม, ไก่, โต, ปิด, ยา) introduce ง + final ng, the อ-as-aw vowel,
+  low ท, จ + the ะ short-a glottal stop, the leading-vowel family (เ ไ ใ โ), mid ป,
+  and ย + glide finals. They live in `src/lib/data/thai.ts`, are wired into the
+  slug map in `scripts/generate-thai-seed.mjs`, regenerated into `supabase/seed.sql`,
+  and verified end to end: `pnpm db:reset` now publishes 21 lessons. L14 kept dense
+  (three new ideas) per the cadence decision; the อ-aw split was declined. Pending:
+  Thai-speaker pass on the new glosses/codas before calling Stage 6 final.
 - Scope the first level 6 Thai content wave from `docs/concept/approach-thai.md`.
 - Decide the next Thai version boundary after the current 13-lesson release.
 - Validate the next lesson candidates against real-world print targets such as
@@ -124,5 +144,6 @@ next authoring work needed to expand it.
 
 Use this wording when summarizing Thai status:
 
-"We have a complete v1 Thai content schema plus a fully seeded first 13-lesson Thai
-course, but we do not yet have the full long-term Thai curriculum encoded."
+"We have a complete v1 Thai content schema plus a fully seeded 21-lesson Thai
+course (Stages 1-6), but we do not yet have the full long-term Thai curriculum
+encoded."

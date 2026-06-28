@@ -30,10 +30,12 @@ The important separation is this:
 At the time of writing:
 
 - the local seed contains `1` course and `1` published course version
-- the Thai seed contains `13` lessons
-- the current vocabulary model contains `122` vocabulary items
-- the current publication layer contains `13` `delivery.course_publication_lessons`
+- the Thai seed contains `21` lessons
+- the current vocabulary model contains `157` vocabulary items
+- the current publication layer contains `21` `delivery.course_publication_lessons`
   rows
+- the current tip model contains `6` reusable `curriculum.tips` rows and `102`
+  `curriculum.tip_attachments` rows
 - `src/lib/data/thai.ts` remains the curriculum source of truth, and
   `scripts/generate-thai-seed.mjs` regenerates `supabase/seed.sql`
 - the runtime app reads published lesson bundles from `delivery.*` through
@@ -50,7 +52,7 @@ Main table groups:
 
 - course metadata: `languages`, `script_systems`, `courses`, `course_versions`
 - lesson content: `lessons`, `vocabulary_items`, `vocabulary_segments`, `anchor_targets`, `anchor_segments`
-- script teaching model: `graphemes`, `course_version_graphemes`
+- script teaching model: `graphemes`, `course_version_graphemes`, `tips`, `tip_attachments`
 - rules and drills: `orthography_rules`, `orthography_rule_examples`, `drills`, `drill_options`
 - lesson joins: `lesson_graphemes`, `lesson_rules`, `lesson_drills`, `lesson_vocabulary`
 
@@ -77,6 +79,8 @@ opening the full DTO spec.
 | `course_versions`           | Immutable curriculum releases for a course.                                                                                            |
 | `graphemes`                 | Canonical script units independent of lesson ordering.                                                                                 |
 | `course_version_graphemes`  | Course-version-specific pedagogy for each grapheme, such as mnemonics and pronunciation hints.                                         |
+| `tips`                      | Reusable course-version-scoped help content published into lesson bundles by stable string key.                                        |
+| `tip_attachments`           | Typed tip bindings that attach tips to graphemes, vocabulary items, or orthography rules for specific UI slots.                        |
 | `lessons`                   | Ordered lesson metadata within a course version.                                                                                       |
 | `vocabulary_items`          | Reusable words taught in a course version.                                                                                             |
 | `vocabulary_segments`       | Ordered syllabic or segment breakdown for each vocabulary item.                                                                        |

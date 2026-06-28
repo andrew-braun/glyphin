@@ -33,7 +33,7 @@
 	// Track which letter the learner is currently viewing
 	let currentIndex = $state(0);
 	const currentLetter = $derived(letters[currentIndex]);
-	const letterTips = $derived(resolveLetterTips(currentLetter));
+	const letterTips = $derived(currentLetter.tips ?? resolveLetterTips(currentLetter));
 
 	/** Advance to next letter, or move to rules step if all letters shown. */
 	function next() {

@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { createClient } from "@supabase/supabase-js";
 
 import { thaiPack } from "../src/lib/data/thai.ts";
+import { resolveLetterTips } from "../src/lib/data/tips.ts";
 import { mapPublishedLessonPayload } from "../src/lib/server/delivery-payload.ts";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
@@ -53,6 +54,16 @@ function getEnvValue(dotEnv, keys) {
 
 function normalizeForComparison(value) {
 	return JSON.parse(JSON.stringify(value));
+}
+
+function withResolvedLessonTips(lesson) {
+	return {
+		...lesson,
+		newLetters: lesson.newLetters.map((letter) => ({
+			...letter,
+			tips: resolveLetterTips(letter),
+		})),
+	};
 }
 
 const dotEnv = parseDotEnvFile(resolve(repoRoot, ".env"));
@@ -119,7 +130,7 @@ for (const [index, row] of lessonRows.entries()) {
 	);
 
 	const publishedLesson = normalizeForComparison(mapPublishedLessonPayload(row.payload));
-	const expectedLesson = normalizeForComparison(runtimeLesson);
+	const expectedLesson = normalizeForComparison(withResolvedLessonTips(runtimeLesson));
 	assert.deepStrictEqual(
 		publishedLesson,
 		expectedLesson,

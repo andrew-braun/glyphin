@@ -3,7 +3,9 @@ import type {
 	Lesson,
 	LessonVocabularySourceType,
 	Letter,
+	LetterTipSlot,
 	Rule,
+	Tip,
 	Word,
 } from "../data/types";
 
@@ -23,6 +25,8 @@ const letterPositions = new Set<NonNullable<Letter["position"]>>([
 	"around",
 	"standalone",
 ]);
+const letterTipSlots = new Set<LetterTipSlot>(["sound", "pronunciation", "type", "position"]);
+const tipDisplays = new Set<NonNullable<Tip["display"]>>(["popover", "modal"]);
 const lessonVocabularyRoles = new Set<"anchor" | "practice_core" | "practice_extension">([
 	"anchor",
 	"practice_core",
@@ -89,6 +93,87 @@ function expectEnum<T>(allowed: Set<T>, value: unknown, context: string): T {
 	return value as T;
 }
 
+function mapTip(value: unknown, context: string): Tip {
+	const record = expectRecord(value, context);
+	const display =
+		record.display === undefined
+			? undefined
+			: expectEnum(tipDisplays, record.display, `${context}.display`);
+	const sectionsValue = record.sections;
+	const sections =
+		sectionsValue === undefined
+			? undefined
+			: expectArray(sectionsValue, `${context}.sections`).map((section, index) => {
+					const sectionRecord = expectRecord(section, `${context}.sections[${index}]`);
+					const heading = readOptionalString(sectionRecord.heading);
+
+					return {
+						...(heading ? { heading } : {}),
+						body: expectString(
+							sectionRecord.body,
+							`${context}.sections[${index}].body`,
+						),
+					};
+				});
+
+	return {
+		id: expectString(record.id, `${context}.id`),
+		title: expectString(record.title, `${context}.title`),
+		body: expectString(record.body, `${context}.body`),
+		...(display ? { display } : {}),
+		...(sections && sections.length > 0 ? { sections } : {}),
+	};
+}
+
+function readLessonTipCatalog(lesson: Record<string, unknown>): Record<string, Tip> {
+	if (lesson.tips === undefined) {
+		return {};
+	}
+
+	const catalog: Record<string, Tip> = {};
+	const tips = expectArray(lesson.tips, "payload.lesson.tips");
+
+	for (const [index, tip] of tips.entries()) {
+		const mappedTip = mapTip(tip, `payload.lesson.tips[${index}]`);
+		if (catalog[mappedTip.id]) {
+			fail(`payload.lesson.tips[${index}].id`);
+		}
+
+		catalog[mappedTip.id] = mappedTip;
+	}
+
+	return catalog;
+}
+
+function readHydratedLetterTips(
+	value: unknown,
+	tipCatalog: Record<string, Tip>,
+	context: string,
+): Partial<Record<LetterTipSlot, Tip>> | undefined {
+	if (value === undefined) {
+		return undefined;
+	}
+
+	const record = expectRecord(value, context);
+	const tips: Partial<Record<LetterTipSlot, Tip>> = {};
+
+	for (const [slot, tipIdValue] of Object.entries(record)) {
+		if (!letterTipSlots.has(slot as LetterTipSlot)) {
+			fail(`${context}.${slot}`);
+		}
+
+		const tipId = expectString(tipIdValue, `${context}.${slot}`);
+		const tip = tipCatalog[tipId];
+		if (!tip) {
+			fail(`${context}.${slot}`);
+		}
+
+		tips[slot as LetterTipSlot] = tip;
+	}
+
+	return Object.keys(tips).length > 0 ? tips : undefined;
+}
+
 function mapWord(value: unknown, context: string): Word {
 	const record = expectRecord(value, context);
 	const syllables = expectArray(record.segments, `${context}.segments`).map((segment, index) => {
@@ -120,7 +205,7 @@ function readVocabularySourceType(value: unknown, context: string): LessonVocabu
 	return expectEnum(lessonVocabularySourceTypes, value, context);
 }
 
-function mapLetter(value: unknown, context: string): Letter {
+function mapLetter(value: unknown, context: string, tipCatalog: Record<string, Tip>): Letter {
 	const record = expectRecord(value, context);
 	const details = isRecord(record.details) ? record.details : {};
 	const candidateClass = details.class;
@@ -132,6 +217,7 @@ function mapLetter(value: unknown, context: string): Letter {
 		record.position === undefined
 			? undefined
 			: expectEnum(letterPositions, record.position, `${context}.position`);
+	const tips = readHydratedLetterTips(record.tipRefs, tipCatalog, `${context}.tipRefs`);
 
 	return {
 		character: expectString(record.text, `${context}.text`),
@@ -141,6 +227,7 @@ function mapLetter(value: unknown, context: string): Letter {
 		mnemonic: expectString(record.mnemonic, `${context}.mnemonic`),
 		...(className ? { class: className } : {}),
 		...(position ? { position } : {}),
+		...(tips ? { tips } : {}),
 	};
 }
 
@@ -191,9 +278,11 @@ function mapDrill(value: unknown, context: string): DrillQuestion {
 function readLessonCore(payload: unknown): {
 	lesson: Record<string, unknown>;
 	reviewLetters: string[];
+	tipCatalog: Record<string, Tip>;
 } {
 	const payloadRecord = expectRecord(payload, "payload");
 	const lesson = expectRecord(payloadRecord.lesson, "payload.lesson");
+	const tipCatalog = readLessonTipCatalog(lesson);
 	const reviewGraphemes = expectArray(lesson.reviewGraphemes, "payload.lesson.reviewGraphemes");
 	const reviewLetters = reviewGraphemes.map((grapheme, index) => {
 		const graphemeRecord = expectRecord(grapheme, `payload.lesson.reviewGraphemes[${index}]`);
@@ -201,11 +290,11 @@ function readLessonCore(payload: unknown): {
 		return expectString(graphemeRecord.text, `payload.lesson.reviewGraphemes[${index}].text`);
 	});
 
-	return { lesson, reviewLetters };
+	return { lesson, reviewLetters, tipCatalog };
 }
 
 export function mapPublishedLessonCard(payload: unknown): PublishedLessonCard {
-	const { lesson } = readLessonCore(payload);
+	const { lesson, tipCatalog } = readLessonCore(payload);
 
 	return {
 		id: expectInteger(lesson.lessonOrdinal, "payload.lesson.lessonOrdinal"),
@@ -213,13 +302,14 @@ export function mapPublishedLessonCard(payload: unknown): PublishedLessonCard {
 		title: expectString(lesson.title, "payload.lesson.title"),
 		anchorWord: mapWord(lesson.anchor, "payload.lesson.anchor"),
 		newLetters: expectArray(lesson.newGraphemes, "payload.lesson.newGraphemes").map(
-			(grapheme, index) => mapLetter(grapheme, `payload.lesson.newGraphemes[${index}]`),
+			(grapheme, index) =>
+				mapLetter(grapheme, `payload.lesson.newGraphemes[${index}]`, tipCatalog),
 		),
 	};
 }
 
 export function mapPublishedLessonPayload(payload: unknown): Lesson {
-	const { lesson, reviewLetters } = readLessonCore(payload);
+	const { lesson, reviewLetters, tipCatalog } = readLessonCore(payload);
 
 	return {
 		id: expectInteger(lesson.lessonOrdinal, "payload.lesson.lessonOrdinal"),
@@ -260,7 +350,8 @@ export function mapPublishedLessonPayload(payload: unknown): Lesson {
 			},
 		),
 		newLetters: expectArray(lesson.newGraphemes, "payload.lesson.newGraphemes").map(
-			(grapheme, index) => mapLetter(grapheme, `payload.lesson.newGraphemes[${index}]`),
+			(grapheme, index) =>
+				mapLetter(grapheme, `payload.lesson.newGraphemes[${index}]`, tipCatalog),
 		),
 		rulesIntroduced: expectArray(lesson.rules, "payload.lesson.rules").map((rule, index) =>
 			mapRule(rule, `payload.lesson.rules[${index}]`),

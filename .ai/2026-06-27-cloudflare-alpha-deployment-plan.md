@@ -4,8 +4,11 @@
 
 Deploy Glyphin as a Cloudflare Workers Static Assets app backed by a fresh
 production Supabase project. Use Workers as the long-term Cloudflare target
-instead of Cloudflare Pages, while still keeping Git-based deployment as the
-steady-state workflow after the first manual deploy is proven.
+instead of Cloudflare Pages, with Git-based deployment (Cloudflare Workers
+Builds) as the deployment workflow from day one. The repo already lives on
+GitHub, so there is no separate manual-deploy bootstrap phase: local validation
+plus a non-production preview deploy proves the Worker before the production
+branch goes live.
 
 The deployment model is:
 
@@ -22,6 +25,26 @@ Reference docs:
 - [SvelteKit Cloudflare adapter](https://svelte.dev/docs/kit/adapter-cloudflare)
 - [Supabase SvelteKit auth](https://supabase.com/docs/guides/auth/server-side/sveltekit)
 
+## Architectural Principle: Keep The Backend Contract Mobile-Ready
+
+The long-term goal is a mobile app running in parallel with the web app, so
+phase-1 choices must not entrench web-only patterns.
+
+- The durable cross-platform contract is the Postgres RPC / security-definer
+  layer (the functions `src/lib/server/learner-projection.ts` already calls),
+  not the SvelteKit routes. Both clients sit thinly on top of the same DB
+  contract under RLS.
+- Web (now): SvelteKit BFF with cookie-based auth via `@supabase/ssr`.
+- Mobile (phase 2): a Supabase client using bearer-token auth, calling the same
+  RPCs directly under RLS. Native apps cannot reuse the cookie-based SvelteKit
+  routes, so treating those routes as the contract would force a rebuild.
+- Keep learner sync/projection business logic in the database (RPC / security
+  definer), not in `+server.ts` handlers, so logic added during the alpha stays
+  reusable from mobile.
+- For phase-2 server-to-Supabase code on Workers/Edge or a mobile backend,
+  prefer the stateless, header/bearer-based `@supabase/server` package over
+  `@supabase/ssr`, which is cookie/browser-oriented.
+
 ## Implementation Steps
 
 ### 1. Prepare A Deployment Branch And Tracker
@@ -32,6 +55,11 @@ Reference docs:
   security-sensitive sign-off gates.
 - Use Workers Static Assets as the deployment target; do not create a Cloudflare
   Pages project for this alpha.
+- Deploy via Cloudflare Workers Builds (GitHub integration) from the start. The
+  `deploy/cloudflare-alpha` branch (or another non-production branch) acts as the
+  preview/verification branch via `wrangler versions upload`; merging to the
+  production branch is what ships. There is no separate manual `wrangler deploy`
+  bootstrap step.
 
 ### 2. Make The SvelteKit App Worker-Compatible
 
@@ -43,13 +71,38 @@ Reference docs:
 - Add `wrangler.jsonc` for Workers Static Assets:
   - `name`: the alpha Worker name, for example `glyphin-alpha`.
   - `main`: `.svelte-kit/cloudflare/_worker.js`.
+  - `assets.binding`: `ASSETS`.
   - `assets.directory`: `.svelte-kit/cloudflare`.
-  - `compatibility_date`: the implementation date.
-  - `compatibility_flags`: start with `["nodejs_als"]`; broaden to
-    `["nodejs_compat"]` only if local Worker testing proves a dependency needs
-    it.
+  - `compatibility_date`: the implementation date (must be `2024-09-23` or
+    later so `nodejs_compat` resolves to `nodejs_compat_v2`).
+  - `compatibility_flags`: use `["nodejs_compat"]` from the start. Do not start
+    with `nodejs_als`. `nodejs_compat` is a superset that already includes
+    `AsyncLocalStorage`, and both `@supabase/ssr` and `@supabase/supabase-js`
+    pull in Node built-ins (`stream`, `buffer`, etc.) that fail on Workers
+    without it. Cloudflare's own Supabase-on-Workers guidance requires
+    `nodejs_compat`.
+  - Reference config:
+
+    ```jsonc
+    {
+     "name": "glyphin-alpha",
+     "main": ".svelte-kit/cloudflare/_worker.js",
+     "compatibility_date": "<implementation date, >= 2024-09-23>",
+     "compatibility_flags": ["nodejs_compat"],
+     "assets": {
+      "binding": "ASSETS",
+      "directory": ".svelte-kit/cloudflare",
+     },
+    }
+    ```
+
 - Keep `vite.config.ts` unchanged unless Wrangler/SvelteKit integration requires
   an explicit adjustment during implementation.
+- No server code change is needed for env access: `adapter-cloudflare` maps
+  Cloudflare `platform.env` (Wrangler vars + secrets) into
+  `$env/dynamic/private`, so `src/hooks.server.ts` and
+  `src/lib/server/delivery-lessons.ts` keep using `$env/dynamic/private`. Do not
+  rewrite them to read `platform.env` directly.
 
 ### 3. Preserve Build-Time Supabase Reads And Prerendering
 
@@ -74,6 +127,13 @@ Reference docs:
 - Audit `src/lib/server/published-lessons.ts` and related publication paths.
 - Ensure any `.generated` lesson artifacts are consumed during build/prerender,
   not opened from the deployed Worker at request time.
+- Treat this as a load-bearing invariant: `published-lessons.ts` uses `node:fs`
+  and `process.cwd()/.generated`, which only works because every route that
+  imports it (`/learn`, `/learn/[id]`) is `prerender = true`, so those reads run
+  at build time. No non-prerendered route may import `published-lessons.ts`.
+  With `nodejs_compat` enabled, a violating import would bundle cleanly and then
+  fail at request time with a missing-file error (a worse failure mode than a
+  build break), so guard against it deliberately.
 - If publication artifacts stay in the repo build flow, make them bundler-safe
   build inputs or direct prerender inputs.
 - Runtime Worker code should fall back to Supabase only for routes that are not
@@ -92,12 +152,13 @@ Reference docs:
 - Update `docs/auth.md` to replace stale `adapter-node` wording with Cloudflare
   Workers/SvelteKit server runtime wording.
 - Add a short `docs/deployment-cloudflare.md` runbook covering:
-  - Worker build settings
-  - required build env vars and runtime secrets
-  - manual Wrangler deploy
-  - Workers Builds/Git deployment
+  - Worker build settings (build command, deploy command, production branch)
+  - required build env vars and runtime secrets, and which dashboard section each
+    lives in
+  - Workers Builds/Git deployment (preview branch -> production branch flow)
+  - local Wrangler simulation for pre-push verification
   - custom domain setup
-  - rollback
+  - rollback (Worker version rollback + git revert)
   - smoke tests
 
 ### 6. Create The Production Supabase Project
@@ -115,33 +176,66 @@ Reference docs:
 ### 7. Configure Worker Build And Runtime Secrets
 
 - Configure local `.env` for build-time Supabase delivery reads.
-- Configure Cloudflare Worker build env vars for publication/prerender:
-  - `SUPABASE_DELIVERY_URL`
-  - `SUPABASE_DELIVERY_ANON_KEY`
-- Configure Worker runtime secrets for auth and learner state:
-  - `SUPABASE_DELIVERY_URL`
-  - `SUPABASE_DELIVERY_ANON_KEY`
-  - `SUPABASE_AUTH_URL`
-  - `SUPABASE_AUTH_PUBLISHABLE_KEY`
+- Workers Builds separates build-time and runtime config in the dashboard. Use
+  the two distinct locations deliberately:
+  - Build env vars (Settings > Build, build-only, not present at runtime):
+    - `SUPABASE_DELIVERY_URL`
+    - `SUPABASE_DELIVERY_ANON_KEY`
+    - `NODE_VERSION=24.15.0`
+    - `PNPM_VERSION=11.6.0`
+  - Runtime secrets (Settings > Variables & Secrets):
+    - `SUPABASE_AUTH_URL`
+    - `SUPABASE_AUTH_PUBLISHABLE_KEY`
+- Keep `SUPABASE_DELIVERY_URL` and `SUPABASE_DELIVERY_ANON_KEY` as build env vars
+  only, not runtime secrets. Delivery reads happen at build (prerender) or as a
+  fallback reachable only from prerendered routes, so the deployed Worker does
+  not need them. Add them as runtime secrets later only if a non-prerendered
+  route starts reading `delivery.*` (least privilege).
+- Set the two runtime secrets via the dashboard (or `wrangler secret put`).
+  Secrets set this way persist across Git deploys; `wrangler deploy` does not
+  delete them. Do not put secrets in `wrangler.jsonc`.
 - Never use or store a Supabase service-role key in Cloudflare for this alpha.
-- Set build/runtime versions where supported:
-  - `NODE_VERSION=24.15.0`
-  - `PNPM_VERSION=11.6.0`
 
-### 8. Build And Deploy Manually First
+### 8. Validate Locally Before Connecting Git
 
 - Run local validation:
   - `pnpm install`
   - `pnpm check`
   - `pnpm check:all`
   - `pnpm build`
-- Run a local Worker smoke test with Wrangler after a successful build.
-- Deploy manually first with Wrangler so the Worker config, assets, prerendered
-  pages, and runtime routes are proven before Git automation.
-- Verify deployment on the `workers.dev` URL first, even if the first shared URL
-  will be the custom domain.
+- Run a local Worker simulation of the built Cloudflare output with Wrangler
+  (e.g. `pnpm exec wrangler dev`) and exercise both prerendered static pages and
+  Worker-backed routes. This is local verification only, not a production deploy.
+- The goal of this step is to catch adapter/config/`nodejs_compat` problems on
+  the local machine before the first Git build runs, replacing the old
+  manual-production-deploy bootstrap.
 
-### 9. Attach The Custom Domain
+### 9. Set Up Git-Based Deployment (Workers Builds)
+
+- Connect the existing GitHub repo to a new Worker via Cloudflare Workers Builds.
+  This creates the Worker and runs the first build/deploy; there is no separate
+  manual `wrangler deploy` bootstrap.
+- Configure build settings in the dashboard:
+  - Build command: `pnpm build` (runs `prebuild` -> `publication:generate` ->
+    `vite build`).
+  - Deploy command (production branch): `pnpm exec wrangler deploy`.
+  - Non-production branches: `pnpm exec wrangler versions upload` for preview
+    URLs used to verify before promoting to production.
+  - Git branch (production): the production branch (defaults to `main`).
+- Add the build env vars and runtime secrets from step 7 in their respective
+  dashboard sections.
+- Note: Workers Builds does not honor `[build]` custom-build config in
+  `wrangler.jsonc`; the build command lives in the dashboard build settings.
+- First-deploy verification flow:
+  - Push `deploy/cloudflare-alpha` (non-production) to trigger a preview
+    `versions upload`, and verify the Worker on its preview/`workers.dev` URL.
+  - Only after preview verification passes, merge to the production branch to
+    trigger the production `wrangler deploy`.
+- Optional fallback (only if Workers Builds proves limiting): a GitHub Actions
+  workflow running `pnpm install`, `pnpm check`, `pnpm build`, and
+  `pnpm exec wrangler deploy`. Prefer native Workers Builds for the alpha.
+
+### 10. Attach The Custom Domain
 
 - Add the custom domain to the Worker route/domain configuration.
 - If the domain is not already on Cloudflare DNS, add the zone or configure the
@@ -151,24 +245,27 @@ Reference docs:
   - Site URL: the custom domain.
   - Redirect allow list: the custom domain and the `workers.dev` preview/test
     domain if auth testing there is needed.
+- Configure custom SMTP via Resend before sharing the URL. This is a hard gate,
+  not optional polish: Supabase's default email service only delivers to project
+  team members and is heavily rate-limited (~2-30/hr), so external alpha testers
+  cannot receive OTP codes without it. Email OTP is the entire auth flow.
+  - Create a Resend account, verify the sending domain (SPF/DKIM), and create an
+    SMTP credential / API key.
+  - Set Supabase Auth custom SMTP host, port, user, and password to the Resend
+    values, plus a verified sender address.
+  - Set OTP expiry to `3600` seconds or lower.
+  - Tune auth rate limits (sign-in, OTP initiation, token verification, refresh)
+    to sane alpha values.
+  - Treat the Resend SMTP credential as a Supabase-side secret; it never goes
+    into Cloudflare or any client bundle.
 - Confirm email OTP templates still send the six-digit code flow expected by the
-  current `/auth` page.
-
-### 10. Add Git-Based Worker Deployment
-
-- After manual deploy and smoke tests pass, enable Workers Builds/Git deployment
-  or a GitHub Actions workflow.
-- Preferred steady-state path: Cloudflare Workers Git integration if it supports
-  the needed build env and secret model cleanly.
-- Fallback steady-state path: GitHub Actions running `pnpm install`,
-  `pnpm check`, `pnpm build`, and `pnpm exec wrangler deploy`.
-- Protect production deploys behind the main branch or an explicit release
-  branch.
-- Keep preview/manual deploys available for infrastructure validation.
+  current `/auth` page, delivered through Resend.
 
 ### 11. Deploy And Smoke Test
 
-- Verify deployment logs for:
+- Run this against the non-production preview deploy first, then re-run the
+  critical paths against production after promotion.
+- Verify Workers Builds logs for:
   - Cloudflare adapter output
   - static asset upload
   - Worker script upload
@@ -189,11 +286,13 @@ Reference docs:
 ### 12. Rollout And Rollback
 
 - Share the custom domain only after smoke tests pass.
-- Keep the initial manual deploy command and Worker version available as the
-  rollback reference.
-- Roll back Worker issues using Cloudflare Worker version rollback or by
-  redeploying the last known good build.
-- Roll back code issues by reverting the Cloudflare adapter/config commit.
+- Record the last known good Worker version (deployment ID) after each successful
+  production deploy as the rollback reference.
+- Roll back Worker issues using Cloudflare Worker version rollback to the last
+  known good version, or by re-running a production deploy from a known good
+  commit.
+- Roll back code issues by reverting the offending commit on the production
+  branch, which triggers a fresh Workers Builds deploy.
 - Do not delete/recreate the Supabase project during alpha unless rotating all
   Cloudflare env vars is acceptable.
 
@@ -226,13 +325,18 @@ Reference docs:
 
 - First deployment target is Cloudflare Workers Static Assets, not Cloudflare
   Pages.
-- First operational deploy is manual Wrangler deploy; Git automation follows
-  after the Worker is proven.
+- Deployment is Git-based via Cloudflare Workers Builds from the start; the repo
+  already lives on GitHub. There is no manual-Wrangler-deploy bootstrap. Local
+  Wrangler simulation plus a non-production preview deploy provide verification
+  before the production branch ships.
 - First shared URL is a custom domain, with `workers.dev` used for internal smoke
   testing.
 - Supabase production project is fresh and can be destructively rebuilt before
   real alpha data exists.
 - Supabase region defaults to Southeast Asia/Singapore unless the known tester
   base is mostly elsewhere.
-- Phase 2 will move reusable learner sync/projection backend contracts toward
-  Supabase RPC or Edge Functions for mobile compatibility.
+- Phase 2 will expose the reusable learner sync/projection contract through the
+  Supabase RPC / security-definer layer so the parallel mobile app can call it
+  with bearer-token auth under RLS, likely via `@supabase/server` rather than
+  `@supabase/ssr`. See "Architectural Principle: Keep The Backend Contract
+  Mobile-Ready" above.

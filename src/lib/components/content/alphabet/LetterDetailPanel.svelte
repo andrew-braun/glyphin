@@ -16,7 +16,7 @@
 		onClose: () => void;
 	} = $props();
 
-	const letterTips = $derived(letter ? resolveLetterTips(letter) : {});
+	const letterTips = $derived(letter ? (letter.tips ?? resolveLetterTips(letter)) : {});
 </script>
 
 <CollapsiblePanel open={letter !== null} labelledBy={panelHeadingId}>

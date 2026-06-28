@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 
 import { thaiPack } from "../src/lib/data/thai.ts";
+import { resolveLetterTipRefs, tipCatalog } from "../src/lib/data/tips.ts";
 
 const lessonSlugs = new Map([
 	[1, "maak"],
@@ -16,6 +17,14 @@ const lessonSlugs = new Map([
 	[11, "moo"],
 	[12, "ahan"],
 	[13, "phat"],
+	[14, "khong"],
+	[15, "thang"],
+	[16, "ja"],
+	[17, "kem"],
+	[18, "gai"],
+	[19, "to"],
+	[20, "pit"],
+	[21, "ya"],
 ]);
 
 const releaseTimestamp = "2026-04-30T00:00:00+00:00";
@@ -93,6 +102,16 @@ function buildSeedModel() {
 	const scriptSystemId = stableUuid(`script-system:${courseSlug}`);
 	const courseVersionId = stableUuid(`course-version:${courseSlug}:1`);
 	const publicationId = stableUuid(`publication:${courseSlug}:1`);
+	const tips = Object.values(tipCatalog).map((tip) => ({
+		id: stableUuid(`tip:${courseSlug}:${tip.id}`),
+		key: tip.id,
+		title: tip.title,
+		body: tip.body,
+		display: tip.display ?? "popover",
+		sections: tip.sections ?? [],
+		metadata: {},
+	}));
+	const tipByKey = new Map(tips.map((tip) => [tip.key, tip]));
 
 	const graphemeByCharacter = new Map();
 	const rulesById = new Map();
@@ -117,6 +136,7 @@ function buildSeedModel() {
 				position: letter.position ?? null,
 				details: letter.class ? { class: letter.class } : {},
 				tags: [],
+				tipRefs: resolveLetterTipRefs(letter),
 			});
 		}
 
@@ -269,6 +289,24 @@ function buildSeedModel() {
 			lessons.flatMap((lesson) => lesson.vocabulary.map((entry) => [entry.itemId, entry])),
 		).values(),
 	);
+	const tipAttachments = Array.from(graphemeByCharacter.values()).flatMap((grapheme) => {
+		return Object.entries(grapheme.tipRefs).map(([slotKey, tipKey]) => {
+			const tip = tipByKey.get(tipKey);
+			if (!tip) {
+				throw new Error(`Missing tip catalog entry for key ${tipKey}`);
+			}
+
+			return {
+				id: stableUuid(`tip-attachment:grapheme:${grapheme.id}:${slotKey}:${tipKey}`),
+				tipId: tip.id,
+				slotKey,
+				attachmentOrder: 1,
+				graphemeId: grapheme.id,
+				vocabularyItemId: null,
+				orthographyRuleId: null,
+			};
+		});
+	});
 
 	const course = {
 		id: courseId,
@@ -294,7 +332,7 @@ function buildSeedModel() {
 		sourceLocale: "en",
 		releaseTitle: "Thai frequency-first foundation",
 		releaseSummary:
-			"First 13-lesson Thai curriculum rewrite aligned to the frequency-first sequence in approach-thai.md.",
+			"First 21-lesson Thai curriculum rewrite aligned to the frequency-first sequence in approach-thai.md.",
 		releaseNotes: {
 			source: "src/lib/data/thai.ts",
 			conceptSource: "docs/concept/approach-thai.md",
@@ -303,6 +341,14 @@ function buildSeedModel() {
 	};
 
 	const publicationLessons = lessons.map((lesson) => {
+		const lessonTipKeys = Array.from(
+			new Set(
+				[...lesson.newGraphemes, ...lesson.reviewGraphemes].flatMap((grapheme) =>
+					Object.values(grapheme.tipRefs),
+				),
+			),
+		);
+
 		const payload = {
 			course: {
 				id: course.id,
@@ -350,6 +396,20 @@ function buildSeedModel() {
 						metadata: entry.metadata,
 					},
 				})),
+				tips: lessonTipKeys.map((tipKey) => {
+					const tip = tipByKey.get(tipKey);
+					if (!tip) {
+						throw new Error(`Missing lesson tip payload entry for key ${tipKey}`);
+					}
+
+					return {
+						id: tip.key,
+						title: tip.title,
+						body: tip.body,
+						...(tip.display !== "popover" ? { display: tip.display } : {}),
+						...(tip.sections.length > 0 ? { sections: tip.sections } : {}),
+					};
+				}),
 				newGraphemes: lesson.newGraphemes.map((grapheme) => ({
 					id: grapheme.id,
 					text: grapheme.text,
@@ -359,6 +419,7 @@ function buildSeedModel() {
 					mnemonic: grapheme.mnemonic,
 					...(grapheme.position ? { position: grapheme.position } : {}),
 					details: grapheme.details,
+					tipRefs: grapheme.tipRefs,
 					tags: grapheme.tags,
 				})),
 				reviewGraphemes: lesson.reviewGraphemes.map((grapheme) => ({
@@ -370,6 +431,7 @@ function buildSeedModel() {
 					mnemonic: grapheme.mnemonic,
 					...(grapheme.position ? { position: grapheme.position } : {}),
 					details: grapheme.details,
+					tipRefs: grapheme.tipRefs,
 					tags: grapheme.tags,
 				})),
 				rules: lesson.rules.map((rule) => ({
@@ -429,6 +491,17 @@ function buildSeedModel() {
 			text: grapheme.text,
 			kind: grapheme.kind,
 			romanization: grapheme.romanization,
+			tipRefs: grapheme.tipRefs,
+		})),
+		tips: tips.map((tip) => ({
+			key: tip.key,
+			display: tip.display,
+			sections: tip.sections,
+		})),
+		tipAttachments: tipAttachments.map((attachment) => ({
+			graphemeId: attachment.graphemeId,
+			slotKey: attachment.slotKey,
+			tipId: tips.find((tip) => tip.id === attachment.tipId)?.key ?? attachment.tipId,
 		})),
 		lessons: lessons.map((lesson) => ({
 			slug: lesson.slug,
@@ -465,6 +538,8 @@ function buildSeedModel() {
 		rules: Array.from(rulesById.values()),
 		lessons,
 		vocabularyItems,
+		tips,
+		tipAttachments,
 		publication: {
 			id: publicationId,
 			manifestHash,
@@ -553,6 +628,34 @@ function renderSql(model) {
 				pedagogical_group_label: "null",
 				details: sqlJson(grapheme.details),
 				tags: sqlTextArray(grapheme.tags),
+			})),
+		),
+	);
+
+	sqlParts.push(
+		insertStatement(
+			"curriculum.tips",
+			[
+				"id",
+				"course_version_id",
+				"key",
+				"title",
+				"body",
+				"display",
+				"sections",
+				"metadata",
+				"created_at",
+			],
+			model.tips.map((tip) => ({
+				id: `${sqlString(tip.id)}::uuid`,
+				course_version_id: `${sqlString(model.courseVersion.id)}::uuid`,
+				key: sqlString(tip.key),
+				title: sqlString(tip.title),
+				body: sqlString(tip.body),
+				display: sqlString(tip.display),
+				sections: sqlJson(tip.sections),
+				metadata: sqlJson(tip.metadata),
+				created_at: `${sqlString(model.releaseTimestamp)}::timestamptz`,
 			})),
 		),
 	);
@@ -746,6 +849,38 @@ function renderSql(model) {
 					translation: "null",
 				}));
 			}),
+		),
+	);
+
+	sqlParts.push(
+		insertStatement(
+			"curriculum.tip_attachments",
+			[
+				"id",
+				"course_version_id",
+				"tip_id",
+				"slot_key",
+				"attachment_order",
+				"grapheme_id",
+				"vocabulary_item_id",
+				"orthography_rule_id",
+			],
+			model.tipAttachments.map((attachment) => ({
+				id: `${sqlString(attachment.id)}::uuid`,
+				course_version_id: `${sqlString(model.courseVersion.id)}::uuid`,
+				tip_id: `${sqlString(attachment.tipId)}::uuid`,
+				slot_key: sqlString(attachment.slotKey),
+				attachment_order: String(attachment.attachmentOrder),
+				grapheme_id: attachment.graphemeId
+					? `${sqlString(attachment.graphemeId)}::uuid`
+					: "null",
+				vocabulary_item_id: attachment.vocabularyItemId
+					? `${sqlString(attachment.vocabularyItemId)}::uuid`
+					: "null",
+				orthography_rule_id: attachment.orthographyRuleId
+					? `${sqlString(attachment.orthographyRuleId)}::uuid`
+					: "null",
+			})),
 		),
 	);
 
