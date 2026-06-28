@@ -37,7 +37,8 @@ At the time of writing:
 - `src/lib/data/thai.ts` remains the curriculum source of truth, and
   `scripts/generate-thai-seed.mjs` regenerates `supabase/seed.sql`
 - the runtime app reads published lesson bundles from `delivery.*` through
-  server-owned SvelteKit boundaries and generated publication artifacts
+  server-owned SvelteKit boundaries into generated publication artifacts used
+  for prerendered lesson UI
 
 ## Schema Map
 
@@ -156,7 +157,9 @@ The database is designed around a one-way content flow and a one-way progress fl
 
 1. Curriculum is authored in `curriculum.*`.
 2. A course version is published into `delivery.course_publications` and `delivery.course_publication_lessons`.
-3. The learner-facing app reads published bundles from `delivery.*`.
+3. The publication artifact generator reads published bundles from `delivery.*`.
+4. The learner-facing app reads the generated publication artifact so lesson UI
+   can stay prerendered while reflecting the active database publication.
 
 ### Learner flow
 
@@ -170,7 +173,8 @@ The database is designed around a one-way content flow and a one-way progress fl
 These rules are the most important part of the database design.
 
 - Do not read `curriculum.*` directly from learner-facing routes or components.
-- Read published lesson content from `delivery.*`.
+- Read published lesson content from `delivery.*` through the publication
+  artifact generator and server-owned route helpers.
 - Do not let clients write directly to `learner.lesson_attempts`; route attempt sync through server-owned code.
 - Do not let clients write directly to `learner.lesson_progress`.
 - Treat `learner.devices` as a future server-owned registration surface, not an open client-write table.
@@ -252,6 +256,18 @@ If the local connection details ever change, `pnpm exec supabase status` and `pn
 ## Supabase CLI Workflow
 
 These are the commands you will use most often in this repo.
+
+### Reset local data and refresh lesson artifacts
+
+```sh
+pnpm db:reset
+```
+
+This resets local Supabase from migrations and seed data, ensures the local
+Supabase stack is running, then runs `pnpm publication:generate` so
+`.generated/` matches the active delivery publication used by prerendered lesson
+routes. The publication generator retries briefly if the Supabase API is still
+warming up after the reset restarts containers.
 
 ### Create a migration file
 
@@ -781,8 +797,8 @@ As of now:
 - The baseline SQL schema exists and resets cleanly locally.
 - The local seed file now contains the first real Thai curriculum seed.
 - The first published lesson bundles now exist in `delivery.course_publication_lessons`.
-- The app reads published lesson content through server-owned delivery helpers and
-  generated publication artifacts.
+- The app reads published lesson content through generated publication artifacts
+  refreshed from `delivery.*`.
 - The first auth implementation now uses server-owned learner RPC wrappers rather
   than direct browser Supabase access.
 

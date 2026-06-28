@@ -12,10 +12,12 @@ learner-owned data are being changed.
 - Glyphin now has a real server runtime via `@sveltejs/adapter-node`.
 - `/learn` now renders through a dedicated `ssr = true` and `prerender = true`
   route branch that reads published lesson bundles from `delivery.*` into a
-  build-time lesson artifact.
+  generated lesson artifact.
 - The published lesson artifact now carries a `publicationId` and
   `publicationCacheKey`, which define the cache and version boundary for public
   lesson content.
+- Local `pnpm db:reset` refreshes that generated lesson artifact after reseeding
+  so prerendered lesson UI follows the active delivery publication.
 - Local anonymous progress still lives in `src/lib/stores/progress.ts` and uses
   localStorage.
 - The learn index now applies learner-specific lesson badges and locking after

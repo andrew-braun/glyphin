@@ -18,7 +18,9 @@
 	import DetailRow from "$lib/components/ui/DetailRow.svelte";
 	import NoticeBox from "$lib/components/ui/NoticeBox.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
+	import { resolveLetterTips } from "$lib/data/tips";
 	import type { Letter } from "$lib/data/types";
+	import { formatPositionPhrase } from "$lib/utils/letter-display";
 
 	let {
 		letters,
@@ -31,6 +33,7 @@
 	// Track which letter the learner is currently viewing
 	let currentIndex = $state(0);
 	const currentLetter = $derived(letters[currentIndex]);
+	const letterTips = $derived(resolveLetterTips(currentLetter));
 
 	/** Advance to next letter, or move to rules step if all letters shown. */
 	function next() {
@@ -54,9 +57,17 @@
 			<div class="letter-intro__details">
 				<div class="letter-intro__details-content">
 					<Reveal as="div" delay={80} distance={14}>
-						<DetailRow label="Sound" value={currentLetter.romanization} />
-						<DetailRow label="Pronunciation" value={currentLetter.pronunciation} />
-						<DetailRow label="Type">
+						<DetailRow
+							label="Sound"
+							value={currentLetter.romanization}
+							tip={letterTips.sound}
+						/>
+						<DetailRow
+							label="Pronunciation"
+							value={currentLetter.pronunciation}
+							tip={letterTips.pronunciation}
+						/>
+						<DetailRow label="Type" tip={letterTips.type}>
 							<Badge>
 								{currentLetter.type}{currentLetter.class
 									? ` (${currentLetter.class} class)`
@@ -65,10 +76,14 @@
 						</DetailRow>
 						<!-- Position only shown for non-standalone characters (vowels that sit above/below/around) -->
 						{#if currentLetter.position && currentLetter.position !== "standalone"}
-							<DetailRow
-								label="Position"
-								value={`Written ${currentLetter.position} the consonant`}
-							/>
+							{@const positionPhrase = formatPositionPhrase(currentLetter.position)}
+							{#if positionPhrase}
+								<DetailRow
+									label="Position"
+									value={positionPhrase}
+									tip={letterTips.position}
+								/>
+							{/if}
 						{/if}
 					</Reveal>
 				</div>

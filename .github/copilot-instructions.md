@@ -11,6 +11,11 @@
 - Use `pnpm check:all` when a change affects formatting, linting, aliases, or SCSS styling conventions.
 - Use `pnpm lint` and `pnpm stylelint` for focused TypeScript, Svelte, and style validation.
 - Run `pnpm build` when route behavior, metadata, env usage, or bundling changes.
+- `pnpm db:reset` resets local Supabase, ensures the local Supabase stack is
+  running, and regenerates `.generated/` lesson publication artifacts so
+  prerendered lesson UI follows the active delivery publication; the artifact
+  generator retries briefly while the local Supabase API warms up after
+  container restarts.
 - When architecture, tech choices, config, environment, deployment, or workflow assumptions change, update every relevant instruction file in the same change.
 - Keep `src/routes` responsible for routing, route data, and metadata.
 - Keep `src/lib/components` responsible for reusable rendering. Keep UI primitives domain-agnostic.

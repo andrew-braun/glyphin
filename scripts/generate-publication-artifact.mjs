@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
+import { setTimeout as delay } from "node:timers/promises";
 import { fileURLToPath } from "node:url";
 
 import { createClient } from "@supabase/supabase-js";
@@ -17,6 +18,8 @@ const repoRoot = resolve(scriptDir, "..");
 const outputDir = resolve(repoRoot, ".generated");
 const legacyArtifactFile = resolve(outputDir, "published-lessons.json");
 const manifestFile = resolve(outputDir, GENERATED_PUBLICATION_MANIFEST_FILE);
+const deliveryFetchRetryAttempts = 12;
+const deliveryFetchRetryDelayMs = 1_000;
 
 function parseDotEnvFile(filePath) {
 	if (!existsSync(filePath)) {
@@ -58,7 +61,31 @@ function getEnvValue(dotEnv, keys) {
 	return "";
 }
 
-async function loadDeliveryArtifact() {
+function getErrorMessage(error) {
+	if (error instanceof Error) {
+		return error.message;
+	}
+
+	if (typeof error === "object" && error !== null && "message" in error) {
+		return String(error.message);
+	}
+
+	return String(error);
+}
+
+function isTransientDeliveryFetchError(error) {
+	const message = getErrorMessage(error).toLowerCase();
+
+	return (
+		message.includes("fetch failed") ||
+		message.includes("econnrefused") ||
+		message.includes("econnreset") ||
+		message.includes("etimedout") ||
+		message.includes("socket hang up")
+	);
+}
+
+async function loadDeliveryArtifactOnce() {
 	const dotEnv = parseDotEnvFile(resolve(repoRoot, ".env"));
 	const supabaseUrl = getEnvValue(dotEnv, [
 		"SUPABASE_DELIVERY_URL",
@@ -131,6 +158,39 @@ async function loadDeliveryArtifact() {
 			return lesson;
 		}),
 	};
+}
+
+async function loadDeliveryArtifact() {
+	let lastTransientError;
+
+	for (let attempt = 1; attempt <= deliveryFetchRetryAttempts; attempt += 1) {
+		try {
+			return await loadDeliveryArtifactOnce();
+		} catch (error) {
+			if (!isTransientDeliveryFetchError(error)) {
+				throw error;
+			}
+
+			lastTransientError = error;
+
+			if (attempt === deliveryFetchRetryAttempts) {
+				break;
+			}
+
+			console.warn(
+				`Delivery API is not ready for publication export yet (${getErrorMessage(
+					error,
+				)}). Retrying in ${deliveryFetchRetryDelayMs}ms (${attempt}/${deliveryFetchRetryAttempts})...`,
+			);
+			await delay(deliveryFetchRetryDelayMs);
+		}
+	}
+
+	throw new Error(
+		`Unable to load the active lesson publication after ${deliveryFetchRetryAttempts} attempts. Check that Supabase is running and the delivery API URL in .env is reachable. Last error: ${getErrorMessage(
+			lastTransientError,
+		)}`,
+	);
 }
 
 const publicationArtifact = await loadDeliveryArtifact();

@@ -33,6 +33,11 @@
 - Use `pnpm lint` and `pnpm stylelint` directly when tightening a focused TypeScript, Svelte, or style slice.
 - Run `pnpm build` whenever a change affects routes, metadata, environment variables, bundling, or deploy behavior.
 - Use `pnpm dev` for manual UI verification.
+- `pnpm db:reset` resets local Supabase, ensures the local Supabase stack is
+  running, and regenerates `.generated/` lesson publication artifacts so
+  prerendered lesson UI reflects the active delivery publication; the artifact
+  generator retries briefly while the local Supabase API warms up after
+  container restarts.
 
 ## Task Tracking
 

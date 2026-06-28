@@ -160,6 +160,8 @@ $space-heading-section: $space-xl;
 	--content-max-width: #{$max-width-content};
 	--text-max-width: #{$max-width-text};
 	--section-heading-gap: #{$space-heading-section};
+	--z-popover: 200;
+	--z-modal: 300;
 }
 
 :root[data-theme="light"] {

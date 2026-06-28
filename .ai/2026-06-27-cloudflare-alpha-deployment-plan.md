@@ -1,18 +1,25 @@
-# Cloudflare Alpha Deployment Plan
+# Cloudflare Workers Alpha Deployment Plan
 
 ## Summary
 
-Deploy Glyphin as a Cloudflare Pages Git deployment backed by a fresh production
-Supabase project. Use a custom domain for the first shared alpha URL. Keep
-Supabase as the runtime backend and make the SvelteKit app edge-compatible by
-removing Node runtime filesystem dependencies and build-time Supabase artifact
-generation from the deploy path.
+Deploy Glyphin as a Cloudflare Workers Static Assets app backed by a fresh
+production Supabase project. Use Workers as the long-term Cloudflare target
+instead of Cloudflare Pages, while still keeping Git-based deployment as the
+steady-state workflow after the first manual deploy is proven.
+
+The deployment model is:
+
+- Public, stable curriculum pages are built from Supabase at deploy time and
+  prerendered into static assets.
+- Personalized/session-aware routes run in the Cloudflare Worker.
+- Supabase remains the source of truth for curriculum, auth, and learner state.
+- The deployed Worker must not depend on runtime Node filesystem access.
 
 Reference docs:
 
+- [Cloudflare SvelteKit Workers guide](https://developers.cloudflare.com/workers/framework-guides/web-apps/sveltekit/)
+- [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/)
 - [SvelteKit Cloudflare adapter](https://svelte.dev/docs/kit/adapter-cloudflare)
-- [Cloudflare Pages](https://developers.cloudflare.com/pages/)
-- [Cloudflare Workers secrets/config](https://developers.cloudflare.com/workers/configuration/secrets/)
 - [Supabase SvelteKit auth](https://supabase.com/docs/guides/auth/server-side/sveltekit)
 
 ## Implementation Steps
@@ -20,44 +27,80 @@ Reference docs:
 ### 1. Prepare A Deployment Branch And Tracker
 
 - Work on `deploy/cloudflare-alpha`.
-- Platform research context lives in `.ai/archive/2026-06-27-deployment-platform-research.md`.
+- Continue updating `.ai/2026-06-27-deployment-platform-research.md`.
 - Treat Supabase project creation, auth, env vars, DNS, and production deploy as
   security-sensitive sign-off gates.
+- Use Workers Static Assets as the deployment target; do not create a Cloudflare
+  Pages project for this alpha.
 
-### 2. Make The SvelteKit App Cloudflare-Compatible
+### 2. Make The SvelteKit App Worker-Compatible
 
 - Replace `@sveltejs/adapter-node` with `@sveltejs/adapter-cloudflare`.
 - Remove unused `@sveltejs/adapter-static` if still unused after the adapter
   swap.
+- Add `wrangler` as a dev dependency.
 - Update `svelte.config.js` to import and use the Cloudflare adapter.
-- Add `wrangler` as a dev dependency for local Cloudflare Pages simulation.
-- Add `wrangler.jsonc` with the Pages project name,
-  `compatibility_date: "2026-06-27"`, and
-  `compatibility_flags: ["nodejs_compat"]`.
-- Keep `vite.config.ts` unchanged unless Cloudflare-specific local dev support
-  proves necessary.
+- Add `wrangler.jsonc` for Workers Static Assets:
+  - `name`: the alpha Worker name, for example `glyphin-alpha`.
+  - `main`: `.svelte-kit/cloudflare/_worker.js`.
+  - `assets.directory`: `.svelte-kit/cloudflare`.
+  - `compatibility_date`: the implementation date.
+  - `compatibility_flags`: start with `["nodejs_als"]`; broaden to
+    `["nodejs_compat"]` only if local Worker testing proves a dependency needs
+    it.
+- Keep `vite.config.ts` unchanged unless Wrangler/SvelteKit integration requires
+  an explicit adjustment during implementation.
 
-### 3. Remove Runtime Filesystem And Build-Time DB Coupling
+### 3. Preserve Build-Time Supabase Reads And Prerendering
 
-- Change `src/lib/server/published-lessons.ts` so production lesson reads always
-  delegate to `delivery-lessons.ts`.
-- Remove the runtime `.generated` manifest/artifact read path from SvelteKit
-  server code.
-- Remove the `prebuild` script from `package.json` so Cloudflare Git builds do
-  not require Supabase access at build time.
-- Keep `publication:generate` as a manual authoring/diagnostic script unless it
-  becomes unused later.
+- Keep build-time reads from Supabase `delivery.*`; the database is the source
+  of truth for published curriculum.
+- Keep `pnpm build` able to generate/prerender public lesson content from the
+  active Supabase publication.
+- Keep or refine `publication:generate` as a build-time publication artifact
+  step if it remains the cleanest way to feed SvelteKit prerendering.
+- Do not remove build-time database access just to make the Worker simpler.
+- Ensure Cloudflare build env vars include:
+  - `SUPABASE_DELIVERY_URL`
+  - `SUPABASE_DELIVERY_ANON_KEY`
+- Preserve prerendering for stable public content:
+  - `/learn`
+  - `/learn/[id]`
+  - other future public lesson/catalog routes that do not need user-specific
+    state.
 
-### 4. Update Durable Docs And Instructions
+### 4. Remove Runtime Filesystem Dependence From The Worker
+
+- Audit `src/lib/server/published-lessons.ts` and related publication paths.
+- Ensure any `.generated` lesson artifacts are consumed during build/prerender,
+  not opened from the deployed Worker at request time.
+- If publication artifacts stay in the repo build flow, make them bundler-safe
+  build inputs or direct prerender inputs.
+- Runtime Worker code should fall back to Supabase only for routes that are not
+  prerendered or are genuinely dynamic.
+- Runtime auth/progress routes remain Worker-backed:
+  - `/auth`
+  - `/auth/sign-out`
+  - `/api/learner/projection`
+  - `/api/learner/sync`
+
+### 5. Update Durable Docs And Instructions
 
 - Update `AGENTS.md` and `.github/copilot-instructions.md` to say the deployment
-  target is Cloudflare Pages with a server-capable SvelteKit runtime.
-- Update `docs/auth.md` to replace the stale `adapter-node` wording with
-  Cloudflare Pages/SvelteKit server runtime wording.
-- Add a short `docs/deployment-cloudflare.md` runbook covering build settings,
-  env vars, deploy flow, custom domain, rollback, and smoke tests.
+  target is Cloudflare Workers Static Assets with a server-capable SvelteKit
+  runtime.
+- Update `docs/auth.md` to replace stale `adapter-node` wording with Cloudflare
+  Workers/SvelteKit server runtime wording.
+- Add a short `docs/deployment-cloudflare.md` runbook covering:
+  - Worker build settings
+  - required build env vars and runtime secrets
+  - manual Wrangler deploy
+  - Workers Builds/Git deployment
+  - custom domain setup
+  - rollback
+  - smoke tests
 
-### 5. Create The Production Supabase Project
+### 6. Create The Production Supabase Project
 
 - Create a fresh Supabase project for alpha.
 - Default region: Southeast Asia/Singapore, because the product is Thai-focused
@@ -69,44 +112,71 @@ Reference docs:
 - After real alpha users exist, stop using remote reset and switch to
   migration-only `pnpm exec supabase db push`.
 
-### 6. Configure Cloudflare Pages Git Deployment
+### 7. Configure Worker Build And Runtime Secrets
 
-- Create a Cloudflare Pages project connected to the Git repository.
-- Production branch: the branch that will receive the deploy work, then later
-  `main` once merged.
-- Build command: `pnpm build`.
-- Build output directory: `.svelte-kit/cloudflare`.
-- Set build/runtime version env vars: `NODE_VERSION=24.15.0` and
-  `PNPM_VERSION=11.6.0`.
-- Set production and preview runtime env vars:
+- Configure local `.env` for build-time Supabase delivery reads.
+- Configure Cloudflare Worker build env vars for publication/prerender:
+  - `SUPABASE_DELIVERY_URL`
+  - `SUPABASE_DELIVERY_ANON_KEY`
+- Configure Worker runtime secrets for auth and learner state:
   - `SUPABASE_DELIVERY_URL`
   - `SUPABASE_DELIVERY_ANON_KEY`
   - `SUPABASE_AUTH_URL`
   - `SUPABASE_AUTH_PUBLISHABLE_KEY`
-- Configure the same compatibility date and `nodejs_compat` flag in the Pages
-  project if the dashboard does not inherit `wrangler.jsonc`.
+- Never use or store a Supabase service-role key in Cloudflare for this alpha.
+- Set build/runtime versions where supported:
+  - `NODE_VERSION=24.15.0`
+  - `PNPM_VERSION=11.6.0`
 
-### 7. Attach The Custom Domain
+### 8. Build And Deploy Manually First
 
-- Add the custom domain in Cloudflare Pages.
+- Run local validation:
+  - `pnpm install`
+  - `pnpm check`
+  - `pnpm check:all`
+  - `pnpm build`
+- Run a local Worker smoke test with Wrangler after a successful build.
+- Deploy manually first with Wrangler so the Worker config, assets, prerendered
+  pages, and runtime routes are proven before Git automation.
+- Verify deployment on the `workers.dev` URL first, even if the first shared URL
+  will be the custom domain.
+
+### 9. Attach The Custom Domain
+
+- Add the custom domain to the Worker route/domain configuration.
 - If the domain is not already on Cloudflare DNS, add the zone or configure the
-  required CNAME.
+  required DNS record.
 - Wait for SSL provisioning to complete.
 - Configure Supabase Auth URL settings:
   - Site URL: the custom domain.
-  - Redirect allow list: the custom domain and the Cloudflare preview domain if
-    preview auth testing is needed.
+  - Redirect allow list: the custom domain and the `workers.dev` preview/test
+    domain if auth testing there is needed.
 - Confirm email OTP templates still send the six-digit code flow expected by the
   current `/auth` page.
 
-### 8. Deploy And Smoke Test
+### 10. Add Git-Based Worker Deployment
 
-- Push the deployment branch and let Cloudflare Pages build from Git.
-- Verify the Pages deployment logs for adapter output, env availability, and no
-  build-time Supabase artifact generation.
-- Test on the custom domain:
+- After manual deploy and smoke tests pass, enable Workers Builds/Git deployment
+  or a GitHub Actions workflow.
+- Preferred steady-state path: Cloudflare Workers Git integration if it supports
+  the needed build env and secret model cleanly.
+- Fallback steady-state path: GitHub Actions running `pnpm install`,
+  `pnpm check`, `pnpm build`, and `pnpm exec wrangler deploy`.
+- Protect production deploys behind the main branch or an explicit release
+  branch.
+- Keep preview/manual deploys available for infrastructure validation.
+
+### 11. Deploy And Smoke Test
+
+- Verify deployment logs for:
+  - Cloudflare adapter output
+  - static asset upload
+  - Worker script upload
+  - successful build-time Supabase publication reads
+  - no runtime filesystem assumptions
+- Test on the deployed Worker:
   - `/` renders.
-  - `/learn` loads published lessons from Supabase.
+  - `/learn` is served as prerendered public content.
   - `/learn/1` and `/learn/1/practice` render.
   - `/api/learner/projection` returns unauthenticated projection for signed-out
     users.
@@ -116,11 +186,13 @@ Reference docs:
 - Confirm secure cookies are `HttpOnly`, `Secure`, and `SameSite=Lax`.
 - Confirm Supabase keys are not serialized into client bundles or page data.
 
-### 9. Rollout And Rollback
+### 12. Rollout And Rollback
 
 - Share the custom domain only after smoke tests pass.
-- Keep Cloudflare Pages preview deployments enabled for future QA.
-- Roll back web issues using Cloudflare Pages deployment rollback.
+- Keep the initial manual deploy command and Worker version available as the
+  rollback reference.
+- Roll back Worker issues using Cloudflare Worker version rollback or by
+  redeploying the last known good build.
 - Roll back code issues by reverting the Cloudflare adapter/config commit.
 - Do not delete/recreate the Supabase project during alpha unless rotating all
   Cloudflare env vars is acceptable.
@@ -129,19 +201,21 @@ Reference docs:
 
 - No learner-facing route or API shape should change in phase 1.
 - Existing server-only env var names remain unchanged.
-- Build behavior changes: `pnpm build` must no longer run
-  `publication:generate`.
-- Deployment target changes from Node adapter output to Cloudflare Pages adapter
-  output.
-- Runtime lesson delivery source becomes Supabase `delivery.*` only.
+- Deployment target changes from Node adapter output to Cloudflare Workers Static
+  Assets output.
+- Public lesson content should be prerendered from Supabase at build time.
+- Runtime Worker routes remain responsible for auth, learner projection, learner
+  sync, and other personalized behavior.
 
 ## Test Plan
 
 - Local checks: `pnpm install`, `pnpm check`, `pnpm check:all`, `pnpm build`.
-- Cloudflare local simulation: `pnpm exec wrangler pages dev .svelte-kit/cloudflare`
-  after a successful build.
+- Cloudflare local simulation: run the built Cloudflare output through Wrangler
+  and verify both static pages and Worker-backed routes.
 - Database checks: `pnpm db:lint`, then verify remote `delivery` and `learner`
   schemas exist after the linked reset.
+- Build-output checks: confirm `/learn` and lesson routes are present as
+  prerendered/static output where SvelteKit emits them.
 - Deployed smoke tests: public lessons, lesson page, practice page, auth OTP,
   progress sync, sign-out, refresh persistence.
 - Security checks: no service-role key in Cloudflare, no env values in client
@@ -150,9 +224,12 @@ Reference docs:
 
 ## Assumptions
 
-- First deploy path is Cloudflare Pages Git integration, not Wrangler direct
-  deploy.
-- First shared URL is a custom domain, with Pages preview URLs kept for QA.
+- First deployment target is Cloudflare Workers Static Assets, not Cloudflare
+  Pages.
+- First operational deploy is manual Wrangler deploy; Git automation follows
+  after the Worker is proven.
+- First shared URL is a custom domain, with `workers.dev` used for internal smoke
+  testing.
 - Supabase production project is fresh and can be destructively rebuilt before
   real alpha data exists.
 - Supabase region defaults to Southeast Asia/Singapore unless the known tester

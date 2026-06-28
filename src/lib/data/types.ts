@@ -1,3 +1,26 @@
+/** Card sections a tip can attach to (mirrors DetailRow slot labels). */
+export type LetterTipSlot = "sound" | "pronunciation" | "type" | "position";
+
+/** A titled section within a modal tip (heading is optional for the first/only section). */
+export interface TipSection {
+	heading?: string;
+	body: string;
+}
+
+/** A reusable explanatory tip, attachable to many letters, words, or grammar concepts. */
+export interface Tip {
+	/** Stable identifier reused across attachment points (e.g. 'consonant-class-tones'). */
+	id: string;
+	/** Short heading shown in the popover or modal. */
+	title: string;
+	/** Summary body — shown as the sole content in popover mode, or as the lead paragraph in modal mode. */
+	body: string;
+	/** How the tip is presented. "popover" is a small floating tooltip; "modal" opens a full dialog for longer content. Defaults to "popover". */
+	display?: "popover" | "modal";
+	/** Additional structured sections shown only in modal mode (e.g. examples, ELI5 explanations). */
+	sections?: TipSection[];
+}
+
 /**
  * Represents a single Thai letter (consonant, vowel, or tone mark) that the learner
  * encounters during a lesson. Each letter includes learning aids such as a mnemonic
@@ -18,6 +41,8 @@ export interface Letter {
 	mnemonic: string;
 	/** Where this character is written relative to its associated consonant */
 	position?: "left" | "right" | "above" | "below" | "around" | "standalone";
+	/** Per-letter tip override ids keyed by card slot; values are Tip ids from the registry. */
+	tips?: Partial<Record<LetterTipSlot, string>>;
 }
 
 /**

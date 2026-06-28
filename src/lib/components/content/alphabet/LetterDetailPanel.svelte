@@ -2,7 +2,9 @@
 	import Button from "$lib/components/ui/Button.svelte";
 	import CollapsiblePanel from "$lib/components/ui/CollapsiblePanel.svelte";
 	import DetailRow from "$lib/components/ui/DetailRow.svelte";
+	import { resolveLetterTips } from "$lib/data/tips";
 	import type { Letter } from "$lib/data/types";
+	import { formatPositionPhrase } from "$lib/utils/letter-display";
 
 	const panelHeadingId = "letter-detail-panel-heading";
 
@@ -13,6 +15,8 @@
 		letter: Letter | null;
 		onClose: () => void;
 	} = $props();
+
+	const letterTips = $derived(letter ? resolveLetterTips(letter) : {});
 </script>
 
 <CollapsiblePanel open={letter !== null} labelledBy={panelHeadingId}>
@@ -27,14 +31,26 @@
 			</div>
 			<div class="detail-panel__char thai">{letter.character}</div>
 			<div class="detail-panel__info">
-				<DetailRow label="Sound" value={letter.romanization} />
-				<DetailRow label="Pronunciation" value={letter.pronunciation} />
+				<DetailRow label="Sound" value={letter.romanization} tip={letterTips.sound} />
+				<DetailRow
+					label="Pronunciation"
+					value={letter.pronunciation}
+					tip={letterTips.pronunciation}
+				/>
 				<DetailRow
 					label="Type"
 					value={`${letter.type}${letter.class ? ` (${letter.class} class)` : ""}`}
+					tip={letterTips.type}
 				/>
 				{#if letter.position && letter.position !== "standalone"}
-					<DetailRow label="Position" value={`Written ${letter.position}`} />
+					{@const positionPhrase = formatPositionPhrase(letter.position)}
+					{#if positionPhrase}
+						<DetailRow
+							label="Position"
+							value={positionPhrase}
+							tip={letterTips.position}
+						/>
+					{/if}
 				{/if}
 				<div class="detail-panel__mnemonic">
 					<strong>Memory trick:</strong>
