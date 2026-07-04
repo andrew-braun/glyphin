@@ -15,7 +15,7 @@ export type PublishedLessonCard = Pick<
 >;
 
 const wordCategories = new Set<Word["category"]>(["place", "food", "transport", "daily", "sign"]);
-const letterTypes = new Set<Letter["type"]>(["consonant", "vowel", "tone_mark"]);
+const letterTypes = new Set<Letter["type"]>(["consonant", "vowel", "tone_mark", "numeral", "mark"]);
 const letterClasses = new Set<NonNullable<Letter["class"]>>(["low", "mid", "high"]);
 const letterPositions = new Set<NonNullable<Letter["position"]>>([
 	"left",

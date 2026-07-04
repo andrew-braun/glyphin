@@ -4,7 +4,7 @@ overview: Complete the Thai reading curriculum by authoring Stages 7–14 (lesso
 todos:
   - id: create-tracker
     content: Create `.ai/2026-06-28-thai-curriculum-completion.md` and link from `.ai/curriculum/thai.md`
-    status: pending
+    status: completed
   - id: score-anchors
     content: Append L22–46 anchors with full numeric scoring fields, run curriculum:score, review weak-band rows, pick L35/L38 representative anchors
     status: pending
@@ -43,11 +43,16 @@ isProject: false
 
 **Decisions locked in:**
 
-- Ship as **`thai-reading-v1` continuation** (same course ID; bump published version when 46 lessons go live).
-- Synthesis lessons **L35** (tone-class matrix) and **L38** (short diphthongs) use **representative anchor words** — no schema change.
+- Ship as a **`thai-reading-v1` continuation**. The curriculum manifest course ID remains `thai-reading-v1`; the runtime `thai` pack ID remains a compatibility slug until a deliberate multi-course migration changes it.
+- Keep v1 lesson data in the current Thai runtime shape. Language-agnostic text-field cleanup is future app-expansion work, not a blocker for completing this curriculum.
+- Continue using manually authored Thai word/syllable segmentation for v1. PyThaiNLP or other tokenizer output may support review, but it is not a publication dependency.
+- Synthesis lessons **L35** (tone-class matrix) and **L38** (short diphthongs) use **representative anchor words** — no schema change. Lock L35 to `ข่าว` and L38 to `เกาะ` unless anchor scoring reveals a clear replacement.
+- Include the tone-class matrix in v1 as a synthesis lesson after all four tone marks are visible. Drills assess visual reading/recognition first; pronunciation accuracy is checked during content review, not treated as an audio-production feature.
+- Teach hidden-vowel frames, true clusters, and leading-`ห` as separate rule cards. Do not collapse them into one generic cluster mechanic.
+- Keep `ร้านอาหาร`, `ออก`, and `ผัก` as practice/review targets unless anchor scoring later proves one should replace a planned anchor.
+- Keep L14 as the authored dense lesson (`ง`, final `ง`, and `อ` as aw) because it is already shipped; flag it for playtesting rather than splitting it before Stage 7 work.
+- Ship L46 as an optional recognition-only appendix. Use historical/obsolete examples such as `ฃวด` only as labeled recognition examples, not modern decoding targets.
 - Treat old `docs/concept/approach-thai.md` references as **superseded** by the current curriculum artifact system (`docs/curriculum/thai.md`, `docs/curriculum/thai-reading-v1/`, and the active `.ai/curriculum/` trackers). Do not restore the old file unless a future audit finds unique surviving content.
-
-**Decision sync required:** These locked decisions must be moved into the durable docs/tracker state before implementation starts, especially [`docs/curriculum/thai-reading-v1/questions.md`](docs/curriculum/thai-reading-v1/questions.md), so implementation does not proceed while the official questions file still lists them as unresolved.
 
 ```mermaid
 flowchart LR
@@ -94,13 +99,13 @@ Also update [`.ai/curriculum/thai.md`](.ai/curriculum/thai.md) summary counts an
 | Item                                                    | Status                                | Resolution                                                                                                                                                                                                                                                                                                                |
 | ------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Stage 7+ anchor scoring                                 | **Blocking setup**                    | Add 25 rows to [`anchor-candidates.csv`](docs/curriculum/thai-reading-v1/anchor-candidates.csv) with every required numeric scoring column populated (`0`–`1`, penalties before notes), run `pnpm curriculum:score`, review weak-band rows before authoring each wave, and record any accepted weak anchor with rationale |
-| L35 / L38 synthesis anchors                             | **Decided; docs must catch up**       | Pick representative anchors during scoring (candidates: `ร้าน`/`สิบ` family for tone-class drill; `เด็ก` or similar for short diphthong review), then move the decision out of unresolved state in `questions.md`                                                                                                         |
-| L46 recognition-only (no decoding drill)                | **Decided; docs must catch up**       | Ship as optional recognition-only appendix unless later review rejects it; use recognition-only drills (`recognize` / `spot`); anchor can be a historical example word or a labeled “glyph gallery” word — still satisfies required `anchorWord`                                                                          |
+| L35 / L38 synthesis anchors                             | **Decided**                           | Use `ข่าว` for L35 tone-class synthesis and `เกาะ` for L38 short-diphthong synthesis unless anchor scoring reveals a clearly better replacement; both remain review/synthesis lessons with no schema change                                                                                                               |
+| L46 recognition-only (no decoding drill)                | **Decided**                           | Ship as optional recognition-only appendix unless later review rejects it; use recognition-only drills (`recognize` / `spot`); use historical/obsolete examples such as `ฃวด` only as labeled recognition examples, not modern decoding targets                                                                           |
 | L33 true clusters (dense)                               | **Watch cadence**                     | One lesson teaching multiple cluster patterns; mirror L14 density precedent or split if playtesting shows overload                                                                                                                                                                                                        |
 | Native-speaker / corpus review                          | **Required before final publication** | Authoring may proceed from scored candidates, but final completion requires Thai-speaker or corpus-backed review of tone marks, romanization, glosses, register, syllable segmentation, and any accepted weak-band anchors                                                                                                |
 | Practice vocabulary (20 target / 10 minimum per lesson) | **Wave gate**                         | New lessons should aim for one anchor plus `20` core practice targets. `10` core targets is the hard minimum; any lesson below `10` must include an explicit exception in the tracker and lesson-sequence docs. Do not treat Stage 6's 4–6 target precedent as the new standard                                           |
 | Stale docs and superseded references                    | **Blocking setup**                    | Fix header/counts in `lesson-sequence.md` (Stages 1–6 shipped), `thai.ts` stage comment, `generate-thai-seed.mjs` release summary/release notes, [`docs/db.md`](docs/db.md) seeded counts, and all `approach-thai.md` references that now point at a missing superseded file                                              |
-| Durable question sync                                   | **Blocking setup**                    | Update `questions.md` so decisions locked in this plan are not still listed as unresolved: v1 continuation, obsolete-glyph appendix stance, L35/L38 representative-anchor strategy, and tone-matrix inclusion in v1                                                                                                       |
+| Durable question sync                                   | **Done for plan finalization**        | `questions.md` should list the decisions above as resolved: v1 continuation, obsolete-glyph appendix stance, L35/L38 representative-anchor strategy, tone-matrix inclusion in v1, manual segmentation for v1, and separate cluster/leading-H rule treatment                                                               |
 
 ---
 
@@ -147,13 +152,13 @@ Mirror the proven Stage 6 workflow in [`src/lib/data/thai.ts`](src/lib/data/thai
 
 ### Wave 4 — Stage 10: Full tone system + marks (L34–38)
 
-| Lesson | Anchor             | Focus                       |
-| ------ | ------------------ | --------------------------- |
-| 34     | `โต๊ะ`             | `๊`, `๋`                    |
-| 35     | TBD representative | tone-class matrix synthesis |
-| 36     | `เด็ก`             | `็` (mai taikhu)            |
-| 37     | `ช้าๆ`             | `ๆ`                         |
-| 38     | TBD representative | short diphthong pairs       |
+| Lesson | Anchor | Focus                       |
+| ------ | ------ | --------------------------- |
+| 34     | `โต๊ะ` | `๊`, `๋`                    |
+| 35     | `ข่าว` | tone-class matrix synthesis |
+| 36     | `เด็ก` | `็` (mai taikhu)            |
+| 37     | `ช้าๆ` | `ๆ`                         |
+| 38     | `เกาะ` | short diphthong pairs       |
 
 ### Wave 5 — Stages 11–14: Numerals through obsolete glyphs (L39–46)
 
@@ -168,8 +173,8 @@ Mirror the proven Stage 6 workflow in [`src/lib/data/thai.ts`](src/lib/data/thai
 
 These are safe to start immediately after plan approval:
 
-1. **Create** [`.ai/2026-06-28-thai-curriculum-completion.md`](.ai/2026-06-28-thai-curriculum-completion.md) with wave checklist and blockers.
-2. **Sync durable decisions first:** update [`questions.md`](docs/curriculum/thai-reading-v1/questions.md), [`.ai/curriculum/thai.md`](.ai/curriculum/thai.md), and [`.ai/curriculum/thai-reading-v1.md`](.ai/curriculum/thai-reading-v1.md) so this plan's locked decisions and Stage 6 status are not contradicted elsewhere.
+1. **Created** [`.ai/2026-06-28-thai-curriculum-completion.md`](.ai/2026-06-28-thai-curriculum-completion.md) with wave checklist and blockers.
+2. **Synced durable decisions for plan finalization:** update [`questions.md`](docs/curriculum/thai-reading-v1/questions.md), [`.ai/curriculum/thai.md`](.ai/curriculum/thai.md), and [`.ai/curriculum/thai-reading-v1.md`](.ai/curriculum/thai-reading-v1.md) so this plan's locked decisions and Stage 6 status are not contradicted elsewhere.
 3. **Retire stale `approach-thai.md` references** by pointing current authority to [`docs/curriculum/thai.md`](docs/curriculum/thai.md) and [`docs/curriculum/thai-reading-v1/`](docs/curriculum/thai-reading-v1/) unless a future audit finds missing unique rationale.
 4. **Append Stage 7–14 provisional anchors** to [`anchor-candidates.csv`](docs/curriculum/thai-reading-v1/anchor-candidates.csv) (from `lesson-sequence.md` table, plus scored candidates for L35/L38). Use the exact existing CSV columns; numeric scoring and penalty fields must all be `0`–`1`, with free-text rationale only in `notes`.
 5. **Run** `pnpm curriculum:score docs/curriculum/thai-reading-v1/anchor-candidates.csv` and review `anchor-candidates.scored.csv` for weak-band surprises, L35/L38 representative-anchor suitability, and any `source_confidence <= 0.72` rows that need reviewer attention.

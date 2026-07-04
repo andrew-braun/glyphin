@@ -45,6 +45,16 @@ export const tipCatalog: Record<string, Tip> = {
 		title: "Tone mark",
 		body: "Tone marks are small symbols written above a consonant to override the default tone of the syllable. Thai has two common tone marks (mai ek ่ and mai tho ้). Their effect depends on the consonant class of the syllable they modify.",
 	},
+	"letter-type-numeral": {
+		id: "letter-type-numeral",
+		title: "Thai numeral",
+		body: "Thai has its own set of digits (๐–๙) that work exactly like 0–9. You'll still see Arabic numerals everywhere in Thailand, but Thai numerals appear on signs, prices, documents, and license plates, so it's worth being able to read both.",
+	},
+	"letter-type-mark": {
+		id: "letter-type-mark",
+		title: "Written mark",
+		body: "This is a written symbol that isn't a consonant, vowel, or tone mark. Thai uses a few of these — for example ๆ repeats the preceding word, and ์ silences the consonant it sits above. Each one changes how you read the syllable rather than adding a sound of its own.",
+	},
 	"vowel-position": {
 		id: "vowel-position",
 		title: "Vowel position",
@@ -69,6 +79,10 @@ export function resolveDefaultLetterTipRefs(
 		refs.type = "letter-type-vowel";
 	} else if (letter.type === "tone_mark") {
 		refs.type = "letter-type-tone-mark";
+	} else if (letter.type === "numeral") {
+		refs.type = "letter-type-numeral";
+	} else if (letter.type === "mark") {
+		refs.type = "letter-type-mark";
 	}
 
 	if (letter.position && letter.position !== "standalone") {

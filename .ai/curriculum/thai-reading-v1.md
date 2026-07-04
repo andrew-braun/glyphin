@@ -2,7 +2,7 @@
 
 - Start date: 2026-05-21
 - Owner: GitHub Copilot
-- Status: wave-b draft
+- Status: implementation-ready after anchor scoring
 
 ## Goal
 
@@ -27,14 +27,16 @@ backfill packet for the existing runtime Thai course.
 - [x] Candidate anchors scored
 - [x] Review packet generated
 - [x] Full-alphabet grapheme inventory scored frequency-first (2026-06-27 pass)
-- [x] Frequency-ordered Stage 6+ lesson sequence drafted
+- [x] Frequency-ordered full-alphabet lesson sequence drafted
+- [x] Stage 6 lessons 14-21 authored, seeded, and smoke-verified
+- [x] Full-curriculum completion plan finalized
 - [ ] First-pass expansion scores reviewed by a Thai speaker / corpus
-- [ ] Anchor candidates scored for Stages 6+
+- [ ] Anchor candidates scored for Stages 7-14
 - [ ] DB ingestion strategy reviewed
-- [ ] Lessons authored beyond existing runtime data
+- [ ] Lessons authored beyond Stage 6
 - [ ] Publication path designed
-- [ ] Practice vocabulary expanded to at least 1 anchor + 10 core practice
-      targets per lesson
+- [ ] New lessons expanded to 1 anchor plus a target of 20 core practice reads
+      per lesson, with 10 as the hard minimum
 - [x] Lesson 1 spoiler audit completed so practice words are not revealed before
       read-before-reveal practice
 
@@ -43,8 +45,10 @@ backfill packet for the existing runtime Thai course.
 - See `docs/curriculum/thai-reading-v1/questions.md`.
 - See `.ai/2026-06-13-practice-vocabulary-expansion.md` for the current
   practice-vocabulary expansion plan.
-- See `.ai/archive/2026-06-27-thai-full-alphabet-research.md` for the full-alphabet
-  research pass and proposed Stage 6+ sequence.
+- See `.ai/archive/2026-06-27-thai-full-alphabet-research.md` for the
+  full-alphabet research pass and proposed Stage 7+ sequence.
+- See `.ai/2026-06-28-thai-curriculum-completion.md` for the active completion
+  tracker and locked decisions.
 
 ## Notes
 
@@ -53,9 +57,10 @@ backfill packet for the existing runtime Thai course.
 - Preserve the runtime order: มาก, ดี, กิน, ตลาด, บิน, แม่, ร้าน, ชุด, สิบ,
   ข้าว, หมู, อาหาร, ผัด.
 - The old two-support-word pattern is now considered underpowered. Future Thai
-  authoring should use one anchor, at least ten core practice targets, and later
-  lessons will include an optional extension set. Nonsense words are allowed when
-  clearly tagged as meaning-free decoding practice.
+  authoring should use one anchor and target 20 core practice reads, with 10 as
+  the hard minimum. Later lessons may include an optional extension set.
+  Nonsense words are allowed when clearly tagged as meaning-free decoding
+  practice.
 - Runtime implementation now supports core versus extension practice, phrase and
   nonsense tagging, and spoiler-safe read-before-reveal sequencing. Lesson 1 has
   been expanded to ten core practice targets; Lessons 2-13 still need their

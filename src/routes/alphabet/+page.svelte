@@ -15,6 +15,8 @@
 	const consonants = $derived(allLetters.filter((l) => l.type === "consonant"));
 	const vowels = $derived(allLetters.filter((l) => l.type === "vowel"));
 	const toneMarks = $derived(allLetters.filter((l) => l.type === "tone_mark"));
+	const numerals = $derived(allLetters.filter((l) => l.type === "numeral"));
+	const marks = $derived(allLetters.filter((l) => l.type === "mark"));
 
 	// Check whether the user has unlocked a letter by completing its lesson
 	function isKnown(char: string): boolean {
@@ -52,11 +54,15 @@
 		};
 	}
 
-	const letterSections = $derived([
-		buildSection(consonants, "alphabet-consonants-heading", "Consonants"),
-		buildSection(vowels, "alphabet-vowels-heading", "Vowels"),
-		buildSection(toneMarks, "alphabet-tone-marks-heading", "Tone Marks"),
-	]);
+	const letterSections = $derived(
+		[
+			buildSection(consonants, "alphabet-consonants-heading", "Consonants"),
+			buildSection(vowels, "alphabet-vowels-heading", "Vowels"),
+			buildSection(toneMarks, "alphabet-tone-marks-heading", "Tone Marks"),
+			buildSection(numerals, "alphabet-numerals-heading", "Numerals"),
+			buildSection(marks, "alphabet-marks-heading", "Marks"),
+		].filter((section) => section.options.length > 0),
+	);
 </script>
 
 <svelte:head>

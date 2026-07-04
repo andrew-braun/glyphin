@@ -1,10 +1,12 @@
 # Thai Reading Lesson Sequence
 
-Stages 1-5 (Lessons 1-13) mirror the current runtime order in
+Stages 1-6 (Lessons 1-21) mirror the current runtime order in
 `src/lib/data/thai.ts` and are shipped today.
 
-Stages 6+ (Lessons 14+) are the **full-alphabet expansion proposal** produced by
-the 2026-06-27 research pass (`.ai/archive/2026-06-27-thai-full-alphabet-research.md`).
+Stages 7+ (Lessons 22+) are the **remaining full-alphabet expansion proposal**
+produced by the 2026-06-27 research pass
+(`.ai/archive/2026-06-27-thai-full-alphabet-research.md`) and finalized for
+authoring in `.ai/2026-06-28-thai-curriculum-completion.md`.
 They are ordered frequency-first from `grapheme-candidates.scored.csv`: the most
 common consonants, vowels, and marks come next, and redundant Sanskrit/Pali
 letters plus obsolete glyphs are grouped near the end. Anchors in the new stages
@@ -15,15 +17,22 @@ units.
 ## Practice Contract
 
 - Every lesson keeps one anchor word.
-- Lesson 1 now targets `10` core practice reads because its decodable pool is
-  smallest and may need low-frequency or nonsense items.
-- Lessons 2-13 should be expanded to `10` core practice reads plus an optional
-  extension set during the next Thai content pass.
+- Lessons 1-13 are already populated (runtime `vocabulary` counts range 4-17;
+  most sit at or near 10+). Only L1 (4, smallest decodable pool) and a few 7-9
+  lessons (L2, L3, L6, L7, L9) are below the `10` target and may top up during a
+  later content pass; they are not a completion blocker.
+- Stage 6 (Lessons 14-21) are the genuinely thin band (4-5 words each) and are
+  the priority backfill target, sourced from `practice-words.md`.
+- Lessons 14-46 draw practice vocab from
+  [`practice-words.md`](practice-words.md) (~16 glyph-constrained words per
+  lesson). Target `20` core practice reads per lesson; `10` is the hard minimum.
+  Any exception must be documented in the completion tracker and this sequence.
 
 ## Course Shape
 
 - First-session reading win: read `มาก`, `ดี`, and `กิน` as useful real words.
-- Approximate lesson count: 13 current runtime lessons.
+- Current runtime count: 21 shipped lessons.
+- Target completion count: 46 lessons.
 - Structural family: Thai abugida with consonant classes, non-linear vowel
   placement, tone marks, final consonant roles, silent carriers, and leading-H
   clusters.
@@ -69,9 +78,10 @@ units.
 | 12     | `อาหาร` | อ         | `อ` can silently carry an opening vowel; final `ร` often sounds n. | ห, ร, า, ด, น       | Read food and restaurant signs with carrier behavior. |
 | 13     | `ผัด`   | ผ, ั      | Aspirated `ผ`; short `ั` sits above.                               | ด, ต, ข, ห, อ, ม, า | Unlock stir-fry words and short-a menu chunks.        |
 
-## Full-Alphabet Expansion (Proposed, Stages 6+)
+## Full-Alphabet Expansion (Stages 6-14)
 
-The stages below extend the shipped 13 lessons to complete-script coverage.
+Stages 1-6 are shipped; Stages 7-14 extend the 21-lesson runtime course to
+complete-script coverage.
 Ordering follows `grapheme-candidates.scored.csv` descending, so the highest
 frequency/utility units are taught first. Frequencies were recalibrated on
 2026-06-27 against a corpus review (the 2023 modern-written-Thai character
@@ -106,12 +116,9 @@ new ideas (`ง`, final `ง`, and the `อ`-as-aw vowel) — see the cadence no
 | 21     | `ยา`            | ย, final ย ว   | `ย` gives y and also closes glide finals.                      | Read pharmacy and label words plus glide finals.      |
 
 Cadence note: Lesson 14 is the densest lesson in the course so far (three new
-ideas at once), which the anchor score surfaces. Options for authoring: keep it
-as one lesson, or split the `อ`-as-aw vowel into its own beat (e.g. anchor `รอ`
-"to wait") and let Lesson 14 focus on `ง` + final `ng`. The shipped cadence
-averages one–two new units per lesson, so a split would match precedent; left as
-a single lesson it is the one spot to watch in playtesting. Decide before
-authoring.
+ideas at once), which the anchor score surfaces. Decision 2026-06-28: keep it as
+the authored shipped lesson and flag it for playtesting rather than splitting it
+before Stage 7 work.
 
 ## Stage 7: Remaining Core Consonants And Wrap-Around Vowels
 
@@ -145,10 +152,10 @@ authoring.
 | Lesson | Anchor (provisional) | New units         | Rule or pattern                                                       | Drill focus                                    |
 | ------ | -------------------- | ----------------- | --------------------------------------------------------------------- | ---------------------------------------------- |
 | 34     | `โต๊ะ`               | ๊, ๋              | `๊`/`๋` complete the four tone marks.                                 | Read all four tone marks in context.           |
-| 35     | (review)             | tone-class matrix | Formal mid/high/low class x mark x live/dead system, taught as rules. | Systematize tone from class + mark + syllable. |
+| 35     | `ข่าว`               | tone-class matrix | Formal mid/high/low class x mark x live/dead system, taught as rules. | Systematize tone from class + mark + syllable. |
 | 36     | `เด็ก`               | ็ (mai taikhu)    | `็` shortens the vowel and carries no sound of its own.               | Read short-vowel closed syllables.             |
 | 37     | `ช้าๆ`               | ๆ (maiyamok)      | `ๆ` repeats the previous word.                                        | Read repetition/plural/emphasis forms.         |
-| 38     | (review)             | short diphthongs  | `เ-าะ เ-ะ แ-ะ โ-ะ` short pairs and unwritten short-o.                 | Read short diphthong pairs.                    |
+| 38     | `เกาะ`               | short diphthongs  | `เ-าะ เ-ะ แ-ะ โ-ะ` short pairs and unwritten short-o.                 | Read short diphthong pairs.                    |
 
 ## Stage 11: Numerals And Abbreviations
 
@@ -179,9 +186,9 @@ genuinely rare `ฐ ฑ ฒ ฎ ฏ ฆ ฬ ฌ` group (L44).
 
 ## Stage 14: Historical Glyphs (Optional Recognition Only)
 
-| Lesson | Anchor | New units          | Rule or pattern                                        | Drill focus                          |
-| ------ | ------ | ------------------ | ------------------------------------------------------ | ------------------------------------ |
-| 46     | none   | ฃ, ฅ, ฦ, ฦๅ, ฤๅ, ๅ | Obsolete/archaic glyphs no longer used in modern Thai. | Recognition only; no decoding drill. |
+| Lesson | Anchor | New units          | Rule or pattern                                        | Drill focus                                 |
+| ------ | ------ | ------------------ | ------------------------------------------------------ | ------------------------------------------- |
+| 46     | `ฃวด`  | ฃ, ฅ, ฦ, ฦๅ, ฤๅ, ๅ | Obsolete/archaic glyphs no longer used in modern Thai. | Recognition only; no modern decoding drill. |
 
 ## Coverage Notes
 
@@ -189,8 +196,9 @@ genuinely rare `ฐ ฑ ฒ ฎ ฏ ฆ ฬ ฌ` group (L44).
   market labels, door signs, basic transit words, and public-facility labels.
 - Known-grapheme goal (shipped): by Lesson 7, cover the first runtime consonants,
   right/above/left vowel placement, and two tone marks; by Lesson 13, cover the
-  current runtime high-class food consonants, below vowels, silent carrier, and
-  leading-H pattern.
+  high-class food consonants, below vowels, silent carrier, and leading-H pattern;
+  by Lesson 21, cover high-frequency `ง`, low `ท`, `จ`, `ะ`, leading vowels
+  (`เ ไ ใ โ`), `ป`, `ย`, and glide/final rules.
 - Known-grapheme goal (proposed): by Lesson 25, cover all high-frequency live
   consonants, the leading-vowel system, and wrap-around vowels; by Lesson 38,
   cover the full vowel chart, all four tone marks, the formal tone-class system,
@@ -200,7 +208,7 @@ genuinely rare `ฐ ฑ ฒ ฎ ฏ ฆ ฬ ฌ` group (L44).
   by Lesson 13, learners decode the current runtime menu and storefront core; by
   Lesson 25, learners decode the bulk of everyday signage; by Lesson 40, learners
   decode prices, abbreviations, and most loanword spellings.
-- Now in scope (Stages 6+): all 44 consonants, the full vowel chart, all four
+- Now in scope for completed v1: all 44 consonants, the full vowel chart, all four
   tone marks, the formal tone-class matrix, Thai numerals, silent and repetition
   marks, true clusters, and the main spelling exceptions.
 - Still deferred beyond this packet: handwriting/production, tokenizer-backed

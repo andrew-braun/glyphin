@@ -1,48 +1,56 @@
 # Thai Reading Questions
 
-Use this file for unresolved decisions that research cannot safely settle during
-the `thai-reading-v1` bootstrap.
+Use this file for open questions, review gates, and resolved decisions from the
+`thai-reading-v1` bootstrap.
 
 ## Architecture
 
-- How should the DB model represent Thai pedagogical units that are not simple
-  Unicode grapheme clusters, such as final-consonant roles, leading-H chunks,
-  tone-marked syllables, and silent carrier behavior?
-- Should the already shipped runtime course map to a new `thai-reading-v1` course
-  ID, or should publication preserve the current runtime `thai` pack identity as
-  a compatibility alias?
 - How should current Thai-specific fields such as `thai` in runtime lesson data
   be generalized before this packet becomes multi-course DB seed data?
-- Should authored Thai word segmentation remain manual for v1, or should a
-  reviewed PyThaiNLP pass become part of publication QA?
 
 ## Resolved
 
 - Full-alphabet coverage is now in scope (decision 2026-06-27). The remaining
   Thai inventory has been scored frequency-first in
-  `grapheme-candidates.scored.csv`, and a proposed Stage 6+ sequence is drafted
+  `grapheme-candidates.scored.csv`, and a proposed Stage 7+ sequence is drafted
   in `lesson-sequence.md`. Tracking: `.ai/archive/2026-06-27-thai-full-alphabet-research.md`.
 - Redundant phonemes (multiple glyphs -> one sound) and obsolete glyphs are
   grouped into late "same sound, rarer glyph" recognition lessons rather than
   given individual high-effort lessons.
+- The full-alphabet expansion ships as a continuation of `thai-reading-v1`, not
+  as a new `thai-reading-v2` boundary. The manifest course ID remains
+  `thai-reading-v1`; the runtime `thai` pack ID remains a compatibility slug
+  until a deliberate multi-course migration changes it.
+- For v1, pedagogical units that are not simple Unicode grapheme clusters remain
+  modeled through authored lesson rules, tips, drills, review letters, and
+  practice vocabulary. No DB schema change is required before lessons 22-46.
+- Authored Thai word and syllable segmentation remains manual for v1. PyThaiNLP
+  or another tokenizer may be used as a reviewer aid, but not as an automatic
+  publication dependency.
+- The obsolete/historical glyph set (`ฃ ฅ ฦ ฦๅ ฤๅ ๅ`) ships as optional
+  recognition-only L46 unless final review rejects it.
+- L35 includes the formal tone-class matrix in v1 as a synthesis lesson. Use
+  `ข่าว` as the representative anchor unless anchor scoring finds a clear
+  replacement.
+- L38 uses `เกาะ` as the representative anchor for short diphthong synthesis
+  unless anchor scoring finds a clear replacement.
+- Tone marks are assessed primarily as visual reading/recognition in drills.
+  Pronunciation, romanization, and gloss accuracy are final content-review gates,
+  not an audio-production scope requirement.
+- Hidden-vowel frames, true initial clusters, and leading-`ห` stay separate rule
+  cards rather than one generic cluster mechanic.
+- `ร้านอาหาร`, `ออก`, and `ผัก` remain practice/review targets unless anchor
+  scoring later proves that one should replace a planned anchor.
+- Stage 7+ lessons target 20 core practice reads per lesson. Ten core practice
+  reads is the hard minimum and any exception must be documented in the task
+  tracker and `lesson-sequence.md`.
 
 ## Product And Pedagogy
 
 - The first-pass expansion scores are LLM frequency intuition only and need a
   Thai-speaker / corpus review before they are treated as a final sequence.
-- Should the full-alphabet expansion ship as a continuation of `thai-reading-v1`
-  or as a new `thai-reading-v2` course boundary?
-- Should obsolete glyphs (`ฃ ฅ ฦ ฦๅ`) and archaic marks ship as an optional
-  recognition-only appendix lesson, or be dropped from the taught path entirely?
-- Anchors for Stages 6+ are provisional and still need the anchor-candidate
+- Anchors for Stages 7-14 are provisional and still need the anchor-candidate
   scoring pass before lesson authoring.
-- How much of the formal tone-class matrix belongs in v1 versus later review?
-- Should tone marks be assessed as pronunciation, visual recognition, or both?
-- Should clusters such as `ตล` in `ตลาด` and leading `ห` be taught with one
-  shared cluster mechanic or separate script-specific rule cards?
-- Should `ร้านอาหาร`, `ออก`, and `ผัก` become first-class anchors when Thai is
-  reauthored for DB delivery, or remain lesson practice targets around current
-  anchors?
 
 ## Sources, Licensing, And Attribution
 
@@ -58,7 +66,7 @@ the `thai-reading-v1` bootstrap.
 - Assign a Thai speaker to validate tone marks, romanization, glosses, food
   vocabulary, and register.
 - Spot-check menus, storefronts, market price signs, transit labels, and public
-  facility signs against the current 13-lesson coverage.
+  facility signs against the current 21-lesson coverage.
 - Verify fonts render Thai above and below marks clearly at lesson and drill
   sizes on mobile and desktop.
 

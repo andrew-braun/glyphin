@@ -1966,6 +1966,2242 @@ const baseLessons: BaseLesson[] = [
 		],
 		reviewLetters: ["ร", "ว", "า", "ข"],
 	},
+	{
+		id: 22,
+		stage: 7,
+		title: "คน — The Low-Class kh",
+		anchorWord: {
+			thai: "คน",
+			meaning: "person",
+			pronunciation: "khon",
+			category: "daily",
+			syllables: [{ thai: "คน", sound: "khon" }],
+			contextNote:
+				"คน (person) is one of the highest-frequency words in Thai. It opens countless compounds — คนไทย (Thai person), คนขับ (driver) — and shows the low-class partner of the kh sound you met in ข.",
+		},
+		newLetters: [
+			{
+				character: "ค",
+				romanization: "kh",
+				pronunciation: 'kh with a puff of air, like the "c" in "cat"',
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ค is ค ควาย (khaw khwaai, buffalo). Picture a broad water buffalo; ค gives the same breathy kh as ข but belongs to the low class.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "low-kh",
+				name: "ค Is a Low-Class kh",
+				shortDescription: "ค makes the aspirated kh sound and is a low-class consonant",
+				explanation:
+					"ค gives the same breathy kh you learned from ข, released with a puff of air. What differs is its class: ค is low class, so it follows the low-class tone rules rather than the high-class ones.",
+				examples: ["คน = khon", "คิด = khít"],
+			},
+			{
+				id: "kh-pair-class",
+				name: "ค and ข Share a Sound",
+				shortDescription: "ข and ค both sound kh; ข is high class, ค is low class",
+				explanation:
+					"ข and ค are pronounced the same way, but their class decides the tone. This high/low pairing repeats across Thai, so learning both members together makes later tone rules easier.",
+				examples: ["ขา = khǎa", "คา = khaa"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter is the low-class "kh"?',
+				options: ["ค", "ข", "ก", "ง"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What sound does ค make?",
+				options: ["kh with a puff of air", "hard g", "ng", "s"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How do ข and ค differ?",
+				options: [
+					"they sound the same but differ in class",
+					"ค is a vowel",
+					"ข is nasal",
+					"they are unrelated",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does คน mean?",
+				options: ["person", "way", "fish", "medicine"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "person"?',
+				options: ["คน", "นค", "ขน", "คง"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ข", "น", "ร"],
+	},
+	{
+		id: 23,
+		stage: 7,
+		title: "แพง — The Low-Class ph",
+		anchorWord: {
+			thai: "แพง",
+			meaning: "expensive",
+			pronunciation: "phaeng",
+			category: "sign",
+			syllables: [{ thai: "แพง", sound: "phaeng" }],
+			contextNote:
+				"แพง (expensive) is a core price-tag adjective. It also completes the trio of p letters: ป (bp), ผ (ph, high), and now พ (ph, low).",
+		},
+		newLetters: [
+			{
+				character: "พ",
+				romanization: "ph",
+				pronunciation: 'ph with a puff of air, like the "p" in "pin"',
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"พ is พ พาน (phaw phaan, a footed offering tray). Picture the tall pedestal tray; พ gives the aspirated ph sound in the low class.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "low-ph",
+				name: "พ Is a Low-Class ph",
+				shortDescription: "พ makes an aspirated ph and is low class",
+				explanation:
+					"พ is a ph released with a puff of air, the same breathy sound as ผ. The difference is class: พ is low class, ผ is high class, so the two take different tones.",
+				examples: ["แพง = phaeng", "พูด = phûut"],
+			},
+			{
+				id: "three-p-letters",
+				name: "Thai Has Three p Letters",
+				shortDescription: "ป is bp (no air), ผ is high ph, พ is low ph",
+				explanation:
+					"Keep the three apart by air and class: ป (bp) is tight with no puff, while ผ and พ both add a puff of air — ผ high class, พ low class. The puff and the class together decide the word.",
+				examples: ["ปา = bpaa", "ผา = phǎa", "พา = phaa"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter is the low-class "ph"?',
+				options: ["พ", "ผ", "ป", "บ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What sound does พ make?",
+				options: ["ph with a puff of air", "bp with no air", "f", "m"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "Which letter has NO puff of air?",
+				options: ["ป", "ผ", "พ", "ค"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does แพง mean?",
+				options: ["expensive", "cheap", "open", "person"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "expensive"?',
+				options: ["แพง", "พงแ", "แผง", "แพน"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["แ", "ง", "ผ", "ป"],
+	},
+	{
+		id: 24,
+		stage: 7,
+		title: "น้ำ — The am Vowel",
+		anchorWord: {
+			thai: "น้ำ",
+			meaning: "water",
+			pronunciation: "náam",
+			category: "daily",
+			syllables: [{ thai: "น้ำ", sound: "náam" }],
+			contextNote:
+				"น้ำ (water) is everywhere — bottles, menus, and compounds like น้ำแข็ง (ice) and น้ำมัน (oil). It introduces ◌ำ, a vowel that carries its own final m.",
+		},
+		newLetters: [
+			{
+				character: "ำ",
+				romanization: "am",
+				pronunciation: 'short "am", like the "um" in "hum"',
+				type: "vowel",
+				mnemonic:
+					"ำ is sara am: a little circle rides above and a tail hooks down on the right. It always ends in an m, so you never add a separate final.",
+				position: "right",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "am-vowel",
+				name: "◌ำ Is the am Vowel",
+				shortDescription: "◌ำ gives a short 'am' with a built-in final m",
+				explanation:
+					"◌ำ is a short vowel that already includes its final m, so ทำ is read tham and คำ is read kham. You never write a separate ม after it.",
+				examples: ["ทำ = tham", "คำ = kham"],
+			},
+			{
+				id: "naam-length",
+				name: "น้ำ Stretches Long on Its Own",
+				shortDescription: "น้ำ is long by itself but short inside compounds",
+				explanation:
+					"By itself น้ำ is pronounced long (náam). Inside a compound the vowel shortens, as in น้ำมัน (nám-man, oil). It is the one common exception to the short ◌ำ.",
+				examples: ["น้ำ = náam", "น้ำมัน = nám-man"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which vowel makes the "am" sound?',
+				options: ["ำ", "า", "ั", "ู"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What sound ends every ◌ำ syllable?",
+				options: ["m", "n", "ng", "k"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How is น้ำ pronounced on its own?",
+				options: ["long: náam", "short: nám", "with a k", "with an ng"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does น้ำ mean?",
+				options: ["water", "word", "person", "fire"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "water"?',
+				options: ["น้ำ", "นำ", "ทำ", "คำ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["น", "้", "ท", "ค"],
+	},
+	{
+		id: 25,
+		stage: 7,
+		title: "เขา — The Wrap-Around ao Vowel",
+		anchorWord: {
+			thai: "เขา",
+			meaning: "he / she / they",
+			pronunciation: "khǎo",
+			category: "daily",
+			syllables: [{ thai: "เขา", sound: "khǎo" }],
+			contextNote:
+				"เขา is the everyday pronoun for he, she, or they. It shows how เ and า wrap around a consonant to make the short ao diphthong.",
+		},
+		newLetters: [
+			{
+				character: "เ◌า",
+				romanization: "ao",
+				pronunciation: 'short "ao", like the "ow" in "cow"',
+				type: "vowel",
+				mnemonic:
+					"เ leads on the left and า trails on the right, wrapping the consonant. Read the consonant first, then the ao that surrounds it.",
+				position: "around",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "ao-frame",
+				name: "เ + า Wrap to Make ao",
+				shortDescription: "เ before and า after a consonant give the short ao vowel",
+				explanation:
+					"You already know เ and า on their own. Together, with เ on the left and า on the right, they frame the consonant and produce a short ao. Always read the consonant before the vowel sound.",
+				examples: ["เขา = khǎo", "เรา = rao"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which frame makes the "ao" sound?',
+				options: ["เ◌า", "โ◌", "ไ◌", "เ◌"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "In เขา, which sound comes first?",
+				options: ["the consonant kh", "the า", "the เ", "an m"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How is the เ-า vowel written?",
+				options: ["wrapped around the consonant", "only above", "only below", "only after"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does เขา mean?",
+				options: ["he / she / they", "we", "water", "person"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "he / she / they"?',
+				options: ["เขา", "ขาว", "เรา", "เขาน"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["เ", "า", "ข", "ร"],
+	},
+	{
+		id: 26,
+		stage: 8,
+		title: "ซอย — The Low-Class s",
+		anchorWord: {
+			thai: "ซอย",
+			meaning: "lane / soi",
+			pronunciation: "sawy",
+			category: "sign",
+			syllables: [{ thai: "ซอย", sound: "sawy" }],
+			contextNote:
+				"ซอย (a lane off a main road) is part of nearly every Thai address. It introduces ซ, the low-class partner of the s sound.",
+		},
+		newLetters: [
+			{
+				character: "ซ",
+				romanization: "s",
+				pronunciation: 's as in "sun"',
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ซ is ซ โซ่ (saw sôo, a chain). Picture the links of a chain; ซ gives a plain s in the low class.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "low-s",
+				name: "ซ Is a Low-Class s",
+				shortDescription: "ซ makes a plain s and is low class",
+				explanation:
+					"ซ is a straightforward s sound, but unlike the high-class ส you met earlier, it is low class and follows the low-class tone rules.",
+				examples: ["ซอย = sawy", "ซื้อ = súe"],
+			},
+			{
+				id: "s-look-alikes",
+				name: "ซ, ส, and ช Look Similar",
+				shortDescription: "ซ and ส both sound s; ช is a different ch sound",
+				explanation:
+					"ซ (low s) and ส (high s) share a sound but differ in class. ช looks similar but is a ch. Check the small details of each letter before you read it.",
+				examples: ["ซอง = sawng", "สอง = sǎwng"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter is the low-class "s"?',
+				options: ["ซ", "ส", "ช", "จ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What sound does ซ make?",
+				options: ["s", "ch", "z as in zoo", "sh"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How do ซ and ส differ?",
+				options: [
+					"they sound the same but differ in class",
+					"ซ is a vowel",
+					"ส is nasal",
+					"they are unrelated",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ซอย mean?",
+				options: ["lane / soi", "road", "left", "envelope"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "lane / soi"?',
+				options: ["ซอย", "สอย", "ซอง", "ยอซ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["อ", "ย", "ส", "ช"],
+	},
+	{
+		id: 27,
+		stage: 8,
+		title: "ไฟ — The Low-Class f",
+		anchorWord: {
+			thai: "ไฟ",
+			meaning: "fire / light",
+			pronunciation: "fai",
+			category: "sign",
+			syllables: [{ thai: "ไฟ", sound: "fai" }],
+			contextNote:
+				"ไฟ means fire, light, or electricity. It powers everyday signs like ไฟฟ้า (electricity) and ไฟแดง (red light), and introduces the low-class f.",
+		},
+		newLetters: [
+			{
+				character: "ฟ",
+				romanization: "f",
+				pronunciation: 'f as in "fan"',
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ฟ is ฟ ฟัน (faw fan, teeth). Picture a row of teeth; ฟ gives a plain f in the low class.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "low-f",
+				name: "ฟ Is a Low-Class f",
+				shortDescription: "ฟ makes a plain f and is low class",
+				explanation:
+					"ฟ is a simple f sound and is low class. You will meet its rarer high-class partner ฝ later; for now, ฟ covers almost every f word you will read.",
+				examples: ["ไฟ = fai", "ฟัง = fang"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter makes the "f" sound?',
+				options: ["ฟ", "พ", "ผ", "ป"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What sound does ฟ make?",
+				options: ["f", "ph with a puff", "bp", "v"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ไฟ mean?",
+				options: ["fire / light", "water", "road", "cheap"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "fire / light"?',
+				options: ["ไฟ", "ฟไ", "ไพ", "ไฟฟ"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ไฟฟ้า mean?",
+				options: ["electricity", "firewood", "candle", "sunlight"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ไ", "แ", "ด", "ง"],
+	},
+	{
+		id: 28,
+		stage: 8,
+		title: "ถนน — The High-Class th and Leading Consonants",
+		anchorWord: {
+			thai: "ถนน",
+			meaning: "road / street",
+			pronunciation: "thà-nǒn",
+			category: "sign",
+			syllables: [
+				{ thai: "ถ", sound: "thà" },
+				{ thai: "นน", sound: "nǒn" },
+			],
+			contextNote:
+				"ถนน (road) appears on every street sign. It also shows the leading-consonant rule: the high-class ถ reaches across and sets the tone of the next syllable.",
+		},
+		newLetters: [
+			{
+				character: "ถ",
+				romanization: "th",
+				pronunciation: 'th with a puff of air, like the "t" in "top"',
+				type: "consonant",
+				class: "high",
+				mnemonic:
+					"ถ is ถ ถุง (thǎw thǔng, a bag). Picture a drawstring sack; ถ gives an aspirated th in the high class.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "high-th",
+				name: "ถ Is a High-Class th",
+				shortDescription: "ถ makes an aspirated th and is high class",
+				explanation:
+					"ถ is a th released with a puff of air, the same sound as low-class ท. Because ถ is high class, it follows high-class tone rules instead.",
+				examples: ["ถาม = thǎam", "ถูก = thùuk"],
+			},
+			{
+				id: "leading-consonant",
+				name: "A Lone Consonant Can Lead the Next Syllable",
+				shortDescription: "In ถนน, ถ has no vowel and passes its class to นน",
+				explanation:
+					"When a consonant has no vowel of its own, it borrows a short 'a' and leads into the next syllable, lending its class. In ถนน the high-class ถ makes the second syllable rise: thà-nǒn.",
+				examples: ["ถนน = thà-nǒn", "ขนม = khà-nǒm"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter is the high-class "th"?',
+				options: ["ถ", "ท", "ต", "ด"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How do ถ and ท differ?",
+				options: [
+					"same sound, different class",
+					"ถ is a vowel",
+					"ท is unaspirated",
+					"they are unrelated",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "In ถนน, what does the leading ถ do?",
+				options: [
+					"sets the tone of the next syllable",
+					"stays silent",
+					"adds an m",
+					"nothing",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ถนน mean?",
+				options: ["road / street", "bag", "to ask", "cheap"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "road / street"?',
+				options: ["ถนน", "ทนน", "ถนม", "นนถ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["น", "ท", "า", "ง"],
+	},
+	{
+		id: 29,
+		stage: 8,
+		title: "มือ — The ue Vowels",
+		anchorWord: {
+			thai: "มือ",
+			meaning: "hand",
+			pronunciation: "mue",
+			category: "daily",
+			syllables: [{ thai: "มือ", sound: "mue" }],
+			contextNote:
+				"มือ (hand) shows the long ue vowel and its silent อ seat. It builds mobile-age words like มือถือ (mobile phone), literally 'hand-hold'.",
+		},
+		newLetters: [
+			{
+				character: "ื",
+				romanization: "ue",
+				pronunciation: 'long "ue" — say "ee" with your lips relaxed and pulled back',
+				type: "vowel",
+				mnemonic:
+					"◌ื is the long ue vowel; the two marks above stretch the sound. Say a long ee but unround your lips.",
+				position: "above",
+			},
+			{
+				character: "ึ",
+				romanization: "ue",
+				pronunciation: 'short "ue" — a quick, clipped version of the long ◌ื',
+				type: "vowel",
+				mnemonic:
+					"◌ึ is the short ue; a single hook above gives one short beat of the same unrounded sound.",
+				position: "above",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "ue-vowels",
+				name: "◌ื and ◌ึ Are the ue Vowels",
+				shortDescription: "◌ื is long ue, ◌ึ is short ue",
+				explanation:
+					"Both make the unrounded ue sound; length is the only difference. ◌ื is held long, ◌ึ is clipped short. Watch which one sits above the consonant.",
+				examples: ["ลืม = luem", "หนึ่ง = nùeng"],
+			},
+			{
+				id: "silent-aw-seat",
+				name: "A Bare ◌ื Rests on a Silent อ",
+				shortDescription: "With no final, ◌ื is written ◌ือ and the อ stays silent",
+				explanation:
+					"When a long ◌ื has no final consonant, Thai writes a silent อ as a seat, so มือ is read mue. The อ here adds no sound of its own.",
+				examples: ["มือ = mue", "คือ = khue"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which vowel is the long "ue"?',
+				options: ["ื", "ึ", "ี", "ู"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How do ◌ื and ◌ึ differ?",
+				options: [
+					"length: long vs short",
+					"one is a tone mark",
+					"one is nasal",
+					"they are the same",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "In มือ, what does the อ do?",
+				options: [
+					"it is a silent seat",
+					"it adds an aw sound",
+					"it is a final k",
+					"it is a tone mark",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does มือ mean?",
+				options: ["hand", "night", "hair", "one"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "hand"?',
+				options: ["มือ", "มอ", "มู", "อืม"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ม", "อ", "ถ", "ค"],
+	},
+	{
+		id: 30,
+		stage: 9,
+		title: "เบียร์ — The ia Vowel and the Silent Mark",
+		anchorWord: {
+			thai: "เบียร์",
+			meaning: "beer",
+			pronunciation: "biia",
+			category: "food",
+			syllables: [{ thai: "เบียร์", sound: "biia" }],
+			contextNote:
+				"เบียร์ (beer) is a loanword that shows two new tools: the ia diphthong and ◌์, the mark that silences a consonant — here the final ร.",
+		},
+		newLetters: [
+			{
+				character: "เ◌ีย",
+				romanization: "ia",
+				pronunciation: 'the "ia" glide, like "ea" in "ear"',
+				type: "vowel",
+				mnemonic:
+					"เ leads on the left, ◌ี rides above, and ย trails on the right. Together they glide from ee into a, the ia diphthong.",
+				position: "around",
+			},
+			{
+				character: "์",
+				romanization: "(silent)",
+				pronunciation: "karan — it silences the consonant it sits above",
+				type: "mark",
+				mnemonic:
+					"◌์ is the karan (thanthakhat). Think of it crossing out the consonant beneath it, so you do not pronounce that letter.",
+				position: "above",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "ia-vowel",
+				name: "เ-ีย Is the ia Diphthong",
+				shortDescription: "เ + ◌ี + ย make a gliding ia sound",
+				explanation:
+					"The frame เ-ีย glides from an ee into an a. It is common in everyday words like เรียน (to study) and เขียน (to write).",
+				examples: ["เรียน = rian", "เสีย = sǐia"],
+			},
+			{
+				id: "karan-silent",
+				name: "◌์ Silences a Consonant",
+				shortDescription: "A consonant under ◌์ is not pronounced",
+				explanation:
+					"The karan mark cancels the consonant beneath it. It appears mostly in loanwords and Pali/Sanskrit spellings, as in เบียร์ (beer), where the final ร is silent.",
+				examples: ["เบียร์ = biia", "อาทิตย์ = aa-thít"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which frame makes the "ia" sound?',
+				options: ["เ◌ีย", "เ◌า", "◌ัว", "เ◌อ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What does the ◌์ mark do?",
+				options: [
+					"silences the consonant beneath it",
+					"raises the tone",
+					"adds an m",
+					"lengthens the vowel",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "In เบียร์, why is the ร silent?",
+				options: [
+					"it carries a karan mark",
+					"it is a vowel",
+					"it is doubled",
+					"it is at the start",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does เบียร์ mean?",
+				options: ["beer", "week", "to study", "to lose"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "beer"?',
+				options: ["เบียร์", "เบีย", "เรียน", "เบยร์"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["เ", "ี", "ย", "บ", "ร"],
+	},
+	{
+		id: 31,
+		stage: 9,
+		title: "วัว — The ua Vowel",
+		anchorWord: {
+			thai: "วัว",
+			meaning: "cow",
+			pronunciation: "wuua",
+			category: "daily",
+			syllables: [{ thai: "วัว", sound: "wuua" }],
+			contextNote:
+				"วัว (cow) introduces the ua diphthong. It is a friendly word that also shows how ◌ั teams up with ว to make a gliding vowel.",
+		},
+		newLetters: [
+			{
+				character: "◌ัว",
+				romanization: "ua",
+				pronunciation: 'the "ua" glide, like "oo-a" said quickly',
+				type: "vowel",
+				mnemonic:
+					"◌ั sits above the consonant and ว trails after it. Together they glide from oo into a — the ua diphthong.",
+				position: "around",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "ua-vowel",
+				name: "◌ัว Is the ua Diphthong",
+				shortDescription: "◌ั + ว make a gliding ua sound when there is no final",
+				explanation:
+					"With no final consonant, ◌ั and ว together make ua, as in วัว (cow) and ตัว (body/classifier). Read the consonant, then glide oo-a.",
+				examples: ["วัว = wuua", "ตัว = dtuua"],
+			},
+			{
+				id: "ua-with-final",
+				name: "ua Splits Around a Final",
+				shortDescription: "With a final, the vowel is written ◌ว◌",
+				explanation:
+					"When the ua syllable has a final consonant, the vowel is written with ว in the middle, as in สวน (sǔuan, garden). It is the same ua sound, just reshaped to fit the final.",
+				examples: ["สวน = sǔuan", "ด้วย = dûuai"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which frame makes the "ua" sound?',
+				options: ["◌ัว", "เ◌ีย", "เ◌า", "◌ำ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What sound does ◌ัว make?",
+				options: ["a gliding ua", "a short am", "a long aa", "an ao"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How is the ua vowel written when a final follows?",
+				options: ["as ◌ว◌ around the final", "as ◌ำ", "it disappears", "as เ◌า"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does วัว mean?",
+				options: ["cow", "head", "kitchen", "beautiful"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "cow"?',
+				options: ["วัว", "ตัว", "หัว", "วว"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ว", "ั", "ต", "ห"],
+	},
+	{
+		id: 32,
+		stage: 9,
+		title: "เจอ — The er Vowel",
+		anchorWord: {
+			thai: "เจอ",
+			meaning: "to meet / to find",
+			pronunciation: "jer",
+			category: "daily",
+			syllables: [{ thai: "เจอ", sound: "jer" }],
+			contextNote:
+				"เจอ (to meet, to run into) introduces the long er vowel. It is a high-frequency verb — เจอกัน (see you) closes countless conversations.",
+		},
+		newLetters: [
+			{
+				character: "เ◌อ",
+				romanization: "er",
+				pronunciation: 'long "er", like "her" without the r',
+				type: "vowel",
+				mnemonic:
+					"เ leads on the left and อ trails on the right, giving a long er. Before a final it shrinks into เ◌ิ◌.",
+				position: "around",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "er-vowel",
+				name: "เ-อ Is the Long er Vowel",
+				shortDescription: "เ + อ make a long er with no final",
+				explanation:
+					"When there is no final consonant, เ-อ is a long er, as in เจอ (to meet) and เธอ (you). Read the consonant, then the er.",
+				examples: ["เจอ = jer", "เธอ = ther"],
+			},
+			{
+				id: "er-before-final",
+				name: "er Becomes เ-ิ- Before a Final",
+				shortDescription: "With a final, er is written เ◌ิ◌; เงิน is short",
+				explanation:
+					"Before a final consonant the er vowel is reshaped to เ◌ิ◌, as in เดิน (dern, to walk). A few words like เงิน (ngern, money) shorten it.",
+				examples: ["เดิน = dern", "เงิน = ngern"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which frame makes the long "er" sound?',
+				options: ["เ◌อ", "เ◌า", "◌ัว", "เ◌ีย"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What sound does เ-อ make with no final?",
+				options: ["a long er", "a short am", "an ao", "an ia"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How is the er vowel written before a final?",
+				options: ["as เ◌ิ◌", "as ◌ำ", "as เ◌า", "it disappears"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does เจอ mean?",
+				options: ["to meet / to find", "to walk", "money", "to open"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "to meet"?',
+				options: ["เจอ", "เธอ", "เดิน", "จเอ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["เ", "อ", "จ", "ด", "น"],
+	},
+	{
+		id: 33,
+		stage: 9,
+		title: "ปลา — True Consonant Clusters",
+		anchorWord: {
+			thai: "ปลา",
+			meaning: "fish",
+			pronunciation: "bplaa",
+			category: "food",
+			syllables: [{ thai: "ปลา", sound: "bplaa" }],
+			contextNote:
+				"ปลา (fish) opens with a true cluster, ปล: both consonants blend with no vowel between them. This lesson teaches how clusters differ from the hidden-vowel frame.",
+		},
+		newLetters: [],
+		rulesIntroduced: [
+			{
+				id: "true-cluster",
+				name: "True Clusters Blend Two Consonants",
+				shortDescription: "A stop + ร/ล/ว is read together with no inserted vowel",
+				explanation:
+					"A true cluster joins a stop (ก ข ค ต ป พ) with ร, ล, or ว and blends them with no vowel between. The tone follows the first consonant's class, and any tone mark sits over the second consonant.",
+				examples: ["ปลา = bplaa", "ครับ = khráp"],
+			},
+			{
+				id: "cluster-vs-hidden",
+				name: "Clusters Are Not the Hidden-Vowel Frame",
+				shortDescription: "ปล blends, but ตล and ขน insert a short 'a'",
+				explanation:
+					"Compare ปลา (bplaa, blended) with ตลาด (dtà-làat) and ขนม (khà-nǒm), where a short 'a' is inserted between the consonants. Only a stop + ร/ล/ว truly blends; other pairs lead into a second syllable.",
+				examples: ["ปลา = bplaa", "ขนม = khà-nǒm"],
+			},
+		],
+		drills: [
+			{
+				type: "sound",
+				prompt: "In a true cluster, how are the two consonants read?",
+				options: [
+					"blended, with no vowel between",
+					"with an inserted 'a'",
+					"as two syllables",
+					"the second is silent",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "In ปลา, which consonant sets the tone?",
+				options: [
+					"the first consonant, ป",
+					"the second consonant, ล",
+					"the vowel",
+					"neither",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: "Which word is a TRUE cluster (no inserted vowel)?",
+				options: ["ปลา", "ตลาด", "ขนม", "ถนน"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ปลา mean?",
+				options: ["fish", "to return", "middle", "monk"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "Where does a tone mark sit in a cluster?",
+				options: [
+					"over the second consonant",
+					"over the first consonant",
+					"over the vowel",
+					"it is dropped",
+				],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ป", "ล", "ร", "ว", "ก"],
+	},
+	{
+		id: 34,
+		stage: 10,
+		title: "โต๊ะ — The Last Two Tone Marks",
+		anchorWord: {
+			thai: "โต๊ะ",
+			meaning: "table",
+			pronunciation: "dtó",
+			category: "daily",
+			syllables: [{ thai: "โต๊ะ", sound: "dtó" }],
+			contextNote:
+				"โต๊ะ (table) carries mai tri. With mai chattawa, this lesson completes all four Thai tone marks — the ones that appear mostly on mid-class, loan, and food words.",
+		},
+		newLetters: [
+			{
+				character: "๊",
+				romanization: "(tone)",
+				pronunciation:
+					"mai tri — the third tone mark; on a mid consonant it gives a high tone",
+				type: "tone_mark",
+				mnemonic:
+					"◌๊ mai tri stacks like a small figure that tops out high. It rides mostly on mid-class letters in loan and food words, pushing the tone high.",
+				position: "above",
+			},
+			{
+				character: "๋",
+				romanization: "(tone)",
+				pronunciation:
+					"mai chattawa — the fourth tone mark; on a mid consonant it gives a rising tone",
+				type: "tone_mark",
+				mnemonic:
+					"◌๋ mai chattawa is the plus-shaped fourth mark. On a mid-class letter it lifts the syllable into a rising tone.",
+				position: "above",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "four-tone-marks",
+				name: "◌๊ and ◌๋ Complete the Four Tone Marks",
+				shortDescription: "With ่ and ้, Thai now has all four tone marks",
+				explanation:
+					"You already knew mai ek (◌่) and mai tho (◌้). Mai tri (◌๊) and mai chattawa (◌๋) are the last two, completing the full set of four tone marks.",
+				examples: ["โต๊ะ = dtó", "ก๋วยเตี๋ยว = gǔuai-dtǐiao"],
+			},
+			{
+				id: "mid-class-marks",
+				name: "These Two Marks Ride Mid Consonants",
+				shortDescription: "◌๊ gives high tone and ◌๋ gives rising, mostly on mid class",
+				explanation:
+					"Mai tri and mai chattawa appear almost only on mid-class consonants, in colloquial, loan, and food words. On a mid consonant, ◌๊ makes a high tone and ◌๋ makes a rising tone.",
+				examples: ["โต๊ะ = dtó (high)", "จ๋า = jǎa (rising)"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: "Which mark is mai tri?",
+				options: ["๊", "๋", "่", "้"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "On a mid consonant, what tone does ◌๊ give?",
+				options: ["high", "rising", "low", "falling"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "On a mid consonant, what tone does ◌๋ give?",
+				options: ["rising", "high", "low", "falling"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does โต๊ะ mean?",
+				options: ["table", "noodles", "island", "child"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "table"?',
+				options: ["โต๊ะ", "โต", "ต๊ะ", "โตะ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["โ", "ต", "่", "้"],
+	},
+	{
+		id: 35,
+		stage: 10,
+		title: "ข่าว — The Full Tone System",
+		anchorWord: {
+			thai: "ข่าว",
+			meaning: "news",
+			pronunciation: "khàao",
+			category: "sign",
+			syllables: [{ thai: "ข่าว", sound: "khàao" }],
+			contextNote:
+				"ข่าว (news) anchors a review of the whole tone system. Here you pull class, tone mark, and syllable type together into one picture.",
+		},
+		newLetters: [],
+		rulesIntroduced: [
+			{
+				id: "tone-matrix",
+				name: "Tone Comes From Class + Mark + Syllable",
+				shortDescription:
+					"Consonant class, any tone mark, and live/dead together fix the tone",
+				explanation:
+					"Every Thai tone is decided by three things working together: the initial consonant's class (mid, high, low), any tone mark, and whether the syllable is live (open or ending in a sonorant) or dead (ending in a stop or short vowel). Read them in that order.",
+				examples: ["ข่าว = khàao (high + mai ek)", "ค่า = khâa (low + mai ek)"],
+			},
+			{
+				id: "class-minimal-pairs",
+				name: "One Vowel, Three Classes, Different Tones",
+				shortDescription: "กา, ขา, and คา differ in tone only because of class",
+				explanation:
+					"With the same vowel, class alone changes the tone: กา (mid) is mid, ขา (high) rises, คา (low) is mid. Add a mark and they split further — ข่า is low, ค่า is falling. Class is always the starting point.",
+				examples: ["กา = gaa · ขา = khǎa · คา = khaa", "ข่า = khàa · ค่า = khâa"],
+			},
+		],
+		drills: [
+			{
+				type: "sound",
+				prompt: "What three things decide a Thai tone?",
+				options: [
+					"class, tone mark, and live/dead syllable",
+					"only the tone mark",
+					"only the vowel length",
+					"the final consonant alone",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "Why do กา, ขา, and คา have different tones?",
+				options: [
+					"their consonants are different classes",
+					"different vowels",
+					"different finals",
+					"different marks",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "A syllable ending in a stop or short vowel is called…",
+				options: ["dead", "live", "high", "rising"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ข่าว mean?",
+				options: ["news", "leg", "rice", "value"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: "Which pair are the low-class members?",
+				options: ["คา / ค่า", "ขา / ข่า", "กา / ก่า", "ตา / ต่า"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ก", "ข", "ค", "่", "้"],
+	},
+	{
+		id: 36,
+		stage: 10,
+		title: "เด็ก — The Vowel Shortener",
+		anchorWord: {
+			thai: "เด็ก",
+			meaning: "child",
+			pronunciation: "dèk",
+			category: "daily",
+			syllables: [{ thai: "เด็ก", sound: "dèk" }],
+			contextNote:
+				"เด็ก (child) introduces ◌็ (mai taikhu), a mark that shortens the vowel in a closed syllable without adding any sound of its own.",
+		},
+		newLetters: [
+			{
+				character: "็",
+				romanization: "(shortener)",
+				pronunciation: "mai taikhu — it shortens the vowel and carries no sound of its own",
+				type: "mark",
+				mnemonic:
+					"◌็ mai taikhu is a tiny hook that clips the vowel short, mostly on เ and แ before a final, as in เด็ก (dèk).",
+				position: "above",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "taikhu-shorten",
+				name: "◌็ Shortens the Vowel",
+				shortDescription: "◌็ clips เ or แ short before a final consonant",
+				explanation:
+					"The mai taikhu mark shortens the vowel of a closed syllable, mainly with เ and แ. It adds no sound itself — it only makes the vowel quick, as in เด็ก (dèk) and เล็ก (lék).",
+				examples: ["เด็ก = dèk", "เล็ก = lék"],
+			},
+			{
+				id: "taikhu-limits",
+				name: "◌็ Doesn't Stack With Tone Marks",
+				shortDescription: "◌็ cannot share the spot with a tone mark or above-vowel",
+				explanation:
+					"In standard Thai, ◌็ occupies the space above the consonant on its own, so it does not co-occur with a tone mark or an above-line vowel in the same syllable.",
+				examples: ["เป็น = bpen", "เห็น = hěn"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: "Which mark shortens the vowel?",
+				options: ["็", "่", "้", "๊"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What does ◌็ add to the sound?",
+				options: ["nothing — it only shortens", "a high tone", "an m", "an extra vowel"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "◌็ appears mostly with which vowels?",
+				options: ["เ and แ", "า and ี", "ุ and ู", "◌ำ"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does เด็ก mean?",
+				options: ["child", "table", "small", "to see"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "child"?',
+				options: ["เด็ก", "เดก", "เล็ก", "ด็ก"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["เ", "ด", "ก", "ป", "น"],
+	},
+	{
+		id: 37,
+		stage: 10,
+		title: "ช้าๆ — The Repetition Mark",
+		anchorWord: {
+			thai: "ช้าๆ",
+			meaning: "slowly / take it easy",
+			pronunciation: "cháa-cháa",
+			category: "daily",
+			syllables: [
+				{ thai: "ช้า", sound: "cháa" },
+				{ thai: "ๆ", sound: "cháa" },
+			],
+			contextNote:
+				"ช้าๆ (slowly) shows ◌ๆ (mai yamok), the mark that tells you to say the previous word again — for plurals, emphasis, or 'each and every'.",
+		},
+		newLetters: [
+			{
+				character: "ๆ",
+				romanization: "(repeat)",
+				pronunciation: "mai yamok — read the word before it a second time",
+				type: "mark",
+				mnemonic:
+					"◌ๆ maiyamok is written after a word with a space; it means 'say that again', so ช้าๆ is read cháa-cháa.",
+				position: "right",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "yamok-repeat",
+				name: "◌ๆ Repeats the Previous Word",
+				shortDescription: "Read the word before ◌ๆ twice",
+				explanation:
+					"The mai yamok mark doubles the word in front of it. Depending on the word, the repeat can mark a plural, add emphasis, or mean 'each/every'. Read the whole word again.",
+				examples: ["ช้าๆ = cháa-cháa", "เด็กๆ = dèk-dèk"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: "Which mark means 'repeat the previous word'?",
+				options: ["ๆ", "ฯ", "์", "็"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How do you read ช้าๆ?",
+				options: ["cháa-cháa", "cháa", "cháa-yaa", "cháang"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What can ◌ๆ signal?",
+				options: [
+					"plural, emphasis, or 'each/every'",
+					"a silent letter",
+					"a high tone",
+					"a question",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ช้าๆ mean?",
+				options: ["slowly / take it easy", "very fast", "children", "loudly"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which spelling means "children" (doubled)?',
+				options: ["เด็กๆ", "เด็ก", "ช้าๆ", "ดๆ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ช", "้", "า", "เ"],
+	},
+	{
+		id: 38,
+		stage: 10,
+		title: "เกาะ — Short Diphthongs and Unwritten o",
+		anchorWord: {
+			thai: "เกาะ",
+			meaning: "island",
+			pronunciation: "gàw",
+			category: "place",
+			syllables: [{ thai: "เกาะ", sound: "gàw" }],
+			contextNote:
+				"เกาะ (island) shows the short partner of the leading vowels. This lesson gathers the short diphthongs and the unwritten short o that hides between two consonants.",
+		},
+		newLetters: [
+			{
+				character: "เ◌าะ",
+				romanization: "aw",
+				pronunciation: 'short "aw", a clipped version of เ-า',
+				type: "vowel",
+				mnemonic:
+					"เ◌าะ ends in ◌ะ, the short marker. It is the quick, clipped cousin of the long aw, as in เกาะ (gàw).",
+				position: "around",
+			},
+			{
+				character: "เ◌ะ",
+				romanization: "e",
+				pronunciation: 'short "e", a clipped version of เ',
+				type: "vowel",
+				mnemonic:
+					"เ◌ะ is the short e: the ◌ะ on the right clips the long เ short, as in เตะ (dtè).",
+				position: "around",
+			},
+			{
+				character: "แ◌ะ",
+				romanization: "ae",
+				pronunciation: 'short "ae", a clipped version of แ',
+				type: "vowel",
+				mnemonic: "แ◌ะ is the short ae: ◌ะ shortens the long แ, as in แกะ (gàe).",
+				position: "around",
+			},
+			{
+				character: "โ◌ะ",
+				romanization: "o",
+				pronunciation: 'short "o", a clipped version of โ',
+				type: "vowel",
+				mnemonic: "โ◌ะ is the short o: ◌ะ shortens the long โ, as in โต๊ะ (dtó).",
+				position: "around",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "short-diphthongs",
+				name: "◌ะ Marks the Short Vowels",
+				shortDescription:
+					"เ-าะ, เ-ะ, แ-ะ, and โ-ะ are the short partners of the leading vowels",
+				explanation:
+					"Adding ◌ะ to a leading vowel makes its short version: เ-าะ (short aw), เ-ะ (short e), แ-ะ (short ae), and โ-ะ (short o). They sound clipped and are usually dead syllables.",
+				examples: ["เกาะ = gàw", "แกะ = gàe"],
+			},
+			{
+				id: "unwritten-short-o",
+				name: "Two Consonants Alone = Short o",
+				shortDescription:
+					"A consonant-consonant syllable with no written vowel is a short o",
+				explanation:
+					"When a syllable is two consonants with no written vowel, a short 'o' hides between them, as in คน (khon) and นก (nók). Nothing on the page marks it — you supply the o.",
+				examples: ["คน = khon", "นก = nók"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which frame is the short "aw"?',
+				options: ["เ◌าะ", "เ◌า", "◌ัว", "เ◌อ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What does ◌ะ do to a leading vowel?",
+				options: ["makes it short", "makes it long", "silences it", "raises the tone"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How do you read คน (two consonants, no vowel)?",
+				options: ["khon — an unwritten short o", "khaan", "khun", "khn with no vowel"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does เกาะ mean?",
+				options: ["island", "table", "sheep", "to kick"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "island"?',
+				options: ["เกาะ", "เกา", "เตะ", "แกะ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["เ", "แ", "โ", "ะ"],
+	},
+	{
+		id: 39,
+		stage: 11,
+		title: "๑๐ บาท — Thai Numerals",
+		anchorWord: {
+			thai: "๑๐ บาท",
+			meaning: "10 baht",
+			pronunciation: "sìp bàat",
+			category: "sign",
+			syllables: [
+				{ thai: "๑๐", sound: "sìp" },
+				{ thai: "บาท", sound: "bàat" },
+			],
+			contextNote:
+				"Thai numerals still appear on temple and park entry signs, dual pricing, license plates, and banknotes. ๑๐ บาท (10 baht) is a typical price you will read.",
+		},
+		newLetters: [
+			{
+				character: "๐",
+				romanization: "0",
+				pronunciation: "sǔun (zero)",
+				type: "numeral",
+				mnemonic: "๐ is a small oval, like a 0. It is sǔun, zero.",
+				position: "standalone",
+			},
+			{
+				character: "๑",
+				romanization: "1",
+				pronunciation: "nùeng (one)",
+				type: "numeral",
+				mnemonic: "๑ has a single curl on top — one loop for the number one (nùeng).",
+				position: "standalone",
+			},
+			{
+				character: "๒",
+				romanization: "2",
+				pronunciation: "sǎwng (two)",
+				type: "numeral",
+				mnemonic:
+					"๒ opens to the right with one belly. Watch it against ๓ — say sǎwng for two.",
+				position: "standalone",
+			},
+			{
+				character: "๓",
+				romanization: "3",
+				pronunciation: "sǎam (three)",
+				type: "numeral",
+				mnemonic: "๓ has two humps, like a rounded 3. It is sǎam, three.",
+				position: "standalone",
+			},
+			{
+				character: "๔",
+				romanization: "4",
+				pronunciation: "sìi (four)",
+				type: "numeral",
+				mnemonic: "๔ curls twice and tucks under. It is sìi, four.",
+				position: "standalone",
+			},
+			{
+				character: "๕",
+				romanization: "5",
+				pronunciation: "hâa (five)",
+				type: "numeral",
+				mnemonic: "๕ looks like a little cursive g. It is hâa, five.",
+				position: "standalone",
+			},
+			{
+				character: "๖",
+				romanization: "6",
+				pronunciation: "hòk (six)",
+				type: "numeral",
+				mnemonic: "๖ has a big loop swinging up. It is hòk, six.",
+				position: "standalone",
+			},
+			{
+				character: "๗",
+				romanization: "7",
+				pronunciation: "jèt (seven)",
+				type: "numeral",
+				mnemonic: "๗ has a tail that trails to the right. It is jèt, seven.",
+				position: "standalone",
+			},
+			{
+				character: "๘",
+				romanization: "8",
+				pronunciation: "bpàet (eight)",
+				type: "numeral",
+				mnemonic: "๘ is an open curl, like a broken 8. It is bpàet, eight.",
+				position: "standalone",
+			},
+			{
+				character: "๙",
+				romanization: "9",
+				pronunciation: "gâo (nine)",
+				type: "numeral",
+				mnemonic:
+					"๙ loops around like a 9. It is gâo, nine — an auspicious number in Thailand.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "thai-numerals",
+				name: "Thai Has Its Own Digits ๐–๙",
+				shortDescription: "๐๑๒๓๔๕๖๗๘๙ map directly to 0–9",
+				explanation:
+					"Thai numerals work exactly like the Arabic 0–9 you know and combine the same way, so ๑๐ is 10 and ๒๕ is 25. You read them most on official signs, banknotes, and dual pricing.",
+				examples: ["๑๐ = 10", "๒๕ = 25"],
+			},
+			{
+				id: "confusable-2-3",
+				name: "Watch ๒ and ๓",
+				shortDescription: "๒ (2) and ๓ (3) look alike — check the number of humps",
+				explanation:
+					"๒ and ๓ are the easiest Thai numerals to confuse. ๒ has a single belly, while ๓ has two humps. Slow down and count the curves before you read the price.",
+				examples: ["๒ = 2", "๓ = 3"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: "Which numeral is 5?",
+				options: ["๕", "๖", "๓", "๙"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What is ๑๐?",
+				options: ["10", "1", "100", "20"],
+				correctIndex: 0,
+			},
+			{
+				type: "recognize",
+				prompt: "Which numeral is 2?",
+				options: ["๒", "๓", "๗", "๔"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ๑๐ บาท mean?",
+				options: ["10 baht", "1 baht", "100 baht", "10 satang"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: "Which is the numeral for 9?",
+				options: ["๙", "๖", "๕", "๘"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["บ", "า", "ท"],
+	},
+	{
+		id: 40,
+		stage: 11,
+		title: "กรุงเทพฯ — The Abbreviation Mark",
+		anchorWord: {
+			thai: "กรุงเทพฯ",
+			meaning: "Bangkok",
+			pronunciation: "grung-thêep",
+			category: "place",
+			syllables: [
+				{ thai: "กรุง", sound: "grung" },
+				{ thai: "เทพ", sound: "thêep" },
+			],
+			contextNote:
+				"กรุงเทพฯ (Bangkok) ends in ฯ (paiyannoi), which stands in for the rest of the city's ceremonial name. You read the short everyday form aloud.",
+		},
+		newLetters: [
+			{
+				character: "ฯ",
+				romanization: "(abbrev.)",
+				pronunciation: "paiyannoi — it marks a shortened well-known name",
+				type: "mark",
+				mnemonic:
+					"ฯ paiyannoi is an abbreviation mark: it stands in for the long tail of a formal name, as in กรุงเทพฯ.",
+				position: "right",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "paiyannoi-abbrev",
+				name: "ฯ Abbreviates a Long Name",
+				shortDescription: "ฯ shortens a well-known formal name in writing",
+				explanation:
+					"The paiyannoi mark shortens a long, familiar name on the page. กรุงเทพฯ writes the everyday form of Bangkok's ceremonial name. The related ฯลฯ means 'etc.'.",
+				examples: ["กรุงเทพฯ = grung-thêep", "ฯลฯ = etc."],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: "Which mark abbreviates a long name?",
+				options: ["ฯ", "ๆ", "์", "๙"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does กรุงเทพฯ mean?",
+				options: ["Bangkok", "Thailand", "province", "capital letter"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What does ฯลฯ mean?",
+				options: ["etc. / and so on", "the end", "please", "and you"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How do you read the ฯ in กรุงเทพฯ?",
+				options: [
+					"as the shortened everyday name",
+					"as a separate sound",
+					"as a number",
+					"as silence forever",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which spelling is "Bangkok"?',
+				options: ["กรุงเทพฯ", "กรุงเทพ", "เทพกรุง", "กรุงเทพๆ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ก", "ร", "ท", "พ"],
+	},
+	{
+		id: 41,
+		stage: 12,
+		title: "ฉัน — The High-Class ch and f",
+		anchorWord: {
+			thai: "ฉัน",
+			meaning: "I / me",
+			pronunciation: "chǎn",
+			category: "daily",
+			syllables: [{ thai: "ฉัน", sound: "chǎn" }],
+			contextNote:
+				"ฉัน (I/me) is an everyday pronoun. It introduces two high-class letters: ฉ (ch) and ฝ (f), which complete the aspirate pairs.",
+		},
+		newLetters: [
+			{
+				character: "ฉ",
+				romanization: "ch",
+				pronunciation: 'ch as in "chair", with a puff of air',
+				type: "consonant",
+				class: "high",
+				mnemonic:
+					"ฉ is ฉ ฉิ่ง (chǎw chìng, small hand cymbals). Picture the tiny cymbals; ฉ is a high-class ch.",
+				position: "standalone",
+			},
+			{
+				character: "ฝ",
+				romanization: "f",
+				pronunciation: 'f as in "fan"',
+				type: "consonant",
+				class: "high",
+				mnemonic:
+					"ฝ is ฝ ฝา (fǎw fǎa, a lid). Picture a pot lid; ฝ is a high-class f, the partner of low-class ฟ.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "high-ch-f",
+				name: "ฉ and ฝ Are High-Class",
+				shortDescription: "ฉ is a high ch (vs low ช); ฝ is a high f (vs low ฟ)",
+				explanation:
+					"ฉ makes the same ch as ช and ฝ makes the same f as ฟ, but both new letters are high class. High-class consonants default to a rising tone and take only mai ek or mai tho.",
+				examples: ["ฉัน = chǎn", "ฝน = fǒn"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter is the high-class "ch"?',
+				options: ["ฉ", "ช", "ซ", "จ"],
+				correctIndex: 0,
+			},
+			{
+				type: "recognize",
+				prompt: 'Which letter is the high-class "f"?',
+				options: ["ฝ", "ฟ", "พ", "ผ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What is the default tone of a high-class consonant?",
+				options: ["rising", "high", "low", "mid"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ฉัน mean?",
+				options: ["I / me", "rain", "lid", "clever"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "I / me"?',
+				options: ["ฉัน", "ชัน", "ฝัน", "ฉน"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ั", "น", "ช", "ฟ"],
+	},
+	{
+		id: 42,
+		stage: 12,
+		title: "ใหญ่ — Four More Low-Class Letters",
+		anchorWord: {
+			thai: "ใหญ่",
+			meaning: "big",
+			pronunciation: "yài",
+			category: "daily",
+			syllables: [{ thai: "ใหญ่", sound: "yài" }],
+			contextNote:
+				"ใหญ่ (big) uses ญ. This lesson adds four more low-class letters — ญ, ธ, ภ, ฮ — that duplicate sounds you know but appear across everyday and formal words.",
+		},
+		newLetters: [
+			{
+				character: "ญ",
+				romanization: "y",
+				pronunciation: 'y as in "yes" at the start; an n sound as a final',
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ญ is ญ หญิง (yaw yǐng, woman). It is a low-class y at the start and an n at the end of a syllable.",
+				position: "standalone",
+			},
+			{
+				character: "ธ",
+				romanization: "th",
+				pronunciation: "th with a puff of air, like ท",
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ธ is ธ ธง (thaw thong, flag). Picture a flag; ธ is a low-class th, a partner of ท.",
+				position: "standalone",
+			},
+			{
+				character: "ภ",
+				romanization: "ph",
+				pronunciation: "ph with a puff of air, like พ",
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ภ is ภ สำเภา (phaw sǎm-phao, a junk boat). Picture the sailing junk; ภ is a low-class ph, a partner of พ.",
+				position: "standalone",
+			},
+			{
+				character: "ฮ",
+				romanization: "h",
+				pronunciation: 'h as in "hat"',
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ฮ is ฮ นกฮูก (haw nók-hûuk, an owl). Picture the owl; ฮ is a low-class h, the partner of high-class ห.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "four-low-duplicates",
+				name: "Four More Low-Class Letters",
+				shortDescription: "ญ (y/final n), ธ (th), ภ (ph), and ฮ (h) are all low class",
+				explanation:
+					"These four duplicate sounds you already read: ญ is a y that closes as n, ธ is a th like ท, ภ is a ph like พ, and ฮ is an h like ห. All are low class and turn up in formal and Pali/Sanskrit words.",
+				examples: ["ใหญ่ = yài", "ธนาคาร = thá-naa-khaan"],
+			},
+		],
+		drills: [
+			{
+				type: "recognize",
+				prompt: 'Which letter is a low-class "h"?',
+				options: ["ฮ", "ห", "ธ", "ภ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What sound does ญ make at the end of a syllable?",
+				options: ["n", "y", "ng", "m"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "ธ and ภ duplicate which sounds?",
+				options: ["th and ph", "d and b", "s and f", "k and g"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ใหญ่ mean?",
+				options: ["big", "small", "bank", "flag"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "big"?',
+				options: ["ใหญ่", "ใหม่", "ใหย่", "หญ่ใ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ใ", "ห", "่", "า"],
+	},
+	{
+		id: 43,
+		stage: 13,
+		title: "ประเทศ — The s and n Duplicates",
+		anchorWord: {
+			thai: "ประเทศ",
+			meaning: "country",
+			pronunciation: "bprà-thêet",
+			category: "sign",
+			syllables: [
+				{ thai: "ประ", sound: "bprà" },
+				{ thai: "เทศ", sound: "thêet" },
+			],
+			contextNote:
+				"ประเทศ (country) ends in ศ, one of three Sanskrit-derived duplicates. ศ, ษ (both s) and ณ (n) show up in formal vocabulary and on signs.",
+		},
+		newLetters: [
+			{
+				character: "ศ",
+				romanization: "s",
+				pronunciation: 's as in "sun" at the start; a t sound as a final',
+				type: "consonant",
+				class: "high",
+				mnemonic:
+					"ศ is ศ ศาลา (sǎw sǎa-laa, a pavilion). It is a high-class s, common in Sanskrit-derived words.",
+				position: "standalone",
+			},
+			{
+				character: "ษ",
+				romanization: "s",
+				pronunciation: "s at the start; a t sound as a final",
+				type: "consonant",
+				class: "high",
+				mnemonic:
+					"ษ is ษ ฤๅษี (sǎw ruee-sǐi, a hermit). It is another high-class s from Sanskrit spellings.",
+				position: "standalone",
+			},
+			{
+				character: "ณ",
+				romanization: "n",
+				pronunciation: 'n as in "no"',
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ณ is ณ เณร (naw neen, a novice monk). It is a low-class n, a formal partner of น.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "duplicate-s-n",
+				name: "ศ, ษ, and ณ Duplicate s and n",
+				shortDescription: "ศ and ษ sound s; ณ sounds n — mostly in formal words",
+				explanation:
+					"These three add no new sounds: ศ and ษ are high-class s, and ณ is a low-class n. They appear mainly in Pali/Sanskrit loanwords and formal vocabulary such as ประเทศ and คุณ.",
+				examples: ["ประเทศ = bprà-thêet", "คุณ = khun"],
+			},
+		],
+		drills: [
+			{
+				type: "sound",
+				prompt: "What sound do ศ and ษ make?",
+				options: ["s", "sh", "ch", "t only"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What sound does ณ make?",
+				options: ["n", "ng", "m", "l"],
+				correctIndex: 0,
+			},
+			{
+				type: "recognize",
+				prompt: "Which letter is a high-class s from Sanskrit?",
+				options: ["ศ", "ณ", "น", "ช"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does ประเทศ mean?",
+				options: ["country", "religion", "court", "student"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "country"?',
+				options: ["ประเทศ", "ประเทด", "ประเทท", "เทศประ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ป", "ร", "เ", "ท"],
+	},
+	{
+		id: 44,
+		stage: 13,
+		title: "กีฬา — The Rare Sanskrit Letters",
+		anchorWord: {
+			thai: "กีฬา",
+			meaning: "sport(s)",
+			pronunciation: "gii-laa",
+			category: "daily",
+			syllables: [
+				{ thai: "กี", sound: "gii" },
+				{ thai: "ฬา", sound: "laa" },
+			],
+			contextNote:
+				"กีฬา (sports) uses the rare ฬ. This recognition lesson gathers eight uncommon Pali/Sanskrit letters that duplicate sounds you already read.",
+		},
+		newLetters: [
+			{
+				character: "ฐ",
+				romanization: "th",
+				pronunciation: "a th sound, like ถ",
+				type: "consonant",
+				class: "high",
+				mnemonic: "ฐ is ฐ ฐาน (thǎw thǎan, a base/pedestal). A rare high-class th.",
+				position: "standalone",
+			},
+			{
+				character: "ฑ",
+				romanization: "th",
+				pronunciation: "a th sound, like ท",
+				type: "consonant",
+				class: "low",
+				mnemonic: "ฑ is ฑ มณโฑ (thaw mon-thoo, a character's name). A rare low-class th.",
+				position: "standalone",
+			},
+			{
+				character: "ฒ",
+				romanization: "th",
+				pronunciation: "a th sound, like ท",
+				type: "consonant",
+				class: "low",
+				mnemonic: "ฒ is ฒ ผู้เฒ่า (thaw phûu-thâo, an elder). A rare low-class th.",
+				position: "standalone",
+			},
+			{
+				character: "ฎ",
+				romanization: "d",
+				pronunciation: "a d sound, like ด",
+				type: "consonant",
+				class: "mid",
+				mnemonic: "ฎ is ฎ ชฎา (daw chá-daa, a headdress). A rare mid-class d.",
+				position: "standalone",
+			},
+			{
+				character: "ฏ",
+				romanization: "dt",
+				pronunciation: "a tight t sound, like ต",
+				type: "consonant",
+				class: "mid",
+				mnemonic: "ฏ is ฏ ปฏัก (dtaw bpà-dtàk, a goad). A rare mid-class t.",
+				position: "standalone",
+			},
+			{
+				character: "ฆ",
+				romanization: "kh",
+				pronunciation: "a kh sound, like ค",
+				type: "consonant",
+				class: "low",
+				mnemonic: "ฆ is ฆ ระฆัง (khaw rá-khang, a bell). A rare low-class kh.",
+				position: "standalone",
+			},
+			{
+				character: "ฬ",
+				romanization: "l",
+				pronunciation: "an l sound, like ล",
+				type: "consonant",
+				class: "low",
+				mnemonic: "ฬ is ฬ จุฬา (law jù-laa, a kite). A rare low-class l, as in กีฬา.",
+				position: "standalone",
+			},
+			{
+				character: "ฌ",
+				romanization: "ch",
+				pronunciation: "a ch sound, like ช",
+				type: "consonant",
+				class: "low",
+				mnemonic: "ฌ is ฌ เฌอ (chaw choee, a tree). A rare low-class ch.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "rare-duplicates",
+				name: "Eight Rare Sanskrit/Pali Letters",
+				shortDescription:
+					"These letters reuse sounds you know and appear only in formal words",
+				explanation:
+					"You do not need to produce these from memory. Recognize them by their familiar sound — ฬ is l, ฆ is kh, ฌ is ch, ฎ/ฏ are d/t, and ฐ/ฑ/ฒ are th. They live in formal, legal, and Pali/Sanskrit vocabulary.",
+				examples: ["กีฬา = gii-laa", "รัฐบาล = rát-thà-baan"],
+			},
+		],
+		drills: [
+			{
+				type: "sound",
+				prompt: "What sound does ฬ make?",
+				options: ["l", "n", "r", "th"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What sound does ฆ make?",
+				options: ["kh", "ng", "g", "h"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "Where do these eight letters mostly appear?",
+				options: ["formal Pali/Sanskrit words", "everyday slang", "numbers", "tone marks"],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does กีฬา mean?",
+				options: ["sport(s)", "clock", "bell", "degree"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "sport(s)"?',
+				options: ["กีฬา", "กีลา", "กิฬา", "ฬากี"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ก", "ี", "า", "ล"],
+	},
+	{
+		id: 45,
+		stage: 13,
+		title: "อังกฤษ — ฤ and Spelling Exceptions",
+		anchorWord: {
+			thai: "อังกฤษ",
+			meaning: "England / English",
+			pronunciation: "ang-grìt",
+			category: "sign",
+			syllables: [
+				{ thai: "อัง", sound: "ang" },
+				{ thai: "กฤษ", sound: "grìt" },
+			],
+			contextNote:
+				"อังกฤษ (English) shows ฤ, a vowel-like letter read ri, rue, or rer by word. This lesson also gathers the leading-อ words and the silent-r spellings.",
+		},
+		newLetters: [
+			{
+				character: "ฤ",
+				romanization: "rue",
+				pronunciation: 'read as "ri", "rue", or "rer" depending on the word',
+				type: "vowel",
+				mnemonic:
+					"ฤ (sara rue) bundles an r with a vowel. Its reading is lexical: ri in อังกฤษ, rue in ฤดู. Learn it word by word.",
+				position: "standalone",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "rue-readings",
+				name: "ฤ Reads ri / rue / rer",
+				shortDescription: "ฤ has three possible readings, fixed per word",
+				explanation:
+					"ฤ stands in for an r plus a vowel, but which vowel depends on the word: ri in อังกฤษ, rue in ฤดู (season). There is no rule — memorize the reading with each word.",
+				examples: ["อังกฤษ = ang-grìt", "ฤดู = rúe-duu"],
+			},
+			{
+				id: "leading-aw-words",
+				name: "Leading อ Makes ย Mid in Four Words",
+				shortDescription:
+					"อยู่, อย่า, อย่าง, อยาก — the อ is silent and shifts ย to mid class",
+				explanation:
+					"In exactly four common words, a silent leading อ turns the following ย into a mid-class consonant, giving a low tone: อยู่ (to be located), อย่า (don't), อย่าง (kind/way), and อยาก (to want).",
+				examples: ["อยู่ = yùu", "อยาก = yàak"],
+			},
+			{
+				id: "silent-r-thr",
+				name: "Silent ร and ทร = s",
+				shortDescription: "ร is silent in จริง; ทร is read as s in ทราย",
+				explanation:
+					"A few spellings hide their r. In จริง the ร is silent (jing), and the pair ทร is read as s, as in ทราย (saai, sand). Treat these as fixed spellings.",
+				examples: ["จริง = jing", "ทราย = saai"],
+			},
+		],
+		drills: [
+			{
+				type: "sound",
+				prompt: "How is ฤ read?",
+				options: [
+					"ri, rue, or rer depending on the word",
+					"always ru",
+					"silent",
+					"as an m",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "How is ทราย read?",
+				options: ["saai (ทร = s)", "traai", "raai", "thraai"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "What does the leading อ do in อยาก?",
+				options: [
+					"it is silent and makes ย mid class",
+					"it adds an aw sound",
+					"it is a tone mark",
+					"it doubles the ย",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does อังกฤษ mean?",
+				options: ["England / English", "season", "sand", "to want"],
+				correctIndex: 0,
+			},
+			{
+				type: "spot",
+				prompt: 'Which Thai spelling means "England / English"?',
+				options: ["อังกฤษ", "อังกฤด", "อักฤษ", "กฤษอัง"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["อ", "ั", "ง", "ก"],
+	},
+	{
+		id: 46,
+		stage: 14,
+		title: "ฃวด — Obsolete Glyphs (Recognition Only)",
+		anchorWord: {
+			thai: "ฃวด",
+			meaning: "bottle (archaic spelling of ขวด)",
+			pronunciation: "khùuat",
+			category: "daily",
+			syllables: [{ thai: "ฃวด", sound: "khùuat" }],
+			contextNote:
+				"ฃวด is an old spelling of ขวด (bottle) using the obsolete ฃ. This closing lesson is recognition only: these glyphs no longer appear in modern Thai writing.",
+		},
+		newLetters: [
+			{
+				character: "ฃ",
+				romanization: "kh",
+				pronunciation: "obsolete high-class kh; modern Thai uses ข",
+				type: "consonant",
+				class: "high",
+				mnemonic:
+					"ฃ (khǎw khùuat, bottle) is obsolete. No modern words use it — ข took its place. Recognition only.",
+				position: "standalone",
+			},
+			{
+				character: "ฅ",
+				romanization: "kh",
+				pronunciation: "obsolete low-class kh; modern Thai uses ค",
+				type: "consonant",
+				class: "low",
+				mnemonic:
+					"ฅ (khaw khon, person) is obsolete. No modern words use it — ค took its place. Recognition only.",
+				position: "standalone",
+			},
+			{
+				character: "ฤๅ",
+				romanization: "ruee",
+				pronunciation: 'archaic long form of ฤ, read "ruee"',
+				type: "vowel",
+				mnemonic:
+					"ฤๅ is a rare long ฤ, seen in old literary words like ฤๅษี (ruee-sǐi, hermit). Recognition only.",
+				position: "standalone",
+			},
+			{
+				character: "ฦ",
+				romanization: "lue",
+				pronunciation: "obsolete lue; modern words use ลึ",
+				type: "vowel",
+				mnemonic:
+					"ฦ (lue) is obsolete. Modern words use ลึ instead (ลึก, deep). Recognition only.",
+				position: "standalone",
+			},
+			{
+				character: "ฦๅ",
+				romanization: "luee",
+				pronunciation: "obsolete long luee; modern words use ลือ",
+				type: "vowel",
+				mnemonic: "ฦๅ (luee) is obsolete. Modern words use ลือ instead. Recognition only.",
+				position: "standalone",
+			},
+			{
+				character: "ๅ",
+				romanization: "(lengthener)",
+				pronunciation: "lakkhangyao — lengthens ฤ or ฦ only; not a sound on its own",
+				type: "mark",
+				mnemonic:
+					"ๅ (lakkhangyao) only stretches ฤ or ฦ into their long forms. It is never a sound by itself.",
+				position: "right",
+			},
+		],
+		rulesIntroduced: [
+			{
+				id: "archaic-recognition",
+				name: "These Glyphs Are Obsolete",
+				shortDescription: "ฃ, ฅ, ฦ, ฦๅ, and ฤๅ no longer appear in modern Thai",
+				explanation:
+					"You only need to recognize these, not decode them in daily reading. ฃ became ข and ฅ became ค; ฦ and ฦๅ were replaced by ลึ and ลือ; ฤๅ survives only in rare literary words.",
+				examples: ["ฃวด → ขวด", "ฅน → คน"],
+			},
+		],
+		drills: [
+			{
+				type: "sound",
+				prompt: "The obsolete ฃ was replaced by which letter?",
+				options: ["ข", "ค", "ก", "ง"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "The obsolete ฅ was replaced by which letter?",
+				options: ["ค", "ข", "ก", "จ"],
+				correctIndex: 0,
+			},
+			{
+				type: "sound",
+				prompt: "Do these glyphs appear in modern Thai?",
+				options: [
+					"no — recognition only",
+					"yes, everywhere",
+					"only in numbers",
+					"only in tone marks",
+				],
+				correctIndex: 0,
+			},
+			{
+				type: "match",
+				prompt: "What does the archaic ฃวด spell?",
+				options: ["bottle (now ขวด)", "person (now คน)", "hermit", "deep"],
+				correctIndex: 0,
+			},
+			{
+				type: "recognize",
+				prompt: "Which pair are the obsolete kh letters?",
+				options: ["ฃ and ฅ", "ข and ค", "ก and ง", "ฆ and ฅ"],
+				correctIndex: 0,
+			},
+		],
+		reviewLetters: ["ข", "ค", "ว", "ด"],
+	},
 ];
 
 // Practice vocabulary stays ordered and lesson-scoped so the app can present

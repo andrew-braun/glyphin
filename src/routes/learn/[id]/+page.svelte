@@ -26,17 +26,21 @@
 
 	type Step = "intro" | "breakdown" | "letters" | "rules" | "sameLetters" | "complete";
 
+	// Synthesis lessons (e.g. true clusters, the tone-class matrix) teach a reading
+	// pattern rather than a new glyph, so they carry no newLetters and skip the
+	// letters step. The sameLetters guided-read step only appears when the lesson
+	// has core practice words to guide through.
 	const stepOrder = $derived(
-		hasGuidedPracticeWords
-			? ([
-					"intro",
-					"breakdown",
-					"letters",
-					"rules",
-					"sameLetters",
-					"complete",
-				] satisfies Step[])
-			: (["intro", "breakdown", "letters", "rules", "complete"] satisfies Step[]),
+		(
+			[
+				"intro",
+				"breakdown",
+				lesson.newLetters.length > 0 ? "letters" : null,
+				"rules",
+				hasGuidedPracticeWords ? "sameLetters" : null,
+				"complete",
+			] satisfies (Step | null)[]
+		).filter((step): step is Step => step !== null),
 	);
 
 	let currentStepIndex = $derived(0);

@@ -22,8 +22,13 @@ Reference docs:
 
 - [Cloudflare SvelteKit Workers guide](https://developers.cloudflare.com/workers/framework-guides/web-apps/sveltekit/)
 - [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/)
+- [Cloudflare Workers Builds configuration](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/)
+- [Cloudflare Workers GitHub integration](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/)
+- [Cloudflare Workers Node.js compatibility](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)
 - [SvelteKit Cloudflare adapter](https://svelte.dev/docs/kit/adapter-cloudflare)
 - [Supabase SvelteKit auth](https://supabase.com/docs/guides/auth/server-side/sveltekit)
+- [Supabase custom SMTP](https://supabase.com/docs/guides/auth/auth-smtp)
+- [Supabase Auth rate limits](https://supabase.com/docs/guides/auth/rate-limits)
 
 ## Architectural Principle: Keep The Backend Contract Mobile-Ready
 
@@ -41,25 +46,28 @@ phase-1 choices must not entrench web-only patterns.
 - Keep learner sync/projection business logic in the database (RPC / security
   definer), not in `+server.ts` handlers, so logic added during the alpha stays
   reusable from mobile.
-- For phase-2 server-to-Supabase code on Workers/Edge or a mobile backend,
-  prefer the stateless, header/bearer-based `@supabase/server` package over
-  `@supabase/ssr`, which is cookie/browser-oriented.
+- For phase-2 mobile/native code, use `@supabase/supabase-js` with the native
+  client's bearer-token/session model and call the same RPCs under RLS.
+  `@supabase/ssr` remains the web BFF package for cookie-backed SvelteKit
+  server clients; do not invent a web-route contract just because the first
+  client is the web app.
 
 ## Implementation Steps
 
 ### 1. Prepare A Deployment Branch And Tracker
 
 - Work on `deploy/cloudflare-alpha`.
-- Continue updating `.ai/2026-06-27-deployment-platform-research.md`.
+- Continue updating this plan during implementation; this review is tracked in
+  `.ai/2026-07-04-cloudflare-deployment-plan-review.md`.
 - Treat Supabase project creation, auth, env vars, DNS, and production deploy as
   security-sensitive sign-off gates.
 - Use Workers Static Assets as the deployment target; do not create a Cloudflare
   Pages project for this alpha.
 - Deploy via Cloudflare Workers Builds (GitHub integration) from the start. The
   `deploy/cloudflare-alpha` branch (or another non-production branch) acts as the
-  preview/verification branch via `wrangler versions upload`; merging to the
-  production branch is what ships. There is no separate manual `wrangler deploy`
-  bootstrap step.
+  preview/verification branch via the non-production branch deploy command
+  (`wrangler versions upload`); merging to the production branch is what ships.
+  There is no separate manual `wrangler deploy` bootstrap step.
 
 ### 2. Make The SvelteKit App Worker-Compatible
 
@@ -68,6 +76,9 @@ phase-1 choices must not entrench web-only patterns.
   swap.
 - Add `wrangler` as a dev dependency.
 - Update `svelte.config.js` to import and use the Cloudflare adapter.
+- Keep `@cloudflare/workers-types` out of the first adapter swap unless runtime
+  code starts reading typed Cloudflare bindings from `event.platform.env`; the
+  current auth/delivery code should continue using SvelteKit `$env` modules.
 - Add `wrangler.jsonc` for Workers Static Assets:
   - `name`: the alpha Worker name, for example `glyphin-alpha`.
   - `main`: `.svelte-kit/cloudflare/_worker.js`.
@@ -98,11 +109,12 @@ phase-1 choices must not entrench web-only patterns.
 
 - Keep `vite.config.ts` unchanged unless Wrangler/SvelteKit integration requires
   an explicit adjustment during implementation.
-- No server code change is needed for env access: `adapter-cloudflare` maps
-  Cloudflare `platform.env` (Wrangler vars + secrets) into
-  `$env/dynamic/private`, so `src/hooks.server.ts` and
-  `src/lib/server/delivery-lessons.ts` keep using `$env/dynamic/private`. Do not
-  rewrite them to read `platform.env` directly.
+- No server code change is expected for env access: SvelteKit's `$env` modules
+  are the preferred interface for environment variables, and `event.platform.env`
+  is only needed for Cloudflare-specific bindings such as KV, D1, Durable
+  Objects, and similar resources. Keep `src/hooks.server.ts` and
+  `src/lib/server/delivery-lessons.ts` on `$env/dynamic/private`; do not rewrite
+  them to read `platform.env` directly for ordinary string secrets.
 
 ### 3. Preserve Build-Time Supabase Reads And Prerendering
 
@@ -134,6 +146,8 @@ phase-1 choices must not entrench web-only patterns.
   With `nodejs_compat` enabled, a violating import would bundle cleanly and then
   fail at request time with a missing-file error (a worse failure mode than a
   build break), so guard against it deliberately.
+- Before shipping, verify with `rg` that `published-lessons.ts` is imported only
+  from prerendered route modules or build-only code.
 - If publication artifacts stay in the repo build flow, make them bundler-safe
   build inputs or direct prerender inputs.
 - Runtime Worker code should fall back to Supabase only for routes that are not
@@ -188,12 +202,15 @@ phase-1 choices must not entrench web-only patterns.
     - `SUPABASE_AUTH_PUBLISHABLE_KEY`
 - Keep `SUPABASE_DELIVERY_URL` and `SUPABASE_DELIVERY_ANON_KEY` as build env vars
   only, not runtime secrets. Delivery reads happen at build (prerender) or as a
-  fallback reachable only from prerendered routes, so the deployed Worker does
-  not need them. Add them as runtime secrets later only if a non-prerendered
-  route starts reading `delivery.*` (least privilege).
+  fallback that must remain reachable only from prerendered routes, so the
+  deployed Worker should not need them. Add them as runtime secrets later only if
+  a non-prerendered route deliberately starts reading `delivery.*` and that
+  change passes a security review.
 - Set the two runtime secrets via the dashboard (or `wrangler secret put`).
   Secrets set this way persist across Git deploys; `wrangler deploy` does not
   delete them. Do not put secrets in `wrangler.jsonc`.
+- Do not put runtime secrets in Workers Builds build variables; build variables
+  are build-only and are the wrong surface for auth runtime configuration.
 - Never use or store a Supabase service-role key in Cloudflare for this alpha.
 
 ### 8. Validate Locally Before Connecting Git
@@ -203,9 +220,10 @@ phase-1 choices must not entrench web-only patterns.
   - `pnpm check`
   - `pnpm check:all`
   - `pnpm build`
-- Run a local Worker simulation of the built Cloudflare output with Wrangler
-  (e.g. `pnpm exec wrangler dev`) and exercise both prerendered static pages and
-  Worker-backed routes. This is local verification only, not a production deploy.
+- Run a local Worker simulation of the built Cloudflare output with Wrangler:
+  `pnpm exec wrangler dev .svelte-kit/cloudflare/_worker.js`. Exercise both
+  prerendered static pages and Worker-backed routes. This is local verification
+  only, not a production deploy.
 - The goal of this step is to catch adapter/config/`nodejs_compat` problems on
   the local machine before the first Git build runs, replacing the old
   manual-production-deploy bootstrap.
@@ -222,6 +240,9 @@ phase-1 choices must not entrench web-only patterns.
   - Non-production branches: `pnpm exec wrangler versions upload` for preview
     URLs used to verify before promoting to production.
   - Git branch (production): the production branch (defaults to `main`).
+- Enable non-production branch builds so Cloudflare uses the configured
+  non-production deploy command for preview versions instead of promoting every
+  branch push.
 - Add the build env vars and runtime secrets from step 7 in their respective
   dashboard sections.
 - Note: Workers Builds does not honor `[build]` custom-build config in
@@ -243,8 +264,9 @@ phase-1 choices must not entrench web-only patterns.
 - Wait for SSL provisioning to complete.
 - Configure Supabase Auth URL settings:
   - Site URL: the custom domain.
-  - Redirect allow list: the custom domain and the `workers.dev` preview/test
-    domain if auth testing there is needed.
+  - Redirect allow list: the exact custom-domain callback/return URLs and the
+    exact `workers.dev` preview/test URL if auth testing there is needed. Avoid
+    wildcard redirect entries for the alpha.
 - Configure custom SMTP via Resend before sharing the URL. This is a hard gate,
   not optional polish: Supabase's default email service only delivers to project
   team members and is heavily rate-limited (~2-30/hr), so external alpha testers
@@ -256,6 +278,8 @@ phase-1 choices must not entrench web-only patterns.
   - Set OTP expiry to `3600` seconds or lower.
   - Tune auth rate limits (sign-in, OTP initiation, token verification, refresh)
     to sane alpha values.
+  - Enable CAPTCHA before public signup/OTP exposure if the alpha URL is not
+    invite-only or otherwise access-controlled.
   - Treat the Resend SMTP credential as a Supabase-side secret; it never goes
     into Cloudflare or any client bundle.
 - Confirm email OTP templates still send the six-digit code flow expected by the
@@ -310,7 +334,8 @@ phase-1 choices must not entrench web-only patterns.
 
 - Local checks: `pnpm install`, `pnpm check`, `pnpm check:all`, `pnpm build`.
 - Cloudflare local simulation: run the built Cloudflare output through Wrangler
-  and verify both static pages and Worker-backed routes.
+  with `pnpm exec wrangler dev .svelte-kit/cloudflare/_worker.js` and verify both
+  static pages and Worker-backed routes.
 - Database checks: `pnpm db:lint`, then verify remote `delivery` and `learner`
   schemas exist after the linked reset.
 - Build-output checks: confirm `/learn` and lesson routes are present as
@@ -337,6 +362,6 @@ phase-1 choices must not entrench web-only patterns.
   base is mostly elsewhere.
 - Phase 2 will expose the reusable learner sync/projection contract through the
   Supabase RPC / security-definer layer so the parallel mobile app can call it
-  with bearer-token auth under RLS, likely via `@supabase/server` rather than
-  `@supabase/ssr`. See "Architectural Principle: Keep The Backend Contract
-  Mobile-Ready" above.
+  with bearer-token auth under RLS, using `@supabase/supabase-js` from the native
+  client or a deliberately chosen mobile backend. See "Architectural Principle:
+  Keep The Backend Contract Mobile-Ready" above.

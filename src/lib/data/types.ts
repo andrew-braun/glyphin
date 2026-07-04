@@ -25,19 +25,24 @@ export interface Tip {
 }
 
 /**
- * Represents a single Thai letter (consonant, vowel, or tone mark) that the learner
- * encounters during a lesson. Each letter includes learning aids such as a mnemonic
- * and pronunciation guide.
+ * Represents a single Thai grapheme (consonant, vowel, tone mark, numeral, or
+ * other written mark) that the learner encounters during a lesson. Each entry
+ * includes learning aids such as a mnemonic and pronunciation guide.
  */
 export interface Letter {
-	/** The Thai character itself (e.g. 'ห', 'ั', 'ว') */
+	/** The Thai character itself (e.g. 'ห', 'ั', 'ว', '๕', 'ๆ') */
 	character: string;
 	/** Romanized transliteration of the character (e.g. 'h', 'a', 'w') */
 	romanization: string;
 	/** Human-friendly pronunciation guide (e.g. 'h as in "hello"') */
 	pronunciation: string;
-	/** Classification of the letter within the Thai writing system */
-	type: "consonant" | "vowel" | "tone_mark";
+	/**
+	 * Classification of the grapheme within the Thai writing system.
+	 * - "numeral": Thai digits ๐–๙
+	 * - "mark": non-tone modifiers and symbols (e.g. maiyamok ๆ, karan ์,
+	 *   mai taikhu ็, paiyannoi ฯ) that aren't consonants, vowels, or tone marks
+	 */
+	type: "consonant" | "vowel" | "tone_mark" | "numeral" | "mark";
 	/** Consonant class used in Thai tone rules; only applicable to consonants */
 	class?: "low" | "mid" | "high";
 	/** A memorable visual or conceptual association to help the learner remember the character */
