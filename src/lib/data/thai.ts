@@ -4230,22 +4230,95 @@ const practiceVocabularyByLessonId: Record<number, LessonVocabularyEntry[]> = {
 		),
 		createPracticeEntry(
 			createWord(
-				"กาก",
-				"dregs / residue",
-				"gaak",
+				"กาม",
+				"sensuality",
+				"gaam",
 				"daily",
-				[{ thai: "กาก", sound: "gaak" }],
-				"A real dictionary word that gives early final-k practice without adding extra glyphs.",
+				[{ thai: "กาม", sound: "gaam" }],
+				"A low-frequency but fully decodable real word that stretches the same letters into a longer frame.",
 			),
 		),
 		createPracticeEntry(
 			createWord(
-				"มาม",
-				"sound-only practice",
-				"maam",
+				"กาก",
+				"residue / trashy (casual)",
+				"gaak",
 				"daily",
-				[{ thai: "มาม", sound: "maam" }],
-				"A clearly flagged pronunciation drill for an otherwise tiny early lesson pool.",
+				[{ thai: "กาก", sound: "gaak" }],
+				"A real word that also appears as casual slang online, so it is useful to recognize even if it is not polite.",
+			),
+		),
+		createPracticeEntry(
+			createWord(
+				"กก",
+				"reeds; to cuddle",
+				"kok",
+				"daily",
+				[{ thai: "กก", sound: "kok" }],
+				"This one introduces the implied short o pattern with a real dictionary word.",
+			),
+		),
+		createPracticeEntry(
+			createWord(
+				"กากมาก",
+				"really trashy (casual)",
+				"gaak maak",
+				"daily",
+				[
+					{ thai: "กาก", sound: "gaak" },
+					{ thai: "มาก", sound: "maak" },
+				],
+				"A common casual online insult. Useful to recognize, but definitely not polite speech.",
+			),
+			{ sourceType: "phrase" },
+		),
+		createPracticeEntry(
+			createWord(
+				"มามาก",
+				"comes a lot / heavy",
+				"maa maak",
+				"daily",
+				[
+					{ thai: "มา", sound: "maa" },
+					{ thai: "มาก", sound: "maak" },
+				],
+				"A short everyday phrase built from the same two visible chunks repeating back to back.",
+			),
+			{ sourceType: "phrase" },
+		),
+		createPracticeEntry(
+			createWord(
+				"กามา",
+				"sensual matters",
+				"gaa maa",
+				"daily",
+				[
+					{ thai: "กา", sound: "gaa" },
+					{ thai: "มา", sound: "maa" },
+				],
+				"A formal compound that is low-frequency but cleanly decodable from this lesson alone.",
+			),
+			{ sourceType: "phrase" },
+		),
+		createPracticeEntry(
+			createWord(
+				"กม",
+				"sound-only practice",
+				"gom",
+				"daily",
+				[{ thai: "กม", sound: "gom" }],
+				"This one is here just to train the implied short o pattern. It is not a normal dictionary word.",
+			),
+			{ sourceType: "nonsense" },
+		),
+		createPracticeEntry(
+			createWord(
+				"มก",
+				"sound-only practice",
+				"mok",
+				"daily",
+				[{ thai: "มก", sound: "mok" }],
+				"A second sound-only target so you can rehearse the same hidden-vowel move from the other direction.",
 			),
 			{ sourceType: "nonsense" },
 		),
@@ -4775,6 +4848,27 @@ const practiceVocabularyByLessonId: Record<number, LessonVocabularyEntry[]> = {
 			createWord("งา", "sesame", "ngaa", "food", [{ thai: "งา", sound: "ngaa" }]),
 		),
 		createPracticeEntry(
+			createWord("ต้อง", "must / have to", "dtâwng", "daily", [
+				{ thai: "ต้อง", sound: "dtâwng" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("สอง", "two", "sǎwng", "daily", [{ thai: "สอง", sound: "sǎwng" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ห้อง", "room", "hâwng", "sign", [{ thai: "ห้อง", sound: "hâwng" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ข้างหลัง", "behind", "khâang-lǎng", "sign", [
+				{ thai: "ข้าง", sound: "khâang" },
+				{ thai: "หลัง", sound: "lǎng" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
 			createWord("ของกิน", "things to eat", "khǎwng gin", "food", [
 				{ thai: "ของ", sound: "khǎwng" },
 				{ thai: "กิน", sound: "gin" },
@@ -4797,6 +4891,31 @@ const practiceVocabularyByLessonId: Record<number, LessonVocabularyEntry[]> = {
 			createWord("ทอง", "gold", "thawng", "daily", [{ thai: "ทอง", sound: "thawng" }]),
 		),
 		createPracticeEntry(
+			createWord("ที่", "at / place", "thîi", "daily", [{ thai: "ที่", sound: "thîi" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ทุก", "every", "thúk", "daily", [{ thai: "ทุก", sound: "thúk" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ท่าน", "you (formal)", "thâan", "daily", [
+				{ thai: "ท่าน", sound: "thâan" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ทอด", "to deep-fry", "thâwt", "food", [{ thai: "ทอด", sound: "thâwt" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ทีวี", "TV", "thii-wii", "daily", [
+				{ thai: "ที", sound: "thii" },
+				{ thai: "วี", sound: "wii" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
 			createWord("ทางออก", "exit", "thaang awk", "sign", [
 				{ thai: "ทาง", sound: "thaang" },
 				{ thai: "ออก", sound: "awk" },
@@ -4813,6 +4932,18 @@ const practiceVocabularyByLessonId: Record<number, LessonVocabularyEntry[]> = {
 		),
 		createPracticeEntry(
 			createWord("กะ", "to estimate / guess", "gà", "daily", [{ thai: "กะ", sound: "gà" }]),
+		),
+		createPracticeEntry(
+			createWord("จบ", "to finish / end", "jòp", "daily", [{ thai: "จบ", sound: "jòp" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("และ", "and", "láe", "daily", [{ thai: "และ", sound: "láe" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("จอด", "to park", "jàwt", "sign", [{ thai: "จอด", sound: "jàwt" }]),
+			{ drillTarget: false },
 		),
 		createPracticeEntry(
 			createWord("จะกิน", "will eat", "jà gin", "food", [
@@ -4840,6 +4971,29 @@ const practiceVocabularyByLessonId: Record<number, LessonVocabularyEntry[]> = {
 			createWord("เลข", "number", "lêek", "sign", [{ thai: "เลข", sound: "lêek" }]),
 		),
 		createPracticeEntry(
+			createWord("เอา", "to want / take", "ao", "daily", [{ thai: "เอา", sound: "ao" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เช้า", "morning", "cháo", "daily", [{ thai: "เช้า", sound: "cháo" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เล่น", "to play", "lên", "daily", [{ thai: "เล่น", sound: "lên" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เงิน", "money", "ngern", "daily", [{ thai: "เงิน", sound: "ngern" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เวลา", "time", "wee-laa", "daily", [
+				{ thai: "เว", sound: "wee" },
+				{ thai: "ลา", sound: "laa" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
 			createWord("เกะ", "sound-only practice", "gè", "daily", [{ thai: "เกะ", sound: "gè" }]),
 			{ sourceType: "nonsense" },
 		),
@@ -4862,6 +5016,32 @@ const practiceVocabularyByLessonId: Record<number, LessonVocabularyEntry[]> = {
 		createPracticeEntry(
 			createWord("ใหม่", "new", "mài", "daily", [{ thai: "ใหม่", sound: "mài" }]),
 		),
+		createPracticeEntry(
+			createWord("ได้", "can / to get", "dâai", "daily", [{ thai: "ได้", sound: "dâai" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ไหม", "(question particle)", "mǎi", "daily", [
+				{ thai: "ไหม", sound: "mǎi" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ใช้", "to use", "chái", "daily", [{ thai: "ใช้", sound: "chái" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ใน", "in", "nai", "daily", [{ thai: "ใน", sound: "nai" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ให้", "to give / for", "hâi", "daily", [{ thai: "ให้", sound: "hâi" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ไข่", "egg", "khài", "food", [{ thai: "ไข่", sound: "khài" }]),
+			{ drillTarget: false },
+		),
 	],
 	19: [
 		createPracticeEntry(
@@ -4877,6 +5057,30 @@ const practiceVocabularyByLessonId: Record<number, LessonVocabularyEntry[]> = {
 		),
 		createPracticeEntry(
 			createWord("โล", "kilo", "loo", "sign", [{ thai: "โล", sound: "loo" }]),
+		),
+		createPracticeEntry(
+			createWord("โทร", "to phone", "thoo", "daily", [{ thai: "โทร", sound: "thoo" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("โรง", "building / hall", "roong", "place", [
+				{ thai: "โรง", sound: "roong" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("โกหก", "to lie", "goo-hòk", "daily", [
+				{ thai: "โก", sound: "goo" },
+				{ thai: "หก", sound: "hòk" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("โมโห", "angry", "moo-hǒo", "daily", [
+				{ thai: "โม", sound: "moo" },
+				{ thai: "โห", sound: "hǒo" },
+			]),
+			{ drillTarget: false },
 		),
 	],
 	20: [
@@ -4895,6 +5099,28 @@ const practiceVocabularyByLessonId: Record<number, LessonVocabularyEntry[]> = {
 		createPracticeEntry(
 			createWord("ปา", "to throw", "bpaa", "daily", [{ thai: "ปา", sound: "bpaa" }]),
 		),
+		createPracticeEntry(
+			createWord("ปวด", "to ache", "bpùuat", "daily", [{ thai: "ปวด", sound: "bpùuat" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ปาก", "mouth", "bpàak", "daily", [{ thai: "ปาก", sound: "bpàak" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ปกติ", "normal", "bpòk-gà-dtì", "daily", [
+				{ thai: "ปก", sound: "bpòk" },
+				{ thai: "ติ", sound: "gà-dtì" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ปิดร้าน", "to close a shop", "bpìt ráan", "sign", [
+				{ thai: "ปิด", sound: "bpìt" },
+				{ thai: "ร้าน", sound: "ráan" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
 	],
 	21: [
 		createPracticeEntry(
@@ -4910,12 +5136,1333 @@ const practiceVocabularyByLessonId: Record<number, LessonVocabularyEntry[]> = {
 			createWord("ขาว", "white", "khǎao", "daily", [{ thai: "ขาว", sound: "khǎao" }]),
 		),
 		createPracticeEntry(
+			createWord("ข้าว", "rice", "khâao", "food", [{ thai: "ข้าว", sound: "khâao" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("สวย", "beautiful", "sǔuai", "daily", [{ thai: "สวย", sound: "sǔuai" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ด้วย", "also / with", "dûuai", "daily", [{ thai: "ด้วย", sound: "dûuai" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ยิ้ม", "to smile", "yím", "daily", [{ thai: "ยิ้ม", sound: "yím" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("สาย", "late / line", "sǎai", "daily", [{ thai: "สาย", sound: "sǎai" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ขายของ", "to sell goods", "khǎai khǎwng", "sign", [
+				{ thai: "ขาย", sound: "khǎai" },
+				{ thai: "ของ", sound: "khǎwng" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+		createPracticeEntry(
 			createWord("ร้านขายยา", "pharmacy", "ráan khǎai yaa", "sign", [
 				{ thai: "ร้าน", sound: "ráan" },
 				{ thai: "ขาย", sound: "khǎai" },
 				{ thai: "ยา", sound: "yaa" },
 			]),
 			{ sourceType: "phrase" },
+		),
+	],
+	22: [
+		createPracticeEntry(
+			createWord("คุณ", "you", "khun", "daily", [{ thai: "คุณ", sound: "khun" }]),
+		),
+		createPracticeEntry(
+			createWord("ครับ", "polite particle (male)", "khráp", "daily", [
+				{ thai: "ครับ", sound: "khráp" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ค่ะ", "polite particle (female)", "khâ", "daily", [
+				{ thai: "ค่ะ", sound: "khâ" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ความรัก", "love", "khwaam-rák", "daily", [
+				{ thai: "ความ", sound: "khwaam" },
+				{ thai: "รัก", sound: "rák" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("คิด", "to think", "khít", "daily", [{ thai: "คิด", sound: "khít" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ค่า", "value / fee", "khâa", "sign", [{ thai: "ค่า", sound: "khâa" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("คำ", "word", "kham", "daily", [{ thai: "คำ", sound: "kham" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ครู", "teacher", "khruu", "daily", [{ thai: "ครู", sound: "khruu" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("คืน", "night / to return", "khuen", "daily", [
+				{ thai: "คืน", sound: "khuen" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("คุย", "to chat", "khui", "daily", [{ thai: "คุย", sound: "khui" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ความสุข", "happiness", "khwaam-sùk", "daily", [
+				{ thai: "ความ", sound: "khwaam" },
+				{ thai: "สุข", sound: "sùk" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ครอบครัว", "family", "khrâwp-khruua", "daily", [
+				{ thai: "ครอบ", sound: "khrâwp" },
+				{ thai: "ครัว", sound: "khruua" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("คิดถึง", "to miss (someone)", "khít-thǔeng", "daily", [
+				{ thai: "คิด", sound: "khít" },
+				{ thai: "ถึง", sound: "thǔeng" },
+			]),
+			{ drillTarget: false },
+		),
+	],
+	23: [
+		createPracticeEntry(
+			createWord("พ่อ", "father", "phâw", "daily", [{ thai: "พ่อ", sound: "phâw" }]),
+		),
+		createPracticeEntry(
+			createWord("เพื่อน", "friend", "phûuean", "daily", [
+				{ thai: "เพื่อน", sound: "phûuean" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("พูด", "to speak", "phûut", "daily", [{ thai: "พูด", sound: "phûut" }]),
+		),
+		createPracticeEntry(
+			createWord("พบ", "to meet", "phóp", "daily", [{ thai: "พบ", sound: "phóp" }]),
+		),
+		createPracticeEntry(
+			createWord("พา", "to lead / take", "phaa", "daily", [{ thai: "พา", sound: "phaa" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เพลง", "song", "phleeng", "daily", [{ thai: "เพลง", sound: "phleeng" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("พี่", "older sibling", "phîi", "daily", [{ thai: "พี่", sound: "phîi" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("แพ้", "to lose / be allergic", "pháe", "daily", [
+				{ thai: "แพ้", sound: "pháe" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("พอ", "enough", "phaw", "daily", [{ thai: "พอ", sound: "phaw" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เพราะ", "because", "phráw", "daily", [{ thai: "เพราะ", sound: "phráw" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("พระ", "monk", "phrá", "daily", [{ thai: "พระ", sound: "phrá" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("พริก", "chili", "phrík", "food", [{ thai: "พริก", sound: "phrík" }]),
+			{ drillTarget: false },
+		),
+	],
+	24: [
+		createPracticeEntry(
+			createWord("ทำ", "to do / make", "tham", "daily", [{ thai: "ทำ", sound: "tham" }]),
+		),
+		createPracticeEntry(
+			createWord("คำ", "word", "kham", "daily", [{ thai: "คำ", sound: "kham" }]),
+		),
+		createPracticeEntry(
+			createWord("ดำ", "black", "dam", "daily", [{ thai: "ดำ", sound: "dam" }]),
+		),
+		createPracticeEntry(
+			createWord("จำ", "to remember", "jam", "daily", [{ thai: "จำ", sound: "jam" }]),
+		),
+		createPracticeEntry(
+			createWord("ทำไม", "why", "tham-mai", "daily", [
+				{ thai: "ทำ", sound: "tham" },
+				{ thai: "ไม", sound: "mai" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("นำ", "to lead", "nam", "daily", [{ thai: "นำ", sound: "nam" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ทำงาน", "to work", "tham-ngaan", "daily", [
+				{ thai: "ทำ", sound: "tham" },
+				{ thai: "งาน", sound: "ngaan" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("น้ำมัน", "oil / fuel", "nám-man", "sign", [
+				{ thai: "น้ำ", sound: "nám" },
+				{ thai: "มัน", sound: "man" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("สำคัญ", "important", "sǎm-khan", "daily", [
+				{ thai: "สำ", sound: "sǎm" },
+				{ thai: "คัญ", sound: "khan" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("กำลัง", "(progressive marker)", "gam-lang", "daily", [
+				{ thai: "กำ", sound: "gam" },
+				{ thai: "ลัง", sound: "lang" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("คำถาม", "question", "kham-thǎam", "daily", [
+				{ thai: "คำ", sound: "kham" },
+				{ thai: "ถาม", sound: "thǎam" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ทำอาหาร", "to cook", "tham aa-hǎan", "food", [
+				{ thai: "ทำ", sound: "tham" },
+				{ thai: "อา", sound: "aa" },
+				{ thai: "หาร", sound: "hǎan" },
+			]),
+			{ sourceType: "phrase" },
+		),
+	],
+	25: [
+		createPracticeEntry(
+			createWord("เรา", "we", "rao", "daily", [{ thai: "เรา", sound: "rao" }]),
+		),
+		createPracticeEntry(
+			createWord("เอา", "to take / want", "ao", "daily", [{ thai: "เอา", sound: "ao" }]),
+		),
+		createPracticeEntry(
+			createWord("เก้า", "nine", "gâo", "daily", [{ thai: "เก้า", sound: "gâo" }]),
+		),
+		createPracticeEntry(
+			createWord("เช้า", "morning", "cháo", "daily", [{ thai: "เช้า", sound: "cháo" }]),
+		),
+		createPracticeEntry(
+			createWord("เล่า", "to tell (a story)", "lâo", "daily", [
+				{ thai: "เล่า", sound: "lâo" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เบา", "light / soft", "bao", "daily", [{ thai: "เบา", sound: "bao" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เผา", "to burn", "phǎo", "daily", [{ thai: "เผา", sound: "phǎo" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เดา", "to guess", "dao", "daily", [{ thai: "เดา", sound: "dao" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เข้า", "to enter", "khâo", "daily", [{ thai: "เข้า", sound: "khâo" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เท่า", "equal to", "thâo", "daily", [{ thai: "เท่า", sound: "thâo" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เสา", "pillar / post", "sǎo", "daily", [{ thai: "เสา", sound: "sǎo" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เข้าใจ", "to understand", "khâo-jai", "daily", [
+				{ thai: "เข้า", sound: "khâo" },
+				{ thai: "ใจ", sound: "jai" },
+			]),
+			{ drillTarget: false },
+		),
+	],
+	26: [
+		createPracticeEntry(
+			createWord("ซื้อ", "to buy", "súe", "daily", [{ thai: "ซื้อ", sound: "súe" }]),
+		),
+		createPracticeEntry(
+			createWord("ซ้าย", "left", "sáai", "sign", [{ thai: "ซ้าย", sound: "sáai" }]),
+		),
+		createPracticeEntry(
+			createWord("ซัก", "to wash (clothes)", "sák", "daily", [{ thai: "ซัก", sound: "sák" }]),
+		),
+		createPracticeEntry(
+			createWord("เซ็น", "to sign", "sen", "sign", [{ thai: "เซ็น", sound: "sen" }]),
+		),
+		createPracticeEntry(
+			createWord("ซ้ำ", "to repeat", "sám", "daily", [{ thai: "ซ้ำ", sound: "sám" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ซอง", "envelope", "sawng", "daily", [{ thai: "ซอง", sound: "sawng" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ซวย", "unlucky", "suuai", "daily", [{ thai: "ซวย", sound: "suuai" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ซ่อม", "to repair", "sâwm", "daily", [{ thai: "ซ่อม", sound: "sâwm" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ซื้อของ", "to shop", "súe khǎwng", "daily", [
+				{ thai: "ซื้อ", sound: "súe" },
+				{ thai: "ของ", sound: "khǎwng" },
+			]),
+			{ sourceType: "phrase" },
+		),
+		createPracticeEntry(
+			createWord("ซักผ้า", "to do laundry", "sák phâa", "daily", [
+				{ thai: "ซัก", sound: "sák" },
+				{ thai: "ผ้า", sound: "phâa" },
+			]),
+			{ sourceType: "phrase" },
+		),
+		createPracticeEntry(
+			createWord("ซื้อขาย", "to trade", "súe khǎai", "daily", [
+				{ thai: "ซื้อ", sound: "súe" },
+				{ thai: "ขาย", sound: "khǎai" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	27: [
+		createPracticeEntry(
+			createWord("ฟัง", "to listen", "fang", "daily", [{ thai: "ฟัง", sound: "fang" }]),
+		),
+		createPracticeEntry(
+			createWord("ไฟฟ้า", "electricity", "fai-fáa", "sign", [
+				{ thai: "ไฟ", sound: "fai" },
+				{ thai: "ฟ้า", sound: "fáa" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ฟรี", "free", "frii", "sign", [{ thai: "ฟรี", sound: "frii" }]),
+		),
+		createPracticeEntry(
+			createWord("ฟัน", "tooth", "fan", "daily", [{ thai: "ฟัน", sound: "fan" }]),
+		),
+		createPracticeEntry(
+			createWord("ฟ้า", "sky / blue", "fáa", "daily", [{ thai: "ฟ้า", sound: "fáa" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("กาแฟ", "coffee", "gaa-fae", "food", [
+				{ thai: "กา", sound: "gaa" },
+				{ thai: "แฟ", sound: "fae" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ฟาง", "straw / hay", "faang", "daily", [{ thai: "ฟาง", sound: "faang" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ไฟแดง", "red light", "fai-daeng", "sign", [
+				{ thai: "ไฟ", sound: "fai" },
+				{ thai: "แดง", sound: "daeng" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เปิดไฟ", "to turn on the light", "bpèrt fai", "daily", [
+				{ thai: "เปิด", sound: "bpèrt" },
+				{ thai: "ไฟ", sound: "fai" },
+			]),
+			{ sourceType: "phrase" },
+		),
+		createPracticeEntry(
+			createWord("ดับไฟ", "to turn off the light", "dàp fai", "daily", [
+				{ thai: "ดับ", sound: "dàp" },
+				{ thai: "ไฟ", sound: "fai" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	28: [
+		createPracticeEntry(
+			createWord("ถาม", "to ask", "thǎam", "daily", [{ thai: "ถาม", sound: "thǎam" }]),
+		),
+		createPracticeEntry(
+			createWord("ถูก", "cheap / correct", "thùuk", "sign", [
+				{ thai: "ถูก", sound: "thùuk" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ถ้า", "if", "thâa", "daily", [{ thai: "ถ้า", sound: "thâa" }]),
+		),
+		createPracticeEntry(
+			createWord("ถือ", "to hold", "thǔe", "daily", [{ thai: "ถือ", sound: "thǔe" }]),
+		),
+		createPracticeEntry(
+			createWord("ถัง", "bucket / tank", "thǎng", "daily", [{ thai: "ถัง", sound: "thǎng" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ถึง", "to arrive / until", "thǔeng", "daily", [
+				{ thai: "ถึง", sound: "thǔeng" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ถอน", "to withdraw", "thǎwn", "daily", [{ thai: "ถอน", sound: "thǎwn" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ถ่าย", "to photograph", "thàai", "daily", [
+				{ thai: "ถ่าย", sound: "thàai" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ถาด", "tray", "thàat", "food", [{ thai: "ถาด", sound: "thàat" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ถูกต้อง", "correct", "thùuk-dtâwng", "daily", [
+				{ thai: "ถูก", sound: "thùuk" },
+				{ thai: "ต้อง", sound: "dtâwng" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ถามทาง", "to ask directions", "thǎam thaang", "sign", [
+				{ thai: "ถาม", sound: "thǎam" },
+				{ thai: "ทาง", sound: "thaang" },
+			]),
+			{ sourceType: "phrase" },
+		),
+	],
+	29: [
+		createPracticeEntry(
+			createWord("คือ", "is / namely", "khue", "daily", [{ thai: "คือ", sound: "khue" }]),
+		),
+		createPracticeEntry(
+			createWord("ถือ", "to hold", "thǔe", "daily", [{ thai: "ถือ", sound: "thǔe" }]),
+		),
+		createPracticeEntry(
+			createWord("ลืม", "to forget", "luem", "daily", [{ thai: "ลืม", sound: "luem" }]),
+		),
+		createPracticeEntry(
+			createWord("หนึ่ง", "one", "nùeng", "daily", [{ thai: "หนึ่ง", sound: "nùeng" }]),
+		),
+		createPracticeEntry(
+			createWord("ดึก", "late at night", "dùek", "daily", [{ thai: "ดึก", sound: "dùek" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ยืม", "to borrow", "yuem", "daily", [{ thai: "ยืม", sound: "yuem" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("มืด", "dark", "mûet", "daily", [{ thai: "มืด", sound: "mûet" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ตึก", "building", "dtùek", "place", [{ thai: "ตึก", sound: "dtùek" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ดื่ม", "to drink", "dùem", "food", [{ thai: "ดื่ม", sound: "dùem" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("มือถือ", "mobile phone", "mue-thǔe", "daily", [
+				{ thai: "มือ", sound: "mue" },
+				{ thai: "ถือ", sound: "thǔe" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("คิดถึง", "to miss (someone)", "khít-thǔeng", "daily", [
+				{ thai: "คิด", sound: "khít" },
+				{ thai: "ถึง", sound: "thǔeng" },
+			]),
+			{ drillTarget: false },
+		),
+	],
+	30: [
+		createPracticeEntry(
+			createWord("เสีย", "to lose / broken", "sǐia", "daily", [
+				{ thai: "เสีย", sound: "sǐia" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("เรียน", "to study", "rian", "daily", [{ thai: "เรียน", sound: "rian" }]),
+		),
+		createPracticeEntry(
+			createWord("เขียน", "to write", "khǐian", "daily", [
+				{ thai: "เขียน", sound: "khǐian" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("เมีย", "wife (colloquial)", "miia", "daily", [
+				{ thai: "เมีย", sound: "miia" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("เปียก", "wet", "bpìiak", "daily", [{ thai: "เปียก", sound: "bpìiak" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เสื้อ", "shirt", "sûea", "daily", [{ thai: "เสื้อ", sound: "sûea" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("โทรศัพท์", "telephone", "thoo-rá-sàp", "daily", [
+				{ thai: "โท", sound: "thoo" },
+				{ thai: "ระ", sound: "rá" },
+				{ thai: "ศัพท์", sound: "sàp" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("อาทิตย์", "week / Sunday", "aa-thít", "daily", [
+				{ thai: "อา", sound: "aa" },
+				{ thai: "ทิตย์", sound: "thít" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เสียใจ", "sad", "sǐia-jai", "daily", [
+				{ thai: "เสีย", sound: "sǐia" },
+				{ thai: "ใจ", sound: "jai" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เรียนภาษา", "to study a language", "rian phaa-sǎa", "daily", [
+				{ thai: "เรียน", sound: "rian" },
+				{ thai: "ภา", sound: "phaa" },
+				{ thai: "ษา", sound: "sǎa" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	31: [
+		createPracticeEntry(
+			createWord("ตัว", "body / classifier", "dtuua", "daily", [
+				{ thai: "ตัว", sound: "dtuua" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("หัว", "head", "hǔua", "daily", [{ thai: "หัว", sound: "hǔua" }]),
+		),
+		createPracticeEntry(
+			createWord("กลัว", "to fear", "gluua", "daily", [{ thai: "กลัว", sound: "gluua" }]),
+		),
+		createPracticeEntry(
+			createWord("ด้วย", "also / with", "dûuai", "daily", [{ thai: "ด้วย", sound: "dûuai" }]),
+		),
+		createPracticeEntry(
+			createWord("ครัว", "kitchen", "khruua", "daily", [{ thai: "ครัว", sound: "khruua" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("รวย", "rich", "ruuai", "daily", [{ thai: "รวย", sound: "ruuai" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("สวย", "beautiful", "sǔuai", "daily", [{ thai: "สวย", sound: "sǔuai" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ส่วน", "part / portion", "sùuan", "daily", [
+				{ thai: "ส่วน", sound: "sùuan" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ตัวเอง", "oneself", "dtuua-eeng", "daily", [
+				{ thai: "ตัว", sound: "dtuua" },
+				{ thai: "เอง", sound: "eeng" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ครอบครัว", "family", "khrâwp-khruua", "daily", [
+				{ thai: "ครอบ", sound: "khrâwp" },
+				{ thai: "ครัว", sound: "khruua" },
+			]),
+			{ drillTarget: false },
+		),
+	],
+	32: [
+		createPracticeEntry(
+			createWord("เธอ", "you / she (intimate)", "ther", "daily", [
+				{ thai: "เธอ", sound: "ther" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("เงิน", "money / silver", "ngern", "daily", [
+				{ thai: "เงิน", sound: "ngern" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("เดิน", "to walk", "dern", "daily", [{ thai: "เดิน", sound: "dern" }]),
+		),
+		createPracticeEntry(
+			createWord("เปิด", "to open", "bpèrt", "sign", [{ thai: "เปิด", sound: "bpèrt" }]),
+		),
+		createPracticeEntry(
+			createWord("เกิด", "to be born / happen", "gèrt", "daily", [
+				{ thai: "เกิด", sound: "gèrt" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เริ่ม", "to begin", "rêrm", "daily", [{ thai: "เริ่ม", sound: "rêrm" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เพิ่ม", "to increase", "phêrm", "daily", [
+				{ thai: "เพิ่ม", sound: "phêrm" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เลย", "at all / completely", "leri", "daily", [
+				{ thai: "เลย", sound: "leri" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เคย", "to have ever", "keri", "daily", [{ thai: "เคย", sound: "keri" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เจอกัน", "see you / meet up", "jer gan", "daily", [
+				{ thai: "เจอ", sound: "jer" },
+				{ thai: "กัน", sound: "gan" },
+			]),
+			{ sourceType: "phrase" },
+		),
+		createPracticeEntry(
+			createWord("เดินเล่น", "to stroll", "dern lên", "daily", [
+				{ thai: "เดิน", sound: "dern" },
+				{ thai: "เล่น", sound: "lên" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	33: [
+		createPracticeEntry(
+			createWord("กลับ", "to return", "glàp", "daily", [{ thai: "กลับ", sound: "glàp" }]),
+		),
+		createPracticeEntry(
+			createWord("ครับ", "polite particle (male)", "khráp", "daily", [
+				{ thai: "ครับ", sound: "khráp" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("กลาง", "middle / center", "glaang", "daily", [
+				{ thai: "กลาง", sound: "glaang" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ขวา", "right (direction)", "khwǎa", "sign", [
+				{ thai: "ขวา", sound: "khwǎa" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("เครื่อง", "machine / appliance", "khrûeang", "daily", [
+				{ thai: "เครื่อง", sound: "khrûeang" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ตรง", "straight", "dtrong", "sign", [{ thai: "ตรง", sound: "dtrong" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("กลัว", "to fear", "gluua", "daily", [{ thai: "กลัว", sound: "gluua" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ใกล้", "near", "glâi", "daily", [{ thai: "ใกล้", sound: "glâi" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ปลุก", "to wake (someone)", "bplùk", "daily", [
+				{ thai: "ปลุก", sound: "bplùk" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("กรุงเทพ", "Bangkok", "grung-thêep", "place", [
+				{ thai: "กรุง", sound: "grung" },
+				{ thai: "เทพ", sound: "thêep" },
+			]),
+			{ drillTarget: false },
+		),
+	],
+	34: [
+		createPracticeEntry(
+			createWord("ก๋วยเตี๋ยว", "noodle soup", "gǔuai-dtǐiao", "food", [
+				{ thai: "ก๋วย", sound: "gǔuai" },
+				{ thai: "เตี๋ยว", sound: "dtǐiao" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("จ๊ะ", "friendly particle", "já", "daily", [{ thai: "จ๊ะ", sound: "já" }]),
+		),
+		createPracticeEntry(
+			createWord("ก๊อก", "faucet / tap", "gáwk", "daily", [{ thai: "ก๊อก", sound: "gáwk" }]),
+		),
+		createPracticeEntry(
+			createWord("เก๋", "chic / stylish", "gěe", "daily", [{ thai: "เก๋", sound: "gěe" }]),
+		),
+		createPracticeEntry(
+			createWord("จ๋า", "(sweet response particle)", "jǎa", "daily", [
+				{ thai: "จ๋า", sound: "jǎa" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ตุ๊กตา", "doll", "dtúk-gà-dtaa", "daily", [
+				{ thai: "ตุ๊ก", sound: "dtúk" },
+				{ thai: "ตา", sound: "gà-dtaa" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เป๊ะ", "exactly / perfect", "bpé", "daily", [
+				{ thai: "เป๊ะ", sound: "bpé" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("โป๊", "nude / risqué", "bpó", "daily", [{ thai: "โป๊", sound: "bpó" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ก๋ง", "grandfather (Chinese-Thai)", "gǒng", "daily", [
+				{ thai: "ก๋ง", sound: "gǒng" },
+			]),
+			{ drillTarget: false },
+		),
+	],
+	35: [
+		createPracticeEntry(
+			createWord("กา", "crow", "gaa", "daily", [{ thai: "กา", sound: "gaa" }]),
+		),
+		createPracticeEntry(
+			createWord("ขา", "leg", "khǎa", "daily", [{ thai: "ขา", sound: "khǎa" }]),
+		),
+		createPracticeEntry(
+			createWord("คา", "to be stuck", "khaa", "daily", [{ thai: "คา", sound: "khaa" }]),
+		),
+		createPracticeEntry(
+			createWord("ค่า", "value / fee", "khâa", "sign", [{ thai: "ค่า", sound: "khâa" }]),
+		),
+		createPracticeEntry(
+			createWord("ค้า", "to trade", "kháa", "sign", [{ thai: "ค้า", sound: "kháa" }]),
+		),
+		createPracticeEntry(
+			createWord("ม้า", "horse", "máa", "daily", [{ thai: "ม้า", sound: "máa" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("หมา", "dog", "mǎa", "daily", [{ thai: "หมา", sound: "mǎa" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ปา", "to throw", "bpaa", "daily", [{ thai: "ปา", sound: "bpaa" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ป่า", "forest", "bpàa", "place", [{ thai: "ป่า", sound: "bpàa" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ป้า", "aunt", "bpâa", "daily", [{ thai: "ป้า", sound: "bpâa" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("หน้า", "face / front / page", "nâa", "daily", [
+				{ thai: "หน้า", sound: "nâa" },
+			]),
+			{ drillTarget: false },
+		),
+	],
+	36: [
+		createPracticeEntry(
+			createWord("เป็น", "to be", "bpen", "daily", [{ thai: "เป็น", sound: "bpen" }]),
+		),
+		createPracticeEntry(
+			createWord("เล่น", "to play", "lên", "daily", [{ thai: "เล่น", sound: "lên" }]),
+		),
+		createPracticeEntry(
+			createWord("เห็น", "to see", "hěn", "daily", [{ thai: "เห็น", sound: "hěn" }]),
+		),
+		createPracticeEntry(
+			createWord("เก็บ", "to keep / collect", "gèp", "daily", [
+				{ thai: "เก็บ", sound: "gèp" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("เย็น", "cool / evening", "yen", "daily", [{ thai: "เย็น", sound: "yen" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เผ็ด", "spicy", "phèt", "food", [{ thai: "เผ็ด", sound: "phèt" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เค็ม", "salty", "khem", "food", [{ thai: "เค็ม", sound: "khem" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เล็ก", "small", "lék", "daily", [{ thai: "เล็ก", sound: "lék" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เต็ม", "full", "dtem", "daily", [{ thai: "เต็ม", sound: "dtem" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("แข็ง", "hard / strong", "khǎeng", "daily", [
+				{ thai: "แข็ง", sound: "khǎeng" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เก็บเงิน", "to save money", "gèp ngern", "daily", [
+				{ thai: "เก็บ", sound: "gèp" },
+				{ thai: "เงิน", sound: "ngern" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	37: [
+		createPracticeEntry(
+			createWord("เด็กๆ", "children", "dèk-dèk", "daily", [
+				{ thai: "เด็ก", sound: "dèk" },
+				{ thai: "ๆ", sound: "dèk" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("เร็วๆ", "quickly / hurry", "rew-rew", "daily", [
+				{ thai: "เร็ว", sound: "rew" },
+				{ thai: "ๆ", sound: "rew" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ง่ายๆ", "very easy / simple", "ngâai-ngâai", "daily", [
+				{ thai: "ง่าย", sound: "ngâai" },
+				{ thai: "ๆ", sound: "ngâai" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("มากๆ", "very much", "mâak-mâak", "daily", [
+				{ thai: "มาก", sound: "mâak" },
+				{ thai: "ๆ", sound: "mâak" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ดีๆ", "nicely / good ones", "dii-dii", "daily", [
+				{ thai: "ดี", sound: "dii" },
+				{ thai: "ๆ", sound: "dii" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เบาๆ", "gently / softly", "bao-bao", "daily", [
+				{ thai: "เบา", sound: "bao" },
+				{ thai: "ๆ", sound: "bao" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ร้อนๆ", "piping hot", "ráwn-ráwn", "food", [
+				{ thai: "ร้อน", sound: "ráwn" },
+				{ thai: "ๆ", sound: "ráwn" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ใหม่ๆ", "brand new / recently", "mài-mài", "daily", [
+				{ thai: "ใหม่", sound: "mài" },
+				{ thai: "ๆ", sound: "mài" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("เล็กๆ", "tiny", "lék-lék", "daily", [
+				{ thai: "เล็ก", sound: "lék" },
+				{ thai: "ๆ", sound: "lék" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("พูดช้าๆ", "speak slowly", "phûut cháa-cháa", "daily", [
+				{ thai: "พูด", sound: "phûut" },
+				{ thai: "ช้า", sound: "cháa" },
+				{ thai: "ๆ", sound: "cháa" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	38: [
+		createPracticeEntry(
+			createWord("เตะ", "to kick", "dtè", "daily", [{ thai: "เตะ", sound: "dtè" }]),
+		),
+		createPracticeEntry(
+			createWord("แกะ", "sheep / to unwrap", "gàe", "daily", [{ thai: "แกะ", sound: "gàe" }]),
+		),
+		createPracticeEntry(
+			createWord("และ", "and", "láe", "daily", [{ thai: "และ", sound: "láe" }]),
+		),
+		createPracticeEntry(
+			createWord("คน", "person", "khon", "daily", [{ thai: "คน", sound: "khon" }]),
+		),
+		createPracticeEntry(
+			createWord("นก", "bird", "nók", "daily", [{ thai: "นก", sound: "nók" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("รถ", "car / vehicle", "rót", "transport", [{ thai: "รถ", sound: "rót" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("จบ", "to finish", "jòp", "daily", [{ thai: "จบ", sound: "jòp" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ฝน", "rain", "fǒn", "daily", [{ thai: "ฝน", sound: "fǒn" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("สด", "fresh", "sòt", "food", [{ thai: "สด", sound: "sòt" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ผม", "I (male) / hair", "phǒm", "daily", [{ thai: "ผม", sound: "phǒm" }]),
+			{ drillTarget: false },
+		),
+	],
+	39: [
+		createPracticeEntry(
+			createWord("๘ บาท", "8 baht", "bpàet bàat", "sign", [
+				{ thai: "๘", sound: "bpàet" },
+				{ thai: "บาท", sound: "bàat" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("๒๐ บาท", "20 baht", "yîi-sìp bàat", "sign", [
+				{ thai: "๒๐", sound: "yîi-sìp" },
+				{ thai: "บาท", sound: "bàat" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("๕ บาท", "5 baht", "hâa bàat", "sign", [
+				{ thai: "๕", sound: "hâa" },
+				{ thai: "บาท", sound: "bàat" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("๑๐๐", "100 (one hundred)", "nùeng ráwy", "sign", [
+				{ thai: "๑๐๐", sound: "nùeng ráwy" },
+			]),
+		),
+		createPracticeEntry(createWord("๙", "nine", "gâo", "sign", [{ thai: "๙", sound: "gâo" }]), {
+			drillTarget: false,
+		}),
+		createPracticeEntry(
+			createWord("๕๐๐", "500", "hâa-ráwy", "sign", [{ thai: "๕๐๐", sound: "hâa-ráwy" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("๑,๐๐๐", "1,000 (one thousand)", "nùeng phan", "sign", [
+				{ thai: "๑,๐๐๐", sound: "nùeng phan" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("๑๒ บาท", "12 baht", "sìp-sǎwng bàat", "sign", [
+				{ thai: "๑๒", sound: "sìp-sǎwng" },
+				{ thai: "บาท", sound: "bàat" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ราคา ๔๐ บาท", "price 40 baht", "raa-khaa sìi-sìp bàat", "sign", [
+				{ thai: "ราคา", sound: "raa-khaa" },
+				{ thai: "๔๐", sound: "sìi-sìp" },
+				{ thai: "บาท", sound: "bàat" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	40: [
+		createPracticeEntry(
+			createWord("ฯลฯ", "etc. / and so on", "láe-ùen-ùen", "sign", [
+				{ thai: "ฯลฯ", sound: "láe-ùen-ùen" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("นายกฯ", "PM (Prime Minister)", "naa-yók", "sign", [
+				{ thai: "นายกฯ", sound: "naa-yók" },
+			]),
+		),
+		createPracticeEntry(
+			createWord(
+				"กรุงเทพมหานคร",
+				"Bangkok (full name)",
+				"grung-thêep-má-hǎa-ná-khawn",
+				"place",
+				[
+					{ thai: "กรุงเทพ", sound: "grung-thêep" },
+					{ thai: "มหา", sound: "má-hǎa" },
+					{ thai: "นคร", sound: "ná-khawn" },
+				],
+			),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ในกรุงเทพฯ", "in Bangkok", "nai grung-thêep", "place", [
+				{ thai: "ใน", sound: "nai" },
+				{ thai: "กรุงเทพฯ", sound: "grung-thêep" },
+			]),
+			{ sourceType: "phrase" },
+		),
+		createPracticeEntry(
+			createWord("ไปกรุงเทพฯ", "to go to Bangkok", "bpai grung-thêep", "place", [
+				{ thai: "ไป", sound: "bpai" },
+				{ thai: "กรุงเทพฯ", sound: "grung-thêep" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("นายกฯ พูด", "the PM speaks", "naa-yók phûut", "sign", [
+				{ thai: "นายกฯ", sound: "naa-yók" },
+				{ thai: "พูด", sound: "phûut" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	41: [
+		createPracticeEntry(
+			createWord("ฝน", "rain", "fǒn", "daily", [{ thai: "ฝน", sound: "fǒn" }]),
+		),
+		createPracticeEntry(
+			createWord("ฝาก", "to deposit / leave with", "fàak", "daily", [
+				{ thai: "ฝาก", sound: "fàak" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ฉลาด", "clever", "chà-làat", "daily", [
+				{ thai: "ฉ", sound: "chà" },
+				{ thai: "ลาด", sound: "làat" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ฝา", "lid / cover", "fǎa", "daily", [{ thai: "ฝา", sound: "fǎa" }]),
+		),
+		createPracticeEntry(
+			createWord("ฝั่ง", "bank / side (of a river)", "fàng", "place", [
+				{ thai: "ฝั่ง", sound: "fàng" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ฝึก", "to train / practice", "fùek", "daily", [
+				{ thai: "ฝึก", sound: "fùek" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ฝัน", "to dream", "fǎn", "daily", [{ thai: "ฝัน", sound: "fǎn" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ฉลอง", "to celebrate", "chà-lǎwng", "daily", [
+				{ thai: "ฉ", sound: "chà" },
+				{ thai: "ลอง", sound: "lǎwng" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ฝากเงิน", "to deposit money", "fàak ngern", "daily", [
+				{ thai: "ฝาก", sound: "fàak" },
+				{ thai: "เงิน", sound: "ngern" },
+			]),
+			{ sourceType: "phrase" },
+		),
+		createPracticeEntry(
+			createWord("ฝนตก", "it's raining", "fǒn dtòk", "daily", [
+				{ thai: "ฝน", sound: "fǒn" },
+				{ thai: "ตก", sound: "dtòk" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	42: [
+		createPracticeEntry(
+			createWord("ธนาคาร", "bank", "thá-naa-khaan", "sign", [
+				{ thai: "ธ", sound: "thá" },
+				{ thai: "นา", sound: "naa" },
+				{ thai: "คาร", sound: "khaan" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ภาษา", "language", "phaa-sǎa", "daily", [
+				{ thai: "ภา", sound: "phaa" },
+				{ thai: "ษา", sound: "sǎa" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ผู้หญิง", "woman", "phûu-yǐng", "daily", [
+				{ thai: "ผู้", sound: "phûu" },
+				{ thai: "หญิง", sound: "yǐng" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ธง", "flag", "thong", "daily", [{ thai: "ธง", sound: "thong" }]),
+		),
+		createPracticeEntry(
+			createWord("ภาพ", "picture / image", "phâap", "daily", [
+				{ thai: "ภาพ", sound: "phâap" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ภูเขา", "mountain", "phuu-khǎo", "place", [
+				{ thai: "ภู", sound: "phuu" },
+				{ thai: "เขา", sound: "khǎo" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ปัญหา", "problem", "bpan-hǎa", "daily", [
+				{ thai: "ปัญ", sound: "bpan" },
+				{ thai: "หา", sound: "hǎa" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ญี่ปุ่น", "Japan", "yîi-bpùn", "place", [
+				{ thai: "ญี่", sound: "yîi" },
+				{ thai: "ปุ่น", sound: "bpùn" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ธรรมดา", "ordinary", "tham-má-daa", "daily", [
+				{ thai: "ธรรม", sound: "tham-má" },
+				{ thai: "ดา", sound: "daa" },
+			]),
+			{ drillTarget: false },
+		),
+	],
+	43: [
+		createPracticeEntry(
+			createWord("ศาล", "court (of law)", "sǎan", "sign", [{ thai: "ศาล", sound: "sǎan" }]),
+		),
+		createPracticeEntry(
+			createWord("ศูนย์", "zero / center", "sǔun", "sign", [
+				{ thai: "ศูนย์", sound: "sǔun" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("พิเศษ", "special", "phí-sèet", "sign", [
+				{ thai: "พิ", sound: "phí" },
+				{ thai: "เศษ", sound: "sèet" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ศึกษา", "education / to study", "sùek-sǎa", "sign", [
+				{ thai: "ศึก", sound: "sùek" },
+				{ thai: "ษา", sound: "sǎa" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("นักศึกษา", "university student", "nák-sùek-sǎa", "daily", [
+				{ thai: "นัก", sound: "nák" },
+				{ thai: "ศึก", sound: "sùek" },
+				{ thai: "ษา", sound: "sǎa" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ศาสนา", "religion", "sàat-sà-nǎa", "daily", [
+				{ thai: "ศาส", sound: "sàat" },
+				{ thai: "นา", sound: "sà-nǎa" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("คณะ", "faculty / group", "khá-ná", "daily", [
+				{ thai: "ค", sound: "khá" },
+				{ thai: "ณะ", sound: "ná" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ประเทศไทย", "Thailand", "bprà-thêet-thai", "place", [
+				{ thai: "ประเทศ", sound: "bprà-thêet" },
+				{ thai: "ไทย", sound: "thai" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	44: [
+		createPracticeEntry(
+			createWord("ฐาน", "base / pedestal", "thǎan", "daily", [
+				{ thai: "ฐาน", sound: "thǎan" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("ระฆัง", "bell", "rá-khang", "daily", [
+				{ thai: "ระ", sound: "rá" },
+				{ thai: "ฆัง", sound: "khang" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("นาฬิกา", "clock / watch", "naa-lí-gaa", "daily", [
+				{ thai: "นา", sound: "naa" },
+				{ thai: "ฬิ", sound: "lí" },
+				{ thai: "กา", sound: "gaa" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("รัฐบาล", "government", "rát-thà-baan", "sign", [
+				{ thai: "รัฐ", sound: "rát-thà" },
+				{ thai: "บาล", sound: "baan" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("มาตรฐาน", "standard", "mâat-dtrà-thǎan", "sign", [
+				{ thai: "มาตร", sound: "mâat-dtrà" },
+				{ thai: "ฐาน", sound: "thǎan" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ปฏิบัติ", "to practice / perform", "bpà-dtì-bàt", "daily", [
+				{ thai: "ป", sound: "bpà" },
+				{ thai: "ฏิ", sound: "dtì" },
+				{ thai: "บัติ", sound: "bàt" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ปลาวาฬ", "whale", "bplaa-waan", "daily", [
+				{ thai: "ปลา", sound: "bplaa" },
+				{ thai: "วาฬ", sound: "waan" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("สนามกีฬา", "stadium", "sà-nǎam gii-laa", "place", [
+				{ thai: "สนาม", sound: "sà-nǎam" },
+				{ thai: "กีฬา", sound: "gii-laa" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	45: [
+		createPracticeEntry(
+			createWord("ฤดู", "season", "rúe-duu", "daily", [
+				{ thai: "ฤ", sound: "rúe" },
+				{ thai: "ดู", sound: "duu" },
+			]),
+		),
+		createPracticeEntry(
+			createWord("อยาก", "to want", "yàak", "daily", [{ thai: "อยาก", sound: "yàak" }]),
+		),
+		createPracticeEntry(
+			createWord("อยู่", "to be (located)", "yùu", "daily", [{ thai: "อยู่", sound: "yùu" }]),
+		),
+		createPracticeEntry(
+			createWord("ทราย", "sand", "saai", "place", [{ thai: "ทราย", sound: "saai" }]),
+		),
+		createPracticeEntry(
+			createWord("จริง", "true / real", "jing", "daily", [{ thai: "จริง", sound: "jing" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("อย่าง", "kind / type / -ly", "yàang", "daily", [
+				{ thai: "อย่าง", sound: "yàang" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("อย่า", "don't", "yàa", "daily", [{ thai: "อย่า", sound: "yàa" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("สร้าง", "to build", "sâang", "daily", [{ thai: "สร้าง", sound: "sâang" }]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ภาษาอังกฤษ", "English language", "phaa-sǎa ang-grìt", "daily", [
+				{ thai: "ภาษา", sound: "phaa-sǎa" },
+				{ thai: "อังกฤษ", sound: "ang-grìt" },
+			]),
+			{ sourceType: "phrase", drillTarget: false },
+		),
+	],
+	46: [
+		createPracticeEntry(
+			createWord("ฤๅษี", "hermit / rishi", "ruee-sǐi", "daily", [
+				{ thai: "ฤๅ", sound: "ruee" },
+				{ thai: "ษี", sound: "sǐi" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ขวด", "bottle (modern spelling)", "khùuat", "daily", [
+				{ thai: "ขวด", sound: "khùuat" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ลึก", "deep (modern spelling of ฦ words)", "lúek", "daily", [
+				{ thai: "ลึก", sound: "lúek" },
+			]),
+			{ drillTarget: false },
+		),
+		createPracticeEntry(
+			createWord("ลือ", "to spread a rumor (modern ฦๅ)", "lue", "daily", [
+				{ thai: "ลือ", sound: "lue" },
+			]),
+			{ drillTarget: false },
 		),
 	],
 };

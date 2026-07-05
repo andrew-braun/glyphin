@@ -261,17 +261,46 @@ If the local connection details ever change, `pnpm exec supabase status` and `pn
 
 These are the commands you will use most often in this repo.
 
-### Reset local data and refresh lesson artifacts
+### Refresh local content and preserve learner state
+
+```sh
+pnpm db:content:refresh
+```
+
+This is the default local curriculum workflow. It regenerates
+`supabase/seed.sql` from `src/lib/data/thai.ts`, snapshots local `auth` and
+`learner` rows, rebuilds local Supabase from migrations and seed data, restores
+the saved user state, and then runs `pnpm publication:generate` so
+`.generated/` matches the active delivery publication used by prerendered lesson
+routes.
+
+The preservation step depends on the seeded curriculum keeping stable IDs for
+course versions, lessons, and related learner-linked entities. If a content
+change intentionally breaks those IDs, the refresh can fail during restore and
+you should fall back to a full reset.
+
+### Reset all local data and refresh lesson artifacts
 
 ```sh
 pnpm db:reset
 ```
 
-This resets local Supabase from migrations and seed data, ensures the local
-Supabase stack is running, then runs `pnpm publication:generate` so
-`.generated/` matches the active delivery publication used by prerendered lesson
-routes. The publication generator retries briefly if the Supabase API is still
-warming up after the reset restarts containers.
+This regenerates `supabase/seed.sql`, resets local Supabase from migrations and
+seed data, ensures the local Supabase stack is running, then runs
+`pnpm publication:generate` so `.generated/` matches the active delivery
+publication used by prerendered lesson routes.
+
+Use this only when you intentionally want to discard local auth and learner
+state along with the content refresh.
+
+### Regenerate the local seed file only
+
+```sh
+pnpm db:seed:refresh
+```
+
+This rewrites `supabase/seed.sql` from `src/lib/data/thai.ts` without touching
+the running database.
 
 ### Create a migration file
 
@@ -781,6 +810,8 @@ Studio or a direct connection.
   them as migrations. This repo treats migration files as the source of truth.
 - Treat `supabase/seed.sql` as bootstrap content for fresh environments, not as the
   normal mechanism for ongoing production content changes.
+- Prefer `pnpm db:content:refresh` over `pnpm db:reset` during local curriculum
+  work so learner and auth state survive ordinary content rebuilds.
 - Keep private schemas private. Client-facing features should still read from
   `delivery.*` and route learner writes through server-owned code.
 - Push to staging before production whenever possible, especially once authenticated

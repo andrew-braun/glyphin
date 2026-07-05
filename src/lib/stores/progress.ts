@@ -67,12 +67,6 @@ function getCanonicalLessonWords(lessonId: number): Word[] {
 	];
 }
 
-const knownWordThaiMap = new Map(
-	lessons
-		.flatMap((lesson) => getCanonicalLessonWords(lesson.id))
-		.map((word) => [word.thai, word] as const),
-);
-
 function createInitialProgress(): AppProgress {
 	return {
 		knownLetters: [],
@@ -102,25 +96,6 @@ function normalizeKnownLetters(value: unknown): string[] {
 			seen.add(item);
 			normalized.push(item);
 		}
-	}
-
-	return normalized;
-}
-
-function normalizeKnownWords(value: unknown): Word[] {
-	if (!Array.isArray(value)) return [];
-
-	const seen = new Set<string>();
-	const normalized: Word[] = [];
-
-	for (const item of value) {
-		if (!isRecord(item) || typeof item.thai !== "string") continue;
-
-		const canonicalWord = knownWordThaiMap.get(item.thai);
-		if (!canonicalWord || seen.has(canonicalWord.thai)) continue;
-
-		seen.add(canonicalWord.thai);
-		normalized.push(canonicalWord);
 	}
 
 	return normalized;
@@ -230,25 +205,19 @@ function collectKnownLetters(
 	return normalized;
 }
 
-function collectKnownWords(storedKnownWords: Word[], lessonProgress: LessonProgress[]): Word[] {
+function collectKnownWords(lessonProgress: LessonProgress[]): Word[] {
 	const completedLessonIds = new Set(
 		lessonProgress.filter(hasPracticePassed).map((entry) => entry.lessonId),
 	);
-	const storedWordSet = new Set(storedKnownWords.map((word) => word.thai));
 	const normalized: Word[] = [];
 	const normalizedWordSet = new Set<string>();
 
 	for (const lesson of lessons) {
-		const lessonWords = getCanonicalLessonWords(lesson.id);
-		const shouldIncludeLessonWords =
-			completedLessonIds.has(lesson.id) ||
-			lessonWords.some((word) => storedWordSet.has(word.thai));
-
-		if (!shouldIncludeLessonWords) {
+		if (!completedLessonIds.has(lesson.id)) {
 			continue;
 		}
 
-		for (const word of lessonWords) {
+		for (const word of getCanonicalLessonWords(lesson.id)) {
 			if (normalizedWordSet.has(word.thai)) continue;
 
 			normalizedWordSet.add(word.thai);
@@ -283,7 +252,7 @@ function normalizeProgress(value: unknown): AppProgress {
 			normalizeKnownLetters(value.knownLetters),
 			lessonProgress,
 		),
-		knownWords: collectKnownWords(normalizeKnownWords(value.knownWords), lessonProgress),
+		knownWords: collectKnownWords(lessonProgress),
 		lessonProgress,
 		currentLessonId: getCurrentLessonIdFromProgress(lessonProgress),
 	};

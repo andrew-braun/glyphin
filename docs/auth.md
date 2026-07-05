@@ -16,8 +16,12 @@ learner-owned data are being changed.
 - The published lesson artifact now carries a `publicationId` and
   `publicationCacheKey`, which define the cache and version boundary for public
   lesson content.
-- Local `pnpm db:reset` refreshes that generated lesson artifact after reseeding
-  so prerendered lesson UI follows the active delivery publication.
+- Local `pnpm db:content:refresh` is the default workflow for refreshing lesson
+  content while preserving local auth and learner data, and it refreshes the
+  generated lesson artifact so prerendered lesson UI follows the active
+  delivery publication.
+- Local `pnpm db:reset` remains available for full local state resets when auth
+  and learner data should also be wiped.
 - Local anonymous progress still lives in `src/lib/stores/progress.ts` and uses
   localStorage.
 - The learn index now applies learner-specific lesson badges and locking after

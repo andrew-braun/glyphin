@@ -25,6 +25,31 @@ const lessonSlugs = new Map([
 	[19, "to"],
 	[20, "pit"],
 	[21, "ya"],
+	[22, "khon"],
+	[23, "phaeng"],
+	[24, "nam"],
+	[25, "khao-he"],
+	[26, "soi"],
+	[27, "fai"],
+	[28, "thanon"],
+	[29, "mue"],
+	[30, "bia"],
+	[31, "wua"],
+	[32, "jer"],
+	[33, "plaa"],
+	[34, "toh"],
+	[35, "khao-news"],
+	[36, "dek"],
+	[37, "chaa"],
+	[38, "koh"],
+	[39, "numerals"],
+	[40, "krungthep"],
+	[41, "chan"],
+	[42, "yai"],
+	[43, "prathet"],
+	[44, "kila"],
+	[45, "angkrit"],
+	[46, "khuat-archaic"],
 ]);
 
 const releaseTimestamp = "2026-04-30T00:00:00+00:00";
@@ -93,7 +118,15 @@ function vocabularyKey(text) {
 		return char.codePointAt(0).toString(16).padStart(4, "0");
 	});
 
-	return `word-${codepoints.join("-")}`;
+	const fullKey = `word-${codepoints.join("-")}`;
+	if (fullKey.length <= 64) {
+		return fullKey;
+	}
+
+	// Keep short words fully readable, but cap long entries with a stable hash suffix.
+	const prefix = codepoints.slice(0, 6).join("-");
+	const hash = crypto.createHash("sha256").update(text).digest("hex").slice(0, 16);
+	return `word-${prefix}-${hash}`;
 }
 
 function buildSeedModel() {

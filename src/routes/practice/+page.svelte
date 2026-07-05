@@ -217,8 +217,8 @@
 				onAnswer={handleAnswer}
 				onNext={handleNext}
 				nextLabel={currentDrillIndex < drillPool.length - 1 && totalAnswered < SESSION_SIZE
-					? "Next Question →"
-					: "See Results →"}
+					? "Next Question"
+					: "See Results"}
 			/>
 
 			<!-- Running score counter -->

@@ -41,12 +41,9 @@
 						{passed ? "Practice passed" : "Practice needs one more run"}
 					</Eyebrow>
 					<h1>{passed ? "That lesson is unlocked." : "You are close."}</h1>
-					<p>
-						<span class="thai">{lesson.anchorWord.thai}</span> now scored {correctCount} out
-						of
-						{totalQuestions}. You need {passingCorrectCount} correct to clear this lesson
-						gate.
-					</p>
+					{#if !passed}
+						<p>Need {passingCorrectCount} of {totalQuestions} to pass.</p>
+					{/if}
 				</div>
 
 				<div class="practice-complete__score">

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
-	import Eyebrow from "$lib/components/ui/Eyebrow.svelte";
 	import type { LessonVocabularyEntry } from "$lib/data/types";
 
 	let {
@@ -30,12 +29,6 @@
 
 <StepLayout counter="Quick recap">
 	<section class="practice-recap surface-panel surface-panel--sky">
-		<div class="practice-recap__intro">
-			<Eyebrow tone="accent">Mini-batch recap</Eyebrow>
-			<h2>Scan the whole set once more.</h2>
-			<p>Tap any word to reveal its pronunciation and meaning before the scored check.</p>
-		</div>
-
 		<div class="practice-recap__grid">
 			{#each entries as entry, index}
 				<button
@@ -69,22 +62,6 @@
 		display: grid;
 		gap: clamp(#{$space-lg}, 3vw, #{$space-2xl});
 		padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
-
-		.practice-recap__intro {
-			display: grid;
-			gap: $space-sm;
-
-			h2,
-			p {
-				margin: 0;
-			}
-
-			p {
-				color: var(--color-text-muted);
-				line-height: 1.5;
-				max-width: 36rem;
-			}
-		}
 
 		.practice-recap__grid {
 			display: grid;

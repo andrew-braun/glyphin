@@ -9,7 +9,7 @@
 		revealStart = 0,
 		revealStep = 80,
 		showAnswers = true,
-		hiddenLabel = "Read this word before checking the sound and meaning.",
+		previewPrompt = "Sound it out, then check your read.",
 	}: {
 		entries: LessonVocabularyEntry[];
 		newLetters: Letter[];
@@ -17,11 +17,15 @@
 		revealStart?: number;
 		revealStep?: number;
 		showAnswers?: boolean;
-		hiddenLabel?: string;
+		previewPrompt?: string;
 	} = $props();
 
 	function focusLetters(entry: LessonVocabularyEntry) {
 		return newLetters.filter((letter) => entry.word.thai.includes(letter.character));
+	}
+
+	function skeletonBarWidth(text: string, min = 3.5, max = 11): number {
+		return Math.min(max, Math.max(min, text.length * 0.55));
 	}
 </script>
 
@@ -35,7 +39,12 @@
 				: `${entry.word.thai}, answer hidden`}
 		>
 			<Reveal as="div" delay={revealStart + index * revealStep} distance={10}>
-				<div class="same-letters-word-list__shell">
+				<div
+					class={[
+						"same-letters-word-list__shell",
+						{ "same-letters-word-list__shell--preview": !showAnswers },
+					]}
+				>
 					<div class="same-letters-word-list__script">
 						<span class="same-letters-word-list__thai thai thai--sm">
 							{entry.word.thai}
@@ -54,50 +63,82 @@
 						{/if}
 					</div>
 
-					{#if showAnswers}
-						<div class="same-letters-word-list__body">
-							<div class="same-letters-word-list__copy">
-								<span class="same-letters-word-list__pronunciation">
-									{entry.word.pronunciation}
-								</span>
-								<span class="same-letters-word-list__meaning">
-									{entry.word.meaning}
-								</span>
+					<div class="same-letters-word-list__body">
+						{#if showAnswers}
+							<div class="same-letters-word-list__answer">
+								<div class="same-letters-word-list__copy">
+									<span class="same-letters-word-list__pronunciation">
+										{entry.word.pronunciation}
+									</span>
+									<span class="same-letters-word-list__meaning">
+										{entry.word.meaning}
+									</span>
+								</div>
+
+								{#if entry.word.syllables.length > 0}
+									<ul
+										class="same-letters-word-list__syllables"
+										aria-label={`Readable parts of ${entry.word.thai}`}
+									>
+										{#each entry.word.syllables as syllable}
+											<li class="same-letters-word-list__syllable">
+												<span
+													class="same-letters-word-list__syllable-thai thai"
+												>
+													{syllable.thai}
+												</span>
+												<span
+													class="same-letters-word-list__syllable-sound"
+												>
+													{syllable.sound}
+												</span>
+											</li>
+										{/each}
+									</ul>
+								{/if}
+
+								{#if entry.word.contextNote}
+									<p class="same-letters-word-list__context">
+										{entry.word.contextNote}
+									</p>
+								{/if}
 							</div>
-
-							{#if entry.word.syllables.length > 0}
-								<ul
-									class="same-letters-word-list__syllables"
-									aria-label={`Readable parts of ${entry.word.thai}`}
-								>
-									{#each entry.word.syllables as syllable}
-										<li class="same-letters-word-list__syllable">
-											<span
-												class="same-letters-word-list__syllable-thai thai"
-											>
-												{syllable.thai}
-											</span>
-											<span class="same-letters-word-list__syllable-sound">
-												{syllable.sound}
-											</span>
-										</li>
-									{/each}
-								</ul>
-							{/if}
-
-							{#if entry.word.contextNote}
-								<p class="same-letters-word-list__context">
-									{entry.word.contextNote}
+						{:else}
+							<div class="same-letters-word-list__preview" aria-hidden="true">
+								<p class="same-letters-word-list__preview-prompt">
+									{previewPrompt}
 								</p>
-							{/if}
-						</div>
-					{:else}
-						<div
-							class="same-letters-word-list__body same-letters-word-list__body--hidden"
-						>
-							<p class="same-letters-word-list__hidden-label">{hiddenLabel}</p>
-						</div>
-					{/if}
+
+								<div class="same-letters-word-list__skeleton-copy">
+									<span
+										class="same-letters-word-list__skeleton-bar same-letters-word-list__skeleton-bar--pronunciation"
+										style={`width: ${skeletonBarWidth(entry.word.pronunciation)}rem`}
+									></span>
+									<span
+										class="same-letters-word-list__skeleton-bar same-letters-word-list__skeleton-bar--meaning"
+										style={`width: ${skeletonBarWidth(entry.word.meaning, 4.5, 13)}rem`}
+									></span>
+								</div>
+
+								{#if entry.word.syllables.length > 0}
+									<ul class="same-letters-word-list__skeleton-syllables">
+										{#each entry.word.syllables as _syllable, syllableIndex}
+											<li class="same-letters-word-list__skeleton-syllable">
+												<span
+													class="same-letters-word-list__skeleton-bar same-letters-word-list__skeleton-bar--syllable-thai"
+													style={`width: ${2 + (syllableIndex % 2)}rem`}
+												></span>
+												<span
+													class="same-letters-word-list__skeleton-bar same-letters-word-list__skeleton-bar--syllable-sound"
+													style="width: 2.25rem"
+												></span>
+											</li>
+										{/each}
+									</ul>
+								{/if}
+							</div>
+						{/if}
+					</div>
 				</div>
 			</Reveal>
 		</li>
@@ -108,6 +149,7 @@
 	.same-letters-word-list {
 		--same-letters-accent: var(--color-mango);
 		--same-letters-accent-soft: rgb(var(--rgb-mango) / 0.16);
+		--same-letters-skeleton: rgb(var(--rgb-mango) / 0.14);
 
 		display: grid;
 		gap: $space-md;
@@ -130,6 +172,14 @@
 			gap: clamp(#{$space-sm}, 1.5vw, #{$space-lg});
 			grid-template-columns: minmax(5.75rem, 0.32fr) minmax(0, 1fr);
 			padding: $space-md;
+			transition:
+				border-color $motion-duration-base $motion-ease-standard,
+				box-shadow $motion-duration-base $motion-ease-standard;
+
+			&.same-letters-word-list__shell--preview {
+				border-color: rgb(var(--rgb-mango) / 0.28);
+				box-shadow: inset 0 0 0 1px rgb(var(--rgb-mango) / 0.08);
+			}
 		}
 
 		.same-letters-word-list__script,
@@ -152,7 +202,8 @@
 		}
 
 		.same-letters-word-list__focus-list,
-		.same-letters-word-list__syllables {
+		.same-letters-word-list__syllables,
+		.same-letters-word-list__skeleton-syllables {
 			display: flex;
 			flex-wrap: wrap;
 			list-style: none;
@@ -182,15 +233,74 @@
 
 		.same-letters-word-list__body {
 			gap: $space-sm;
+		}
 
-			&.same-letters-word-list__body--hidden {
-				align-content: center;
-				background: var(--surface-interactive);
-				border: 1px dashed var(--color-border-strong);
-				border-radius: $radius-lg;
-				min-height: 4rem;
-				padding: $space-sm $space-md;
+		.same-letters-word-list__answer,
+		.same-letters-word-list__preview {
+			display: grid;
+			gap: $space-sm;
+		}
+
+		.same-letters-word-list__preview {
+			background: var(--surface-interactive);
+			border: 1px dashed rgb(var(--rgb-mango) / 0.34);
+			border-radius: $radius-lg;
+			padding: $space-sm $space-md;
+		}
+
+		.same-letters-word-list__preview-prompt {
+			color: var(--color-text-muted);
+			font-size: $font-size-sm;
+			font-weight: 700;
+			line-height: 1.45;
+			margin: 0;
+		}
+
+		.same-letters-word-list__skeleton-copy {
+			align-items: center;
+			column-gap: $space-sm;
+			display: flex;
+			flex-wrap: wrap;
+			row-gap: $space-xs;
+		}
+
+		.same-letters-word-list__skeleton-bar {
+			background: var(--same-letters-skeleton);
+			border-radius: 999px;
+			display: block;
+			height: 0.85rem;
+
+			&.same-letters-word-list__skeleton-bar--pronunciation {
+				height: 1rem;
 			}
+
+			&.same-letters-word-list__skeleton-bar--meaning {
+				height: 0.8rem;
+				opacity: 0.72;
+			}
+
+			&.same-letters-word-list__skeleton-bar--syllable-thai {
+				height: 0.75rem;
+			}
+
+			&.same-letters-word-list__skeleton-bar--syllable-sound {
+				height: 0.65rem;
+				opacity: 0.72;
+			}
+		}
+
+		.same-letters-word-list__skeleton-syllables {
+			gap: $space-sm;
+		}
+
+		.same-letters-word-list__skeleton-syllable {
+			align-items: center;
+			background: rgb(var(--rgb-mango) / 0.06);
+			border: 1px dashed rgb(var(--rgb-mango) / 0.22);
+			border-radius: 999px;
+			display: inline-flex;
+			gap: $space-xs;
+			padding: $space-xs $space-sm;
 		}
 
 		.same-letters-word-list__copy {
@@ -214,16 +324,8 @@
 
 		.same-letters-word-list__meaning,
 		.same-letters-word-list__context,
-		.same-letters-word-list__hidden-label,
 		.same-letters-word-list__syllable-sound {
 			color: var(--color-text-muted);
-		}
-
-		.same-letters-word-list__hidden-label {
-			font-size: $font-size-sm;
-			font-weight: 700;
-			line-height: 1.55;
-			margin: 0;
 		}
 
 		.same-letters-word-list__syllables {
@@ -271,12 +373,18 @@
 
 	@media (min-width: $bp-md) {
 		.same-letters-word-list {
-			.same-letters-word-list__body {
+			.same-letters-word-list__answer,
+			.same-letters-word-list__preview {
 				align-items: center;
 				grid-template-columns: minmax(0, 1fr) minmax(10rem, 0.82fr);
 			}
 
-			.same-letters-word-list__syllables {
+			.same-letters-word-list__preview-prompt {
+				grid-column: 1 / -1;
+			}
+
+			.same-letters-word-list__syllables,
+			.same-letters-word-list__skeleton-syllables {
 				justify-content: flex-end;
 			}
 

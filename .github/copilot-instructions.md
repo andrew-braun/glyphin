@@ -11,16 +11,18 @@
 - Use `pnpm check:all` when a change affects formatting, linting, aliases, or SCSS styling conventions.
 - Use `pnpm lint` and `pnpm stylelint` for focused TypeScript, Svelte, and style validation.
 - Run `pnpm build` when route behavior, metadata, env usage, or bundling changes.
-- `pnpm db:reset` resets local Supabase, ensures the local Supabase stack is
-  running, and regenerates `.generated/` lesson publication artifacts so
-  prerendered lesson UI follows the active delivery publication; the artifact
-  generator retries briefly while the local Supabase API warms up after
-  container restarts.
+- `pnpm db:content:refresh` is the default local curriculum workflow. It
+  regenerates `supabase/seed.sql`, refreshes local Supabase content, restores
+  local auth and learner state, and regenerates `.generated/` lesson
+  publication artifacts.
+- `pnpm db:reset` is for full local resets when you intentionally want to wipe
+  learner and auth state as well as refresh lesson content.
 - When architecture, tech choices, config, environment, deployment, or workflow assumptions change, update every relevant instruction file in the same change.
 - Keep `src/routes` responsible for routing, route data, and metadata.
 - Keep `src/lib/components` responsible for reusable rendering. Keep UI primitives domain-agnostic.
 - Prefer Bits UI for reusable interactive primitives and composite controls wherever possible instead of hand-rolling accessibility behavior.
 - For repeated interactive patterns, prefer app-owned wrappers in `src/lib/components/ui` that standardize the product API and styling on top of Bits UI.
+- Use `@lucide/svelte` for UI icons. Import each icon from `@lucide/svelte/icons/<icon-name>`; do not use the package root barrel or approximate icons with punctuation in button labels.
 - Treat `src/lib/data` as the canonical lesson-content source of truth and `src/lib/stores` as client-state and persistence boundaries.
 - In Svelte 5, prefer `$derived` over `$effect` for computed state.
 - Prefer runes-mode APIs over legacy patterns in new code.

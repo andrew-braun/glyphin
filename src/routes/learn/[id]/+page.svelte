@@ -113,8 +113,8 @@
 						rules={lesson.rulesIntroduced}
 						onComplete={hasGuidedPracticeWords ? nextStep : handleLearningComplete}
 						completeLabel={hasGuidedPracticeWords
-							? "Try two guided reads ->"
-							: "Finish learning ->"}
+							? "Try two guided reads"
+							: "Finish learning"}
 					/>
 				{:else if currentStep === "sameLetters"}
 					<StepSameLettersNewWords

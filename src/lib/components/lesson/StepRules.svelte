@@ -13,13 +13,14 @@
 <script lang="ts">
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
+	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import type { Rule } from "$lib/data/types";
 
 	let {
 		rules,
 		onComplete,
-		completeLabel = "Bring on the drills ->",
+		completeLabel = "Bring on the drills",
 	}: {
 		rules: Rule[];
 		onComplete: () => void;
@@ -76,7 +77,7 @@
 	{/key}
 
 	<Button variant="primary" size="large" fullWidth={true} onclick={next}>
-		{currentIndex < rules.length - 1 ? "Next rule ->" : completeLabel}
+		<ButtonForwardLabel label={currentIndex < rules.length - 1 ? "Next rule" : completeLabel} />
 	</Button>
 </StepLayout>
 

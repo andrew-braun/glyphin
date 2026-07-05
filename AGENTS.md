@@ -20,6 +20,7 @@
 - Package manager: `pnpm`
 - Runtime: Node `24.15.0`
 - Framework: SvelteKit 2, Svelte 5 runes, TypeScript, SCSS
+- Icons: `@lucide/svelte` for UI icons. Import icons directly from `@lucide/svelte/icons/<icon-name>`; do not use the package root barrel (`@lucide/svelte`). Keep `@lucide/svelte` in `vite.config.ts` > `ssr.noExternal` so SvelteKit can compile Lucide's `.svelte` icon modules during SSR.
 - Runtime lesson content today: static lesson data plus localStorage-backed progress
 - Local backend foundation: `supabase/` now contains the baseline SQL schema, RLS, seed entry point, and privileged sync helpers for future server-backed curriculum and learner state
 - Optional backend path: Supabase
@@ -33,11 +34,12 @@
 - Use `pnpm lint` and `pnpm stylelint` directly when tightening a focused TypeScript, Svelte, or style slice.
 - Run `pnpm build` whenever a change affects routes, metadata, environment variables, bundling, or deploy behavior.
 - Use `pnpm dev` for manual UI verification.
-- `pnpm db:reset` resets local Supabase, ensures the local Supabase stack is
-  running, and regenerates `.generated/` lesson publication artifacts so
-  prerendered lesson UI reflects the active delivery publication; the artifact
-  generator retries briefly while the local Supabase API warms up after
-  container restarts.
+- `pnpm db:content:refresh` is the default local curriculum workflow. It
+  regenerates `supabase/seed.sql`, refreshes local Supabase content, restores
+  local auth and learner state, and regenerates `.generated/` lesson
+  publication artifacts.
+- `pnpm db:reset` is for full local resets when you intentionally want to wipe
+  learner and auth state as well as refresh lesson content.
 
 ## Task Tracking
 
@@ -103,6 +105,7 @@
 - Interactive behavior must use real interactive elements such as `button`, `a`, form controls, or accessible headless primitives.
 - All images need meaningful `alt` text unless they are purely decorative.
 - Reuse design tokens from `$lib/styles` instead of hardcoding new colors, spacing, or radii in components.
+- Use Lucide (`@lucide/svelte`) for UI icons instead of text glyphs such as `->` or Unicode arrows. Import each icon from `@lucide/svelte/icons/<icon-name>`; do not import from the package root barrel. For repeated forward-action button labels, use `ButtonForwardLabel.svelte`.
 - Keep copy concise, concrete, and learner-focused.
 
 ## Routing And Data Loading

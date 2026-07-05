@@ -1,5 +1,4 @@
 <script lang="ts">
-	import GlyphRibbon from "$lib/components/illustrations/GlyphRibbon.svelte";
 	import ActionGroup from "$lib/components/layout/ActionGroup.svelte";
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
@@ -24,17 +23,9 @@
 	<section class="learning-complete surface-panel surface-panel--sky">
 		<Reveal as="div" distance={16}>
 			<div class="learning-complete__hero">
-				<div class="learning-complete__copy">
-					<Eyebrow tone="accent">Learning complete</Eyebrow>
-					<h1>You have the reading tools. Now lock them in.</h1>
-					<p>
-						You just learned how <span class="thai">{lesson.anchorWord.thai}</span> works.
-						The scored practice phase is where this lesson unlocks the next one.
-					</p>
-				</div>
+				<Eyebrow tone="accent">Learning complete</Eyebrow>
 
 				<div class="learning-complete__anchor" aria-label="Lesson anchor word">
-					<span class="learning-complete__anchor-label">Anchor word</span>
 					<span class="learning-complete__anchor-word thai">{lesson.anchorWord.thai}</span
 					>
 					<span class="learning-complete__anchor-meta"
@@ -62,24 +53,6 @@
 		</Reveal>
 
 		<Reveal as="div" delay={150} distance={10}>
-			<div class="learning-complete__practice-callout">
-				<div class="learning-complete__practice-copy">
-					<h2>Practice decides progression.</h2>
-					<p>
-						Work through the card stack, do the quick recap, then clear the scored
-						checkpoint to unlock the next lesson.
-					</p>
-				</div>
-				<div class="learning-complete__practice-art">
-					<GlyphRibbon
-						tokens={lesson.newLetters.map((letter) => letter.character)}
-						tone="mixed"
-					/>
-				</div>
-			</div>
-		</Reveal>
-
-		<Reveal as="div" delay={210} distance={10}>
 			<ActionGroup justify="start" stackAt="sm">
 				<Button variant="primary" size="large" onclick={onStartPractice}>
 					Start practice
@@ -96,27 +69,9 @@
 		gap: clamp(#{$space-lg}, 3vw, #{$space-2xl});
 		padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
 
-		.learning-complete__hero,
-		.learning-complete__practice-callout {
+		.learning-complete__hero {
 			display: grid;
 			gap: $space-lg;
-		}
-
-		.learning-complete__copy {
-			display: grid;
-			gap: $space-sm;
-			max-width: 42rem;
-
-			h1,
-			p {
-				margin: 0;
-			}
-
-			p {
-				color: var(--color-text-muted);
-				font-size: $font-size-lg;
-				line-height: 1.55;
-			}
 		}
 
 		.learning-complete__anchor {
@@ -128,7 +83,6 @@
 			padding: $space-lg;
 		}
 
-		.learning-complete__anchor-label,
 		.learning-complete__summary dt {
 			color: var(--color-text-soft);
 			font-size: $font-size-xs;
@@ -144,8 +98,7 @@
 			line-height: 1;
 		}
 
-		.learning-complete__anchor-meta,
-		.learning-complete__practice-copy p {
+		.learning-complete__anchor-meta {
 			color: var(--color-text-muted);
 		}
 
@@ -167,41 +120,6 @@
 				font-size: clamp(1.35rem, 3vw, 1.75rem);
 				font-weight: 800;
 				margin: 0;
-			}
-		}
-
-		.learning-complete__practice-callout {
-			align-items: center;
-			background: var(--color-surface-card);
-			border: 1px solid var(--color-border-strong);
-			border-radius: $radius-lg;
-			padding: clamp(#{$space-md}, 3vw, #{$space-xl});
-		}
-
-		.learning-complete__practice-copy {
-			display: grid;
-			gap: $space-sm;
-
-			h2,
-			p {
-				margin: 0;
-			}
-
-			p {
-				line-height: 1.5;
-			}
-		}
-
-		.learning-complete__practice-art {
-			max-width: 14rem;
-		}
-	}
-
-	@media (min-width: $bp-md) {
-		.learning-complete {
-			.learning-complete__hero,
-			.learning-complete__practice-callout {
-				grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.8fr);
 			}
 		}
 	}

@@ -48,7 +48,7 @@
 			correctIndex={currentDrill.correctIndex}
 			onAnswer={handleAnswer}
 			onNext={handleNext}
-			nextLabel={currentIndex < drills.length - 1 ? "Next Question →" : "See Results →"}
+			nextLabel={currentIndex < drills.length - 1 ? "Next Question" : "See Results"}
 		/>
 	{/if}
 </StepLayout>

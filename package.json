@@ -8,9 +8,11 @@
 		"build": "vite build",
 		"prebuild": "pnpm publication:generate",
 		"preview": "vite preview",
+		"db:seed:refresh": "node scripts/write-thai-seed.mjs",
 		"db:start": "supabase start",
 		"db:stop": "supabase stop",
-		"db:reset": "supabase db reset --yes && supabase start && pnpm publication:generate",
+		"db:content:refresh": "node scripts/refresh-local-content.mjs",
+		"db:reset": "pnpm db:seed:refresh && supabase db reset --yes && supabase start && pnpm publication:generate",
 		"db:lint": "supabase db lint",
 		"db:smoke:delivery": "node scripts/smoke-delivery-payload.mjs",
 		"curriculum:scaffold": "node scripts/curriculum-authoring-tools.mjs scaffold",
@@ -45,6 +47,7 @@
 		"@sveltejs/adapter-node": "^5.5.4",
 		"@sveltejs/kit": "^2.65.0",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
+		"@types/node": "^24.13.2",
 		"eslint": "^10.5.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-simple-import-sort": "^13.0.0",
@@ -93,6 +96,7 @@
 		]
 	},
 	"dependencies": {
+		"@lucide/svelte": "^1.23.0",
 		"@supabase/ssr": "^0.12.0",
 		"@supabase/supabase-js": "^2.108.1",
 		"@sveltejs/adapter-static": "^3.0.10",

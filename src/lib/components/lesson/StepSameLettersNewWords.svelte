@@ -8,7 +8,7 @@
 	import SameLettersWordList from "$lib/components/lesson/SameLettersWordList.svelte";
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
-	import Eyebrow from "$lib/components/ui/Eyebrow.svelte";
+	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import type { Lesson, LessonVocabularyEntry } from "$lib/data/types";
 
@@ -43,14 +43,12 @@
 			? "Optional extension"
 			: `${isExtensionPhase ? "Extension" : "Core"} practice ${currentIndex + 1} of ${activeWords.length}`,
 	);
-	const actionLabel = $derived(
-		isAnswerRevealed
-			? hasNextWord
-				? "Try the next read ->"
-				: phase === "core" && hasExtensionWords
-					? "See optional extension ->"
-					: "Bring on the drills ->"
-			: "Check my read",
+	const forwardActionLabel = $derived(
+		hasNextWord
+			? "Try the next read"
+			: phase === "core" && hasExtensionWords
+				? "See optional extension"
+				: "Finish learning",
 	);
 
 	function next() {
@@ -88,37 +86,11 @@
 
 <StepLayout class="step--same-letters" counter={counterLabel}>
 	<section class="same-letters surface-panel lesson-accent-panel lesson-accent-panel--mango">
-		<Reveal as="div" distance={14}>
-			<div class="same-letters__intro">
-				<div class="same-letters__copy">
-					<Eyebrow>Read before reveal</Eyebrow>
-					<h2>
-						{isExtensionPhase ? "Same letters, extra reads" : "Same letters, new reads"}
-					</h2>
-					<p>
-						The word you opened was <span class="thai">{lesson.anchorWord.thai}</span>.
-						Use those tools on this fresh read before checking the answer.
-					</p>
-				</div>
-
-				<div class="same-letters__anchor" aria-label="Anchor word from this lesson">
-					<span class="same-letters__anchor-label">Anchor</span>
-					<span class="same-letters__anchor-word thai">{lesson.anchorWord.thai}</span>
-					<span class="same-letters__anchor-meaning">{lesson.anchorWord.meaning}</span>
-				</div>
-			</div>
-		</Reveal>
-
 		{#if isExtensionPrompt}
 			<Reveal as="div" delay={120} distance={10}>
 				<div class="same-letters__extension-prompt">
 					<div class="same-letters__extension-copy">
-						<Eyebrow>Core practice complete</Eyebrow>
-						<h3>Keep going with the extension set?</h3>
-						<p>
-							You cleared the required practice. There are {extensionSet.length} more optional
-							reads here if you want extra pattern reps before the drills.
-						</p>
+						<h3>Extension reads?</h3>
 					</div>
 
 					<div class="same-letters__actions">
@@ -128,7 +100,7 @@
 							fullWidth={true}
 							onclick={startExtension}
 						>
-							Start the extension set
+							Start extension
 						</Button>
 						<Button
 							variant="secondary"
@@ -136,13 +108,13 @@
 							fullWidth={true}
 							onclick={onComplete}
 						>
-							Skip to drills
+							Finish learning
 						</Button>
 					</div>
 				</div>
 			</Reveal>
 		{:else}
-			{#key `${phase}-${currentIndex}-${isAnswerRevealed}`}
+			{#key `${phase}-${currentIndex}`}
 				<SameLettersWordList
 					entries={currentEntries}
 					newLetters={lesson.newLetters}
@@ -151,7 +123,7 @@
 						: "Current practice target to read before revealing the answer"}
 					revealStart={120}
 					showAnswers={isAnswerRevealed}
-					hiddenLabel="Read it first. Say the sound in your head, then check yourself."
+					previewPrompt="Sound it out, then check your read."
 				/>
 			{/key}
 		{/if}
@@ -159,7 +131,11 @@
 
 	{#if !isExtensionPrompt}
 		<Button variant="primary" size="large" fullWidth={true} onclick={next}>
-			{actionLabel}
+			{#if isAnswerRevealed}
+				<ButtonForwardLabel label={forwardActionLabel} />
+			{:else}
+				Check my read
+			{/if}
 		</Button>
 	{/if}
 </StepLayout>
@@ -172,33 +148,6 @@
 		display: grid;
 		gap: clamp(#{$space-md}, 2vw, #{$space-lg});
 		padding: var(--same-letters-panel-padding);
-
-		.same-letters__intro {
-			display: grid;
-			gap: $space-md;
-		}
-
-		.same-letters__copy {
-			display: grid;
-			gap: $space-sm;
-			max-width: 38rem;
-
-			h2,
-			p {
-				margin: 0;
-			}
-
-			p {
-				color: var(--color-text-muted);
-				font-size: $font-size-base;
-				line-height: 1.5;
-			}
-
-			.thai {
-				color: var(--color-mango);
-				font-weight: 800;
-			}
-		}
 
 		.same-letters__extension-prompt {
 			background: var(--color-surface-card);
@@ -213,62 +162,14 @@
 			display: grid;
 			gap: $space-sm;
 
-			h3,
-			p {
+			h3 {
 				margin: 0;
-			}
-
-			p {
-				color: var(--color-text-muted);
-				font-size: $font-size-base;
-				line-height: 1.5;
 			}
 		}
 
 		.same-letters__actions {
 			display: grid;
 			gap: $space-sm;
-		}
-
-		.same-letters__anchor {
-			align-content: center;
-			background: var(--color-mango);
-			border: 1px solid var(--color-mango);
-			border-radius: $radius-lg;
-			box-shadow: var(--shadow-card);
-			color: var(--color-on-mango);
-			display: grid;
-			gap: $space-xs;
-			justify-items: center;
-			padding: $space-md;
-			text-align: center;
-		}
-
-		.same-letters__anchor-label {
-			color: var(--color-on-mango);
-			font-size: $font-size-xs;
-			font-weight: 800;
-			letter-spacing: 0.08em;
-			text-transform: uppercase;
-		}
-
-		.same-letters__anchor-word {
-			font-size: clamp(2rem, 5vw, 3rem);
-			font-weight: 750;
-			line-height: 1;
-		}
-
-		.same-letters__anchor-meaning {
-			color: var(--color-on-mango);
-		}
-	}
-
-	@media (min-width: $bp-md) {
-		.same-letters {
-			.same-letters__intro {
-				align-items: center;
-				grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.34fr);
-			}
 		}
 	}
 

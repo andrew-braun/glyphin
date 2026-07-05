@@ -24,3 +24,13 @@
 - Drills must feel deterministic and fair.
 - Completion logic belongs in the lesson flow owner, not in arbitrary leaf components.
 - Keep the pace tight and the cognitive load low on mobile as well as desktop.
+
+## Copy Standards
+
+- Prefer show-dont-tell: let card faces, reveal buttons, counters, metrics, and CTAs communicate the interaction instead of explanatory paragraphs.
+- Use zero visible header copy on flash-card steps when the pattern is already clear from the UI.
+- Read-before-reveal list cards may use one short prompt plus a skeleton preview that mirrors the revealed answer layout.
+- Do not repeat what the progress tracker, counter, metric, or button label already says.
+- Keep teaching content (rules, letter mnemonics, syllable breakdown, curriculum context notes); trim only meta-instructions about how to use the UI.
+- Keep `aria-label` and `aria-live` text descriptive for screen readers even when visible copy is minimal.
+- Gate and locked-lesson screens may stay more explicit because the learner needs orientation.

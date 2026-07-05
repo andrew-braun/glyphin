@@ -17,6 +17,7 @@
 - Add variants only when they map to a deliberate design token or a repeated product need.
 - Prefer Bits UI for interactive primitives and composite controls wherever possible.
 - Prefer feature components consuming these wrappers over importing raw Bits UI directly once the product-level API is clear.
+- Use `@lucide/svelte` for icons. Import each icon from `@lucide/svelte/icons/<icon-name>`; do not use the package root barrel. Do not approximate arrows or other symbols with punctuation in UI copy. For forward-action buttons, prefer `ButtonForwardLabel.svelte`.
 - Keep plain native elements for cases where a headless primitive adds no value.
 - If using Bits UI, preserve its accessibility guarantees rather than fighting them with ad hoc markup.
 

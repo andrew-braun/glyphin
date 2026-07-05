@@ -56,22 +56,49 @@ course to 46 lessons across 14 stages.
     Numerals + Marks sections (empty sections are filtered until authored);
     `tips.ts` gains `letter-type-numeral` / `letter-type-mark` so the Type row
     stays populated. All four files typecheck clean.
-- [ ] Backfill Stage 6 (L14-21) practice vocab from `practice-words.md` (currently 4-5 words/lesson)
+- [x] Backfill Stage 6 (L14-21) practice vocab from `practice-words.md`
+  - Each L14-21 array expanded from 4-5 words toward ~10, constrained to glyphs
+    taught by that lesson's point in the sequence (preview-glyph rows skipped;
+    ★ words `drillTarget: true`, rest `drillTarget: false`). A few (L16 ~8, L19
+    ~8) stay small because the decodable pool is genuinely limited (e.g. ค is not
+    taught until L22) — acceptable per the small-pool exception.
+- [x] Wave 1: Stage 7 lessons 22-25 (authored into `thai.ts` baseLessons + vocab map)
+- [x] Wave 2: Stage 8 lessons 26-29
+- [x] Wave 3: Stage 9 lessons 30-33
+- [x] Wave 4: Stage 10 lessons 34-38
+- [x] Wave 5: Stages 11-14 lessons 39-46
+- [x] Regenerate `supabase/seed.sql` (added L22-46 slugs to `generate-thai-seed.mjs`)
+- [x] Run `pnpm check` (thai.ts + learn/[id] clean; only the pre-existing 3
+      `@types/node` errors in the untouched `published-lessons.ts` remain — a missing
+      `@types/node` devDependency, unrelated to this work)
 - [ ] Retire remaining stale `approach-thai.md` references in runtime/DB docs
 - [ ] Append L22-L46 anchors to `anchor-candidates.csv`
 - [ ] Run `pnpm curriculum:score docs/curriculum/thai-reading-v1/anchor-candidates.csv`
 - [ ] Refresh review packet with `pnpm curriculum:review docs/curriculum/thai-reading-v1 --force`
-- [ ] Wave 1: Stage 7 lessons 22-25
-- [ ] Wave 2: Stage 8 lessons 26-29
-- [ ] Wave 3: Stage 9 lessons 30-33
-- [ ] Wave 4: Stage 10 lessons 34-38
-- [ ] Wave 5: Stages 11-14 lessons 39-46
-- [ ] Regenerate `supabase/seed.sql`
-- [ ] Run `pnpm db:reset`
-- [ ] Run `pnpm db:smoke:delivery`
-- [ ] Run `pnpm check`
+- [ ] Run `pnpm db:reset` (REQUIRED to publish: the app serves lessons from the
+      `.generated` publication artifact, which still holds only 21 lessons until reset
+      regenerates it from the new seed; needs local Supabase running)
+- [ ] Run `pnpm db:smoke:delivery` (needs local Supabase env)
 - [ ] Run `pnpm curriculum:validate docs/curriculum/thai-reading-v1/manifest.json`
 - [ ] Run `pnpm build`
+
+## Authoring Decisions (2026-07-05 full fill-in pass)
+
+- **Romanization: ค = `kh`.** The app already romanizes ข as `kh` (khǎai,
+  khǎwng), so ค (its low-class pair) also uses `kh` (khon, khun, khráp), not the
+  `kon` shorthand in `practice-words.md`. IPA vowels normalized per plan:
+  `ɔɔ→aw`, `əə→er`, `ʉʉ/ʉ→ue`.
+- **Frame vowels** (เ-า, ◌ัว, เ-อ, เ-ีย, short diphthongs) are authored as
+  `newLetters` entries with a dotted-circle placeholder `character` (e.g. `เ◌า`),
+  since they have no single codepoint. Single combining marks (◌ื ◌็ ◌์ ◌ๆ ฯ ๊ ๋)
+  are stored bare, matching the shipped ◌ี/◌ั convention.
+- **Synthesis lessons carry no glyph.** L33 (true clusters) and L35 (tone-class
+  matrix) teach a reading pattern, so `newLetters: []`. This needed a UI change:
+  `src/routes/learn/[id]/+page.svelte` now omits the `letters` step when a lesson
+  has no new letters (previously `StepLetters` crashed on an empty array).
+- Anchor scoring for L22-46 is still pending (anchors remain provisional per
+  `lesson-sequence.md`); native-speaker/corpus review is still required before
+  final publication of the new stages.
 
 ## Blockers And Review Gates
 

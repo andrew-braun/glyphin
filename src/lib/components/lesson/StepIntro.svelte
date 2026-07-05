@@ -12,6 +12,7 @@
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Badge from "$lib/components/ui/Badge.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
+	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import NoticeBox from "$lib/components/ui/NoticeBox.svelte";
 	import type { Lesson } from "$lib/data/types";
 
@@ -28,7 +29,6 @@
 		<!-- Large word reveal — the learner's first look at the anchor word -->
 		<div class="word-reveal">
 			<div class="word-reveal__thai thai thai--lg">{lesson.anchorWord.thai}</div>
-			<p class="word-reveal__hint">Try reading it once before we pull it apart.</p>
 		</div>
 
 		<div class="intro-shell__support">
@@ -40,7 +40,7 @@
 			{/if}
 
 			<Button variant="primary" size="large" fullWidth={true} onclick={onNext}>
-				Open this word ->
+				<ButtonForwardLabel label="Open this word" />
 			</Button>
 		</div>
 	</section>
@@ -80,12 +80,6 @@
 
 		.word-reveal__thai {
 			color: var(--color-on-primary);
-		}
-
-		.word-reveal__hint {
-			color: var(--color-on-primary);
-			font-weight: 700;
-			margin-top: $space-sm;
 		}
 	}
 

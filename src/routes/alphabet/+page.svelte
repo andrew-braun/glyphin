@@ -69,7 +69,7 @@
 	<title>Alphabet — Glyphin</title>
 	<meta
 		name="description"
-		content="Review the Thai consonants, vowels, and tone marks you have unlocked so far, with pronunciation details and memory cues."
+		content="Review the Thai consonants, vowels, tone marks, numerals, and written marks you have unlocked so far, with pronunciation details and memory cues."
 	/>
 </svelte:head>
 

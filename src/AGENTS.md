@@ -29,6 +29,7 @@
 
 - Prefer Bits UI for new reusable interactive components and refactor ad hoc interaction patterns toward it where the library provides a fitting primitive.
 - For repeated interactive patterns, prefer app-owned wrappers in `src/lib/components/ui` that compose Bits UI and expose the stable API, styling, and behavior the product wants to standardize.
+- Use `@lucide/svelte` for UI icons instead of punctuation-based stand-ins such as `->`. Import each icon from `@lucide/svelte/icons/<icon-name>`; do not use the package root barrel.
 - Keep native HTML for simple buttons, links, and form controls that do not benefit from an added headless abstraction.
 
 ## Browser And Runtime Safety

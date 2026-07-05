@@ -1,6 +1,7 @@
 <script lang="ts">
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
+	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import FeedbackBanner from "$lib/components/ui/FeedbackBanner.svelte";
 	import RadioButtons, { type RadioButtonOption } from "$lib/components/ui/RadioButtons.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
@@ -129,7 +130,7 @@
 				<Reveal as="div" distance={10} duration={320}>
 					<FeedbackBanner tone={isCorrect ? "correct" : "wrong"}>
 						{#if isCorrect}
-							<strong>Correct.</strong> That read matches the Thai word.
+							<strong>Correct.</strong>
 						{:else}
 							<strong>Not quite.</strong> The right read is {currentQuestion.correctLabel}.
 						{/if}
@@ -138,7 +139,11 @@
 
 				<Reveal as="div" delay={80} distance={8} duration={320}>
 					<Button variant="primary" size="large" fullWidth={true} onclick={handleNext}>
-						{currentIndex < questions.length - 1 ? "Next question" : "See score"}
+						<ButtonForwardLabel
+							label={currentIndex < questions.length - 1
+								? "Next question"
+								: "See score"}
+						/>
 					</Button>
 				</Reveal>
 			{/if}

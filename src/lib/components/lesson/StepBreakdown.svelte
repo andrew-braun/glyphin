@@ -11,6 +11,7 @@
 <script lang="ts">
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
+	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import type { Lesson } from "$lib/data/types";
 
@@ -24,7 +25,6 @@
 		<section class="breakdown__panel breakdown__panel--whole surface-panel lesson-accent-panel">
 			<div class="breakdown__panel-header">
 				<span class="breakdown__eyebrow">Whole word</span>
-				<p class="breakdown__hint">Read it as one chunk before splitting it up.</p>
 			</div>
 
 			<div class="breakdown__word-wrap">
@@ -49,9 +49,6 @@
 		>
 			<div class="breakdown__panel-header">
 				<span class="breakdown__eyebrow">Broken into syllables</span>
-				<p class="breakdown__hint">
-					Each block shows one piece and the sound it contributes.
-				</p>
 			</div>
 
 			<div class="breakdown__syllables">
@@ -79,7 +76,7 @@
 	</div>
 
 	<Button variant="primary" size="large" fullWidth={true} onclick={onNext}>
-		Learn the New Letters ->
+		<ButtonForwardLabel label="Learn the New Letters" />
 	</Button>
 </StepLayout>
 
@@ -125,13 +122,6 @@
 			text-transform: uppercase;
 		}
 
-		&__hint {
-			color: var(--color-text-muted);
-			font-size: $font-size-sm;
-			line-height: 1.6;
-			margin: 0;
-		}
-
 		&__word-wrap {
 			align-items: center;
 			background: var(--color-primary);
@@ -172,9 +162,10 @@
 			color: var(--color-text-soft);
 			display: grid;
 			font-size: $font-size-xl;
-			height: 2.5rem;
+			font-size: 2rem;
+			height: 3.5rem;
 			justify-items: center;
-			width: 2.5rem;
+			width: 3.5rem;
 
 			&--right {
 				display: none;
@@ -186,6 +177,7 @@
 			font-size: $font-size-xs;
 			font-weight: 700;
 			letter-spacing: 0.08em;
+			text-align: center;
 			text-transform: uppercase;
 		}
 

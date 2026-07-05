@@ -15,6 +15,7 @@
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Badge from "$lib/components/ui/Badge.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
+	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import DetailRow from "$lib/components/ui/DetailRow.svelte";
 	import NoticeBox from "$lib/components/ui/NoticeBox.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
@@ -102,9 +103,11 @@
 	{/key}
 
 	<Button variant="primary" size="large" fullWidth={true} onclick={next}>
-		{currentIndex < letters.length - 1
-			? "Take the next letter ->"
-			: "Learn the rule behind it ->"}
+		<ButtonForwardLabel
+			label={currentIndex < letters.length - 1
+				? "Take the next letter"
+				: "Learn the rule behind it"}
+		/>
 	</Button>
 </StepLayout>
 

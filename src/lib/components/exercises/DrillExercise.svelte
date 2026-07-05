@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from "$lib/components/ui/Button.svelte";
+	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import FeedbackBanner from "$lib/components/ui/FeedbackBanner.svelte";
 	import RadioButtons, { type RadioButtonOption } from "$lib/components/ui/RadioButtons.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
@@ -11,7 +12,7 @@
 		correctIndex,
 		onAnswer,
 		onNext,
-		nextLabel = "Next Question ->",
+		nextLabel = "Next Question",
 	}: {
 		prompt: string;
 		options: string[];
@@ -88,7 +89,7 @@
 
 		<Reveal as="div" delay={80} distance={8} duration={320}>
 			<Button variant="primary" size="large" fullWidth={true} onclick={handleNext}>
-				{nextLabel}
+				<ButtonForwardLabel label={nextLabel} />
 			</Button>
 		</Reveal>
 	{/if}
