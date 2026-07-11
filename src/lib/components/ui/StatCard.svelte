@@ -4,17 +4,19 @@
 	let {
 		value,
 		label,
+		href,
 		class: className = "",
 		children,
 	}: {
 		value: string;
 		label: string;
+		href?: string;
 		class?: string;
 		children?: Snippet;
 	} = $props();
 </script>
 
-<div class={`stat-card card ${className}`}>
+<svelte:element this={href ? "a" : "div"} {href} class={`stat-card card ${className}`}>
 	<span class="stat-card__number">{value}</span>
 	<span class="stat-card__label">{label}</span>
 	{#if children}
@@ -22,7 +24,7 @@
 			{@render children()}
 		</div>
 	{/if}
-</div>
+</svelte:element>
 
 <style lang="scss">
 	.stat-card {
@@ -36,6 +38,12 @@
 		gap: $space-sm;
 		min-width: 220px;
 		text-align: center;
+		text-decoration: none;
+
+		&:link,
+		&:visited {
+			color: inherit;
+		}
 
 		&__number {
 			color: var(--color-primary-strong);

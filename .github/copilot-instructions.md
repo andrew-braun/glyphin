@@ -3,7 +3,8 @@
 - This file is the repo-wide Copilot baseline. Path-specific rules live in `.github/instructions/*.instructions.md`.
 - Also respect the nearest `AGENTS.md` when working in a subdirectory.
 - Use `pnpm` with Node `24.15.0`.
-- For every non-minor task, create and maintain a dated markdown spec/tracker in `.ai/` using `YYYY-MM-DD-short-description.md`.
+- For every non-minor task, create and maintain a dated markdown spec/tracker in `.ai/` using `YYYY-MM-DD-short-description.md`. Minor tasks (quick style/layout tweaks, small bug fixes, copy edits) don't need one — just make the change.
+- Do not stop for approval on minor changes; only pause when an unexpected complication arises or something needs clarification.
 - Use `docs/` for durable reference documentation and `.ai/` for task-scoped tracking and backlog notes.
 - Use `.ai/curriculum/<language>.md` as the central location for per-language curriculum progress and to-dos.
 - For database or Supabase work, start with `docs/db.md`; use `docs/database-dto-spec.md` for the exact schema and DTO contract, and `supabase/migrations/*.sql` for the live implementation.

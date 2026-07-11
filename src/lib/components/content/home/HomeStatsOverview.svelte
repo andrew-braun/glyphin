@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Row from "$lib/components/layout/Row.svelte";
+	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import Progress from "$lib/components/ui/Progress.svelte";
 	import StatCard from "$lib/components/ui/StatCard.svelte";
 	import type { Word } from "$lib/data/types";
@@ -17,16 +18,18 @@
 {#if knownLetters.length > 0}
 	<section>
 		<Row gap="1.5rem" stackAt="md" class="stats-row">
-			<StatCard value={knownLetters.length.toString()} label="Letters Learned">
+			<StatCard
+				value={knownLetters.length.toString()}
+				label="Letters Learned"
+				href="/alphabet"
+			>
 				{#snippet children()}
-					<div class="thai thai--sm">{knownLetters.join(" ")}</div>
+					<ButtonForwardLabel label="View alphabet" />
 				{/snippet}
 			</StatCard>
-			<StatCard value={knownWords.length.toString()} label="Words Known">
+			<StatCard value={knownWords.length.toString()} label="Words Known" href="/words">
 				{#snippet children()}
-					<div class="thai thai--sm">
-						{knownWords.map((word) => word.thai).join(" ")}
-					</div>
+					<ButtonForwardLabel label="View words" />
 				{/snippet}
 			</StatCard>
 			<StatCard value={`${completedLessonCount}/${totalLessons}`} label="Lessons Complete">

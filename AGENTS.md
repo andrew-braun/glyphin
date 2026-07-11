@@ -44,10 +44,13 @@
 ## Task Tracking
 
 - Every non-minor task must get a dedicated markdown spec and tracker file in `.ai/`.
+- Minor tasks do not need a `.ai` spec: quick style/layout tweaks, small bug fixes, copy edits, and other simple, self-contained changes. Just make the change directly.
+- When in doubt about whether a task is minor, default to skipping the `.ai` file and proceed; only add one if the work grows scope, spans multiple sessions, or otherwise turns out non-minor.
 - Name task files as `YYYY-MM-DD-short-description.md` using the date the task starts.
 - Create the task file before or at the start of implementation, then keep it updated with scope, decisions, progress, blockers, and follow-up work.
 - Treat the `.ai` file as the durable handoff artifact for resuming work later.
 - Track per-language curriculum progress and future authoring work in `.ai/curriculum/<language>.md`.
+- Do not stop to ask for approval before or after minor changes. Only pause for user input when an unexpected complication arises or something genuinely needs clarification.
 
 ## Durable Documentation
 
