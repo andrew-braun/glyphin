@@ -18,6 +18,7 @@
 - Transient task trackers
 - One-off scratch notes
 - Chat-history summaries that only matter to a single implementation pass
+- Temporary rollout plans and launch checklists; keep those in `.ai/`
 
 ## Maintenance
 

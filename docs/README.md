@@ -10,7 +10,8 @@ Use `docs/` for:
 - Workflow guides
 - Durable design decisions that should be easy to find later
 
-Do not use `docs/` for task-by-task implementation tracking. Task specs, in-progress notes, and backlog items belong in `.ai/`.
+Do not use `docs/` for task-by-task implementation tracking. Task specs,
+temporary rollout plans, in-progress notes, and backlog items belong in `.ai/`.
 
 ## Current Documents
 
@@ -23,5 +24,7 @@ Do not use `docs/` for task-by-task implementation tracking. Task specs, in-prog
 - `curriculum/writing-systems-catalog.md` — ranked roadmap of living, historical, and fictional or constructed writing systems Glyphin could cover.
 - `db.md` — README-style database guide covering schema roles, table responsibilities, common SQL queries, local and linked Supabase CLI workflow, and remote deployment guidance.
 - `database-dto-spec.md` — build-ready PostgreSQL, Supabase, and runtime DTO specification for curriculum delivery and learner progress.
-- `pre-rollout-tasks.md` — shared list of concrete follow-up work that must land before production rollout.
 - `security-review-checklist.md` — deployment gate and review checklist for high-risk security-sensitive changes
+- `seo.md` — route-level search and social metadata contract.
+- `search-indexing.md` — sitemap, robots, and canonical indexing contract.
+- `seo-recommendations.md` — research-backed recommendation set (structured data, icons/manifest, `llms.txt`, Core Web Vitals, AI-crawler policy) layered on top of the `seo.md`/`search-indexing.md` contracts.

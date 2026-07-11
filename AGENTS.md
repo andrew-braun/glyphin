@@ -55,7 +55,7 @@
 ## Durable Documentation
 
 - Use `docs/` for durable project documents that should outlive a single task, such as security checklists, architecture notes, workflow guides, and operational references.
-- Use `.ai/` for task-scoped specs, trackers, and backlog notes rather than long-lived reference documentation.
+- Use `.ai/` for task-scoped specs, temporary rollout plans, trackers, and backlog notes rather than long-lived reference documentation.
 - When a durable project fact is worth keeping beyond a task, move or summarize it into `docs/`.
 - For database and Supabase work, start with `docs/db.md` and use `docs/database-dto-spec.md` for the exact schema and DTO contract.
 

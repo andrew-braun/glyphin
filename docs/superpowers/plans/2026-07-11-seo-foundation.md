@@ -214,7 +214,7 @@ server-only factory owns the private production origin, validates it as an
 **Files:**
 
 - Modify: `docs/seo.md`
-- Modify: `docs/pre-rollout-tasks.md`
+- Modify: `.ai/2026-07-11-pre-rollout-tasks.md`
 
 - [ ] **Step 1: Audit source and rendered HTML**
 
@@ -227,6 +227,6 @@ server-only factory owns the private production origin, validates it as an
   SEO item in the master checklist, and commit.
 
   ```bash
-  git add docs/seo.md docs/pre-rollout-tasks.md
+  git add docs/seo.md .ai/2026-07-11-pre-rollout-tasks.md
   git commit -m "docs: verify SEO foundation"
   ```

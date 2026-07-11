@@ -10,7 +10,7 @@
 	"overrides": [
 		{
 			"files": "*.svelte",
-			"options": { "parser": "svelte", "svelteStrictMode": false }
+			"options": { "parser": "svelte" }
 		},
 		{
 			"files": "*.{yml,yaml,md,json}",

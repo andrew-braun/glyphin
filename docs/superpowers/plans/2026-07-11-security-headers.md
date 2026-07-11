@@ -187,7 +187,7 @@
 **Files:**
 
 - Modify: `docs/security-headers.md`
-- Modify: `docs/pre-rollout-tasks.md`
+- Modify: `.ai/2026-07-11-pre-rollout-tasks.md`
 
 **Interfaces:**
 
@@ -211,11 +211,11 @@
 
 - [ ] **Step 3: Record evidence and close the gate**
 
-  Add the date, host, routes checked, and deviations to `docs/security-headers.md`, then check the security-header item in `docs/pre-rollout-tasks.md`.
+  Add the date, host, routes checked, and deviations to `docs/security-headers.md`, then check the security-header item in `.ai/2026-07-11-pre-rollout-tasks.md`.
 
 - [ ] **Step 4: Commit**
 
   ```bash
-  git add docs/security-headers.md docs/pre-rollout-tasks.md
+  git add docs/security-headers.md .ai/2026-07-11-pre-rollout-tasks.md
   git commit -m "docs: verify deployed security headers"
   ```

@@ -180,7 +180,7 @@
 **Files:**
 
 - Modify: `docs/search-indexing.md`
-- Modify: `docs/pre-rollout-tasks.md`
+- Modify: `.ai/2026-07-11-pre-rollout-tasks.md`
 
 - [ ] **Step 1: Run the checker against production**
 
@@ -205,6 +205,6 @@
 - [ ] **Step 4: Close the checklist item and commit**
 
   ```bash
-  git add docs/search-indexing.md docs/pre-rollout-tasks.md
+  git add docs/search-indexing.md .ai/2026-07-11-pre-rollout-tasks.md
   git commit -m "docs: verify production search readiness"
   ```

@@ -277,7 +277,7 @@
 
 - Create: `.github/workflows/quality.yml`
 - Modify: `docs/testing.md`
-- Modify: `docs/pre-rollout-tasks.md`
+- Modify: `.ai/2026-07-11-pre-rollout-tasks.md`
 
 **Interfaces:**
 
@@ -302,6 +302,6 @@
 - [ ] **Step 4: Close the post-launch task and commit**
 
   ```bash
-  git add .github/workflows/quality.yml docs/testing.md docs/pre-rollout-tasks.md
+  git add .github/workflows/quality.yml docs/testing.md .ai/2026-07-11-pre-rollout-tasks.md
   git commit -m "ci: enforce automated quality suites"
   ```

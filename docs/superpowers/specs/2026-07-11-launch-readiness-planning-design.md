@@ -9,10 +9,10 @@ existing Cloudflare deployment plan.
 
 ## Planning Structure
 
-`docs/pre-rollout-tasks.md` remains the master release checklist. It owns small,
-concrete rollout tasks directly and links to dedicated planning files for work
-that needs its own scope, decisions, implementation sequence, or verification
-strategy.
+`.ai/2026-07-11-pre-rollout-tasks.md` remains the master release checklist. It
+owns small, concrete rollout tasks directly and links to dedicated planning files
+for work that needs its own scope, decisions, implementation sequence, or
+verification strategy.
 
 The master checklist will use three explicit sections:
 
@@ -30,7 +30,7 @@ or existing source document where applicable.
 ### Authentication readiness
 
 Keep the smaller hosted-authentication tasks together in
-`docs/pre-rollout-tasks.md`:
+`.ai/2026-07-11-pre-rollout-tasks.md`:
 
 - mirror the committed OTP-first email template in hosted Supabase
 - configure and verify production custom SMTP delivery
@@ -103,10 +103,11 @@ implements and verifies crawler discovery and index controls.
 
 ### Logo optimization
 
-Keep logo optimization as a small task in `docs/pre-rollout-tasks.md`. The task
-must measure the current SVG, remove unnecessary editor metadata or path
-complexity without changing the brand appearance, and compare production-build
-asset size before and after optimization.
+Keep logo optimization as a small task in
+`.ai/2026-07-11-pre-rollout-tasks.md`. The task must measure the current SVG,
+remove unnecessary editor metadata or path complexity without changing the brand
+appearance, and compare production-build asset size before and after
+optimization.
 
 ## Deployment-Process Verification
 
@@ -146,9 +147,9 @@ useful protection independently.
 
 ## Documentation Boundaries
 
-- `docs/pre-rollout-tasks.md` is the concise master checklist.
-- `docs/superpowers/plans/` holds the detailed implementation plans for the
-  larger workstreams.
+- `.ai/2026-07-11-pre-rollout-tasks.md` is the concise master checklist.
+- Temporary rollout plans and launch checklists belong in `.ai/`; `docs/`
+  should only keep durable launch policy, contracts, and operational references.
 - `docs/auth.md`, `docs/security-review-checklist.md`, and the existing
   Cloudflare deployment plan remain the authoritative operational references.
 - `.ai/` continues to hold task-scoped execution tracking; durable launch policy

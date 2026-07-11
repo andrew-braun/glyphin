@@ -241,7 +241,7 @@
 **Files:**
 
 - Modify: `docs/dependency-maintenance.md`
-- Modify: `docs/pre-rollout-tasks.md`
+- Modify: `.ai/2026-07-11-pre-rollout-tasks.md`
 
 - [ ] **Step 1: Record final versions and evidence**
 
@@ -251,6 +251,6 @@
 - [ ] **Step 2: Check the master rollout item and commit**
 
   ```bash
-  git add docs/dependency-maintenance.md docs/pre-rollout-tasks.md
+  git add docs/dependency-maintenance.md .ai/2026-07-11-pre-rollout-tasks.md
   git commit -m "docs: complete dependency readiness gate"
   ```

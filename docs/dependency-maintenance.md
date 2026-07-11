@@ -130,6 +130,17 @@ packages are found, and reported these available updates:
 The `@types/node` and TypeScript updates cross major versions and require
 separate compatibility review.
 
+## Tooling Refresh Outcome (2026-07-11)
+
+The tooling refresh retained the repository's `minimumReleaseAge` policy. At
+resolution time, ESLint 10.7.0 and Knip 6.26.0 were available but too recent
+for the active policy; pnpm selected ESLint 10.6.0 and Knip 6.25.0 as the
+latest aged releases. No `minimumReleaseAgeExclude` entries were added.
+
+The refresh also selected `@types/node` 24.13.3, the latest Node 24 declaration
+release, to stay aligned with the declared Node 24.15.0 runtime. This outcome
+supersedes the outdated-report suggestion to move Node types to 26.1.1.
+
 ## Knip Report
 
 `pnpm knip` exited 1 with these findings:
@@ -160,3 +171,73 @@ Knip recommends removing the current ignores for `@supabase/supabase-js` and
 
 This baseline task does not stage or commit files. The controller owns the
 commit as an orchestration exception.
+
+## Framework And UI Refresh Outcome (2026-07-11)
+
+The framework/UI refresh reconciled the direct declarations with the shared
+policy-aged lockfile resolution. Node remains `24.15.0` and pnpm remains
+`11.6.0`; no `minimumReleaseAgeExclude` entries were added.
+
+| Package                        | Previous declaration | Selected declaration | Migration required                                        |
+| ------------------------------ | -------------------- | -------------------- | --------------------------------------------------------- |
+| `svelte`                       | `^5.56.3`            | `^5.56.4`            | No; patch fixes only.                                     |
+| `@sveltejs/kit`                | `^2.65.0`            | `^2.69.2`            | No; remains within SvelteKit 2.                           |
+| `@sveltejs/adapter-node`       | `^5.5.4`             | `^5.5.7`             | No configuration change.                                  |
+| `@sveltejs/vite-plugin-svelte` | `^7.1.2`             | `^7.2.0`             | No; the added inspector context menu is development-only. |
+| `vite`                         | `^8.0.16`            | `^8.1.4`             | No; current config remains compatible.                    |
+| `@lucide/svelte`               | `^1.23.0`            | `^1.24.0`            | No import changes.                                        |
+| `bits-ui`                      | `^2.18.1`            | `^2.18.1`            | No; this is the current policy-aged release.              |
+
+### First-party migration review
+
+- Svelte remains on v5. The [Svelte 5 migration guide](https://svelte.dev/docs/svelte/v5-migration-guide)
+  confirms the relevant runes/callback-prop model already used by this project;
+  the selected patch release requires no new source migration.
+- SvelteKit remains on v2. The [SvelteKit 2 migration guide](https://svelte.dev/docs/kit/migrating-to-sveltekit-2)
+  introduces no additional work for this minor/patch update. Existing cookie
+  path and server-load behavior remains covered by current code and checks.
+- The upstream release notes were reviewed for
+  [Svelte 5.56.4](https://github.com/sveltejs/svelte/releases/tag/svelte%405.56.4),
+  [SvelteKit 2.69.2](https://github.com/sveltejs/kit/releases/tag/%40sveltejs%2Fkit%402.69.2),
+  [adapter-node 5.5.7](https://github.com/sveltejs/kit/releases/tag/%40sveltejs%2Fadapter-node%405.5.7),
+  [vite-plugin-svelte 7.2.0](https://github.com/sveltejs/vite-plugin-svelte/releases/tag/%40sveltejs%2Fvite-plugin-svelte%407.2.0),
+  [Vite 8.1.4](https://github.com/vitejs/vite/releases/tag/v8.1.4),
+  [Bits UI 2.18.1](https://github.com/huntabyte/bits-ui/releases/tag/bits-ui%402.18.1),
+  and [Lucide 1.24.0](https://github.com/lucide-icons/lucide/releases/tag/1.24.0).
+  They introduce no required application migration for the selected versions.
+
+### Adapter decision
+
+`@sveltejs/adapter-static` was removed. A repository-wide source/configuration
+search confirmed it had no runtime import, while `svelte.config.js` actively
+uses `@sveltejs/adapter-node`. Its removal is compatible with the current
+Cloudflare rollout plan: that plan separately replaces adapter-node with the
+Cloudflare adapter and explicitly removes unused static adapter support during
+that deployment work. This refresh does not perform the Cloudflare adapter
+swap or alter `svelte.config.js`/`vite.config.ts`, preserving concurrent
+security configuration changes.
+
+### Resume Validation (2026-07-11)
+
+The resumed validation pass established the following state after the refreshed
+lockfile was installed:
+
+| Command / check                                   | Result                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm install --frozen-lockfile`                  | Exit 0 when rerun interactively by the user; lockfile passed supply-chain policies and installed the refreshed dependency graph.                                                                                                                                                                                                                            |
+| Focused Prettier check on touched docs/task files | Exit 0 after formatting the touched files only. The broad `pnpm check:all` still fails at its repository-wide Prettier step because pre-existing `.ai`, `.kilo`, `.pnpm-store`, `.superpowers`, `docs/database-dto-spec.md`, and `supabase/templates/magic-link.html` files are out of format; those unrelated files were intentionally not mass-formatted. |
+| Focused markdownlint on touched docs/task files   | Exit 0.                                                                                                                                                                                                                                                                                                                                                     |
+| `pnpm lint`                                       | Exit 0.                                                                                                                                                                                                                                                                                                                                                     |
+| `pnpm stylelint`                                  | Exit 0.                                                                                                                                                                                                                                                                                                                                                     |
+| `pnpm check`                                      | Exit 0; `svelte-check` found 0 errors and 0 warnings.                                                                                                                                                                                                                                                                                                       |
+| `pnpm build`                                      | Exit 1 before Vite build because `publication:generate` could not fetch the active lesson publication after 12 attempts (`TypeError: fetch failed`). Re-run with local Supabase/delivery API reachable.                                                                                                                                                     |
+| `pnpm audit`                                      | Exit 1 with one remaining low `cookie <0.7.0` advisory (`GHSA-pxg6-pf52-xh8x`) through SvelteKit paths.                                                                                                                                                                                                                                                     |
+| `pnpm audit --prod`                               | Exit 1 with the same low `cookie <0.7.0` advisory through `bits-ui`/`runed`/SvelteKit paths.                                                                                                                                                                                                                                                                |
+
+The remaining audit finding is not closed. `@sveltejs/kit@2.69.2` still depends
+on `cookie@0.6.0`; the lockfile also contains `cookie@1.1.1` for Supabase, but
+that does not affect the SvelteKit path. Do not add a pnpm override without
+verifying SvelteKit compatibility. The dependency rollout gate can close only
+after either a normal upstream update removes `cookie@0.6.0` from the graph, or
+a release owner records a time-bounded acceptance with owner, mitigation, review
+date, and removal trigger.
