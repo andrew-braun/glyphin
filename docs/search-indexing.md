@@ -37,6 +37,10 @@ Lesson entries must come from `getPublishedLessonEntries()` in
 They must not come from a second hand-maintained ID list. Output is absolute
 HTTPS URLs under the canonical production origin, unique and deterministically
 ordered. Do not emit guessed `lastmod`, `changefreq`, or priority values.
+The automated readiness check must compare sets and assert that the sitemap's
+lesson URLs equal all URLs projected from the current
+`getPublishedLessonEntries()` result, with every projected lesson URL present
+exactly once and no additional lesson URL present.
 
 The following paths and patterns never appear in the sitemap:
 
@@ -63,11 +67,12 @@ private endpoints remain protected on the server.
 
 Every non-production deployment, including branch and development preview
 hosts, sends `X-Robots-Tag: noindex, nofollow` on every response. Its HTML
-documents also emit `noindex, nofollow`, its robots policy disallows all
-crawling, and it does not advertise or serve a sitemap that could be mistaken
-for the production sitemap. Preview canonicals must not make preview URLs
-indexable; where canonical metadata is rendered, it points to the corresponding
-approved production URL.
+documents also emit `noindex, nofollow`. Preview `/robots.txt` must contain
+`User-agent: *` followed by `Disallow: /`, must not contain a `Sitemap:`
+directive, and must not advertise the production sitemap. Preview
+`/sitemap.xml` must be absent and return `404`. Preview canonicals must not make
+preview URLs indexable; where canonical metadata is rendered, it points to the
+corresponding approved production URL.
 
 On production, learner workflows and utilities listed as non-indexable in
 `docs/seo.md` emit `noindex, follow`. Indexable documents must not emit a
@@ -76,7 +81,10 @@ On production, learner workflows and utilities listed as non-indexable in
 ## Status and canonical behavior
 
 - Every sitemap URL returns `200` HTML without an intervening redirect, exposes
-  one self-referencing canonical, and has crawler-visible primary content.
+  one self-referencing canonical, is indexable with no meta or response-header
+  `noindex`, and has crawler-visible, server-rendered primary content. The
+  automated readiness check iterates and asserts these conditions for every
+  URL parsed from the sitemap, not only representative URLs.
 - An unknown route returns `404`; it does not redirect to `/` or another
   indexable document.
 - A malformed, nonexistent, or inactive lesson URL returns `404`. Only lessons
@@ -93,28 +101,33 @@ Run the automated search-readiness check against the exact deployment before
 webmaster submission. Record the command, final origin, UTC date, deployment
 identifier, and result in the release record.
 
-| Target                                                           | Expected status or redirect | Canonical and robots                                 | Sitemap            |
-| ---------------------------------------------------------------- | --------------------------- | ---------------------------------------------------- | ------------------ |
-| `/`                                                              | `200`                       | Self-canonical; indexable                            | Included           |
-| `/about`                                                         | `200`                       | Self-canonical; indexable                            | Included           |
-| `/learn`                                                         | `200`                       | Self-canonical; indexable                            | Included           |
-| One active `/learn/{id}`                                         | `200`                       | Self-canonical; indexable                            | Included           |
-| One inactive or nonexistent `/learn/{id}`                        | `404`                       | Must not present an indexable canonical              | Excluded           |
-| `/learn/{id}/practice`                                           | `200` when valid            | Self-canonical; `noindex, follow`                    | Excluded           |
-| `/alphabet`, `/words`, `/practice`, `/auth`                      | `200`                       | Self-canonical; `noindex, follow`                    | Excluded           |
-| `/api/learner/projection`, `/api/learner/sync`, `/auth/sign-out` | Endpoint-defined            | No document metadata                                 | Excluded           |
-| `/test/lesson-complete` on production, if deployed               | `200`                       | Self-canonical; `noindex, nofollow`                  | Excluded           |
-| An unknown path                                                  | `404`                       | Must not present an indexable canonical              | Excluded           |
-| HTTP or alternate-host public URL                                | Permanent redirect          | One hop to exact HTTPS canonical host and path       | Variant excluded   |
-| Trailing-slash public URL                                        | Permanent redirect          | One hop to slashless path; `/` unchanged             | Variant excluded   |
-| Query-bearing public URL                                         | `200` or policy redirect    | Query-free canonical                                 | Variant excluded   |
-| `/robots.txt`                                                    | `200 text/plain`            | Production rules and one absolute sitemap directive  | Not applicable     |
-| `/sitemap.xml`                                                   | `200 application/xml`       | Unique absolute HTTPS URLs only                      | Not applicable     |
-| Representative preview document                                  | `200`                       | `noindex, nofollow`; production canonical if emitted | No preview sitemap |
+| Target                                                           | Expected status or redirect | Canonical and robots                                                        | Sitemap          |
+| ---------------------------------------------------------------- | --------------------------- | --------------------------------------------------------------------------- | ---------------- |
+| `/`                                                              | `200`                       | Self-canonical; indexable                                                   | Included         |
+| `/about`                                                         | `200`                       | Self-canonical; indexable                                                   | Included         |
+| `/learn`                                                         | `200`                       | Self-canonical; indexable                                                   | Included         |
+| One active `/learn/{id}`                                         | `200`                       | Self-canonical; indexable                                                   | Included         |
+| One inactive or nonexistent `/learn/{id}`                        | `404`                       | Must not present an indexable canonical                                     | Excluded         |
+| `/learn/{id}/practice`                                           | `200` when valid            | Self-canonical; `noindex, follow`                                           | Excluded         |
+| `/alphabet`, `/words`, `/practice`, `/auth`                      | `200`                       | Self-canonical; `noindex, follow`                                           | Excluded         |
+| `/api/learner/projection`, `/api/learner/sync`, `/auth/sign-out` | Endpoint-defined            | No document metadata                                                        | Excluded         |
+| `/test/lesson-complete` on production, if deployed               | `200`                       | Self-canonical; `noindex, nofollow`                                         | Excluded         |
+| An unknown path                                                  | `404`                       | Must not present an indexable canonical                                     | Excluded         |
+| HTTP or alternate-host public URL                                | Permanent redirect          | One hop to exact HTTPS canonical host and path                              | Variant excluded |
+| Trailing-slash public URL                                        | Permanent redirect          | One hop to slashless path; `/` unchanged                                    | Variant excluded |
+| Query-bearing public URL                                         | `200` or policy redirect    | Query-free canonical                                                        | Variant excluded |
+| `/robots.txt`                                                    | `200 text/plain`            | Production rules and one absolute sitemap directive                         | Not applicable   |
+| `/sitemap.xml`                                                   | `200 application/xml`       | Unique absolute HTTPS URLs only                                             | Not applicable   |
+| Representative preview HTML document                             | `200`                       | Meta and `X-Robots-Tag: noindex, nofollow`; production canonical if emitted | Excluded         |
+| Representative preview non-document response                     | Endpoint-defined            | `X-Robots-Tag: noindex, nofollow`                                           | Excluded         |
+| Preview `/robots.txt`                                            | `200 text/plain`            | Body is `User-agent: *` and `Disallow: /`; no `Sitemap:`                    | Not applicable   |
+| Preview `/sitemap.xml`                                           | `404`                       | Absent; must not serve or redirect to production sitemap                    | Not applicable   |
 
 Also verify that sitemap URLs are unique, inactive lesson IDs are absent, the
-sitemap contains no excluded route, and fetched HTML contains the expected
-server-rendered canonical and robots metadata.
+sitemap contains no excluded route, and the lesson URL set exactly equals the
+active publication projection. On preview, fetch at least one HTML document and
+one non-document response to assert the response-level `X-Robots-Tag`, then
+assert the exact disallow-all robots behavior and the `404` sitemap absence.
 
 ## Operational ownership
 
