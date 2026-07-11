@@ -50,10 +50,12 @@ References: `docs/auth.md`,
 
 ### Asset Touch-Up
 
-- [ ] Optimize `src/lib/assets/brand/glyphin-logo.svg`. Record its current raw
-      and production-build sizes, remove editor metadata and unnecessary path
-      complexity without changing its appearance, rerun the production build,
-      and record the before/after sizes in the launch tracker.
+- [x] Optimize `src/lib/assets/brand/glyphin-logo.svg`. Raw and production-build
+      asset size decreased from 661,957 bytes to 649,386 bytes (12,571 bytes,
+      1.90%). The generated precompressed asset decreased from 267,892 to
+      266,935 bytes with gzip and from 172,751 to 172,192 bytes with Brotli.
+      Byte-identical 1516×1516 Chromium renders confirmed the appearance did
+      not change; `pnpm check` and `pnpm build` passed after optimization.
 
 ## Deployment-Process Verification
 
