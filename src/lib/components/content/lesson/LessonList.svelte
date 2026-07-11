@@ -23,78 +23,118 @@
 		if (state.practiceUnlocked) return "Practice Ready";
 		return "Learning";
 	}
+
+	type LessonStageGroup = { stage: number; lessons: typeof thaiPack.lessons };
+
+	// Lessons are authored in stage order, so a single sequential pass groups
+	// them by stage without reordering.
+	const stageGroups = thaiPack.lessons.reduce<LessonStageGroup[]>((groups, lesson) => {
+		const current = groups.at(-1);
+		if (current && current.stage === lesson.stage) {
+			current.lessons.push(lesson);
+		} else {
+			groups.push({ stage: lesson.stage, lessons: [lesson] });
+		}
+		return groups;
+	}, []);
 </script>
 
 <section class="upcoming">
 	<Heading>Your Lessons</Heading>
-	<div class="lesson-list">
-		{#each thaiPack.lessons as lesson}
-			{@const state = getLessonJourneyState($progress, lesson.id)}
-			<Reveal as="div" delay={30 + (lesson.stage - 1) * 45} distance={14}>
-				<article class={getLessonItemClasses(state)}>
-					<div class="lesson-item__content">
-						<div class="lesson-item__header">
-							<Badge class="lesson-item__stage">Stage {lesson.stage}</Badge>
-							<Badge tone={state.practicePassed ? "success" : "accent"}>
-								{getStatusLabel(state)}
-							</Badge>
-						</div>
-						<h3 class="lesson-item__title">{lesson.title}</h3>
-						<span class="lesson-item__word thai thai--sm">{lesson.anchorWord.thai}</span
-						>
-						<span class="lesson-item__meaning">{lesson.anchorWord.meaning}</span>
-						<div class="lesson-item__actions">
-							<Button
-								href={state.learnUnlocked ? `/learn/${lesson.id}` : undefined}
-								variant="primary"
-								disabled={!state.learnUnlocked}
-							>
-								{state.learningCompleted ? "Learn Again" : "Learn"}
-							</Button>
-							<Button
-								href={state.practiceUnlocked
-									? `/learn/${lesson.id}/practice`
-									: undefined}
-								variant="secondary"
-								disabled={!state.practiceUnlocked}
-							>
-								Practice
-							</Button>
-						</div>
-					</div>
-
-					<div class="lesson-item__aside">
-						<div class="lesson-item__letters">
-							{#each lesson.newLetters as letter}
-								<span class="lesson-item__letter thai thai--sm"
-									>{letter.character}</span
+	{#each stageGroups as group}
+		<div class="lesson-stage">
+			<h3 class="lesson-stage__heading">Stage {group.stage}</h3>
+			<div class="lesson-list">
+				{#each group.lessons as lesson, lessonIndex}
+					{@const state = getLessonJourneyState($progress, lesson.id)}
+					<Reveal as="div" delay={30 + lessonIndex * 30} distance={14}>
+						<article class={getLessonItemClasses(state)}>
+							<div class="lesson-item__content">
+								<div class="lesson-item__header">
+									<Badge tone={state.practicePassed ? "success" : "accent"}>
+										{getStatusLabel(state)}
+									</Badge>
+								</div>
+								<h4 class="lesson-item__title">{lesson.title}</h4>
+								<span class="lesson-item__word thai thai--sm"
+									>{lesson.anchorWord.thai}</span
 								>
-							{/each}
-						</div>
-						<p class="lesson-item__score">
-							{#if state.practicePassed}
-								Best {state.bestPracticeScore ?? 0}%
-							{:else if state.practiceAttempts > 0}
-								Latest {state.latestPracticeScore ?? 0}%
-							{:else if !state.learnUnlocked}
-								Previous practice gate
-							{:else if !state.practiceUnlocked}
-								Finish Learning first
-							{:else}
-								Ready for the score gate
-							{/if}
-						</p>
-					</div>
-				</article>
-			</Reveal>
-		{/each}
-	</div>
+								<span class="lesson-item__meaning">{lesson.anchorWord.meaning}</span
+								>
+								<div class="lesson-item__actions">
+									<Button
+										href={state.learnUnlocked
+											? `/learn/${lesson.id}`
+											: undefined}
+										variant="primary"
+										disabled={!state.learnUnlocked}
+									>
+										{state.learningCompleted ? "Learn Again" : "Learn"}
+									</Button>
+									<Button
+										href={state.practiceUnlocked
+											? `/learn/${lesson.id}/practice`
+											: undefined}
+										variant="secondary"
+										disabled={!state.practiceUnlocked}
+									>
+										Practice
+									</Button>
+								</div>
+							</div>
+
+							<div class="lesson-item__aside">
+								<div class="lesson-item__letters">
+									{#each lesson.newLetters as letter}
+										<span class="lesson-item__letter thai thai--sm"
+											>{letter.character}</span
+										>
+									{/each}
+								</div>
+								<p class="lesson-item__score">
+									{#if state.practicePassed}
+										Best {state.bestPracticeScore ?? 0}%
+									{:else if state.practiceAttempts > 0}
+										Latest {state.latestPracticeScore ?? 0}%
+									{:else if !state.learnUnlocked}
+										Previous practice gate
+									{:else if !state.practiceUnlocked}
+										Finish Learning first
+									{:else}
+										Ready for the score gate
+									{/if}
+								</p>
+							</div>
+						</article>
+					</Reveal>
+				{/each}
+			</div>
+		</div>
+	{/each}
 </section>
 
 <style lang="scss">
 	.upcoming {
 		display: flex;
 		flex-direction: column;
+	}
+
+	.lesson-stage {
+		display: flex;
+		flex-direction: column;
+		gap: $space-md;
+
+		& + & {
+			margin-top: $space-xl;
+		}
+
+		&__heading {
+			color: var(--color-text-soft);
+			font-size: $font-size-sm;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
 	}
 
 	.lesson-list {

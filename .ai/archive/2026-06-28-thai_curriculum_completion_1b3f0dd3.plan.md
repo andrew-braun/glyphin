@@ -34,6 +34,12 @@ isProject: false
 
 # Thai Curriculum Completion Plan
 
+> Archived 2026-07-08: this is the original planning input that produced the
+> live tracker `.ai/2026-06-28-thai-curriculum-completion.md`. The `todos:`
+> list above is stale (all waves are now authored); the tracker is the
+> up-to-date source of progress and remaining publish gates. Kept here for the
+> original per-wave rationale and anchor decisions.
+
 ## Current state
 
 | Scope       | Lessons            | Status                                                                                                                         |

@@ -2,7 +2,9 @@
 
 - Start date: 2026-05-21
 - Owner: GitHub Copilot
-- Status: in progress
+- Status: done — all 61 ranked writing-system packets bootstrapped and
+  validated (2026-07-08 audit). One non-blocking follow-up ("revise templates
+  and scoring conventions after pilot review") moved to `.ai/todo.md`.
 
 ## Goal
 

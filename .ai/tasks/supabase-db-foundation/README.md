@@ -83,14 +83,14 @@ This directory groups the active and recently completed `.ai` task documents for
 
 ## Current Resume Point
 
+_Updated 2026-07-08 pre-alpha audit — the auth/sync gate below was stale; both are implemented._
+
 - DB hardening and input-bounds remediation are complete.
-- The approved Thai curriculum rewrite has landed in `src/lib/data/thai.ts` and is now the seed source of truth.
-- The first Thai curriculum seed is now in place in `curriculum.*` and `delivery.*`, and direct SQL verification confirms 1 course, 1 course version, 13 lessons, 39 vocabulary items, and 13 publication lesson rows.
-- Thai curriculum status and future authoring work now live in `.ai/curriculum/thai.md` instead of inside this Supabase task bundle.
-- The learn index and lesson detail routes now read the active published lesson bundle through `src/lib/server/delivery-lessons.ts` and server-owned SvelteKit loads.
-- The app now uses a server-capable SvelteKit adapter for DB-backed lesson delivery instead of assuming static-only hosting.
-- Local `/learn` development now requires `PUBLIC_SUPABASE_URL` and `PUBLIC_SUPABASE_ANON_KEY`; `.env.example` documents the local `supabase status -o env` mapping.
-- `pnpm run db:smoke:delivery` now checks the active published lesson bundle against the canonical runtime Thai lesson contract.
-- Next runtime/auth gate: implement the request-scoped `@supabase/ssr` boundary and verified server-owned Supabase access described in `auth-sync-strategy.md` before the first authenticated route or sync path lands.
-- Add the first server-side SvelteKit boundary for learner attempt sync after the read boundary and auth gate exist.
-- Decide whether Drizzle lands before or after that first DB-backed runtime path.
+- The approved Thai curriculum rewrite has landed in `src/lib/data/thai.ts` and is now the seed source of truth, and has since grown from 21 to 46 lessons — see `.ai/2026-06-28-thai-curriculum-completion.md` for current publish status.
+- Thai curriculum status and future authoring work live in `.ai/curriculum/thai.md`.
+- The learn index and lesson detail routes read the active published lesson bundle through `src/lib/server/delivery-lessons.ts` and server-owned SvelteKit loads.
+- The app uses a server-capable SvelteKit adapter (`adapter-node` today; migrating to `adapter-cloudflare` per `.ai/2026-06-27-cloudflare-alpha-deployment-plan.md`) for DB-backed lesson delivery instead of assuming static-only hosting.
+- **Auth is implemented**: the request-scoped `@supabase/ssr` boundary described in `auth-sync-strategy.md` is live in `src/hooks.server.ts` (cookie-based session, `safeGetSession`), with `/auth` sign-in and `/auth/sign-out` routes.
+- **Learner sync is implemented**: `src/routes/api/learner/projection/+server.ts` and `src/routes/api/learner/sync/+server.ts`, backed by `src/lib/server/learner-projection.ts`.
+- Remaining open decision: whether Drizzle lands at all — no urgency while hand-written SQL/migrations stay manageable. Tracked in `.ai/todo.md`.
+- Next actual gate for this workstream is the Cloudflare alpha deploy, not further DB foundation work — this bundle is now mostly a historical/architectural reference rather than an active task queue.

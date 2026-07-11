@@ -23,3 +23,28 @@ anchor,ไก่,chicken,0.76,0.9,0.78,0.8,0.82,0.84,0.8,0.86,0.72,0.14,0.03,0.0
 anchor,โต,big / to grow,0.74,0.76,0.7,0.86,0.8,0.86,0.74,0.78,0.7,0.06,0.02,0.02,0,0,Stage 6 lesson 19 clean leading long o vowel
 anchor,ปิด,closed,0.78,0.94,0.72,0.82,0.78,0.82,0.8,0.84,0.72,0.08,0.02,0.04,0,0,Stage 6 lesson 20 high signage open closed pair with p versus b contrast
 anchor,ยา,medicine,0.76,0.86,0.74,0.84,0.78,0.84,0.78,0.8,0.72,0.1,0.02,0.02,0,0,Stage 6 lesson 21 pharmacy signage word for y and glide finals
+anchor,คน,person,0.9,0.85,0.62,0.88,0.7,0.9,0.78,0.86,0.65,0.08,0.01,0.02,0,0,Stage 7 lesson 22 low class kh contrast with high class kho khai
+anchor,แพง,expensive,0.76,0.9,0.62,0.82,0.72,0.84,0.8,0.8,0.65,0.09,0.02,0.03,0,0,Stage 7 lesson 23 low class ph price tag adjective contrast with pho and fo
+anchor,น้ำ,water,0.9,0.92,0.6,0.7,0.82,0.82,0.74,0.86,0.65,0.1,0.06,0.03,0,0,Stage 7 lesson 24 am vowel with built in final m plus mai tho tone
+anchor,เขา,he / mountain,0.88,0.72,0.64,0.78,0.84,0.72,0.78,0.8,0.62,0.1,0.02,0.08,0,0,Stage 7 lesson 25 wrap around ao vowel with meaning ambiguity he she mountain
+anchor,ซอย,soi / lane,0.72,0.92,0.62,0.84,0.72,0.82,0.8,0.78,0.65,0.08,0.01,0.02,0,0,Stage 8 lesson 26 low class s soi and lane street signage
+anchor,ไฟ,fire / electric,0.8,0.86,0.62,0.86,0.7,0.86,0.82,0.82,0.65,0.08,0.01,0.02,0,0,Stage 8 lesson 27 low class f reuses ai vowel fire electric wifi labels
+anchor,ถนน,road,0.82,0.92,0.6,0.7,0.8,0.78,0.8,0.78,0.65,0.12,0.05,0.03,0,0,Stage 8 lesson 28 high class th plus double n hidden vowel road signage
+anchor,มือ,hand,0.86,0.72,0.6,0.74,0.82,0.78,0.76,0.8,0.62,0.1,0.02,0.04,0,0,Stage 8 lesson 29 above line long and short ue vowel pair on o carrier
+anchor,เบียร์,beer,0.7,0.82,0.55,0.64,0.84,0.74,0.72,0.84,0.6,0.18,0.06,0.03,0,0,Stage 9 lesson 30 ia diphthong plus thanthakhat silencer on loanword final r
+anchor,วัว,cow,0.72,0.7,0.6,0.78,0.8,0.78,0.74,0.8,0.62,0.1,0.03,0.04,0,0,Stage 9 lesson 31 ua diphthong with wo waen as both consonant and glide
+anchor,เจอ,to meet,0.78,0.68,0.6,0.78,0.8,0.76,0.74,0.78,0.62,0.1,0.02,0.03,0,0,Stage 9 lesson 32 oe diphthong common everyday verb
+anchor,ปลา,fish,0.84,0.86,0.52,0.82,0.9,0.86,0.85,0.82,0.65,0.14,0.02,0.04,0,0,Stage 9 lesson 33 true initial cluster synthesis contrast with hidden vowel frame
+anchor,โต๊ะ,table,0.74,0.72,0.55,0.72,0.84,0.78,0.76,0.8,0.62,0.14,0.03,0.03,0,0,Stage 10 lesson 34 mai tri and mai chattawa complete the four tone marks
+anchor,ข่าว,news,0.8,0.72,0.45,0.68,0.95,0.76,0.9,0.72,0.6,0.24,0.03,0.03,0,0,Stage 10 lesson 35 tone class matrix synthesis heaviest conceptual load reviews all prior units
+anchor,เด็ก,child,0.86,0.72,0.58,0.78,0.82,0.82,0.8,0.82,0.65,0.1,0.02,0.02,0,0,Stage 10 lesson 36 mai taikhu vowel shortener in closed syllable
+anchor,ช้าๆ,slowly,0.72,0.65,0.55,0.78,0.85,0.78,0.76,0.82,0.6,0.1,0.02,0.03,0,0,Stage 10 lesson 37 maiyamok repetition mark for plural and emphasis
+anchor,เกาะ,island,0.72,0.75,0.5,0.74,0.84,0.76,0.8,0.82,0.6,0.14,0.03,0.04,0,0,Stage 10 lesson 38 short diphthong synthesis and unwritten short o
+anchor,๑๐ บาท,10 baht,0.85,0.95,0.5,0.8,0.85,0.86,0.7,0.8,0.65,0.2,0.02,0.02,0,0,Stage 11 lesson 39 ten Thai numerals high payoff on prices and signage
+anchor,กรุงเทพฯ,Bangkok,0.7,0.82,0.5,0.6,0.8,0.68,0.78,0.85,0.6,0.16,0.06,0.03,0,0,Stage 11 lesson 40 paiyannoi abbreviation of long proper names
+anchor,ฉัน,I / me,0.85,0.68,0.58,0.82,0.78,0.82,0.76,0.82,0.65,0.1,0.02,0.02,0,0,Stage 12 lesson 41 high class ch and f complete the aspirate pairs
+anchor,ใหญ่,big,0.82,0.72,0.55,0.7,0.78,0.78,0.8,0.78,0.62,0.16,0.04,0.03,0,0,Stage 12 lesson 42 duplicate glyphs yo ying tho ph, ho leading h cluster
+anchor,ประเทศ,country,0.8,0.75,0.5,0.72,0.75,0.78,0.82,0.76,0.6,0.14,0.03,0.03,0,0,Stage 13 lesson 43 duplicate s and n glyphs in formal vocabulary
+anchor,กีฬา,sport,0.68,0.6,0.45,0.68,0.65,0.76,0.72,0.72,0.55,0.22,0.04,0.03,0,0,Stage 13 lesson 44 eight rare Sanskrit Pali duplicate glyphs recognition only
+anchor,อังกฤษ,England / English,0.78,0.7,0.48,0.58,0.85,0.68,0.78,0.8,0.6,0.2,0.08,0.04,0,0,Stage 13 lesson 45 ru vowel plus silent o and silent r spelling exceptions
+anchor,ฃวด,bottle (obsolete),0.15,0.2,0.4,0.4,0.4,0.5,0.4,0.6,0.55,0.24,0.05,0.03,0,0,Stage 14 lesson 46 obsolete historical glyphs optional recognition only

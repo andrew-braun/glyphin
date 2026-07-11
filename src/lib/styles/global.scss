@@ -16,89 +16,10 @@
 	src: url("../assets/fonts/NotoSans-Italic-VariableFont_wdth,wght.woff2") format("woff2");
 }
 
-// === Glyphin Design System ===
-
-// Color palette — black, light blue, teal, and pink
-$color-primary: #1fa89a;
-$color-primary-light: #67cbbf;
-$color-primary-dark: #167e74;
-$color-accent: #e86aa6;
-$color-accent-light: #f2a7c9;
-$color-sky: #3fa7f5;
-$color-mango: #f5b84b;
-$color-success: #2a8f85;
-$color-success-light: #8ad7cf;
-$color-warning: #d6a14f;
-$color-error: #cf5b77;
-$color-bg: #eef7ff;
-$color-bg-card: #ffffff;
-$color-bg-dark: #0b0d0f;
-$color-text: #1c2430;
-$color-text-light: #536172;
-$color-text-muted: #7c8a9a;
-$color-border: #d7e6f2;
-
-// Typography
-$font-display: "Noto Sans", "Chakra Petch", "Manrope", sans-serif;
-$font-body:
-	"Noto Sans",
-	"Manrope",
-	-apple-system,
-	BlinkMacSystemFont,
-	"Segoe UI",
-	sans-serif;
-$font-thai: "Noto Sans", sans-serif;
-$font-mono: "JetBrains Mono", "Fira Code", monospace;
-
-$font-size-xs: 0.75rem;
-$font-size-sm: 0.875rem;
-$font-size-base: 1rem;
-$font-size-lg: 1.125rem;
-$font-size-xl: 1.25rem;
-$font-size-2xl: 1.5rem;
-$font-size-3xl: 2rem;
-$font-size-4xl: 2.5rem;
-$font-size-thai: 2rem;
-$font-size-thai-lg: 3rem;
-
-// Spacing
-$space-xs: 0.25rem;
-$space-sm: 0.5rem;
-$space-md: 1rem;
-$space-lg: 1.5rem;
-$space-xl: 2rem;
-$space-2xl: 3rem;
-$space-3xl: 4rem;
-
-// Borders & Radius
-$radius-sm: 0.375rem;
-$radius-md: 0.75rem;
-$radius-lg: 1rem;
-$radius-xl: 1.5rem;
-$radius-full: 9999px;
-
-// Shadows
-$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-$shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12);
-
-// Transitions
-$transition-fast: 150ms ease;
-$transition-base: 250ms ease;
-$transition-slow: 400ms ease;
-
-// Breakpoints
-$bp-sm: 640px;
-$bp-md: 768px;
-$bp-lg: 1024px;
-$bp-xl: 1280px;
-
-$max-width-layout: 72rem;
-$max-width-content: 46rem;
-$max-width-text: 38rem;
-
-$space-heading-section: $space-xl;
+// Design tokens ($color-_, $font-_, $space-_, $radius-_, $motion-_, etc.) are
+// defined once in `_variables.scss` and injected into every SCSS file (including
+// this one) via vite's `additionalData` (@use '$styles/variables' as *). Do not
+// redefine them here — keep `_variables.scss` as the single source of truth.
 
 // === Global Styles ===
 

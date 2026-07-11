@@ -2,7 +2,10 @@
 
 - Start date: 2026-06-28
 - Owner: Codex
-- Status: plan finalized; implementation not started
+- Status: in progress — all 46 lessons authored (Waves 1-5 done); only
+  publish gates remain (review packet refresh, `pnpm db:reset`, delivery
+  smoke, curriculum validate, build). Alpha-blocking: this must finish before
+  the Thai-only alpha launch.
 
 ## Goal
 
@@ -72,8 +75,15 @@ course to 46 lessons across 14 stages.
       `@types/node` errors in the untouched `published-lessons.ts` remain — a missing
       `@types/node` devDependency, unrelated to this work)
 - [ ] Retire remaining stale `approach-thai.md` references in runtime/DB docs
-- [ ] Append L22-L46 anchors to `anchor-candidates.csv`
-- [ ] Run `pnpm curriculum:score docs/curriculum/thai-reading-v1/anchor-candidates.csv`
+- [x] Append L22-L46 anchors to `anchor-candidates.csv` (2026-07-08)
+- [x] Run `pnpm curriculum:score docs/curriculum/thai-reading-v1/anchor-candidates.csv`
+      (2026-07-08; regenerated `anchor-candidates.scored.csv`). Stage 7-11
+      decodable anchors land promising; 8 land weak (`ใหญ่` 0.498, `กรุงเทพฯ`
+      0.443, `เบียร์` 0.441, `ข่าว` 0.423, `อังกฤษ` 0.366, `กีฬา` 0.344, `ฃวด`
+      0.008) — heavy new-load synthesis, rare-glyph, or obsolete, matching the
+      shipped `ร้านอาหาร` (0.49) precedent. Weak-band acceptance is folded into
+      the deferred native-speaker/corpus review gate. Scored-results note added
+      to `lesson-sequence.md` (before the Stage 7 table).
 - [ ] Refresh review packet with `pnpm curriculum:review docs/curriculum/thai-reading-v1 --force`
 - [ ] Run `pnpm db:reset` (REQUIRED to publish: the app serves lessons from the
       `.generated` publication artifact, which still holds only 21 lessons until reset

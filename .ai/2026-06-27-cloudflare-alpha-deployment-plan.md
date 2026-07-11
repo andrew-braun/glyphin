@@ -1,5 +1,11 @@
 # Cloudflare Workers Alpha Deployment Plan
 
+- Status: in progress — plan reviewed and current (see
+  `.ai/archive/2026-07-04-cloudflare-deployment-plan-review.md`), but
+  implementation has not started (`svelte.config.js` still uses
+  `@sveltejs/adapter-node`; no `wrangler.jsonc`). Alpha-blocking: this is the
+  critical path to a public alpha URL.
+
 ## Summary
 
 Deploy Glyphin as a Cloudflare Workers Static Assets app backed by a fresh

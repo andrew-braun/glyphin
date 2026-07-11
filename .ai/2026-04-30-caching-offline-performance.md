@@ -1,6 +1,11 @@
 # Caching, Offline, and Performance Strategy — Planning Doc
 
 Created: 2026-04-30
+Status: in progress — partial. The static/dynamic split (build-time
+publication artifact + prerendered `/learn` routes + post-hydration learner
+overlay) shipped 2026-05-02. Remaining items (service worker/PWA offline,
+IndexedDB migration, learner-projection overlay) are deferred post-alpha; see
+`.ai/todo.md`.
 Triggered by: S3 finding from the post-review. Adapter switched from `adapter-static` to
 `adapter-node`, making all lesson routes dynamic server requests with no caching or
 offline story.

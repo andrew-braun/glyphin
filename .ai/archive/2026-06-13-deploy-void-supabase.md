@@ -2,9 +2,16 @@
 
 - Start date: 2026-06-13
 - Owner: Andri
-- Status: planning → ready to implement
+- Status: superseded — see `.ai/2026-06-27-cloudflare-alpha-deployment-plan.md`
 - Primary objective: get a work-in-progress build of Glyphin live on Void ASAP
   so it can be shown to people.
+
+> Archived 2026-07-08: this Void-CLI deployment path was superseded by the
+> current active plan, which deploys straight to Cloudflare Workers Static
+> Assets via `@sveltejs/adapter-cloudflare` and Cloudflare Workers Builds
+> (Git-based), without the Void tool. Kept for the still-relevant Supabase
+> edge-compat findings (e.g. the `published-lessons.ts` `node:fs` fast-path)
+> and Phase 1 latency-optimization ideas.
 
 ## Goal
 

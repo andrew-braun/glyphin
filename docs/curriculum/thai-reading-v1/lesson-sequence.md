@@ -120,6 +120,17 @@ ideas at once), which the anchor score surfaces. Decision 2026-06-28: keep it as
 the authored shipped lesson and flag it for playtesting rather than splitting it
 before Stage 7 work.
 
+Stages 7-14 anchors were scored in `anchor-candidates.scored.csv` (2026-07-08).
+The Stage 7-11 decodable anchors land in the promising band and interleave among
+the shipped anchors. Eight land in the weak band, each for a defensible reason
+that mirrors the shipped `ร้านอาหาร` (0.49) precedent — heavy new-load synthesis,
+rare-glyph recognition, or obsolete glyphs: `ใหญ่` (0.498, borderline),
+`กรุงเทพฯ` (0.443), `เบียร์` (0.441), `ข่าว` (0.423, the tone-class matrix, the
+course's heaviest conceptual lesson), `อังกฤษ` (0.366), `กีฬา` (0.344), and
+`ฃวด` (0.008, optional recognition-only). Native-speaker/corpus review (deferred)
+is the gate for accepting these weak-band anchors or replacing them; scores use
+provisional, un-reviewed metric inputs (`source_confidence` 0.55-0.65).
+
 ## Stage 7: Remaining Core Consonants And Wrap-Around Vowels
 
 | Lesson | Anchor (provisional) | New units | Rule or pattern                                      | Drill focus                                       |

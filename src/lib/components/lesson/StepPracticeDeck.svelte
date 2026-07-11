@@ -170,10 +170,11 @@
 			position: relative;
 			text-align: inherit;
 			transform-style: preserve-3d;
-			transition:
-				transform $motion-duration-slow $motion-ease-standard,
-				box-shadow $motion-duration-base $motion-ease-standard;
 			width: 100%;
+			@include motion-safe-transition(
+				transform $motion-duration-slow $motion-ease-standard,
+				box-shadow $motion-duration-base $motion-ease-standard
+			);
 
 			&:hover .practice-deck__face {
 				box-shadow: var(--shadow-card-hover);

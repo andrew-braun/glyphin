@@ -27,6 +27,7 @@
 	} = $props();
 
 	const passed = $derived(correctCount >= passingCorrectCount);
+	const courseComplete = $derived(passed && !hasNextLesson);
 	const percent = $derived(
 		totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0,
 	);
@@ -38,10 +39,29 @@
 			<div class="practice-complete__hero">
 				<div class="practice-complete__copy">
 					<Eyebrow tone={passed ? "success" : "accent"}>
-						{passed ? "Practice passed" : "Practice needs one more run"}
+						{#if courseComplete}
+							Course complete
+						{:else if passed}
+							Practice passed
+						{:else}
+							Practice needs one more run
+						{/if}
 					</Eyebrow>
-					<h1>{passed ? "That lesson is unlocked." : "You are close."}</h1>
-					{#if !passed}
+					<h1>
+						{#if courseComplete}
+							You've finished every Thai lesson.
+						{:else if passed}
+							That lesson is unlocked.
+						{:else}
+							You are close.
+						{/if}
+					</h1>
+					{#if courseComplete}
+						<p>
+							You've read your way through the whole course. Keep the words fresh with
+							mixed review whenever you like.
+						</p>
+					{:else if !passed}
 						<p>Need {passingCorrectCount} of {totalQuestions} to pass.</p>
 					{/if}
 				</div>

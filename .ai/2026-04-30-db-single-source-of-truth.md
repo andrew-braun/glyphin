@@ -1,7 +1,12 @@
 # DB as Single Source of Truth for Lesson Content
 
 Created: 2026-04-30
-Status: Planning — not started
+Status: not started — deferred post-alpha. Confirmed 2026-07-08 that
+`thaiPack` is still imported at runtime in all four files this doc names
+(`progress.ts`, `LessonList.svelte`, `alphabet/+page.svelte`,
+`practice/+page.svelte`) plus `published-lessons.ts`. Not required for the
+Thai-only alpha since the static bundle and DB are still in sync; see
+`.ai/todo.md`.
 
 Triggered by: B1 from post-review. The progress store and three other runtime paths still
 read from `src/lib/data/thai.ts` (static bundle) instead of the DB-delivered lesson catalog.
