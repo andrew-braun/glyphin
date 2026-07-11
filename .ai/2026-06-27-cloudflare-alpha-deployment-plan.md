@@ -121,6 +121,15 @@ phase-1 choices must not entrench web-only patterns.
   Objects, and similar resources. Keep `src/hooks.server.ts` and
   `src/lib/server/delivery-lessons.ts` on `$env/dynamic/private`; do not rewrite
   them to read `platform.env` directly for ordinary string secrets.
+- Replace the in-memory rate limiter's store. `src/lib/server/rate-limit.ts`
+  keeps token-bucket state in process memory (correct for `adapter-node`, wrong
+  for Workers isolates, which do not share memory — the limit would apply only
+  per-isolate and be easily bypassed). Swap the store for a Durable Object,
+  Workers KV, or Cloudflare's Rate Limiting binding, keeping
+  `consumeRateLimitToken`'s signature so `/api/learner/sync` is unchanged. Note
+  `src/lib/server/delivery-lessons.ts` also caches a module-scoped client +
+  publication id; that is safe (rebuildable per-isolate) but re-confirm during
+  the swap. Tracked in `.ai/2026-07-11-db-security-hardening.md` (audit #10).
 
 ### 3. Preserve Build-Time Supabase Reads And Prerendering
 

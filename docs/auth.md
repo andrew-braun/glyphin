@@ -180,6 +180,10 @@ authenticated enhancement.
   entry first and reviewing magic-link behavior end to end before enabling it.
 - Logging tokens, cookies, session payloads, or raw auth errors. Avoid it by
   scrubbing logs and returning minimal error messages from secure routes.
+- Disabling SvelteKit's built-in CSRF origin check. Avoid it by leaving
+  `kit.csrf.checkOrigin` at its default (`true`); it is what blocks cross-site
+  POSTs to state-changing JSON endpoints such as `/api/learner/sync`. There is a
+  guard comment at both `svelte.config.js` and the sync endpoint.
 - Mixing the public delivery-read client with privileged learner-write code. Avoid
   it by keeping delivery reads and authenticated writes as separate client
   surfaces.

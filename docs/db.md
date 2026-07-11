@@ -187,6 +187,38 @@ These rules are the most important part of the database design.
 
 If a feature crosses these boundaries, stop and review the design before adding code.
 
+## RLS And Function Trust Boundary
+
+The real access control for learner data is **not** "the app happens to call
+these functions from the server." It is the combination of:
+
+- `authenticated` (and `anon`) holding **no direct table grants** on `learner.*`.
+  Every table grant was revoked, so there is nothing to read or write directly.
+- Three `SECURITY DEFINER` functions in the `learner` schema
+  (`ensure_course_enrollment_for_publication`, `get_lesson_progress_projection`,
+  `sync_lesson_attempt_batch_for_current_user`) that derive the user from
+  `auth.uid()` and reject any enrollment, device, or publication the caller does
+  not own.
+
+Because the `learner` schema is exposed through the API and those functions are
+`execute`-granted to `authenticated`, **any client holding a valid JWT can call
+them directly** — not only our server. That is fine, because they self-authorize.
+Do not treat "server-only calls" as the security boundary: the function-internal
+`auth.uid()` checks plus the revoked table grants are the boundary. Keep it that
+way when adding new learner functions — derive the user inside the function and
+never trust a caller-supplied user id.
+
+### Do not enable `FORCE ROW LEVEL SECURITY`
+
+`FORCE RLS` makes RLS apply to the table **owner** as well. Our `SECURITY
+DEFINER` functions run _as the owner_ to perform learner writes, and
+migrations/seeds write `curriculum.*` as the owner. Forcing RLS would break
+`sync_lesson_attempt_batch` (there are intentionally no INSERT/UPDATE policies)
+and block seeding. The deny-by-default posture here comes from **revoked
+grants**, which is stronger than FORCE RLS for this architecture. The remaining
+`learner_*` RLS policies (`(select auth.uid()) = user_id`) are defense-in-depth
+only. (Audit decision, 2026-07-11 — see `.ai/2026-07-11-db-security-hardening.md`.)
+
 ## Where Things Live In The Repo
 
 - Local Supabase config: [supabase/config.toml](../supabase/config.toml)
@@ -816,6 +848,11 @@ Studio or a direct connection.
   `delivery.*` and route learner writes through server-owned code.
 - Push to staging before production whenever possible, especially once authenticated
   learner data exists remotely.
+- Keep the remote Postgres version current. Supabase's Security Advisor flags
+  Postgres versions with known CVEs; apply available upgrades promptly.
+- Re-run `pnpm exec supabase db advisors --linked` after every deploy, not just
+  the first. Treat any new security or performance finding as a release blocker
+  until it is triaged.
 
 ## Common Footguns
 

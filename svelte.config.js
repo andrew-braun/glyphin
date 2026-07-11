@@ -17,6 +17,11 @@ const config = {
 	},
 	preprocess: vitePreprocess(),
 	kit: {
+		// SECURITY: SvelteKit's built-in CSRF protection (`kit.csrf.checkOrigin`,
+		// default `true`) is what blocks cross-site POSTs to our JSON endpoints
+		// such as `/api/learner/sync`. Do NOT set `csrf: { checkOrigin: false }`.
+		// See `docs/auth.md` and the note in
+		// `src/routes/api/learner/sync/+server.ts`.
 		alias: {
 			$assets: "src/lib/assets",
 			$components: "src/lib/components",

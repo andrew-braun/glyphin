@@ -27,6 +27,13 @@ moved to `archive/`).
   questions in that doc (cross-device sync of failed attempts, extension-set
   placement) are still unresolved.
 
+- DB security hardening follow-up from the 2026-07-11 RLS audit
+  (`.ai/2026-07-11-db-security-hardening.md`): no critical holes found. MFA +
+  OTP-expiry done; a phase-3 migration (`(select auth.uid())` policies, single
+  active-publication index, drop dead JWT-claim fallback), a per-user sync rate
+  limit, and docs guardrails are ready to implement. SSL enforcement, Turnstile
+  CAPTCHA, and the new API-key model are tied to the Cloudflare hosted rollout.
+
 ## Deferred Post-Alpha
 
 - Remove remaining `thaiPack` runtime imports so the DB is the sole source of

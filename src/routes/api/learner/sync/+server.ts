@@ -3,11 +3,23 @@ import { json } from "@sveltejs/kit";
 import type { LearnerProjectionEnvelope, LessonCompletionSyncInput } from "$lib/data/learner";
 import { getSupabaseClient, requireVerifiedUser } from "$lib/server/auth";
 import { getLearnerProjection, syncLessonCompletionAttempts } from "$lib/server/learner-projection";
+import { consumeRateLimitToken } from "$lib/server/rate-limit";
 
 import type { RequestHandler } from "./$types";
 
 export const prerender = false;
 
+// Per-user throttle on this state-changing endpoint. Tuned to sit well above
+// real usage — the client batches all pending attempts into a single POST and,
+// on any non-OK response, keeps them queued and retries on the next flush — while
+// still blunting scripted abuse (~12 requests/minute sustained, burst of 12).
+const SYNC_RATE_LIMIT = { capacity: 12, refillPerSecond: 0.2 } as const;
+
+// SECURITY: this state-changing POST relies on SvelteKit's built-in CSRF
+// protection (`kit.csrf.checkOrigin`, default `true`) to reject cross-site form
+// submissions and non-same-origin requests. It must stay enabled — do not
+// disable `csrf.checkOrigin` in `svelte.config.js`. Auth is still verified
+// server-side below via `requireVerifiedUser`.
 const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const clientAttemptIdPattern = /^[A-Za-z0-9:_-]{1,64}$/;
 
@@ -86,6 +98,15 @@ function projectionJson(envelope: LearnerProjectionEnvelope): Response {
 
 export const POST: RequestHandler = async ({ locals, request }) => {
 	const user = await requireVerifiedUser(locals);
+
+	const rateLimit = consumeRateLimitToken(`learner-sync:${user.id}`, SYNC_RATE_LIMIT);
+	if (!rateLimit.allowed) {
+		return json(
+			{ error: "Too many sync requests. Please slow down and try again shortly." },
+			{ status: 429, headers: { "retry-after": String(rateLimit.retryAfterSeconds) } },
+		);
+	}
+
 	const supabase = getSupabaseClient(locals);
 
 	let body: unknown;
