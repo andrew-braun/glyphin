@@ -1,14 +1,16 @@
 import { SITE_NAME } from "../../config/site.ts";
 
 export type PageMetadataType = "website" | "article";
+export type PageRobots = "noindex, follow" | "noindex, nofollow";
 
 export interface PageMetadataInput {
 	title: string;
 	description?: string;
 	canonicalPath?: string;
-	noindex?: boolean;
+	robots?: PageRobots;
 	imagePath?: string;
 	type?: PageMetadataType;
+	social?: boolean;
 	origin: string;
 }
 
@@ -16,20 +18,22 @@ export interface PageMetadataOutput {
 	title: string;
 	description?: string;
 	canonicalUrl?: string;
-	robots?: "noindex, nofollow";
-	openGraph: {
-		siteName: string;
-		title: string;
-		description?: string;
-		url?: string;
-		type: PageMetadataType;
-		image?: string;
-	};
-	twitter: {
-		card: "summary" | "summary_large_image";
-		title: string;
-		description?: string;
-		image?: string;
+	robots?: PageRobots;
+	social?: {
+		openGraph: {
+			siteName: string;
+			title: string;
+			description?: string;
+			url?: string;
+			type: PageMetadataType;
+			image?: string;
+		};
+		twitter: {
+			card: "summary" | "summary_large_image";
+			title: string;
+			description?: string;
+			image?: string;
+		};
 	};
 }
 
@@ -52,6 +56,7 @@ function buildAbsoluteUrl(
 
 export function buildPageMetadata(input: PageMetadataInput): PageMetadataOutput {
 	const title = normalizeTitle(input.title);
+	const noindex = Boolean(input.robots);
 	const canonicalUrl = input.canonicalPath
 		? buildAbsoluteUrl(input.canonicalPath, input.origin, "canonicalPath")
 		: undefined;
@@ -59,24 +64,32 @@ export function buildPageMetadata(input: PageMetadataInput): PageMetadataOutput 
 		? buildAbsoluteUrl(input.imagePath, input.origin, "imagePath")
 		: undefined;
 
+	const description = noindex ? undefined : input.description || undefined;
+	const social =
+		!noindex && input.social !== false
+			? {
+					openGraph: {
+						siteName: SITE_NAME,
+						title,
+						...(description ? { description } : {}),
+						...(canonicalUrl ? { url: canonicalUrl } : {}),
+						type: input.type ?? "website",
+						...(image ? { image } : {}),
+					},
+					twitter: {
+						card: image ? ("summary_large_image" as const) : ("summary" as const),
+						title,
+						...(description ? { description } : {}),
+						...(image ? { image } : {}),
+					},
+				}
+			: undefined;
+
 	return {
 		title,
-		...(input.description ? { description: input.description } : {}),
+		...(description ? { description } : {}),
 		...(canonicalUrl ? { canonicalUrl } : {}),
-		...(input.noindex ? { robots: "noindex, nofollow" as const } : {}),
-		openGraph: {
-			siteName: SITE_NAME,
-			title,
-			...(input.description ? { description: input.description } : {}),
-			...(canonicalUrl ? { url: canonicalUrl } : {}),
-			type: input.type ?? "website",
-			...(image ? { image } : {}),
-		},
-		twitter: {
-			card: image ? "summary_large_image" : "summary",
-			title,
-			...(input.description ? { description: input.description } : {}),
-			...(image ? { image } : {}),
-		},
+		...(input.robots ? { robots: input.robots } : {}),
+		...(social ? { social } : {}),
 	};
 }

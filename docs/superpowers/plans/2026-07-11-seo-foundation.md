@@ -74,15 +74,25 @@
 
 **Interfaces:**
 
-- Produces: `buildPageMetadata(input: PageMetadataInput): PageMetadataOutput`
-- Produces: `PageMetadata` props `{ title: string; description?: string; canonicalPath?: string; noindex?: boolean; imagePath?: string; type?: "website" | "article" }`
-- Produces: `SITE_NAME` and a validated production-origin accessor that never exposes secrets
+- Produces: server-only
+  `buildPageMetadata(input: ServerPageMetadataInput): PageMetadataOutput`
+- Produces: `PageMetadata` props `{ metadata: PageMetadataOutput }`
+- Produces: `SITE_NAME` and a server-only validated production-origin accessor
+  that never exposes secrets
+
+`PageMetadataOutput` is serializable and intentionally crosses from a route
+server load to `PageMetadata.svelte`. The component only renders that output;
+it never reads environment variables or constructs absolute URLs. The
+server-only factory owns the private production origin, validates it as an
+`https://` origin, and joins it to canonical and social-image paths.
 
 - [ ] **Step 1: Write failing metadata tests**
 
-  Cover title suffixing exactly once, absolute canonical construction,
-  `noindex, nofollow`, Open Graph fields, and Twitter card fields. Reject a
-  canonical path that does not begin with `/`.
+  Cover title suffixing exactly once, absolute canonical construction, both
+  noindex policies, optional social metadata omission, Open Graph fields, and
+  Twitter card fields. Reject invalid canonical and image paths, and verify the
+  server origin validator accepts normalized HTTPS origins while rejecting
+  credentials, paths, query strings, fragments, and missing/invalid values.
 
 - [ ] **Step 2: Run the focused test**
 
@@ -94,11 +104,12 @@
 
 - [ ] **Step 3: Implement the component**
 
-  Implement absolute URL construction and title normalization in `metadata.ts`.
-  Have `PageMetadata.svelte` render `<title>`, optional description, optional
-  canonical, robots directive, `og:site_name`, `og:title`, `og:description`,
-  `og:url`, `og:type`, optional `og:image`, and matching Twitter card tags from
-  that output. Do not emit empty metadata tags.
+  Implement title normalization and metadata shaping in `metadata.ts`, and the
+  server-only factory that resolves the private production origin and builds
+  absolute URLs. Have `PageMetadata.svelte` render `<title>`, optional
+  description, optional canonical, robots directive, and optional Open Graph
+  and Twitter tags from `PageMetadataOutput`. Do not emit empty metadata tags
+  or any social tags when the output omits its social block.
 
 - [ ] **Step 4: Validate**
 
@@ -180,8 +191,9 @@
 
 - [ ] **Step 2: Classify practice and private utility routes**
 
-  Apply the exact decision from `docs/seo.md`. Always mark `/auth` and `/test/**`
-  `noindex, nofollow`; exclude test routes from sitemap generation.
+  Apply the exact decision from `docs/seo.md`: mark `/auth` `noindex, follow`
+  and `/test/**` `noindex, nofollow`; exclude test routes from sitemap
+  generation.
 
 - [ ] **Step 3: Validate**
 
