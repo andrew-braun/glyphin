@@ -2,7 +2,10 @@
 
 - Start date: 2026-07-11
 - Owner: unassigned
-- Status: planned
+- Status: implemented (consolidated flip, Option A) 2026-07-11 — root default
+  flipped, all public routes prerender real HTML, verified via build + prerender
+  HTML inspection + cross-build determinism check. Remaining: land alongside the
+  SEO metadata content work.
 - Supersedes: `.ai/2026-07-11-restore-ssr-homepage-about.md` (that task is the
   narrow `/` + `/about` slice; this plan absorbs it and extends the same change
   to the whole route tree). Keep the narrow file as the reference for the store

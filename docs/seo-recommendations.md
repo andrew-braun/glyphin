@@ -27,17 +27,18 @@ Each recommendation below is tagged with a priority tier:
 `docs/seo.md`'s "Current implementation gaps" table and
 `docs/search-indexing.md`'s sitemap/robots requirements are not yet
 implemented: no route emits a canonical link, `og:image`, or robots directive;
-`static/robots.txt` is still the generic "allow everything" placeholder; there
-is no `/sitemap.xml` route; and the root layout disables SSR for `/` and
-`/about` (the two indexable routes with no server-capable layout of their
-own), which means neither currently ships server-rendered primary content for
-crawlers to read. This is the single highest-leverage fix available — none of
-the recommendations below matter if Google cannot render the page at all. The
-SSR fix has its own dedicated, deliberately narrow task —
-[Restore SSR for `/` and `/about`](../.ai/2026-07-11-restore-ssr-homepage-about.md)
-— because it touches module-scope store singletons shared across the whole
-app and needs its own audit rather than riding along with the metadata work.
-Complete that task, then the
+`static/robots.txt` is still the generic "allow everything" placeholder; and
+there is no `/sitemap.xml` route.
+
+**The SSR blocker is resolved.** The root layout now defaults to server-first
+rendering (SSR on, prerender to static assets), so `/`, `/about`, and the other
+public routes ship real server-rendered primary content for crawlers instead of
+an empty SPA shell. This was done as a broader migration than the originally
+scoped narrow task — see
+[Server-first rendering migration](../.ai/2026-07-11-server-first-rendering-migration.md)
+(which supersedes the narrow `Restore SSR for /` and `/about` task and covers
+the whole route tree). With the server now capable of rendering metadata and
+primary content, the remaining P0 work is authoring that metadata. Do the
 [SEO foundation plan](superpowers/plans/2026-07-11-seo-foundation.md) and the
 [search indexing readiness plan](superpowers/plans/2026-07-11-search-indexing-readiness.md)
 before any of the P1 items.

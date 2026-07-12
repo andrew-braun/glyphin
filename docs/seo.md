@@ -88,7 +88,12 @@ listed above.
 No route currently emits a canonical link, `og:type`, or `og:image`. The shared
 image required by this contract does not yet exist at
 `static/og/glyphin-reading-thai.png`; it must be created before social metadata
-references it. The root layout currently disables SSR globally, with `/learn`
-overriding that setting. Indexable `/`, `/about`, and their future peers will
-need server-rendered metadata and primary content before production indexing is
-enabled.
+references it. The root layout now defaults to server-first rendering
+(`prerender = true`, SSR on), so `/`, `/about`, and the other public routes emit
+real server HTML and are prerendered to static assets; dynamic routes (`/auth`,
+`/api/**`) opt out explicitly. See
+`.ai/2026-07-11-server-first-rendering-migration.md`. Indexable `/`, `/about`,
+and their future peers still need their server-rendered metadata (canonical,
+robots, Open Graph, structured data) authored before production indexing is
+enabled — the server is now capable of rendering it; the content is tracked
+separately in the SEO foundation plan.

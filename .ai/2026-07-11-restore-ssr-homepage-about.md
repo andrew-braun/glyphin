@@ -2,7 +2,11 @@
 
 - Start date: 2026-07-11
 - Owner: unassigned
-- Status: planned
+- Status: superseded — done as part of the broader
+  `.ai/2026-07-11-server-first-rendering-migration.md`, which flipped the root
+  layout to server-first (SSR + prerender) for the whole route tree, not just
+  `/` and `/about`. The store-safety audit recorded below remains the reference
+  for why the flip is safe. Kept for history; no separate work remains here.
 
 ## Goal
 
