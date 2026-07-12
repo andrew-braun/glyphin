@@ -1,5 +1,8 @@
 allowBuilds:
   "@parcel/watcher": false
+  esbuild: true
+  sharp: false
   supabase: true
+  workerd: true
 minimumReleaseAgeExclude:
   - eslint@10.5.0

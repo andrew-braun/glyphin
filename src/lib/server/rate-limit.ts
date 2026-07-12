@@ -1,16 +1,11 @@
+import { getRequestEvent } from "$app/server";
+
 /**
- * In-memory per-key token-bucket rate limiter.
+ * Per-key rate limiter.
  *
- * RUNTIME CAVEAT (read before deploying to Cloudflare): the bucket state lives
- * in this module's process memory. That is correct for the current
- * `adapter-node` deployment, which runs one long-lived server process. It does
- * NOT survive the planned Cloudflare Workers migration: requests are spread
- * across ephemeral isolates that do not share memory, so this limiter would only
- * throttle within a single isolate and be trivially bypassed. Before (or at) the
- * Cloudflare cutover, replace the store with a Workers-native mechanism — a
- * Durable Object, Workers KV, or Cloudflare's Rate Limiting binding — while
- * keeping `consumeRateLimitToken`'s signature so callers do not change.
- * Tracked in `.ai/2026-07-11-db-security-hardening.md`.
+ * Cloudflare Workers use `LEARNER_SYNC_RATE_LIMITER`, a Rate Limiting binding
+ * configured in `wrangler.jsonc`. Local development falls back to the in-memory
+ * token bucket below because the binding is unavailable outside Wrangler.
  */
 
 type Bucket = {
@@ -36,6 +31,18 @@ const buckets = new Map<string, Bucket>();
 const SWEEP_MIN_INTERVAL_MS = 60_000;
 let lastSweepAt = 0;
 
+function getCloudflareRateLimiter(): RateLimit | null {
+	try {
+		return getRequestEvent().platform?.env?.LEARNER_SYNC_RATE_LIMITER ?? null;
+	} catch {
+		return null;
+	}
+}
+
+function readCloudflareRetryAfterSeconds(options: RateLimitOptions): number {
+	return Math.max(1, Math.ceil(options.capacity / options.refillPerSecond));
+}
+
 /**
  * Drop buckets that have been idle long enough to have fully refilled, so memory
  * stays bounded by the number of *recently active* keys rather than every key
@@ -54,14 +61,25 @@ function sweepIdleBuckets(now: number, idleTtlMs: number): void {
 
 /**
  * Consume a single token for `key`. Returns whether the request is allowed and,
- * when it is not, how many seconds to wait before a token frees up. `now` is
- * injectable so the behavior can be exercised deterministically.
+ * when it is not, how many seconds to wait before retrying. `now` is injectable
+ * so the local fallback can be exercised deterministically.
  */
-export function consumeRateLimitToken(
+export async function consumeRateLimitToken(
 	key: string,
 	options: RateLimitOptions,
 	now: number = Date.now(),
-): RateLimitResult {
+): Promise<RateLimitResult> {
+	const cloudflareRateLimiter = getCloudflareRateLimiter();
+
+	if (cloudflareRateLimiter) {
+		const { success } = await cloudflareRateLimiter.limit({ key });
+
+		return {
+			allowed: success,
+			retryAfterSeconds: success ? 0 : readCloudflareRetryAfterSeconds(options),
+		};
+	}
+
 	const { capacity, refillPerSecond } = options;
 
 	const idleTtlMs = Math.max(SWEEP_MIN_INTERVAL_MS, (capacity / refillPerSecond) * 1000 * 2);

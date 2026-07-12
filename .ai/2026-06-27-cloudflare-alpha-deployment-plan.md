@@ -1,23 +1,29 @@
 # Cloudflare Workers Alpha Deployment Plan
 
 - Status: in progress — plan reviewed and current (see
-  `.ai/archive/2026-07-04-cloudflare-deployment-plan-review.md`), but
-  implementation has not started (`svelte.config.js` still uses
-  `@sveltejs/adapter-node`; no `wrangler.jsonc`). Alpha-blocking: this is the
-  critical path to a public alpha URL.
+  `.ai/archive/2026-07-04-cloudflare-deployment-plan-review.md`). Baseline
+  deployment branch setup has started on `deploy/cloudflare-alpha`; Supabase
+  production bootstrap is the active gate before Cloudflare Worker config.
+  `svelte.config.js` still uses `@sveltejs/adapter-node`; no `wrangler.jsonc`
+  yet. Alpha-blocking: Supabase production bootstrap plus Cloudflare Workers
+  deployment are the critical path to a public alpha URL.
 
 ## Summary
 
 Deploy Glyphin as a Cloudflare Workers Static Assets app backed by a fresh
-production Supabase project. Use Workers as the long-term Cloudflare target
-instead of Cloudflare Pages, with Git-based deployment (Cloudflare Workers
-Builds) as the deployment workflow from day one. The repo already lives on
-GitHub, so there is no separate manual-deploy bootstrap phase: local validation
-plus a non-production preview deploy proves the Worker before the production
-branch goes live.
+production Supabase project. Bootstrap Supabase first: the SvelteKit build
+prerenders public curriculum from Postgres delivery reads, and the runtime
+Worker depends on Supabase auth and learner-state RPCs. Use Workers as the
+long-term Cloudflare target instead of Cloudflare Pages, with Git-based
+deployment (Cloudflare Workers Builds) as the deployment workflow from day one.
+The repo already lives on GitHub, so there is no separate manual-deploy
+bootstrap phase: local validation plus a non-production preview deploy proves
+the Worker before the production branch goes live.
 
 The deployment model is:
 
+- A fresh production Supabase project is created, linked, migrated/seeded, and
+  verified before the first Cloudflare Worker build is configured.
 - Public, stable curriculum pages are built from Supabase at deploy time and
   prerendered into static assets.
 - Personalized/session-aware routes run in the Cloudflare Worker.
@@ -62,7 +68,7 @@ phase-1 choices must not entrench web-only patterns.
 
 ### 1. Prepare A Deployment Branch And Tracker
 
-- Work on `deploy/cloudflare-alpha`.
+- Work on `deploy/cloudflare-alpha`. Confirmed active branch on 2026-07-12.
 - Continue updating this plan during implementation; this review is tracked in
   `.ai/2026-07-04-cloudflare-deployment-plan-review.md`.
 - Treat Supabase project creation, auth, env vars, DNS, and production deploy as
@@ -75,7 +81,51 @@ phase-1 choices must not entrench web-only patterns.
   (`wrangler versions upload`); merging to the production branch is what ships.
   There is no separate manual `wrangler deploy` bootstrap step.
 
-### 2. Make The SvelteKit App Worker-Compatible
+### 2. Bootstrap The Production Supabase Project Before Cloudflare
+
+- Create a fresh Supabase project for alpha before configuring the Cloudflare
+  Worker or Workers Builds.
+- Default region: Europe West/Ireland if available, because the target audience
+  is primarily U.S./European even though the target language is Thai. Supabase
+  CLI region choice confirmed as `eu-west-1` on 2026-07-12.
+- Capture project ref, API URL, and publishable/anon key.
+- Use the dedicated Supabase CLI scripts added on 2026-07-12:
+  `pnpm db:prod:login`, `pnpm db:prod:projects`, and
+  `pnpm db:prod:link -- --project-ref <ref>`. Use the project-local
+  `pnpm exec supabase`/package scripts rather than bare `supabase`; bare
+  `supabase` resolves to an older global CLI on this machine. Do not pass
+  `--profile glyphin` to linked DB commands, and move aside
+  `~/.supabase/profile` if the CLI reports
+  `failed to read profile: Unsupported Config Type ""`.
+- For this fresh alpha only, run `pnpm exec supabase db reset --linked` after
+  explicit confirmation that the remote project has no real user data. Shortcut:
+  `pnpm db:prod:reset:fresh-alpha`.
+- Run database verification before any Cloudflare configuration:
+  - `pnpm db:lint` (local run on 2026-07-12 is blocked until Docker is running;
+    `pnpm check` passed with 0 errors and 0 warnings)
+  - `pnpm db:prod:lint` passed on 2026-07-12 after the linked reset
+  - `pnpm db:prod:advisors` passed on 2026-07-12 after the linked reset
+  - a linked schema/content check after reset
+    - 2026-07-12 linked counts: `1` course, `1` course version, `46` lessons,
+      `418` vocabulary items, `46` delivery lesson bundles, and all `3`
+      expected learner RPCs present
+  - a local `pnpm db:content:refresh` if needed to regenerate
+    `.generated/` publication artifacts from the linked project
+- Confirm the linked production project exposes the schemas and RPC surfaces the
+  app requires:
+  - `delivery` for build-time published curriculum reads
+  - `learner` for learner projection and sync
+  - auth configuration ready for the web BFF flow, with custom domain/SMTP
+    settings still gated until the Cloudflare URL is known
+- Record the exact values needed by the later Cloudflare phase:
+  - Build env vars: `SUPABASE_DELIVERY_URL`,
+    `SUPABASE_DELIVERY_ANON_KEY`
+  - Runtime secrets: `SUPABASE_AUTH_URL`,
+    `SUPABASE_AUTH_PUBLISHABLE_KEY`
+- After real alpha users exist, stop using remote reset and switch to
+  migration-only `pnpm exec supabase db push`.
+
+### 3. Make The SvelteKit App Worker-Compatible
 
 - Replace `@sveltejs/adapter-node` with `@sveltejs/adapter-cloudflare`.
 - Remove unused `@sveltejs/adapter-static` if still unused after the adapter
@@ -131,7 +181,7 @@ phase-1 choices must not entrench web-only patterns.
   publication id; that is safe (rebuildable per-isolate) but re-confirm during
   the swap. Tracked in `.ai/2026-07-11-db-security-hardening.md` (audit #10).
 
-### 3. Preserve Build-Time Supabase Reads And Prerendering
+### 4. Preserve Build-Time Supabase Reads And Prerendering
 
 - Keep build-time reads from Supabase `delivery.*`; the database is the source
   of truth for published curriculum.
@@ -149,7 +199,7 @@ phase-1 choices must not entrench web-only patterns.
   - other future public lesson/catalog routes that do not need user-specific
     state.
 
-### 4. Remove Runtime Filesystem Dependence From The Worker
+### 5. Remove Runtime Filesystem Dependence From The Worker
 
 - Audit `src/lib/server/published-lessons.ts` and related publication paths.
 - Ensure any `.generated` lesson artifacts are consumed during build/prerender,
@@ -173,7 +223,7 @@ phase-1 choices must not entrench web-only patterns.
   - `/api/learner/projection`
   - `/api/learner/sync`
 
-### 5. Update Durable Docs And Instructions
+### 6. Update Durable Docs And Instructions
 
 - Update `AGENTS.md` and `.github/copilot-instructions.md` to say the deployment
   target is Cloudflare Workers Static Assets with a server-capable SvelteKit
@@ -189,18 +239,6 @@ phase-1 choices must not entrench web-only patterns.
   - custom domain setup
   - rollback (Worker version rollback + git revert)
   - smoke tests
-
-### 6. Create The Production Supabase Project
-
-- Create a fresh Supabase project for alpha.
-- Default region: Southeast Asia/Singapore, because the product is Thai-focused
-  and the local environment timezone is Bangkok.
-- Capture project ref, API URL, and publishable/anon key.
-- Link locally with `pnpm exec supabase link --project-ref <ref>`.
-- For this fresh alpha only, run `pnpm exec supabase db reset --linked` after
-  explicit confirmation that the remote project has no real user data.
-- After real alpha users exist, stop using remote reset and switch to
-  migration-only `pnpm exec supabase db push`.
 
 ### 7. Configure Worker Build And Runtime Secrets
 
@@ -347,12 +385,14 @@ phase-1 choices must not entrench web-only patterns.
 
 ## Test Plan
 
+- Supabase-first checks: create/link the fresh production project, run
+  `pnpm db:lint`, run the confirmed-safe linked reset, verify remote `delivery`
+  and `learner` schemas/RPCs exist, and confirm the delivery/auth env values are
+  captured before configuring Cloudflare.
 - Local checks: `pnpm install`, `pnpm check`, `pnpm check:all`, `pnpm build`.
 - Cloudflare local simulation: run the built Cloudflare output through Wrangler
   with `pnpm exec wrangler dev .svelte-kit/cloudflare/_worker.js` and verify both
   static pages and Worker-backed routes.
-- Database checks: `pnpm db:lint`, then verify remote `delivery` and `learner`
-  schemas exist after the linked reset.
 - Build-output checks: confirm `/learn` and lesson routes are present as
   prerendered/static output where SvelteKit emits them.
 - Deployed smoke tests: public lessons, lesson page, practice page, auth OTP,
@@ -373,8 +413,11 @@ phase-1 choices must not entrench web-only patterns.
   testing.
 - Supabase production project is fresh and can be destructively rebuilt before
   real alpha data exists.
-- Supabase region defaults to Southeast Asia/Singapore unless the known tester
-  base is mostly elsewhere.
+- Cloudflare Worker setup waits until Supabase is linked, reset/migrated, and
+  verified because the app build and runtime auth/progress flows depend on that
+  Postgres/Auth project.
+- Supabase region defaults to Europe West/Ireland if available, because the
+  known tester base is expected to be primarily U.S./European.
 - Phase 2 will expose the reusable learner sync/projection contract through the
   Supabase RPC / security-definer layer so the parallel mobile app can call it
   with bearer-token auth under RLS, using `@supabase/supabase-js` from the native

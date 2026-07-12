@@ -1,3 +1,5 @@
+/// <reference types="@cloudflare/workers-types" />
+
 import type { Session, SupabaseClient, User } from "@supabase/supabase-js";
 
 declare global {
@@ -10,7 +12,11 @@ declare global {
 		}
 		// interface PageData {}
 		// interface PageState {}
-		// interface Platform {}
+		interface Platform {
+			env?: {
+				LEARNER_SYNC_RATE_LIMITER?: RateLimit;
+			};
+		}
 	}
 }
 

@@ -757,6 +757,34 @@ Questions to answer:
 Use this workflow when the local database is ready to become a linked remote
 Supabase project.
 
+For Glyphin's dedicated production/alpha Supabase account, use the project-local
+Supabase CLI through `pnpm` and keep that account active for this repo. The
+package scripts wrap the common remote commands:
+
+```sh
+pnpm db:prod:login
+pnpm db:prod:projects
+pnpm db:prod:link -- --project-ref your-project-ref
+pnpm db:prod:lint
+pnpm db:prod:advisors
+pnpm db:prod:push:dry-run
+pnpm db:prod:push
+```
+
+Do not add `--profile glyphin` to these scripts, and avoid bare `supabase`
+commands in this workspace. On this machine, bare `supabase` resolves to an
+older global CLI, while `pnpm exec supabase` uses the repo-pinned CLI. If remote
+commands fail with `failed to read profile: Unsupported Config Type ""`, move
+the stale profile marker aside and keep the token file intact:
+
+```sh
+mv ~/.supabase/profile ~/.supabase/profile.bak-$(date +%Y%m%d%H%M%S)
+pnpm exec supabase projects list
+```
+
+For the fresh alpha database only, `pnpm db:prod:reset:fresh-alpha` performs a
+destructive linked reset. Do not run it after real users or learner data exist.
+
 ### 1. Authenticate the Supabase CLI
 
 ```sh

@@ -99,7 +99,7 @@ function projectionJson(envelope: LearnerProjectionEnvelope): Response {
 export const POST: RequestHandler = async ({ locals, request }) => {
 	const user = await requireVerifiedUser(locals);
 
-	const rateLimit = consumeRateLimitToken(`learner-sync:${user.id}`, SYNC_RATE_LIMIT);
+	const rateLimit = await consumeRateLimitToken(`learner-sync:${user.id}`, SYNC_RATE_LIMIT);
 	if (!rateLimit.allowed) {
 		return json(
 			{ error: "Too many sync requests. Please slow down and try again shortly." },

@@ -9,7 +9,8 @@ learner-owned data are being changed.
 
 ## Current Architecture Snapshot
 
-- Glyphin now has a real server runtime via `@sveltejs/adapter-node`.
+- Glyphin now has a real server runtime via SvelteKit on Cloudflare Workers
+  Static Assets with `@sveltejs/adapter-cloudflare`.
 - `/learn` now renders through a dedicated `ssr = true` and `prerender = true`
   route branch that reads published lesson bundles from `delivery.*` into a
   generated lesson artifact.
