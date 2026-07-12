@@ -8,6 +8,13 @@ Glyphin deploys to Cloudflare Workers Static Assets with SvelteKit running on
 - Build command: `pnpm build`
 - Production deploy command: `pnpm exec wrangler deploy`
 - Non-production deploy command: `pnpm exec wrangler versions upload`
+- Worker name: `glyphin` (matches `package.json`'s `name`). Cloudflare Workers
+  cannot be renamed after creation — the dashboard's Git-import flow auto-named
+  the first Worker `glyphbridge` from the repo folder, which had to be deleted
+  and recreated correctly rather than renamed. `wrangler.jsonc`'s `name` field
+  must always match whatever the dashboard actually created, or every build
+  overrides remote config and Cloudflare tries to open a config-fix PR — pick
+  the name deliberately in the dashboard at creation time going forward.
 - Worker config: `wrangler.jsonc`
 - Worker entry: `.svelte-kit/cloudflare/_worker.js`
 - Static assets directory: `.svelte-kit/cloudflare`
@@ -23,23 +30,18 @@ generates the publication artifact and prerenders public lesson routes.
 ```sh
 SUPABASE_DELIVERY_URL=https://<project-ref>.supabase.co
 SUPABASE_DELIVERY_ANON_KEY=<supabase anon or publishable key>
+NODE_VERSION=24.15.0
 PNPM_VERSION=11.6.0
 ```
 
 Do not put service-role keys in Cloudflare.
 
-Node version is not a build variable: Cloudflare's build image reads the
-committed `.nvmrc` automatically, so it stays in sync with `engines.node` in
-`package.json` without a dashboard setting to drift out of date.
-
-`PNPM_VERSION` is kept as a dashboard build variable as a documented,
-known-working safety net, even though `package.json` also commits the pnpm
-version via `packageManager` (read by Corepack) and `devEngines.packageManager`
-(read by pnpm's own CLI, pnpm 11+). Cloudflare's build-image docs explicitly
-rule out `engines`-based detection but do not confirm or deny honoring
-`packageManager`/Corepack, so treat the committed fields as unverified for this
-platform until a real Workers Builds run confirms Corepack picks them up on
-its own — at which point `PNPM_VERSION` can be dropped from the dashboard.
+Both version vars are required, confirmed empirically on 2026-07-12: a Workers
+Builds run without them detected `nodejs@22.16.0`/`pnpm@10.11.1` despite the
+committed `.nvmrc` (`24.15.0`) and `package.json`'s `packageManager`/
+`devEngines.packageManager` (`pnpm@11.6.0`) all saying otherwise. Workers
+Builds does not read either committed source on its own — set both dashboard
+vars explicitly rather than relying on repo config.
 
 ## Runtime Secrets
 

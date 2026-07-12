@@ -1,15 +1,15 @@
 # Cloudflare Workers Alpha Deployment Plan
 
-- Status: paused at a clean checkpoint on 2026-07-12. Supabase production
-  bootstrap is complete and verified, the SvelteKit app is Worker-compatible
-  (committed), and local validation (Step 8) now passes end-to-end: `pnpm
-check`, `pnpm lint`, `pnpm stylelint`, a production build against the real
-  Supabase project, and a local Wrangler simulation of the built Worker.
-  Remaining work is Cloudflare dashboard setup (Workers Builds Git integration,
-  Step 9), the custom domain and Resend SMTP gate (Step 10), and deployed smoke
-  tests (Step 11) — all of which need dashboard/account access this session
-  didn't have. See `.ai/archive/2026-07-04-cloudflare-deployment-plan-review.md`
-  for the earlier plan review.
+- Status: as of 2026-07-12, Supabase production bootstrap is complete and
+  verified, the SvelteKit app is Worker-compatible (committed), local
+  validation (Step 8) passed end-to-end, and Cloudflare Workers Builds is now
+  connected with a successful non-production preview build/upload (Step 9;
+  Worker Version ID `b264a70e-4178-42c8-9c26-50021846c799`). Remaining work is
+  promoting that version to serving traffic and running Step 11 smoke tests
+  against the preview URL, then the custom domain and Resend SMTP gate
+  (Step 10). See
+  `.ai/archive/2026-07-04-cloudflare-deployment-plan-review.md` for the
+  earlier plan review.
 
 ## Current Pause State
 
@@ -61,14 +61,20 @@ check:all`'s `format:check` step fails only on pre-existing, unrelated
     `404`. The `LEARNER_SYNC_RATE_LIMITER` binding, `ASSETS` binding, and both
     runtime secrets bound correctly in the local simulation with no errors in
     the Wrangler log.
-- Verification still pending: Cloudflare Workers Builds dashboard setup
-  (Step 9), custom domain + Resend SMTP (Step 10), and deployed smoke tests
-  (Step 11).
-- Current code state: only this plan file and `AGENTS.md`/`.gitignore` (the
-  `.dev.vars` documentation/ignore addition) are modified and uncommitted;
-  everything else from this session was either already committed or is a local
-  gitignored file (`.env`, `.dev.vars`). Start the next session with
-  `git status --short`.
+- Cloudflare Workers Builds connected on 2026-07-12; see Step 9 for the full
+  account of the first preview build, the branch/build-var/Worker-name issues
+  hit and fixed (including recreating the Worker once, since Cloudflare
+  Workers cannot be renamed), and the resulting `wrangler.jsonc` changes
+  (`name` -> `glyphin`, explicit `workers_dev`/`preview_urls: true`).
+- Verification still pending: promoting the preview version to serving
+  traffic, Step 11 smoke tests against the preview URL, and custom domain +
+  Resend SMTP (Step 10).
+- Current code state: this plan file, `AGENTS.md`, `.gitignore`,
+  `docs/deployment-cloudflare.md`, `package.json` (`devEngines.packageManager`
+  addition), and `wrangler.jsonc` (Worker name/`workers_dev`/`preview_urls`
+  fixes) are modified and uncommitted; everything else from this session was
+  either already committed or is a local gitignored file (`.env`,
+  `.dev.vars`). Start the next session with `git status --short`.
 
 ## Summary
 
@@ -207,8 +213,20 @@ phase-1 choices must not entrench web-only patterns.
   current request event. Ordinary string env vars still use SvelteKit `$env`
   modules.
 - Added `wrangler.jsonc` for Workers Static Assets:
-  - `name`: the alpha Worker name, for example `glyphin-alpha`.
+  - `name`: must match the Worker name created in Cloudflare's dashboard —
+    `glyphin`, matching `package.json`'s `name`. This took two attempts: the
+    dashboard's Git-import flow first auto-named the Worker `glyphbridge` from
+    the repo folder, and since Cloudflare Workers cannot be renamed after
+    creation, fixing it meant deleting that Worker and recreating it with the
+    correct name (see Step 9). A name mismatch between `wrangler.jsonc` and
+    the actual dashboard-created Worker makes every build override remote
+    config and triggers Cloudflare's auto-PR flow, so keep this in sync with
+    whatever the dashboard actually created, and pick the name deliberately at
+    creation time to avoid repeating this.
   - `main`: `.svelte-kit/cloudflare/_worker.js`.
+  - `workers_dev` / `preview_urls`: `true`, explicit rather than left to
+    Wrangler's default — needed for the `workers.dev` smoke-testing URL this
+    plan's Assumptions section calls for before the custom domain lands.
   - `assets.binding`: `ASSETS`.
   - `assets.directory`: `.svelte-kit/cloudflare`.
   - `compatibility_date`: the implementation date (must be `2024-09-23` or
@@ -223,10 +241,12 @@ phase-1 choices must not entrench web-only patterns.
 
     ```jsonc
     {
-     "name": "glyphin-alpha",
+     "name": "glyphin",
      "main": ".svelte-kit/cloudflare/_worker.js",
      "compatibility_date": "<implementation date, >= 2024-09-23>",
      "compatibility_flags": ["nodejs_compat"],
+     "workers_dev": true,
+     "preview_urls": true,
      "assets": {
       "binding": "ASSETS",
       "directory": ".svelte-kit/cloudflare",
@@ -321,17 +341,18 @@ phase-1 choices must not entrench web-only patterns.
   - Build env vars (Settings > Build, build-only, not present at runtime):
     - `SUPABASE_DELIVERY_URL`
     - `SUPABASE_DELIVERY_ANON_KEY`
-    - `PNPM_VERSION=11.6.0` — kept as a documented, known-working safety net
-      for the first build. `package.json` also commits the pnpm version via
-      `packageManager` (Corepack) and `devEngines.packageManager` (pnpm 11+
-      CLI), and Cloudflare's docs explicitly rule out `engines`-based
-      detection but never confirm or deny honoring `packageManager`/Corepack.
-      Once a real Workers Builds run confirms Corepack picks the committed
-      version up on its own, drop this dashboard var.
-  - Node version is not a build var: Cloudflare's build image reads the
-    committed `.nvmrc` (`24.15.0`, already tracked in this repo) automatically,
-    so it stays in sync with `engines.node` without a second dashboard setting
-    to drift.
+    - `NODE_VERSION=24.15.0`
+    - `PNPM_VERSION=11.6.0`
+  - Confirmed required (not optional) on 2026-07-12: the first Step 9 preview
+    build without these two vars set detected `nodejs@22.16.0` and
+    `pnpm@10.11.1` despite the committed `.nvmrc` (`24.15.0`),
+    `package.json`'s `packageManager` (Corepack), and `devEngines.packageManager`
+    (pnpm 11+ CLI) all specifying `pnpm@11.6.0`. Cloudflare's build-image docs
+    explicitly rule out `engines`-based detection and never confirmed
+    `packageManager`/Corepack support either way — this was the empirical
+    answer: Workers Builds does not read either committed source on its own,
+    so both dashboard vars stay required rather than becoming droppable later.
+    Setting both fixed detection to `nodejs@24.15.0, pnpm@11.6.0` in the log.
   - Runtime secrets (Settings > Variables & Secrets):
     - `SUPABASE_AUTH_URL`
     - `SUPABASE_AUTH_PUBLISHABLE_KEY`
@@ -398,6 +419,47 @@ phase-1 choices must not entrench web-only patterns.
 - Optional fallback (only if Workers Builds proves limiting): a GitHub Actions
   workflow running `pnpm install`, `pnpm check`, `pnpm build`, and
   `pnpm exec wrangler deploy`. Prefer native Workers Builds for the alpha.
+- First preview build succeeded on 2026-07-12 (`pnpm exec wrangler versions
+upload`, Worker Version ID `b264a70e-4178-42c8-9c26-50021846c799`). Two
+  issues surfaced and were fixed:
+  - An early build attempt failed because the dashboard's production branch
+    was initially pointed at a stale branch that predated the Cloudflare
+    adapter work (wrong `@sveltejs/adapter-auto`/old dependency versions in
+    the build log, and a `pnpm-workspace.yaml` `allowBuilds` policy mismatch
+    that made pnpm ignore `esbuild`'s postinstall). Fixed by pointing the
+    dashboard's branch selection at the correct branch.
+  - `NODE_VERSION`/`PNPM_VERSION` build vars turned out to be required, not
+    optional: with them unset, Workers Builds detected `nodejs@22.16.0` and
+    `pnpm@10.11.1` instead of reading the committed `.nvmrc` (`24.15.0`) or
+    `package.json`'s `packageManager`/`devEngines.packageManager`
+    (`pnpm@11.6.0`) — see Step 7's note on this. Setting both dashboard vars
+    fixed detection (`nodejs@24.15.0, pnpm@11.6.0` in the log); the committed
+    config alone was not sufficient on Workers Builds, so the dashboard vars
+    stay required rather than becoming droppable later as originally hoped.
+  - Wrangler warned of a Worker-name mismatch: `wrangler.jsonc` said
+    `glyphin-alpha`, but the dashboard's Git-import flow had already created
+    the Worker as `glyphbridge` (auto-derived from the repo folder name, not a
+    deliberate choice — the app's actual name is `glyphin`, matching
+    `package.json`). Workers Builds used the CI-provided name for the actual
+    upload. Also made `workers_dev`/`preview_urls` explicit `true` in
+    `wrangler.jsonc` (the dashboard-created Worker had both `false`; the
+    preview upload's local-vs-remote config diff flipped them to `true` as a
+    side effect — kept deliberately since a `workers.dev` URL is needed for
+    smoke testing before the custom domain lands, now committed as an
+    explicit choice instead of an implicit default).
+  - Cloudflare Workers cannot be renamed after creation (no rename path in the
+    dashboard, Wrangler, or the API — the name is the permanent resource
+    identifier and `*.workers.dev` subdomain). Since the `glyphbridge` Worker
+    was never promoted to serving traffic and no custom domain was attached
+    yet, the fix was to delete it and recreate the Worker correctly named
+    `glyphin` via the dashboard's Git-import flow, re-doing the rest of this
+    step's dashboard configuration (build settings, build env vars, runtime
+    secrets) against the new Worker. `wrangler.jsonc`'s `name` updated to
+    `glyphin` to match.
+- Not yet done: re-verifying the preview build against the recreated `glyphin`
+  Worker, promoting that version to serving traffic
+  (`wrangler versions deploy`), and Step 11 smoke tests against the preview
+  URL.
 
 ### 10. Attach The Custom Domain
 
