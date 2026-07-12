@@ -252,6 +252,16 @@ otp_expiry = 1200
 subject = "Your Glyphin sign-in code"
 content_path = "./supabase/templates/magic-link.html"
 
+# Not expected to be sent while enable_confirmations = false above disables
+# the signup-confirmation flow entirely, but styled for consistency/defense
+# in depth in case confirmations are ever re-enabled. The app has no route to
+# complete the ConfirmationURL PKCE exchange today (see
+# .ai/2026-06-27-cloudflare-alpha-deployment-plan.md, Step 11) — don't
+# re-enable auth.email.enable_confirmations without adding that route first.
+[auth.email.template.confirmation]
+subject = "Confirm your Glyphin email"
+content_path = "./supabase/templates/confirm-signup.html"
+
 # Uncomment to customize notification email template
 # [auth.email.notification.password_changed]
 # enabled = true

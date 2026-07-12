@@ -4,15 +4,19 @@
   verified, the SvelteKit app is Worker-compatible (committed), local
   validation (Step 8) passed end-to-end, and Cloudflare Workers Builds is
   deploying the `glyphin` Worker from `main` (Step 9;
-  Version ID `886ba2cc-7c57-4bbf-a3f6-876b6e0c7f37`). The user then deployed
+  Version ID `886ba2cc-7c57-4bbf-a3f6-876b6e0c7f37`). The user deployed
   straight to production and attached the custom domain directly from `main`,
-  ahead of the plan's original preview-first sequencing — Step 10's domain
-  attachment is therefore already done in practice, but its Supabase Auth
-  Site URL/redirect config and the Resend SMTP hard gate still need explicit
-  verification, and Step 11 smoke tests have not yet been run against the
-  live custom domain. Treat this as: Steps 9-10 partially complete
-  out-of-order, now doing Step 10's remaining auth/SMTP checklist and Step 11
-  smoke tests against a domain that is already publicly live. See
+  ahead of the plan's original preview-first sequencing. Step 10 is now fully
+  done: custom domain live, Supabase Auth Site URL set, Resend SMTP
+  configured, OTP expiry mirrored to `1200`, email templates set, rate limits
+  tuned, and Cloudflare Turnstile CAPTCHA live on `/auth` (after fixing a
+  dashboard-var-wiped-by-deploy issue — set as a Secret, not a plain Text
+  var). Public/unauthenticated Step 11 smoke checks passed against
+  `https://glyphin.app`. Remaining: the authenticated Step 11 checks (real
+  OTP sign-in through Turnstile, lesson-completion sync/refresh persistence,
+  sign-out, cookie attribute verification) still need to be run by the user
+  directly, since they require solving a live captcha and receiving real
+  email — not something this agent can do. See
   `.ai/archive/2026-07-04-cloudflare-deployment-plan-review.md` for the
   earlier plan review.
 
@@ -493,7 +497,8 @@ upload`, Worker Version ID `b264a70e-4178-42c8-9c26-50021846c799`). Two
   later, but it is not the blocking item; **Site URL** and **custom SMTP**
   are.
 - Configure Supabase Auth URL settings (Auth > URL Configuration):
-  - Site URL: `https://glyphin.app` — **not yet set**, confirmed 2026-07-12.
+  - Site URL: `https://glyphin.app` — **done**, confirmed by the user
+    2026-07-12.
   - Redirect allow list: add `https://glyphin.app` as a sane default; avoid
     wildcard entries. Not currently exercised by the app's own code, low
     priority relative to SMTP/Site URL.
@@ -501,7 +506,8 @@ upload`, Worker Version ID `b264a70e-4178-42c8-9c26-50021846c799`). Two
   not optional polish: Supabase's default email service only delivers to project
   team members and is heavily rate-limited, so external alpha testers
   cannot receive OTP codes without it. Email OTP is the entire auth flow.
-  **Not yet configured**, confirmed 2026-07-12.
+  **Done** — user confirmed Resend SMTP, Site URL, OTP expiry (1200s), email
+  templates, and rate limits all configured, 2026-07-12.
   - Create a Resend account, verify the sending domain (add the SPF/DKIM/DMARC
     DNS records Resend provides — `glyphin.app` is already on Cloudflare DNS,
     so add them there), and create an API key (used as the SMTP password).
@@ -553,17 +559,32 @@ upload`, Worker Version ID `b264a70e-4178-42c8-9c26-50021846c799`). Two
     - `pnpm check` passes clean (938 files, 0 errors/warnings).
     - See `docs/deployment-cloudflare.md`'s Runtime Secrets section for the
       full env var writeup.
-    - **Still needed (dashboard-only, not something I can do from here):**
-      1. Create a Turnstile widget in the Cloudflare dashboard (Turnstile >
-         Add widget). Recommended: "Managed" mode, domains
-         `glyphin.app` + `glyphin.andrewbraundev.workers.dev` (+ `localhost`
-         if testing the real widget locally is ever wanted — not required
-         since local dev uses the test sitekey instead).
-      2. Copy the widget's **Site Key** into Cloudflare Worker Settings >
-         Variables & Secrets as `PUBLIC_TURNSTILE_SITE_KEY` (plain
-         non-secret runtime var).
-      3. Copy the widget's **Secret Key** into Supabase Auth > Bot and Abuse
-         Protection, selecting Cloudflare Turnstile as the provider.
+    - Dashboard work done 2026-07-12: Turnstile widget created, site key
+      added to Cloudflare Worker Settings > Variables & Secrets, secret key
+      added to Supabase Auth > Bot and Abuse Protection, code committed and
+      pushed (`0bef72a feat-update: Set up Cloudflare Turnstile`).
+    - Bug found and fixed 2026-07-12: the site key was first added as a
+      plain **Text** var, which does not survive a Git-triggered deploy —
+      `wrangler deploy`'s declarative sync resets remote `vars` to match
+      `wrangler.jsonc` on every deploy (same mechanism already seen wiping
+      `workers_dev`/`preview_urls` in Step 9), and `wrangler.jsonc` doesn't
+      (and shouldn't) declare this var. Confirmed empirically: the widget
+      rendered as an empty conditional (`<!--[-1--><!--]-->` in SSR output)
+      immediately after the Turnstile-code deploy went live, meaning the var
+      wasn't reaching the Worker at runtime.
+      Fix, sourced from Cloudflare's Worker secrets docs rather than
+      guessed: set it as a **Secret** instead of a Text var. Cloudflare's
+      docs state secrets are exempt from that declarative sync — "secrets
+      not included in the file are preserved from the previous version" —
+      so a Secret survives every future deploy without ever needing to
+      appear in `wrangler.jsonc`. The "Secret" designation here is purely
+      about deploy-persistence, not actual confidentiality: the value still
+      ends up embedded in the public `/auth` HTML for the widget either way,
+      same as before.
+    - Re-verified after the fix, 2026-07-12: `curl -s https://glyphin.app/auth`
+      now contains `cf-turnstile`, `challenges.cloudflare.com/turnstile/v0/api.js`,
+      and a populated `data-sitekey`. Turnstile is live end-to-end — CAPTCHA
+      checklist item done.
   - Treat the Resend SMTP credential as a Supabase-side secret: it is entered
     directly into the Supabase dashboard's SMTP settings only. It must never
     go into `.env`, `.dev.vars`, Cloudflare build vars, Cloudflare runtime
@@ -606,11 +627,45 @@ upload`, Worker Version ID `b264a70e-4178-42c8-9c26-50021846c799`). Two
     scope and not blocking, but flagged here as a gap worth a deliberate
     decision later; nothing in `svelte.config.js` or `src/` currently sets
     security headers.
-- Not yet done, blocked on Step 10's SMTP gate: email OTP sign-in, lesson
-  completion sync + refresh persistence, sign-out, and confirming secure
-  cookie attributes (`HttpOnly`, `Secure`, `SameSite=Lax`) on an authenticated
-  session — none of this can be exercised until Resend SMTP is configured,
-  since OTP codes will not reliably reach a non-team-member inbox before then.
+- Turnstile hit `400020` ("Invalid sitekey") on the user's first real attempt
+  — traced to a copy-paste mistake on the site key value, fixed by
+  re-entering the correct value in the same Secret.
+- Real bug found on the user's first real sign-in attempt, 2026-07-12: for a
+  brand-new email address, production sent Supabase's stock **"Confirm
+  signup"** email (`type=signup`, `{{ .ConfirmationURL }}`), not the custom
+  Magic Link/OTP template — a completely different template slot, not a
+  mispasted-template issue as first suspected. Root cause: production Auth
+  still has "Confirm email" enabled (Supabase's project default), while
+  `supabase/config.toml` (`[auth.email] enable_confirmations = false`, line 224) explicitly disables it locally — a dashboard-only setting, like Site
+  URL/SMTP/OTP-expiry before it, that never propagates from `config.toml` to
+  the hosted project. This is a real functional bug, not cosmetic: confirmed
+  via `grep` that this codebase has **no route anywhere** that handles a
+  `code`/`token_hash` PKCE confirmation callback (no `/auth/confirm`,
+  no `exchangeCodeForSession` call), so clicking "Confirm email address"
+  would land on `https://glyphin.app/?code=...` with no session ever
+  established — a dead end for every brand-new signer-in until fixed.
+  - Fix (two parts):
+    1. **Required**: disable "Confirm email" in Supabase Dashboard >
+       Authentication > Sign In / Up settings, to mirror
+       `enable_confirmations = false`. This is the actual fix — without it,
+       new users keep hitting the dead-end confirmation flow regardless of
+       template styling.
+    2. Done as defense-in-depth, 2026-07-12: added
+       `supabase/templates/confirm-signup.html` (matching
+       `magic-link.html`'s branding: same teal/gold palette, same card
+       layout) and wired it into `config.toml`'s new
+       `[auth.email.template.confirmation]` section, in case this flow is
+       ever triggered again (e.g. confirmations re-enabled later). Left an
+       explicit comment in `config.toml` warning not to re-enable
+       `enable_confirmations` without adding the missing callback route
+       first.
+  - **Still needed**: user must disable "Confirm email" in the production
+    dashboard (item 1 above) and re-verify a brand-new-email sign-in goes
+    straight to the Magic Link/OTP code email.
+- Not yet done: lesson completion sync + refresh persistence, sign-out, and
+  confirming secure cookie attributes (`HttpOnly`, `Secure`, `SameSite=Lax`)
+  on an authenticated session — pending a clean end-to-end sign-in once the
+  confirmation-flow bug above is fixed in production.
 - Done on 2026-07-12: grepped the live homepage HTML and its core referenced
   JS bundles (`entry/app.*.js`, `entry/start.*.js`, largest vendor chunk, and
   the `/` route's node chunk) for `sb_...`/`eyJ...`-shaped key strings and the

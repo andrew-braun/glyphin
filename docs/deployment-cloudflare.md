@@ -58,23 +58,39 @@ SUPABASE_AUTH_PUBLISHABLE_KEY=<supabase anon or publishable key>
 
 The deployed Worker reads these through SvelteKit `$env/dynamic/private`.
 
-Also set this **non-secret** runtime variable (plain text, not the Secret
-toggle) in the same Variables & Secrets section — it must be a runtime var,
-not a build var, because `/auth` is dynamically rendered per request, not
-prerendered:
+Also set this in the same Variables & Secrets section — it must be a runtime
+var, not a build var, because `/auth` is dynamically rendered per request,
+not prerendered:
 
 ```sh
 PUBLIC_TURNSTILE_SITE_KEY=<Cloudflare Turnstile site key>
 ```
 
+Correction, found 2026-07-12: set this as a **Secret**, not a plain Text
+var, even though the value itself isn't actually sensitive (it's meant to be
+public — it ends up embedded in the rendered HTML for the widget either
+way). This is not about secrecy; it's about deploy persistence. Cloudflare's
+own docs on Worker secrets: _"Secrets not included in the file are preserved
+from the previous version"_ — `wrangler deploy` never touches secrets
+regardless of `wrangler.jsonc` contents, while plain `vars` are fully
+declarative and get reset to match the local config on every deploy (the
+same behavior already observed with `workers_dev`/`preview_urls` in Step 9).
+A plain Text var set only via the dashboard, with no matching entry in
+`wrangler.jsonc`, gets silently wiped by the next Git-triggered deploy —
+confirmed empirically when the Turnstile widget stopped rendering
+immediately after the next push. The "Secret" toggle is the mechanism that
+survives automated deploys without needing to commit the value into
+`wrangler.jsonc`.
+
 The `/auth` page reads it through `$env/dynamic/public` to render the
 Turnstile widget and gate `signInWithOtp` (OTP request only — not
 `verifyOtp`, since Supabase's SDK marks `captchaToken` on `verifyOtp` as
-deprecated). The matching Turnstile **secret** key is entered directly into
-Supabase's Auth > Bot and Abuse Protection settings — it never touches
-Cloudflare or the app's own env vars. Locally, `.env` uses Cloudflare's
-published test sitekey `1x00000000000000000000AA` (always passes, visible
-widget) since local Supabase has no captcha enforcement configured.
+deprecated). The matching Turnstile **secret** key (the real secret, used for
+server-side verification) is entered directly into Supabase's Auth > Bot and
+Abuse Protection settings — it never touches Cloudflare or the app's own env
+vars. Locally, `.env` uses Cloudflare's published test sitekey
+`1x00000000000000000000AA` (always passes, visible widget) since local
+Supabase has no captcha enforcement configured.
 
 ## Local Verification
 
