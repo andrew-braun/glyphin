@@ -6,6 +6,7 @@ import {
 	getVerifiedUser,
 	normalizeEmail,
 	normalizeEmailOtp,
+	readOptionalFormString,
 	readRequiredFormString,
 } from "$lib/server/auth";
 
@@ -33,11 +34,18 @@ export const actions: Actions = {
 			});
 		}
 
+		// SECURITY: captchaToken is only read/sent on OTP request (this action), not
+		// on verifyCode — Supabase's own SDK marks captchaToken on verifyOtp as
+		// deprecated, since the abuse vector (unsolicited email sends) lives at
+		// request time, not at verification time.
+		const captchaToken = readOptionalFormString(formData, "cf-turnstile-response");
+
 		const supabase = getSupabaseClient(locals);
 		const { error } = await supabase.auth.signInWithOtp({
 			email,
 			options: {
 				shouldCreateUser: true,
+				...(captchaToken ? { captchaToken } : {}),
 			},
 		});
 

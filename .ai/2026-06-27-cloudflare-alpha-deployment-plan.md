@@ -2,12 +2,17 @@
 
 - Status: as of 2026-07-12, Supabase production bootstrap is complete and
   verified, the SvelteKit app is Worker-compatible (committed), local
-  validation (Step 8) passed end-to-end, and Cloudflare Workers Builds is now
-  connected with a successful non-production preview build/upload (Step 9;
-  Worker Version ID `b264a70e-4178-42c8-9c26-50021846c799`). Remaining work is
-  promoting that version to serving traffic and running Step 11 smoke tests
-  against the preview URL, then the custom domain and Resend SMTP gate
-  (Step 10). See
+  validation (Step 8) passed end-to-end, and Cloudflare Workers Builds is
+  deploying the `glyphin` Worker from `main` (Step 9;
+  Version ID `886ba2cc-7c57-4bbf-a3f6-876b6e0c7f37`). The user then deployed
+  straight to production and attached the custom domain directly from `main`,
+  ahead of the plan's original preview-first sequencing — Step 10's domain
+  attachment is therefore already done in practice, but its Supabase Auth
+  Site URL/redirect config and the Resend SMTP hard gate still need explicit
+  verification, and Step 11 smoke tests have not yet been run against the
+  live custom domain. Treat this as: Steps 9-10 partially complete
+  out-of-order, now doing Step 10's remaining auth/SMTP checklist and Step 11
+  smoke tests against a domain that is already publicly live. See
   `.ai/archive/2026-07-04-cloudflare-deployment-plan-review.md` for the
   earlier plan review.
 
@@ -66,9 +71,11 @@ check:all`'s `format:check` step fails only on pre-existing, unrelated
   hit and fixed (including recreating the Worker once, since Cloudflare
   Workers cannot be renamed), and the resulting `wrangler.jsonc` changes
   (`name` -> `glyphin`, explicit `workers_dev`/`preview_urls: true`).
-- Verification still pending: promoting the preview version to serving
-  traffic, Step 11 smoke tests against the preview URL, and custom domain +
-  Resend SMTP (Step 10).
+- Verification still pending: confirming the dashboard's production-branch
+  mapping matches intent (see Step 9's note — the latest build ran the
+  production `wrangler deploy` command, not the preview
+  `wrangler versions upload` command), Step 11 smoke tests against the live
+  URL, and custom domain + Resend SMTP (Step 10).
 - Current code state: this plan file, `AGENTS.md`, `.gitignore`,
   `docs/deployment-cloudflare.md`, `package.json` (`devEngines.packageManager`
   addition), and `wrangler.jsonc` (Worker name/`workers_dev`/`preview_urls`
@@ -341,18 +348,17 @@ phase-1 choices must not entrench web-only patterns.
   - Build env vars (Settings > Build, build-only, not present at runtime):
     - `SUPABASE_DELIVERY_URL`
     - `SUPABASE_DELIVERY_ANON_KEY`
-    - `NODE_VERSION=24.15.0`
-    - `PNPM_VERSION=11.6.0`
-  - Confirmed required (not optional) on 2026-07-12: the first Step 9 preview
-    build without these two vars set detected `nodejs@22.16.0` and
-    `pnpm@10.11.1` despite the committed `.nvmrc` (`24.15.0`),
-    `package.json`'s `packageManager` (Corepack), and `devEngines.packageManager`
-    (pnpm 11+ CLI) all specifying `pnpm@11.6.0`. Cloudflare's build-image docs
-    explicitly rule out `engines`-based detection and never confirmed
-    `packageManager`/Corepack support either way — this was the empirical
-    answer: Workers Builds does not read either committed source on its own,
-    so both dashboard vars stay required rather than becoming droppable later.
-    Setting both fixed detection to `nodejs@24.15.0, pnpm@11.6.0` in the log.
+  - `NODE_VERSION`/`PNPM_VERSION` dashboard vars are not needed. The first
+    build against the (since-deleted) `glyphbridge` Worker did need them set
+    explicitly — without them it detected `nodejs@22.16.0`/`pnpm@10.11.1`
+    despite the committed `.nvmrc` (`24.15.0`) and `package.json`'s
+    `packageManager`/`devEngines.packageManager` (`pnpm@11.6.0`). But the
+    first build against the recreated `glyphin` Worker, with no version vars
+    set at all, correctly detected `nodejs@24.15.0, pnpm@11.6.0` straight from
+    committed config. Conclusion: the earlier failure was specific to that
+    Worker/build-cache state, not a general Workers Builds limitation — leave
+    the vars unset and rely on `.nvmrc`/`packageManager`/`devEngines`; only
+    re-add them if a future build regresses to wrong detected versions.
   - Runtime secrets (Settings > Variables & Secrets):
     - `SUPABASE_AUTH_URL`
     - `SUPABASE_AUTH_PUBLISHABLE_KEY`
@@ -428,14 +434,17 @@ upload`, Worker Version ID `b264a70e-4178-42c8-9c26-50021846c799`). Two
     the build log, and a `pnpm-workspace.yaml` `allowBuilds` policy mismatch
     that made pnpm ignore `esbuild`'s postinstall). Fixed by pointing the
     dashboard's branch selection at the correct branch.
-  - `NODE_VERSION`/`PNPM_VERSION` build vars turned out to be required, not
-    optional: with them unset, Workers Builds detected `nodejs@22.16.0` and
-    `pnpm@10.11.1` instead of reading the committed `.nvmrc` (`24.15.0`) or
-    `package.json`'s `packageManager`/`devEngines.packageManager`
-    (`pnpm@11.6.0`) — see Step 7's note on this. Setting both dashboard vars
-    fixed detection (`nodejs@24.15.0, pnpm@11.6.0` in the log); the committed
-    config alone was not sufficient on Workers Builds, so the dashboard vars
-    stay required rather than becoming droppable later as originally hoped.
+  - `NODE_VERSION`/`PNPM_VERSION` build vars appeared required against the
+    original `glyphbridge` Worker: with them unset, Workers Builds detected
+    `nodejs@22.16.0` and `pnpm@10.11.1` instead of reading the committed
+    `.nvmrc` (`24.15.0`) or `package.json`'s
+    `packageManager`/`devEngines.packageManager` (`pnpm@11.6.0`). Setting both
+    dashboard vars fixed detection at the time (`nodejs@24.15.0, pnpm@11.6.0`
+    in the log). This did not hold up: the first build against the recreated
+    `glyphin` Worker (see below), with both vars deliberately left unset,
+    still detected `nodejs@24.15.0, pnpm@11.6.0` correctly from committed
+    config alone. Treat the original failure as Worker/cache-state-specific,
+    not a standing Workers Builds limitation — see Step 7's updated note.
   - Wrangler warned of a Worker-name mismatch: `wrangler.jsonc` said
     `glyphin-alpha`, but the dashboard's Git-import flow had already created
     the Worker as `glyphbridge` (auto-derived from the repo folder name, not a
@@ -456,61 +465,159 @@ upload`, Worker Version ID `b264a70e-4178-42c8-9c26-50021846c799`). Two
     step's dashboard configuration (build settings, build env vars, runtime
     secrets) against the new Worker. `wrangler.jsonc`'s `name` updated to
     `glyphin` to match.
-- Not yet done: re-verifying the preview build against the recreated `glyphin`
-  Worker, promoting that version to serving traffic
-  (`wrangler versions deploy`), and Step 11 smoke tests against the preview
-  URL.
+- Recreated-Worker build succeeded on 2026-07-12: pushed with `NODE_VERSION`/
+  `PNPM_VERSION` dashboard vars removed (see Step 7), and the build correctly
+  detected `nodejs@24.15.0, pnpm@11.6.0` from committed config alone. No
+  Worker-name-mismatch warning this time. Deployed as `glyphin` (production
+  deploy command ran, not the preview command — see note below) at
+  `https://glyphin.andrewbraundev.workers.dev`, Version ID
+  `886ba2cc-7c57-4bbf-a3f6-876b6e0c7f37`.
+- User deployed to production from `main` and attached the custom domain
+  directly, ahead of the plan's original preview-branch-first sequencing.
+  Production is live on the custom domain as of this session. Retroactively
+  applying the rest of Step 10 (Supabase Auth Site URL/redirects, Resend
+  SMTP) and Step 11 (smoke tests) against the live domain rather than a
+  preview URL.
 
 ### 10. Attach The Custom Domain
 
-- Add the custom domain to the Worker route/domain configuration.
-- If the domain is not already on Cloudflare DNS, add the zone or configure the
-  required DNS record.
-- Wait for SSL provisioning to complete.
-- Configure Supabase Auth URL settings:
-  - Site URL: the custom domain.
-  - Redirect allow list: the exact custom-domain callback/return URLs and the
-    exact `workers.dev` preview/test URL if auth testing there is needed. Avoid
-    wildcard redirect entries for the alpha.
+- Done on 2026-07-12: the custom domain `https://glyphin.app` is attached to
+  the `glyphin` Worker and live, deployed from `main` (see Step 9). SSL is
+  provisioned — public smoke checks over HTTPS succeeded (see Step 11).
+- Code check on 2026-07-12: `src/routes/auth/+page.server.ts` uses
+  `signInWithOtp`/`verifyOtp` with a typed six-digit code, no
+  `emailRedirectTo`/magic-link flow anywhere in the codebase. This means the
+  Supabase Auth **redirect allow list is not on the sign-in code path today**
+  — no click-through callback URL is ever generated. Still worth setting
+  correctly (avoid wildcards) as future-proofing if magic-link/OAuth is added
+  later, but it is not the blocking item; **Site URL** and **custom SMTP**
+  are.
+- Configure Supabase Auth URL settings (Auth > URL Configuration):
+  - Site URL: `https://glyphin.app` — **not yet set**, confirmed 2026-07-12.
+  - Redirect allow list: add `https://glyphin.app` as a sane default; avoid
+    wildcard entries. Not currently exercised by the app's own code, low
+    priority relative to SMTP/Site URL.
 - Configure custom SMTP via Resend before sharing the URL. This is a hard gate,
   not optional polish: Supabase's default email service only delivers to project
-  team members and is heavily rate-limited (~2-30/hr), so external alpha testers
+  team members and is heavily rate-limited, so external alpha testers
   cannot receive OTP codes without it. Email OTP is the entire auth flow.
-  - Create a Resend account, verify the sending domain (SPF/DKIM), and create an
-    SMTP credential / API key.
-  - Set Supabase Auth custom SMTP host, port, user, and password to the Resend
-    values, plus a verified sender address.
-  - Set OTP expiry to `3600` seconds or lower.
+  **Not yet configured**, confirmed 2026-07-12.
+  - Create a Resend account, verify the sending domain (add the SPF/DKIM/DMARC
+    DNS records Resend provides — `glyphin.app` is already on Cloudflare DNS,
+    so add them there), and create an API key (used as the SMTP password).
+  - In Supabase Auth SMTP settings (Auth > Sign In / Providers > SMTP
+    Settings, or via the Management API), set (confirmed against Resend's and
+    Supabase's current docs, 2026-07-12):
+    - Host: `smtp.resend.com`
+    - Port: `587` (explicit TLS; `465`/`2465` are implicit-TLS alternatives)
+    - Username: `resend`
+    - Password: the Resend API key
+    - Sender/from address: an address on the verified domain, e.g.
+      `noreply@glyphin.app`
+    - Sender name: `Glyphin`
+  - Note: Supabase still imposes a default 30 messages/hour limit even after
+    custom SMTP is enabled — raise it on the Auth > Rate Limits page if alpha
+    volume needs more.
+  - Correction, found 2026-07-12: not "3600 or lower" as originally written
+    here — `supabase/config.toml` (`[auth.email] otp_expiry = 1200`, added in
+    a 2026-07-11 security audit) already documents the intended value as
+    **1200 seconds (20 minutes)**, specifically to shrink the code-interception
+    window, with an explicit comment that "the hosted project must mirror
+    this value in the dashboard." Set the hosted project's OTP expiry to
+    `1200`, not a generic `<=3600`. `config.toml` only governs the local
+    `supabase start` instance — nothing pushes this to the linked hosted
+    project automatically, so the dashboard value must be set by hand and can
+    silently drift from `config.toml` if not checked.
   - Tune auth rate limits (sign-in, OTP initiation, token verification, refresh)
     to sane alpha values.
-  - Enable CAPTCHA before public signup/OTP exposure if the alpha URL is not
-    invite-only or otherwise access-controlled.
-  - Treat the Resend SMTP credential as a Supabase-side secret; it never goes
-    into Cloudflare or any client bundle.
-- Confirm email OTP templates still send the six-digit code flow expected by the
-  current `/auth` page, delivered through Resend.
+  - CAPTCHA (Cloudflare Turnstile). App-side implementation done on
+    2026-07-12:
+    - `src/routes/auth/+page.svelte` renders the Turnstile widget (script +
+      `.cf-turnstile` div) inside the `requestCode` form only, reading the
+      site key from `PUBLIC_TURNSTILE_SITE_KEY` via `$env/dynamic/public`
+      (skips rendering if unset). Turnstile auto-injects a
+      `cf-turnstile-response` hidden field into the form on submit — no
+      extra client JS needed beyond Cloudflare's own script.
+    - `src/routes/auth/+page.server.ts`'s `requestCode` action reads that
+      field and passes it as `signInWithOtp`'s `options.captchaToken`.
+      `verifyCode`/`verifyOtp` deliberately does **not** get a captcha token —
+      confirmed via the installed `@supabase/auth-js@2.110.2` type
+      definitions that `captchaToken` on `VerifyEmailOtpParams` is
+      `@deprecated`, while `SignInWithPasswordlessCredentials` (used by
+      `signInWithOtp`) still actively supports it — the abuse vector (email
+      sending) is at request time, not verification time.
+    - `src/lib/server/auth.ts` gained `readOptionalFormString`.
+    - Local `.env` uses Cloudflare's published test sitekey
+      `1x00000000000000000000AA` (always passes, visible) since local
+      Supabase has no `[auth.captcha]` enforcement configured.
+    - `pnpm check` passes clean (938 files, 0 errors/warnings).
+    - See `docs/deployment-cloudflare.md`'s Runtime Secrets section for the
+      full env var writeup.
+    - **Still needed (dashboard-only, not something I can do from here):**
+      1. Create a Turnstile widget in the Cloudflare dashboard (Turnstile >
+         Add widget). Recommended: "Managed" mode, domains
+         `glyphin.app` + `glyphin.andrewbraundev.workers.dev` (+ `localhost`
+         if testing the real widget locally is ever wanted — not required
+         since local dev uses the test sitekey instead).
+      2. Copy the widget's **Site Key** into Cloudflare Worker Settings >
+         Variables & Secrets as `PUBLIC_TURNSTILE_SITE_KEY` (plain
+         non-secret runtime var).
+      3. Copy the widget's **Secret Key** into Supabase Auth > Bot and Abuse
+         Protection, selecting Cloudflare Turnstile as the provider.
+  - Treat the Resend SMTP credential as a Supabase-side secret: it is entered
+    directly into the Supabase dashboard's SMTP settings only. It must never
+    go into `.env`, `.dev.vars`, Cloudflare build vars, Cloudflare runtime
+    secrets, `wrangler.jsonc`, or any client bundle — the app itself never
+    needs this credential, only Supabase's own outbound mail sending does.
+- Confirm email OTP templates still send the six-digit code flow expected by
+  the current `/auth` page, delivered through Resend. Production's Auth >
+  Email Templates must be checked/set to match
+  `supabase/templates/magic-link.html` (used locally via
+  `[auth.email.template.magic_link]` in `config.toml`) — this is not pushed
+  automatically either, so the hosted project may still be on Supabase's
+  generic default template until set by hand.
+- Local dev does not need Resend at all: `supabase/config.toml`'s
+  `[inbucket]` block (port `54324`) already captures every local auth email
+  in a local fake-mail inbox at `http://localhost:54324` — that's how OTP
+  codes are read during local testing today. Do not wire Resend into local
+  dev; it would burn real Resend sends/reputation on local test traffic for
+  no benefit.
 
 ### 11. Deploy And Smoke Test
 
-- Run this against the non-production preview deploy first, then re-run the
-  critical paths against production after promotion.
-- Verify Workers Builds logs for:
-  - Cloudflare adapter output
-  - static asset upload
-  - Worker script upload
-  - successful build-time Supabase publication reads
-  - no runtime filesystem assumptions
-- Test on the deployed Worker:
-  - `/` renders.
-  - `/learn` is served as prerendered public content.
-  - `/learn/1` and `/learn/1/practice` render.
-  - `/api/learner/projection` returns unauthenticated projection for signed-out
-    users.
-  - Email OTP sign-in works.
-  - Completing a lesson syncs progress and survives refresh/navigation.
-  - Sign-out clears the session.
-- Confirm secure cookies are `HttpOnly`, `Secure`, and `SameSite=Lax`.
-- Confirm Supabase keys are not serialized into client bundles or page data.
+- Ran directly against production (`https://glyphin.app`) on 2026-07-12 since
+  deploy already happened out of sequence (see Step 9/10). Public,
+  unauthenticated checks done via `curl`:
+  - `/` -> `200`, `text/html`, served `cf-cache-status: HIT` (prerendered
+    static asset).
+  - `/learn` -> `200`, `text/html`.
+  - `/learn/1` -> `200`, `text/html`.
+  - `/learn/1/practice` -> `200`, `text/html`.
+  - `/api/learner/projection` -> `200`,
+    `{"auth":{"authenticated":false,"email":null},"projection":null}` — the
+    correct unauthenticated shape.
+  - `/auth` -> `200`, `text/html`.
+  - `/does-not-exist` -> `404` as expected.
+  - Response headers for `/` and `/auth`: standard Cloudflare headers
+    (`server: cloudflare`, `cf-ray`, `nel`/`report-to`, `alt-svc`), no
+    `Set-Cookie` on anonymous GETs (expected). No CSP, HSTS
+    (`Strict-Transport-Security`), `X-Content-Type-Options`, or
+    `X-Frame-Options` headers present — not part of this plan's original
+    scope and not blocking, but flagged here as a gap worth a deliberate
+    decision later; nothing in `svelte.config.js` or `src/` currently sets
+    security headers.
+- Not yet done, blocked on Step 10's SMTP gate: email OTP sign-in, lesson
+  completion sync + refresh persistence, sign-out, and confirming secure
+  cookie attributes (`HttpOnly`, `Secure`, `SameSite=Lax`) on an authenticated
+  session — none of this can be exercised until Resend SMTP is configured,
+  since OTP codes will not reliably reach a non-team-member inbox before then.
+- Done on 2026-07-12: grepped the live homepage HTML and its core referenced
+  JS bundles (`entry/app.*.js`, `entry/start.*.js`, largest vendor chunk, and
+  the `/` route's node chunk) for `sb_...`/`eyJ...`-shaped key strings and the
+  Supabase project ref `mtpkjcvbhkxbmqpreblp` — no matches anywhere. Confirms
+  no Supabase key (anon/publishable or otherwise) or project ref is
+  serialized into the client bundle, consistent with the server-side
+  cookie-auth model (`@supabase/ssr`, no client-side Supabase client).
 
 ### 12. Rollout And Rollback
 

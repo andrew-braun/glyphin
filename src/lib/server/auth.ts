@@ -45,6 +45,10 @@ export function readRequiredFormString(formData: FormData, fieldName: string): s
 	return trimmed.length > 0 ? trimmed : null;
 }
 
+export function readOptionalFormString(formData: FormData, fieldName: string): string | undefined {
+	return readRequiredFormString(formData, fieldName) ?? undefined;
+}
+
 export function normalizeEmail(value: string | null): string | null {
 	if (!value) return null;
 

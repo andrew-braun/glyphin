@@ -30,18 +30,21 @@ generates the publication artifact and prerenders public lesson routes.
 ```sh
 SUPABASE_DELIVERY_URL=https://<project-ref>.supabase.co
 SUPABASE_DELIVERY_ANON_KEY=<supabase anon or publishable key>
-NODE_VERSION=24.15.0
-PNPM_VERSION=11.6.0
 ```
 
 Do not put service-role keys in Cloudflare.
 
-Both version vars are required, confirmed empirically on 2026-07-12: a Workers
-Builds run without them detected `nodejs@22.16.0`/`pnpm@10.11.1` despite the
-committed `.nvmrc` (`24.15.0`) and `package.json`'s `packageManager`/
-`devEngines.packageManager` (`pnpm@11.6.0`) all saying otherwise. Workers
-Builds does not read either committed source on its own — set both dashboard
-vars explicitly rather than relying on repo config.
+`NODE_VERSION`/`PNPM_VERSION` dashboard vars are not needed. Workers Builds
+reads the committed `.nvmrc` (`24.15.0`) and `package.json`'s
+`packageManager`/`devEngines.packageManager` (`pnpm@11.6.0`) and detects the
+right versions on its own — confirmed on the `glyphin` Worker's first build
+(`Detected the following tools from environment: nodejs@24.15.0,
+pnpm@11.6.0`), 2026-07-12. An earlier build against the since-deleted
+`glyphbridge` Worker failed to pick these up and needed both vars set
+explicitly; that turned out to be specific to that Worker's build
+environment, not a general Workers Builds limitation. If a future build
+regresses to wrong detected versions, re-add both vars as a fallback before
+digging further.
 
 ## Runtime Secrets
 
@@ -54,6 +57,24 @@ SUPABASE_AUTH_PUBLISHABLE_KEY=<supabase anon or publishable key>
 ```
 
 The deployed Worker reads these through SvelteKit `$env/dynamic/private`.
+
+Also set this **non-secret** runtime variable (plain text, not the Secret
+toggle) in the same Variables & Secrets section — it must be a runtime var,
+not a build var, because `/auth` is dynamically rendered per request, not
+prerendered:
+
+```sh
+PUBLIC_TURNSTILE_SITE_KEY=<Cloudflare Turnstile site key>
+```
+
+The `/auth` page reads it through `$env/dynamic/public` to render the
+Turnstile widget and gate `signInWithOtp` (OTP request only — not
+`verifyOtp`, since Supabase's SDK marks `captchaToken` on `verifyOtp` as
+deprecated). The matching Turnstile **secret** key is entered directly into
+Supabase's Auth > Bot and Abuse Protection settings — it never touches
+Cloudflare or the app's own env vars. Locally, `.env` uses Cloudflare's
+published test sitekey `1x00000000000000000000AA` (always passes, visible
+widget) since local Supabase has no captcha enforcement configured.
 
 ## Local Verification
 

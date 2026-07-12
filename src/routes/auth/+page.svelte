@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { env } from "$env/dynamic/public";
 	import ActionGroup from "$lib/components/layout/ActionGroup.svelte";
 	import Badge, { type BadgeTone } from "$lib/components/ui/Badge.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
@@ -13,6 +14,12 @@
 
 	let { data, form }: PageProps = $props();
 	let refreshingProjection = $state(false);
+
+	// Unset locally (no bot-protection widget configured for local dev); set in
+	// production. Supabase only enforces the captcha when its own Bot and Abuse
+	// Protection setting is turned on, so an absent token is harmless locally.
+	const turnstileSiteKey = env.PUBLIC_TURNSTILE_SITE_KEY;
+	const showSignInForm = $derived(!data.userEmail && data.authConfigured);
 
 	const email = $derived(typeof form?.email === "string" ? form.email : "");
 	const codeRequested = $derived(form?.codeRequested === true);
@@ -80,6 +87,9 @@
 		name="description"
 		content="Sign in to Glyphin with an email code and sync your Thai reading progress across devices."
 	/>
+	{#if showSignInForm && turnstileSiteKey}
+		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+	{/if}
 </svelte:head>
 
 <div class="auth container page-shell page-shell--narrow">
@@ -172,6 +182,14 @@
 					<span>Email</span>
 					<input name="email" type="email" autocomplete="email" value={email} required />
 				</label>
+
+				{#if turnstileSiteKey}
+					<div
+						class="cf-turnstile"
+						data-sitekey={turnstileSiteKey}
+						data-theme="auto"
+					></div>
+				{/if}
 
 				{#if requestError}
 					<p class="auth__error">{requestError}</p>
