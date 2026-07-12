@@ -1,12 +1,74 @@
 # Cloudflare Workers Alpha Deployment Plan
 
-- Status: in progress — plan reviewed and current (see
-  `.ai/archive/2026-07-04-cloudflare-deployment-plan-review.md`). Baseline
-  deployment branch setup has started on `deploy/cloudflare-alpha`; Supabase
-  production bootstrap is the active gate before Cloudflare Worker config.
-  `svelte.config.js` still uses `@sveltejs/adapter-node`; no `wrangler.jsonc`
-  yet. Alpha-blocking: Supabase production bootstrap plus Cloudflare Workers
-  deployment are the critical path to a public alpha URL.
+- Status: paused at a clean checkpoint on 2026-07-12. Supabase production
+  bootstrap is complete and verified, the SvelteKit app is Worker-compatible
+  (committed), and local validation (Step 8) now passes end-to-end: `pnpm
+check`, `pnpm lint`, `pnpm stylelint`, a production build against the real
+  Supabase project, and a local Wrangler simulation of the built Worker.
+  Remaining work is Cloudflare dashboard setup (Workers Builds Git integration,
+  Step 9), the custom domain and Resend SMTP gate (Step 10), and deployed smoke
+  tests (Step 11) — all of which need dashboard/account access this session
+  didn't have. See `.ai/archive/2026-07-04-cloudflare-deployment-plan-review.md`
+  for the earlier plan review.
+
+## Current Pause State
+
+- Branch: `deploy/cloudflare-alpha`.
+- Supabase project: `Glyphin`, ref `mtpkjcvbhkxbmqpreblp`, region
+  `eu-west-1`, linked and active.
+- Remote DB bootstrap: completed with linked reset, all migrations applied, and
+  `supabase/seed.sql` seeded.
+- Remote DB verification: `pnpm db:prod:lint` passed, `pnpm db:prod:advisors`
+  passed, linked content check found `1` course, `1` course version, `46`
+  lessons, `418` vocabulary items, `46` delivery lesson bundles, and all `3`
+  expected learner RPCs.
+- Supabase CLI note: use `pnpm exec supabase` or `pnpm db:prod:*`; avoid bare
+  `supabase` because it resolves to an older global CLI on this machine. The
+  stale `~/.supabase/profile` marker was moved aside during setup to fix
+  `failed to read profile: Unsupported Config Type ""`.
+- Production Data API exposed schemas: `delivery` and `learner` were added via
+  Project Settings > Data API in the Supabase dashboard on 2026-07-12 (matching
+  `supabase/config.toml`'s `[api].schemas`). This only makes PostgREST route to
+  those schemas; it does not by itself grant access — `learner` still has all
+  table privileges revoked from `anon`/`authenticated` (only `SECURITY DEFINER`
+  RPCs are reachable), and `delivery` read access is scoped by RLS to
+  `is_active = true` rows. `internal_api` was not added to the exposed list.
+- Cloudflare app work complete and committed (`3a5ca61`): `@sveltejs/adapter-cloudflare`,
+  `wrangler`, `@cloudflare/workers-types`, `wrangler.jsonc`, and the Cloudflare
+  Rate Limiting binding path for learner sync have all been added.
+- Step 8 local validation completed on 2026-07-12:
+  - `pnpm check`, `pnpm lint`, `pnpm stylelint` all pass clean. (`pnpm
+check:all`'s `format:check` step fails only on pre-existing, unrelated
+    files outside this work — `.pnpm-store/`, `.kilo/`, `.superpowers/`, and
+    other untouched `.ai/*.md` docs are not covered by `.prettierignore`; not
+    fixed here, out of scope.)
+  - `pnpm build` ran successfully against the real production Supabase project
+    (temporarily pointing local `.env` at
+    `https://mtpkjcvbhkxbmqpreblp.supabase.co` with the production publishable
+    key, then restoring local dev values afterward — `.env` is gitignored so
+    this left no tracked changes). Verified `.svelte-kit/cloudflare/_worker.js`
+    and all 46 prerendered `/learn/<id>` and `/learn/<id>/practice` routes were
+    emitted as static output.
+  - Added a local `.dev.vars` file (gitignored, new pattern — added
+    `.dev.vars`/`.dev.vars.*` to `.gitignore`) holding `SUPABASE_AUTH_URL` and
+    `SUPABASE_AUTH_PUBLISHABLE_KEY` so `wrangler dev` has runtime secrets, the
+    same two values that go into Cloudflare's Settings > Variables & Secrets
+    later. Documented this pattern in `AGENTS.md`'s Validation Workflow.
+  - Ran `pnpm exec wrangler dev .svelte-kit/cloudflare/_worker.js` locally and
+    smoke tested `/`, `/learn`, `/learn/1`, `/learn/1/practice`,
+    `/api/learner/projection` (returned the expected unauthenticated
+    projection), and `/auth` — all `200`; an unknown route correctly returned
+    `404`. The `LEARNER_SYNC_RATE_LIMITER` binding, `ASSETS` binding, and both
+    runtime secrets bound correctly in the local simulation with no errors in
+    the Wrangler log.
+- Verification still pending: Cloudflare Workers Builds dashboard setup
+  (Step 9), custom domain + Resend SMTP (Step 10), and deployed smoke tests
+  (Step 11).
+- Current code state: only this plan file and `AGENTS.md`/`.gitignore` (the
+  `.dev.vars` documentation/ignore addition) are modified and uncommitted;
+  everything else from this session was either already committed or is a local
+  gitignored file (`.env`, `.dev.vars`). Start the next session with
+  `git status --short`.
 
 ## Summary
 
@@ -83,12 +145,15 @@ phase-1 choices must not entrench web-only patterns.
 
 ### 2. Bootstrap The Production Supabase Project Before Cloudflare
 
-- Create a fresh Supabase project for alpha before configuring the Cloudflare
-  Worker or Workers Builds.
+- Completed on 2026-07-12: created and linked a fresh Supabase project for
+  alpha before configuring the Cloudflare Worker or Workers Builds.
 - Default region: Europe West/Ireland if available, because the target audience
   is primarily U.S./European even though the target language is Thai. Supabase
   CLI region choice confirmed as `eu-west-1` on 2026-07-12.
-- Capture project ref, API URL, and publishable/anon key.
+- Captured project ref: `mtpkjcvbhkxbmqpreblp`. API URL is
+  `https://mtpkjcvbhkxbmqpreblp.supabase.co`. Publishable/anon key still needs
+  to be copied into local build env/Cloudflare dashboard surfaces before build
+  verification.
 - Use the dedicated Supabase CLI scripts added on 2026-07-12:
   `pnpm db:prod:login`, `pnpm db:prod:projects`, and
   `pnpm db:prod:link -- --project-ref <ref>`. Use the project-local
@@ -97,9 +162,9 @@ phase-1 choices must not entrench web-only patterns.
   `--profile glyphin` to linked DB commands, and move aside
   `~/.supabase/profile` if the CLI reports
   `failed to read profile: Unsupported Config Type ""`.
-- For this fresh alpha only, run `pnpm exec supabase db reset --linked` after
-  explicit confirmation that the remote project has no real user data. Shortcut:
-  `pnpm db:prod:reset:fresh-alpha`.
+- Completed on 2026-07-12 for this fresh alpha only: ran the destructive linked
+  reset after user-side confirmation that the project had no real user data.
+  Shortcut: `pnpm db:prod:reset:fresh-alpha`.
 - Run database verification before any Cloudflare configuration:
   - `pnpm db:lint` (local run on 2026-07-12 is blocked until Docker is running;
     `pnpm check` passed with 0 errors and 0 warnings)
@@ -111,10 +176,13 @@ phase-1 choices must not entrench web-only patterns.
       expected learner RPCs present
   - a local `pnpm db:content:refresh` if needed to regenerate
     `.generated/` publication artifacts from the linked project
-- Confirm the linked production project exposes the schemas and RPC surfaces the
-  app requires:
-  - `delivery` for build-time published curriculum reads
-  - `learner` for learner projection and sync
+- Confirmed on 2026-07-12: the linked production project exposes the schemas
+  and RPC surfaces the app requires:
+  - `delivery` for build-time published curriculum reads — added to Data API
+    exposed schemas via the dashboard.
+  - `learner` for learner projection and sync — added to Data API exposed
+    schemas via the dashboard; still has zero direct table grants for
+    `anon`/`authenticated`, access is RPC-only.
   - auth configuration ready for the web BFF flow, with custom domain/SMTP
     settings still gated until the Cloudflare URL is known
 - Record the exact values needed by the later Cloudflare phase:
@@ -127,15 +195,18 @@ phase-1 choices must not entrench web-only patterns.
 
 ### 3. Make The SvelteKit App Worker-Compatible
 
-- Replace `@sveltejs/adapter-node` with `@sveltejs/adapter-cloudflare`.
+- Complete and committed as of 2026-07-12 (`3a5ca61`); verified via a
+  production build plus local Wrangler simulation the same day (see Step 8).
+- Replaced `@sveltejs/adapter-node` with `@sveltejs/adapter-cloudflare`.
 - Remove unused `@sveltejs/adapter-static` if still unused after the adapter
   swap.
-- Add `wrangler` as a dev dependency.
-- Update `svelte.config.js` to import and use the Cloudflare adapter.
-- Keep `@cloudflare/workers-types` out of the first adapter swap unless runtime
-  code starts reading typed Cloudflare bindings from `event.platform.env`; the
-  current auth/delivery code should continue using SvelteKit `$env` modules.
-- Add `wrangler.jsonc` for Workers Static Assets:
+- Added `wrangler` as a dev dependency.
+- Updated `svelte.config.js` to import and use the Cloudflare adapter.
+- Added `@cloudflare/workers-types` because runtime code now reads the typed
+  Cloudflare Rate Limiting binding from `event.platform.env` via SvelteKit's
+  current request event. Ordinary string env vars still use SvelteKit `$env`
+  modules.
+- Added `wrangler.jsonc` for Workers Static Assets:
   - `name`: the alpha Worker name, for example `glyphin-alpha`.
   - `main`: `.svelte-kit/cloudflare/_worker.js`.
   - `assets.binding`: `ASSETS`.
@@ -171,15 +242,17 @@ phase-1 choices must not entrench web-only patterns.
   Objects, and similar resources. Keep `src/hooks.server.ts` and
   `src/lib/server/delivery-lessons.ts` on `$env/dynamic/private`; do not rewrite
   them to read `platform.env` directly for ordinary string secrets.
-- Replace the in-memory rate limiter's store. `src/lib/server/rate-limit.ts`
-  keeps token-bucket state in process memory (correct for `adapter-node`, wrong
-  for Workers isolates, which do not share memory — the limit would apply only
-  per-isolate and be easily bypassed). Swap the store for a Durable Object,
-  Workers KV, or Cloudflare's Rate Limiting binding, keeping
-  `consumeRateLimitToken`'s signature so `/api/learner/sync` is unchanged. Note
-  `src/lib/server/delivery-lessons.ts` also caches a module-scoped client +
-  publication id; that is safe (rebuildable per-isolate) but re-confirm during
-  the swap. Tracked in `.ai/2026-07-11-db-security-hardening.md` (audit #10).
+- Replaced the Worker runtime rate limiter path with Cloudflare's Rate Limiting
+  binding in `wrangler.jsonc`; local development still falls back to the
+  in-memory token bucket when the binding is unavailable.
+- Original risk addressed: the previous `src/lib/server/rate-limit.ts` store
+  kept token-bucket state in process memory, which would only throttle within a
+  single Worker isolate. `/api/learner/sync` now still calls
+  `consumeRateLimitToken`, but the implementation uses the Cloudflare binding
+  when present. Note `src/lib/server/delivery-lessons.ts` also caches a
+  module-scoped client + publication id; that is safe (rebuildable per-isolate)
+  but still needs build/runtime verification. Tracked in
+  `.ai/2026-07-11-db-security-hardening.md` (audit #10).
 
 ### 4. Preserve Build-Time Supabase Reads And Prerendering
 
@@ -268,18 +341,26 @@ phase-1 choices must not entrench web-only patterns.
 
 ### 8. Validate Locally Before Connecting Git
 
-- Run local validation:
-  - `pnpm install`
-  - `pnpm check`
-  - `pnpm check:all`
-  - `pnpm build`
-- Run a local Worker simulation of the built Cloudflare output with Wrangler:
-  `pnpm exec wrangler dev .svelte-kit/cloudflare/_worker.js`. Exercise both
-  prerendered static pages and Worker-backed routes. This is local verification
-  only, not a production deploy.
-- The goal of this step is to catch adapter/config/`nodejs_compat` problems on
-  the local machine before the first Git build runs, replacing the old
-  manual-production-deploy bootstrap.
+- Completed 2026-07-12. See "Current Pause State" above for full detail.
+- Ran local validation:
+  - `pnpm install` — already up to date.
+  - `pnpm check` — 0 errors, 0 warnings.
+  - `pnpm lint` / `pnpm stylelint` — clean. (`pnpm check:all`'s format step
+    flags only pre-existing unrelated files; not this work's concern.)
+  - `pnpm build` — succeeded against the real production Supabase project;
+    confirmed `_worker.js` and all 46 prerendered lesson routes in
+    `.svelte-kit/cloudflare`.
+- Ran a local Worker simulation of the built Cloudflare output with Wrangler:
+  `pnpm exec wrangler dev .svelte-kit/cloudflare/_worker.js`, using a new local
+  `.dev.vars` file for runtime secrets. Exercised both prerendered static pages
+  (`/`, `/learn`, `/learn/1`, `/learn/1/practice`) and Worker-backed routes
+  (`/api/learner/projection`, `/auth`) — all `200`, unknown route `404`, no
+  errors in the Wrangler log, all bindings (rate limiter, assets, both runtime
+  secrets) resolved correctly.
+- This caught the one real gap before connecting Git: the production Supabase
+  project's Data API did not yet expose `delivery`/`learner`, which would have
+  failed the very first Workers Builds build. Fixed via the dashboard (see
+  Step 2).
 
 ### 9. Set Up Git-Based Deployment (Workers Builds)
 

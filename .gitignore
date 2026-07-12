@@ -19,6 +19,10 @@ Thumbs.db
 !.env.example
 !.env.test
 
+# Wrangler local runtime secrets
+.dev.vars
+.dev.vars.*
+
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

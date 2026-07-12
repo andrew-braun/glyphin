@@ -34,6 +34,11 @@
 - Use `pnpm lint` and `pnpm stylelint` directly when tightening a focused TypeScript, Svelte, or style slice.
 - Run `pnpm build` whenever a change affects routes, metadata, environment variables, bundling, or deploy behavior.
 - Use `pnpm dev` for manual UI verification.
+- After a Cloudflare adapter/config change, simulate the built Worker locally with
+  `pnpm exec wrangler dev .svelte-kit/cloudflare/_worker.js` before relying on a
+  Cloudflare Workers Builds preview. Runtime secrets (`SUPABASE_AUTH_URL`,
+  `SUPABASE_AUTH_PUBLISHABLE_KEY`) come from a local `.dev.vars` file (gitignored,
+  not `.env`); build-time vars still come from `.env`.
 - `pnpm db:content:refresh` is the default local curriculum workflow. It
   regenerates `supabase/seed.sql`, refreshes local Supabase content, restores
   local auth and learner state, and regenerates `.generated/` lesson
