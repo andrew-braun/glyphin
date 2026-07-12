@@ -23,11 +23,23 @@ generates the publication artifact and prerenders public lesson routes.
 ```sh
 SUPABASE_DELIVERY_URL=https://<project-ref>.supabase.co
 SUPABASE_DELIVERY_ANON_KEY=<supabase anon or publishable key>
-NODE_VERSION=24.15.0
 PNPM_VERSION=11.6.0
 ```
 
 Do not put service-role keys in Cloudflare.
+
+Node version is not a build variable: Cloudflare's build image reads the
+committed `.nvmrc` automatically, so it stays in sync with `engines.node` in
+`package.json` without a dashboard setting to drift out of date.
+
+`PNPM_VERSION` is kept as a dashboard build variable as a documented,
+known-working safety net, even though `package.json` also commits the pnpm
+version via `packageManager` (read by Corepack) and `devEngines.packageManager`
+(read by pnpm's own CLI, pnpm 11+). Cloudflare's build-image docs explicitly
+rule out `engines`-based detection but do not confirm or deny honoring
+`packageManager`/Corepack, so treat the committed fields as unverified for this
+platform until a real Workers Builds run confirms Corepack picks them up on
+its own — at which point `PNPM_VERSION` can be dropped from the dashboard.
 
 ## Runtime Secrets
 

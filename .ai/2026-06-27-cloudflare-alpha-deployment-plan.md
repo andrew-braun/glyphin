@@ -321,8 +321,17 @@ phase-1 choices must not entrench web-only patterns.
   - Build env vars (Settings > Build, build-only, not present at runtime):
     - `SUPABASE_DELIVERY_URL`
     - `SUPABASE_DELIVERY_ANON_KEY`
-    - `NODE_VERSION=24.15.0`
-    - `PNPM_VERSION=11.6.0`
+    - `PNPM_VERSION=11.6.0` — kept as a documented, known-working safety net
+      for the first build. `package.json` also commits the pnpm version via
+      `packageManager` (Corepack) and `devEngines.packageManager` (pnpm 11+
+      CLI), and Cloudflare's docs explicitly rule out `engines`-based
+      detection but never confirm or deny honoring `packageManager`/Corepack.
+      Once a real Workers Builds run confirms Corepack picks the committed
+      version up on its own, drop this dashboard var.
+  - Node version is not a build var: Cloudflare's build image reads the
+    committed `.nvmrc` (`24.15.0`, already tracked in this repo) automatically,
+    so it stays in sync with `engines.node` without a second dashboard setting
+    to drift.
   - Runtime secrets (Settings > Variables & Secrets):
     - `SUPABASE_AUTH_URL`
     - `SUPABASE_AUTH_PUBLISHABLE_KEY`
