@@ -122,17 +122,28 @@
 
 			&-mark {
 				align-items: center;
-				aspect-ratio: 1 / 1;
 				border-radius: 1rem;
 				color: white;
 				display: inline-flex;
+				flex: 0 0 4.2rem;
 				font-size: 0.75rem;
 				font-weight: 800;
+				height: 4.2rem;
 
 				justify-content: center;
 				letter-spacing: 0.08em;
+				overflow: hidden;
 				text-transform: uppercase;
 				width: 4.2rem;
+
+				img {
+					display: block;
+					height: 100%;
+					max-height: 100%;
+					max-width: 100%;
+					object-fit: contain;
+					width: 100%;
+				}
 			}
 
 			&-copy {

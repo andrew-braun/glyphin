@@ -659,13 +659,43 @@ upload`, Worker Version ID `b264a70e-4178-42c8-9c26-50021846c799`). Two
        explicit comment in `config.toml` warning not to re-enable
        `enable_confirmations` without adding the missing callback route
        first.
-  - **Still needed**: user must disable "Confirm email" in the production
-    dashboard (item 1 above) and re-verify a brand-new-email sign-in goes
-    straight to the Magic Link/OTP code email.
+  - User disabled "Confirm email" and retested with a brand-new address, but
+    still got a confirm-style email. Rather than keep guessing, read GoTrue's
+    actual source (`internal/api/magic_link.go`, `internal/api/signup.go`
+    from `github.com/supabase/auth`) to confirm the intended logic: with
+    `Mailer.Autoconfirm = true`, `Signup()` confirms the user silently with
+    no email, then `MagicLink()` recurses and sends the real magic-link/OTP
+    email. This should have worked. Verified the live server-side truth
+    directly via the Supabase Management API
+    (`GET /v1/projects/mtpkjcvbhkxbmqpreblp/config/auth`, using a user
+    Personal Access Token) rather than trust the dashboard UI further:
+    `mailer_autoconfirm: true` was confirmed correctly set — the toggle
+    fix _did_ work as expected.
+  - **Actual remaining root cause**, found via that same API response,
+    2026-07-12: `mailer_templates_magic_link_content` (the live "Magic
+    Link" template — the one actually used for OTP delivery) contained an
+    exact copy of the confirm-signup content (`{{ .ConfirmationURL }}`,
+    "Confirm this email address..."), not `magic-link.html`'s content
+    (`{{ .Token }}`, "Your sign-in code"). The user had pasted the
+    confirm-signup HTML into both the Confirm-signup **and** Magic Link
+    template slots in the dashboard. Also caught: `mailer_subjects_magic_link`
+    was `"Your Glyphin sign-in link"` instead of the intended
+    `"Your Glyphin sign-in code"`. Fix: re-paste the real
+    `supabase/templates/magic-link.html` content into the dashboard's Magic
+    Link template slot and correct the subject line.
+  - **Security note**: the user pasted the full live Auth config JSON from
+    the Management API into chat to share the diagnostic output, which
+    included `smtp_pass` (Resend API key) and `security_captcha_secret`
+    (Turnstile secret) in plaintext. Recommended rotating both as routine
+    hygiene since they're meant to be write-only/private and are now in a
+    chat transcript — not itself an active compromise, but shouldn't be left
+    as-is.
+  - **Still needed**: re-verify a brand-new-email sign-in now sends the
+    correct six-digit-code email after the template slot is fixed.
 - Not yet done: lesson completion sync + refresh persistence, sign-out, and
   confirming secure cookie attributes (`HttpOnly`, `Secure`, `SameSite=Lax`)
   on an authenticated session — pending a clean end-to-end sign-in once the
-  confirmation-flow bug above is fixed in production.
+  Magic Link template content is fixed in production.
 - Done on 2026-07-12: grepped the live homepage HTML and its core referenced
   JS bundles (`entry/app.*.js`, `entry/start.*.js`, largest vendor chunk, and
   the `/` route's node chunk) for `sb_...`/`eyJ...`-shaped key strings and the
