@@ -1,14 +1,16 @@
 <script lang="ts">
+	import SoundPracticeLabel from "$lib/components/lesson/SoundPracticeLabel.svelte";
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
 	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import FeedbackBanner from "$lib/components/ui/FeedbackBanner.svelte";
 	import RadioButtons, { type RadioButtonOption } from "$lib/components/ui/RadioButtons.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
-	import type { LessonVocabularyEntry } from "$lib/data/types";
+	import type { LessonVocabularyEntry, LessonVocabularySourceType } from "$lib/data/types";
 
 	type PracticeQuestion = {
 		promptThai: string;
+		sourceType: LessonVocabularySourceType;
 		correctLabel: string;
 		options: string[];
 		correctIndex: number;
@@ -72,6 +74,7 @@
 
 			return {
 				promptThai: entry.word.thai,
+				sourceType: entry.sourceType,
 				correctLabel: formatOption(entry),
 				options: orderedEntries.map(formatOption),
 				correctIndex,
@@ -114,7 +117,11 @@
 	{#if currentQuestion}
 		<section class="practice-checkpoint surface-panel lesson-accent-panel">
 			<div class="practice-checkpoint__prompt">
-				<p>Read this word.</p>
+				{#if currentQuestion.sourceType === "nonsense"}
+					<SoundPracticeLabel />
+				{:else}
+					<p>Read this word.</p>
+				{/if}
 				<h2 id={promptId} class="thai">{currentQuestion.promptThai}</h2>
 			</div>
 

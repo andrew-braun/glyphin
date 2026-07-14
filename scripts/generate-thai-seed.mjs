@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import { fileURLToPath } from "node:url";
 
 import { thaiPack } from "../src/lib/data/thai.ts";
 import { resolveLetterTipRefs, tipCatalog } from "../src/lib/data/tips.ts";
@@ -148,6 +149,14 @@ function buildSeedModel() {
 
 	const graphemeByCharacter = new Map();
 	const rulesById = new Map();
+	const stages = thaiPack.stages.map((stage) => ({
+		id: stableUuid(`course-stage:${courseSlug}:${stage.ordinal}`),
+		courseVersionId,
+		stageOrdinal: stage.ordinal,
+		title: stage.title,
+		summary: stage.summary,
+		metadata: {},
+	}));
 
 	for (const lesson of thaiPack.lessons) {
 		for (const letter of lesson.newLetters) {
@@ -499,11 +508,30 @@ function buildSeedModel() {
 			payloadHash: hashJson(payload),
 		};
 	});
+	const publicationStages = stages.map((stage) => {
+		const payload = {
+			ordinal: stage.stageOrdinal,
+			title: stage.title,
+			summary: stage.summary,
+		};
+
+		return {
+			id: stableUuid(`publication-stage:${courseSlug}:${stage.stageOrdinal}`),
+			courseStageId: stage.id,
+			stageOrdinal: stage.stageOrdinal,
+			payload,
+			payloadHash: hashJson(payload),
+		};
+	});
 
 	const manifestHash = hashJson({
 		publicationId,
 		courseSlug: course.slug,
 		displayVersion: courseVersion.displayVersion,
+		stagePayloadHashes: publicationStages.map((stage) => ({
+			stageOrdinal: stage.stageOrdinal,
+			payloadHash: stage.payloadHash,
+		})),
 		lessonPayloadHashes: publicationLessons.map((lesson) => ({
 			lessonSlug: lesson.lessonSlug,
 			payloadHash: lesson.payloadHash,
@@ -535,6 +563,11 @@ function buildSeedModel() {
 			graphemeId: attachment.graphemeId,
 			slotKey: attachment.slotKey,
 			tipId: tips.find((tip) => tip.id === attachment.tipId)?.key ?? attachment.tipId,
+		})),
+		stages: stages.map((stage) => ({
+			ordinal: stage.stageOrdinal,
+			title: stage.title,
+			summary: stage.summary,
 		})),
 		lessons: lessons.map((lesson) => ({
 			slug: lesson.slug,
@@ -569,6 +602,7 @@ function buildSeedModel() {
 		},
 		graphemes: Array.from(graphemeByCharacter.values()),
 		rules: Array.from(rulesById.values()),
+		stages,
 		lessons,
 		vocabularyItems,
 		tips,
@@ -576,6 +610,7 @@ function buildSeedModel() {
 		publication: {
 			id: publicationId,
 			manifestHash,
+			stages: publicationStages,
 			lessons: publicationLessons,
 		},
 	};
@@ -688,6 +723,30 @@ function renderSql(model) {
 				display: sqlString(tip.display),
 				sections: sqlJson(tip.sections),
 				metadata: sqlJson(tip.metadata),
+				created_at: `${sqlString(model.releaseTimestamp)}::timestamptz`,
+			})),
+		),
+	);
+
+	sqlParts.push(
+		insertStatement(
+			"curriculum.course_stages",
+			[
+				"id",
+				"course_version_id",
+				"stage_ordinal",
+				"title",
+				"summary",
+				"metadata",
+				"created_at",
+			],
+			model.stages.map((stage) => ({
+				id: `${sqlString(stage.id)}::uuid`,
+				course_version_id: `${sqlString(model.courseVersion.id)}::uuid`,
+				stage_ordinal: String(stage.stageOrdinal),
+				title: sqlString(stage.title),
+				summary: sqlString(stage.summary),
+				metadata: sqlJson(stage.metadata),
 				created_at: `${sqlString(model.releaseTimestamp)}::timestamptz`,
 			})),
 		),
@@ -1002,6 +1061,30 @@ function renderSql(model) {
 
 	sqlParts.push(
 		insertStatement(
+			"delivery.course_publication_stages",
+			[
+				"id",
+				"publication_id",
+				"course_stage_id",
+				"stage_ordinal",
+				"payload",
+				"payload_hash",
+				"created_at",
+			],
+			model.publication.stages.map((stage) => ({
+				id: `${sqlString(stage.id)}::uuid`,
+				publication_id: `${sqlString(model.publication.id)}::uuid`,
+				course_stage_id: `${sqlString(stage.courseStageId)}::uuid`,
+				stage_ordinal: String(stage.stageOrdinal),
+				payload: sqlJson(stage.payload),
+				payload_hash: sqlString(stage.payloadHash),
+				created_at: `${sqlString(model.releaseTimestamp)}::timestamptz`,
+			})),
+		),
+	);
+
+	sqlParts.push(
+		insertStatement(
 			"delivery.course_publication_lessons",
 			[
 				"id",
@@ -1031,4 +1114,10 @@ function renderSql(model) {
 	return sqlParts.join("\n");
 }
 
-process.stdout.write(renderSql(buildSeedModel()));
+export function generateThaiSeedSql() {
+	return renderSql(buildSeedModel());
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+	process.stdout.write(generateThaiSeedSql());
+}

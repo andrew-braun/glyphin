@@ -332,6 +332,25 @@ Indexes:
 - unique on `(course_version_id, lesson_ordinal)`
 - index on `(course_version_id, stage)`
 
+### `curriculum.course_stages`
+
+Purpose: ordered learner-facing stage navigation for a course version.
+
+| Column              | Type          | Constraints                                                       |
+| ------------------- | ------------- | ----------------------------------------------------------------- |
+| `id`                | `uuid`        | PK default `gen_random_uuid()`                                    |
+| `course_version_id` | `uuid`        | not null FK -> `curriculum.course_versions(id)` on delete cascade |
+| `stage_ordinal`     | `integer`     | not null check `stage_ordinal > 0`                                |
+| `title`             | `text`        | not null, maximum 160 characters                                  |
+| `summary`           | `text`        | not null, maximum 320 characters                                  |
+| `metadata`          | `jsonb`       | not null default `'{}'::jsonb`                                    |
+| `created_at`        | `timestamptz` | not null default `now()`                                          |
+
+Indexes:
+
+- unique on `(course_version_id, stage_ordinal)`
+- unique on `(course_version_id, id)`
+
 ### `curriculum.vocabulary_items`
 
 Purpose: canonical reusable words and short phrases within a course version.
@@ -586,6 +605,29 @@ Payload note:
 
 - published lesson bundles may carry a lesson-local `tips` catalog plus grapheme `tipRefs` maps so runtime mappers can hydrate help content without querying `curriculum.*`
 
+### `delivery.course_publication_stages`
+
+Purpose: immutable stage-navigation bundles for an individual publication.
+
+| Column            | Type          | Constraints                                                         |
+| ----------------- | ------------- | ------------------------------------------------------------------- |
+| `id`              | `uuid`        | PK default `gen_random_uuid()`                                      |
+| `publication_id`  | `uuid`        | not null FK -> `delivery.course_publications(id)` on delete cascade |
+| `course_stage_id` | `uuid`        | not null FK -> `curriculum.course_stages(id)` on delete restrict    |
+| `stage_ordinal`   | `integer`     | not null check `stage_ordinal > 0`                                  |
+| `payload`         | `jsonb`       | not null                                                            |
+| `payload_hash`    | `text`        | not null, maximum 128 characters                                    |
+| `created_at`      | `timestamptz` | not null default `now()`                                            |
+
+Indexes:
+
+- unique on `(publication_id, course_stage_id)`
+- unique on `(publication_id, stage_ordinal)`
+- index on `(publication_id, stage_ordinal)`
+
+RLS exposes these rows to runtime roles only while their parent publication is
+active.
+
 ### `learner.profiles`
 
 Purpose: user profile shell tied to Supabase auth.
@@ -712,6 +754,7 @@ The app should consume delivery DTOs and learner DTOs, not normalized curriculum
 
 ### Course DTOs
 
+<!-- prettier-ignore -->
 ```ts
 export type CourseSummaryDTO = {
  id: string;
@@ -736,6 +779,20 @@ export type CourseSummaryDTO = {
  totalLessons: number;
 };
 
+export type CourseStageDTO = {
+ ordinal: number;
+ title: string;
+ summary: string;
+};
+
+export type CoursePublicationArtifactDTO = {
+ publicationId: string;
+ publicationCacheKey: string;
+ generatedAt: string;
+ stages: CourseStageDTO[];
+ lessons: LessonBundleDTO[];
+};
+
 export type LessonListItemDTO = {
  id: string;
  slug: string;
@@ -753,6 +810,7 @@ export type LessonListItemDTO = {
 
 ### Lesson Bundle DTO
 
+<!-- prettier-ignore -->
 ```ts
 export type GraphemeDTO = {
  id: string;
@@ -883,6 +941,7 @@ export type LessonBundleDTO = {
 
 ### Learner DTOs
 
+<!-- prettier-ignore -->
 ```ts
 export type EnrollmentProgressDTO = {
  enrollmentId: string;
@@ -991,6 +1050,7 @@ When building the DB, keep this order:
 Current runtime model to target backend model:
 
 - `LanguagePack` -> `curriculum.courses` + `curriculum.course_versions` + published `CourseSummaryDTO`
+- `CourseStage` -> `curriculum.course_stages` + published `CourseStageDTO`
 - `Lesson` -> `curriculum.lessons` + joins + published `LessonBundleDTO.lesson`
 - `Lesson.anchorWord` -> `curriculum.anchor_targets` + `curriculum.lesson_vocabulary` with `role_key = 'anchor'`
 - `Word` -> `curriculum.vocabulary_items`

@@ -30,10 +30,10 @@ The important separation is this:
 At the time of writing:
 
 - the local seed contains `1` course and `1` published course version
-- the Thai seed contains `21` lessons
-- the current vocabulary model contains `157` vocabulary items
-- the current publication layer contains `21` `delivery.course_publication_lessons`
-  rows
+- the Thai seed contains `14` stages and `46` lessons
+- the current vocabulary model contains `418` unique reusable vocabulary items
+- the current publication layer contains `14` stage bundles and `46` lesson
+  bundles
 - the current tip model contains `6` reusable `curriculum.tips` rows and `102`
   `curriculum.tip_attachments` rows
 - `src/lib/data/thai.ts` remains the curriculum source of truth, and
@@ -51,7 +51,7 @@ Private authoring data. The app runtime should not query this schema directly.
 Main table groups:
 
 - course metadata: `languages`, `script_systems`, `courses`, `course_versions`
-- lesson content: `lessons`, `vocabulary_items`, `vocabulary_segments`, `anchor_targets`, `anchor_segments`
+- lesson content: `course_stages`, `lessons`, `vocabulary_items`, `vocabulary_segments`, `anchor_targets`, `anchor_segments`
 - script teaching model: `graphemes`, `course_version_graphemes`, `tips`, `tip_attachments`
 - rules and drills: `orthography_rules`, `orthography_rule_examples`, `drills`, `drill_options`
 - lesson joins: `lesson_graphemes`, `lesson_rules`, `lesson_drills`, `lesson_vocabulary`
@@ -81,6 +81,7 @@ opening the full DTO spec.
 | `course_version_graphemes`  | Course-version-specific pedagogy for each grapheme, such as mnemonics and pronunciation hints.                                         |
 | `tips`                      | Reusable course-version-scoped help content published into lesson bundles by stable string key.                                        |
 | `tip_attachments`           | Typed tip bindings that attach tips to graphemes, vocabulary items, or orthography rules for specific UI slots.                        |
+| `course_stages`             | Ordered learner-facing stage titles and summaries for a course version.                                                                |
 | `lessons`                   | Ordered lesson metadata within a course version.                                                                                       |
 | `vocabulary_items`          | Reusable words taught in a course version.                                                                                             |
 | `vocabulary_segments`       | Ordered syllabic or segment breakdown for each vocabulary item.                                                                        |
@@ -100,6 +101,7 @@ opening the full DTO spec.
 | Table                        | Role                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------ |
 | `course_publications`        | Immutable publication manifest for a course version.                           |
+| `course_publication_stages`  | Ordered stage-navigation bundles exposed only for the active publication.      |
 | `course_publication_lessons` | Per-lesson published JSON bundle that learner-facing runtime reads should use. |
 
 ### `learner` table roles
@@ -128,6 +130,7 @@ Published runtime bundles. This is what learner-facing reads should use.
 Main tables:
 
 - `course_publications`
+- `course_publication_stages`
 - `course_publication_lessons`
 
 ### `learner`
@@ -160,7 +163,8 @@ The database is designed around a one-way content flow and a one-way progress fl
 ### Content flow
 
 1. Curriculum is authored in `curriculum.*`.
-2. A course version is published into `delivery.course_publications` and `delivery.course_publication_lessons`.
+2. A course version is published into `delivery.course_publications`,
+   `delivery.course_publication_stages`, and `delivery.course_publication_lessons`.
 3. The publication artifact generator reads published bundles from `delivery.*`.
 4. The learner-facing app reads the generated publication artifact so lesson UI
    can stay prerendered while reflecting the active database publication.
@@ -744,6 +748,7 @@ Questions to answer:
 Start with:
 
 - `delivery.course_publications`
+- `delivery.course_publication_stages`
 - `delivery.course_publication_lessons`
 
 Questions to answer:
@@ -770,6 +775,24 @@ pnpm db:prod:advisors
 pnpm db:prod:push:dry-run
 pnpm db:prod:push
 ```
+
+For the stage-navigation release, deploy the database before the application:
+
+1. Verify a current production backup and record learner enrollment, progress,
+   and attempt counts plus the active publication ID.
+2. Run lint, advisors, and `pnpm db:prod:push:dry-run` against the linked project.
+3. With human sign-off, run `pnpm db:prod:push`. The guarded migration requires
+   the expected 46-lesson Thai publication, creates a new publication for the
+   same course version, copies the unchanged lesson bundles, adds 14 stage
+   bundles, updates the course-version content hash to its stage-aware value,
+   and switches the active publication in one transaction.
+4. Confirm one active publication, 14 stage bundles, 46 lesson bundles, and
+   unchanged learner counts before building and deploying the app.
+
+If the stage publication must be rolled back, deploy the previous app and, in a
+single reviewed transaction, deactivate the new publication before reactivating
+the recorded prior publication. No learner rows need rewriting because the
+course version and lesson IDs do not change.
 
 Do not add `--profile glyphin` to these scripts, and avoid bare `supabase`
 commands in this workspace. On this machine, bare `supabase` resolves to an
@@ -897,7 +920,8 @@ As of now:
 - The baseline SQL schema exists and resets cleanly locally.
 - The local seed file now contains the first real Thai curriculum seed.
 - The first published lesson bundles now exist in `delivery.course_publication_lessons`.
-- The app reads published lesson content through generated publication artifacts
+- Stage navigation bundles now exist in `delivery.course_publication_stages`.
+- The app reads published stage and lesson content through generated publication artifacts
   refreshed from `delivery.*`.
 - The first auth implementation now uses server-owned learner RPC wrappers rather
   than direct browser Supabase access.

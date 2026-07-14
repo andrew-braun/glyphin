@@ -1,17 +1,21 @@
 import assert from "node:assert/strict";
-import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { fileURLToPath } from "node:url";
 
 import { createClient } from "@supabase/supabase-js";
 
-import { mapPublishedLessonPayload } from "../src/lib/server/delivery-payload.ts";
+import {
+	mapPublishedLessonPayload,
+	mapPublishedStagePayload,
+} from "../src/lib/server/delivery-payload.ts";
 import {
 	GENERATED_PUBLICATION_MANIFEST_FILE,
 	getPublicationArtifactFileName,
 	getPublicationCacheKey,
 } from "../src/lib/utils/publication.ts";
+import { loadDeliveryCredentials } from "./delivery-env.mjs";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(scriptDir, "..");
@@ -20,46 +24,6 @@ const legacyArtifactFile = resolve(outputDir, "published-lessons.json");
 const manifestFile = resolve(outputDir, GENERATED_PUBLICATION_MANIFEST_FILE);
 const deliveryFetchRetryAttempts = 12;
 const deliveryFetchRetryDelayMs = 1_000;
-
-function parseDotEnvFile(filePath) {
-	if (!existsSync(filePath)) {
-		return {};
-	}
-
-	const fileText = readFileSync(filePath, "utf8");
-	const entries = {};
-
-	for (const rawLine of fileText.split(/\r?\n/u)) {
-		const line = rawLine.trim();
-		if (!line || line.startsWith("#")) continue;
-
-		const equalsIndex = line.indexOf("=");
-		if (equalsIndex < 0) continue;
-
-		const key = line.slice(0, equalsIndex).trim();
-		let value = line.slice(equalsIndex + 1).trim();
-
-		if (
-			(value.startsWith('"') && value.endsWith('"')) ||
-			(value.startsWith("'") && value.endsWith("'"))
-		) {
-			value = value.slice(1, -1);
-		}
-
-		entries[key] = value;
-	}
-
-	return entries;
-}
-
-function getEnvValue(dotEnv, keys) {
-	for (const key of keys) {
-		const value = process.env[key] ?? dotEnv[key];
-		if (value) return value;
-	}
-
-	return "";
-}
 
 function getErrorMessage(error) {
 	if (error instanceof Error) {
@@ -86,17 +50,7 @@ function isTransientDeliveryFetchError(error) {
 }
 
 async function loadDeliveryArtifactOnce() {
-	const dotEnv = parseDotEnvFile(resolve(repoRoot, ".env"));
-	const supabaseUrl = getEnvValue(dotEnv, [
-		"SUPABASE_DELIVERY_URL",
-		"PUBLIC_SUPABASE_URL",
-		"API_URL",
-	]);
-	const supabaseAnonKey = getEnvValue(dotEnv, [
-		"SUPABASE_DELIVERY_ANON_KEY",
-		"PUBLIC_SUPABASE_ANON_KEY",
-		"PUBLISHABLE_KEY",
-	]);
+	const { url: supabaseUrl, anonKey: supabaseAnonKey } = loadDeliveryCredentials(repoRoot);
 
 	if (!supabaseUrl || !supabaseAnonKey) {
 		throw new Error(
@@ -133,20 +87,44 @@ async function loadDeliveryArtifactOnce() {
 	);
 
 	const publicationId = publications[0].id;
-	const { data: lessonRows, error: lessonError } = await delivery
-		.from("course_publication_lessons")
-		.select("lesson_ordinal, payload")
-		.eq("publication_id", publicationId)
-		.order("lesson_ordinal", { ascending: true });
+	const [stageResult, lessonResult] = await Promise.all([
+		delivery
+			.from("course_publication_stages")
+			.select("stage_ordinal, payload")
+			.eq("publication_id", publicationId)
+			.order("stage_ordinal", { ascending: true }),
+		delivery
+			.from("course_publication_lessons")
+			.select("lesson_ordinal, payload")
+			.eq("publication_id", publicationId)
+			.order("lesson_ordinal", { ascending: true }),
+	]);
+	const { data: stageRows, error: stageError } = stageResult;
+	const { data: lessonRows, error: lessonError } = lessonResult;
+
+	if (stageError) {
+		throw new Error(`Unable to load published stages: ${stageError.message}`);
+	}
 
 	if (lessonError) {
 		throw new Error(`Unable to load published lessons: ${lessonError.message}`);
 	}
 
+	assert.ok(stageRows?.length, "Expected published stages for the active publication");
 	assert.ok(lessonRows?.length, "Expected published lessons for the active publication");
 
 	return {
 		publicationId,
+		stages: stageRows.map((row) => {
+			const stage = mapPublishedStagePayload(row.payload);
+			assert.equal(
+				stage.ordinal,
+				row.stage_ordinal,
+				`Published stage ordinal mismatch for stage ${row.stage_ordinal}`,
+			);
+
+			return stage;
+		}),
 		lessons: lessonRows.map((row) => {
 			const lesson = mapPublishedLessonPayload(row.payload);
 			assert.equal(
@@ -208,6 +186,7 @@ writeFileSync(
 			publicationId: publicationArtifact.publicationId,
 			publicationCacheKey,
 			generatedAt,
+			stages: publicationArtifact.stages,
 			lessons: publicationArtifact.lessons,
 		},
 		null,
@@ -232,5 +211,5 @@ writeFileSync(
 );
 
 console.log(
-	`Generated ${publicationArtifact.lessons.length} published lessons for active publication ${publicationArtifact.publicationId} at ${artifactFile} and wrote manifest ${manifestFile}.`,
+	`Generated ${publicationArtifact.stages.length} stages and ${publicationArtifact.lessons.length} lessons for active publication ${publicationArtifact.publicationId} at ${artifactFile} and wrote manifest ${manifestFile}.`,
 );

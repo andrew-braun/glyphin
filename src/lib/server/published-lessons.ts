@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { error } from "@sveltejs/kit";
 
 import { thaiPack } from "$lib/data/thai";
-import type { Lesson } from "$lib/data/types";
+import type { CourseStage, Lesson } from "$lib/data/types";
 import {
 	GENERATED_PUBLICATION_MANIFEST_FILE,
 	getPublicationCacheKey,
@@ -19,6 +19,7 @@ export type PublishedLessonVersion = {
 };
 
 type LessonPublicationArtifact = PublishedLessonVersion & {
+	stages?: CourseStage[];
 	lessons: Lesson[];
 };
 
@@ -117,8 +118,19 @@ async function getPublicationArtifact(): Promise<LessonPublicationArtifact | nul
 
 	return {
 		...artifact,
+		stages: artifact.stages ?? thaiPack.stages,
 		lessons: normalizeArtifactLessons(artifact.lessons),
 	};
+}
+
+export async function getPublishedCourseStages(): Promise<CourseStage[]> {
+	const artifact = await getPublicationArtifact();
+	if (artifact) {
+		return artifact.stages ?? thaiPack.stages;
+	}
+
+	const deliveryLessons = await import("./delivery-lessons");
+	return deliveryLessons.getPublishedCourseStages();
 }
 
 export async function getPublishedLessonVersion(): Promise<PublishedLessonVersion> {

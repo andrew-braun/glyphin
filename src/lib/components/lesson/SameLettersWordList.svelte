@@ -1,5 +1,7 @@
 <script lang="ts">
+	import SoundPracticeLabel from "$lib/components/lesson/SoundPracticeLabel.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
+	import { isSoundPractice } from "$lib/data/course-journey";
 	import type { LessonVocabularyEntry, Letter } from "$lib/data/types";
 
 	let {
@@ -46,6 +48,9 @@
 					]}
 				>
 					<div class="same-letters-word-list__script">
+						{#if isSoundPractice(entry)}
+							<SoundPracticeLabel />
+						{/if}
 						<span class="same-letters-word-list__thai thai thai--sm">
 							{entry.word.thai}
 						</span>

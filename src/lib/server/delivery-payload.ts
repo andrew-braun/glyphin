@@ -1,4 +1,5 @@
 import type {
+	CourseStage,
 	DrillQuestion,
 	Lesson,
 	LessonVocabularySourceType,
@@ -40,6 +41,21 @@ const lessonVocabularySourceTypes = new Set<LessonVocabularySourceType>([
 const drillTypes = new Set<DrillQuestion["type"]>(["recognize", "match", "sound", "spot"]);
 
 export class DeliveryPayloadError extends Error {}
+
+export function mapPublishedStagePayload(value: unknown): CourseStage {
+	const record = expectRecord(value, "stage payload");
+	const ordinal = expectInteger(record.ordinal, "stage payload.ordinal");
+
+	if (ordinal <= 0) {
+		fail("stage payload.ordinal");
+	}
+
+	return {
+		ordinal,
+		title: expectString(record.title, "stage payload.title"),
+		summary: expectString(record.summary, "stage payload.summary"),
+	};
+}
 
 function fail(context: string): never {
 	throw new DeliveryPayloadError(`Invalid published lesson payload at ${context}`);

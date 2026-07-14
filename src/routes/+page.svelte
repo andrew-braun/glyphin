@@ -1,45 +1,85 @@
 <script lang="ts">
-	import HomeHero from "$lib/components/content/home/HomeHero.svelte";
-	import HomeStatsOverview from "$lib/components/content/home/HomeStatsOverview.svelte";
-	import LessonList from "$lib/components/content/lesson/LessonList.svelte";
-	import { authSession } from "$lib/stores/learner";
-	import {
-		completedLessonCount,
-		knownLetters,
-		knownWords,
-		resumeHref,
-		resumeTarget,
-		totalLessons,
-	} from "$lib/stores/progress";
+	import { onMount } from "svelte";
 
-	const hasStartedLearning = $derived(
-		$completedLessonCount > 0 || $knownLetters.length > 0 || $knownWords.length > 0,
+	import HomeHero from "$lib/components/content/home/HomeHero.svelte";
+	import LearnerHomeHub from "$lib/components/content/home/LearnerHomeHub.svelte";
+	import {
+		appProgressFromLearnerProjection,
+		buildCourseJourney,
+		buildCourseProgressStats,
+	} from "$lib/data/course-journey";
+	import { thaiPack } from "$lib/data/thai";
+	import type { AppProgress } from "$lib/data/types";
+	import { authSession } from "$lib/stores/learner";
+	import { applyLearnerProjection, progress } from "$lib/stores/progress";
+
+	import type { PageProps } from "./$types";
+
+	let { data }: PageProps = $props();
+	let hasHydratedProgress = $state(false);
+
+	const emptyProgress: AppProgress = {
+		knownLetters: [],
+		knownWords: [],
+		lessonProgress: [],
+		currentLessonId: thaiPack.lessons[0]?.id ?? 1,
+	};
+	const publishedPack = $derived({ ...thaiPack, stages: data.stages });
+	const serverProgress = $derived(
+		data.projection ? appProgressFromLearnerProjection(data.projection) : emptyProgress,
 	);
-	const showLearnerDetails = $derived($authSession.authenticated || hasStartedLearning);
+	const activeProgress = $derived(hasHydratedProgress ? $progress : serverProgress);
+	const journey = $derived(buildCourseJourney(publishedPack, activeProgress));
+	const stats = $derived(
+		hasHydratedProgress
+			? buildCourseProgressStats(publishedPack, activeProgress)
+			: data.serverStats,
+	);
+	const authenticated = $derived(data.auth.authenticated || $authSession.authenticated);
+	const hasStartedLearning = $derived(
+		activeProgress.lessonProgress.length > 0 ||
+			stats.knownLetterCount > 0 ||
+			stats.knownWordCount > 0,
+	);
+	const showDashboard = $derived(
+		data.auth.authenticated || (hasHydratedProgress && (authenticated || hasStartedLearning)),
+	);
+
+	onMount(() => {
+		if (data.projection) {
+			applyLearnerProjection(data.projection);
+		}
+		hasHydratedProgress = true;
+	});
 </script>
 
-<div class="home container">
-	<HomeHero
-		authenticated={$authSession.authenticated}
-		resumeHref={$resumeHref}
-		resumePhase={$resumeTarget.phase}
+<svelte:head>
+	<title>Glyphin — Learn Thai Through Real Words</title>
+	<meta
+		name="description"
+		content="Learn to read Thai through real words, guided lesson steps, and short practice built around signs, menus, and everyday language."
 	/>
-	{#if showLearnerDetails}
-		<HomeStatsOverview
-			knownLetters={$knownLetters}
-			knownWords={$knownWords}
-			completedLessonCount={$completedLessonCount}
-			{totalLessons}
-		/>
-		<LessonList />
+</svelte:head>
+
+<div class="home container">
+	{#if showDashboard}
+		<LearnerHomeHub {authenticated} {journey} {stats} />
+	{:else if hasHydratedProgress}
+		<HomeHero />
+	{:else}
+		<div class="home__loading card" aria-hidden="true"></div>
 	{/if}
 </div>
 
 <style lang="scss">
-	// Vertical stack of homepage sections with generous spacing
 	.home {
 		display: flex;
 		flex-direction: column;
 		gap: $space-3xl;
+
+		&__loading {
+			background: var(--color-surface-muted);
+			min-height: 34rem;
+		}
 	}
 </style>

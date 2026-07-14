@@ -34,6 +34,15 @@ SUPABASE_DELIVERY_ANON_KEY=<supabase anon or publishable key>
 
 Do not put service-role keys in Cloudflare.
 
+Observed 2026-07-14: a build failed with "Missing delivery read
+credentials for publication export" even though both vars were already
+correctly set as Secret-type Build Variables. A plain retry (same commit,
+no config change) succeeded. Cloudflare's own docs don't document any
+build-command-vs-deploy-command split for these variables, and there was
+no separate production/preview trigger config to check in this dashboard
+— so the cause is unconfirmed. If this recurs, retry once before digging
+further; it self-resolved with no code or config change last time.
+
 `NODE_VERSION`/`PNPM_VERSION` dashboard vars are not needed. Workers Builds
 reads the committed `.nvmrc` (`24.15.0`) and `package.json`'s
 `packageManager`/`devEngines.packageManager` (`pnpm@11.6.0`) and detects the

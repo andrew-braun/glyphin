@@ -2,108 +2,6 @@
 	import Button from "$lib/components/ui/Button.svelte";
 	import Heading from "$lib/components/ui/Heading.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
-
-	interface Props {
-		authenticated: boolean;
-		resumeHref: string;
-		resumePhase: "learn" | "practice" | "review";
-	}
-
-	let { authenticated, resumeHref, resumePhase }: Props = $props();
-
-	const languages = [
-		{
-			name: "Thai",
-			sample: "ไทย",
-			status: "Active",
-			href: "/learn/1",
-			available: true,
-		},
-		{
-			name: "Korean",
-			sample: "한국어",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Cyrillic",
-			sample: "Кириллица",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Greek",
-			sample: "Ελληνικά",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Arabic",
-			sample: "العربية",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Georgian",
-			sample: "ქართული",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Japanese (Kana)",
-			sample: "かな",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Devanagari",
-			sample: "देवनागरी",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Hebrew",
-			sample: "עברית",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Armenian",
-			sample: "Հայերեն",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Amharic",
-			sample: "አማርኛ",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Vietnamese",
-			sample: "Tiếng Việt",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Turkish",
-			sample: "Türkçe",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Icelandic",
-			sample: "Íslenska",
-			status: "Coming Soon",
-			available: false,
-		},
-		{
-			name: "Burmese",
-			sample: "မြန်မာ",
-			status: "Coming Soon",
-			available: false,
-		},
-	] as const;
 </script>
 
 <section class="home-hero">
@@ -120,49 +18,23 @@
 				</p>
 
 				<div class="home-hero__actions">
-					{#if authenticated}
-						<Button href={resumeHref} variant="primary" size="large">
-							{resumePhase === "practice"
-								? "Continue Practice"
-								: resumePhase === "review"
-									? "Review What You Know"
-									: "Continue Learning"}
-						</Button>
-					{:else}
-						<Button href="/auth" variant="primary" size="large"
-							>Get Started for Free</Button
-						>
-					{/if}
+					<Button href="/auth" variant="primary" size="large">Get Started for Free</Button
+					>
 				</div>
 			</div>
 		</Reveal>
 
 		<Reveal delay={180} distance={24}>
 			<div class="home-hero__art">
-				<div class="home-hero__language-list">
-					{#each languages as language}
-						<div
-							class={[
-								"language-card",
-								{ "language-card--inactive": !language.available },
-							]}
-						>
-							<div class="language-card__info">
-								<span class="language-card__name">{language.name}</span>
-								<span class="language-card__sample">{language.sample}</span>
-							</div>
-							<div class="language-card__action">
-								{#if language.available}
-									<Button href={language.href} variant="primary" size="sm"
-										>Learn Thai</Button
-									>
-								{:else}
-									<span class="badge badge--muted">{language.status}</span>
-								{/if}
-							</div>
-						</div>
-					{/each}
+				<div class="language-card">
+					<div class="language-card__sample thai">ไทย</div>
+					<div class="language-card__copy">
+						<span class="language-card__name">Thai</span>
+						<span class="language-card__status">Available now</span>
+					</div>
+					<Button href="/learn/1" variant="primary">Learn Thai</Button>
 				</div>
+				<p class="home-hero__future">More writing systems will join the path later.</p>
 			</div>
 		</Reveal>
 	</div>
@@ -209,90 +81,59 @@
 
 		&__art {
 			display: flex;
+			flex-direction: column;
+			gap: $space-md;
 			justify-content: center;
 		}
 
-		&__language-list {
-			display: flex;
-			flex-direction: column;
-			gap: $space-sm;
-			max-height: clamp(25rem, 60vh, 35rem);
-			overflow-y: auto;
-			padding-right: $space-sm;
-			padding-top: $space-sm;
-			width: 100%;
-
-			&::-webkit-scrollbar {
-				width: 4px;
-			}
-			&::-webkit-scrollbar-thumb {
-				background: var(--color-border);
-				border-radius: $radius-full;
-			}
+		&__future {
+			color: var(--color-text-soft);
+			font-size: $font-size-sm;
+			margin: 0;
+			text-align: center;
 		}
 
 		.language-card {
+			align-items: center;
 			background: var(--color-surface-card);
 			border: 1px solid var(--color-border);
-			border-radius: $radius-md;
-			box-shadow: var(--shadow-sm);
+			border-radius: $radius-xl;
+			box-shadow: var(--shadow-card-hover);
 			display: flex;
-			gap: $space-sm;
-			justify-content: space-between;
-			padding: $space-md;
-			@include motion-safe-transition(
-				border-color $transition-fast,
-				box-shadow $transition-fast,
-				transform $transition-fast,
-				background-color $transition-fast
-			);
+			gap: $space-lg;
+			padding: $space-xl;
 
 			@media (max-width: $bp-sm) {
-				align-items: center;
 				flex-direction: column;
-			}
-			&--inactive {
-				background: var(--color-surface-muted);
-				border-color: var(--color-border-muted);
-				box-shadow: none;
-				filter: grayscale(1);
-				opacity: 0.6;
-				pointer-events: none;
-				transform: none;
-
-				&:hover {
-					border-color: var(--color-border-muted);
-					box-shadow: none;
-					transform: none;
-				}
-			}
-
-			&__info {
-				align-items: center;
-				display: flex;
-				gap: $space-md;
-			}
-
-			&__name {
-				color: var(--color-text);
-				font-size: $font-size-lg;
-				font-weight: 500;
 			}
 
 			&__sample {
-				color: var(--color-text-muted);
-				font-size: $font-size-lg;
-				font-weight: 600;
-				min-width: 3rem;
-				text-align: center;
+				align-items: center;
+				background: rgb(var(--rgb-primary) / 0.1);
+				border-radius: $radius-lg;
+				color: var(--color-primary-strong);
+				display: flex;
+				font-size: $font-size-3xl;
+				height: 5rem;
+				justify-content: center;
+				width: 5rem;
 			}
 
-			&__action {
-				align-self: flex-end;
+			&__copy {
+				display: grid;
+				flex: 1;
+				gap: $space-xs;
+			}
 
-				@media (max-width: $bp-sm) {
-					align-self: unset;
-				}
+			&__name {
+				font-size: $font-size-lg;
+				font-weight: 800;
+			}
+
+			&__status {
+				color: var(--color-success);
+				font-size: $font-size-sm;
+				font-weight: 700;
 			}
 		}
 	}

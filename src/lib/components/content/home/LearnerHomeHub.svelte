@@ -1,191 +1,169 @@
 <script lang="ts">
-	import GlyphOrbit from "$lib/components/illustrations/GlyphOrbit.svelte";
-	import ActionGroup from "$lib/components/layout/ActionGroup.svelte";
-	import Badge from "$lib/components/ui/Badge.svelte";
+	import CourseStageJourney from "$lib/components/content/lesson/CourseStageJourney.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
+	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import Heading from "$lib/components/ui/Heading.svelte";
-	import Reveal from "$lib/components/ui/Reveal.svelte";
-
-	interface Props {
-		authenticated: boolean;
-		currentLessonId: number;
-		hasPractice: boolean;
-		knownLetterCount: number;
-		knownWordCount: number;
-		totalLessons: number;
-	}
+	import Progress from "$lib/components/ui/Progress.svelte";
+	import StatCard from "$lib/components/ui/StatCard.svelte";
+	import type { CourseJourney, CourseProgressStats } from "$lib/data/course-journey";
 
 	let {
 		authenticated,
-		currentLessonId,
-		hasPractice,
-		knownLetterCount,
-		knownWordCount,
-		totalLessons,
-	}: Props = $props();
+		journey,
+		stats,
+	}: {
+		authenticated: boolean;
+		journey: CourseJourney;
+		stats: CourseProgressStats;
+	} = $props();
 
-	const completedLessons = $derived(Math.max(0, currentLessonId - 1));
-	const completionCopy = $derived(
-		completedLessons > 0
-			? `You have finished ${completedLessons} of ${totalLessons} Thai lessons.`
-			: `Lesson ${currentLessonId} is ready whenever you are.`,
+	const currentStage = $derived(
+		journey.stages.find((stage) => stage.state === "current") ?? journey.stages.at(-1),
+	);
+	const progressPercent = $derived(
+		journey.totalLessonCount === 0
+			? 0
+			: Math.round((journey.completedLessonCount / journey.totalLessonCount) * 100),
+	);
+	const continueLabel = $derived(
+		journey.resumeTarget.phase === "practice"
+			? "Continue practice"
+			: journey.resumeTarget.phase === "review"
+				? "Review what you know"
+				: "Continue learning",
 	);
 </script>
 
-<section class="learner-home card">
-	<Reveal delay={40}>
+<section class="learner-home">
+	<div class="learner-home__hero card">
 		<div class="learner-home__copy">
-			<Badge tone={authenticated ? "success" : "primary"}>
+			<span class="learner-home__eyebrow">
 				{authenticated ? "Welcome back" : "Saved on this device"}
-			</Badge>
+			</span>
 			<div class="learner-home__heading">
-				<Heading as="h1">Pick up exactly where you left off.</Heading>
+				<Heading as="h1">Your Thai reading journey</Heading>
 			</div>
-			<p class="learner-home__lead">
-				{completionCopy}
-				{#if authenticated}
-					Your account can keep this progress in sync across devices.
-				{:else}
-					You can keep going without signing in, then attach this progress to an account
-					later.
-				{/if}
-			</p>
-
-			<ActionGroup stackAt="sm">
-				<Button href={`/learn/${currentLessonId}`} variant="primary" size="large">
-					Continue lesson {currentLessonId}
-				</Button>
-				{#if hasPractice}
-					<Button href="/practice" variant="secondary" size="large"
-						>Practice known words</Button
-					>
-				{/if}
-			</ActionGroup>
-
-			<div class="learner-home__stats">
-				<div>
-					<span class="learner-home__stat-value">{knownLetterCount}</span>
-					<span class="learner-home__stat-label">letters unlocked</span>
-				</div>
-				<div>
-					<span class="learner-home__stat-value">{knownWordCount}</span>
-					<span class="learner-home__stat-label">words recognized</span>
-				</div>
-				<div>
-					<span class="learner-home__stat-value">Thai</span>
-					<span class="learner-home__stat-label">current language</span>
-				</div>
-			</div>
-		</div>
-	</Reveal>
-
-	<Reveal delay={180} distance={22}>
-		<div class="learner-home__panel">
-			<div class="learner-home__orbit">
-				<GlyphOrbit />
-			</div>
-			<div class="learner-home__aside card card--flat">
-				<Badge tone="accent">Next step</Badge>
-				<h2>Lesson {currentLessonId}</h2>
-				<p>
-					Jump straight back into the next reading loop, or browse the lesson map if you
-					want a different checkpoint.
+			{#if currentStage}
+				<p class="learner-home__lead">
+					Stage {currentStage.ordinal}: {currentStage.title}
 				</p>
-				<Button href="/learn" variant="ghost">Browse lesson map</Button>
-			</div>
+			{/if}
 		</div>
-	</Reveal>
+
+		<Button href={journey.resumeTarget.href} size="large" variant="primary">
+			<ButtonForwardLabel label={continueLabel} />
+		</Button>
+	</div>
+
+	<div class="learner-home__stats">
+		<StatCard
+			value={stats.knownLetterCount.toString()}
+			label="Letters learned"
+			href="/alphabet"
+		/>
+		<StatCard
+			value={stats.knownWordCount.toString()}
+			label="Real words learned"
+			href="/words"
+		/>
+		<StatCard value={`${progressPercent}%`} label="Course progress">
+			{#snippet children()}
+				<Progress
+					label="Thai course progress"
+					value={journey.completedLessonCount}
+					max={journey.totalLessonCount}
+					valueLabel={`${journey.completedLessonCount} of ${journey.totalLessonCount}`}
+				/>
+			{/snippet}
+		</StatCard>
+	</div>
+
+	<section class="learner-home__journey" aria-labelledby="course-journey-heading">
+		<div class="learner-home__journey-heading">
+			<div>
+				<span class="learner-home__eyebrow">Course path</span>
+				<h2 id="course-journey-heading">See how far you’ve come</h2>
+			</div>
+			<a href="/learn">Open curriculum</a>
+		</div>
+		<CourseStageJourney {journey} />
+	</section>
 </section>
 
 <style lang="scss">
 	.learner-home {
-		align-items: center;
-		background: var(--color-surface-card);
 		display: grid;
-		gap: $space-xl;
-		grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
-		padding: clamp($space-xl, 4vw, $space-3xl);
+		gap: $space-2xl;
+
+		&__hero {
+			align-items: center;
+			background:
+				linear-gradient(120deg, rgb(var(--rgb-primary) / 0.12), transparent 58%),
+				var(--color-surface-card);
+			display: flex;
+			gap: $space-xl;
+			justify-content: space-between;
+			padding: clamp($space-xl, 5vw, $space-3xl);
+		}
 
 		&__copy {
-			display: flex;
-			flex-direction: column;
-			gap: $space-lg;
+			display: grid;
+			gap: $space-sm;
 		}
 
 		&__heading {
-			--heading-font-size: clamp(2.25rem, 4.5vw, 4rem);
-			--heading-line-height: 1.02;
+			--heading-font-size: clamp(2.2rem, 5vw, 4.5rem);
+			--heading-line-height: 1;
 			--heading-margin-bottom: 0;
+		}
+
+		&__eyebrow {
+			color: var(--color-primary-strong);
+			font-size: $font-size-xs;
+			font-weight: 800;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
 		}
 
 		&__lead {
 			color: var(--color-text-muted);
 			font-size: $font-size-lg;
-			max-width: 42rem;
+			margin: 0;
 		}
 
 		&__stats {
 			display: grid;
 			gap: $space-md;
 			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
 
-			div {
-				background: rgb(var(--rgb-primary) / 0.08);
-				border: 1px solid rgb(var(--rgb-primary) / 0.14);
-				border-radius: $radius-lg;
-				display: flex;
-				flex-direction: column;
-				gap: 0.15rem;
-				padding: 0.9rem 1rem;
+		&__journey {
+			display: grid;
+			gap: $space-lg;
+			margin-inline: auto;
+			max-width: 60rem;
+			width: 100%;
+		}
+
+		&__journey-heading {
+			align-items: end;
+			display: flex;
+			gap: $space-md;
+			justify-content: space-between;
+
+			h2 {
+				margin: $space-xs 0 0;
 			}
 		}
-
-		&__stat-value {
-			color: var(--color-text);
-			font-size: $font-size-xl;
-			font-weight: 800;
-		}
-
-		&__stat-label {
-			color: var(--color-text-soft);
-			font-size: $font-size-xs;
-			font-weight: 700;
-			letter-spacing: 0.08em;
-			text-transform: uppercase;
-		}
-
-		&__panel {
-			display: flex;
-			flex-direction: column;
-			gap: $space-lg;
-			width: 100%;
-		}
-
-		&__orbit {
-			align-self: center;
-			max-width: 18rem;
-			width: 100%;
-		}
-
-		&__aside {
-			display: flex;
-			flex-direction: column;
-			gap: $space-sm;
-		}
-
-		&__aside p {
-			color: var(--color-text-muted);
-		}
 	}
 
-	@media (max-width: $bp-lg) {
+	@media (max-width: $bp-md) {
 		.learner-home {
-			grid-template-columns: 1fr;
-		}
-	}
+			&__hero {
+				align-items: stretch;
+				flex-direction: column;
+			}
 
-	@media (max-width: $bp-sm) {
-		.learner-home {
 			&__stats {
 				grid-template-columns: 1fr;
 			}

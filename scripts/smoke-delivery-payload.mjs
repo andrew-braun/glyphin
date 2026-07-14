@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -7,50 +6,14 @@ import { createClient } from "@supabase/supabase-js";
 
 import { thaiPack } from "../src/lib/data/thai.ts";
 import { resolveLetterTips } from "../src/lib/data/tips.ts";
-import { mapPublishedLessonPayload } from "../src/lib/server/delivery-payload.ts";
+import {
+	mapPublishedLessonPayload,
+	mapPublishedStagePayload,
+} from "../src/lib/server/delivery-payload.ts";
+import { loadDeliveryCredentials } from "./delivery-env.mjs";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(scriptDir, "..");
-
-function parseDotEnvFile(filePath) {
-	if (!existsSync(filePath)) {
-		return {};
-	}
-
-	const fileText = readFileSync(filePath, "utf8");
-	const entries = {};
-
-	for (const rawLine of fileText.split(/\r?\n/u)) {
-		const line = rawLine.trim();
-		if (!line || line.startsWith("#")) continue;
-
-		const equalsIndex = line.indexOf("=");
-		if (equalsIndex < 0) continue;
-
-		const key = line.slice(0, equalsIndex).trim();
-		let value = line.slice(equalsIndex + 1).trim();
-
-		if (
-			(value.startsWith('"') && value.endsWith('"')) ||
-			(value.startsWith("'") && value.endsWith("'"))
-		) {
-			value = value.slice(1, -1);
-		}
-
-		entries[key] = value;
-	}
-
-	return entries;
-}
-
-function getEnvValue(dotEnv, keys) {
-	for (const key of keys) {
-		const value = process.env[key] ?? dotEnv[key];
-		if (value) return value;
-	}
-
-	return "";
-}
 
 function normalizeForComparison(value) {
 	return JSON.parse(JSON.stringify(value));
@@ -66,14 +29,10 @@ function withResolvedLessonTips(lesson) {
 	};
 }
 
-const dotEnv = parseDotEnvFile(resolve(repoRoot, ".env"));
-const supabaseUrl = getEnvValue(dotEnv, ["PUBLIC_SUPABASE_URL", "API_URL"]);
-const supabaseAnonKey = getEnvValue(dotEnv, ["PUBLIC_SUPABASE_ANON_KEY", "PUBLISHABLE_KEY"]);
+const { url: supabaseUrl, anonKey: supabaseAnonKey } = loadDeliveryCredentials(repoRoot);
 
 if (!supabaseUrl || !supabaseAnonKey) {
-	throw new Error(
-		"Missing PUBLIC_SUPABASE_URL/PUBLIC_SUPABASE_ANON_KEY for the delivery smoke test. For local Supabase, run `pnpm exec supabase status -o env` and map API_URL/PUBLISHABLE_KEY into those variables or into .env.",
-	);
+	throw new Error("Missing Supabase delivery read credentials for the delivery smoke test.");
 }
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey, {
@@ -103,6 +62,28 @@ assert.equal(
 );
 
 const publicationId = publications[0].id;
+const { data: stageRows, error: stageError } = await delivery
+	.from("course_publication_stages")
+	.select("stage_ordinal, payload")
+	.eq("publication_id", publicationId)
+	.order("stage_ordinal", { ascending: true });
+
+if (stageError) {
+	throw new Error(`Unable to load published stages: ${stageError.message}`);
+}
+
+assert.ok(stageRows, "Expected published stages for the active publication");
+assert.equal(
+	stageRows.length,
+	thaiPack.stages.length,
+	`Expected ${thaiPack.stages.length} published stages, received ${stageRows.length}`,
+);
+
+for (const [index, row] of stageRows.entries()) {
+	assert.equal(row.stage_ordinal, thaiPack.stages[index].ordinal);
+	assert.deepStrictEqual(mapPublishedStagePayload(row.payload), thaiPack.stages[index]);
+}
+
 const { data: lessonRows, error: lessonError } = await delivery
 	.from("course_publication_lessons")
 	.select("lesson_ordinal, payload")
@@ -139,5 +120,5 @@ for (const [index, row] of lessonRows.entries()) {
 }
 
 console.log(
-	`Delivery payload smoke passed for ${lessonRows.length} lessons in active publication ${publicationId}.`,
+	`Delivery payload smoke passed for ${stageRows.length} stages and ${lessonRows.length} lessons in active publication ${publicationId}.`,
 );

@@ -5,7 +5,7 @@
 	patterns. Learners see each target before its pronunciation and meaning are revealed.
 -->
 <script lang="ts">
-	import SameLettersWordList from "$lib/components/lesson/SameLettersWordList.svelte";
+	import SelfCheckCard from "$lib/components/exercises/SelfCheckCard.svelte";
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
 	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
@@ -35,7 +35,11 @@
 	const isExtensionPhase = $derived(phase === "extension");
 	const activeWords = $derived(isExtensionPhase ? extensionSet : coreWords);
 	const currentWord = $derived(activeWords[currentIndex]);
-	const currentEntries = $derived(currentWord ? [currentWord] : []);
+	const focusLetters = $derived(
+		currentWord
+			? lesson.newLetters.filter((letter) => currentWord.word.thai.includes(letter.character))
+			: [],
+	);
 	const hasNextWord = $derived(currentIndex < activeWords.length - 1);
 	const hasExtensionWords = $derived(extensionSet.length > 0);
 	const counterLabel = $derived(
@@ -53,11 +57,6 @@
 
 	function next() {
 		if (isExtensionPrompt) {
-			return;
-		}
-
-		if (!isAnswerRevealed) {
-			isAnswerRevealed = true;
 			return;
 		}
 
@@ -81,6 +80,10 @@
 		phase = "extension";
 		currentIndex = 0;
 		isAnswerRevealed = false;
+	}
+
+	function revealAnswer() {
+		isAnswerRevealed = true;
 	}
 </script>
 
@@ -115,27 +118,21 @@
 			</Reveal>
 		{:else}
 			{#key `${phase}-${currentIndex}`}
-				<SameLettersWordList
-					entries={currentEntries}
-					newLetters={lesson.newLetters}
-					ariaLabel={isAnswerRevealed
-						? "Answer for the current practice target"
-						: "Current practice target to read before revealing the answer"}
-					revealStart={120}
-					showAnswers={isAnswerRevealed}
-					previewPrompt="Sound it out, then check your read."
-				/>
+				{#if currentWord}
+					<SelfCheckCard
+						entry={currentWord}
+						{focusLetters}
+						revealed={isAnswerRevealed}
+						onReveal={revealAnswer}
+					/>
+				{/if}
 			{/key}
 		{/if}
 	</section>
 
-	{#if !isExtensionPrompt}
+	{#if !isExtensionPrompt && isAnswerRevealed}
 		<Button variant="primary" size="large" fullWidth={true} onclick={next}>
-			{#if isAnswerRevealed}
-				<ButtonForwardLabel label={forwardActionLabel} />
-			{:else}
-				Check my read
-			{/if}
+			<ButtonForwardLabel label={forwardActionLabel} />
 		</Button>
 	{/if}
 </StepLayout>

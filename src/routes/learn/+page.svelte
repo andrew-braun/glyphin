@@ -1,57 +1,57 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 
+	import CourseStageJourney from "$lib/components/content/lesson/CourseStageJourney.svelte";
 	import PageShell from "$lib/components/layout/PageShell.svelte";
 	import Badge from "$lib/components/ui/Badge.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
-	import Reveal from "$lib/components/ui/Reveal.svelte";
-	import { getLessonJourneyState, type LessonJourneyState, progress } from "$lib/stores/progress";
+	import Heading from "$lib/components/ui/Heading.svelte";
+	import { buildCourseJourney, type CourseJourneyLesson } from "$lib/data/course-journey";
+	import type { AppProgress } from "$lib/data/types";
+	import { progress } from "$lib/stores/progress";
 	import { cn } from "$lib/utils/cn";
 
 	import type { PageProps } from "./$types";
 
 	let { data }: PageProps = $props();
-	const publication = $derived(data.publication);
-	const lessons = $derived(data.lessons);
-
 	let hasHydratedProgress = $state(false);
+
+	const emptyProgress = $derived<AppProgress>({
+		knownLetters: [],
+		knownWords: [],
+		lessonProgress: [],
+		currentLessonId: data.lessons[0]?.id ?? 1,
+	});
+	const activeProgress = $derived(hasHydratedProgress ? $progress : emptyProgress);
+	const journey = $derived(
+		buildCourseJourney({ stages: data.stages, lessons: data.lessons }, activeProgress),
+	);
 
 	onMount(() => {
 		hasHydratedProgress = true;
 	});
 
-	function getLessonCardClasses(state: LessonJourneyState | null) {
+	function getLessonCardClasses(entry: CourseJourneyLesson): string {
 		return cn(
 			"lesson-card",
-			"card",
-			state?.isCurrent && "lesson-card--current",
-			state !== null && !state.learnUnlocked && "lesson-card--locked",
-			state?.practicePassed && "lesson-card--done",
+			entry.isCurrent && "lesson-card--current",
+			!entry.learnUnlocked && "lesson-card--locked",
+			entry.practicePassed && "lesson-card--done",
 		);
 	}
 
-	function getStatusCopy(state: LessonJourneyState | null) {
-		if (state === null) {
-			return "Learning opens from lesson order. Practice opens after learning.";
-		}
-
-		if (!state.learnUnlocked) {
-			return "Pass the previous lesson's practice to unlock learning.";
-		}
-
-		if (!state.practiceUnlocked) {
-			return "Finish learning to unlock this lesson's scored practice.";
-		}
-
-		if (state.practicePassed) {
-			return state.bestPracticeScore !== undefined
-				? `Best practice score: ${state.bestPracticeScore}%`
+	function getStatusCopy(entry: CourseJourneyLesson): string {
+		if (!entry.learnUnlocked) return "Keep moving through this stage to unlock it.";
+		if (!entry.practiceUnlocked) return "Learn the pattern, then practice it.";
+		if (entry.practicePassed) {
+			return entry.bestPracticeScore !== undefined
+				? `Best practice score: ${entry.bestPracticeScore}%`
 				: "Practice passed.";
 		}
 
-		return state.practiceAttempts > 0
-			? `Latest practice score: ${state.latestPracticeScore ?? 0}%`
-			: "Practice is ready whenever you are.";
+		return entry.practiceAttempts > 0
+			? `Latest practice score: ${entry.latestPracticeScore ?? 0}%`
+			: "Practice is ready.";
 	}
 </script>
 
@@ -59,88 +59,102 @@
 	<title>Learn — Glyphin</title>
 	<meta
 		name="description"
-		content="Work through step-by-step Thai lessons, finish each learning phase, and pass scored practice to unlock what comes next."
+		content="Move through the Thai reading course one unlocked stage at a time."
 	/>
-	<meta name="glyphbridge-publication-id" content={publication.publicationId} />
-	<meta name="glyphbridge-publication-cache-key" content={publication.publicationCacheKey} />
+	<meta name="glyphbridge-publication-id" content={data.publication.publicationId} />
+	<meta name="glyphbridge-publication-cache-key" content={data.publication.publicationCacheKey} />
 </svelte:head>
 
 <PageShell class="learn">
-	<div class="lessons-grid">
-		{#each lessons as lesson}
-			{@const hydratedLessonState = hasHydratedProgress
-				? getLessonJourneyState($progress, lesson.id)
-				: null}
-			<Reveal as="div" delay={40 + (lesson.stage - 1) * 55} distance={16}>
-				<article class={getLessonCardClasses(hydratedLessonState)}>
-					<div class="lesson-card__header">
-						<Badge>Stage {lesson.stage}</Badge>
-						{#if hydratedLessonState?.practicePassed}
-							<Badge tone="success">Passed</Badge>
-						{:else if hydratedLessonState?.practiceUnlocked}
-							<Badge tone="accent">Practice Ready</Badge>
-						{:else if hydratedLessonState?.isCurrent}
-							<Badge tone="accent">Current</Badge>
-						{/if}
-					</div>
+	<header class="learn__header">
+		<div class="learn__heading">
+			<Heading as="h1">Your Thai course</Heading>
+		</div>
+		<p>Focus on the stage in front of you. The rest will open as you go.</p>
+	</header>
 
-					<div class="lesson-card__word thai">{lesson.anchorWord.thai}</div>
-					<h3>{lesson.title}</h3>
-					<p class="lesson-card__meaning">{lesson.anchorWord.meaning}</p>
+	<CourseStageJourney {journey} showLessons>
+		{#snippet lessonCard(entry)}
+			<article class={getLessonCardClasses(entry)}>
+				<div class="lesson-card__header">
+					<Badge>Lesson {entry.lesson.id}</Badge>
+					{#if entry.practicePassed}
+						<Badge tone="success">Passed</Badge>
+					{:else if entry.practiceUnlocked}
+						<Badge tone="accent">Practice Ready</Badge>
+					{:else if entry.isCurrent}
+						<Badge tone="accent">Current</Badge>
+					{/if}
+				</div>
 
-					<div class="lesson-card__new-letters">
-						{#each lesson.newLetters as letter}
-							<span class="letter-chip thai thai--sm">{letter.character}</span>
-						{/each}
-					</div>
+				<div class="lesson-card__word thai">{entry.lesson.anchorWord.thai}</div>
+				<h3>{entry.lesson.title}</h3>
+				<p class="lesson-card__meaning">{entry.lesson.anchorWord.meaning}</p>
 
-					<p class="lesson-card__status">{getStatusCopy(hydratedLessonState)}</p>
+				<div class="lesson-card__new-letters">
+					{#each entry.lesson.newLetters as letter}
+						<span class="letter-chip thai thai--sm">{letter.character}</span>
+					{/each}
+				</div>
 
-					<div class="lesson-card__actions">
-						<Button
-							href={hydratedLessonState === null || hydratedLessonState.learnUnlocked
-								? `/learn/${lesson.id}`
-								: undefined}
-							variant="primary"
-							disabled={hydratedLessonState !== null &&
-								!hydratedLessonState.learnUnlocked}
-						>
-							{hydratedLessonState?.learningCompleted ? "Learn Again" : "Learn"}
-						</Button>
-						<Button
-							href={hydratedLessonState?.practiceUnlocked
-								? `/learn/${lesson.id}/practice`
-								: undefined}
-							variant="secondary"
-							disabled={!hydratedLessonState?.practiceUnlocked}
-						>
-							Practice
-						</Button>
-					</div>
-				</article>
-			</Reveal>
-		{/each}
-	</div>
+				<p class="lesson-card__status">{getStatusCopy(entry)}</p>
+
+				<div class="lesson-card__actions">
+					<Button
+						href={entry.learnUnlocked ? `/learn/${entry.lesson.id}` : undefined}
+						variant="primary"
+						disabled={!entry.learnUnlocked}
+					>
+						{entry.learningCompleted ? "Learn Again" : "Learn"}
+					</Button>
+					<Button
+						href={entry.practiceUnlocked
+							? `/learn/${entry.lesson.id}/practice`
+							: undefined}
+						variant="secondary"
+						disabled={!entry.practiceUnlocked}
+					>
+						Practice
+					</Button>
+				</div>
+			</article>
+		{/snippet}
+	</CourseStageJourney>
 </PageShell>
 
 <style lang="scss">
-	.lessons-grid {
-		display: grid;
-		gap: $space-md;
-		grid-template-columns: repeat(2, 1fr);
+	.learn {
+		&__header {
+			display: grid;
+			gap: $space-sm;
+			margin-bottom: $space-2xl;
+			max-width: 48rem;
+
+			p {
+				color: var(--color-text-muted);
+				font-size: $font-size-lg;
+				margin: 0;
+			}
+		}
+
+		&__heading {
+			--heading-margin-bottom: 0;
+		}
 	}
 
 	.lesson-card {
-		background: var(--surface-panel);
+		background: var(--color-surface-card);
 		border: 1px solid var(--color-border);
+		border-radius: $radius-lg;
 		display: grid;
 		gap: $space-sm;
 		padding: $space-lg;
-		transition:
+		@include motion-safe-transition(
 			border-color $transition-base,
 			box-shadow $transition-base,
 			transform $transition-base,
-			opacity $transition-fast;
+			opacity $transition-fast
+		);
 
 		&:hover {
 			transform: translateY(-2px);
@@ -156,7 +170,7 @@
 		}
 
 		&--locked {
-			opacity: 0.7;
+			opacity: 0.65;
 		}
 
 		&__header,
@@ -176,6 +190,12 @@
 			line-height: 1.25;
 		}
 
+		h3,
+		&__meaning,
+		&__status {
+			margin: 0;
+		}
+
 		&__meaning,
 		&__status {
 			color: var(--color-text-muted);
@@ -188,7 +208,6 @@
 		}
 
 		&__status {
-			margin: 0;
 			min-height: 2.8rem;
 		}
 
@@ -196,7 +215,7 @@
 			margin-top: auto;
 
 			:global(.btn) {
-				flex: 1 1 11rem;
+				flex: 1 1 8rem;
 			}
 		}
 	}
@@ -210,17 +229,5 @@
 		height: 36px;
 		justify-content: center;
 		width: 36px;
-	}
-
-	@media (min-width: $bp-lg) {
-		.lessons-grid {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-
-	@media (max-width: $bp-sm) {
-		.lessons-grid {
-			grid-template-columns: 1fr;
-		}
 	}
 </style>

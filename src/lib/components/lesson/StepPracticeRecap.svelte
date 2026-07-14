@@ -1,6 +1,8 @@
 <script lang="ts">
+	import SelfCheckCard from "$lib/components/exercises/SelfCheckCard.svelte";
 	import StepLayout from "$lib/components/lesson/StepLayout.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
+	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import type { LessonVocabularyEntry } from "$lib/data/types";
 
 	let {
@@ -12,18 +14,16 @@
 	} = $props();
 
 	let revealedIndexes = $state<number[]>([]);
+	const allRevealed = $derived(revealedIndexes.length === entries.length);
 
-	function isRevealed(index: number) {
+	function isRevealed(index: number): boolean {
 		return revealedIndexes.includes(index);
 	}
 
-	function toggle(index: number) {
-		if (isRevealed(index)) {
-			revealedIndexes = revealedIndexes.filter((item) => item !== index);
-			return;
+	function reveal(index: number) {
+		if (!isRevealed(index)) {
+			revealedIndexes = [...revealedIndexes, index];
 		}
-
-		revealedIndexes = [...revealedIndexes, index];
 	}
 </script>
 
@@ -31,96 +31,37 @@
 	<section class="practice-recap surface-panel surface-panel--sky">
 		<div class="practice-recap__grid">
 			{#each entries as entry, index}
-				<button
-					type="button"
-					class={[
-						"practice-recap__card",
-						{ "practice-recap__card--revealed": isRevealed(index) },
-					]}
-					aria-pressed={isRevealed(index)}
-					onclick={() => toggle(index)}
-				>
-					<span class="practice-recap__thai thai">{entry.word.thai}</span>
-					{#if isRevealed(index)}
-						<span class="practice-recap__meta">{entry.word.pronunciation}</span>
-						<span class="practice-recap__meta">{entry.word.meaning}</span>
-					{:else}
-						<span class="practice-recap__hint">Reveal</span>
-					{/if}
-				</button>
+				<SelfCheckCard
+					{entry}
+					revealed={isRevealed(index)}
+					size="compact"
+					onReveal={() => reveal(index)}
+				/>
 			{/each}
 		</div>
 	</section>
 
-	<Button variant="primary" size="large" fullWidth={true} onclick={onComplete}>
-		Start the scored check
-	</Button>
+	{#if allRevealed}
+		<Button variant="primary" size="large" fullWidth={true} onclick={onComplete}>
+			<ButtonForwardLabel label="Start the scored check" />
+		</Button>
+	{/if}
 </StepLayout>
 
 <style lang="scss">
 	.practice-recap {
-		display: grid;
-		gap: clamp(#{$space-lg}, 3vw, #{$space-2xl});
 		padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
 
-		.practice-recap__grid {
+		&__grid {
 			display: grid;
 			gap: $space-md;
 			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-
-		.practice-recap__card {
-			align-content: center;
-			background: var(--color-surface-card);
-			border: 1px solid var(--color-border-strong);
-			border-radius: $radius-lg;
-			display: grid;
-			gap: $space-xs;
-			min-height: 9.5rem;
-			padding: $space-lg $space-md;
-			text-align: center;
-			transition:
-				border-color $transition-base,
-				box-shadow $transition-base,
-				transform $transition-base;
-
-			&:hover {
-				border-color: var(--color-primary);
-				box-shadow: var(--shadow-card-hover);
-				transform: translateY(-2px);
-			}
-
-			&.practice-recap__card--revealed {
-				background: rgb(var(--rgb-primary) / 0.05);
-				border-color: rgb(var(--rgb-primary) / 0.38);
-			}
-		}
-
-		.practice-recap__thai {
-			color: var(--color-primary-strong);
-			font-size: clamp(1.75rem, 4vw, 2.3rem);
-			font-weight: 800;
-			line-height: 1.08;
-		}
-
-		.practice-recap__meta {
-			color: var(--color-text-muted);
-			font-size: $font-size-sm;
-			font-weight: 700;
-		}
-
-		.practice-recap__hint {
-			color: var(--color-text-soft);
-			font-size: $font-size-xs;
-			font-weight: 800;
-			letter-spacing: 0.08em;
-			text-transform: uppercase;
 		}
 	}
 
 	@media (max-width: $bp-sm) {
 		.practice-recap {
-			.practice-recap__grid {
+			&__grid {
 				grid-template-columns: 1fr;
 			}
 		}

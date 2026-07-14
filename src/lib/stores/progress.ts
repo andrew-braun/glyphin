@@ -1,11 +1,16 @@
 import { derived, type Unsubscriber, writable } from "svelte/store";
 
+import {
+	buildCourseJourney,
+	countsAsKnownWord,
+	type CourseJourneyLesson,
+	type CourseResumeTarget,
+} from "$lib/data/course-journey";
 import type { LearnerProjection } from "$lib/data/learner";
 import { thaiPack } from "$lib/data/thai";
 import type {
 	AppProgress,
 	LessonProgress,
-	LessonVocabularyEntry,
 	ProgressSnapshot,
 	ProgressSnapshotV3,
 	Word,
@@ -18,24 +23,9 @@ export const PRACTICE_PASS_PERCENT = 60;
 
 export type LessonJourneyPhase = "learn" | "practice" | "review";
 
-export type LessonJourneyState = {
-	lessonId: number;
-	learnUnlocked: boolean;
-	practiceUnlocked: boolean;
-	learningCompleted: boolean;
-	practicePassed: boolean;
-	practiceAttempts: number;
-	bestPracticeScore?: number;
-	latestPracticeScore?: number;
-	isCurrent: boolean;
-	currentPhase: Exclude<LessonJourneyPhase, "review"> | null;
-};
+export type LessonJourneyState = Omit<CourseJourneyLesson, "lesson"> & { lessonId: number };
 
-export type ResumeTarget = {
-	lessonId: number | null;
-	phase: LessonJourneyPhase;
-	href: string;
-};
+export type ResumeTarget = CourseResumeTarget;
 
 export type LessonPracticeAttemptResult = {
 	completedAt: string;
@@ -52,10 +42,6 @@ const lessonById = new Map(lessons.map((lesson) => [lesson.id, lesson]));
 const knownLetterCharacters = new Set(
 	lessons.flatMap((lesson) => lesson.newLetters.map((letter) => letter.character)),
 );
-
-function countsAsKnownWord(entry: LessonVocabularyEntry): boolean {
-	return entry.sourceType !== "nonsense";
-}
 
 function getCanonicalLessonWords(lessonId: number): Word[] {
 	const lesson = lessonById.get(lessonId);
@@ -329,30 +315,7 @@ function getLessonProgressEntry(
 }
 
 function summarizeResumeTarget(progressSnapshot: AppProgress): ResumeTarget {
-	for (const lessonId of lessonIds) {
-		const entry = getLessonProgressEntry(progressSnapshot.lessonProgress, lessonId);
-		if (hasPracticePassed(entry)) continue;
-
-		if (hasLearningCompleted(entry)) {
-			return {
-				lessonId,
-				phase: "practice",
-				href: `/learn/${lessonId}/practice`,
-			};
-		}
-
-		return {
-			lessonId,
-			phase: "learn",
-			href: `/learn/${lessonId}`,
-		};
-	}
-
-	return {
-		lessonId: lessonIds.length > 0 ? lastLessonId : null,
-		phase: "review",
-		href: "/practice",
-	};
+	return buildCourseJourney(thaiPack, progressSnapshot).resumeTarget;
 }
 
 function getPassedLessonCount(lessonProgress: LessonProgress[]): number {
@@ -363,38 +326,25 @@ export function getLessonJourneyState(
 	progressSnapshot: AppProgress,
 	lessonId: number,
 ): LessonJourneyState {
-	const lessonIndex = lessonIds.indexOf(lessonId);
-	const currentLessonId = getCurrentLessonIdFromProgress(progressSnapshot.lessonProgress);
-	const entry = getLessonProgressEntry(progressSnapshot.lessonProgress, lessonId);
-	const previousLessonId = lessonIndex > 0 ? lessonIds[lessonIndex - 1] : null;
-	const previousEntry =
-		previousLessonId === null
-			? undefined
-			: getLessonProgressEntry(progressSnapshot.lessonProgress, previousLessonId);
-	const learningCompleted = hasLearningCompleted(entry);
-	const practicePassed = hasPracticePassed(entry);
+	const journeyLesson = buildCourseJourney(thaiPack, progressSnapshot)
+		.stages.flatMap((stage) => stage.lessons)
+		.find((entry) => entry.lesson.id === lessonId);
 
-	return {
-		lessonId,
-		learnUnlocked: previousLessonId === null || hasPracticePassed(previousEntry),
-		practiceUnlocked: learningCompleted,
-		learningCompleted,
-		practicePassed,
-		practiceAttempts: entry?.practiceAttempts ?? 0,
-		...(entry?.bestPracticeScore !== undefined
-			? { bestPracticeScore: entry.bestPracticeScore }
-			: {}),
-		...(entry?.latestPracticeScore !== undefined
-			? { latestPracticeScore: entry.latestPracticeScore }
-			: {}),
-		isCurrent: lessonId === currentLessonId,
-		currentPhase:
-			lessonId === currentLessonId && !practicePassed
-				? learningCompleted
-					? "practice"
-					: "learn"
-				: null,
-	};
+	if (!journeyLesson) {
+		return {
+			lessonId,
+			learnUnlocked: false,
+			practiceUnlocked: false,
+			learningCompleted: false,
+			practicePassed: false,
+			practiceAttempts: 0,
+			isCurrent: false,
+			currentPhase: null,
+		};
+	}
+
+	const { lesson, ...state } = journeyLesson;
+	return { lessonId: lesson.id, ...state };
 }
 
 export function getPracticePassCorrectCount(totalItems: number): number {
@@ -446,7 +396,10 @@ export function applyLearnerProjection(projection: LearnerProjection) {
 			);
 			const practicePassed =
 				serverLesson.status === "completed" || existing?.practicePassed === true;
-			const learningCompleted = existing?.learningCompleted === true || practicePassed;
+			const learningCompleted =
+				existing?.learningCompleted === true ||
+				practicePassed ||
+				serverLesson.attemptCount > 0;
 			const practicePassedAt = serverLesson.firstCompletedAt ?? existing?.practicePassedAt;
 			const learningCompletedAt =
 				existing?.learningCompletedAt ?? practicePassedAt ?? undefined;

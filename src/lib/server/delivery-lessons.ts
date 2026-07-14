@@ -2,12 +2,13 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { error } from "@sveltejs/kit";
 
 import { env } from "$env/dynamic/private";
-import type { Lesson } from "$lib/data/types";
+import type { CourseStage, Lesson } from "$lib/data/types";
 
 import {
 	DeliveryPayloadError,
 	mapPublishedLessonCard,
 	mapPublishedLessonPayload,
+	mapPublishedStagePayload,
 	type PublishedLessonCard,
 } from "./delivery-payload";
 
@@ -19,6 +20,11 @@ type ActivePublicationRow = {
 
 type PublicationLessonRow = {
 	lesson_ordinal: number;
+	payload: unknown;
+};
+
+type PublicationStageRow = {
+	stage_ordinal: number;
 	payload: unknown;
 };
 
@@ -75,6 +81,18 @@ function mapCard(payload: unknown): PublishedLessonCard {
 	}
 }
 
+function mapStage(payload: unknown): CourseStage {
+	try {
+		return mapPublishedStagePayload(payload);
+	} catch (mappingError) {
+		if (mappingError instanceof DeliveryPayloadError) {
+			throw error(500, mappingError.message);
+		}
+
+		throw mappingError;
+	}
+}
+
 export async function getPublishedLessonPublicationId(): Promise<string> {
 	const now = Date.now();
 	if (cachedPublicationId && now - publicationIdCachedAt < PUBLICATION_CACHE_TTL_MS) {
@@ -122,6 +140,34 @@ async function listPublicationLessons(publicationId: string): Promise<Publicatio
 	}
 
 	return data ?? [];
+}
+
+export async function getPublishedCourseStages(): Promise<CourseStage[]> {
+	const publicationId = await getPublishedLessonPublicationId();
+	const delivery = getDeliveryClient().schema("delivery");
+	const { data, error: selectError } = await delivery
+		.from("course_publication_stages")
+		.select("stage_ordinal, payload")
+		.eq("publication_id", publicationId)
+		.order("stage_ordinal", { ascending: true })
+		.returns<PublicationStageRow[]>();
+
+	if (selectError) {
+		throw error(500, "Unable to load published course stages");
+	}
+
+	if (!data || data.length === 0) {
+		throw error(503, "The active lesson publication has no course stages");
+	}
+
+	return data.map((row) => {
+		const stage = mapStage(row.payload);
+		if (stage.ordinal !== row.stage_ordinal) {
+			throw error(500, `Published stage ordinal mismatch for stage ${row.stage_ordinal}`);
+		}
+
+		return stage;
+	});
 }
 
 export async function getPublishedLessonCards(): Promise<PublishedLessonCard[]> {

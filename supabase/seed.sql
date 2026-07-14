@@ -11,7 +11,7 @@ insert into curriculum.courses (id, slug, language_code, script_system_id, name,
 values ('7bd9a3e7-a301-5ba5-a796-b90d39498730'::uuid, 'thai', 'th', '38844b82-a8c0-58b4-ad97-483b161bc4db'::uuid, 'Thai', 'ภาษาไทย', 'Learn to read Thai', 'Don''t memorize an alphabet chart. Learn real words you''ll see on streets, menus, and signs - and pick up the letters naturally.', 'Glyphin — Learn Thai Through Real Words', 'Learn to read Thai through real words, guided lesson steps, and short drills built around signs, menus, roads, and everyday language.', '{}'::jsonb, true, '2026-04-30T00:00:00+00:00'::timestamptz, '2026-04-30T00:00:00+00:00'::timestamptz);
 
 insert into curriculum.course_versions (id, course_id, version_ordinal, display_version, source_locale, status, release_title, release_summary, release_notes, content_hash, released_at, created_at)
-values ('92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, '7bd9a3e7-a301-5ba5-a796-b90d39498730'::uuid, 1, '1.0.0', 'en', 'published'::curriculum.course_version_status, 'Thai frequency-first foundation', 'First 21-lesson Thai curriculum rewrite aligned to the frequency-first sequence in approach-thai.md.', '{"source":"src/lib/data/thai.ts","conceptSource":"docs/concept/approach-thai.md","vocabularyModel":"anchor-plus-practice"}'::jsonb, '7a6bae5879a90ff97912a063cb4a6ec28acf323e13b7f19ff065f9003fc2d6f8', '2026-04-30T00:00:00+00:00'::timestamptz, '2026-04-30T00:00:00+00:00'::timestamptz);
+values ('92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, '7bd9a3e7-a301-5ba5-a796-b90d39498730'::uuid, 1, '1.0.0', 'en', 'published'::curriculum.course_version_status, 'Thai frequency-first foundation', 'First 21-lesson Thai curriculum rewrite aligned to the frequency-first sequence in approach-thai.md.', '{"source":"src/lib/data/thai.ts","conceptSource":"docs/concept/approach-thai.md","vocabularyModel":"anchor-plus-practice"}'::jsonb, 'fb87bc8c975bc20b2090f12b016c0cda0373477fce4527d2e6fe0863cae26954', '2026-04-30T00:00:00+00:00'::timestamptz, '2026-04-30T00:00:00+00:00'::timestamptz);
 
 update curriculum.courses
 set current_published_version_id = '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid,
@@ -245,6 +245,31 @@ values
   ('cc05fef4-edd2-5152-ae1b-11d7a9ca3b3c'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 'letter-type-numeral', 'Thai numeral', 'Thai has its own set of digits (๐–๙) that work exactly like 0–9. You''ll still see Arabic numerals everywhere in Thailand, but Thai numerals appear on signs, prices, documents, and license plates, so it''s worth being able to read both.', 'popover', '[]'::jsonb, '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
   ('b02b5a9b-cb9e-5c1f-a398-122a917eb968'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 'letter-type-mark', 'Written mark', 'This is a written symbol that isn''t a consonant, vowel, or tone mark. Thai uses a few of these — for example ๆ repeats the preceding word, and ์ silences the consonant it sits above. Each one changes how you read the syllable rather than adding a sound of its own.', 'popover', '[]'::jsonb, '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
   ('012f7a10-4d51-547b-a575-429ba601b104'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 'vowel-position', 'Vowel position', 'Thai vowels don''t always sit where you expect. This vowel is written in a specific spot relative to its consonant — but when you read a word, you still pronounce the consonant first, then the vowel sound, regardless of visual position.', 'popover', '[]'::jsonb, '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz);
+
+insert into curriculum.course_stages (
+  id,
+  course_version_id,
+  stage_ordinal,
+  title,
+  summary,
+  metadata,
+  created_at
+)
+values
+  ('74d11ee1-218b-51e9-ab29-6dbe07e9c8b2'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 1, 'Runtime First Decoding Wins', 'Decode useful everyday words with the first consonants and vowels.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('4ac2338d-3f96-5baa-a31c-eda9d651530e'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 2, 'Markets And Reusable Frames', 'Reuse familiar reading patterns in market and movement words.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('e4ad5ecf-d58f-5ede-a973-01e0b92790f3'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 3, 'Before Vowels And Tone Marks', 'Scan left and above the consonant before sounding out a word.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('3823ebb1-da4a-53a7-a55d-5f5346ea2a3e'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 4, 'Menu Combos And Prices', 'Read compact menu combinations, price words, and clipped final sounds.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('37279a53-acc3-5a5b-ad8d-39737cb6b2f7'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 5, 'Survival Food Words And Carriers', 'Recognize food words, silent carriers, and leading-H patterns.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('ec699459-a41d-5aae-abc0-d7106e3ce687'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 6, 'High-Frequency Consonants And The Leading-Vowel System', 'Use common consonants and leading vowels across signs and labels.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('7b86bf98-878f-5c9d-a251-76cfbab7b835'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 7, 'Remaining Core Consonants And Wrap-Around Vowels', 'Read high-frequency consonants inside wrap-around vowel shapes.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('4c787b53-c686-52d2-a144-795949dfcfb0'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 8, 'Sibilant/Fricative Completion And Above-Line Vowels', 'Complete common sound pairs and scan vowels written above the line.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('7697da28-81f4-5a7e-a43d-dc005f18480c'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 9, 'Diphthongs, Glide Finals, And True Clusters', 'Join multi-part vowels, glide endings, and consonant clusters.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('45eea383-7c9c-555e-adfb-e811da6fb271'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 10, 'The Full Tone System And Spelling Marks', 'Combine consonant class, tone marks, and spelling marks with confidence.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('3035a18b-ecf8-57bc-a7ea-271526875a20'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 11, 'Numerals And Abbreviations', 'Read Thai prices, addresses, numerals, and common abbreviations.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('494ebd25-bfd7-54bc-aeed-d6f1e40bc82b'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 12, 'Remaining Live Consonants', 'Recognize the remaining consonants used in modern everyday Thai.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('80ea2c46-f67a-5966-aa30-d679fec8c4da'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 13, 'Redundant Sanskrit/Pali Glyphs', 'Map rarer formal glyphs onto sounds you already know.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('f40ee14f-98ad-5956-a0ca-9f6aafd45d18'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 14, 'Historical Glyphs', 'Recognize obsolete characters without treating them as modern reading targets.', '{}'::jsonb, '2026-04-30T00:00:00+00:00'::timestamptz);
 
 insert into curriculum.lessons (
   id,
@@ -4279,7 +4304,32 @@ values
   ('7a7728f1-ad4d-565b-a8ce-96abcf166817'::uuid, 'ad7a0ea5-5079-5a56-a5ce-31254eb858c6'::uuid, 5);
 
 insert into delivery.course_publications (id, course_version_id, manifest_hash, is_active, created_at)
-values ('05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, 'f7a19f5dbc0982fed58df6bb590545ef9954f482dc7712b816f0f3eaee8ca89e', true, '2026-04-30T00:00:00+00:00'::timestamptz);
+values ('05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '92c6b63e-6aab-5f26-af3d-30738bdaaf37'::uuid, '4f60605301e2e9871da849921e2a70ce96115a7488e810a9ed3dab096ac3494d', true, '2026-04-30T00:00:00+00:00'::timestamptz);
+
+insert into delivery.course_publication_stages (
+  id,
+  publication_id,
+  course_stage_id,
+  stage_ordinal,
+  payload,
+  payload_hash,
+  created_at
+)
+values
+  ('3a4ef18f-b8a7-514c-a483-1fb183183336'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '74d11ee1-218b-51e9-ab29-6dbe07e9c8b2'::uuid, 1, '{"ordinal":1,"title":"Runtime First Decoding Wins","summary":"Decode useful everyday words with the first consonants and vowels."}'::jsonb, '8da77b800731c9c78bd602a286770a3231ce951f0d622cf5bc5074628258bb9a', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('21430ae0-2ffd-5c98-aca4-5b88b9d4cb88'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '4ac2338d-3f96-5baa-a31c-eda9d651530e'::uuid, 2, '{"ordinal":2,"title":"Markets And Reusable Frames","summary":"Reuse familiar reading patterns in market and movement words."}'::jsonb, '160adcb5eda933b2b2c1b1051657fba5aefc82d1a383f68dcf3599a8ccb9ec2a', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('8a50d842-edd5-584b-aa47-44c44aa43193'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, 'e4ad5ecf-d58f-5ede-a973-01e0b92790f3'::uuid, 3, '{"ordinal":3,"title":"Before Vowels And Tone Marks","summary":"Scan left and above the consonant before sounding out a word."}'::jsonb, 'ce3ebf7f0703947cdc5049dab4e3db2bc2ae9987fa3a912b252d83527031168f', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('b2691137-693c-5adf-a67e-e6184dc7c279'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '3823ebb1-da4a-53a7-a55d-5f5346ea2a3e'::uuid, 4, '{"ordinal":4,"title":"Menu Combos And Prices","summary":"Read compact menu combinations, price words, and clipped final sounds."}'::jsonb, '59b573235b59bdebb907e0865fbd4068507791202435ae1c7c7691e04b549a91', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('f6999f65-fb1a-5952-a514-51ebc0a5ccd1'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '37279a53-acc3-5a5b-ad8d-39737cb6b2f7'::uuid, 5, '{"ordinal":5,"title":"Survival Food Words And Carriers","summary":"Recognize food words, silent carriers, and leading-H patterns."}'::jsonb, '9b63f3008c7c58febf7d07faeb8db585a55427a590d28682083ae2f26a243748', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('db8cd428-5e83-50db-a841-16b0fac34fd6'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, 'ec699459-a41d-5aae-abc0-d7106e3ce687'::uuid, 6, '{"ordinal":6,"title":"High-Frequency Consonants And The Leading-Vowel System","summary":"Use common consonants and leading vowels across signs and labels."}'::jsonb, '970abaac80217a97251123fff7af02f57046ec7357e59b3cfdf8d68da6a65461', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('ec612da5-e631-57cc-a7b3-a8e0f2910f49'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '7b86bf98-878f-5c9d-a251-76cfbab7b835'::uuid, 7, '{"ordinal":7,"title":"Remaining Core Consonants And Wrap-Around Vowels","summary":"Read high-frequency consonants inside wrap-around vowel shapes."}'::jsonb, '889d974aec72234be5d9cd7ae024c3fc4aad5f7ab20f12fe5f0c26d21c86fcb8', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('618de2a3-eae1-52af-aa4e-c34b2272e1f0'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '4c787b53-c686-52d2-a144-795949dfcfb0'::uuid, 8, '{"ordinal":8,"title":"Sibilant/Fricative Completion And Above-Line Vowels","summary":"Complete common sound pairs and scan vowels written above the line."}'::jsonb, '33c83fa9b2ccba6b0df84908349462f215c8f4220ca9a60af045bdaba268247c', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('0704549e-a98b-5c36-ae62-83296d94845a'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '7697da28-81f4-5a7e-a43d-dc005f18480c'::uuid, 9, '{"ordinal":9,"title":"Diphthongs, Glide Finals, And True Clusters","summary":"Join multi-part vowels, glide endings, and consonant clusters."}'::jsonb, '31ca52f7c94a3396673b49c109d0c0d6be8925ccbff131fb6384988b6984d73f', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('b535be58-774a-5893-acd3-ba2c4f98d7da'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '45eea383-7c9c-555e-adfb-e811da6fb271'::uuid, 10, '{"ordinal":10,"title":"The Full Tone System And Spelling Marks","summary":"Combine consonant class, tone marks, and spelling marks with confidence."}'::jsonb, '69f179420bcad53cc410e4bb72cbcee286c3ef2ed1e023c712115a25b3ea35ad', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('11789171-66bc-549d-a0c2-d87fcc23ed74'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '3035a18b-ecf8-57bc-a7ea-271526875a20'::uuid, 11, '{"ordinal":11,"title":"Numerals And Abbreviations","summary":"Read Thai prices, addresses, numerals, and common abbreviations."}'::jsonb, 'a6e3f8414d77dbbc3ec8c4dff154efb0ccce1d355abd1b186e6891a4c7900443', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('8ef95c54-d2ef-5299-aba4-d84e0fc02628'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '494ebd25-bfd7-54bc-aeed-d6f1e40bc82b'::uuid, 12, '{"ordinal":12,"title":"Remaining Live Consonants","summary":"Recognize the remaining consonants used in modern everyday Thai."}'::jsonb, 'f85b8d65aac9fc45e3d42f82f32f96e33316cb396f5fa120dca4628535d4daac', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('f7b061bf-e751-5c2f-aa33-b17cb27660d6'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, '80ea2c46-f67a-5966-aa30-d679fec8c4da'::uuid, 13, '{"ordinal":13,"title":"Redundant Sanskrit/Pali Glyphs","summary":"Map rarer formal glyphs onto sounds you already know."}'::jsonb, '55348482c11da924dc82d41a36271ddfb56fe7dfa8bed511fbaee4aa6da4f72b', '2026-04-30T00:00:00+00:00'::timestamptz),
+  ('750f633b-760d-5469-a1fc-11bd2c5790fd'::uuid, '05ef7f1d-533e-5a74-afe1-17d35390fa15'::uuid, 'f40ee14f-98ad-5956-a0ca-9f6aafd45d18'::uuid, 14, '{"ordinal":14,"title":"Historical Glyphs","summary":"Recognize obsolete characters without treating them as modern reading targets."}'::jsonb, '38c4172764577f8f56dcb9d39fb98b61241b1a562fdc8b7e224513c536caea02', '2026-04-30T00:00:00+00:00'::timestamptz);
 
 insert into delivery.course_publication_lessons (
   id,

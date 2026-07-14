@@ -13,7 +13,7 @@
  *   Stage 4 - Sibilants, short vowels, and price/menu language
  *   Stage 5 - High-class survival words, silent carriers, and food lexicon
  */
-import type { LanguagePack, Lesson, LessonVocabularyEntry, Word } from "./types";
+import type { CourseStage, LanguagePack, Lesson, LessonVocabularyEntry, Word } from "./types";
 
 type BaseLesson = Omit<Lesson, "vocabulary">;
 
@@ -6476,11 +6476,85 @@ const lessons: Lesson[] = baseLessons.map((lesson) => {
 	};
 });
 
+const stages: CourseStage[] = [
+	{
+		ordinal: 1,
+		title: "Runtime First Decoding Wins",
+		summary: "Decode useful everyday words with the first consonants and vowels.",
+	},
+	{
+		ordinal: 2,
+		title: "Markets And Reusable Frames",
+		summary: "Reuse familiar reading patterns in market and movement words.",
+	},
+	{
+		ordinal: 3,
+		title: "Before Vowels And Tone Marks",
+		summary: "Scan left and above the consonant before sounding out a word.",
+	},
+	{
+		ordinal: 4,
+		title: "Menu Combos And Prices",
+		summary: "Read compact menu combinations, price words, and clipped final sounds.",
+	},
+	{
+		ordinal: 5,
+		title: "Survival Food Words And Carriers",
+		summary: "Recognize food words, silent carriers, and leading-H patterns.",
+	},
+	{
+		ordinal: 6,
+		title: "High-Frequency Consonants And The Leading-Vowel System",
+		summary: "Use common consonants and leading vowels across signs and labels.",
+	},
+	{
+		ordinal: 7,
+		title: "Remaining Core Consonants And Wrap-Around Vowels",
+		summary: "Read high-frequency consonants inside wrap-around vowel shapes.",
+	},
+	{
+		ordinal: 8,
+		title: "Sibilant/Fricative Completion And Above-Line Vowels",
+		summary: "Complete common sound pairs and scan vowels written above the line.",
+	},
+	{
+		ordinal: 9,
+		title: "Diphthongs, Glide Finals, And True Clusters",
+		summary: "Join multi-part vowels, glide endings, and consonant clusters.",
+	},
+	{
+		ordinal: 10,
+		title: "The Full Tone System And Spelling Marks",
+		summary: "Combine consonant class, tone marks, and spelling marks with confidence.",
+	},
+	{
+		ordinal: 11,
+		title: "Numerals And Abbreviations",
+		summary: "Read Thai prices, addresses, numerals, and common abbreviations.",
+	},
+	{
+		ordinal: 12,
+		title: "Remaining Live Consonants",
+		summary: "Recognize the remaining consonants used in modern everyday Thai.",
+	},
+	{
+		ordinal: 13,
+		title: "Redundant Sanskrit/Pali Glyphs",
+		summary: "Map rarer formal glyphs onto sounds you already know.",
+	},
+	{
+		ordinal: 14,
+		title: "Historical Glyphs",
+		summary: "Recognize obsolete characters without treating them as modern reading targets.",
+	},
+];
+
 /** The complete Thai language pack exported for use by the app */
 export const thaiPack: LanguagePack = {
 	id: "thai",
 	name: "Thai",
 	nativeName: "ภาษาไทย",
 	direction: "ltr",
+	stages,
 	lessons,
 };

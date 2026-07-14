@@ -249,6 +249,16 @@ export interface ProgressSnapshotV3 {
 /** Current union of supported persisted progress snapshot shapes */
 export type ProgressSnapshot = ProgressSnapshotV1 | ProgressSnapshotV2 | ProgressSnapshotV3;
 
+/** A learner-facing chapter in the course journey. */
+export interface CourseStage {
+	/** One-based position in the course. */
+	ordinal: number;
+	/** Short learner-facing stage name. */
+	title: string;
+	/** One-sentence description of what the learner will be able to read. */
+	summary: string;
+}
+
 /**
  * A complete language curriculum package. The app is designed to support multiple
  * languages in the future; each language provides its own pack with lessons.
@@ -262,6 +272,8 @@ export interface LanguagePack {
 	nativeName: string;
 	/** Text direction: left-to-right or right-to-left */
 	direction: "ltr" | "rtl";
+	/** Ordered learner-facing stages used to group and progressively reveal lessons */
+	stages: CourseStage[];
 	/** The ordered sequence of lessons in this curriculum */
 	lessons: Lesson[];
 }
