@@ -459,7 +459,19 @@ with a `6/10` pass threshold for Lesson 1.
   - this avoids falsely completing lessons on the current backend contract,
     which only supports `completed: true` lesson attempts.
 
-## Next Phase: Scored Multiple-Choice Practice Cards
+## Next Phase: Scored Multiple-Choice Practice Cards — **DROPPED 2026-07-14**
+
+> **This section is superseded and will not be implemented.** Andri decided on
+> 2026-07-14 to **keep `StepPracticeCheckpoint.svelte`** and improve it in place
+> with a two-column answer grid instead of rebuilding the practice flow around
+> scored flip-cards. The replacement work is `.ai/2026-07-11-practice-answer-grid.md`;
+> the decision is recorded in `.ai/2026-07-14-backlog-clearing-plan.md` (Task 4).
+>
+> Everything **above** this line — the anchor/core/extension practice-tier
+> contract, the DB role keys, and the 10+ core-words-per-lesson rule — shipped and
+> still stands. Only the flow rework below is dropped, along with its two open
+> questions (cross-device sync of failed attempts, extension-set placement), which
+> can be reopened on their own merits if they resurface. Kept for history.
 
 ### Product Direction Captured On 2026-06-13
 

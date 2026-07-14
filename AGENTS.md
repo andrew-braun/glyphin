@@ -59,9 +59,14 @@
 
 ## Durable Documentation
 
-- Use `docs/` for durable project documents that should outlive a single task, such as security checklists, architecture notes, workflow guides, and operational references.
-- Use `.ai/` for task-scoped specs, temporary rollout plans, trackers, and backlog notes rather than long-lived reference documentation.
-- When a durable project fact is worth keeping beyond a task, move or summarize it into `docs/`.
+**Hard rule: no planning documents in `docs/`. Ever.**
+
+- `docs/` is for durable reference documentation ONLY — content that stays true and useful after the task that produced it is finished: security checklists, architecture notes, workflow guides, schema contracts, operational references.
+- Every planning artifact goes in `.ai/`, with no exceptions: implementation plans, design specs, rollout checklists, launch gates, task trackers, backlog notes, migration plans, audit follow-ups, and anything with a progress checklist in it.
+- The test is simple: **if it has checkboxes, a status line, or a "phases"/"steps" section, it is a plan — it belongs in `.ai/`.** If it describes how the system _is_ rather than what someone intends to _do_, it belongs in `docs/`.
+- This applies regardless of which tool or agent generated the document. Plans produced by any external skill, generator, or workflow must land in `.ai/` — do not let a tool's default output path put a plan under `docs/`. If a tool writes one there, move it in the same change.
+- Never create nested plan directories under `docs/` (no `docs/plans/`, no `docs/specs/`, no tool-named subfolders). A `docs/superpowers/` tree accumulated eight such files before the 2026-07-14 audit caught it; do not recreate that pattern under any name.
+- When a durable project fact emerges from a task, move or summarize it into `docs/` — carry the fact across, not the plan.
 - For database and Supabase work, start with `docs/db.md` and use `docs/database-dto-spec.md` for the exact schema and DTO contract.
 
 ## Architecture Map

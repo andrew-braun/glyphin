@@ -2,10 +2,14 @@
 
 - Start date: 2026-06-28
 - Owner: Codex
-- Status: in progress — all 46 lessons authored (Waves 1-5 done); only
-  publish gates remain (review packet refresh, `pnpm db:reset`, delivery
-  smoke, curriculum validate, build). Alpha-blocking: this must finish before
-  the Thai-only alpha launch.
+- Status: in progress — all 46 lessons authored (Waves 1-5 done) **and
+  published**. Corrected 2026-07-14: the publish gates below were listed as
+  unchecked but the evidence says they ran — `.generated` holds all 46 lessons
+  (regenerated 2026-07-12) and the production Supabase project verified 46
+  lessons / 418 vocabulary items / 46 delivery bundles. The content is live at
+  `glyphin.app`. **The only real remaining gate is the Thai-speaker/corpus review
+  of L22-46**, which needs a human reviewer and has no owner yet. Tracked in
+  `.ai/2026-07-14-backlog-clearing-plan.md` (Task 5).
 
 ## Goal
 
@@ -85,12 +89,18 @@ course to 46 lessons across 14 stages.
       the deferred native-speaker/corpus review gate. Scored-results note added
       to `lesson-sequence.md` (before the Stage 7 table).
 - [ ] Refresh review packet with `pnpm curriculum:review docs/curriculum/thai-reading-v1 --force`
-- [ ] Run `pnpm db:reset` (REQUIRED to publish: the app serves lessons from the
-      `.generated` publication artifact, which still holds only 21 lessons until reset
-      regenerates it from the new seed; needs local Supabase running)
-- [ ] Run `pnpm db:smoke:delivery` (needs local Supabase env)
-- [ ] Run `pnpm curriculum:validate docs/curriculum/thai-reading-v1/manifest.json`
-- [ ] Run `pnpm build`
+- [x] Publish the 46-lesson artifact (2026-07-12). The `.generated` publication
+      artifact now holds all 46 lessons (`publicationId`
+      `05ef7f1d-533e-5a74-afe1-17d35390fa15`, generated 2026-07-12), and the
+      production DB bootstrap seeded and verified 46 lessons / 418 vocabulary
+      items / 46 delivery bundles. Superseded the local-`db:reset` framing: the
+      artifact was regenerated as part of the Cloudflare production bootstrap.
+- [x] Run `pnpm build` — ran clean against the production Supabase project during
+      Cloudflare Step 8, emitting all 46 prerendered `/learn/<id>` routes.
+- [ ] Re-run `pnpm db:smoke:delivery` and
+      `pnpm curriculum:validate docs/curriculum/thai-reading-v1/manifest.json` to
+      confirm. These two were never explicitly recorded as run, unlike the publish
+      and build above — treat them as unverified rather than done.
 
 ## Authoring Decisions (2026-07-05 full fill-in pass)
 

@@ -109,7 +109,7 @@ authenticated`. `internal_api.sync_lesson_attempt_batch` had likely regained
       (`consumeRateLimitToken(key, { capacity, refillPerSecond }, now?)`) with an
       opportunistic idle-bucket sweep for bounded memory. The sync endpoint keys
       it by `learner-sync:${user.id}` (after auth) at `capacity: 12,
-    refillPerSecond: 0.2` (~12/min sustained, burst 12) and returns 429 +
+refillPerSecond: 0.2` (~12/min sustained, burst 12) and returns 429 +
       `Retry-After` when exceeded. Safe by construction: the client batches all
       pending attempts into one POST and, on any non-OK response, keeps them
       queued and retries on the next flush, so a 429 never drops data or causes a
@@ -142,19 +142,23 @@ authenticated`. `internal_api.sync_lesson_attempt_batch` had likely regained
 
 See also `.ai/2026-06-27-cloudflare-alpha-deployment-plan.md`.
 
+Status corrected 2026-07-14 against the shipped deployment — several of these
+landed during the Cloudflare rollout but were never ticked here.
+
 - [ ] **Enforce SSL** on the hosted DB (Dashboard → Database → Settings → SSL).
-- [ ] **Mirror OTP expiry = 1200s** in the hosted auth settings.
+- [x] **Mirror OTP expiry = 1200s** in the hosted auth settings. Done during the
+      Cloudflare rollout (2026-07-12).
 - [ ] **Adopt publishable/secret API keys**; use publishable for delivery+auth
       clients; disable legacy JWT `anon`/`service_role` after cutover (audit #6).
-- [ ] **Turnstile CAPTCHA on OTP initiation** (audit #2) — _deferred, post-launch._
-      Cloudflare Turnstile fits the hosting. `requestCode` uses
-      `shouldCreateUser: true` with no captcha today → email enumeration /
-      email-bombing risk. Wire `[auth.captcha]` (provider = turnstile) + client
-      token before opening signup broadly.
-- [ ] **Tune hosted auth rate limits** + wire real SMTP (built-in email is
-      throttled and not for prod) — already noted in `docs/auth.md`.
-- [ ] **Leave network restrictions allow-all** per decision above; revisit only
-      with a static egress range.
+- [x] **Turnstile CAPTCHA on OTP initiation** (audit #2). Logged here as
+      "deferred, post-launch" but it actually **shipped** with the deploy
+      (`0bef72a`) and is live on `/auth`. Note for future config work: the
+      Turnstile secret must be set as a Cloudflare **Secret**, not a plain Text
+      var — a plain var gets wiped by each deploy.
+- [x] **Tune hosted auth rate limits** + wire real SMTP. Done — Resend SMTP is
+      configured and the hosted rate limits were tuned during the rollout.
+- [x] **Leave network restrictions allow-all** per decision above; revisit only
+      with a static egress range. (Decision, no action needed.)
 
 ### Flagged for review (not yet a task)
 
@@ -173,13 +177,14 @@ See also `.ai/2026-06-27-cloudflare-alpha-deployment-plan.md`.
 
 ## Follow-Up
 
-- **Cloudflare cutover: replace the in-memory rate limiter's store.**
-  `src/lib/server/rate-limit.ts` keeps bucket state in process memory, which is
-  correct for `adapter-node` but not for Workers isolates (no shared memory →
-  the limit only applies per-isolate and is easily bypassed). Swap the store for
-  a Durable Object, Workers KV, or Cloudflare's Rate Limiting binding; keep
-  `consumeRateLimitToken`'s signature so `/api/learner/sync` does not change.
-  Cross-referenced in `.ai/2026-06-27-cloudflare-alpha-deployment-plan.md`.
+- [x] **Cloudflare cutover: replace the in-memory rate limiter's store.** **Done**
+      (verified 2026-07-14). `wrangler.jsonc` declares the
+      `LEARNER_SYNC_RATE_LIMITER` Rate Limiting binding (12 requests / 60s) and
+      `src/lib/server/rate-limit.ts` reads it from
+      `getRequestEvent().platform.env`, falling back to the in-memory token bucket
+      only for local dev where the binding is unavailable.
+      `consumeRateLimitToken`'s signature is unchanged, so `/api/learner/sync` did
+      not have to change. The per-isolate bypass concern is resolved.
 - Re-run `docs/security-review-checklist.md` before hosted deploy.
 - After the phase-3 migration lands, re-run `supabase db advisors` and confirm no
   new lints.

@@ -2,7 +2,13 @@
 
 - Start date: 2026-07-08
 - Owner: Claude
-- Status: in progress
+- Status: **done — archived 2026-07-14.** Every implementing item shipped. The
+  last open item (`LearnerHomeHub.svelte` unused) resolved itself: the component
+  no longer exists in the tree. The one deliberately-unimplemented item — the
+  Tier 2 #5 bundle-slimming plan below — is the same problem as
+  `.ai/2026-04-30-db-single-source-of-truth.md` and is carried forward there via
+  `.ai/2026-07-14-backlog-clearing-plan.md` (Task 6). Keep this file as the
+  reference for the bundle analysis.
 - Source: pre-alpha audit (curriculum, UI, animation, CSS, perf, architecture)
 
 ## Scope (this task)
@@ -56,8 +62,8 @@ tracked separately and out of scope here.
 
 ### Still open
 
-- [ ] **`LearnerHomeHub.svelte` is unused.** Delete or wire up (out of scope for
-      this pass).
+- [x] **`LearnerHomeHub.svelte` is unused.** Resolved — the component has since
+      been deleted; it is no longer anywhere in `src/`. (Verified 2026-07-14.)
 
 ## Bundle-slimming plan (Tier 2 #5)
 

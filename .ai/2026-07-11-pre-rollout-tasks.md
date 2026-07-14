@@ -34,10 +34,10 @@ References: `docs/auth.md`,
 ### Security And Dependency Readiness
 
 - [ ] Complete the
-      [security headers implementation plan](../docs/superpowers/plans/2026-07-11-security-headers.md).
+      [security headers implementation plan](./2026-07-11-security-headers.md).
       Verify headers on both prerendered assets and Worker-rendered responses.
 - [ ] Complete the
-      [dependency refresh plan](../docs/superpowers/plans/2026-07-11-dependency-refresh.md).
+      [dependency refresh plan](./2026-07-11-dependency-refresh-full.md).
       Release evidence must include clean production and development audits, or
       a documented and time-bounded acceptance for every remaining advisory.
       Resume note 2026-07-11: install plus focused lint/type/style checks pass;
@@ -52,9 +52,9 @@ References: `docs/auth.md`,
       first. Neither plan below turns on server rendering, so their metadata
       work has no crawler-visible effect on those two routes until this lands.
 - [ ] Complete the
-      [site-wide SEO foundation plan](../docs/superpowers/plans/2026-07-11-seo-foundation.md).
+      [site-wide SEO foundation plan](./2026-07-11-seo-foundation.md).
 - [ ] Complete the
-      [search indexing readiness plan](../docs/superpowers/plans/2026-07-11-search-indexing-readiness.md).
+      [search indexing readiness plan](./2026-07-11-search-indexing-readiness.md).
       Webmaster-tool submission may happen immediately after the production
       domain becomes live, but sitemap, robots, canonical, and indexability
       behavior must be ready before deploy.
@@ -92,5 +92,5 @@ a separate implementation project.
       hosted Supabase and Cloudflare findings, assign owners to residual risks,
       and schedule the next review.
 - [ ] Execute the
-      [automated test suites plan](../docs/superpowers/plans/2026-07-11-automated-test-suites.md)
+      [automated test suites plan](./2026-07-11-automated-test-suites.md)
       in stages, beginning with pure utilities and server input validation.

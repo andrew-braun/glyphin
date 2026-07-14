@@ -1,6 +1,18 @@
 # Cloudflare Workers Alpha Deployment Plan
 
-- Status: as of 2026-07-12, Supabase production bootstrap is complete and
+- Status: **done — archived 2026-07-14.** The deployment shipped: the app is live
+  at `https://glyphin.app` on Cloudflare Workers with `@sveltejs/adapter-cloudflare`,
+  `wrangler.jsonc`, the production Supabase project, Resend SMTP, and Turnstile.
+  The `LEARNER_SYNC_RATE_LIMITER` Rate Limiting binding is wired and
+  `src/lib/server/rate-limit.ts` uses it (in-memory fallback for local dev only),
+  which also closes the rate-limiter follow-up in
+  `.ai/2026-07-11-db-security-hardening.md`. **One residual item, carried to
+  `.ai/2026-07-14-backlog-clearing-plan.md` (Task 3):** the authenticated Step 11
+  smoke checks (real OTP sign-in through Turnstile, lesson-completion sync
+  persistence, sign-out, cookie attributes) still need a human — they require
+  solving a live captcha and receiving real email. Historical detail below.
+
+- Status at pause (2026-07-12): Supabase production bootstrap is complete and
   verified, the SvelteKit app is Worker-compatible (committed), local
   validation (Step 8) passed end-to-end, and Cloudflare Workers Builds is
   deploying the `glyphin` Worker from `main` (Step 9;

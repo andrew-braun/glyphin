@@ -1,65 +1,66 @@
 # Backlog
 
-Last audited: 2026-07-08 (pre-alpha `.ai` cleanup — see git history for what
-moved to `archive/`).
+Last audited: 2026-07-14 (full `.ai` audit, verified against source and a live
+`pnpm audit` rather than tracker self-reporting).
 
-## Alpha-Blocking (Thai-only launch)
+**The working backlog now lives in
+[`.ai/2026-07-14-backlog-clearing-plan.md`](./2026-07-14-backlog-clearing-plan.md).**
+That file is the single ordered queue. This page is only a map of what is open
+and where it is tracked — do not duplicate task detail here.
 
-- Finish Thai curriculum publish gates: refresh review packet, `pnpm db:reset`,
-  `pnpm db:smoke:delivery`, `pnpm curriculum:validate`, `pnpm build`. Tracker:
-  `.ai/2026-06-28-thai-curriculum-completion.md`.
-- Thai-speaker/corpus-backed content review of L22-46 (tone marks,
-  romanization, glosses, register, segmentation, accepted weak-band anchors)
-  before final publication. Same tracker.
-- Implement the Cloudflare Workers deployment: adapter swap
-  (`adapter-node` → `adapter-cloudflare`), `wrangler.jsonc`, production
-  Supabase project, Workers Builds Git integration, custom domain, Resend
-  SMTP for auth OTP. Plan: `.ai/2026-06-27-cloudflare-alpha-deployment-plan.md`.
+## The state of things
 
-## In Progress, Not Launch-Blocking
+The app is **live at `glyphin.app`** on Cloudflare Workers with all 46 Thai
+lessons published. The launch, however, ran ahead of the trackers: three
+pre-launch gates never landed and the site shipped without them.
 
-- Practice vocabulary expansion (`.ai/2026-06-13-practice-vocabulary-expansion.md`):
-  the core practice-tier contract (anchor/core/extension, DB role keys,
-  10+ core words per lesson) has landed. The planned "Next Phase" — reworking
-  `/learn/[id]/practice` into a scored multiple-choice flip-card flow and
-  retiring `StepPracticeCheckpoint.svelte` — has not started
-  (`StepPracticeCheckpoint.svelte` still exists as of 2026-07-08). Open
-  questions in that doc (cross-device sync of failed attempts, extension-set
-  placement) are still unresolved.
+- **No security headers** (no CSP, nothing in `wrangler.jsonc` or `hooks.server.ts`).
+- **`static/robots.txt` allows crawling everything**, including `/test/**` and
+  `/auth`, which `docs/seo.md` marks `noindex`.
+- **`PageMetadata.svelte` is wired into zero routes** — the helper is built and
+  committed, just never adopted. No canonical, no `og:*`, no sitemap on the live site.
 
-- DB security hardening follow-up from the 2026-07-11 RLS audit
-  (`.ai/2026-07-11-db-security-hardening.md`): no critical holes found. MFA +
-  OTP-expiry done; a phase-3 migration (`(select auth.uid())` policies, single
-  active-publication index, drop dead JWT-claim fallback), a per-user sync rate
-  limit, and docs guardrails are ready to implement. SSL enforcement, Turnstile
-  CAPTCHA, and the new API-key model are tied to the Cloudflare hosted rollout.
+Those three are Task 1 and are the highest priority in the backlog plan.
 
-## Deferred Post-Alpha
+## Open plans
 
-- Remove remaining `thaiPack` runtime imports so the DB is the sole source of
-  truth for lesson content (`progress.ts`, `LessonList.svelte`,
-  `alphabet/+page.svelte`, `practice/+page.svelte`, `published-lessons.ts`).
-  Plan: `.ai/2026-04-30-db-single-source-of-truth.md`.
-- Service worker / PWA offline support and the IndexedDB migration for
-  learner state (only needed once offline writes/sync become a requirement).
-  Plan: `.ai/2026-04-30-caching-offline-performance.md`.
-- Replace the localStorage-backed learn-card progress overlay with a
-  server-backed learner projection once that becomes the primary auth path
-  (same plan as above).
-- Revise curriculum authoring templates and scoring conventions based on
-  pilot-review learnings from the 61-writing-system bootstrap pass
-  (`.ai/archive/2026-05-21-bulk-writing-system-bootstraps.md`).
-- Multi-course architecture: generalize the Thai-only DTO/route assumptions
-  into course-aware seams before adding a second language. See
-  `.ai/tasks/curriculum-and-architecture/`. Explicitly out of scope for the
-  Thai-only alpha.
-- Add a shared route metadata/SEO helper so page-level titles, descriptions,
-  and canonical handling stay consistent as routes grow.
-- Cloudflare Phase 1 edge-latency work (asymmetric JWT signing keys +
-  `getClaims()`, content edge-caching) — fast-follow after the alpha deploy
-  lands, not a launch blocker. See Phase 1 in the Cloudflare deployment plan.
+| Plan                                            | What is left                                                    |
+| ----------------------------------------------- | --------------------------------------------------------------- |
+| `2026-07-14-backlog-clearing-plan.md`           | **Start here.** The ordered queue for everything below.         |
+| `2026-06-28-thai-curriculum-completion.md`      | Thai-speaker/corpus review of L22-46. Needs a human reviewer.   |
+| `2026-07-11-db-security-hardening.md`           | SSL enforcement, publishable/secret API keys, 2 flagged checks. |
+| `2026-07-11-dependency-refresh-framework-ui.md` | pnpm `11.6.0` carries 3 high advisories; the pin must move.     |
+| `2026-07-11-pre-rollout-tasks.md`               | Overtaken by the launch; needs rewriting as a post-launch list. |
+| `2026-06-13-practice-vocabulary-expansion.md`   | Blocked on a product decision — see below.                      |
+| `2026-04-30-db-single-source-of-truth.md`       | 4 runtime files still import `thaiPack`. Not started.           |
+| `2026-04-30-caching-offline-performance.md`     | Service worker / PWA / IndexedDB. Deferred, no action.          |
 
-## Open Decisions
+Six implementation plans and two design specs were moved out of
+`docs/superpowers/` into `.ai/` on 2026-07-14, and `docs/superpowers/` is gone.
+`AGENTS.md` now carries a hard rule against planning documents in `docs/`. Their
+checkbox state is still unreliable in both directions — re-derive it from source
+as you pick each one up.
 
-- Whether to adopt Drizzle now or keep hand-written SQL/migrations. No
-  urgency while the schema is still pre-alpha and stable without it.
+| Moved plan                                | What it covers                                          |
+| ----------------------------------------- | ------------------------------------------------------- |
+| `2026-07-11-security-headers.md`          | CSP + Worker/static headers. **Live gap.**              |
+| `2026-07-11-seo-foundation.md`            | Route metadata adoption. Helper built, unwired.         |
+| `2026-07-11-search-indexing-readiness.md` | robots, sitemap, canonical. **Live gap.**               |
+| `2026-07-11-practice-answer-grid.md`      | Two-column answer grid. **Decided — build it.**         |
+| `2026-07-11-dependency-refresh-full.md`   | Full dependency plan (renamed to avoid the name clash). |
+| `2026-07-11-automated-test-suites.md`     | Post-launch test layers.                                |
+
+## Open decisions
+
+- ~~**Practice flow.**~~ **Decided 2026-07-14:** keep `StepPracticeCheckpoint.svelte`
+  and give it the two-column answer grid (`2026-07-11-practice-answer-grid.md`).
+  The scored flip-card rebuild in `2026-06-13-practice-vocabulary-expansion.md` is
+  dropped; its practice-tier contract already shipped and stands.
+- **Drizzle vs. hand-written SQL.** Still no urgency.
+
+## Deferred, no action
+
+- Multi-course architecture (`.ai/tasks/curriculum-and-architecture/`) — until a
+  second language ships.
+- Curriculum authoring template revisions from the 61-system bootstrap pass.
+- Automated test suites — post-launch hardening.

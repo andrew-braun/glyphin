@@ -70,7 +70,7 @@ Expected: one matching line in the checkpoint component.
 Run:
 
 ```bash
-pnpm exec prettier --check src/lib/components/lesson/StepPracticeCheckpoint.svelte docs/superpowers/specs/2026-07-11-practice-answer-grid-design.md docs/superpowers/plans/2026-07-11-practice-answer-grid.md
+pnpm exec prettier --check src/lib/components/lesson/StepPracticeCheckpoint.svelte .ai/2026-07-11-practice-answer-grid-design.md .ai/2026-07-11-practice-answer-grid.md
 pnpm exec eslint src/lib/components/lesson/StepPracticeCheckpoint.svelte
 pnpm exec stylelint src/lib/components/lesson/StepPracticeCheckpoint.svelte --config ./stylelint.sort.config.mjs
 pnpm check

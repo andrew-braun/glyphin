@@ -35,12 +35,12 @@ rendering (SSR on, prerender to static assets), so `/`, `/about`, and the other
 public routes ship real server-rendered primary content for crawlers instead of
 an empty SPA shell. This was done as a broader migration than the originally
 scoped narrow task — see
-[Server-first rendering migration](../.ai/2026-07-11-server-first-rendering-migration.md)
+[Server-first rendering migration](../.ai/archive/2026-07-11-server-first-rendering-migration.md)
 (which supersedes the narrow `Restore SSR for /` and `/about` task and covers
 the whole route tree). With the server now capable of rendering metadata and
 primary content, the remaining P0 work is authoring that metadata. Do the
-[SEO foundation plan](superpowers/plans/2026-07-11-seo-foundation.md) and the
-[search indexing readiness plan](superpowers/plans/2026-07-11-search-indexing-readiness.md)
+[SEO foundation plan](../.ai/2026-07-11-seo-foundation.md) and the
+[search indexing readiness plan](../.ai/2026-07-11-search-indexing-readiness.md)
 before any of the P1 items.
 
 ## 2. Site icons and web app manifest (P1)

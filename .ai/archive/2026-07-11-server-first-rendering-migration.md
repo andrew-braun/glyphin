@@ -2,10 +2,12 @@
 
 - Start date: 2026-07-11
 - Owner: unassigned
-- Status: implemented (consolidated flip, Option A) 2026-07-11 — root default
-  flipped, all public routes prerender real HTML, verified via build + prerender
-  HTML inspection + cross-build determinism check. Remaining: land alongside the
-  SEO metadata content work.
+- Status: **done — archived 2026-07-14.** Consolidated flip (Option A) landed
+  2026-07-11 (`da14fe2`): root `src/routes/+layout.ts` is now `prerender = true`
+  with no `ssr = false`, all public routes prerender real HTML, verified via
+  build + prerender HTML inspection + cross-build determinism check. The SEO
+  metadata content this unblocked is tracked in
+  `.ai/2026-07-14-backlog-clearing-plan.md` (Task 1), not here.
 - Supersedes: `.ai/2026-07-11-restore-ssr-homepage-about.md` (that task is the
   narrow `/` + `/about` slice; this plan absorbs it and extends the same change
   to the whole route tree). Keep the narrow file as the reference for the store
