@@ -29,6 +29,7 @@
 
 <StepLayout counter="Quick recap">
 	<section class="practice-recap surface-panel surface-panel--sky">
+		<p class="practice-recap__prompt">Try each word, then tap a card to reveal its answer.</p>
 		<div class="practice-recap__grid">
 			{#each entries as entry, index}
 				<SelfCheckCard
@@ -41,6 +42,10 @@
 		</div>
 	</section>
 
+	<Button variant="secondary" size="large" fullWidth={true} onclick={onComplete}
+		>Skip recap</Button
+	>
+
 	{#if allRevealed}
 		<Button variant="primary" size="large" fullWidth={true} onclick={onComplete}>
 			<ButtonForwardLabel label="Start the scored check" />
@@ -51,6 +56,12 @@
 <style lang="scss">
 	.practice-recap {
 		padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
+
+		&__prompt {
+			color: var(--color-text-muted);
+			margin: 0 0 $space-lg;
+			text-align: center;
+		}
 
 		&__grid {
 			display: grid;
