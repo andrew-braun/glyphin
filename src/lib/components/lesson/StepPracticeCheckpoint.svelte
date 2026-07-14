@@ -122,7 +122,7 @@
 				class="practice-checkpoint__options"
 				labelledBy={promptId}
 				options={radioOptions}
-				columns={1}
+				columns={2}
 				bind:value={getSelectedValue, setSelectedValue}
 			/>
 
