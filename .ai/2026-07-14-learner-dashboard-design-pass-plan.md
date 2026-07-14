@@ -130,7 +130,7 @@ pnpm check
 Expected: Prettier completes, Stylelint reports no violations, and `pnpm check`
 reports zero Svelte/TypeScript errors.
 
-- [ ] **Step 5: Review the final diff against the design**
+- [x] **Step 5: Review the final diff against the design**
 
 Run:
 
