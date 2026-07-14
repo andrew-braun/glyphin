@@ -56,15 +56,12 @@ do $$
 declare
 	expected_course_version_id constant uuid := '92c6b63e-6aab-5f26-af3d-30738bdaaf37';
 	expected_publication_id constant uuid := '05ef7f1d-533e-5a74-afe1-17d35390fa15';
-	expected_content_hash constant text := '7a6bae5879a90ff97912a063cb4a6ec28acf323e13b7f19ff065f9003fc2d6f8';
-	stage_content_hash constant text := 'fb87bc8c975bc20b2090f12b016c0cda0373477fce4527d2e6fe0863cae26954';
 	stage_publication_id constant uuid := 'b73c138f-20d5-50d7-afe8-cfdb8d00f5d1';
 	active_publication_count integer;
 	active_publication_id uuid;
 	active_manifest_hash text;
 	active_created_by uuid;
 	lesson_count integer;
-	active_content_hash text;
 begin
 	select count(*)
 	into active_publication_count
@@ -92,18 +89,6 @@ begin
 			expected_publication_id,
 			active_publication_id,
 			active_publication_count;
-	end if;
-
-	select content_hash
-	into active_content_hash
-	from curriculum.course_versions
-	where id = expected_course_version_id;
-
-	if active_content_hash is distinct from expected_content_hash then
-		raise exception
-			'course stage publication expected course content hash %, found %',
-			expected_content_hash,
-			active_content_hash;
 	end if;
 
 	select count(*)
@@ -228,10 +213,6 @@ begin
 		on stage_ids.stage_ordinal = course_stage.stage_ordinal
 	where course_stage.course_version_id = expected_course_version_id
 	order by course_stage.stage_ordinal;
-
-	update curriculum.course_versions
-	set content_hash = stage_content_hash
-	where id = expected_course_version_id;
 
 	update delivery.course_publications
 	set is_active = false

@@ -21,8 +21,8 @@ describe("course stage migration", () => {
 		assert.match(sql, /enable row level security/u);
 		assert.match(sql, /cp\.is_active = true/u);
 		assert.match(sql, /expected 46 lessons/u);
-		assert.match(sql, /expected course content hash/u);
-		assert.match(sql, /set content_hash = stage_content_hash/u);
+		assert.doesNotMatch(sql, /update curriculum\.course_versions/u);
+		assert.doesNotMatch(sql, /set content_hash = stage_content_hash/u);
 		assert.match(sql, /update delivery\.course_publications/u);
 	});
 });
