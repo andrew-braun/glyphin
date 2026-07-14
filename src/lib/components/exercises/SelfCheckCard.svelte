@@ -2,6 +2,7 @@
 	import SoundPracticeLabel from "$lib/components/lesson/SoundPracticeLabel.svelte";
 	import { isSoundPractice } from "$lib/data/course-journey";
 	import type { LessonVocabularyEntry, Letter } from "$lib/data/types";
+	import { hasMeaningfulSyllableBreakdown } from "$lib/utils/word-display";
 
 	let {
 		entry,
@@ -18,6 +19,7 @@
 	} = $props();
 
 	const soundPractice = $derived(isSoundPractice(entry));
+	const showSyllableBreakdown = $derived(hasMeaningfulSyllableBreakdown(entry.word));
 
 	function reveal() {
 		if (!revealed) onReveal();
@@ -54,15 +56,13 @@
 		<span class="self-check-card__face self-check-card__face--back" aria-hidden={!revealed}>
 			{#if soundPractice}
 				<SoundPracticeLabel />
-			{:else}
-				<span class="self-check-card__eyebrow">Your read</span>
 			{/if}
 			<span class="self-check-card__thai thai">{entry.word.thai}</span>
 			<span class="self-check-card__answer">
 				<strong>{entry.word.pronunciation}</strong>
 				<span>{entry.word.meaning}</span>
 			</span>
-			{#if entry.word.syllables.length > 0 && size === "standard"}
+			{#if showSyllableBreakdown && size === "standard"}
 				<span class="self-check-card__syllables">
 					{#each entry.word.syllables as syllable}
 						<span>
@@ -95,7 +95,7 @@
 			cursor: pointer;
 			display: block;
 			font: inherit;
-			min-height: 18rem;
+			min-height: 20rem;
 			padding: 0;
 			position: relative;
 			transform-style: preserve-3d;
@@ -138,7 +138,8 @@
 			inset: 0;
 			justify-items: center;
 			overflow: hidden;
-			padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
+			padding: clamp(#{$space-2xl}, 5vw, #{$space-3xl})
+				clamp(#{$space-lg}, 4vw, #{$space-2xl});
 			pointer-events: none;
 			position: absolute;
 			text-align: center;
@@ -156,18 +157,22 @@
 		}
 
 		&__fold {
-			background: linear-gradient(
-				225deg,
-				var(--surface-panel-mango) 0 48%,
-				var(--color-mango) 49% 52%,
-				transparent 53%
-			);
-			box-shadow: -4px 4px 7px rgb(0 0 0 / 0.12);
-			height: 3.25rem;
+			background: var(--color-mango);
+			bottom: $space-sm;
+			clip-path: polygon(100% 0, 100% 100%, 0 100%);
+			filter: drop-shadow(-2px -2px 2px rgb(0 0 0 / 0.14));
+			height: 3rem;
 			position: absolute;
-			right: 0;
-			top: 0;
-			width: 3.25rem;
+			right: $space-sm;
+			width: 3rem;
+
+			&::after {
+				background: var(--color-surface-card);
+				clip-path: polygon(0 0, 100% 0, 100% 100%);
+				content: "";
+				inset: 0.3rem 0 0 0.3rem;
+				position: absolute;
+			}
 		}
 
 		&__eyebrow,

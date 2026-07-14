@@ -175,4 +175,13 @@
 			padding: $space-lg;
 		}
 	}
+
+	@media (min-width: $bp-md) {
+		.same-letters {
+			justify-self: center;
+			max-width: 42rem;
+			padding-block: clamp(#{$space-xl}, 5vw, #{$space-3xl});
+			width: 100%;
+		}
+	}
 </style>
