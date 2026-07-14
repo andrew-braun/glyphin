@@ -3,6 +3,7 @@
 
 	import CourseStageJourney from "$lib/components/content/lesson/CourseStageJourney.svelte";
 	import PageShell from "$lib/components/layout/PageShell.svelte";
+	import PageMetadata from "$lib/components/seo/PageMetadata.svelte";
 	import Badge from "$lib/components/ui/Badge.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
 	import Heading from "$lib/components/ui/Heading.svelte";
@@ -55,12 +56,9 @@
 	}
 </script>
 
+<PageMetadata metadata={data.metadata} />
+
 <svelte:head>
-	<title>Learn — Glyphin</title>
-	<meta
-		name="description"
-		content="Move through the Thai reading course one unlocked stage at a time."
-	/>
 	<meta name="glyphbridge-publication-id" content={data.publication.publicationId} />
 	<meta name="glyphbridge-publication-cache-key" content={data.publication.publicationCacheKey} />
 </svelte:head>

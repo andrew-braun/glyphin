@@ -5,6 +5,20 @@
 	"compatibility_flags": ["nodejs_compat"],
 	"workers_dev": true,
 	"preview_urls": true,
+	"vars": {
+		// Canonical production origin for absolute SEO URLs (canonical, og:url,
+		// sitemap). Not a secret — it is the site's own public address and is
+		// emitted into every page's HTML.
+		//
+		// Deliberately production even on preview deploys: a preview page must
+		// point its canonical at the real URL it duplicates, never at itself.
+		//
+		// This covers the WORKER RUNTIME only (`/auth`, `/api/**`). Prerendered
+		// routes resolve `$env/dynamic/private` at BUILD time, so the Cloudflare
+		// Workers Builds settings must ALSO define SITE_ORIGIN as a build-time
+		// variable or `pnpm build` throws in validateProductionOrigin().
+		"SITE_ORIGIN": "https://glyphin.app",
+	},
 	"assets": {
 		"binding": "ASSETS",
 		"directory": ".svelte-kit/cloudflare",

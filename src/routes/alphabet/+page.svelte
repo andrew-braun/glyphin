@@ -1,12 +1,17 @@
 <script lang="ts">
 	import LetterDetailPanel from "$lib/components/content/alphabet/LetterDetailPanel.svelte";
 	import PageShell from "$lib/components/layout/PageShell.svelte";
+	import PageMetadata from "$lib/components/seo/PageMetadata.svelte";
 	import Progress from "$lib/components/ui/Progress.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import ToggleTiles, { type ToggleTileOption } from "$lib/components/ui/ToggleTiles.svelte";
 	import { thaiPack } from "$lib/data/thai";
 	import type { Letter } from "$lib/data/types";
 	import { knownLetters } from "$lib/stores/progress";
+
+	import type { PageProps } from "./$types";
+
+	let { data }: PageProps = $props();
 
 	// Build a flat list of every letter introduced across all lessons
 	const allLetters: Letter[] = thaiPack.lessons.flatMap((l) => l.newLetters);
@@ -65,13 +70,7 @@
 	);
 </script>
 
-<svelte:head>
-	<title>Alphabet — Glyphin</title>
-	<meta
-		name="description"
-		content="Review the Thai consonants, vowels, tone marks, numerals, and written marks you have unlocked so far, with pronunciation details and memory cues."
-	/>
-</svelte:head>
+<PageMetadata metadata={data.metadata} />
 
 <!--
   Alphabet Page

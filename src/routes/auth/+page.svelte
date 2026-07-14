@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { env } from "$env/dynamic/public";
 	import ActionGroup from "$lib/components/layout/ActionGroup.svelte";
+	import PageMetadata from "$lib/components/seo/PageMetadata.svelte";
 	import Badge, { type BadgeTone } from "$lib/components/ui/Badge.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
 	import {
@@ -81,12 +82,9 @@
 	}
 </script>
 
+<PageMetadata metadata={data.metadata} />
+
 <svelte:head>
-	<title>Sign in - Glyphin</title>
-	<meta
-		name="description"
-		content="Sign in to Glyphin with an email code and sync your Thai reading progress across devices."
-	/>
 	{#if showSignInForm && turnstileSiteKey}
 		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 	{/if}

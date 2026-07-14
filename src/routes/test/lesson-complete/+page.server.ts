@@ -2,6 +2,7 @@ import { error } from "@sveltejs/kit";
 
 import { dev } from "$app/environment";
 import { thaiPack } from "$lib/data/thai";
+import { buildPageMetadata } from "$lib/server/page-metadata";
 
 import type { PageServerLoad } from "./$types";
 
@@ -21,6 +22,15 @@ export const load: PageServerLoad = () => {
 		correctCount: 4,
 		hasNextLesson: true,
 		lesson,
+		// `noindex, nofollow`: a development-only component preview. Stronger than
+		// the `noindex, follow` used for learner utilities — this is not a product
+		// surface, so its links should not be followed either. The route 404s
+		// outside dev anyway; the directive is defense in depth.
+		metadata: buildPageMetadata({
+			title: "Lesson Complete — Preview",
+			canonicalPath: "/test/lesson-complete",
+			robots: "noindex, nofollow",
+		}),
 		totalDrills: lesson.drills.length,
 	};
 };

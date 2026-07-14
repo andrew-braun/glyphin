@@ -5,6 +5,7 @@
 	import PageShell from "$lib/components/layout/PageShell.svelte";
 	import LessonGateState from "$lib/components/lesson/LessonGateState.svelte";
 	import LessonLearnFlow from "$lib/components/lesson/LessonLearnFlow.svelte";
+	import PageMetadata from "$lib/components/seo/PageMetadata.svelte";
 	import { getLessonJourneyState, progress } from "$lib/stores/progress";
 
 	import type { PageProps } from "./$types";
@@ -26,12 +27,9 @@
 	}
 </script>
 
+<PageMetadata metadata={data.metadata} />
+
 <svelte:head>
-	<title>{lesson.title} — Learn — Glyphin</title>
-	<meta
-		name="description"
-		content={`Learn to read ${lesson.anchorWord.thai}, meaning ${lesson.anchorWord.meaning}, through letters, rules, and guided Thai reads before you enter scored practice.`}
-	/>
 	<meta name="glyphbridge-publication-id" content={publication.publicationId} />
 	<meta name="glyphbridge-publication-cache-key" content={publication.publicationCacheKey} />
 </svelte:head>

@@ -10,6 +10,7 @@
 	import StepPracticeComplete from "$lib/components/lesson/StepPracticeComplete.svelte";
 	import StepPracticeDeck from "$lib/components/lesson/StepPracticeDeck.svelte";
 	import StepPracticeRecap from "$lib/components/lesson/StepPracticeRecap.svelte";
+	import PageMetadata from "$lib/components/seo/PageMetadata.svelte";
 	import {
 		getLessonJourneyState,
 		getPracticePassCorrectCount,
@@ -105,12 +106,9 @@
 	}
 </script>
 
+<PageMetadata metadata={data.metadata} />
+
 <svelte:head>
-	<title>{lesson.title} — Practice — Glyphin</title>
-	<meta
-		name="description"
-		content={`Practice reading ${lesson.anchorWord.thai} with a scored Thai word checkpoint that unlocks the next lesson once you pass.`}
-	/>
 	<meta name="glyphbridge-publication-id" content={publication.publicationId} />
 	<meta name="glyphbridge-publication-cache-key" content={publication.publicationCacheKey} />
 </svelte:head>

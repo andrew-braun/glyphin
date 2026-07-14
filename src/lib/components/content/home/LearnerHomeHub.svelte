@@ -1,7 +1,6 @@
 <script lang="ts">
 	import CourseStageJourney from "$lib/components/content/lesson/CourseStageJourney.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
-	import ButtonForwardLabel from "$lib/components/ui/ButtonForwardLabel.svelte";
 	import Heading from "$lib/components/ui/Heading.svelte";
 	import Progress from "$lib/components/ui/Progress.svelte";
 	import StatCard from "$lib/components/ui/StatCard.svelte";
@@ -50,9 +49,11 @@
 			{/if}
 		</div>
 
-		<Button href={journey.resumeTarget.href} size="large" variant="primary">
-			<ButtonForwardLabel label={continueLabel} />
-		</Button>
+		<div class="learner-home__action">
+			<Button href={journey.resumeTarget.href} size="large" variant="primary">
+				{continueLabel}
+			</Button>
+		</div>
 	</div>
 
 	<div class="learner-home__stats">
@@ -93,7 +94,7 @@
 <style lang="scss">
 	.learner-home {
 		display: grid;
-		gap: $space-2xl;
+		gap: $space-xl;
 
 		&__hero {
 			align-items: center;
@@ -101,9 +102,9 @@
 				linear-gradient(120deg, rgb(var(--rgb-primary) / 0.12), transparent 58%),
 				var(--color-surface-card);
 			display: flex;
-			gap: $space-xl;
+			gap: $space-lg;
 			justify-content: space-between;
-			padding: clamp($space-xl, 5vw, $space-3xl);
+			padding: clamp($space-lg, 3.5vw, $space-2xl);
 		}
 
 		&__copy {
@@ -112,7 +113,7 @@
 		}
 
 		&__heading {
-			--heading-font-size: clamp(2.2rem, 5vw, 4.5rem);
+			--heading-font-size: clamp(2rem, 4vw, 3.5rem);
 			--heading-line-height: 1;
 			--heading-margin-bottom: 0;
 		}
@@ -128,7 +129,15 @@
 		&__lead {
 			color: var(--color-text-muted);
 			font-size: $font-size-lg;
-			margin: 0;
+			margin: $space-sm 0 0;
+		}
+
+		&__action {
+			flex-shrink: 0;
+
+			:global(.btn) {
+				white-space: nowrap;
+			}
 		}
 
 		&__stats {
@@ -139,7 +148,7 @@
 
 		&__journey {
 			display: grid;
-			gap: $space-lg;
+			gap: $space-md;
 			margin-inline: auto;
 			max-width: 60rem;
 			width: 100%;
@@ -162,6 +171,12 @@
 			&__hero {
 				align-items: stretch;
 				flex-direction: column;
+			}
+
+			&__action {
+				:global(.btn) {
+					width: 100%;
+				}
 			}
 
 			&__stats {

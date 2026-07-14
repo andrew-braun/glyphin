@@ -1,5 +1,15 @@
 export const SITE_NAME = "Glyphin";
 
+/**
+ * Shared social share card for indexable pages. 1200x630 as required by
+ * `docs/seo.md`; raster because Open Graph consumers do not render SVG.
+ *
+ * `noindex` routes deliberately omit it — `buildPageMetadata` drops all social
+ * metadata when `robots` is set, so passing this on a `noindex` route is a no-op
+ * rather than a bug.
+ */
+export const DEFAULT_OG_IMAGE_PATH = "/og/glyphin-reading-thai.png";
+
 export function validateProductionOrigin(value: string | undefined): string {
 	let origin: URL;
 	const hasQueryOrFragment = value?.includes("?") || value?.includes("#");

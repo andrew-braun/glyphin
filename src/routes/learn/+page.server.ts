@@ -1,3 +1,5 @@
+import { DEFAULT_OG_IMAGE_PATH } from "$lib/config/site";
+import { buildPageMetadata } from "$lib/server/page-metadata";
 import {
 	getPublishedCourseStages,
 	getPublishedLessonCards,
@@ -16,6 +18,13 @@ export const load: PageServerLoad = async () => {
 	]);
 
 	return {
+		metadata: buildPageMetadata({
+			title: "Thai Reading Lessons",
+			description:
+				"Browse step-by-step Thai reading lessons that introduce useful words, letters, and rules in a progressive learning path.",
+			canonicalPath: "/learn",
+			imagePath: DEFAULT_OG_IMAGE_PATH,
+		}),
 		publication,
 		stages,
 		lessons,

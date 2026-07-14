@@ -1,5 +1,7 @@
 import { error } from "@sveltejs/kit";
 
+import { DEFAULT_OG_IMAGE_PATH } from "$lib/config/site";
+import { buildPageMetadata } from "$lib/server/page-metadata";
 import {
 	getPublishedLesson,
 	getPublishedLessonEntries,
@@ -30,5 +32,15 @@ export const load: PageServerLoad = async ({ params }) => {
 	]);
 	const { lesson, nextLessonId } = lessonData;
 
-	return { publication, lesson, nextLessonId };
+	return {
+		metadata: buildPageMetadata({
+			title: `${lesson.title} — Thai Reading Lesson`,
+			description: `Learn to read ${lesson.anchorWord.thai}, meaning ${lesson.anchorWord.meaning}, with guided Thai letter, sound, and reading instruction.`,
+			canonicalPath: `/learn/${lesson.id}`,
+			imagePath: DEFAULT_OG_IMAGE_PATH,
+		}),
+		publication,
+		lesson,
+		nextLessonId,
+	};
 };

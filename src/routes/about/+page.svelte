@@ -1,20 +1,19 @@
 <script lang="ts">
 	import ActionGroup from "$lib/components/layout/ActionGroup.svelte";
 	import PageShell from "$lib/components/layout/PageShell.svelte";
+	import PageMetadata from "$lib/components/seo/PageMetadata.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
 	import Disclosure from "$lib/components/ui/Disclosure.svelte";
 	import Eyebrow from "$lib/components/ui/Eyebrow.svelte";
 	import SectionHeader from "$lib/components/ui/SectionHeader.svelte";
 	import SourceList from "$lib/components/ui/SourceList.svelte";
+
+	import type { PageProps } from "./$types";
+
+	let { data }: PageProps = $props();
 </script>
 
-<svelte:head>
-	<title>How Glyphin Works — Reading a new script, fast</title>
-	<meta
-		name="description"
-		content="Glyphin teaches you to read a new script by starting with real words you'd actually encounter — not alphabet charts. Here's how, and the research behind it."
-	/>
-</svelte:head>
+<PageMetadata metadata={data.metadata} />
 
 <PageShell>
 	<!-- =================== HERO =================== -->

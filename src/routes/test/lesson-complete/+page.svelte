@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PageShell from "$lib/components/layout/PageShell.svelte";
 	import StepComplete from "$lib/components/lesson/StepComplete.svelte";
+	import PageMetadata from "$lib/components/seo/PageMetadata.svelte";
 
 	import type { PageProps } from "./$types";
 
@@ -11,10 +12,7 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Lesson Complete Preview — Glyphin</title>
-	<meta name="robots" content="noindex, nofollow" />
-</svelte:head>
+<PageMetadata metadata={data.metadata} />
 
 <PageShell class="lesson-complete-preview">
 	<StepComplete

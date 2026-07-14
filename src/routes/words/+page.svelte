@@ -2,19 +2,18 @@
 	// Reactive store of words the user has learned by completing lessons
 	import GlyphRibbon from "$lib/components/illustrations/GlyphRibbon.svelte";
 	import PageShell from "$lib/components/layout/PageShell.svelte";
+	import PageMetadata from "$lib/components/seo/PageMetadata.svelte";
 	import Badge from "$lib/components/ui/Badge.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
 	import EmptyState from "$lib/components/ui/EmptyState.svelte";
 	import { knownWords } from "$lib/stores/progress";
+
+	import type { PageProps } from "./$types";
+
+	let { data }: PageProps = $props();
 </script>
 
-<svelte:head>
-	<title>Known Words — Glyphin</title>
-	<meta
-		name="description"
-		content="Browse the Thai words you have unlocked so far, including pronunciation, meanings, syllable breakdowns, and real-world context notes."
-	/>
-</svelte:head>
+<PageMetadata metadata={data.metadata} />
 
 <!--
   Known Words Page

@@ -9,6 +9,7 @@ import {
 	readOptionalFormString,
 	readRequiredFormString,
 } from "$lib/server/auth";
+import { buildPageMetadata } from "$lib/server/page-metadata";
 
 import type { Actions, PageServerLoad } from "./$types";
 
@@ -17,6 +18,14 @@ export const load: PageServerLoad = async ({ locals, url }) => {
 
 	return {
 		authConfigured: locals.authConfigured,
+		// `noindex, follow`: account utility. The canonical is the bare /auth path
+		// so the `?next=` parameter cannot mint a second indexable URL. Description
+		// omitted per docs/seo.md.
+		metadata: buildPageMetadata({
+			title: "Sign In or Manage Your Account",
+			canonicalPath: "/auth",
+			robots: "noindex, follow",
+		}),
 		next: getSafeRedirectPath(url.searchParams.get("next") ?? "/auth"),
 		userEmail: user?.email ?? null,
 	};

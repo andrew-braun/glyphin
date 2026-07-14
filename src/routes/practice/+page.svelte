@@ -18,6 +18,7 @@
 	import GlyphRibbon from "$lib/components/illustrations/GlyphRibbon.svelte";
 	import ActionGroup from "$lib/components/layout/ActionGroup.svelte";
 	import PageShell from "$lib/components/layout/PageShell.svelte";
+	import PageMetadata from "$lib/components/seo/PageMetadata.svelte";
 	import Button from "$lib/components/ui/Button.svelte";
 	import EmptyState from "$lib/components/ui/EmptyState.svelte";
 	import Eyebrow from "$lib/components/ui/Eyebrow.svelte";
@@ -28,6 +29,10 @@
 	import { thaiPack } from "$lib/data/thai";
 	import type { DrillQuestion } from "$lib/data/types";
 	import { knownLetters, knownWords, progress } from "$lib/stores/progress";
+
+	import type { PageProps } from "./$types";
+
+	let { data }: PageProps = $props();
 
 	// --- Gather available drills from completed lessons ---
 	// Reactively re-computed when progress changes (e.g. after completing a new lesson).
@@ -88,13 +93,7 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Practice — Glyphin</title>
-	<meta
-		name="description"
-		content="Practice Thai reading with randomized drills drawn from the lessons you have completed and review the letters and words you already know."
-	/>
-</svelte:head>
+<PageMetadata metadata={data.metadata} />
 
 <PageShell narrow class="practice">
 	<!-- STATE: No drills available (user hasn't completed any lessons) -->
