@@ -1,12 +1,14 @@
 # Security Headers Implementation Plan
 
-- **Status: implemented locally 2026-07-14; NOT yet deployed.** The policy is
-  built and verified against the real built Worker (`wrangler dev`), covering
-  both response classes and the Turnstile branch. The durable policy write-up is
-  now `docs/security-headers.md`. **The only remaining step is deployment
-  verification** — ship to a Cloudflare preview URL, confirm headers and a real
-  Turnstile sign-in, then promote to `glyphin.app`. See Task 5 below and Task 1.2
-  in `.ai/2026-07-14-backlog-clearing-plan.md`.
+- **Status: COMPLETE — deployed and verified live on 2026-07-14.** `curl` against
+  `https://glyphin.app` confirms all seven headers on both response classes, a
+  per-request nonce'd `content-security-policy` header on `/auth` (Worker), and a
+  SHA-256-hashed `<meta http-equiv>` CSP on `/` (prerendered). `script-src`
+  contains no `'unsafe-inline'` on either. The durable policy write-up is
+  `docs/security-headers.md`.
+- One caveat found during the same verification: Cloudflare's Managed robots.txt
+  feature is rewriting the live `/robots.txt`. Unrelated to headers, but tracked
+  in `.ai/2026-07-11-pre-rollout-tasks.md`.
 - The checkbox state in Tasks 1-4 below was never maintained and is unreliable.
   Treat this header block and `docs/security-headers.md` as the source of truth,
   not the boxes.
