@@ -1,3 +1,19 @@
-# allow crawling everything by default
+# Production crawler directives. Contract: docs/search-indexing.md.
+#
+# Indexable documents (/, /about, /learn, /learn/{id}) stay crawlable.
+# Everything below is disallowed for crawl-budget hygiene. These rules are not
+# authorization — private endpoints are protected on the server.
+#
+# The `Sitemap:` directive is intentionally absent until /sitemap.xml exists.
+# Advertising a sitemap that 404s is worse than advertising none. Add
+# `Sitemap: https://glyphin.app/sitemap.xml` in the same change that adds the
+# route. See .ai/2026-07-11-search-indexing-readiness.md.
+
 User-agent: *
-Disallow:
+Disallow: /api/
+Disallow: /auth
+Disallow: /test/
+Disallow: /alphabet
+Disallow: /words
+Disallow: /practice
+Disallow: /learn/*/practice

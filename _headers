@@ -1,0 +1,30 @@
+# Security headers for Cloudflare Workers Static Assets.
+#
+# NOTE: this file must live in the PROJECT ROOT, not static/. /adapter-cloudflare
+# copies it into the build output itself and hard-errors if it finds it in static/.
+#
+# This file covers PRERENDERED PAGES AND ASSETS ONLY. Cloudflare serves static
+# assets directly without invoking the Worker, so `src/hooks.server.ts` cannot
+# add headers to them — this file is the only way to reach them. Conversely,
+# `_headers` does not apply to Worker responses (/auth, /api/**), which get the
+# same headers from the hook.
+#
+# These values are duplicated from `src/lib/server/security-headers.ts` because
+# a plain text file cannot import TypeScript. `security-headers.test.ts` parses
+# this file and asserts the two match exactly, so they cannot silently drift.
+# If you edit a header here, edit it there too — the test will fail otherwise.
+#
+# The Content-Security-Policy is NOT here. SvelteKit emits it per page via
+# `kit.csp` in `svelte.config.js`, because prerendered pages need per-page SHA
+# hashes for the inline scripts SvelteKit injects, which a static file cannot
+# express. X-Frame-Options below carries the clickjacking protection that a
+# meta-tag CSP cannot (`frame-ancestors` is invalid in a meta tag).
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin

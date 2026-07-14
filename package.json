@@ -49,11 +49,11 @@
 		"node": "24.15.0",
 		"pnpm": "^11"
 	},
-	"packageManager": "pnpm@11.6.0",
+	"packageManager": "pnpm@11.8.0",
 	"devEngines": {
 		"packageManager": {
 			"name": "pnpm",
-			"version": "11.6.0",
+			"version": "11.8.0",
 			"onFail": "download"
 		}
 	},

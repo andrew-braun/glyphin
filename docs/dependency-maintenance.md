@@ -241,3 +241,44 @@ verifying SvelteKit compatibility. The dependency rollout gate can close only
 after either a normal upstream update removes `cookie@0.6.0` from the graph, or
 a release owner records a time-bounded acceptance with owner, mitigation, review
 date, and removal trigger.
+
+## Toolchain Security Bump (2026-07-14)
+
+`pnpm` moved from `11.6.0` to `11.8.0` in `packageManager` and
+`devEngines.packageManager`. The pinned `11.6.0` carried three **high**
+advisories — `patch-remove` deleting project-selected files outside the patches
+directory, hoisted install importing a lockfile alias outside `node_modules`, and
+path traversal in the `configDependencies` env lockfile allowing symlink creation
+outside `node_modules/.pnpm-config`. Two are fixed in `>=11.7.0` and the third in
+`>=11.8.0`, so `11.8.0` is the minimum version that clears all three. It is also
+the best-aged option consistent with the `minimumReleaseAge` policy (published
+2026-06-18, roughly four weeks before the bump; the 11.11–11.13 releases were
+days old).
+
+`pnpm install --frozen-lockfile` succeeded. The lockfile diff is confined to the
+`packageManagerDependencies` block — the `pnpm` / `@pnpm/exe` binaries and their
+platform variants move `11.6.0` → `11.8.0`. **No application dependency, version,
+or resolution changed.** `pnpm check` (939 files, 0 errors, 0 warnings) and
+`pnpm lint` stayed clean. `pnpm audit` and `pnpm audit --prod` both dropped from
+four findings to one.
+
+Cloudflare Workers Builds reads `packageManager` to select the package manager,
+so this changes the production build toolchain. Confirm the next deploy resolves
+`pnpm@11.8.0`.
+
+## Accepted Advisory: `cookie <0.7.0` (GHSA-pxg6-pf52-xh8x)
+
+| Field              | Value                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Advisory           | `GHSA-pxg6-pf52-xh8x` — `cookie` accepts out-of-bounds characters in cookie name, path, and domain                                                                                                                                                                                                                                                                                              |
+| Severity           | Low                                                                                                                                                                                                                                                                                                                                                                                             |
+| Accepted on        | 2026-07-14                                                                                                                                                                                                                                                                                                                                                                                      |
+| Owner              | Andri (release owner)                                                                                                                                                                                                                                                                                                                                                                           |
+| Review date        | 2026-10-14 (three months), or earlier if the removal trigger fires                                                                                                                                                                                                                                                                                                                              |
+| Removal trigger    | Any `@sveltejs/kit` release whose `cookie` dependency range admits `>=0.7.0`. Re-check on every dependency refresh.                                                                                                                                                                                                                                                                             |
+| Why not fixed      | No upstream fix exists. The latest SvelteKit (`2.69.3`) still declares `cookie: ^0.6.0`, the same as the pinned `2.69.2`. The advisory reaches the graph **only** through SvelteKit.                                                                                                                                                                                                            |
+| Why not overridden | A pnpm override to `cookie@^0.7.0` would force a version outside SvelteKit's declared `^0.6.0` range, in the library that handles Supabase auth session cookies on a live site. That is a real availability and auth-correctness risk taken on behalf of an unreachable low-severity finding. Not a good trade.                                                                                 |
+| Mitigation         | Not reachable in this application. The vulnerability requires attacker-influenced cookie **name**, **path**, or **domain**. In `src/hooks.server.ts` the only `cookies.set` call takes its name from Supabase SSR (`sb-<project-ref>-auth-token`), hardcodes `path: "/"`, and sets no `domain`. None of the three derive from untrusted input. Cookie _values_ are unaffected by this advisory. |
+
+Re-verify the mitigation if `src/hooks.server.ts` ever sets a cookie whose name,
+path, or domain is derived from a request, a route parameter, or user input.

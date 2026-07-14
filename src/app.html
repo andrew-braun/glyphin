@@ -5,22 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Glyphin</title>
 		<!--
-			Apply the saved theme before first paint so light-mode users never see a
-			flash of the dark default. Keep the storage key and default in sync with
-			src/lib/stores/theme.svelte.ts.
+			Applies the saved theme before first paint so light-mode users never see a
+			flash of the dark default. Blocking (no defer/async) on purpose: it must
+			run before the first paint.
+
+			Kept in a file rather than inline because the CSP has no 'unsafe-inline'
+			in script-src, and SvelteKit only hashes the inline scripts it generates
+			itself — not ones written into this template. See static/theme-init.js.
 		-->
-		<script>
-			(() => {
-				try {
-					const stored = localStorage.getItem("glyphbridge-theme-mode");
-					const mode = stored === "light" || stored === "dark" ? stored : "dark";
-					document.documentElement.dataset.theme = mode;
-					document.documentElement.style.colorScheme = mode;
-				} catch {
-					// localStorage unavailable — fall back to the CSS default (dark).
-				}
-			})();
-		</script>
+		<script src="%sveltekit.assets%/theme-init.js"></script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

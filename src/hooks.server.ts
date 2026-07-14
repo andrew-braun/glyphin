@@ -2,6 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import type { Handle } from "@sveltejs/kit";
 
 import { env } from "$env/dynamic/private";
+import { applySecurityHeaders } from "$lib/server/security-headers";
 
 type SupabaseAuthConfig = {
 	url: string;
@@ -79,9 +80,21 @@ export const handle: Handle = async ({ event, resolve }) => {
 		await event.locals.safeGetSession();
 	}
 
-	return resolve(event, {
+	const response = await resolve(event, {
 		filterSerializedResponseHeaders(name) {
 			return name === "content-range" || name === "x-supabase-api-version";
 		},
 	});
+
+	// SECURITY: apply the security headers to Worker-rendered responses (/auth,
+	// /api/**, /auth/sign-out). Prerendered pages and static assets never reach
+	// this hook — Cloudflare serves them directly — so they get the same headers
+	// from `_headers`. Both sources are kept in step by
+	// `src/lib/server/security-headers.test.ts`.
+	//
+	// This runs after `resolve` so it cannot disturb the Supabase SSR session
+	// cookies set during rendering; it only adds headers, never removes them.
+	applySecurityHeaders(response.headers);
+
+	return response;
 };

@@ -1,5 +1,43 @@
 # Security Headers Implementation Plan
 
+- **Status: implemented locally 2026-07-14; NOT yet deployed.** The policy is
+  built and verified against the real built Worker (`wrangler dev`), covering
+  both response classes and the Turnstile branch. The durable policy write-up is
+  now `docs/security-headers.md`. **The only remaining step is deployment
+  verification** — ship to a Cloudflare preview URL, confirm headers and a real
+  Turnstile sign-in, then promote to `glyphin.app`. See Task 5 below and Task 1.2
+  in `.ai/2026-07-14-backlog-clearing-plan.md`.
+- The checkbox state in Tasks 1-4 below was never maintained and is unreliable.
+  Treat this header block and `docs/security-headers.md` as the source of truth,
+  not the boxes.
+
+**What shipped (2026-07-14):**
+
+- `svelte.config.js` — `kit.csp` with `mode: "auto"` (SHA hashes in a meta tag for
+  prerendered pages; per-request nonce header for `/auth`).
+- `_headers` (project **root** — `adapter-cloudflare` hard-errors if it is in
+  `static/`) — HSTS, `X-Content-Type-Options`, `X-Frame-Options: DENY`,
+  `Referrer-Policy`, `Permissions-Policy`, COOP, CORP for static assets.
+- `src/lib/server/security-headers.ts` + `src/hooks.server.ts` — the same headers
+  on Worker responses, which `_headers` cannot reach.
+- `src/lib/server/security-headers.test.ts` — parses the real `_headers` file and
+  asserts it matches the TypeScript record, so the necessary duplication cannot
+  drift. Verified to actually fail when drift is injected.
+- `static/theme-init.js` — the pre-paint theme script moved out of `app.html`, so
+  `script-src` needs no `'unsafe-inline'` (SvelteKit never hashes template
+  scripts).
+
+**Two findings that invalidate assumptions in the tasks below:**
+
+1. A `<meta>` CSP **cannot** carry `frame-ancestors` — prerendered pages get their
+   CSP as a meta tag, so `X-Frame-Options` carries clickjacking protection instead.
+2. `Content-Security-Policy-Report-Only` **cannot** be delivered in a meta tag
+   either (SvelteKit's `CspReportOnlyProvider` has no meta variant). A
+   report-only rollout would cover `/auth` and nothing else, so it is not a
+   usable rehearsal here. Use a Cloudflare preview URL instead.
+
+---
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use $superpowers-subagent-driven-development (recommended) or $superpowers-executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Apply and verify a comprehensive browser security-header policy across prerendered pages, static assets, and dynamic Cloudflare Worker responses.

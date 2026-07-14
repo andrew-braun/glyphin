@@ -117,32 +117,55 @@ Ordered by "live public exposure" first, then correctness, then deferred work.
 The site is public. These are the only items on this list with real-world
 exposure today.
 
-1. **`robots.txt`** — smallest fix, biggest immediate win. Disallow `/test/`,
-   `/auth`, and the `noindex` utility routes so the live file matches the
-   contract in `docs/seo.md`. This is a five-line change; do it first and
-   independently of the rest of the SEO plan.
-2. **Security headers** — execute `2026-07-11-security-headers.md`. CSP via
-   SvelteKit config for framework-rendered HTML, plus Cloudflare response headers
-   so static assets are covered too. Verify against _both_ prerendered assets and
-   Worker responses, and confirm the Supabase SSR refresh headers from
-   `src/hooks.server.ts` survive.
-3. **Adopt `PageMetadata` in routes + add a sitemap** — the seo-foundation and
-   search-indexing plans, minus the helper work that is already done. Derive the
-   sitemap from the same published-lesson artifact the app reads.
+- [x] **1.1 `robots.txt`** — **DONE 2026-07-14.** Was a `Disallow:` stub allowing
+      everything. Now disallows `/api/`, `/auth`, `/test/`, `/alphabet`, `/words`,
+      `/practice`, `/learn/*/practice` per `docs/search-indexing.md`. The
+      `Sitemap:` directive is deliberately omitted until `/sitemap.xml` exists —
+      advertising a sitemap that 404s is worse than advertising none. Add it in
+      the same change as 1.3.
 
-Per `AGENTS.md`, the header work is security-sensitive and needs the research +
-sign-off path, not a guess.
+- [x] **1.2 Security headers** — **BUILT AND LOCALLY VERIFIED 2026-07-14; NOT YET
+      DEPLOYED.** Full write-up in `docs/security-headers.md`; tracker at
+      `.ai/2026-07-11-security-headers.md`. - CSP via `kit.csp` `mode: "auto"` — SHA hashes in a meta tag for
+      prerendered pages, per-request nonce header for `/auth`. - `_headers` (project root) for static assets + `hooks.server.ts` for Worker
+      responses, since neither mechanism reaches both classes. A test parses the
+      real `_headers` file and asserts it matches the TS record, so they cannot
+      drift. - Theme script moved to `static/theme-init.js` so `script-src` needs no
+      `'unsafe-inline'`. - Verified against the real built Worker (`wrangler dev`): both response
+      classes carry every header; `/auth` gets a nonce'd CSP; the Turnstile
+      branch renders and is allowed by `script-src`/`frame-src` (matches
+      Cloudflare's documented Turnstile CSP requirements). - **Remaining: deploy verification.** Report-Only turned out to be
+      unusable here (it cannot be delivered in a meta tag, so it would cover
+      only `/auth`). Substitute: ship to a Cloudflare **preview URL**
+      (`preview_urls: true` is already on), confirm headers plus a real
+      Turnstile sign-in there, then promote to `glyphin.app`.
 
-### Task 2 — Unpin pnpm, clear the audit gate
+- [ ] **1.3 Adopt `PageMetadata` in routes + add a sitemap** — the seo-foundation
+      and search-indexing plans, minus the helper work that is already done.
+      Derive the sitemap from the same published-lesson artifact the app reads,
+      and add the `Sitemap:` line to `robots.txt` in the same change.
 
-- Bump pnpm `11.6.0` → `>=11.8.0` in `packageManager`, `AGENTS.md`, and the
-  dependency tracker's guardrail line.
-- Re-run `pnpm audit --prod`. The three highs should clear.
-- Decide the residual low `cookie <0.7.0` (reaches us only transitively via
-  `bits-ui > runed > @sveltejs/kit`): either wait for the upstream bump or record
-  a time-bounded, written acceptance. Do not close the gate silently.
-- Correct the stale "one remaining low advisory" claim in
-  `.ai/2026-07-11-dependency-refresh-framework-ui.md`.
+### Task 2 — Unpin pnpm, clear the audit gate — **DONE 2026-07-14**
+
+- [x] Bumped pnpm `11.6.0` → `11.8.0` in `packageManager` and
+      `devEngines.packageManager`. Both audits went from **4 findings (3 high) to
+      1 low**. Lockfile diff is confined to pnpm's own binary entries — no
+      application dependency moved. `pnpm check` (939 files, 0/0) and `pnpm lint`
+      clean.
+- [x] Accepted the residual low `cookie <0.7.0` (`GHSA-pxg6-pf52-xh8x`) with a
+      time-bounded record in `docs/dependency-maintenance.md` (owner Andri, review
+      2026-10-14, removal trigger = any SvelteKit release admitting
+      `cookie >=0.7.0`). No upstream fix exists — the latest SvelteKit `2.69.3`
+      still declares `cookie: ^0.6.0`. An override was rejected: it would force a
+      version outside SvelteKit's declared range in the library that handles
+      Supabase auth session cookies on a live site, and the advisory is
+      **unreachable here** (it needs attacker-influenced cookie name/path/domain;
+      ours come from Supabase SSR with a hardcoded `path: "/"` and no domain).
+- [x] Corrected the stale audit claim in
+      `.ai/2026-07-11-dependency-refresh-framework-ui.md`; that gate is now closed.
+
+**Next deploy:** Cloudflare Workers Builds reads `packageManager`, so the
+production build toolchain changed. Confirm it resolves `pnpm@11.8.0`.
 
 ### Task 3 — Finish the hosted-security tail
 
