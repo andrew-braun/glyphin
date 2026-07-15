@@ -65,6 +65,21 @@ practice URLs for crawl-budget hygiene, and advertises exactly one absolute
 canonical-production `/sitemap.xml` URL. Robots rules are not authorization;
 private endpoints remain protected on the server.
 
+**Cloudflare Managed robots.txt is enabled (decided 2026-07-14).** Cloudflare
+prepends its own managed block ahead of the `static/robots.txt` content, so the
+served file is **not** byte-identical to the file in the repo. The managed block
+adds AI-crawler `Disallow` groups (intended) and a leading `User-agent: *` group
+containing `Allow: /`. The served file therefore contains **two** `User-agent: *`
+groups: Cloudflare's `Allow: /` and ours with the crawl-budget `Disallow:` rules.
+
+RFC 9309 requires compliant crawlers to merge same-token groups and apply the
+most-specific match, so a `Disallow: /alphabet` still wins over `Allow: /` on
+those paths; the major engines behave correctly. Any verification of production
+robots.txt must assert the **merged, effective** policy — that each disallowed
+prefix is in force and the sitemap directive is present — not exact-match file
+content, which the managed feature makes impossible. The managed directives are
+maintained in the Cloudflare dashboard, not this repo.
+
 Every non-production deployment, including branch and development preview
 hosts, sends `X-Robots-Tag: noindex, nofollow` on every response. Its HTML
 documents also emit `noindex, nofollow`. Preview `/robots.txt` must contain

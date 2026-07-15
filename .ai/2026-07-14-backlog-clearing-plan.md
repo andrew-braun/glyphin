@@ -266,50 +266,52 @@ shipped _without_ their gate (Task 1), and what post-launch verification remains
       it was a one-line reconfiguration of `StepPracticeCheckpoint`.
 - [x] **Task 7** — pre-rollout tracker rewritten as a post-launch tracker
       (`2026-07-11-pre-rollout-tasks.md`). Done 2026-07-14.
-- [ ] **Task 1.3** — route metadata adoption + sitemap. **Unblocked but not
-      started** (paused 2026-07-14, see below). Two prerequisites were discovered:
-      `SITE_ORIGIN` was set nowhere and `validateProductionOrigin()` throws
-      without it, so adopting the helper in prerendered routes fails the build —
-      now set to `https://glyphin.app` in gitignored `.env` / `.dev.vars`, still
-      needs a `wrangler.jsonc` `vars` entry and a Cloudflare Workers Builds
-      build-time variable. And `docs/seo.md` mandates an OG image that does not
-      exist; ship without `og:image` until it is designed.
+- [x] **Task 1.3 (metadata)** — `PageMetadata` adopted across every route,
+      committed 2026-07-14 (`02ab02a` plus the homepage-consumer fix `ad7f9df`,
+      which the SEO commit had missed). Includes the 1200x630 OG image at
+      `static/og/glyphin-reading-thai.png` (griffin logo composed on the brand
+      canvas), `SITE_ORIGIN` set in gitignored `.env` / `.dev.vars` and as a
+      `wrangler.jsonc` `vars` entry, and `DEFAULT_OG_IMAGE_PATH`. `pnpm check`
+      clean. **Still needs** the Cloudflare Workers Builds build-time `SITE_ORIGIN`
+      variable (prerender reads it at build time — a missing build var breaks the
+      deploy) — Andri.
+- [ ] **Task 1.3 (sitemap)** — deferred to backlog by Andri 2026-07-14. Add
+      `/sitemap.xml` sourced from `getPublishedLessonEntries()` per
+      `docs/search-indexing.md`, then the `Sitemap:` line. Note the managed
+      robots.txt decision below before writing the `Sitemap:` line.
 - [ ] **Task 3** — hosted security tail (SSL enforcement, API-key migration,
       publication write path, `graphql_public`) + Andri's authenticated smoke
       checks. The security-header and pnpm deploy verification folded in here is
       **done** — headers confirmed live.
-- [ ] **Task 5** — Thai native-speaker review. Needs a human; start sourcing a
-      reviewer in parallel rather than last.
-- [ ] **Task 6** — `thaiPack` cleanup. **Blocked**, see below.
-- [ ] **NEW: robots.txt drift.** Cloudflare's Managed robots.txt feature prepends
-      its own block to the live file, adding a second `User-agent: *` group with
-      `Allow: /`. Compliant crawlers merge same-token groups so Google still
-      honors our `Disallow:` rules, but production no longer matches the exact
-      content specified in `docs/search-indexing.md`. Decide whether to disable
-      the managed feature or reconcile the contract doc. Resolve before adding the
-      `Sitemap:` line in Task 1.3.
+- [ ] **Task 5** — Thai native-speaker review. Needs a human; Andri is sourcing a
+      reviewer.
+- [ ] **Task 6** — `thaiPack` cleanup. **Still blocked** — see below. Client
+      `thaiPack` imports actually grew during the learner-journey work; it now
+      reaches `/+page.server.ts`, `/+page.svelte`, `progress.ts`,
+      `published-lessons.ts`, and more. Revisit with real bundle numbers after
+      that workstream settles.
+- [x] **robots.txt drift** — **decided 2026-07-14: keep Cloudflare's Managed
+      robots.txt.** Andri will maintain the file's directives in the Cloudflare
+      dashboard. Follow-up: reconcile `docs/search-indexing.md` so the contract
+      matches the managed output (two `User-agent: *` groups; the exact-content
+      assertion no longer holds) before the search-readiness check is run.
 
-## Concurrency hazard (2026-07-14)
+## Concurrency note (updated 2026-07-14)
 
-A second session is actively implementing the learner-journey UX work
-(`.ai/2026-07-14-learner-ux-feedback.md`) and its changes are **uncommitted**.
-Files moved under me mid-read. Contested surfaces:
+The learner-journey / dashboard UX work (`.ai/2026-07-14-learner-ux-feedback.md`)
+has largely **landed** — the branch history was rewritten and the metadata work
+was committed alongside it (`02ab02a`). The 1.3 metadata contest resolved itself:
+those routes are done and verified with `pnpm check`. Two `.ai` trackers
+(`2026-07-14-production-stage-publication-migration-fix.md`,
+`2026-07-14-recap-skip-implementation-plan.md`) are still modified in the tree, so
+adjacent curriculum/publication work may still be in flight.
 
-- `src/lib/stores/progress.ts`, `src/lib/data/thai.ts`, `types.ts`,
-  `course-journey.ts`, `src/lib/server/published-lessons.ts`,
-  `delivery-lessons.ts`, `delivery-payload.ts`, `src/routes/learn/+page.server.ts`,
-  `scripts/generate-thai-seed.mjs`, `generate-publication-artifact.mjs`, and a new
-  migration.
-
-**Task 6 is blocked head-on:** it wants `thaiPack` _removed_ from the client
-runtime, while the in-flight work is adding new `thaiPack` call sites to
-`progress.ts` and `published-lessons.ts`. Do not attempt it until that work
-commits. It should also get _easier_ afterwards — that work publishes stage
-metadata through the delivery artifact, which is the mechanism Task 6 needs.
-
-**Task 1.3 is partially contested:** new `+page.server.ts` files for `/about`,
-`/alphabet`, `/words`, `/practice` are clean, but `/learn/+page.server.ts`,
-`/+page.svelte`, and `/learn/+page.svelte` are being rewritten right now.
+**Task 6 stays blocked** for the same underlying reason: client `thaiPack`
+imports grew rather than shrank during this work (now including
+`/+page.server.ts` and `/+page.svelte`). It should get _easier_ once the stage
+metadata fully flows through the delivery artifact — that is the mechanism Task 6
+needs to drop the static import — but attempt it only once that curriculum work
+settles and with real bundle numbers in hand.
 
 ## Open questions
 
