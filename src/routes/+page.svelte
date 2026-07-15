@@ -3,6 +3,7 @@
 
 	import HomeHero from "$lib/components/content/home/HomeHero.svelte";
 	import LearnerHomeHub from "$lib/components/content/home/LearnerHomeHub.svelte";
+	import PageMetadata from "$lib/components/seo/PageMetadata.svelte";
 	import {
 		appProgressFromLearnerProjection,
 		buildCourseJourney,
@@ -53,13 +54,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Glyphin — Learn Thai Through Real Words</title>
-	<meta
-		name="description"
-		content="Learn to read Thai through real words, guided lesson steps, and short practice built around signs, menus, and everyday language."
-	/>
-</svelte:head>
+<PageMetadata metadata={data.metadata} />
 
 <div class="home container">
 	{#if showDashboard}
