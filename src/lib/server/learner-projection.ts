@@ -7,6 +7,7 @@ import type {
 	LearnerProjection,
 	LessonCompletionSyncInput,
 } from "$lib/data/learner";
+import { logServerError } from "$lib/server/logging";
 
 type ActivePublicationRow = {
 	id: string;
@@ -57,6 +58,7 @@ async function getActivePublication(client: SupabaseClient): Promise<ActivePubli
 		.returns<ActivePublicationRow[]>();
 
 	if (selectError) {
+		logServerError("learner-projection.getActivePublication", selectError);
 		throw error(500, "Unable to load the active lesson publication");
 	}
 
@@ -81,6 +83,7 @@ async function getProjectionRows(
 	});
 
 	if (rpcError) {
+		logServerError("learner-projection.getProjectionRows", rpcError, { publicationId });
 		throw error(500, "Unable to load learner progress");
 	}
 
@@ -190,6 +193,9 @@ export async function syncLessonCompletionAttempts(
 		);
 
 		if (rpcError) {
+			logServerError("learner-projection.syncLessonCompletionAttempts", rpcError, {
+				publicationId,
+			});
 			throw error(400, "Unable to sync lesson progress");
 		}
 	}

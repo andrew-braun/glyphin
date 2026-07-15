@@ -3,6 +3,7 @@ import { error } from "@sveltejs/kit";
 
 import { env } from "$env/dynamic/private";
 import type { CourseStage, Lesson } from "$lib/data/types";
+import { logServerError } from "$lib/server/logging";
 
 import {
 	DeliveryPayloadError,
@@ -64,6 +65,7 @@ function mapLesson(payload: unknown): Lesson {
 		return mapPublishedLessonPayload(payload);
 	} catch (mappingError) {
 		if (mappingError instanceof DeliveryPayloadError) {
+			logServerError("delivery-lessons.mapPayload", mappingError);
 			throw error(500, mappingError.message);
 		}
 
@@ -76,6 +78,7 @@ function mapCard(payload: unknown): PublishedLessonCard {
 		return mapPublishedLessonCard(payload);
 	} catch (mappingError) {
 		if (mappingError instanceof DeliveryPayloadError) {
+			logServerError("delivery-lessons.mapPayload", mappingError);
 			throw error(500, mappingError.message);
 		}
 
@@ -88,6 +91,7 @@ function mapCatalogEntry(payload: unknown): PublishedLessonCatalogEntry {
 		return mapPublishedLessonCatalogEntry(payload);
 	} catch (mappingError) {
 		if (mappingError instanceof DeliveryPayloadError) {
+			logServerError("delivery-lessons.mapPayload", mappingError);
 			throw error(500, mappingError.message);
 		}
 
@@ -100,6 +104,7 @@ function mapStage(payload: unknown): CourseStage {
 		return mapPublishedStagePayload(payload);
 	} catch (mappingError) {
 		if (mappingError instanceof DeliveryPayloadError) {
+			logServerError("delivery-lessons.mapPayload", mappingError);
 			throw error(500, mappingError.message);
 		}
 
@@ -123,6 +128,7 @@ export async function getPublishedLessonPublicationId(): Promise<string> {
 		.returns<ActivePublicationRow[]>();
 
 	if (selectError) {
+		logServerError("delivery-lessons.getPublishedLessonPublicationId", selectError);
 		throw error(500, "Unable to load the active lesson publication");
 	}
 
@@ -150,6 +156,7 @@ async function listPublicationLessons(publicationId: string): Promise<Publicatio
 		.returns<PublicationLessonRow[]>();
 
 	if (selectError) {
+		logServerError("delivery-lessons.listPublicationLessons", selectError, { publicationId });
 		throw error(500, "Unable to load published lessons");
 	}
 
@@ -167,6 +174,7 @@ export async function getPublishedCourseStages(): Promise<CourseStage[]> {
 		.returns<PublicationStageRow[]>();
 
 	if (selectError) {
+		logServerError("delivery-lessons.getPublishedCourseStages", selectError, { publicationId });
 		throw error(500, "Unable to load published course stages");
 	}
 
@@ -214,6 +222,10 @@ export async function getPublishedLesson(
 		.returns<PublicationLessonRow[]>();
 
 	if (selectError) {
+		logServerError("delivery-lessons.getPublishedLesson", selectError, {
+			lessonId,
+			publicationId,
+		});
 		throw error(500, "Unable to load the requested lesson");
 	}
 

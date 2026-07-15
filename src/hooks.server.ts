@@ -1,7 +1,8 @@
 import { createServerClient } from "@supabase/ssr";
-import type { Handle } from "@sveltejs/kit";
+import type { Handle, HandleServerError } from "@sveltejs/kit";
 
 import { env } from "$env/dynamic/private";
+import { logServerError } from "$lib/server/logging";
 import { applySecurityHeaders } from "$lib/server/security-headers";
 
 type SupabaseAuthConfig = {
@@ -58,20 +59,29 @@ export const handle: Handle = async ({ event, resolve }) => {
 		event.locals.supabase = supabase;
 		event.locals.safeGetSession = async () => {
 			safeSessionPromise ??= (async () => {
-				const {
-					data: { session },
-				} = await supabase.auth.getSession();
+				try {
+					const {
+						data: { session },
+					} = await supabase.auth.getSession();
 
-				if (!session) return { session: null, user: null };
+					if (!session) return { session: null, user: null };
 
-				const {
-					data: { user },
-					error,
-				} = await supabase.auth.getUser();
+					const {
+						data: { user },
+						error: userError,
+					} = await supabase.auth.getUser();
 
-				if (error || !user) return { session: null, user: null };
+					if (userError || !user) return { session: null, user: null };
 
-				return { session, user };
+					return { session, user };
+				} catch (cause) {
+					// Network-level failures (a cold Worker's first fetch to Supabase,
+					// a timeout) can reject here instead of resolving with `{ error }`.
+					// Fail closed to signed-out rather than letting this bubble up as
+					// an unhandled 500 for every signed-in request.
+					logServerError("hooks.safeGetSession", cause, { path: event.url.pathname });
+					return { session: null, user: null };
+				}
 			})();
 
 			return safeSessionPromise;
@@ -97,4 +107,18 @@ export const handle: Handle = async ({ event, resolve }) => {
 	applySecurityHeaders(response.headers);
 
 	return response;
+};
+
+// Last line of defense: any exception thrown from a load/action/endpoint that
+// isn't already a SvelteKit `error()` lands here before becoming a generic 500.
+// Without this, the underlying cause (a Postgrest error, a thrown fetch
+// rejection, etc.) is never logged anywhere.
+export const handleError: HandleServerError = ({ error: cause, event, status, message }) => {
+	logServerError("hooks.handleError", cause, {
+		method: event.request.method,
+		path: event.url.pathname,
+		status,
+	});
+
+	return { message };
 };
