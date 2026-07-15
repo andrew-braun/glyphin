@@ -285,11 +285,12 @@ shipped _without_ their gate (Task 1), and what post-launch verification remains
       **done** — headers confirmed live.
 - [ ] **Task 5** — Thai native-speaker review. Needs a human; Andri is sourcing a
       reviewer.
-- [ ] **Task 6** — `thaiPack` cleanup. **Still blocked** — see below. Client
-      `thaiPack` imports actually grew during the learner-journey work; it now
-      reaches `/+page.server.ts`, `/+page.svelte`, `progress.ts`,
-      `published-lessons.ts`, and more. Revisit with real bundle numbers after
-      that workstream settles.
+- [ ] **Task 6** — `thaiPack` cleanup. **Planned 2026-07-15** in
+      `.ai/2026-07-15-thaipack-client-retirement.md` (supersedes the stale April
+      plan). Unblocked now that the learner-journey work has landed. Measured:
+      the client ships 43 KB gzip of curriculum on every page via the layout →
+      `progress.ts`; the bundle win is modest (~7–14 KB gzip), the real payoff is
+      closing the server/client drift bug. Ready to implement.
 - [x] **robots.txt drift** — **decided 2026-07-14: keep Cloudflare's Managed
       robots.txt.** Andri will maintain the file's directives in the Cloudflare
       dashboard. Follow-up: reconcile `docs/search-indexing.md` so the contract
