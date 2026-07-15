@@ -5,16 +5,19 @@ import {
 	countsAsKnownWord,
 	type CourseJourneyLesson,
 	type CourseResumeTarget,
+	getCourseJourneyLesson,
 } from "$lib/data/course-journey";
 import type { LearnerProjection } from "$lib/data/learner";
-import { thaiPack } from "$lib/data/thai";
 import type {
 	AppProgress,
+	LessonCatalogEntry,
 	LessonProgress,
 	ProgressSnapshot,
 	ProgressSnapshotV3,
 	Word,
 } from "$lib/data/types";
+
+import { createProgressCatalog } from "./progress-catalog";
 
 const STORAGE_KEY = "glyphbridge_progress";
 const STORAGE_VERSION = 3;
@@ -34,14 +37,15 @@ export type LessonPracticeAttemptResult = {
 	shouldSync: boolean;
 };
 
-const lessons = thaiPack.lessons;
-const firstLessonId = lessons[0]?.id ?? 1;
-const lessonIds = lessons.map((lesson) => lesson.id);
-const lastLessonId = lessonIds[lessonIds.length - 1] ?? firstLessonId;
-const lessonById = new Map(lessons.map((lesson) => [lesson.id, lesson]));
-const knownLetterCharacters = new Set(
-	lessons.flatMap((lesson) => lesson.newLetters.map((letter) => letter.character)),
-);
+let {
+	lessons,
+	firstLessonId,
+	lessonIds,
+	lastLessonId,
+	lessonById,
+	knownLetterCharacters,
+	journeySource,
+} = createProgressCatalog([]);
 
 function getCanonicalLessonWords(lessonId: number): Word[] {
 	const lesson = lessonById.get(lessonId);
@@ -315,7 +319,7 @@ function getLessonProgressEntry(
 }
 
 function summarizeResumeTarget(progressSnapshot: AppProgress): ResumeTarget {
-	return buildCourseJourney(thaiPack, progressSnapshot).resumeTarget;
+	return buildCourseJourney(journeySource, progressSnapshot).resumeTarget;
 }
 
 function getPassedLessonCount(lessonProgress: LessonProgress[]): number {
@@ -326,9 +330,7 @@ export function getLessonJourneyState(
 	progressSnapshot: AppProgress,
 	lessonId: number,
 ): LessonJourneyState {
-	const journeyLesson = buildCourseJourney(thaiPack, progressSnapshot)
-		.stages.flatMap((stage) => stage.lessons)
-		.find((entry) => entry.lesson.id === lessonId);
+	const journeyLesson = getCourseJourneyLesson(journeySource, progressSnapshot, lessonId);
 
 	if (!journeyLesson) {
 		return {
@@ -364,13 +366,30 @@ let persistProgressUnsubscribe: Unsubscriber | null = null;
 function ensureProgressInitialized() {
 	if (typeof window === "undefined") return;
 	if (hasInitializedProgress) return;
+	if (lessons.length === 0) return;
 	hasInitializedProgress = true;
 
 	progress.set(loadProgress());
 	persistProgressUnsubscribe ??= progress.subscribe(saveProgress);
 }
 
-ensureProgressInitialized();
+export function initProgress(catalog: LessonCatalogEntry[]) {
+	({
+		lessons,
+		firstLessonId,
+		lessonIds,
+		lastLessonId,
+		lessonById,
+		knownLetterCharacters,
+		journeySource,
+	} = createProgressCatalog(catalog));
+
+	ensureProgressInitialized();
+
+	if (hasInitializedProgress) {
+		progress.update(normalizeProgress);
+	}
+}
 
 export const knownLetters = derived(progress, ($p) => $p.knownLetters);
 export const knownWords = derived(progress, ($p) => $p.knownWords);
@@ -380,7 +399,6 @@ export const completedLessonCount = derived(progress, ($p) =>
 );
 export const resumeTarget = derived(progress, ($p) => summarizeResumeTarget($p));
 export const resumeHref = derived(resumeTarget, ($resumeTarget) => $resumeTarget.href);
-export const totalLessons = lessons.length;
 
 export function applyLearnerProjection(projection: LearnerProjection) {
 	progress.update(($p) => {

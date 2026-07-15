@@ -3,9 +3,11 @@
 	import Button from "$lib/components/ui/Button.svelte";
 	import Heading from "$lib/components/ui/Heading.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
-	import { thaiPack } from "$lib/data/thai";
+	import type { LessonCatalogEntry } from "$lib/data/types";
 	import { getLessonJourneyState, type LessonJourneyState, progress } from "$lib/stores/progress";
 	import { cn } from "$lib/utils/cn";
+
+	let { lessons }: { lessons: LessonCatalogEntry[] } = $props();
 
 	function getLessonItemClasses(state: LessonJourneyState) {
 		return cn(
@@ -24,19 +26,21 @@
 		return "Learning";
 	}
 
-	type LessonStageGroup = { stage: number; lessons: typeof thaiPack.lessons };
+	type LessonStageGroup = { stage: number; lessons: LessonCatalogEntry[] };
 
 	// Lessons are authored in stage order, so a single sequential pass groups
 	// them by stage without reordering.
-	const stageGroups = thaiPack.lessons.reduce<LessonStageGroup[]>((groups, lesson) => {
-		const current = groups.at(-1);
-		if (current && current.stage === lesson.stage) {
-			current.lessons.push(lesson);
-		} else {
-			groups.push({ stage: lesson.stage, lessons: [lesson] });
-		}
-		return groups;
-	}, []);
+	const stageGroups = $derived(
+		lessons.reduce<LessonStageGroup[]>((groups, lesson) => {
+			const current = groups.at(-1);
+			if (current && current.stage === lesson.stage) {
+				current.lessons.push(lesson);
+			} else {
+				groups.push({ stage: lesson.stage, lessons: [lesson] });
+			}
+			return groups;
+		}, []),
+	);
 </script>
 
 <section class="upcoming">

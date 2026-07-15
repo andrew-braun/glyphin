@@ -6,6 +6,7 @@ import {
 	buildCourseJourney,
 	buildCourseProgressStats,
 	countsAsKnownWord,
+	getCourseJourneyLesson,
 	isSoundPractice,
 	SOUND_PRACTICE_EXPLANATION,
 } from "./course-journey.ts";
@@ -68,6 +69,35 @@ function passed(lessonId: number): LessonProgress {
 }
 
 describe("buildCourseJourney", () => {
+	it("derives an individual lesson gate from a catalog without stage display data", () => {
+		const catalog = { stages: [], lessons: pack.lessons };
+		const lesson = getCourseJourneyLesson(
+			catalog,
+			progress([
+				{
+					lessonId: 1,
+					learningCompleted: true,
+					practiceAttempts: 1,
+					practicePassed: true,
+				},
+			]),
+			1,
+		);
+
+		assert.deepEqual(
+			{
+				learnUnlocked: lesson?.learnUnlocked,
+				practiceUnlocked: lesson?.practiceUnlocked,
+				practicePassed: lesson?.practicePassed,
+			},
+			{
+				learnUnlocked: true,
+				practiceUnlocked: true,
+				practicePassed: true,
+			},
+		);
+	});
+
 	it("opens only the first stage for a new learner", () => {
 		const journey = buildCourseJourney(pack, progress());
 

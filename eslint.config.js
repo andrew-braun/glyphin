@@ -10,7 +10,9 @@ import tseslint from "typescript-eslint";
 export default defineConfig(
 	{
 		ignores: [
+			".pnpm-store/**",
 			"build/**",
+			".wrangler/**",
 			".svelte-kit/**",
 			"coverage/**",
 			"node_modules/**",
@@ -59,6 +61,27 @@ export default defineConfig(
 				},
 			],
 		},
+	},
+	{
+		files: ["src/**/*.{ts,svelte}"],
+		rules: {
+			"no-restricted-imports": [
+				"error",
+				{
+					paths: [
+						{
+							name: "$lib/data/thai",
+							message:
+								"Import lesson content from the published delivery catalog, not the authoring source.",
+						},
+					],
+				},
+			],
+		},
+	},
+	{
+		files: ["src/lib/data/**/*", "src/lib/server/**/*"],
+		rules: { "no-restricted-imports": "off" },
 	},
 	{
 		files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],

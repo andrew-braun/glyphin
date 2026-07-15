@@ -41,6 +41,6 @@
 
 <style lang="scss">
 	.lesson-gate {
-		padding: clamp(#{$space-xl}, 5vw, #{$space-3xl});
+		padding: clamp(#{$space-lg}, 4vw, #{$space-xl});
 	}
 </style>

@@ -7,12 +7,14 @@ import type { CourseStage, Lesson } from "$lib/data/types";
 import {
 	DeliveryPayloadError,
 	mapPublishedLessonCard,
+	mapPublishedLessonCatalogEntry,
 	mapPublishedLessonPayload,
 	mapPublishedStagePayload,
 	type PublishedLessonCard,
+	type PublishedLessonCatalogEntry,
 } from "./delivery-payload";
 
-export type { PublishedLessonCard };
+export type { PublishedLessonCard, PublishedLessonCatalogEntry };
 
 type ActivePublicationRow = {
 	id: string;
@@ -72,6 +74,18 @@ function mapLesson(payload: unknown): Lesson {
 function mapCard(payload: unknown): PublishedLessonCard {
 	try {
 		return mapPublishedLessonCard(payload);
+	} catch (mappingError) {
+		if (mappingError instanceof DeliveryPayloadError) {
+			throw error(500, mappingError.message);
+		}
+
+		throw mappingError;
+	}
+}
+
+function mapCatalogEntry(payload: unknown): PublishedLessonCatalogEntry {
+	try {
+		return mapPublishedLessonCatalogEntry(payload);
 	} catch (mappingError) {
 		if (mappingError instanceof DeliveryPayloadError) {
 			throw error(500, mappingError.message);
@@ -175,6 +189,13 @@ export async function getPublishedLessonCards(): Promise<PublishedLessonCard[]> 
 	const rows = await listPublicationLessons(publicationId);
 
 	return rows.map((row) => mapCard(row.payload));
+}
+
+export async function getPublishedLessonCatalog(): Promise<PublishedLessonCatalogEntry[]> {
+	const publicationId = await getPublishedLessonPublicationId();
+	const rows = await listPublicationLessons(publicationId);
+
+	return rows.map((row) => mapCatalogEntry(row.payload));
 }
 
 export async function getPublishedLesson(

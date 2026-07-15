@@ -112,8 +112,8 @@
 <style lang="scss">
 	.practice-complete {
 		display: grid;
-		gap: clamp(#{$space-lg}, 3vw, #{$space-2xl});
-		padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
+		gap: clamp(#{$space-md}, 2vw, #{$space-xl});
+		padding: clamp(#{$space-md}, 3vw, #{$space-xl});
 
 		&.practice-complete--passed {
 			border-color: rgb(var(--rgb-success) / 0.35);

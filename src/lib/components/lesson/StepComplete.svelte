@@ -220,9 +220,9 @@
 
 <style lang="scss">
 	.complete {
-		--complete-section-gap: clamp(#{$space-lg}, 3vw, #{$space-2xl});
-		--complete-panel-gap: clamp(#{$space-md}, 2vw, #{$space-xl});
-		--complete-panel-padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
+		--complete-section-gap: clamp(#{$space-md}, 2vw, #{$space-xl});
+		--complete-panel-gap: clamp(#{$space-sm}, 2vw, #{$space-lg});
+		--complete-panel-padding: clamp(#{$space-md}, 3vw, #{$space-xl});
 
 		display: grid;
 		gap: var(--complete-section-gap);

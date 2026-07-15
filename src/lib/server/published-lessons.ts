@@ -1,16 +1,9 @@
-import { existsSync, readFileSync } from "node:fs";
-import { resolve } from "node:path";
-
 import { error } from "@sveltejs/kit";
 
 import { thaiPack } from "$lib/data/thai";
 import type { CourseStage, Lesson } from "$lib/data/types";
-import {
-	GENERATED_PUBLICATION_MANIFEST_FILE,
-	getPublicationCacheKey,
-} from "$lib/utils/publication";
 
-import type { PublishedLessonCard } from "./delivery-lessons";
+import type { PublishedLessonCard, PublishedLessonCatalogEntry } from "./delivery-lessons";
 
 export type PublishedLessonVersion = {
 	publicationId: string;
@@ -28,8 +21,17 @@ type LessonPublicationManifest = PublishedLessonVersion & {
 };
 
 const canonicalLessonById = new Map(thaiPack.lessons.map((lesson) => [lesson.id, lesson]));
-const GENERATED_DIR = resolve(process.cwd(), ".generated");
-const ARTIFACT_MANIFEST_PATH = resolve(GENERATED_DIR, GENERATED_PUBLICATION_MANIFEST_FILE);
+const generatedArtifactModules = import.meta.glob("../../../.generated/published-lessons.*.json", {
+	eager: true,
+	import: "default",
+}) as Record<string, LessonPublicationArtifact>;
+const generatedManifestModules = import.meta.glob(
+	"../../../.generated/published-lessons-manifest.json",
+	{
+		eager: true,
+		import: "default",
+	},
+) as Record<string, LessonPublicationManifest>;
 
 function toLessonCard(lesson: Lesson): PublishedLessonCard {
 	return {
@@ -41,49 +43,12 @@ function toLessonCard(lesson: Lesson): PublishedLessonCard {
 	};
 }
 
-function readArtifactManifest(): LessonPublicationManifest | null {
-	if (!existsSync(ARTIFACT_MANIFEST_PATH)) {
-		return null;
-	}
-
-	try {
-		return JSON.parse(
-			readFileSync(ARTIFACT_MANIFEST_PATH, "utf8"),
-		) as LessonPublicationManifest;
-	} catch {
-		throw error(
-			500,
-			`Unable to read generated lesson publication manifest at ${ARTIFACT_MANIFEST_PATH}`,
-		);
-	}
-}
-
-function readArtifact(manifest: LessonPublicationManifest): LessonPublicationArtifact {
-	const artifactPath = resolve(GENERATED_DIR, manifest.artifactPath);
-	if (!existsSync(artifactPath)) {
-		throw error(500, `Generated lesson publication artifact is missing at ${artifactPath}`);
-	}
-
-	try {
-		const artifact = JSON.parse(
-			readFileSync(artifactPath, "utf8"),
-		) as LessonPublicationArtifact;
-
-		if (
-			artifact.publicationId !== manifest.publicationId ||
-			artifact.publicationCacheKey !== manifest.publicationCacheKey
-		) {
-			throw error(500, "Generated lesson publication artifact does not match its manifest");
-		}
-
-		return artifact;
-	} catch (artifactError) {
-		if (artifactError instanceof Error && "status" in artifactError) {
-			throw artifactError;
-		}
-
-		throw error(500, `Unable to read generated lesson publication artifact at ${artifactPath}`);
-	}
+function toLessonCatalogEntry(lesson: Lesson): PublishedLessonCatalogEntry {
+	return {
+		...toLessonCard(lesson),
+		vocabulary: lesson.vocabulary,
+		drills: lesson.drills,
+	};
 }
 
 function isCurrentVocabularyEntryShape(value: unknown): boolean {
@@ -108,13 +73,25 @@ function normalizeArtifactLessons(lessons: Lesson[]): Lesson[] {
 	return lessons.map((lesson) => canonicalLessonById.get(lesson.id) ?? lesson);
 }
 
-async function getPublicationArtifact(): Promise<LessonPublicationArtifact | null> {
-	const manifest = readArtifactManifest();
+async function getPublicationArtifact(): Promise<LessonPublicationArtifact> {
+	const manifest = Object.values(generatedManifestModules)[0];
 	if (!manifest) {
-		return null;
+		throw error(500, "Generated lesson publication manifest is missing from the build");
 	}
 
-	const artifact = readArtifact(manifest);
+	const artifact = Object.entries(generatedArtifactModules).find(([path]) =>
+		path.endsWith(`/${manifest.artifactPath}`),
+	)?.[1];
+	if (!artifact) {
+		throw error(500, "Generated lesson publication artifact is missing from the build");
+	}
+
+	if (
+		artifact.publicationId !== manifest.publicationId ||
+		artifact.publicationCacheKey !== manifest.publicationCacheKey
+	) {
+		throw error(500, "Generated lesson publication artifact does not match its manifest");
+	}
 
 	return {
 		...artifact,
@@ -125,70 +102,44 @@ async function getPublicationArtifact(): Promise<LessonPublicationArtifact | nul
 
 export async function getPublishedCourseStages(): Promise<CourseStage[]> {
 	const artifact = await getPublicationArtifact();
-	if (artifact) {
-		return artifact.stages ?? thaiPack.stages;
-	}
-
-	const deliveryLessons = await import("./delivery-lessons");
-	return deliveryLessons.getPublishedCourseStages();
+	return artifact.stages ?? thaiPack.stages;
 }
 
 export async function getPublishedLessonVersion(): Promise<PublishedLessonVersion> {
 	const artifact = await getPublicationArtifact();
-	if (artifact) {
-		return {
-			publicationId: artifact.publicationId,
-			publicationCacheKey: artifact.publicationCacheKey,
-			generatedAt: artifact.generatedAt,
-		};
-	}
-
-	const deliveryLessons = await import("./delivery-lessons");
-	const publicationId = await deliveryLessons.getPublishedLessonPublicationId();
-
 	return {
-		publicationId,
-		publicationCacheKey: getPublicationCacheKey(publicationId),
-		generatedAt: new Date(0).toISOString(),
+		publicationId: artifact.publicationId,
+		publicationCacheKey: artifact.publicationCacheKey,
+		generatedAt: artifact.generatedAt,
 	};
 }
 
 export async function getPublishedLessonCards(): Promise<PublishedLessonCard[]> {
 	const artifact = await getPublicationArtifact();
-	if (artifact) {
-		return artifact.lessons.map((lesson) => toLessonCard(lesson));
-	}
+	return artifact.lessons.map((lesson) => toLessonCard(lesson));
+}
 
-	const deliveryLessons = await import("./delivery-lessons");
-	return deliveryLessons.getPublishedLessonCards();
+export async function getPublishedLessonCatalog(): Promise<PublishedLessonCatalogEntry[]> {
+	const artifact = await getPublicationArtifact();
+	return artifact.lessons.map((lesson) => toLessonCatalogEntry(lesson));
 }
 
 export async function getPublishedLesson(
 	lessonId: number,
 ): Promise<{ lesson: Lesson; nextLessonId: number | null }> {
 	const artifact = await getPublicationArtifact();
-	if (artifact) {
-		const currentLessonIndex = artifact.lessons.findIndex((lesson) => lesson.id === lessonId);
-		if (currentLessonIndex < 0) {
-			throw error(404, "Lesson not found");
-		}
-
-		return {
-			lesson: artifact.lessons[currentLessonIndex],
-			nextLessonId: artifact.lessons[currentLessonIndex + 1]?.id ?? null,
-		};
+	const currentLessonIndex = artifact.lessons.findIndex((lesson) => lesson.id === lessonId);
+	if (currentLessonIndex < 0) {
+		throw error(404, "Lesson not found");
 	}
 
-	const deliveryLessons = await import("./delivery-lessons");
-	return deliveryLessons.getPublishedLesson(lessonId);
+	return {
+		lesson: artifact.lessons[currentLessonIndex],
+		nextLessonId: artifact.lessons[currentLessonIndex + 1]?.id ?? null,
+	};
 }
 
 export async function getPublishedLessonEntries(): Promise<Array<{ id: string }>> {
 	const artifact = await getPublicationArtifact();
-	if (artifact) {
-		return artifact.lessons.map((lesson) => ({ id: String(lesson.id) }));
-	}
-
-	const cards = await getPublishedLessonCards();
-	return cards.map((lesson) => ({ id: String(lesson.id) }));
+	return artifact.lessons.map((lesson) => ({ id: String(lesson.id) }));
 }

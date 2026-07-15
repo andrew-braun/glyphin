@@ -180,7 +180,7 @@
 		.same-letters {
 			justify-self: center;
 			max-width: 42rem;
-			padding-block: clamp(#{$space-xl}, 5vw, #{$space-3xl});
+			padding-block: clamp(#{$space-lg}, 3vw, #{$space-xl});
 			width: 100%;
 		}
 	}

@@ -2,7 +2,6 @@ import type { LearnerProjection } from "./learner";
 import type {
 	AppProgress,
 	CourseStage,
-	LanguagePack,
 	Lesson,
 	LessonProgress,
 	LessonVocabularyEntry,
@@ -62,6 +61,10 @@ export interface CourseProgressStats {
 	knownWordCount: number;
 }
 
+export type CourseProgressSource = {
+	lessons: Array<Pick<Lesson, "id" | "anchorWord" | "newLetters" | "vocabulary">>;
+};
+
 export const SOUND_PRACTICE_EXPLANATION = "Made for reading practice — not a real Thai word.";
 
 export function isSoundPractice(entry: LessonVocabularyEntry): boolean {
@@ -101,7 +104,7 @@ export function appProgressFromLearnerProjection(projection: LearnerProjection):
 }
 
 export function buildCourseProgressStats(
-	pack: LanguagePack,
+	pack: CourseProgressSource,
 	progress: AppProgress,
 ): CourseProgressStats {
 	const learnedLetters = new Set<string>();
@@ -147,22 +150,19 @@ function hasPracticePassed(entry: LessonProgress | undefined): boolean {
 	return entry?.practicePassed === true;
 }
 
-export function buildCourseJourney(
-	pack: CourseJourneySource,
+function buildCourseJourneyLessons(
+	lessons: CourseJourneyLessonSource[],
 	progress: AppProgress,
-): CourseJourney {
-	const lessonIds = pack.lessons.map((lesson) => lesson.id);
-	const lastLessonId = lessonIds.at(-1) ?? null;
-	const firstIncompleteLessonIndex = pack.lessons.findIndex(
+): CourseJourneyLesson[] {
+	const firstIncompleteLessonIndex = lessons.findIndex(
 		(lesson) => !hasPracticePassed(getProgressEntry(progress.lessonProgress, lesson.id)),
 	);
-	const isComplete = pack.lessons.length > 0 && firstIncompleteLessonIndex === -1;
-	const currentLesson = isComplete ? null : pack.lessons[firstIncompleteLessonIndex];
-	const currentStageOrdinal = currentLesson?.stage ?? null;
+	const currentLesson =
+		firstIncompleteLessonIndex === -1 ? null : lessons[firstIncompleteLessonIndex];
 
-	const journeyLessons = pack.lessons.map((lesson, index): CourseJourneyLesson => {
+	return lessons.map((lesson, index): CourseJourneyLesson => {
 		const entry = getProgressEntry(progress.lessonProgress, lesson.id);
-		const previousLesson = index > 0 ? pack.lessons[index - 1] : null;
+		const previousLesson = index > 0 ? lessons[index - 1] : null;
 		const previousEntry = previousLesson
 			? getProgressEntry(progress.lessonProgress, previousLesson.id)
 			: undefined;
@@ -187,6 +187,31 @@ export function buildCourseJourney(
 			currentPhase: isCurrent ? (learningCompleted ? "practice" : "learn") : null,
 		};
 	});
+}
+
+export function getCourseJourneyLesson(
+	source: Pick<CourseJourneySource, "lessons">,
+	progress: AppProgress,
+	lessonId: number,
+): CourseJourneyLesson | undefined {
+	return buildCourseJourneyLessons(source.lessons, progress).find(
+		(entry) => entry.lesson.id === lessonId,
+	);
+}
+
+export function buildCourseJourney(
+	pack: CourseJourneySource,
+	progress: AppProgress,
+): CourseJourney {
+	const lessonIds = pack.lessons.map((lesson) => lesson.id);
+	const lastLessonId = lessonIds.at(-1) ?? null;
+	const firstIncompleteLessonIndex = pack.lessons.findIndex(
+		(lesson) => !hasPracticePassed(getProgressEntry(progress.lessonProgress, lesson.id)),
+	);
+	const isComplete = pack.lessons.length > 0 && firstIncompleteLessonIndex === -1;
+	const currentLesson = isComplete ? null : pack.lessons[firstIncompleteLessonIndex];
+	const currentStageOrdinal = currentLesson?.stage ?? null;
+	const journeyLessons = buildCourseJourneyLessons(pack.lessons, progress);
 
 	const stages = pack.stages.map((stage): CourseJourneyStage => {
 		const lessons = journeyLessons.filter((entry) => entry.lesson.stage === stage.ordinal);

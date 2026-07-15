@@ -55,7 +55,7 @@
 
 <style lang="scss">
 	.practice-recap {
-		padding: clamp(#{$space-lg}, 4vw, #{$space-2xl});
+		padding: clamp(#{$space-md}, 3vw, #{$space-xl});
 
 		&__prompt {
 			color: var(--color-text-muted);

@@ -1,19 +1,19 @@
 import { error } from "@sveltejs/kit";
 
 import { dev } from "$app/environment";
-import { thaiPack } from "$lib/data/thai";
 import { buildPageMetadata } from "$lib/server/page-metadata";
+import { getPublishedLesson } from "$lib/server/published-lessons";
 
 import type { PageServerLoad } from "./$types";
 
 export const prerender = false;
 
-export const load: PageServerLoad = () => {
+export const load: PageServerLoad = async () => {
 	if (!dev) {
 		throw error(404, "Not found");
 	}
 
-	const lesson = thaiPack.lessons[0];
+	const { lesson } = await getPublishedLesson(1);
 	if (!lesson) {
 		throw error(404, "Preview lesson not found");
 	}

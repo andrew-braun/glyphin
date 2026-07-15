@@ -98,7 +98,7 @@
 			cursor: pointer;
 			display: block;
 			font: inherit;
-			min-height: 20rem;
+			min-height: clamp(11rem, 38dvh, 16rem);
 			padding: 0;
 			position: relative;
 			transform-style: preserve-3d;
@@ -149,12 +149,11 @@
 			border-radius: $radius-xl;
 			box-shadow: var(--shadow-card);
 			display: grid;
-			gap: $space-md;
+			gap: $space-sm;
 			inset: 0;
 			justify-items: center;
 			overflow: hidden;
-			padding: clamp(#{$space-2xl}, 5vw, #{$space-3xl})
-				clamp(#{$space-lg}, 4vw, #{$space-2xl});
+			padding: clamp(#{$space-md}, 3vw, #{$space-xl}) clamp(#{$space-lg}, 4vw, #{$space-2xl});
 			pointer-events: none;
 			position: absolute;
 			text-align: center;
@@ -277,12 +276,12 @@
 
 		&--compact {
 			.self-check-card__flipper {
-				min-height: 11rem;
+				min-height: clamp(8rem, 24dvh, 10rem);
 			}
 
 			.self-check-card__face {
-				gap: $space-sm;
-				padding: $space-lg $space-md;
+				gap: $space-xs;
+				padding: $space-md;
 			}
 
 			.self-check-card__thai {

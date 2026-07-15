@@ -14,11 +14,15 @@
 
 	import MainNav from "$lib/components/navigation/MainNav.svelte";
 	import { refreshLearnerProjection } from "$lib/stores/learner";
+	import { initProgress } from "$lib/stores/progress";
 	import { theme } from "$lib/stores/theme.svelte";
 
-	let { children } = $props();
+	import type { LayoutProps } from "./$types";
+
+	let { children, data }: LayoutProps = $props();
 
 	onMount(() => {
+		initProgress(data.catalog);
 		theme.initialize();
 		void refreshLearnerProjection();
 	});
@@ -40,7 +44,7 @@
 
 	.main {
 		flex: 1;
-		padding-bottom: $space-3xl;
-		padding-top: $space-lg;
+		padding-bottom: $space-2xl;
+		padding-top: $space-md;
 	}
 </style>

@@ -1,6 +1,6 @@
 # Retire `thaiPack` from the client runtime
 
-Created 2026-07-15. Status: **not started — planned.**
+Created 2026-07-15. Status: **complete (2026-07-15).**
 
 Supersedes `.ai/2026-04-30-db-single-source-of-truth.md`, whose core mechanism
 (a live DB read via `+layout.server.ts` with `prerender` deleted) is
@@ -171,6 +171,12 @@ export const load: LayoutServerLoad = async () => {
 Runs at build time under `prerender = true`. Verify the build still prerenders
 every route (audit output for any route forced dynamic).
 
+**Review correction:** the root layout also participates in dynamic renders for
+`/` and `/auth`. The generated manifest and matching publication artifact must
+be bundled through Vite's build-time JSON imports so those dynamic Worker
+requests read the same build-time publication, without a runtime delivery-DB
+dependency or additional Worker secret configuration.
+
 ### 5 — Refactor the progress store (highest risk)
 
 In `src/lib/stores/progress.ts`:
@@ -184,8 +190,9 @@ In `src/lib/stores/progress.ts`:
   catalog, then sets the `progress` store.
 - `buildCourseJourney`/`buildCourseProgressStats` already accept a structural
   `CourseJourneySource`/`LanguagePack`; pass the catalog-derived pack.
-- Keep module-scope `ensureProgressInitialized()` (localStorage) working with an
-  empty catalog so nothing throws before `initProgress` runs.
+- Do not load or persist localStorage progress until `initProgress(catalog)` has
+  installed a catalog. Normalizing an existing snapshot against an empty catalog
+  would discard every persisted lesson id before the layout can seed it.
 
 ### 6 — Seed the store from the layout
 
@@ -195,14 +202,17 @@ must be seeded before any interaction reads derived progress.
 
 ### 7 — Convert the remaining client consumers
 
-- `/alphabet` and `/practice` already have `+page.server.ts` (added for
-  metadata). Extend those loads to project `letters` / lesson `drills` from
-  `getPublishedLessonCatalog()`, and read `data` in the components instead of
-  `thaiPack`. (Or read `$page.data.catalog` from the layout — pick one and be
-  consistent; per-page loads keep each page's data explicit.)
+- Read the inherited `data.catalog` in `/alphabet` and `/practice`; do not add
+  duplicate per-page catalog projections. The root layout data is the cached
+  payload boundary for every client route.
 - `LessonList.svelte`: take `lessons` as a typed prop; callers pass catalog data.
 - `/+page.svelte`: derive `firstLessonId` and the journey pack from
   `data.catalog` (+ `data.stages`) instead of `thaiPack`.
+
+**Review correction:** `buildCourseProgressStats` must accept the structural
+lesson fields it reads instead of `LanguagePack`, and the dynamic homepage's
+server load must use the published catalog/stages too. Otherwise its server
+stats can still drift from the client catalog.
 
 ### 8 — Guard against regression
 

@@ -9,7 +9,6 @@
 		buildCourseJourney,
 		buildCourseProgressStats,
 	} from "$lib/data/course-journey";
-	import { thaiPack } from "$lib/data/thai";
 	import type { AppProgress } from "$lib/data/types";
 	import { authSession } from "$lib/stores/learner";
 	import { applyLearnerProjection, progress } from "$lib/stores/progress";
@@ -19,13 +18,13 @@
 	let { data }: PageProps = $props();
 	let hasHydratedProgress = $state(false);
 
-	const emptyProgress: AppProgress = {
+	const emptyProgress = $derived<AppProgress>({
 		knownLetters: [],
 		knownWords: [],
 		lessonProgress: [],
-		currentLessonId: thaiPack.lessons[0]?.id ?? 1,
-	};
-	const publishedPack = $derived({ ...thaiPack, stages: data.stages });
+		currentLessonId: data.catalog[0]?.id ?? 1,
+	});
+	const publishedPack = $derived({ stages: data.stages, lessons: data.catalog });
 	const serverProgress = $derived(
 		data.projection ? appProgressFromLearnerProjection(data.projection) : emptyProgress,
 	);

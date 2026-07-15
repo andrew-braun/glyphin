@@ -184,6 +184,17 @@ export interface Lesson {
 	reviewLetters?: string[];
 }
 
+/** The published lesson fields required by client-side progress and review UI. */
+export interface LessonCatalogEntry {
+	id: number;
+	stage: number;
+	title: string;
+	anchorWord: Word;
+	newLetters: Letter[];
+	vocabulary: LessonVocabularyEntry[];
+	drills: DrillQuestion[];
+}
+
 /**
  * Tracks a learner's completion status and performance for a single lesson.
  * Stored as part of the overall AppProgress.

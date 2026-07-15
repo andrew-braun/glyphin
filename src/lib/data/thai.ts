@@ -6550,6 +6550,8 @@ const stages: CourseStage[] = [
 ];
 
 /** The complete Thai language pack exported for use by the app */
+// Authoring source for seed generation only. Client runtime code must use the
+// published delivery catalog instead.
 export const thaiPack: LanguagePack = {
 	id: "thai",
 	name: "Thai",

@@ -26,7 +26,6 @@
 	import MetricPill from "$lib/components/ui/MetricPill.svelte";
 	import Progress from "$lib/components/ui/Progress.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
-	import { thaiPack } from "$lib/data/thai";
 	import type { DrillQuestion } from "$lib/data/types";
 	import { knownLetters, knownWords, progress } from "$lib/stores/progress";
 
@@ -40,7 +39,9 @@
 		const completedIds = $progress.lessonProgress
 			.filter((lp) => lp.practicePassed)
 			.map((lp) => lp.lessonId);
-		return thaiPack.lessons.filter((l) => completedIds.includes(l.id)).flatMap((l) => l.drills);
+		return data.catalog
+			.filter((lesson) => completedIds.includes(lesson.id))
+			.flatMap((lesson) => lesson.drills);
 	});
 
 	// --- Session configuration ---

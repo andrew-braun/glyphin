@@ -2,6 +2,8 @@ import type {
 	CourseStage,
 	DrillQuestion,
 	Lesson,
+	LessonCatalogEntry,
+	LessonVocabularyEntry,
 	LessonVocabularySourceType,
 	Letter,
 	LetterTipSlot,
@@ -14,6 +16,8 @@ export type PublishedLessonCard = Pick<
 	Lesson,
 	"id" | "stage" | "title" | "anchorWord" | "newLetters"
 >;
+
+export type PublishedLessonCatalogEntry = LessonCatalogEntry;
 
 const wordCategories = new Set<Word["category"]>(["place", "food", "transport", "daily", "sign"]);
 const letterTypes = new Set<Letter["type"]>(["consonant", "vowel", "tone_mark", "numeral", "mark"]);
@@ -309,6 +313,41 @@ function readLessonCore(payload: unknown): {
 	return { lesson, reviewLetters, tipCatalog };
 }
 
+function mapLessonVocabulary(lesson: Record<string, unknown>): LessonVocabularyEntry[] {
+	return expectArray(lesson.vocabulary, "payload.lesson.vocabulary").flatMap((entry, index) => {
+		const entryRecord = expectRecord(entry, `payload.lesson.vocabulary[${index}]`);
+		const itemRecord = expectRecord(
+			entryRecord.item,
+			`payload.lesson.vocabulary[${index}].item`,
+		);
+		const role = expectEnum(
+			lessonVocabularyRoles,
+			entryRecord.roleKey,
+			`payload.lesson.vocabulary[${index}].roleKey`,
+		);
+
+		if (role === "anchor") {
+			return [];
+		}
+
+		const itemMetadata = isRecord(itemRecord.metadata) ? itemRecord.metadata : {};
+		const tier: LessonVocabularyEntry["tier"] =
+			role === "practice_extension" ? "extension" : "core";
+
+		return [
+			{
+				tier,
+				sourceType: readVocabularySourceType(
+					itemMetadata.sourceType,
+					`payload.lesson.vocabulary[${index}].item.metadata.sourceType`,
+				),
+				drillTarget: entryRecord.isDrillTarget === true,
+				word: mapWord(itemRecord, `payload.lesson.vocabulary[${index}].item`),
+			},
+		];
+	});
+}
+
 export function mapPublishedLessonCard(payload: unknown): PublishedLessonCard {
 	const { lesson, tipCatalog } = readLessonCore(payload);
 
@@ -324,6 +363,25 @@ export function mapPublishedLessonCard(payload: unknown): PublishedLessonCard {
 	};
 }
 
+export function mapPublishedLessonCatalogEntry(payload: unknown): PublishedLessonCatalogEntry {
+	const { lesson, tipCatalog } = readLessonCore(payload);
+
+	return {
+		id: expectInteger(lesson.lessonOrdinal, "payload.lesson.lessonOrdinal"),
+		stage: expectInteger(lesson.stage, "payload.lesson.stage"),
+		title: expectString(lesson.title, "payload.lesson.title"),
+		anchorWord: mapWord(lesson.anchor, "payload.lesson.anchor"),
+		vocabulary: mapLessonVocabulary(lesson),
+		newLetters: expectArray(lesson.newGraphemes, "payload.lesson.newGraphemes").map(
+			(grapheme, index) =>
+				mapLetter(grapheme, `payload.lesson.newGraphemes[${index}]`, tipCatalog),
+		),
+		drills: expectArray(lesson.drills, "payload.lesson.drills").map((drill, index) =>
+			mapDrill(drill, `payload.lesson.drills[${index}]`),
+		),
+	};
+}
+
 export function mapPublishedLessonPayload(payload: unknown): Lesson {
 	const { lesson, reviewLetters, tipCatalog } = readLessonCore(payload);
 
@@ -332,39 +390,7 @@ export function mapPublishedLessonPayload(payload: unknown): Lesson {
 		stage: expectInteger(lesson.stage, "payload.lesson.stage"),
 		title: expectString(lesson.title, "payload.lesson.title"),
 		anchorWord: mapWord(lesson.anchor, "payload.lesson.anchor"),
-		vocabulary: expectArray(lesson.vocabulary, "payload.lesson.vocabulary").flatMap(
-			(entry, index) => {
-				const entryRecord = expectRecord(entry, `payload.lesson.vocabulary[${index}]`);
-				const itemRecord = expectRecord(
-					entryRecord.item,
-					`payload.lesson.vocabulary[${index}].item`,
-				);
-				const role = expectEnum(
-					lessonVocabularyRoles,
-					entryRecord.roleKey,
-					`payload.lesson.vocabulary[${index}].roleKey`,
-				);
-
-				if (role === "anchor") {
-					return [];
-				}
-
-				const itemMetadata = isRecord(itemRecord.metadata) ? itemRecord.metadata : {};
-				const tier = role === "practice_extension" ? "extension" : "core";
-
-				return [
-					{
-						tier,
-						sourceType: readVocabularySourceType(
-							itemMetadata.sourceType,
-							`payload.lesson.vocabulary[${index}].item.metadata.sourceType`,
-						),
-						drillTarget: entryRecord.isDrillTarget === true,
-						word: mapWord(itemRecord, `payload.lesson.vocabulary[${index}].item`),
-					},
-				];
-			},
-		),
+		vocabulary: mapLessonVocabulary(lesson),
 		newLetters: expectArray(lesson.newGraphemes, "payload.lesson.newGraphemes").map(
 			(grapheme, index) =>
 				mapLetter(grapheme, `payload.lesson.newGraphemes[${index}]`, tipCatalog),

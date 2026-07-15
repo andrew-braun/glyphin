@@ -3,10 +3,10 @@ import {
 	appProgressFromLearnerProjection,
 	buildCourseProgressStats,
 } from "$lib/data/course-journey";
-import { thaiPack } from "$lib/data/thai";
 import { getSupabaseClient, getVerifiedUser } from "$lib/server/auth";
 import { getLearnerProjection } from "$lib/server/learner-projection";
 import { buildPageMetadata } from "$lib/server/page-metadata";
+import { getPublishedCourseStages, getPublishedLessonCatalog } from "$lib/server/published-lessons";
 
 import type { PageServerLoad } from "./$types";
 
@@ -31,11 +31,11 @@ export const load: PageServerLoad = async ({ locals, setHeaders }) => {
 		"cache-control": "private, no-store",
 	});
 
-	// This route runs dynamically in the Worker, where the build-time publication
-	// artifact is not available through Node's filesystem APIs. Stage metadata is
-	// compiled into the application from the same authored source used to publish it.
-	const stages = thaiPack.stages;
-	const user = await getVerifiedUser(locals);
+	const [stages, catalog, user] = await Promise.all([
+		getPublishedCourseStages(),
+		getPublishedLessonCatalog(),
+		getVerifiedUser(locals),
+	]);
 
 	if (!user) {
 		return {
@@ -54,7 +54,7 @@ export const load: PageServerLoad = async ({ locals, setHeaders }) => {
 		auth: { authenticated: true, email: user.email ?? null },
 		metadata: homeMetadata(),
 		projection,
-		serverStats: buildCourseProgressStats({ ...thaiPack, stages }, serverProgress),
+		serverStats: buildCourseProgressStats({ lessons: catalog }, serverProgress),
 		stages,
 	};
 };

@@ -5,7 +5,6 @@
 	import Progress from "$lib/components/ui/Progress.svelte";
 	import Reveal from "$lib/components/ui/Reveal.svelte";
 	import ToggleTiles, { type ToggleTileOption } from "$lib/components/ui/ToggleTiles.svelte";
-	import { thaiPack } from "$lib/data/thai";
 	import type { Letter } from "$lib/data/types";
 	import { knownLetters } from "$lib/stores/progress";
 
@@ -14,7 +13,7 @@
 	let { data }: PageProps = $props();
 
 	// Build a flat list of every letter introduced across all lessons
-	const allLetters: Letter[] = thaiPack.lessons.flatMap((l) => l.newLetters);
+	const allLetters = $derived<Letter[]>(data.catalog.flatMap((lesson) => lesson.newLetters));
 
 	// Reactively partition letters into consonants, vowels, and tone marks for separate sections
 	const consonants = $derived(allLetters.filter((l) => l.type === "consonant"));
