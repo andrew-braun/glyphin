@@ -1,5 +1,12 @@
 import type { Letter } from "$lib/data/types";
 
+const isolatedMarkPattern = /^\p{Mark}+$/u;
+
+/** Gives nonspacing marks a visible base when they are taught outside a word. */
+export function formatLetterGlyph(character: string): string {
+	return isolatedMarkPattern.test(character) ? `◌${character}` : character;
+}
+
 /** Full display sentence for a letter's written position, or null when standalone/undefined. */
 export function formatPositionPhrase(position: Letter["position"]): string | null {
 	switch (position) {

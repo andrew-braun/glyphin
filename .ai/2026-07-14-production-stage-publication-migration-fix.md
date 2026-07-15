@@ -41,7 +41,8 @@ rejects that update, and PostgreSQL rolls the transaction back.
 - [x] Validate the corrected migration with the targeted test suite and local schema lint.
 - [x] Dry-run and apply the single migration remotely.
 - [x] Verify remote migration history and the local delivery-read contract.
-- [ ] Push the corrected migration source and verify the Cloudflare production build.
+- [x] Push the corrected migration source to `origin/main` as commit `4e2aeb7`.
+- [ ] Verify the Cloudflare production build triggered by that commit.
 
 ## Remote Result
 

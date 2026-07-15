@@ -30,7 +30,7 @@
 - Consumes: the existing `onComplete: () => void` callback supplied by the lesson flow owner.
 - Produces: an instructional prompt, an always-visible secondary skip action, and the existing all-revealed primary action.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `src/lib/components/lesson/StepPracticeRecap.test.js`:
 
@@ -59,13 +59,13 @@ describe("StepPracticeRecap completion choices", () => {
 });
 ```
 
-- [ ] **Step 2: Run the test to verify it fails**
+- [x] **Step 2: Run the test to verify it fails**
 
 Run: `node --test src/lib/components/lesson/StepPracticeRecap.test.js`
 
 Expected: FAIL because the recap component does not yet include the instruction or secondary `Skip recap` button.
 
-- [ ] **Step 3: Add the instruction and skip control**
+- [x] **Step 3: Add the instruction and skip control**
 
 In `src/lib/components/lesson/StepPracticeRecap.svelte`, add the prompt above `.practice-recap__grid` and append the secondary button after the grid:
 
@@ -87,20 +87,25 @@ Add scoped styling so the prompt is legible, centered, and uses the existing mut
 }
 ```
 
-- [ ] **Step 4: Run the focused test to verify it passes**
+- [x] **Step 4: Run the focused test to verify it passes**
 
 Run: `node --test src/lib/components/lesson/StepPracticeRecap.test.js`
 
 Expected: PASS; both completion-choice assertions succeed.
 
-- [ ] **Step 5: Run project validation**
+- [x] **Step 5: Run project validation**
 
 Run: `pnpm check:all`
 
 Expected: PASS with no new type, accessibility, formatting, lint, or style diagnostics.
 
-- [ ] **Step 6: Review the completed change**
+- [x] **Step 6: Review the completed change**
 
 Run: `git diff --check && git diff -- src/lib/components/lesson/StepPracticeRecap.svelte src/lib/components/lesson/StepPracticeRecap.test.js`
 
 Expected: no whitespace errors; the diff is limited to the recap copy, skip action, scoped styling, and focused test.
+
+## Execution Notes
+
+- The focused test failed before implementation because the new prompt and skip action were absent, then passed after implementation.
+- `pnpm check:all` reached its formatting stage and failed on pre-existing formatting drift across unrelated workspace files. The task files were formatted directly; `pnpm test`, `pnpm lint`, `pnpm stylelint`, and `pnpm check` passed afterward.

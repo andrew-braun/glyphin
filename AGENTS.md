@@ -49,13 +49,21 @@
 ## Task Tracking
 
 - Every non-minor task must get a dedicated markdown spec and tracker file in `.ai/`.
-- Minor tasks do not need a `.ai` spec: quick style/layout tweaks, small bug fixes, copy edits, and other simple, self-contained changes. Just make the change directly.
+- Minor tasks do not need a `.ai` spec: quick style/layout tweaks, small bug fixes, copy edits, and other simple, self-contained changes that touch only a few files.
 - When in doubt about whether a task is minor, default to skipping the `.ai` file and proceed; only add one if the work grows scope, spans multiple sessions, or otherwise turns out non-minor.
 - Name task files as `YYYY-MM-DD-short-description.md` using the date the task starts.
 - Create the task file before or at the start of implementation, then keep it updated with scope, decisions, progress, blockers, and follow-up work.
 - Treat the `.ai` file as the durable handoff artifact for resuming work later.
 - Track per-language curriculum progress and future authoring work in `.ai/curriculum/<language>.md`.
-- Do not stop to ask for approval before or after minor changes. Only pause for user input when an unexpected complication arises or something genuinely needs clarification.
+
+## Proportional Planning And Approval
+
+- Keep planning proportional to scope, uncertainty, and risk. Planning should accelerate delivery and clarify decisions, not become a separate project.
+- For minor tasks, use one lightweight cycle: understand the request, state a short implementation plan, get one sign-off or round of feedback, then execute the full plan. Do not create a tracker, require formal alternatives or a written design, or ask for repeated approval unless scope or risk materially changes.
+- For moderate tasks, write a concise `.ai` plan focused on decisions, affected areas, validation, and meaningful risks. Prefer one approval gate before execution; add checkpoints only where the user must make a real choice.
+- Reserve comprehensive discovery, multiple design rounds, detailed task decomposition, and repeated review gates for genuinely complex, ambiguous, cross-cutting, or high-risk work.
+- Treat generic planning workflows as defaults to scale down when they conflict with this proportional approach. Follow this repository's `.ai/` location rules whenever a written plan is warranted.
+- Once a plan is approved, proceed autonomously through in-scope implementation and validation. Pause again only for an unexpected complication, a material change in scope or risk, or a decision that cannot safely be inferred.
 
 ## Durable Documentation
 

@@ -2,6 +2,7 @@
 	import SoundPracticeLabel from "$lib/components/lesson/SoundPracticeLabel.svelte";
 	import { isSoundPractice } from "$lib/data/course-journey";
 	import type { LessonVocabularyEntry, Letter } from "$lib/data/types";
+	import { formatLetterGlyph } from "$lib/utils/letter-display";
 	import { hasMeaningfulSyllableBreakdown } from "$lib/utils/word-display";
 
 	let {
@@ -46,7 +47,9 @@
 			{#if focusLetters.length > 0}
 				<span class="self-check-card__focus-list" aria-label="New letters in this card">
 					{#each focusLetters as letter}
-						<span class="self-check-card__focus-chip thai">{letter.character}</span>
+						<span class="self-check-card__focus-chip thai">
+							{formatLetterGlyph(letter.character)}
+						</span>
 					{/each}
 				</span>
 			{/if}
@@ -102,9 +105,16 @@
 			width: 100%;
 			@include motion-safe-transition(transform $motion-duration-slow $motion-ease-standard);
 
-			&:hover:not(:disabled) .self-check-card__face {
-				border-color: var(--color-mango);
-				box-shadow: var(--shadow-card-hover);
+			&:hover:not(:disabled) {
+				.self-check-card__face {
+					border-color: var(--color-mango);
+					box-shadow: var(--shadow-card-hover);
+				}
+
+				.self-check-card__fold::after {
+					filter: drop-shadow(3px 3px 3px rgb(0 0 0 / 0.22));
+					transform: translate(-0.14rem, -0.14rem);
+				}
 			}
 
 			&:focus-visible {
@@ -112,6 +122,11 @@
 
 				.self-check-card__face {
 					box-shadow: var(--focus-ring), var(--shadow-card-hover);
+				}
+
+				.self-check-card__fold::after {
+					filter: drop-shadow(3px 3px 3px rgb(0 0 0 / 0.22));
+					transform: translate(-0.14rem, -0.14rem);
 				}
 			}
 
@@ -157,21 +172,43 @@
 		}
 
 		&__fold {
-			background: var(--color-mango);
-			bottom: $space-sm;
-			clip-path: polygon(100% 0, 100% 100%, 0 100%);
-			filter: drop-shadow(-2px -2px 2px rgb(0 0 0 / 0.14));
-			height: 3rem;
+			bottom: 0;
+			height: clamp(3.75rem, 11vw, 4.75rem);
+			pointer-events: none;
 			position: absolute;
-			right: $space-sm;
-			width: 3rem;
+			right: 0;
+			width: clamp(3.75rem, 11vw, 4.75rem);
+			z-index: 1;
+
+			&::before,
+			&::after {
+				content: "";
+				inset: 0;
+				position: absolute;
+			}
+
+			&::before {
+				background: linear-gradient(
+					135deg,
+					rgb(var(--rgb-mango) / 0.08),
+					rgb(var(--rgb-mango) / 0.34)
+				);
+				clip-path: polygon(100% 0, 100% 100%, 0 100%);
+			}
 
 			&::after {
-				background: var(--color-surface-card);
-				clip-path: polygon(0 0, 100% 0, 100% 100%);
-				content: "";
-				inset: 0.3rem 0 0 0.3rem;
-				position: absolute;
+				background: linear-gradient(
+					135deg,
+					rgb(var(--rgb-mango) / 0.22),
+					var(--color-mango)
+				);
+				clip-path: polygon(0 0, 100% 0, 0 100%);
+				filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.18));
+				transform-origin: 100% 100%;
+				@include motion-safe-transition(
+					transform $motion-duration-base $motion-ease-standard,
+					filter $motion-duration-base $motion-ease-standard
+				);
 			}
 		}
 
