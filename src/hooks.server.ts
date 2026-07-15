@@ -45,7 +45,17 @@ export const handle: Handle = async ({ event, resolve }) => {
 					});
 
 					Object.entries(headers).forEach(([name, value]) => {
-						event.setHeaders(name === "set-cookie" ? {} : { [name]: value });
+						if (name === "set-cookie") return;
+
+						try {
+							event.setHeaders({ [name]: value });
+						} catch {
+							// SvelteKit throws if the same header is set twice per request.
+							// A route's own load (e.g. the root page) may already set
+							// `cache-control` with an equally strict no-store directive —
+							// that's fine, so ignore the duplicate instead of crashing every
+							// signed-in request that happens to refresh the session cookie.
+						}
 					});
 				},
 			},
