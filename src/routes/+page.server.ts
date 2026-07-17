@@ -27,9 +27,17 @@ function homeMetadata() {
 }
 
 export const load: PageServerLoad = async ({ locals, setHeaders }) => {
-	setHeaders({
-		"cache-control": "private, no-store",
-	});
+	try {
+		setHeaders({
+			"cache-control": "private, no-store",
+		});
+	} catch {
+		// SvelteKit throws if the same header is set twice per request. The
+		// Supabase auth hook (`hooks.server.ts`) already sets an equally strict
+		// `cache-control` itself whenever it refreshes session cookies, and that
+		// hook always runs before this load — so a throw here just means the
+		// header is already covered, not a bug.
+	}
 
 	const [stages, catalog, user] = await Promise.all([
 		getPublishedCourseStages(),
